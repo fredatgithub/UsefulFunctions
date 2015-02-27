@@ -1,7 +1,13 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual C# Express 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.22512.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FonctionsUtiles.Fred.Csharp", "FonctionsUtiles.Fred.Csharp\FonctionsUtiles.Fred.Csharp.csproj", "{DB97A281-2E4E-4C5C-B7B1-24F7167792D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplicationUsageDemo", "ConsoleApplicationUsageDemo\ConsoleApplicationUsageDemo.csproj", "{0DDF676E-4D88-42ED-8F50-F7262C2B301D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestUsefullFunctions", "UnitTestUsefullFunctions\UnitTestUsefullFunctions.csproj", "{93931811-4989-4C55-8C8D-596A4158979C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +19,14 @@ Global
 		{DB97A281-2E4E-4C5C-B7B1-24F7167792D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB97A281-2E4E-4C5C-B7B1-24F7167792D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB97A281-2E4E-4C5C-B7B1-24F7167792D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DDF676E-4D88-42ED-8F50-F7262C2B301D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DDF676E-4D88-42ED-8F50-F7262C2B301D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DDF676E-4D88-42ED-8F50-F7262C2B301D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DDF676E-4D88-42ED-8F50-F7262C2B301D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93931811-4989-4C55-8C8D-596A4158979C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93931811-4989-4C55-8C8D-596A4158979C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93931811-4989-4C55-8C8D-596A4158979C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93931811-4989-4C55-8C8D-596A4158979C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
