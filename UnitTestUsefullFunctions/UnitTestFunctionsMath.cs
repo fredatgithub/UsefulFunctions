@@ -30,5 +30,26 @@ namespace UnitTestUsefullFunctions
       long result = MathFunc.Factorial(1);
       Assert.IsTrue(result == 1);
     }
+
+    [TestMethod]
+    public void TestMethod_Factorial_two()
+    {
+      long result = MathFunc.Factorial(2);
+      Assert.IsTrue(result == 2);
+    }
+
+    [TestMethod]
+    public void TestMethod_Factorial_three()
+    {
+      long result = MathFunc.Factorial(3);
+      Assert.IsTrue(result == 6);
+    }
+
+    [TestMethod]
+    public void TestMethod_Factorial_four()
+    {
+      long result = MathFunc.Factorial(4);
+      Assert.IsTrue(result == 24);
+    }
   }
 }
