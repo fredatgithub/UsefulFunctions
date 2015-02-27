@@ -32,10 +32,20 @@ namespace FonctionsUtiles.Fred.Csharp
   {
     public static bool HasDuplicate(params int[] liste)
     {
+      if (liste == null)
+      {
+        return false;
+      }
+
       return liste.Distinct().Count() != liste.Count();
     }
     public static bool HasNoDuplicate(params int[] liste)
     {
+      if (liste == null)
+      {
+        return true;
+      }
+
       return liste.Distinct().Count() == liste.Count();
     }
 

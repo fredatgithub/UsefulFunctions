@@ -22,14 +22,15 @@ namespace FonctionsUtiles.Fred.Csharp
   using System;
   using System.Text;
 
-  public class FonctionsDateTime
+  public class FunctionsDateTime
   {
-    public static bool HorsWeekEnd()
+    public static bool OutsideWeekEnd()
     {
       if ((DateTime.Now.DayOfWeek != DayOfWeek.Sunday) && (DateTime.Now.DayOfWeek != DayOfWeek.Saturday))
       {
         return true;
       }
+
       return false;
     }
 

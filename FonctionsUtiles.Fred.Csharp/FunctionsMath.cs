@@ -19,7 +19,7 @@ SOFTWARE.
 */
 namespace FonctionsUtiles.Fred.Csharp
 {
-  public class FonctionsMath
+  public class FunctionsMath
   {
     public static long Factorial(long x)
     {

@@ -22,7 +22,7 @@ namespace FonctionsUtiles.Fred.Csharp
   using System;
   using System.IO;
 
-  public class FonctionsFile
+  public class FunctionsFile
   {
     public static void SetManyAttributes(string cheminFichier, params FileAttributes[] listeAttributs)
     {

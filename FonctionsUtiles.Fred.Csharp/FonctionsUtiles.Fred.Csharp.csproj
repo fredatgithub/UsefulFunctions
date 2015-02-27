@@ -40,8 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FonctionsFile.cs" />
-    <Compile Include="FonctionsMath.cs" />
+    <Compile Include="FunctionsFile.cs" />
+    <Compile Include="FunctionsMath.cs" />
     <Compile Include="FonctionsString.cs" />
     <Compile Include="FonctionsUtiles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

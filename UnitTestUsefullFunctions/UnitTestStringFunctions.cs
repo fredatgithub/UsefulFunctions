@@ -20,6 +20,7 @@ SOFTWARE.
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using FonctionsUtiles.Fred.Csharp;
+using StringFunc = FonctionsUtiles.Fred.Csharp.FonctionsString;
 
 namespace UnitTestUsefullFunctions
 {
@@ -27,10 +28,66 @@ namespace UnitTestUsefullFunctions
   public class UnitTestStringFunctions
   {
     [TestMethod]
-    public void TestMethod_HasDuplicate()
+    public void TestMethod_HasDuplicate_no_on_One_item()
     {
+      int[] source = new[] { 1 };
+      bool result = StringFunc.HasDuplicate(source);
+      Assert.IsFalse(result);
+    }
 
-      Assert.IsFalse(false);
+    [TestMethod]
+    public void TestMethod_HasDuplicate_yes_on_Two_items()
+    {
+      int[] source = new[] { 1, 1 };
+      bool result = StringFunc.HasDuplicate(source);
+      Assert.IsTrue(result);
+    }
+
+    [TestMethod]
+    public void TestMethod_HasDuplicate_no_on_Two_items()
+    {
+      int[] source = new[] { 1, 2 };
+      bool result = StringFunc.HasDuplicate(source);
+      Assert.IsFalse(result);
+    }
+
+    [TestMethod]
+    public void TestMethod_HasDuplicate_none()
+    {
+      int[] source = new[] { 1, 2, 3, 4 };
+      bool result = StringFunc.HasDuplicate(source);
+      Assert.IsFalse(result);
+    }
+    
+    [TestMethod]
+    public void TestMethod_HasDuplicate_yes_on_Empty_list_because_all_items_equal_zero()
+    {
+      int[] source = new int[5] ;
+      bool result = StringFunc.HasDuplicate(source);
+      Assert.IsTrue(result);
+    }
+
+    [TestMethod]
+    public void TestMethod_HasDuplicate_null_list()
+    {
+      int[] source = null;
+      bool result = StringFunc.HasDuplicate(source);
+      Assert.IsFalse(result);
+    }
+
+    [TestMethod]
+    public void TestMethod_HasDuplicate_no_on_several_items()
+    {
+      bool result = StringFunc.HasDuplicate(1, 2, 3, 4, 5, 6, 7, 8, 9);
+      Assert.IsFalse(result);
+    }
+
+
+    [TestMethod]
+    public void TestMethod_HasDuplicate_yes_on_several_items()
+    {
+      bool result = StringFunc.HasDuplicate(1, 2, 3, 4, 5, 6, 7, 8, 9, 1);
+      Assert.IsTrue(result);
     }
 
     [TestMethod]
