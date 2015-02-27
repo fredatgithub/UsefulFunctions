@@ -20,12 +20,12 @@ SOFTWARE.
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using FonctionsUtiles.Fred.Csharp;
-using StringFunc = FonctionsUtiles.Fred.Csharp.FonctionsString;
+using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
 
 namespace UnitTestUsefullFunctions
 {
   [TestClass]
-  public class UnitTestStringFunctions
+  public class UnitTestFunctionsString
   {
     [TestMethod]
     public void TestMethod_HasDuplicate_no_on_One_item()

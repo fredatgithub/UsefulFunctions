@@ -28,7 +28,7 @@ namespace FonctionsUtiles.Fred.Csharp
   using System.Text;
   using System.Text.RegularExpressions;
 
-  public class FonctionsString
+  public class FunctionsString
   {
     public static bool HasDuplicate(params int[] liste)
     {

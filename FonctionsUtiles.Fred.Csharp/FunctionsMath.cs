@@ -23,6 +23,11 @@ namespace FonctionsUtiles.Fred.Csharp
   {
     public static long Factorial(long x)
     {
+      if (x < 1)
+      {
+        return 0;
+      }
+
       long fact = 1;
       long i = 1;
       while (i <= x)

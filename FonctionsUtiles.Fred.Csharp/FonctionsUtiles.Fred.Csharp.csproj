@@ -42,8 +42,8 @@
   <ItemGroup>
     <Compile Include="FunctionsFile.cs" />
     <Compile Include="FunctionsMath.cs" />
-    <Compile Include="FonctionsString.cs" />
-    <Compile Include="FonctionsUtiles.cs" />
+    <Compile Include="FunctionsString.cs" />
+    <Compile Include="FunctionsUseful.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

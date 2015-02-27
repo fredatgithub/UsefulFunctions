@@ -17,21 +17,18 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-using System;
-using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MathFunc = FonctionsUtiles.Fred.Csharp.FunctionsMath;
 
-namespace ConsoleApplicationUsageDemo
+namespace UnitTestUsefullFunctions
 {
-  class Program
+  public class UnitTestFunctionsMath
   {
-    static void Main()
+    [TestMethod]
+    public void TestMethod_Factorial_one()
     {
-      Action<string> Display = s => Console.WriteLine(s);
-      Display("Demo to use the useful functions DLL");
-      int[] list = new [] { 1, 2, 3, 1 };
-      bool result = StringFunc.HasDuplicate(list);
-      Display("the array: {1, 2, 3, 1 } has duplicate: " + result.ToString());
-      Console.ReadKey();
+      long result = MathFunc.Factorial(1);
+      Assert.IsTrue(result == 1);
     }
   }
 }
