@@ -48,9 +48,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FonctionsUtiles.Fred.Csharp\FonctionsUtiles.Fred.Csharp.csproj">
+    <ProjectReference Include="..\FonctionsUtiles.Fred.Csharp\FunctionsUseful.Fred.Csharp.csproj">
       <Project>{db97a281-2e4e-4c5c-b7b1-24f7167792d4}</Project>
-      <Name>FonctionsUtiles.Fred.Csharp</Name>
+      <Name>FunctionsUseful.Fred.Csharp</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
