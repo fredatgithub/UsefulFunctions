@@ -71,10 +71,10 @@ namespace FonctionsUtiles.Fred.Csharp
       return (ulong)number * RecursiveFactorial(number - 1);
     }
 
-   public static long Sommielle(long nombreDebut, long nombreFin)
+   public static long Sommielle(long startNumber, long endNumber)
     {
       long sommeIterative = 0;
-      for (long i = nombreDebut; i <= nombreFin; i++)
+      for (long i = startNumber; i <= endNumber; i++)
       {
         sommeIterative += i;
       }
@@ -82,14 +82,14 @@ namespace FonctionsUtiles.Fred.Csharp
       return sommeIterative;
     }
 
-    public static long SommielleRecursive(long nombreDebut, long nombreFin)
+   public static long SommielleRecursive(long startNumber, long endNumber)
     {
-      if (nombreDebut == nombreFin)
+      if (startNumber == endNumber)
       {
-        return nombreDebut;
+        return startNumber;
       }
 
-      return nombreDebut + SommielleRecursive(nombreDebut + 1, nombreFin);
+      return startNumber + SommielleRecursive(startNumber + 1, endNumber);
     }
   }
 }

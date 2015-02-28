@@ -419,5 +419,15 @@ namespace UnitTestUsefullFunctions
      ulong result = MathFunc.RecursiveFactorial(0);
       Assert.IsTrue(result == 0);
     }
+
+    // **********************Sommielle****************
+    [TestMethod]
+    public void TestMethod_Sommielle_zero()
+    {
+      long result = MathFunc.Sommielle(0, 0);
+      Assert.IsTrue(result == 0);
+    }
+
+
   }
 }
