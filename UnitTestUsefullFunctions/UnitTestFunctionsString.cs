@@ -428,6 +428,126 @@ namespace UnitTestUsefullFunctions
       Assert.IsTrue(result == 0);
     }
 
+    [TestMethod]
+    public void TestMethod_Sommielle_one_interval()
+    {
+      long result = MathFunc.Sommielle(0, 1);
+      Assert.IsTrue(result == 1);
+    }
 
+    [TestMethod]
+    public void TestMethod_Sommielle_two_interval()
+    {
+      long result = MathFunc.Sommielle(1, 3);
+      Assert.IsTrue(result == 6);
+    }
+
+    [TestMethod]
+    public void TestMethod_Sommielle_inverted_max_min()
+    {
+      long result = MathFunc.Sommielle(3, 1);
+      Assert.IsTrue(result == 0);
+    }
+
+    [TestMethod]
+    public void TestMethod_Sommielle_zero_ten()
+    {
+      long result = MathFunc.Sommielle(0, 10);
+      Assert.IsTrue(result == 55);
+    }
+
+    [TestMethod]
+    public void TestMethod_Sommielle_zero_twentyFour()
+    {
+      long result = MathFunc.Sommielle(0, 24);
+      Assert.IsTrue(result == 300);
+    }
+
+    [TestMethod]
+    public void TestMethod_Sommielle_zero_fifty()
+    {
+      long result = MathFunc.Sommielle(0, 50);
+      Assert.IsTrue(result == 1275);
+    }
+
+
+    [TestMethod]
+    public void TestMethod_Sommielle_ten_ten()
+    {
+      long result = MathFunc.Sommielle(10, 10);
+      Assert.IsTrue(result == 10);
+    }
+
+    [TestMethod]
+    public void TestMethod_Sommielle_zero_hundred()
+    {
+      long result = MathFunc.Sommielle(0, 100);
+      Assert.IsTrue(result == 5050);
+    }
+
+    // **********************Sommielle Recursive****************
+    [TestMethod]
+    public void TestMethod_SommielleRecursive_zero()
+    {
+      long result = MathFunc.SommielleRecursive(0, 0);
+      Assert.IsTrue(result == 0);
+    }
+
+    [TestMethod]
+    public void TestMethod_SommielleRecursive_one_interval()
+    {
+      long result = MathFunc.SommielleRecursive(0, 1);
+      Assert.IsTrue(result == 1);
+    }
+
+    [TestMethod]
+    public void TestMethod_SommielleRecursive_two_interval()
+    {
+      long result = MathFunc.SommielleRecursive(1, 3);
+      Assert.IsTrue(result == 6);
+    }
+
+    [TestMethod]
+    public void TestMethod_SommielleRecursive_inverted_max_min()
+    {
+      long result = MathFunc.SommielleRecursive(3, 1);
+      Assert.IsTrue(result == 0);
+    }
+
+    [TestMethod]
+    public void TestMethod_SommielleRecursive_zero_ten()
+    {
+      long result = MathFunc.SommielleRecursive(0, 10);
+      Assert.IsTrue(result == 55);
+    }
+
+    [TestMethod]
+    public void TestMethod_SommielleRecursive_zero_twentyFour()
+    {
+      long result = MathFunc.SommielleRecursive(0, 24);
+      Assert.IsTrue(result == 300);
+    }
+
+    [TestMethod]
+    public void TestMethod_SommielleRecursive_zero_fifty()
+    {
+      long result = MathFunc.SommielleRecursive(0, 50);
+      Assert.IsTrue(result == 1275);
+    }
+
+
+    [TestMethod]
+    public void TestMethod_SommielleRecursive_ten_ten()
+    {
+      long result = MathFunc.SommielleRecursive(10, 10);
+      Assert.IsTrue(result == 10);
+    }
+
+    [TestMethod]
+    public void TestMethod_SommielleRecursive_zero_hundred()
+    {
+      long result = MathFunc.SommielleRecursive(0, 100);
+      Assert.IsTrue(result == 5050);
+    }
   }
 }
