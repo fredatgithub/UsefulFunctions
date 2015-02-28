@@ -50,11 +50,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTestFunctionsFiles.cs" />
-    <Compile Include="UnitTestFunctionsMath.cs" />
     <Compile Include="UnitTestFunctionsString.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UnitTestFunctionsUseful.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FonctionsUtiles.Fred.Csharp\FunctionsUseful.Fred.Csharp.csproj">

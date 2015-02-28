@@ -17,10 +17,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-using System;
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using FonctionsUtiles.Fred.Csharp;
 using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
+using MathFunc = FonctionsUtiles.Fred.Csharp.FunctionsMath;
+
 
 namespace UnitTestUsefullFunctions
 {
@@ -93,7 +94,35 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void MyTestMethod()
     {
+      Assert.IsFalse(false);
+    }
 
+    [TestMethod]
+    public void TestMethod_Factorial_one()
+    {
+      long result = MathFunc.Factorial(1);
+      Assert.IsTrue(result == 1);
+    }
+
+    [TestMethod]
+    public void TestMethod_Factorial_two()
+    {
+      long result = MathFunc.Factorial(2);
+      Assert.IsTrue(result == 2);
+    }
+
+    [TestMethod]
+    public void TestMethod_Factorial_three()
+    {
+      long result = MathFunc.Factorial(3);
+      Assert.IsTrue(result == 6);
+    }
+
+    [TestMethod]
+    public void TestMethod_Factorial_four()
+    {
+      long result = MathFunc.Factorial(4);
+      Assert.IsTrue(result == 24);
     }
   }
 }
