@@ -257,5 +257,167 @@ namespace UnitTestUsefullFunctions
       long result = MathFunc.Factorial(0);
       Assert.IsTrue(result == 0);
     }
+
+    // **********************Recursive Factorial****************
+    [TestMethod]
+    public void TestMethod_RecursiveFactorial_one()
+    {
+      ulong result = MathFunc.RecursiveFactorial(1);
+      Assert.IsTrue(result == 1);
+    }
+
+    [TestMethod]
+    public void TestMethod_RecursiveFactorial_two()
+    {
+      ulong result = MathFunc.RecursiveFactorial(2);
+      Assert.IsTrue(result == 2);
+    }
+
+    [TestMethod]
+    public void TestMethod_RecursiveFactorial_three()
+    {
+      ulong result = MathFunc.RecursiveFactorial(3);
+      Assert.IsTrue(result == 6);
+    }
+
+    [TestMethod]
+    public void TestMethod_RecursiveFactorial_four()
+    {
+      ulong result = MathFunc.RecursiveFactorial(4);
+      Assert.IsTrue(result == 24);
+    }
+
+    [TestMethod]
+    public void TestMethod_RecursiveFactorial_five()
+    {
+      ulong result = MathFunc.RecursiveFactorial(5);
+      Assert.IsTrue(result == 120);
+    }
+
+    [TestMethod]
+    public void TestMethod_RecursiveFactorial_six()
+    {
+      ulong result = MathFunc.RecursiveFactorial(6);
+      Assert.IsTrue(result == 720);
+    }
+
+    [TestMethod]
+    public void TestMethod_RecursiveFactorial_seven()
+    {
+      ulong result = MathFunc.RecursiveFactorial(7);
+      Assert.IsTrue(result == 5040);
+    }
+
+    [TestMethod]
+    public void TestMethod_RecursiveFactorial_eight()
+    {
+      ulong result = MathFunc.RecursiveFactorial(8);
+      Assert.IsTrue(result == 40320);
+    }
+
+    [TestMethod]
+    public void TestMethod_RecursiveFactorial_nine()
+    {
+      ulong result = MathFunc.RecursiveFactorial(9);
+      Assert.IsTrue(result == 362880);
+    }
+
+    [TestMethod]
+    public void TestMethod_RecursiveFactorial_ten()
+    {
+      ulong result = MathFunc.RecursiveFactorial(10);
+      Assert.IsTrue(result == 3628800);
+    }
+
+    [TestMethod]
+    public void TestMethod_RecursiveFactorial_eleven()
+    {
+      ulong result = MathFunc.RecursiveFactorial(11);
+      Assert.IsTrue(result == 39916800);
+    }
+
+    [TestMethod]
+    public void TestMethod_RecursiveFactorial_twelve()
+    {
+     ulong result = MathFunc.RecursiveFactorial(12);
+      Assert.IsTrue(result == 479001600);
+    }
+
+    [TestMethod]
+    public void TestMethod_RecursiveFactorial_thirteen()
+    {
+     ulong result = MathFunc.RecursiveFactorial(13);
+      Assert.IsTrue(result == 6227020800);
+    }
+
+    [TestMethod]
+    public void TestMethod_RecursiveFactorial_fourteen()
+    {
+     ulong result = MathFunc.RecursiveFactorial(14);
+      Assert.IsTrue(result == 87178291200);
+    }
+
+    [TestMethod]
+    public void TestMethod_RecursiveFactorial_fifteen()
+    {
+     ulong result = MathFunc.RecursiveFactorial(15);
+      Assert.IsTrue(result == 1307674368000);
+    }
+
+    [TestMethod]
+    public void TestMethod_RecursiveFactorial_sixteen()
+    {
+     ulong result = MathFunc.RecursiveFactorial(16);
+      Assert.IsTrue(result == 20922789888000);
+    }
+
+    [TestMethod]
+    public void TestMethod_RecursiveFactorial_seventeen()
+    {
+     ulong result = MathFunc.RecursiveFactorial(17);
+      Assert.IsTrue(result == 355687428096000);
+    }
+
+    [TestMethod]
+    public void TestMethod_RecursiveFactorial_eighteen()
+    {
+     ulong result = MathFunc.RecursiveFactorial(18);
+      Assert.IsTrue(result == 6402373705728000);
+    }
+
+    [TestMethod]
+    public void TestMethod_RecursiveFactorial_nineteen()
+    {
+     ulong result = MathFunc.RecursiveFactorial(19);
+      Assert.IsTrue(result == 121645100408832000);
+    }
+
+    [TestMethod]
+    public void TestMethod_RecursiveFactorial_twenty()
+    {
+     ulong result = MathFunc.RecursiveFactorial(20);
+      Assert.IsTrue(result == 2432902008176640000);
+    }
+
+    [TestMethod]
+    public void TestMethod_RecursiveFactorial_twentyOne()
+    {
+     ulong result = MathFunc.RecursiveFactorial(21);
+      Assert.IsTrue(result == 14197454024290336768); 
+    }
+
+    [TestMethod]
+    public void TestMethod_RecursiveFactorial_Negative_number()
+    {
+     ulong result = MathFunc.RecursiveFactorial(-3);
+      Assert.IsTrue(result == 0);
+    }
+
+    [TestMethod]
+    public void TestMethod_RecursiveFactorial_zero()
+    {
+     ulong result = MathFunc.RecursiveFactorial(0);
+      Assert.IsTrue(result == 0);
+    }
   }
 }

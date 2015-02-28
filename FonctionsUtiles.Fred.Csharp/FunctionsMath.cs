@@ -58,6 +58,11 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static ulong RecursiveFactorial(int number)
     {
+      if (number < 1 || number > int.MaxValue)
+      {
+        return 0;
+      }
+
       if (number == 1)
       {
         return 1;
