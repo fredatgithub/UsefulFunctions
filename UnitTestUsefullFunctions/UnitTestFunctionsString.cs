@@ -166,5 +166,96 @@ namespace UnitTestUsefullFunctions
       long result = MathFunc.Factorial(10);
       Assert.IsTrue(result == 3628800);
     }
+
+    [TestMethod]
+    public void TestMethod_Factorial_eleven()
+    {
+      long result = MathFunc.Factorial(11);
+      Assert.IsTrue(result == 39916800);
+    }
+
+    [TestMethod]
+    public void TestMethod_Factorial_twelve()
+    {
+      long result = MathFunc.Factorial(12);
+      Assert.IsTrue(result == 479001600);
+    }
+
+    [TestMethod]
+    public void TestMethod_Factorial_thirteen()
+    {
+      long result = MathFunc.Factorial(13);
+      Assert.IsTrue(result == 6227020800);
+    }
+
+    [TestMethod]
+    public void TestMethod_Factorial_fourteen()
+    {
+      long result = MathFunc.Factorial(14);
+      Assert.IsTrue(result == 87178291200);
+    }
+
+    [TestMethod]
+    public void TestMethod_Factorial_fifteen()
+    {
+      long result = MathFunc.Factorial(15);
+      Assert.IsTrue(result == 1307674368000);
+    }
+
+    [TestMethod]
+    public void TestMethod_Factorial_sixteen()
+    {
+      long result = MathFunc.Factorial(16);
+      Assert.IsTrue(result == 20922789888000);
+    }
+
+    [TestMethod]
+    public void TestMethod_Factorial_seventeen()
+    {
+      long result = MathFunc.Factorial(17);
+      Assert.IsTrue(result == 355687428096000);
+    }
+
+    [TestMethod]
+    public void TestMethod_Factorial_eighteen()
+    {
+      long result = MathFunc.Factorial(18);
+      Assert.IsTrue(result == 6402373705728000);
+    }
+
+    [TestMethod]
+    public void TestMethod_Factorial_nineteen()
+    {
+      long result = MathFunc.Factorial(19);
+      Assert.IsTrue(result == 121645100408832000);
+    }
+
+    [TestMethod]
+    public void TestMethod_Factorial_twenty()
+    {
+      long result = MathFunc.Factorial(20);
+      Assert.IsTrue(result == 2432902008176640000);
+    }
+
+    [TestMethod]
+    public void TestMethod_Factorial_twentyOne()
+    {
+      long result = MathFunc.Factorial(21);
+      Assert.IsTrue(result < 0); // negative number
+    }
+
+    [TestMethod]
+    public void TestMethod_Factorial_Negative_number()
+    {
+      long result = MathFunc.Factorial(-3);
+      Assert.IsTrue(result == 0); 
+    }
+
+    [TestMethod]
+    public void TestMethod_Factorial_zero()
+    {
+      long result = MathFunc.Factorial(0);
+      Assert.IsTrue(result == 0);
+    }
   }
 }

@@ -23,7 +23,7 @@ namespace FonctionsUtiles.Fred.Csharp
   {
     public static long Factorial(long x)
     {
-      if (x < 1)
+      if (x < 1 || x > long.MaxValue)
       {
         return 0;
       }
@@ -41,6 +41,11 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static long Factorial(long x, long lowerBound)
     {
+      if (x < 1 || x > long.MaxValue)
+      {
+        return 0;
+      }
+
       long fact = 1;
       while (x >= 1 && x > lowerBound)
       {
@@ -51,42 +56,17 @@ namespace FonctionsUtiles.Fred.Csharp
       return fact;
     }
 
-    public static long Factorielle(long x)
+    public static ulong RecursiveFactorial(int number)
     {
-      long fact = 1;
-      long i = 1;
-      while (i <= x)
-      {
-        fact = fact * i;
-        i++;
-      }
-
-      return fact;
-    }
-
-    public static ulong Factorielle(int nombre)
-    {
-      if (nombre == 1)
+      if (number == 1)
       {
         return 1;
       }
 
-      return (ulong)nombre * Factorielle(nombre - 1);
+      return (ulong)number * RecursiveFactorial(number - 1);
     }
 
-    public static long Factoriel(long x, long lowerBound)
-    {
-      long fact = 1;
-      while (x >= 1 && x > lowerBound)
-      {
-        fact *= x;
-        x--;
-      }
-
-      return fact;
-    }
-
-    public static long Sommielle(long nombreDebut, long nombreFin)
+   public static long Sommielle(long nombreDebut, long nombreFin)
     {
       long sommeIterative = 0;
       for (long i = nombreDebut; i <= nombreFin; i++)
