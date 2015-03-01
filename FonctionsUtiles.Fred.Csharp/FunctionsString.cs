@@ -162,6 +162,11 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static int StringOccurrenceWithContains(string chaineTotale, string chaineRecherchee)
     {
+      if (chaineRecherchee == string.Empty || chaineTotale == string.Empty)
+      {
+        return 0;
+      }
+
       int occurrence = 0;
       int chaineRechercheeLength = chaineRecherchee.Length;
       int index = 0;

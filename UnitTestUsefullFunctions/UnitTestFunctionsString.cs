@@ -39,7 +39,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_HasDuplicate_yes_on_Two_items()
     {
-      int[] source = new[] { 1, 1 };
+      int[] source = { 1, 1 };
       bool result = StringFunc.HasDuplicate(source);
       Assert.IsTrue(result);
     }
@@ -47,7 +47,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_HasDuplicate_no_on_Two_items()
     {
-      int[] source = new[] { 1, 2 };
+      int[] source = { 1, 2 };
       bool result = StringFunc.HasDuplicate(source);
       Assert.IsFalse(result);
     }
@@ -55,7 +55,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_HasDuplicate_none()
     {
-      int[] source = new[] { 1, 2, 3, 4 };
+      int[] source = { 1, 2, 3, 4 };
       bool result = StringFunc.HasDuplicate(source);
       Assert.IsFalse(result);
     }
@@ -89,12 +89,6 @@ namespace UnitTestUsefullFunctions
     {
       bool result = StringFunc.HasDuplicate(1, 2, 3, 4, 5, 6, 7, 8, 9, 1);
       Assert.IsTrue(result);
-    }
-
-    [TestMethod]
-    public void MyTestMethod()
-    {
-      Assert.IsFalse(false);
     }
 
     [TestMethod]
@@ -711,7 +705,6 @@ namespace UnitTestUsefullFunctions
       Assert.IsFalse(result);
     }
 
-    // 
     // **********************Plural****************
     [TestMethod]
     public void TestMethod_Plural_zero()
@@ -732,6 +725,68 @@ namespace UnitTestUsefullFunctions
     {
       string result = StringFunc.Plural(2);
       Assert.IsTrue(result == "s");
+    }
+
+    // **********************StringOccurrenceWithContains****************
+    [TestMethod]
+    public void TestMethod_StringOccurrenceWithContains()
+    {
+      int result = StringFunc.StringOccurrenceWithContains("azerty", "zer");
+      Assert.IsTrue(result == 1);
+    }
+
+    [TestMethod]
+    public void TestMethod_StringOccurrenceWithContains_search_empty_string()
+    {
+      int result = StringFunc.StringOccurrenceWithContains("azerty", "");
+      Assert.IsTrue(result == 0);
+    }
+
+    [TestMethod]
+    public void TestMethod_StringOccurrenceWithContains_with_empty_string()
+    {
+      int result = StringFunc.StringOccurrenceWithContains("", "azerty");
+      Assert.IsTrue(result == 0);
+    }
+
+    [TestMethod]
+    public void TestMethod_StringOccurrenceWithContains_both_empty_string()
+    {
+      int result = StringFunc.StringOccurrenceWithContains("", "");
+      Assert.IsTrue(result == 0);
+    }
+
+    [TestMethod]
+    public void TestMethod_StringOccurrenceWithContains_two_occurences()
+    {
+      int result = StringFunc.StringOccurrenceWithContains("azertyqwerty", "erty");
+      Assert.IsTrue(result == 2);
+    }
+
+    [TestMethod]
+    public void TestMethod_StringOccurrenceWithContains_three_occurences()
+    {
+      int result = StringFunc.StringOccurrenceWithContains("azertyqwertyandanyothererty", "erty");
+      Assert.IsTrue(result == 3);
+    }
+
+    // **********************ByteArrayToHexaString****************
+    [TestMethod]
+    public void TestMethod_ByteArrayToHexaString_two_elements()
+    {
+      byte[] source = new byte[2];
+      source[0] = 0x01;
+      source[1] = 0x02;
+      string result = StringFunc.ByteArrayToHexaString(source);
+      Assert.IsTrue(result == "0102");
+    }
+
+    [TestMethod]
+    public void TestMethod_ByteArrayToHexaString_three_elements()
+    {
+      byte[] source = { 0x01, 0x02, 0x03 };
+      string result = StringFunc.ByteArrayToHexaString(source);
+      Assert.IsTrue(result == "010203");
     }
   }
 }
