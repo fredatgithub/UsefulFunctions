@@ -132,8 +132,7 @@ namespace FonctionsUtiles.Fred.Csharp
     public static bool IsLetter(char lettre)
     {
       var alphabet = new List<char>();
-      char letter;
-      for (letter = 'A'; letter <= 'Z'; letter++)
+      for (char letter = 'A'; letter <= 'Z'; letter++)
       {
         alphabet.Add(letter);
         alphabet.Add(letter.ToString(CultureInfo.InvariantCulture).ToLower().ToCharArray()[0]);
@@ -142,14 +141,9 @@ namespace FonctionsUtiles.Fred.Csharp
       return alphabet.Contains(lettre);
     }
 
-    public static string Pluriel(string longeurChaine)
+    public static string Plural(int number)
     {
-      if (longeurChaine.Length > 1)
-      {
-        return "s";
-      }
-
-      return string.Empty;
+      return number > 1 ? "s" : string.Empty;
     }
 
     public static int StringOccurrenceWithIndexOf(string chaineTotale, string chaineRecherchee)

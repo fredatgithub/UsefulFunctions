@@ -691,10 +691,47 @@ namespace UnitTestUsefullFunctions
 
     // **********************IsLetter****************
     [TestMethod]
-    public void TestMethod_IsLetter()
+    public void TestMethod_IsLetter_()
     {
       bool result = StringFunc.IsLetter('a');
       Assert.IsTrue(result);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsLetter_upperCase()
+    {
+      bool result = StringFunc.IsLetter('A');
+      Assert.IsTrue(result);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsLetter_upperCase_blank()
+    {
+      bool result = StringFunc.IsLetter(' ');
+      Assert.IsFalse(result);
+    }
+
+    // 
+    // **********************Plural****************
+    [TestMethod]
+    public void TestMethod_Plural_zero()
+    {
+      string result = StringFunc.Plural(0);
+      Assert.IsTrue(result == string.Empty);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_one()
+    {
+      string result = StringFunc.Plural(1);
+      Assert.IsTrue(result == string.Empty);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_two()
+    {
+      string result = StringFunc.Plural(2);
+      Assert.IsTrue(result == "s");
     }
   }
 }
