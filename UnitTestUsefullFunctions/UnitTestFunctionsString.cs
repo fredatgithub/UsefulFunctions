@@ -652,7 +652,6 @@ namespace UnitTestUsefullFunctions
       Assert.IsTrue(result == "uiop");
     }
 
-    // 
     // **********************CamelCase****************
     [TestMethod]
     public void TestMethod_CamelCase_a_sentence()
@@ -675,5 +674,27 @@ namespace UnitTestUsefullFunctions
       Assert.IsTrue(result == "");
     }
 
+    // **********************IsNumeric****************
+    [TestMethod]
+    public void TestMethod_IsNumeric_A_character()
+    {
+      bool result = StringFunc.IsNumeric('a');
+      Assert.IsFalse(result);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsNumeric_a_digit()
+    {
+      bool result = StringFunc.IsNumeric("4");
+      Assert.IsTrue(result);
+    }
+
+    // **********************IsLetter****************
+    [TestMethod]
+    public void TestMethod_IsLetter()
+    {
+      bool result = StringFunc.IsLetter('a');
+      Assert.IsTrue(result);
+    }
   }
 }

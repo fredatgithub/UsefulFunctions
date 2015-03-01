@@ -118,21 +118,15 @@ namespace FonctionsUtiles.Fred.Csharp
       return chaine;
     }
 
-    public static bool IsNumeric(char lettre)
+    public static bool IsNumeric(char letter)
     {
-      var chiffres = new List<int>();
-      short chiffre;
-      for (chiffre = 0; chiffre < 10; chiffre++)
+      var digits = new List<int>();
+      for (short digit = 0; digit < 10; digit++)
       {
-        chiffres.Add(chiffre);
+        digits.Add(digit);
       }
 
-      if (chiffres.Contains(lettre))
-      {
-        return true;
-      }
-
-      return false;
+      return digits.Contains(letter);
     }
 
     public static bool IsLetter(char lettre)
@@ -142,19 +136,10 @@ namespace FonctionsUtiles.Fred.Csharp
       for (letter = 'A'; letter <= 'Z'; letter++)
       {
         alphabet.Add(letter);
+        alphabet.Add(letter.ToString(CultureInfo.InvariantCulture).ToLower().ToCharArray()[0]);
       }
-
-      for (letter = 'a'; letter <= 'z'; letter++)
-      {
-        alphabet.Add(letter);
-      }
-
-      if (alphabet.Contains(lettre))
-      {
-        return true;
-      }
-
-      return false;
+      
+      return alphabet.Contains(lettre);
     }
 
     public static string Pluriel(string longeurChaine)

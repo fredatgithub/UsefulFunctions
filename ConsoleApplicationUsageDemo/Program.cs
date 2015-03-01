@@ -36,6 +36,10 @@ namespace ConsoleApplicationUsageDemo
       display(string.Empty);
       displayOneLine("Factorial 3 with lowerBound 2 is ");
       displayOneLine(MathFunc.Factorial(3, 2).ToString());
+      display(string.Empty);
+      displayOneLine("IsNumeric of '4' ");
+      displayOneLine(StringFunc.IsNumeric("4").ToString());
+      
       Console.ReadKey();
     }
   }
