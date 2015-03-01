@@ -19,6 +19,7 @@ SOFTWARE.
 */
 using System;
 using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
+using MathFunc = FonctionsUtiles.Fred.Csharp.FunctionsMath;
 
 namespace ConsoleApplicationUsageDemo
 {
@@ -26,11 +27,15 @@ namespace ConsoleApplicationUsageDemo
   {
     static void Main()
     {
-      Action<string> Display = s => Console.WriteLine(s);
-      Display("Demo to use the useful functions DLL");
-      int[] list = new [] { 1, 2, 3, 1 };
+      Action<string> display = Console.WriteLine;
+      Action<string> displayOneLine = Console.Write;
+      display("Demo to use the useful functions DLL");
+      int[] list = { 1, 2, 3, 1 };
       bool result = StringFunc.HasDuplicate(list);
-      Display("the array: {1, 2, 3, 1 } has duplicate: " + result.ToString());
+      display("The array: {1, 2, 3, 1 } has duplicate: " + result);
+      display(string.Empty);
+      displayOneLine("Factorial 3 with lowerBound 2 is ");
+      displayOneLine(MathFunc.Factorial(3, 2).ToString());
       Console.ReadKey();
     }
   }

@@ -485,6 +485,13 @@ namespace UnitTestUsefullFunctions
       Assert.IsTrue(result == 5050);
     }
 
+    [TestMethod]
+    public void TestMethod_Sommielle_zero_hundredAndFifty()
+    {
+      long result = MathFunc.Sommielle(0, 150);
+      Assert.IsTrue(result == 11325);
+    }
+
     // **********************Sommielle Recursive****************
     [TestMethod]
     public void TestMethod_SommielleRecursive_zero()
@@ -549,5 +556,51 @@ namespace UnitTestUsefullFunctions
       long result = MathFunc.SommielleRecursive(0, 100);
       Assert.IsTrue(result == 5050);
     }
+
+    // **********************Sommielle Recursive****************
+    [TestMethod]
+    public void TestMethod_Factorial_lowerBound_one_step()
+    {
+      long result = MathFunc.Factorial(10, 9);
+      Assert.IsTrue(result == 10);
+    }
+
+    [TestMethod]
+    public void TestMethod_Factorial_lowerBound_two_step()
+    {
+      long result = MathFunc.Factorial(10, 8);
+      Assert.IsTrue(result == 90);
+    }
+
+    // **********************EndPadding****************
+    [TestMethod]
+    public void TestMethod_EndPadding()
+    {
+      string result = StringFunc.EndPadding("azerty", 8);
+      Assert.IsTrue(result == "azerty  ");
+    }
+
+    [TestMethod]
+    public void TestMethod_EndPadding_length()
+    {
+      string result = StringFunc.EndPadding("azerty", 8);
+      Assert.IsTrue(result.Length == 8);
+    }
+
+    [TestMethod]
+    public void TestMethod_EndPadding_none_length()
+    {
+      string result = StringFunc.EndPadding("azerty", 6);
+      Assert.IsTrue(result.Length == 6);
+    }
+
+    [TestMethod]
+    public void TestMethod_EndPadding_none_string()
+    {
+      string result = StringFunc.EndPadding("azerty", 6);
+      Assert.IsTrue(result == "azerty");
+    }
+
+
   }
 }

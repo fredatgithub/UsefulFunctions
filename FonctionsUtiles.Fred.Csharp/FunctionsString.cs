@@ -49,16 +49,15 @@ namespace FonctionsUtiles.Fred.Csharp
       return liste.Distinct().Count() == liste.Count();
     }
 
-    public static string FormatString(string chaine, byte longeurDeBlancACompleter)
+    public static string EndPadding(string chaine, byte blankLength)
     {
-      // || chaine.Length > longeur
-      if (chaine.Length == longeurDeBlancACompleter)
+      if (chaine.Length == blankLength)
       {
         return chaine;
       }
 
       string blanc = string.Empty;
-      for (int i = 0; i < longeurDeBlancACompleter - chaine.Length; i++)
+      for (int i = 0; i < blankLength - chaine.Length; i++)
       {
         blanc += " ";
       }
