@@ -601,6 +601,79 @@ namespace UnitTestUsefullFunctions
       Assert.IsTrue(result == "azerty");
     }
 
+    // **********************GetFileNameAfterLastSlash****************
+    [TestMethod]
+    public void TestMethod_GetFileNameAfterLastSlash()
+    {
+      string result = StringFunc.GetFileNameAfterLastSlash(@"C:\tmp\texte.txt");
+      Assert.IsTrue(result == "texte.txt");
+    }
+
+    [TestMethod]
+    public void TestMethod_GetFileNameAfterLastSlash_empty_string()
+    {
+      string result = StringFunc.GetFileNameAfterLastSlash(@"");
+      Assert.IsTrue(result == "");
+    }
+
+    [TestMethod]
+    public void TestMethod_GetFileNameAfterLastSlash_no_path()
+    {
+      string result = StringFunc.GetFileNameAfterLastSlash(@"texte.txt");
+      Assert.IsTrue(result == "texte.txt");
+    }
+
+    // **********************RemoveInString****************
+    [TestMethod]
+    public void TestMethod_RemoveInString()
+    {
+      string result = StringFunc.RemoveInString("azerty", "azertyuiop");
+      Assert.IsTrue(result == "uiop");
+    }
+
+    [TestMethod]
+    public void TestMethod_RemoveInString_with_trim_end_equal_to_true()
+    {
+      string result = StringFunc.RemoveInString("azerty", "azertyuiop ", true);
+      Assert.IsTrue(result == "uiop");
+    }
+    
+    [TestMethod]
+    public void TestMethod_RemoveInString_with_trim_end_equal_to_false()
+    {
+      string result = StringFunc.RemoveInString("azerty", "azertyuiop ");
+      Assert.IsTrue(result == "uiop ");
+    }
+
+    [TestMethod]
+    public void TestMethod_RemoveInString__nothing()
+    {
+      string result = StringFunc.RemoveInString("azerty", "uiop");
+      Assert.IsTrue(result == "uiop");
+    }
+
+    // 
+    // **********************CamelCase****************
+    [TestMethod]
+    public void TestMethod_CamelCase_a_sentence()
+    {
+      string result = StringFunc.CamelCase("once upon a time");
+      Assert.IsTrue(result == "Once Upon A Time");
+    }
+
+    [TestMethod]
+    public void TestMethod_CamelCase_one_word()
+    {
+      string result = StringFunc.CamelCase("azerty");
+      Assert.IsTrue(result == "Azerty");
+    }
+
+    [TestMethod]
+    public void TestMethod_CamelCase_string_empty()
+    {
+      string result = StringFunc.CamelCase("");
+      Assert.IsTrue(result == "");
+    }
 
   }
 }

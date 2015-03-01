@@ -65,12 +65,6 @@ namespace FonctionsUtiles.Fred.Csharp
       return chaine + blanc;
     }
 
-    public static string FormatString(string chaine)
-    {
-      //  surcharge si 1 argument
-      return chaine;
-    }
-
     public static string GetLastName(string chaine, char dernierCaractereRecherche)
     {
       int at = 0;
