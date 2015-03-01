@@ -788,5 +788,13 @@ namespace UnitTestUsefullFunctions
       string result = StringFunc.ByteArrayToHexaString(source);
       Assert.IsTrue(result == "010203");
     }
+
+    [TestMethod]
+    public void TestMethod_ByteArrayToHexaString_empty_source()
+    {
+      byte[] source = { };
+      string result = StringFunc.ByteArrayToHexaString(source);
+      Assert.IsTrue(result == "");
+    }
   }
 }
