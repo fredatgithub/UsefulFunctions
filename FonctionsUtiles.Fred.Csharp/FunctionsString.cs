@@ -195,12 +195,20 @@ namespace FonctionsUtiles.Fred.Csharp
       return occurrence;
     }
 
-    public static string ByteArrayToHexaString(byte[] bytes)
+    public static string ByteArrayToHexaString(byte[] bytes, bool oneDigitOnly = false)
     {
       var sb = new StringBuilder();
       for (int i = 0; i < bytes.Length; i++)
       {
-        sb.Append(bytes[i].ToString("X2"));
+        if (oneDigitOnly)
+        {
+          sb.Append(bytes[i].ToString("X1"));
+        }
+        else
+        {
+          sb.Append(bytes[i].ToString("X2"));
+        }
+
       }
 
       return sb.ToString();

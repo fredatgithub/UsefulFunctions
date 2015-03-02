@@ -782,6 +782,16 @@ namespace UnitTestUsefullFunctions
     }
 
     [TestMethod]
+    public void TestMethod_ByteArrayToHexaString_two_elements_OneDigitOnly()
+    {
+      byte[] source = new byte[2];
+      source[0] = 0x01;
+      source[1] = 0x02;
+      string result = StringFunc.ByteArrayToHexaString(source, true);
+      Assert.IsTrue(result == "12");
+    }
+
+    [TestMethod]
     public void TestMethod_ByteArrayToHexaString_three_elements()
     {
       byte[] source = { 0x01, 0x02, 0x03 };
@@ -790,10 +800,26 @@ namespace UnitTestUsefullFunctions
     }
 
     [TestMethod]
+    public void TestMethod_ByteArrayToHexaString_three_elements_OneDigitOnly()
+    {
+      byte[] source = { 0x01, 0x02, 0x03 };
+      string result = StringFunc.ByteArrayToHexaString(source, true);
+      Assert.IsTrue(result == "123");
+    }
+
+    [TestMethod]
     public void TestMethod_ByteArrayToHexaString_empty_source()
     {
       byte[] source = { };
       string result = StringFunc.ByteArrayToHexaString(source);
+      Assert.IsTrue(result == "");
+    }
+
+    [TestMethod]
+    public void TestMethod_ByteArrayToHexaString_empty_source_OneDigitOnly()
+    {
+      byte[] source = { };
+      string result = StringFunc.ByteArrayToHexaString(source, true);
       Assert.IsTrue(result == "");
     }
   }
