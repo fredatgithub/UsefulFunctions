@@ -31,7 +31,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_HasDuplicate_no_on_One_item()
     {
-      int[] source = new[] { 1 };
+      int[] source = { 1 };
       bool result = StringFunc.HasDuplicate(source);
       Assert.IsFalse(result);
     }
@@ -893,7 +893,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_ReverseString_several_palindromes()
     {
-      List<string> sourceWords = new List<string>() { "laval", "lol", "ete", "lieur à rueil" };
+      List<string> sourceWords = new List<string> { "laval", "lol", "ete", "lieur à rueil" };
       foreach (string source in sourceWords)
       {
         string result = StringFunc.ReverseString(source);
@@ -904,7 +904,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_ReverseString_several_palindromes_with_removal_of_space()
     {
-      List<string> sourceWords = new List<string>() { "esope reste ici et se repose", "éric notre valet alla te laver ton ciré" };
+      List<string> sourceWords = new List<string> { "esope reste ici et se repose", "éric notre valet alla te laver ton ciré" };
       foreach (string source in sourceWords)
       {
         string result = StringFunc.ReverseString(source, true);
@@ -948,7 +948,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_ReverseString2_several_palindromes()
     {
-      List<string> sourceWords = new List<string>() { "laval", "lol", "ete", "lieur à rueil"};
+      List<string> sourceWords = new List<string> { "laval", "lol", "ete", "lieur à rueil"};
       foreach (string source in sourceWords)
       {
         string result = StringFunc.ReverseString2(source);
@@ -959,7 +959,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_ReverseString2_several_palindromes_with_removal_of_space()
     {
-      List<string> sourceWords = new List<string>() { "esope reste ici et se repose", "éric notre valet alla te laver ton ciré" };
+      List<string> sourceWords = new List<string> { "esope reste ici et se repose", "éric notre valet alla te laver ton ciré" };
       foreach (string source in sourceWords)
       {
         string result = StringFunc.ReverseString2(source, true);
