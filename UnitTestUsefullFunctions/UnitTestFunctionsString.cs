@@ -21,7 +21,7 @@ SOFTWARE.
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
 using MathFunc = FonctionsUtiles.Fred.Csharp.FunctionsMath;
-
+using System.Collections.Generic;
 
 namespace UnitTestUsefullFunctions
 {
@@ -857,7 +857,6 @@ namespace UnitTestUsefullFunctions
       //Assert.AreEqual(result, result2);
     }
 
-    // 
     // **********************ReverseString****************
     [TestMethod]
     public void TestMethod_ReverseString()
@@ -873,6 +872,124 @@ namespace UnitTestUsefullFunctions
       string source = "";
       string result = StringFunc.ReverseString(source);
       Assert.IsTrue(result == "");
+    }
+
+    [TestMethod]
+    public void TestMethod_ReverseString_one_element()
+    {
+      string source = "1";
+      string result = StringFunc.ReverseString(source);
+      Assert.IsTrue(result == "1");
+    }
+
+    [TestMethod]
+    public void TestMethod_ReverseString_palindrome()
+    {
+      string source = "laval";
+      string result = StringFunc.ReverseString(source);
+      Assert.IsTrue(result == source);
+    }
+
+    [TestMethod]
+    public void TestMethod_ReverseString_several_palindromes()
+    {
+      List<string> sourceWords = new List<string>() { "laval", "lol", "ete", "lieur à rueil" };
+      foreach (string source in sourceWords)
+      {
+        string result = StringFunc.ReverseString(source);
+        Assert.IsTrue(result == source);
+      }
+    }
+
+    [TestMethod]
+    public void TestMethod_ReverseString_several_palindromes_with_removal_of_space()
+    {
+      List<string> sourceWords = new List<string>() { "esope reste ici et se repose", "éric notre valet alla te laver ton ciré" };
+      foreach (string source in sourceWords)
+      {
+        string result = StringFunc.ReverseString(source, true);
+        Assert.IsTrue(result == source.Replace(" ", ""));
+      }
+    }
+
+    // **********************ReverseString2****************
+    [TestMethod]
+    public void TestMethod_ReverseString2()
+    {
+      string source = "123456789";
+      string result = StringFunc.ReverseString2(source);
+      Assert.IsTrue(result == "987654321");
+    }
+
+    [TestMethod]
+    public void TestMethod_ReverseString2_on_an_empty_string()
+    {
+      string source = "";
+      string result = StringFunc.ReverseString2(source);
+      Assert.IsTrue(result == "");
+    }
+
+    [TestMethod]
+    public void TestMethod_ReverseString2_one_element()
+    {
+      string source = "1";
+      string result = StringFunc.ReverseString2(source);
+      Assert.IsTrue(result == "1");
+    }
+
+    [TestMethod]
+    public void TestMethod_ReverseString2_palindrome()
+    {
+      string source = "laval";
+      string result = StringFunc.ReverseString2(source);
+      Assert.IsTrue(result == source);
+    }
+
+    [TestMethod]
+    public void TestMethod_ReverseString2_several_palindromes()
+    {
+      List<string> sourceWords = new List<string>() { "laval", "lol", "ete", "lieur à rueil"};
+      foreach (string source in sourceWords)
+      {
+        string result = StringFunc.ReverseString2(source);
+        Assert.IsTrue(result == source);
+      }
+    }
+
+    [TestMethod]
+    public void TestMethod_ReverseString2_several_palindromes_with_removal_of_space()
+    {
+      List<string> sourceWords = new List<string>() { "esope reste ici et se repose", "éric notre valet alla te laver ton ciré" };
+      foreach (string source in sourceWords)
+      {
+        string result = StringFunc.ReverseString2(source, true);
+        Assert.IsTrue(result == source.Replace(" ", ""));
+      }
+    }
+
+    // **********************CompletePrefixWithZero****************
+    [TestMethod]
+    public void TestMethod_CompletePrefixWithZero_on_one()
+    {
+      string source = "1";
+      string result = StringFunc.CompletePrefixWithZero(source);
+      Assert.IsTrue(result == "01");
+    }
+
+    [TestMethod]
+    public void TestMethod_CompletePrefixWithZero_on_nine()
+    {
+      string source = "9";
+      string result = StringFunc.CompletePrefixWithZero(source);
+      Assert.IsTrue(result == "09");
+    }
+
+    [TestMethod]
+    public void TestMethod_CompletePrefixWithZero_on_two_digits()
+    {
+      string source = "12";
+      string result = StringFunc.CompletePrefixWithZero(source);
+      Assert.IsTrue(result == "12");
     }
   }
 }

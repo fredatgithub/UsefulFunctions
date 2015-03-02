@@ -229,9 +229,14 @@ namespace FonctionsUtiles.Fred.Csharp
       return returnBytes;
     }
 
-    public static string ReverseString(string strValue)
+    public static string ReverseString(string strValue, bool removeSpace = false)
     {
       //  LINQ: return strValue.Aggregate(string.Empty, (current, caracter) => caracter + current);
+      if (removeSpace)
+      {
+        strValue = strValue.Replace(" ", "");
+      }
+
       string reversedString = string.Empty;
       foreach (char caracter in strValue)
       {
@@ -241,7 +246,7 @@ namespace FonctionsUtiles.Fred.Csharp
       return reversedString;
     }
 
-    public static string ReverseString2(string input)
+    public static string ReverseString2(string input, bool removeSpace = false)
     {
       //  Validate input
       if (string.IsNullOrEmpty(input))
@@ -249,6 +254,10 @@ namespace FonctionsUtiles.Fred.Csharp
         return string.Empty;
       }
 
+      if (removeSpace)
+      {
+        input = input.Replace(" ", "");
+      }
       char[] outputChars = input.ToCharArray();
 
       //  Reverse
@@ -258,14 +267,9 @@ namespace FonctionsUtiles.Fred.Csharp
       return new string(outputChars);
     }
 
-    public static string CompletePrefixeZero(string nombreEnString)
+    public static string CompletePrefixWithZero(string numberInString)
     {
-      if (nombreEnString.Length == 1)
-      {
-        return "0" + nombreEnString;
-      }
-
-      return nombreEnString;
+      return numberInString.Length == 1 ? "0" + numberInString : numberInString;
     }
 
     public static string CompletePrefixeZero(int nombre)
