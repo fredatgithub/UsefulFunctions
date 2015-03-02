@@ -822,5 +822,57 @@ namespace UnitTestUsefullFunctions
       string result = StringFunc.ByteArrayToHexaString(source, true);
       Assert.IsTrue(result == "");
     }
+
+    // **********************HexaStringToByteArray****************
+    [TestMethod]
+    public void TestMethod_HexaStringToByteArray_three_elements()
+    {
+      string source = "010203";
+      byte[] result2 = new byte[3];
+      result2[0] = 0x01;
+      result2[1] = 0x02;
+      result2[2] = 0x03;
+      byte[] result = StringFunc.HexaStringToByteArray(source);
+      Assert.AreEqual(result[0], result2[0]);
+      Assert.AreEqual(result[1], result2[1]);
+      Assert.AreEqual(result[2], result2[2]);
+    }
+
+    [TestMethod]
+    public void TestMethod_HexaStringToByteArray_one_element()
+    {
+      string source = "01";
+      byte[] result2 = new byte[1];
+      result2[0] = 0x01;
+      byte[] result = StringFunc.HexaStringToByteArray(source);
+      Assert.AreEqual(result[0], result2[0]);
+    }
+
+    [TestMethod]
+    public void TestMethod_HexaStringToByteArray_empty_string()
+    {
+      //string source = "";
+      //byte[] result2 = new byte[0];
+      //byte[] result = StringFunc.HexaStringToByteArray(source);
+      //Assert.AreEqual(result, result2);
+    }
+
+    // 
+    // **********************ReverseString****************
+    [TestMethod]
+    public void TestMethod_ReverseString()
+    {
+      string source = "123456789";
+      string result = StringFunc.ReverseString(source);
+      Assert.IsTrue(result == "987654321");
+    }
+
+    [TestMethod]
+    public void TestMethod_ReverseString_on_an_empty_string()
+    {
+      string source = "";
+      string result = StringFunc.ReverseString(source);
+      Assert.IsTrue(result == "");
+    }
   }
 }

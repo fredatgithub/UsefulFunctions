@@ -208,7 +208,6 @@ namespace FonctionsUtiles.Fred.Csharp
         {
           sb.Append(bytes[i].ToString("X2"));
         }
-
       }
 
       return sb.ToString();
@@ -216,16 +215,21 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static byte[] HexaStringToByteArray(string hexaString)
     {
+      if (hexaString == string.Empty)
+      {
+        return new byte[0];
+      }
+
       var returnBytes = new byte[hexaString.Length / 2];
       for (int i = 0; i < returnBytes.Length; i++)
       {
-        returnBytes[i] = Convert.ToByte(hexaString.Substring(i * 2, 2), 16);
+        returnBytes[i] = Convert.ToByte(hexaString.Substring(i * 2, 2));
       }
 
       return returnBytes;
     }
 
-    public string ReverseString(string strValue)
+    public static string ReverseString(string strValue)
     {
       //  LINQ: return strValue.Aggregate(string.Empty, (current, caracter) => caracter + current);
       string reversedString = string.Empty;
