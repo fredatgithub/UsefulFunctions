@@ -991,5 +991,29 @@ namespace UnitTestUsefullFunctions
       string result = StringFunc.CompletePrefixWithZero(source);
       Assert.IsTrue(result == "12");
     }
+
+    [TestMethod]
+    public void TestMethod_CompletePrefixWithZero_on_one_integer()
+    {
+      int source = 1;
+      string result = StringFunc.CompletePrefixeWithZeroInt(source);
+      Assert.IsTrue(result == "01");
+    }
+
+    [TestMethod]
+    public void TestMethod_CompletePrefixWithZero_on_nine_integer()
+    {
+      int source = 9;
+      string result = StringFunc.CompletePrefixeWithZeroInt(source);
+      Assert.IsTrue(result == "09");
+    }
+
+    [TestMethod]
+    public void TestMethod_CompletePrefixWithZero_on_two_digits_integer()
+    {
+      int source = 12;
+      string result = StringFunc.CompletePrefixeWithZeroInt(source);
+      Assert.IsTrue(result == "12");
+    }
   }
 }

@@ -272,7 +272,7 @@ namespace FonctionsUtiles.Fred.Csharp
       return numberInString.Length == 1 ? "0" + numberInString : numberInString;
     }
 
-    public static string CompletePrefixeZero(int nombre)
+    public static string CompletePrefixeWithZeroInt(int nombre)
     {
       if (nombre.ToString(CultureInfo.InvariantCulture).Length == 1)
       {
