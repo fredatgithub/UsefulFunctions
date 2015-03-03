@@ -1087,15 +1087,70 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, result2);
     }
 
-    // 
     // **********************InsertSeparatorForEachCharacter****************
     [TestMethod]
-    public void TestMethod_InsertSeparatorForEachCharacter_one_element()
+    public void TestMethod_InsertSeparatorForEachCharacter_one_string()
     {
       string source = "azerty";
       string result2 = "a z e r t y";
-      string result = StringFunc.ArrayToStringWithStringBuilder(source, " ");
+      string result = StringFunc.InsertSeparatorForEachCharacter(source, " ");
       Assert.AreEqual(result, result2);
+    }
+
+    [TestMethod]
+    public void TestMethod_InsertSeparatorForEachCharacter_empty_string()
+    {
+      string source = "";
+      string result2 = "";
+      string result = StringFunc.InsertSeparatorForEachCharacter(source, " ");
+      Assert.AreEqual(result, result2);
+    }
+
+    // **********************InsertSeparatorAtInterval****************
+    [TestMethod]
+    public void TestMethod_InsertSeparatorAtInterval_one_element()
+    {
+      string source = "azerty";
+      string result2 = "az er ty";
+      string result = StringFunc.InsertSeparatorAtInterval(source, " ", 2);
+      Assert.AreEqual(result, result2);
+    }
+
+    // **********************RemoveVowels****************
+    [TestMethod]
+    public void TestMethod_RemoveVowels_one_string()
+    {
+      string source = "azerty";
+      string expected = "zrt";
+      string result = StringFunc.RemoveVowels(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_RemoveVowels_empty_string()
+    {
+      string source = "";
+      string expected = "";
+      string result = StringFunc.RemoveVowels(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_RemoveVowels_only_vowels()
+    {
+      string source = "aeiouy";
+      string expected = "";
+      string result = StringFunc.RemoveVowels(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_RemoveVowels_only_consonant()
+    {
+      string source = "qsdfghjklm";
+      string expected = "qsdfghjklm";
+      string result = StringFunc.RemoveVowels(source);
+      Assert.AreEqual(result, expected);
     }
   }
 }
