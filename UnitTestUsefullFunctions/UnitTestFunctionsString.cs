@@ -1152,5 +1152,53 @@ namespace UnitTestUsefullFunctions
       string result = StringFunc.RemoveVowels(source);
       Assert.AreEqual(result, expected);
     }
+
+    // **********************KeepVowels****************
+    [TestMethod]
+    public void TestMethod_KeepVowels_one_string()
+    {
+      string source = "azerty";
+      string expected = "aey";
+      string result = StringFunc.KeepVowels(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_KeepVowels_empty_string()
+    {
+      string source = "";
+      string expected = "";
+      string result = StringFunc.KeepVowels(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_KeepVowels_only_vowels()
+    {
+      string source = "aeiouy";
+      string expected = "aeiouy";
+      string result = StringFunc.KeepVowels(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_KeepVowels_only_consonant()
+    {
+      string source = "qsdfghjklm";
+      string expected = "";
+      string result = StringFunc.KeepVowels(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    // **********************AlternateCases****************
+    [TestMethod]
+    public void TestMethod_AlternateCases_one_string()
+    {
+      string source = "TheWonderfulMethodThatDoesALotOfThings";
+      string expected = "ThEwOnDeRfUlMeThOdThAtDoEsAlOtOfThInGs";
+      string result = StringFunc.AlternateCases(source);
+      Assert.AreEqual(result, expected);
+    }
+
   }
 }

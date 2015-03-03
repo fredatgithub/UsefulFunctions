@@ -137,7 +137,7 @@ namespace FonctionsUtiles.Fred.Csharp
         alphabet.Add(letter);
         alphabet.Add(letter.ToString(CultureInfo.InvariantCulture).ToLower().ToCharArray()[0]);
       }
-      
+
       return alphabet.Contains(lettre);
     }
 
@@ -425,7 +425,10 @@ namespace FonctionsUtiles.Fred.Csharp
     {
       // Validate input
       if (string.IsNullOrEmpty(input))
+      {
         return string.Empty;
+      }
+
       List<char> outputChars = new List<char>(input.ToCharArray());
       // Iterate backwards to avoid problems from removing characters
       for (int i = outputChars.Count - 1; i >= 0; i--)
@@ -447,7 +450,10 @@ namespace FonctionsUtiles.Fred.Csharp
     {
       // Validate input
       if (string.IsNullOrEmpty(input))
+      {
         return string.Empty;
+      }
+
       List<char> outputChars = new List<char>(input.ToCharArray());
       // Iterate backwards to avoid problems from removing characters
       for (int i = outputChars.Count - 1; i >= 0; i--)
@@ -456,10 +462,12 @@ namespace FonctionsUtiles.Fred.Csharp
               outputChars[i] == 'e' || outputChars[i] == 'E' ||
               outputChars[i] == 'i' || outputChars[i] == 'I' ||
               outputChars[i] == 'o' || outputChars[i] == 'O' ||
-              outputChars[i] == 'u' || outputChars[i] == 'U'))
+              outputChars[i] == 'u' || outputChars[i] == 'U' ||
+              outputChars[i] == 'y' || outputChars[i] == 'Y'))
           // a vowel, remove it
           outputChars.RemoveAt(i);
       }
+
       return new string(outputChars.ToArray());
     }
 
@@ -472,11 +480,17 @@ namespace FonctionsUtiles.Fred.Csharp
       for (int i = 1; i < inputChars.Length; i++) // start with the section character
       {
         if (toUpper)
+        {
           inputChars[i] = char.ToUpper(inputChars[i]);
+        }
         else
+        {
           inputChars[i] = char.ToLower(inputChars[i]);
+        }
+
         toUpper = !toUpper; // alternate
       }
+
       return new string(inputChars);
     }
 
