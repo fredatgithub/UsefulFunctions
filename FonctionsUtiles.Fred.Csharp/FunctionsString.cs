@@ -535,19 +535,28 @@ namespace FonctionsUtiles.Fred.Csharp
       //  <param name="preserveSpaces">True to preserver the spaces between initials in the output string.
       //  <param name="includePeriod">True to include a '.' after each intialize
       if (string.IsNullOrEmpty(input))
+      {
         return string.Empty;
+      }
+
       string[] words = input.Split(' ');
       for (int i = 0; i < words.Length; i++)
       {
         if (words[i].Length > 0)
         {
           if (capitalizeInitials)
+          {
             words[i] = char.ToUpper(words[i][0]).ToString(CultureInfo.CurrentCulture); // only keep the first letter
+          }
           else
+          {
             words[i] = words[i][0].ToString(CultureInfo.CurrentCulture); // only keep the first letter
+          }
 
           if (includePeriod)
+          {
             words[i] += ".";
+          }
         }
       }
 

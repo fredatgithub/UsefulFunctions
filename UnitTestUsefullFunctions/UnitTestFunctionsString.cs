@@ -1200,13 +1200,13 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
-    // **********************SwapCases****************
+    // **********************Capitalize****************
     [TestMethod]
-    public void TestMethod_SwapCases_one_string()
+    public void TestMethod_Capitalize_one_string()
     {
-      string source = "azertyANDqwerty";
-      string expected = "AZERTYandQWERTY";
-      string result = StringFunc.SwapCases(source);
+      string source = "once upon a time in a galaxy far far away";
+      string expected = "Once upon a time in a galaxy far far away";
+      string result = StringFunc.Capitalize(source);
       Assert.AreEqual(result, expected);
     }
   }
