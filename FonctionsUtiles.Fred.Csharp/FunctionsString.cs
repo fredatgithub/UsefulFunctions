@@ -377,16 +377,23 @@ namespace FonctionsUtiles.Fred.Csharp
     {
       //  Validate string
       if (string.IsNullOrEmpty(input))
+      {
         return string.Empty;
+      }
+
       var outputChars = new List<char>(input.ToCharArray());
       char[] separatorChars = separator.ToCharArray();
       int i = 1;
       while (i < outputChars.Count)
       {
         if (i != outputChars.Count) // don't add separator to the end of string
+        {
           outputChars.InsertRange(i, separatorChars);
+        }
+
         i += 1 + separator.Length; // go up the interval amount plus separator
       }
+
       return new string(outputChars.ToArray());
     }
 

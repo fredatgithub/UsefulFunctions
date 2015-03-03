@@ -1087,6 +1087,15 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, result2);
     }
 
-
+    // 
+    // **********************InsertSeparatorForEachCharacter****************
+    [TestMethod]
+    public void TestMethod_InsertSeparatorForEachCharacter_one_element()
+    {
+      string source = "azerty";
+      string result2 = "a z e r t y";
+      string result = StringFunc.ArrayToStringWithStringBuilder(source, " ");
+      Assert.AreEqual(result, result2);
+    }
   }
 }
