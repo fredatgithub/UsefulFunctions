@@ -22,6 +22,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
 using MathFunc = FonctionsUtiles.Fred.Csharp.FunctionsMath;
 using System.Collections.Generic;
+using System;
 
 namespace UnitTestUsefullFunctions
 {
@@ -851,6 +852,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_HexaStringToByteArray_empty_string()
     {
+      // TODO debug
       //string source = "";
       //byte[] result2 = new byte[0];
       //byte[] result = StringFunc.HexaStringToByteArray(source);
@@ -1014,6 +1016,40 @@ namespace UnitTestUsefullFunctions
       int source = 12;
       string result = StringFunc.CompletePrefixeWithZeroInt(source);
       Assert.IsTrue(result == "12");
+    }
+
+    // **********************ArrayToString****************
+    [TestMethod]
+    public void TestMethod_ArrayToString_one_element()
+    {
+      byte[] source = new byte[1];
+      source[0] = 0x01;
+      string result2 = "1";
+      string result = StringFunc.ArrayToString(source);
+      Assert.AreEqual(result, result2);
+    }
+
+    [TestMethod]
+    public void TestMethod_ArrayToString_two_elements()
+    {
+      byte[] source = new byte[2];
+      source[0] = 0x01;
+      source[1] = 0x02;
+      string result2 = "1" + Environment.NewLine + "2";
+      string result = StringFunc.ArrayToString(source);
+      Assert.AreEqual(result, result2);
+    }
+
+    [TestMethod]
+    public void TestMethod_ArrayToString_three_elements()
+    {
+      byte[] source = new byte[3];
+      source[0] = 0x01;
+      source[1] = 0x02;
+      source[2] = 0x03;
+      string result2 = "1" + Environment.NewLine + "2" + Environment.NewLine + "3";
+      string result = StringFunc.ArrayToString(source);
+      Assert.AreEqual(result, result2);
     }
   }
 }

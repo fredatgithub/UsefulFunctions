@@ -294,7 +294,6 @@ namespace FonctionsUtiles.Fred.Csharp
       for (int i = 0; i < array.Count; i++)
       {
         output += array[i].ToString();
-
         //  don't add separator at the end of the list
         if (i != array.Count - 1)
         {
