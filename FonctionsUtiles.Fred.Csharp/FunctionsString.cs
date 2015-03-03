@@ -498,16 +498,24 @@ namespace FonctionsUtiles.Fred.Csharp
     {
       // Returns a string with the opposite letter casing for each character.
       if (string.IsNullOrEmpty(input))
+      {
         return string.Empty;
+      }
+
       char[] inputChars = input.ToCharArray();
       for (int i = 0; i < inputChars.Length; i++)
       {
         // Apply the opposite letter casing
         if (char.IsUpper(inputChars[i]))
+        {
           inputChars[i] = char.ToLower(inputChars[i]);
+        }
         else
+        {
           inputChars[i] = char.ToUpper(inputChars[i]);
+        }
       }
+
       return new string(inputChars);
     }
 

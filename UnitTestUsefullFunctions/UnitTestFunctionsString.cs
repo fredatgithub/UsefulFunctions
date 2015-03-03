@@ -1200,5 +1200,14 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
+    // **********************SwapCases****************
+    [TestMethod]
+    public void TestMethod_SwapCases_one_string()
+    {
+      string source = "azertyANDqwerty";
+      string expected = "AZERTYandQWERTY";
+      string result = StringFunc.SwapCases(source);
+      Assert.AreEqual(result, expected);
+    }
   }
 }
