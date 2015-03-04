@@ -650,12 +650,10 @@ namespace FonctionsUtiles.Fred.Csharp
     {
       //  Returns the character in a string at a given index counting from the right.
       // //  <param name="index">The starting position from the right. (Index 0 = last character)</param>
-      if (string.IsNullOrEmpty(input))
-        return new char();
-      if (input.Length - index - 1 >= input.Length)
-        throw new IndexOutOfRangeException("Index cannot be less than zero.");
-      if (input.Length - index - 1 < 0)
-        throw new IndexOutOfRangeException("Index cannot be larger than the length of the string");
+      if (string.IsNullOrEmpty(input)) return new char();
+      if (input.Length - index - 1 >= input.Length) return new char();
+      if (input.Length - index - 1 < 0) return new char();
+      
       return input[input.Length - index - 1];
     }
 

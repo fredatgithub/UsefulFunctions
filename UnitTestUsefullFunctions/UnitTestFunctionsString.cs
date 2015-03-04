@@ -1312,13 +1312,40 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
-
     [TestMethod]
     public void TestMethod_SubstringEnd_one_character()
     {
       string source = "azerty";
       string expected = "e";
       string result = StringFunc.SubstringEnd(source, 2, 1);
+      Assert.AreEqual(result, expected);
+    }
+
+    // **********************CharRight****************
+    [TestMethod]
+    public void TestMethod_CharRight()
+    {
+      string source = "once upon a time in a galaxy far far away";
+      char expected = 'y';
+      char result = StringFunc.CharRight(source, 0);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_CharRight_empty_character()
+    {
+      string source = "";
+      char expected = new char();
+      char result = StringFunc.CharRight(source, 0);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_CharRight_one_character()
+    {
+      string source = "qwerty";
+      char expected = 'e';
+      char result = StringFunc.CharRight(source, 3);
       Assert.AreEqual(result, expected);
     }
   }
