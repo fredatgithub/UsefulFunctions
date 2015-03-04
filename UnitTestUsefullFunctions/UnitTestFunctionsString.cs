@@ -1209,5 +1209,16 @@ namespace UnitTestUsefullFunctions
       string result = StringFunc.Capitalize(source);
       Assert.AreEqual(result, expected);
     }
+
+    // **********************GetInitials****************
+    [TestMethod]
+    public void TestMethod_GetInitials_one_string()
+    {
+      string source = "once upon a time in a galaxy far far away";
+      string expected = "ouatiagffa";
+      string result = StringFunc.GetInitials(source, " ", false, false, false);
+      Assert.AreEqual(result, expected);
+    }
+
   }
 }
