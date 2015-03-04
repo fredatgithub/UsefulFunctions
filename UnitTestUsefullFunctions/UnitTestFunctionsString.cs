@@ -1220,5 +1220,50 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
+    [TestMethod]
+    public void TestMethod_GetInitials_empty_string()
+    {
+      string source = "";
+      string expected = "";
+      string result = StringFunc.GetInitials(source, " ", false, false, false);
+      Assert.AreEqual(result, expected);
+    }
+
+    // **********************GetTitle****************
+    [TestMethod]
+    public void TestMethod_GetTitle_one_string()
+    {
+      string source = "once upon a time in a galaxy far far away";
+      string expected = "Once Upon A Time In A Galaxy Far Far Away";
+      string result = StringFunc.GetTitle(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetTitleGetInitials_empty_string()
+    {
+      string source = "";
+      string expected = "";
+      string result = StringFunc.GetTitle(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetTitle_one_string_with_separator()
+    {
+      string source = "once upon a time in a galaxy far far away";
+      string expected = "Once Upon A Time In A Galaxy Far Far Away";
+      string result = StringFunc.GetTitle(source, " ");
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetTitle_one_string_with_underscore_separator()
+    {
+      string source = "once_upon_a_time_in_a_galaxy_far_far_away";
+      string expected = "Once_Upon_A_Time_In_A_Galaxy_Far_Far_Away";
+      string result = StringFunc.GetTitle(source, "_");
+      Assert.AreEqual(result, expected);
+    }
   }
 }

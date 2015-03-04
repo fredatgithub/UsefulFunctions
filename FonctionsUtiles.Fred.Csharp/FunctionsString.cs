@@ -614,13 +614,18 @@ namespace FonctionsUtiles.Fred.Csharp
     {
       //  Returns a string with each word's first character capitalized. Words are separated according to the sepecified string sequence.
       if (string.IsNullOrEmpty(input))
+      {
         return string.Empty;
+      }
+
       string[] words = input.Split(separator.ToCharArray());
       for (int i = 0; i < words.Length; i++)
       {
         // Capitalize each word
         if (words[i].Length > 0)
+        {
           words[i] = char.ToUpper(words[i][0]).ToString(CultureInfo.CurrentCulture) + words[i].Substring(1);
+        }
       }
 
       return string.Join(separator, words);
