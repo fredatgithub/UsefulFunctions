@@ -1265,5 +1265,61 @@ namespace UnitTestUsefullFunctions
       string result = StringFunc.GetTitle(source, "_");
       Assert.AreEqual(result, expected);
     }
+
+    // **********************SubstringEnd****************
+    [TestMethod]
+    public void TestMethod_SubstringEnd_first_character()
+    {
+      string source = "once upon a time in a galaxy far far away";
+      string expected = "o";
+      string result = StringFunc.SubstringEnd(source, 0, 1);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_SubstringEnd_start_equals_end()
+    {
+      string source = "once upon a time in a galaxy far far away";
+      string expected = "";
+      string result = StringFunc.SubstringEnd(source, 0, 0);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_SubstringEnd_two_characters()
+    {
+      string source = "once upon a time in a galaxy far far away";
+      string expected = "nc";
+      string result = StringFunc.SubstringEnd(source, 1, 2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_SubstringEnd_four_characters()
+    {
+      string source = "once upon a time in a galaxy far far away";
+      string expected = "time";
+      string result = StringFunc.SubstringEnd(source, 12, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_SubstringEnd_end_character()
+    {
+      string source = "azerty";
+      string expected = "y";
+      string result = StringFunc.SubstringEnd(source, source.Length - 1, 1);
+      Assert.AreEqual(result, expected);
+    }
+
+
+    [TestMethod]
+    public void TestMethod_SubstringEnd_one_character()
+    {
+      string source = "azerty";
+      string expected = "e";
+      string result = StringFunc.SubstringEnd(source, 2, 1);
+      Assert.AreEqual(result, expected);
+    }
   }
 }

@@ -638,17 +638,12 @@ namespace FonctionsUtiles.Fred.Csharp
         return string.Empty;
       if (start == 0 && end == input.Length)
         return input; // entire string
-      if (start < 0)
-        throw new IndexOutOfRangeException("start index cannot be less than zero.");
-      if (start > input.Length)
-        throw new IndexOutOfRangeException("start index cannot be greater than the length of the string.");
-      if (end < 0)
-        throw new IndexOutOfRangeException("end index cannot be less than zero.");
-      if (end > input.Length)
-        throw new IndexOutOfRangeException("end index cannot be greater than the length of the string.");
-      if (start > end)
-        throw new IndexOutOfRangeException("start index cannot be greater than the end index.");
-      return input.Substring(start, end - start);
+      if (start < 0)           return string.Empty;
+      if (start > input.Length)return string.Empty;
+      if (end < 0)             return string.Empty;
+      if (end > input.Length)  return string.Empty;
+
+      return input.Substring(start, end);
     }
 
     public static char CharRight(string input, int index)
