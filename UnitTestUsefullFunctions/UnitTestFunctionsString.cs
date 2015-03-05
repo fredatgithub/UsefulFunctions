@@ -1348,5 +1348,25 @@ namespace UnitTestUsefullFunctions
       char result = StringFunc.CharRight(source, 3);
       Assert.AreEqual(result, expected);
     }
+
+    // **********************CharMid****************
+    [TestMethod]
+    public void TestMethod_CharMid()
+    {
+      string source = "once upon a time in a galaxy far far away";
+      char expected = 'n';
+      char result = StringFunc.CharMid(source, 0, 1);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_CharMid_empty_string()
+    {
+      string source = "";
+      char expected = new char();
+      char result = StringFunc.CharMid(source, 0, 0);
+      Assert.AreEqual(result, expected);
+    }
+
   }
 }
