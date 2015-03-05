@@ -829,7 +829,7 @@ namespace FonctionsUtiles.Fred.Csharp
         return false;
       }
 
-      return input.Any(t => t == 'a' || t == 'A' || t == 'e' || t == 'E' || t == 'i' || t == 'I' || t == 'o' || t == 'O' || t == 'u' || t == 'U');
+      return input.Any(t => t == 'a' || t == 'A' || t == 'e' || t == 'E' || t == 'i' || t == 'I' || t == 'o' || t == 'O' || t == 'u' || t == 'U' || t == 'y' || t == 'Y');
     }
 
     public static bool IsSpaces(string input)
@@ -985,7 +985,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static bool IsEmailAddressValid(string s)
     {
-      Regex regex = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
+      Regex regex = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,5}$"); // 5 characters since .paris
       return regex.IsMatch(s);
     }
 
