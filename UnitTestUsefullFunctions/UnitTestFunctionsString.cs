@@ -1368,5 +1368,57 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
+    // **********************CountString****************
+    [TestMethod]
+    public void TestMethod_CountString()
+    {
+      string source = "once upon a time in a galaxy far far away";
+      int expected = 2;
+      int result = StringFunc.CountString(source, "far", true);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_CountString_do_not_ignore_case()
+    {
+      string source = "once upon a time in a galaxy far far away";
+      int expected = 2;
+      int result = StringFunc.CountString(source, "far", false);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_CountString_empty_string()
+    {
+      string source = "";
+      int expected = 0;
+      int result = StringFunc.CountString(source, "far", true);
+      Assert.AreEqual(result, expected);
+    }
+
+    // **********************IndexOfAll****************
+    [TestMethod]
+    public void TestMethod_IndexOfAll()
+    {
+      string source = "once upon a time in a galaxy far far away";
+      int[] expected = new int[2];
+      expected[0] = 29;
+      expected[1] = 33;
+      int[] result = StringFunc.IndexOfAll(source, "far", true);
+      Assert.AreEqual(result[0], expected[0]);
+      Assert.AreEqual(result[1], expected[1]);
+    }
+
+    [TestMethod]
+    public void TestMethod_IndexOfAll_ignore_case()
+    {
+      string source = "once upon a time in a galaxy far far away";
+      int[] expected = new int[2];
+      expected[0] = 29;
+      expected[1] = 33;
+      int[] result = StringFunc.IndexOfAll(source, "far", false);
+      Assert.AreEqual(result[0], expected[0]);
+      Assert.AreEqual(result[1], expected[1]);
+    }
   }
 }

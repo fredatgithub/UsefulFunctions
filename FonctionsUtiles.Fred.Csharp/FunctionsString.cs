@@ -673,15 +673,13 @@ namespace FonctionsUtiles.Fred.Csharp
     {
       //  Returns the total number of times a given sequence appears in a string.
       // //  <param name="ignoreCase">True, to ignore the difference in case between the sequence and the original string.</param>
-      if (string.IsNullOrEmpty(input) || string.IsNullOrEmpty(sequence))
-        return 0;
+      if (string.IsNullOrEmpty(input) || string.IsNullOrEmpty(sequence)) return 0;
       int count = 0;
       for (int i = 0; i < input.Length; i++)
       {
         if (i + sequence.Length > input.Length)
         {
           break; // sequence doesn't fit anymore
-
         }
 
         string inputSegment = input.Substring(i, sequence.Length); // holds the current segment being compared
@@ -698,16 +696,13 @@ namespace FonctionsUtiles.Fred.Csharp
     {
       //  Returns an array of every index where a sequence is found on the specified string. Note: Overlaps will be counted.
       // //  <param name="ignoreCase">True, to ignore the difference in case between the sequence and the original string.</param>
-      if (string.IsNullOrEmpty(input))
-        return new int[0]; // empty array
+      if (string.IsNullOrEmpty(input)) return new int[0]; // empty array
       var indices = new List<int>();
       for (int i = 0; i < input.Length; i++)
       {
-        if (i + sequence.Length > input.Length)
-          break; // sequence doesn't fit anymore
+        if (i + sequence.Length > input.Length) break; // sequence doesn't fit anymore
         string inputSegment = input.Substring(i, sequence.Length); // holds the current segment being compared
-        if (string.Compare(inputSegment, sequence, ignoreCase) == 0)
-          indices.Add(i);
+        if (string.Compare(inputSegment, sequence, ignoreCase) == 0) indices.Add(i);
       }
 
       // Copy entries over to an array
