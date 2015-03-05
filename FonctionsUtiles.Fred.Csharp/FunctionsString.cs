@@ -782,6 +782,13 @@ namespace FonctionsUtiles.Fred.Csharp
       return true;
     }
 
+    public static bool IsLowerCase2(string input)
+    {
+      //  Returns whether a string is in all lower case.
+      if (string.IsNullOrEmpty(input)) return false;
+      return input.ToLower() == input ? true : false;
+    }
+
     public static bool IsUpperCase(string input)
     {
       // Returns whether a string is in all upper case.
@@ -801,6 +808,17 @@ namespace FonctionsUtiles.Fred.Csharp
       }
 
       return true;
+    }
+
+    public static bool IsUpperCase2(string input)
+    {
+      // Returns whether a string is in all upper case.
+      if (string.IsNullOrEmpty(input))
+      {
+        return false;
+      }
+
+      return input.ToUpper() == input ? true : false;
     }
 
     public static bool HasVowels(string input)
