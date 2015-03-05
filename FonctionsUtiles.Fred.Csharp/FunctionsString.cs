@@ -661,16 +661,11 @@ namespace FonctionsUtiles.Fred.Csharp
     {
       //  Returns the character at a position given by the startingIndex plus the given count.
       // //  <param name="countIndex">The number of characters to count from the starting position.</param>
-      if (string.IsNullOrEmpty(input))
-        return new char();
-      if (startingIndex < 0)
-        throw new IndexOutOfRangeException("startingIndex cannot be less than zero.");
-      if (startingIndex >= input.Length)
-        throw new IndexOutOfRangeException("startingIndex cannot be greater than the length of the string.");
-      if (startingIndex + count < 0)
-        throw new IndexOutOfRangeException("startingIndex + count cannot be less than zero.");
-      if (startingIndex + count >= input.Length)
-        throw new IndexOutOfRangeException("startingIndex + count cannot be greater than the length of the string.");
+      if (string.IsNullOrEmpty(input)) return new char();
+      if (startingIndex < 0) return new char();
+      if (startingIndex >= input.Length) return new char();
+      if (startingIndex + count < 0) return new char();
+      if (startingIndex + count >= input.Length) return new char();
       return input[startingIndex + count];
     }
 
