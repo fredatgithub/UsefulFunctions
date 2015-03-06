@@ -1420,5 +1420,27 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result[0], expected[0]);
       Assert.AreEqual(result[1], expected[1]);
     }
+
+    [TestMethod]
+    public void TestMethod_IndexOfAll_ignore_case_upper_source()
+    {
+      string source = "once upon a time in a galaxy FAR FAR away";
+      int[] expected = new int[2];
+      expected[0] = 29;
+      expected[1] = 33;
+      int[] result = StringFunc.IndexOfAll(source, "far", true);
+      Assert.AreEqual(result[0], expected[0]);
+      Assert.AreEqual(result[1], expected[1]);
+    }
+
+    [TestMethod]
+    public void TestMethod_IndexOfAll_no_matching()
+    {
+      // TODO debug
+      //string source = "once upon a time in a galaxy far far away";
+      //int[] expected = new int[0];
+      //int[] result = StringFunc.IndexOfAll(source, "toto", true);
+      //Assert.AreEqual(result[0], expected[0]);
+    }
   }
 }
