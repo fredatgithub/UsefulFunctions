@@ -638,10 +638,10 @@ namespace FonctionsUtiles.Fred.Csharp
         return string.Empty;
       if (start == 0 && end == input.Length)
         return input; // entire string
-      if (start < 0)           return string.Empty;
-      if (start > input.Length)return string.Empty;
-      if (end < 0)             return string.Empty;
-      if (end > input.Length)  return string.Empty;
+      if (start < 0) return string.Empty;
+      if (start > input.Length) return string.Empty;
+      if (end < 0) return string.Empty;
+      if (end > input.Length) return string.Empty;
 
       return input.Substring(start, end);
     }
@@ -653,7 +653,7 @@ namespace FonctionsUtiles.Fred.Csharp
       if (string.IsNullOrEmpty(input)) return new char();
       if (input.Length - index - 1 >= input.Length) return new char();
       if (input.Length - index - 1 < 0) return new char();
-      
+
       return input[input.Length - index - 1];
     }
 
@@ -748,13 +748,18 @@ namespace FonctionsUtiles.Fred.Csharp
         if (isLastUpper)
         {
           if (char.IsUpper(input[i]))
+          {
             return false; // two upper-cases in a row
+          }
         }
         else
         {
           if (char.IsLower(input[i]))
+          {
             return false; // two lower-cases in a row
+          }
         }
+
         isLastUpper = !isLastUpper; // alternate
       }
 

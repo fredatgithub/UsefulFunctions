@@ -1462,5 +1462,22 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
+    [TestMethod]
+    public void TestMethod_IsAlternateCases_True()
+    {
+      string source = "OnCe";
+      bool expected = true;
+      bool result = StringFunc.IsAlternateCases(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsAlternateCases_True_two_words()
+    {
+      string source = "OnCe uPoN";
+      bool expected = true;
+      bool result = StringFunc.IsAlternateCases(source);
+      Assert.AreEqual(result, expected);
+    }
   }
 }
