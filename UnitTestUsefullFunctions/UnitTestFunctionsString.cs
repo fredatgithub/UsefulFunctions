@@ -1442,5 +1442,25 @@ namespace UnitTestUsefullFunctions
       //int[] result = StringFunc.IndexOfAll(source, "toto", true);
       //Assert.AreEqual(result[0], expected[0]);
     }
+
+    // **********************IsAlternateCases****************
+    [TestMethod]
+    public void TestMethod_IsAlternateCases()
+    {
+      string source = "once upon a time in a galaxy far far away";
+      bool expected = false;
+      bool result = StringFunc.IsAlternateCases(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsAlternateCases_empty_string()
+    {
+      string source = "";
+      bool expected = false;
+      bool result = StringFunc.IsAlternateCases(source);
+      Assert.AreEqual(result, expected);
+    }
+
   }
 }
