@@ -1479,5 +1479,42 @@ namespace UnitTestUsefullFunctions
       bool result = StringFunc.IsAlternateCases(source);
       Assert.AreEqual(result, expected);
     }
+
+    [TestMethod]
+    public void TestMethod_IsAlternateCases_True_four_words()
+    {
+      string source = "OnCe uPoN A TiMe";
+      bool expected = true;
+      bool result = StringFunc.IsAlternateCases(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    // **********************IsCapitalized****************
+    [TestMethod]
+    public void TestMethod_IsCapitalized_true()
+    {
+      string source = "Once upon a time in a galaxy far far away";
+      bool expected = true;
+      bool result = StringFunc.IsCapitalized(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsCapitalized_empty_string()
+    {
+      string source = "";
+      bool expected = false;
+      bool result = StringFunc.IsCapitalized(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsCapitalized_false()
+    {
+      string source = "once upon a time in a galaxy far far away";
+      bool expected = false;
+      bool result = StringFunc.IsCapitalized(source);
+      Assert.AreEqual(result, expected);
+    }
   }
 }
