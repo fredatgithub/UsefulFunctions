@@ -1516,5 +1516,33 @@ namespace UnitTestUsefullFunctions
       bool result = StringFunc.IsCapitalized(source);
       Assert.AreEqual(result, expected);
     }
+
+    // **********************IsLowerCase****************
+    [TestMethod]
+    public void TestMethod_IsLowerCase_true()
+    {
+      string source = "once upon a time in a galaxy far far away";
+      bool expected = true;
+      bool result = StringFunc.IsLowerCase(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsLowerCase_false()
+    {
+      string source = "Once upon a time in a galaxy far far away";
+      bool expected = false;
+      bool result = StringFunc.IsLowerCase(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsLowerCase_empty_string()
+    {
+      string source = "";
+      bool expected = false;
+      bool result = StringFunc.IsLowerCase(source);
+      Assert.AreEqual(result, expected);
+    }
   }
 }
