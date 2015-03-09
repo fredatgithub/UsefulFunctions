@@ -1572,5 +1572,35 @@ namespace UnitTestUsefullFunctions
       bool result = StringFunc.IsLowerCase2(source);
       Assert.AreEqual(result, expected);
     }
+
+    // **********************IsUpperCase****************
+    [TestMethod]
+    public void TestMethod_IsUpperCase_true()
+    {
+      string source = "once upon a time in a galaxy far far away";
+      source = source.ToUpper();
+      bool expected = true;
+      bool result = StringFunc.IsUpperCase(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsUpperCase_false()
+    {
+      string source = "Once upon a time in a galaxy far far away";
+      bool expected = false;
+      bool result = StringFunc.IsUpperCase(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsUpperCase_empty_string()
+    {
+      string source = "";
+      bool expected = false;
+      bool result = StringFunc.IsUpperCase(source);
+      Assert.AreEqual(result, expected);
+    }
+
   }
 }
