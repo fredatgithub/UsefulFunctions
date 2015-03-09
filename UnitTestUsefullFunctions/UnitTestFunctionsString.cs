@@ -1667,5 +1667,33 @@ namespace UnitTestUsefullFunctions
       bool result = StringFunc.HasVowels(source);
       Assert.AreEqual(result, expected);
     }
+
+    // **********************IsSpaces****************
+    [TestMethod]
+    public void TestMethod_IsSpaces_true()
+    {
+      string source = "       ";
+      bool expected = true;
+      bool result = StringFunc.IsSpaces(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsSpaces_empty_string()
+    {
+      string source = "";
+      bool expected = false;
+      bool result = StringFunc.HasVowels(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsSpaces_false()
+    {
+      string source = "qwerty";
+      bool expected = false;
+      bool result = StringFunc.IsSpaces(source);
+      Assert.AreEqual(result, expected);
+    }
   }
 }
