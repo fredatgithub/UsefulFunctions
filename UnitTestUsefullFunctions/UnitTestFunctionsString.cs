@@ -1695,5 +1695,42 @@ namespace UnitTestUsefullFunctions
       bool result = StringFunc.IsSpaces(source);
       Assert.AreEqual(result, expected);
     }
+
+    // **********************IsRepeatedChar****************
+    [TestMethod]
+    public void TestMethod_IsRepeatedChar_true()
+    {
+      string source = "aaaaaaa";
+      bool expected = true;
+      bool result = StringFunc.IsRepeatedChar(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsRepeatedChars_empty_string()
+    {
+      string source = "";
+      bool expected = true;
+      bool result = StringFunc.IsRepeatedChar(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsRepeatedChar_false()
+    {
+      string source = "qwerty";
+      bool expected = false;
+      bool result = StringFunc.IsRepeatedChar(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsRepeatedChar_false_on_a_sentence()
+    {
+      string source = "Once upon a time in a galaxy far far away";
+      bool expected = false;
+      bool result = StringFunc.IsRepeatedChar(source);
+      Assert.AreEqual(result, expected);
+    }
   }
 }
