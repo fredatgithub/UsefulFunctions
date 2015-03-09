@@ -1630,5 +1630,42 @@ namespace UnitTestUsefullFunctions
       bool result = StringFunc.IsUpperCase2(source);
       Assert.AreEqual(result, expected);
     }
+
+    // **********************HasVowels****************
+    [TestMethod]
+    public void TestMethod_HasVowels_true()
+    {
+      string source = "azerty";
+      bool expected = true;
+      bool result = StringFunc.HasVowels(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_HasVowels_empty_string()
+    {
+      string source = "";
+      bool expected = false;
+      bool result = StringFunc.HasVowels(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_HasVowels_only_vowels()
+    {
+      string source = "aeiouy";
+      bool expected = true;
+      bool result = StringFunc.HasVowels(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_HasVowels_false()
+    {
+      string source = "qsdfghjklm";
+      bool expected = false;
+      bool result = StringFunc.HasVowels(source);
+      Assert.AreEqual(result, expected);
+    }
   }
 }
