@@ -1732,5 +1732,34 @@ namespace UnitTestUsefullFunctions
       bool result = StringFunc.IsRepeatedChar(source);
       Assert.AreEqual(result, expected);
     }
+
+    // **********************IsNumeric on a string****************
+    [TestMethod]
+    public void TestMethod_IsNumeric_false()
+    {
+      string source = "azerty";
+      bool expected = false;
+      bool result = StringFunc.IsNumeric(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsNumeric_true()
+    {
+      string source = "123456";
+      bool expected = true;
+      bool result = StringFunc.IsNumeric(source);
+      Assert.AreEqual(result, expected);
+    }
+
+
+    [TestMethod]
+    public void TestMethod_IsNumeric_empty_string()
+    {
+      string source = "";
+      bool expected = false;
+      bool result = StringFunc.IsNumeric(source);
+      Assert.AreEqual(result, expected);
+    }
   }
 }

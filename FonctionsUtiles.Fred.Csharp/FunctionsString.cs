@@ -871,6 +871,11 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static bool IsNumeric(string valueInNumeric)
     {
+      if (valueInNumeric == string.Empty)
+      {
+        return false;
+      }
+
       bool isFine = true;
       foreach (char caracter in valueInNumeric)
       {
