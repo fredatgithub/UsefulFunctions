@@ -1761,5 +1761,34 @@ namespace UnitTestUsefullFunctions
       bool result = StringFunc.IsNumeric(source);
       Assert.AreEqual(result, expected);
     }
+
+    // **********************IsNumeric2 on a string****************
+    [TestMethod]
+    public void TestMethod_IsNumeric2_false()
+    {
+      string source = "azerty";
+      bool expected = false;
+      bool result = StringFunc.IsNumeric2(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsNumeric2_true()
+    {
+      string source = "123456";
+      bool expected = true;
+      bool result = StringFunc.IsNumeric2(source);
+      Assert.AreEqual(result, expected);
+    }
+
+
+    [TestMethod]
+    public void TestMethod_IsNumeric2_empty_string()
+    {
+      string source = "";
+      bool expected = false;
+      bool result = StringFunc.IsNumeric2(source);
+      Assert.AreEqual(result, expected);
+    }
   }
 }
