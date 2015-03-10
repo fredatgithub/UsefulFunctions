@@ -23,6 +23,7 @@ using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
 using MathFunc = FonctionsUtiles.Fred.Csharp.FunctionsMath;
 using System.Collections.Generic;
 using System;
+using System.Globalization;
 
 namespace UnitTestUsefullFunctions
 {
@@ -1788,6 +1789,48 @@ namespace UnitTestUsefullFunctions
       string source = "";
       bool expected = false;
       bool result = StringFunc.IsNumeric2(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    // **********************IsNumeric3 with NumberStyles****************
+    [TestMethod]
+    public void TestMethod_IsNumeric3_false()
+    {
+      string source = "azerty";
+      NumberStyles numberStyle = NumberStyles.Number;
+      bool expected = false;
+      bool result = StringFunc.IsNumeric3(source, numberStyle);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsNumeric3_true()
+    {
+      string source = "123456";
+      NumberStyles numberStyle = NumberStyles.Number;
+      bool expected = true;
+      bool result = StringFunc.IsNumeric3(source, numberStyle);
+      Assert.AreEqual(result, expected);
+    }
+
+
+    [TestMethod]
+    public void TestMethod_IsNumeric3_empty_string()
+    {
+      string source = "";
+      NumberStyles numberStyle = NumberStyles.Number;
+      bool expected = false;
+      bool result = StringFunc.IsNumeric3(source, numberStyle);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsNumeric3_true_Allow_trailing_white()
+    {
+      string source = "123456  ";
+      NumberStyles numberStyle = NumberStyles.AllowTrailingWhite;
+      bool expected = true;
+      bool result = StringFunc.IsNumeric3(source, numberStyle);
       Assert.AreEqual(result, expected);
     }
   }
