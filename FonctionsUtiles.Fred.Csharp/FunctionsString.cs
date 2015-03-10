@@ -915,7 +915,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static bool IsAlphaNumeric(string input)
     {
-      //  Returns whether a string is composed of only letter and number characters.
+      //  Returns whether a string is composed of only letter and digit characters.
       if (string.IsNullOrEmpty(input)) return false;
       for (int i = 0; i < input.Length; i++)
       {

@@ -1833,5 +1833,63 @@ namespace UnitTestUsefullFunctions
       bool result = StringFunc.IsNumeric3(source, numberStyle);
       Assert.AreEqual(result, expected);
     }
+
+    [TestMethod]
+    public void TestMethod_IsNumeric3_true_Allow_leading_white()
+    {
+      string source = "  123456";
+      NumberStyles numberStyle = NumberStyles.AllowLeadingWhite;
+      bool expected = true;
+      bool result = StringFunc.IsNumeric3(source, numberStyle);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsNumeric3_true_Allow_decimal_white()
+    {
+      string source = "1234,56";
+      NumberStyles numberStyle = NumberStyles.AllowDecimalPoint;
+      bool expected = true;
+      bool result = StringFunc.IsNumeric3(source, numberStyle);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsNumeric3_true_integer()
+    {
+      string source = "123456";
+      NumberStyles numberStyle = NumberStyles.Integer;
+      bool expected = true;
+      bool result = StringFunc.IsNumeric3(source, numberStyle);
+      Assert.AreEqual(result, expected);
+    }
+
+    // **********************IsAlphaNumeric****************
+    [TestMethod]
+    public void TestMethod_IsAlphaNumeric_false()
+    {
+      string source = "1+azerty";
+      bool expected = false;
+      bool result = StringFunc.IsAlphaNumeric(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsAlphaNumeric_true()
+    {
+      string source = "1azerty";
+      bool expected = true;
+      bool result = StringFunc.IsAlphaNumeric(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsAlphaNumeric_empty_string()
+    {
+      string source = "";
+      bool expected = false;
+      bool result = StringFunc.IsAlphaNumeric(source);
+      Assert.AreEqual(result, expected);
+    }
   }
 }
