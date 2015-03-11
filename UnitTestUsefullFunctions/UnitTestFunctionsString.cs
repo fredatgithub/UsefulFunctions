@@ -1948,5 +1948,56 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
+    // **********************IsTitle with a separator**************
+    [TestMethod]
+    public void TestMethod_IsTitle_with_separator_false()
+    {
+      string source = "once upon a time";
+      string separator = " ";
+      bool expected = false;
+      bool result = StringFunc.IsTitle(source, separator);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsTitle_with_separator_true()
+    {
+      string source = "Once A Upon A Time";
+      string separator = " ";
+      bool expected = true;
+      bool result = StringFunc.IsTitle(source, separator);
+      Assert.AreEqual(result, expected);
+    }
+    
+    [TestMethod]
+    public void TestMethod_IsTitle_with_one_separator_false()
+    {
+      string source = "once A Upon A Time_in a galaxy far far away";
+      string separator = "_";
+      bool expected = false;
+      bool result = StringFunc.IsTitle(source, separator);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsTitle_with_one_separator_true()
+    {
+      string source = "Once A Upon A Time_In a galaxy far far away";
+      string separator = "_";
+      bool expected = true;
+      bool result = StringFunc.IsTitle(source, separator);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsTitle_with_separator_empty_string()
+    {
+      string source = "";
+      string separator = "_";
+      bool expected = false;
+      bool result = StringFunc.IsTitle(source, separator);
+      Assert.AreEqual(result, expected);
+    }
+
   }
 }

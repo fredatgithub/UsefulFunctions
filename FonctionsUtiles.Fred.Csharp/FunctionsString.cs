@@ -960,10 +960,10 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static bool IsTitle(string input, string separator)
     {
-      // //  Returns whether a string is formatted like a title, ie the first chracter of each word is capitalized. 
-      // //  Words are separated according to the sepecified string sequence.
-      // //  <param name="input">The original string.</param>
-      // //  <param name="separator">The string sequence that separates words.</param>
+      //  Returns whether a string is formatted like a title, ie the first chracter of each word is capitalized. 
+      //  Words are separated according to the sepecified string sequence.
+      //  <param name="input">The original string.</param>
+      //  <param name="separator">The string sequence that separates words.</param>
       if (string.IsNullOrEmpty(input))
       {
         return false;
