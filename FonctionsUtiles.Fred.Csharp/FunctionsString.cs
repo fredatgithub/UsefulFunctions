@@ -965,13 +965,20 @@ namespace FonctionsUtiles.Fred.Csharp
       // //  <param name="input">The original string.</param>
       // //  <param name="separator">The string sequence that separates words.</param>
       if (string.IsNullOrEmpty(input))
+      {
         return false;
+      }
+
       string[] words = input.Split(separator.ToCharArray());
       for (int i = 0; i < words.Length; i++)
       {
         if (words[i].Length > 0)
+        {
           if (!char.IsUpper(words[i][0]))
+          {
             return false;
+          }
+        }
       }
 
       return true;
