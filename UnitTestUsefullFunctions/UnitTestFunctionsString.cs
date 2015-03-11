@@ -1919,5 +1919,34 @@ namespace UnitTestUsefullFunctions
       bool result = StringFunc.IsLetters(source);
       Assert.AreEqual(result, expected);
     }
+
+    // **********************IsTitle**************
+    [TestMethod]
+    public void TestMethod_IsTitle_false()
+    {
+      string source = "once upon a time";
+      bool expected = false;
+      bool result = StringFunc.IsTitle(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsTitle_true()
+    {
+      string source = "Once A Upon A Time";
+      bool expected = true;
+      bool result = StringFunc.IsTitle(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsTitle_empty_string()
+    {
+      string source = "";
+      bool expected = false;
+      bool result = StringFunc.IsTitle(source);
+      Assert.AreEqual(result, expected);
+    }
+
   }
 }
