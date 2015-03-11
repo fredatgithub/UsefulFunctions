@@ -1891,5 +1891,33 @@ namespace UnitTestUsefullFunctions
       bool result = StringFunc.IsAlphaNumeric(source);
       Assert.AreEqual(result, expected);
     }
+
+    // **********************IsLetters****************
+    [TestMethod]
+    public void TestMethod_IsLetters_false()
+    {
+      string source = "123456789";
+      bool expected = false;
+      bool result = StringFunc.IsLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsLetters_true()
+    {
+      string source = "qwertyAndazerty";
+      bool expected = true;
+      bool result = StringFunc.IsLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsLetters_empty_string()
+    {
+      string source = "";
+      bool expected = false;
+      bool result = StringFunc.IsLetters(source);
+      Assert.AreEqual(result, expected);
+    }
   }
 }
