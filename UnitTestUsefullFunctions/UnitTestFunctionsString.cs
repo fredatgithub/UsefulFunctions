@@ -2108,5 +2108,114 @@ namespace UnitTestUsefullFunctions
       bool result = StringFunc.IsEmailAddressValid(source);
       Assert.AreEqual(result, expected);
     }
+
+    [TestMethod]
+    public void TestMethod_IsEmailAddressValid_true_with_five_letter_TLD()
+    {
+      string source = "firstName.lastName@mairie.paris";
+      bool expected = true;
+      bool result = StringFunc.IsEmailAddressValid(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsEmailAddressValid_true_with_seven_letter_TLD()
+    {
+      string source = "firstName.lastName@mywonderful.website";
+      bool expected = true;
+      bool result = StringFunc.IsEmailAddressValid(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsEmailAddressValid_true_with_eight_letter_TLD()
+    {
+      string source = "firstName.lastName@mywonderful.memorial";
+      bool expected = true;
+      bool result = StringFunc.IsEmailAddressValid(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsEmailAddressValid_true_with_nine_letter_TLD()
+    {
+      string source = "firstName.lastName@supersite.solutions";
+      bool expected = true;
+      bool result = StringFunc.IsEmailAddressValid(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsEmailAddressValid_true_with_ten_letter_TLD()
+    {
+      string source = "firstName.lastName@maysupersite.consulting";
+      bool expected = true;
+      bool result = StringFunc.IsEmailAddressValid(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsEmailAddressValid_true_with_two_dots_in_TLD()
+    {
+      string source = "firstName.lastName@mywonderful.co.com";
+      bool expected = true;
+      bool result = StringFunc.IsEmailAddressValid(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsEmailAddressValid_true_with_two_dots_in_tld_co_uk()
+    {
+      string source = "firstName.lastName@site.co.uk";
+      bool expected = true;
+      bool result = StringFunc.IsEmailAddressValid(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsEmailAddressValid_true_with_eleven_letter_TLD()
+    {
+      string source = "firstName.lastName@mysupersite.accountants";
+      bool expected = true;
+      bool result = StringFunc.IsEmailAddressValid(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsEmailAddressValid_true_with_eleven_letter_TLD_blackfriday()
+    {
+      string source = "firstName.lastName@mysupersite.blackfriday";
+      bool expected = true;
+      bool result = StringFunc.IsEmailAddressValid(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsEmailAddressValid_true_with_twelve_letter_TLD_construction()
+    {
+      string source = "firstName.lastName@mysupersite.construction";
+      bool expected = true;
+      bool result = StringFunc.IsEmailAddressValid(source);
+      Assert.AreEqual(result, expected);
+    }
+
+
+    [TestMethod]
+    public void TestMethod_IsEmailAddressValid_true_with_twelve_letter_TLD_contractors()
+    {
+      string source = "firstName.lastName@mysupersite.contractors";
+      bool expected = true;
+      bool result = StringFunc.IsEmailAddressValid(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsEmailAddressValid_true_with_thirteen_letter_TLD_international()
+    {
+      string source = "firstName.lastName@supersite.international";
+      bool expected = true;
+      bool result = StringFunc.IsEmailAddressValid(source);
+      Assert.AreEqual(result, expected);
+    }
   }
 }
