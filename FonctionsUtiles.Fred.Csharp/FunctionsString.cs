@@ -939,13 +939,20 @@ namespace FonctionsUtiles.Fred.Csharp
       // //  Returns whether a string is formatted like a title, ie the first chracter of each word is capitalized. 
       // //  Words must be separated by spaces.
       if (string.IsNullOrEmpty(input))
+      {
         return false;
+      }
+
       string[] words = input.Split(' ');
       for (int i = 0; i < words.Length; i++)
       {
         if (words[i].Length > 0)
+        {
           if (!char.IsUpper(words[i][0]))
+          {
             return false;
+          }
+        }
       }
 
       return true;
