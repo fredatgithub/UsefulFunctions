@@ -1014,44 +1014,44 @@ namespace FonctionsUtiles.Fred.Csharp
       return regex.IsMatch(s);
     }
 
-    public static char[] ChargeAlphabetDansListe(char[] liste)
+    public static char[] LoadAlphabetInList(char[] list)
     {
       int compteur = 0;
       char letter;
       short chiffre;
       for (letter = 'a'; letter <= 'z'; letter++)
       {
-        liste[compteur] = letter;
+        list[compteur] = letter;
         compteur++;
       }
 
       for (chiffre = 0; chiffre < 10; chiffre++)
       {
-        liste[compteur] = (char)chiffre;
+        list[compteur] = (char)chiffre;
         compteur++;
       }
 
-      return liste;
+      return list;
     }
 
-    public static string[] ChargeAlphabetDansListe(string[] liste)
+    public static string[] LoadAlphabetInList(string[] list)
     {
       int compteur = 0;
       char lettre;
       short chiffre;
       for (lettre = 'a'; lettre <= 'z'; lettre++)
       {
-        liste[compteur] = lettre.ToString(CultureInfo.InvariantCulture);
+        list[compteur] = lettre.ToString(CultureInfo.InvariantCulture);
         compteur++;
       }
 
       for (chiffre = 0; chiffre < 10; chiffre++)
       {
-        liste[compteur] = chiffre.ToString(CultureInfo.InvariantCulture);
+        list[compteur] = chiffre.ToString(CultureInfo.InvariantCulture);
         compteur++;
       }
 
-      return liste;
+      return list;
     }
 
     public static string NumberToWordsEnglish(int number)
@@ -1181,15 +1181,15 @@ namespace FonctionsUtiles.Fred.Csharp
       return words;
     }
 
-    public static bool IsInside(int nombre, params int[] tableau)
+    public static bool IsInside(int number, params int[] array)
     {
-      bool trouve = false;
-      foreach (var item in tableau.Where(item => nombre == item))
+      bool found = false;
+      foreach (var item in array.Where(item => number == item))
       {
-        trouve = true;
+        found = true;
       }
 
-      return trouve;
+      return found;
     }
   }
 }
