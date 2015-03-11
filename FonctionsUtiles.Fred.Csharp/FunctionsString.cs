@@ -993,11 +993,12 @@ namespace FonctionsUtiles.Fred.Csharp
       }
 
       //  any email address will be at least 5 characters (a@a.fr)
-      if (input.IndexOf('@') != -1 && input.Length >= 6)
+      if (input.IndexOf('@') != -1 && input.Length >= 8)
       {
         int indexOfDot = input.LastIndexOf('.');
 
         //  last period must be after the @ 
+        //  valid for a firstName.LastName@someFAI.com
         if (indexOfDot > input.IndexOf('@'))
         {
           return true;

@@ -1999,5 +1999,114 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
+    // **********************IsEmailAddress**************
+    [TestMethod]
+    public void TestMethod_IsEmailAddress_false()
+    {
+      string source = "this is certainly not a valid email address";
+      bool expected = false;
+      bool result = StringFunc.IsEmailAddress(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsEmailAddress_true()
+    {
+      string source = "someone@aol.com";
+      bool expected = true;
+      bool result = StringFunc.IsEmailAddress(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsEmailAddress_2_true()
+    {
+      string source = "someone@somefai.com";
+      bool expected = true;
+      bool result = StringFunc.IsEmailAddress(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsEmailAddress_dot_before_arobase_true()
+    {
+      string source = "firstName.LastName@someFAI.com";
+      bool expected = true;
+      bool result = StringFunc.IsEmailAddress(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsEmailAddress_minimum_length_true()
+    {
+      string source = "me@f2.fr";
+      bool expected = true;
+      bool result = StringFunc.IsEmailAddress(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsEmailAddress_empty_string()
+    {
+      string source = "";
+      bool expected = false;
+      bool result = StringFunc.IsEmailAddress(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    // **********************IsEmailAddressValid**************
+    [TestMethod]
+    public void TestMethod_IsEmailAddressValid_true()
+    {
+      string source = "someone@someFAI.com";
+      bool expected = true;
+      bool result = StringFunc.IsEmailAddressValid(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsEmailAddressValid_empty_string()
+    {
+      string source = "";
+      bool expected = false;
+      bool result = StringFunc.IsEmailAddressValid(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsEmailAddressValid_false_because_no_arobase()
+    {
+      string source = "someoneatsomeFAI.com";
+      bool expected = false;
+      bool result = StringFunc.IsEmailAddressValid(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsEmailAddressValid_false_because_no_dot()
+    {
+      string source = "someone@someFAIdotcom";
+      bool expected = false;
+      bool result = StringFunc.IsEmailAddressValid(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsEmailAddressValid_false_because_too_short()
+    {
+      string source = "s@I.c";
+      bool expected = false;
+      bool result = StringFunc.IsEmailAddressValid(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsEmailAddressValid_true_with_dot_before_arobase()
+    {
+      string source = "firstName.lastName@free.fr";
+      bool expected = true;
+      bool result = StringFunc.IsEmailAddressValid(source);
+      Assert.AreEqual(result, expected);
+    }
   }
 }
