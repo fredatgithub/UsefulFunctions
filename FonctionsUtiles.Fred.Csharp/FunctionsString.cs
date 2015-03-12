@@ -791,7 +791,7 @@ namespace FonctionsUtiles.Fred.Csharp
     {
       //  Returns whether a string is in all lower case.
       if (string.IsNullOrEmpty(input)) return false;
-      return input.ToLower() == input ? true : false;
+      return input.ToLower() == input;
     }
 
     public static bool IsUpperCase(string input)
@@ -823,7 +823,7 @@ namespace FonctionsUtiles.Fred.Csharp
         return false;
       }
 
-      return input.ToUpper() == input ? true : false;
+      return input.ToUpper() == input;
     }
 
     public static bool HasVowels(string input)
@@ -1102,8 +1102,6 @@ namespace FonctionsUtiles.Fred.Csharp
           list = AddDigits(list);
           list = AddLowerCaseLetters(list);
           break;
-        default:
-          break;
       }
 
       return list;
@@ -1311,17 +1309,7 @@ namespace FonctionsUtiles.Fred.Csharp
       int counter = 0;
       for (char letter = 'a'; letter <= 'z'; letter++)
       {
-        if (lowerCase)
-        {
-          list[counter] = letter;
-        }
-        else
-        {
-          list[counter] = char.ToUpper(letter);
-        }
-
-        // to convert to one line code
-        // lowerCase == true ? list[compteur] = letter : list[compteur] = char.ToUpper(letter);
+        list[counter] = lowerCase ? letter : char.ToUpper(letter);
         counter++;
       }
 
