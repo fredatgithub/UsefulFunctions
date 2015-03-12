@@ -1017,13 +1017,13 @@ namespace FonctionsUtiles.Fred.Csharp
     public static char[] LoadAlphabetInList(bool addDigit = true, bool addLowerCaseLetters = true, bool addUpperCaseLetters = false)
     {
       char[] list = new char[26 + 26 + 10]; // lower case + upper case letters + 10 digits
-      int compteur = 0;
+      int counter = 0;
       if (addLowerCaseLetters)
       {
         for (char letter = 'a'; letter <= 'z'; letter++)
         {
-          list[compteur] = letter;
-          compteur++;
+          list[counter] = letter;
+          counter++;
         }
       }
 
@@ -1031,17 +1031,17 @@ namespace FonctionsUtiles.Fred.Csharp
       {
         for (char letter = 'A'; letter <= 'Z'; letter++)
         {
-          list[compteur] = letter;
-          compteur++;
+          list[counter] = letter;
+          counter++;
         }
       }
 
       if (addDigit)
       {
-        for (short chiffre = 48; chiffre < 58; chiffre++) // 48 = asc('0')
+        for (short digit = 48; digit < 58; digit++) // 48 = asc('0')
         {
-          list[compteur] = (char)chiffre;
-          compteur++;
+          list[counter] = (char)digit;
+          counter++;
         } 
       }
 
@@ -1050,19 +1050,48 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static string[] LoadAlphabetInList(string[] list)
     {
-      int compteur = 0;
-      char lettre;
-      short chiffre;
-      for (lettre = 'a'; lettre <= 'z'; lettre++)
+      int counter = 0;
+      for (char letter = 'a'; letter <= 'z'; letter++)
       {
-        list[compteur] = lettre.ToString(CultureInfo.InvariantCulture);
-        compteur++;
+        list[counter] = letter.ToString(CultureInfo.InvariantCulture);
+        counter++;
       }
 
-      for (chiffre = 0; chiffre < 10; chiffre++)
+      for (short digit = 0; digit < 10; digit++)
       {
-        list[compteur] = chiffre.ToString(CultureInfo.InvariantCulture);
-        compteur++;
+        list[counter] = digit.ToString(CultureInfo.InvariantCulture);
+        counter++;
+      }
+
+      return list;
+    }
+
+    public static List<string> GetAlphabetToList(bool addDigit = true, bool addLowerCaseLetters = true, bool addUpperCaseLetters = false)
+    {
+      List<string> list = new List<string>();
+
+      if (addLowerCaseLetters)
+      {
+        for (char letter = 'a'; letter <= 'z'; letter++)
+        {
+          list.Add(letter.ToString(CultureInfo.InvariantCulture));
+        } 
+      }
+
+      if (addUpperCaseLetters)
+      {
+        for (char letter = 'A'; letter <= 'Z'; letter++)
+        {
+          list.Add(letter.ToString(CultureInfo.InvariantCulture));
+        }
+      }
+
+      if (addDigit)
+      {
+        for (short digit = 0; digit < 10; digit++)
+        {
+          list.Add(digit.ToString(CultureInfo.InvariantCulture));
+        } 
       }
 
       return list;
