@@ -1308,21 +1308,21 @@ namespace FonctionsUtiles.Fred.Csharp
     public static char[] GetAlphabet(bool lowerCase = true)
     {
       char[] list = new char[26];
-      int compteur = 0;
+      int counter = 0;
       for (char letter = 'a'; letter <= 'z'; letter++)
       {
         if (lowerCase)
         {
-          list[compteur] = letter;
+          list[counter] = letter;
         }
         else
         {
-          list[compteur] = char.ToUpper(letter);
+          list[counter] = char.ToUpper(letter);
         }
 
         // to convert to one line code
         // lowerCase == true ? list[compteur] = letter : list[compteur] = char.ToUpper(letter);
-        compteur++;
+        counter++;
       }
 
       return list;
