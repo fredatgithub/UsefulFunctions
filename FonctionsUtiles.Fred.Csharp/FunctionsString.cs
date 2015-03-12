@@ -1014,21 +1014,36 @@ namespace FonctionsUtiles.Fred.Csharp
       return regex.IsMatch(s);
     }
 
-    public static char[] LoadAlphabetInList(char[] list)
+    public static char[] LoadAlphabetInList(char[] list, bool addDigit = true, bool addLowerCaseLetters = true, bool addUpperCaseLetters = false)
     {
       int compteur = 0;
       char letter;
       short chiffre;
-      for (letter = 'a'; letter <= 'z'; letter++)
+      if (addLowerCaseLetters)
       {
-        list[compteur] = letter;
-        compteur++;
+        for (letter = 'a'; letter <= 'z'; letter++)
+        {
+          list[compteur] = letter;
+          compteur++;
+        }
       }
 
-      for (chiffre = 0; chiffre < 10; chiffre++)
+      if (addUpperCaseLetters)
       {
-        list[compteur] = (char)chiffre;
-        compteur++;
+        for (letter = 'A'; letter <= 'Z'; letter++)
+        {
+          list[compteur] = letter;
+          compteur++;
+        }
+      }
+
+      if (addDigit)
+      {
+        for (chiffre = 48; chiffre < 58; chiffre++) // 48 = asc('0')
+        {
+          list[compteur] = (char)chiffre;
+          compteur++;
+        } 
       }
 
       return list;

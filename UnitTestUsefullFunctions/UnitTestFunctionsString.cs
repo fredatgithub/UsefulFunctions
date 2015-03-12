@@ -61,11 +61,11 @@ namespace UnitTestUsefullFunctions
       bool result = StringFunc.HasDuplicate(source);
       Assert.IsFalse(result);
     }
-    
+
     [TestMethod]
     public void TestMethod_HasDuplicate_yes_on_Empty_list_because_all_items_equal_zero()
     {
-      int[] source = new int[5] ;
+      int[] source = new int[5];
       bool result = StringFunc.HasDuplicate(source);
       Assert.IsTrue(result);
     }
@@ -244,7 +244,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_Factorial_Negative_number()
     {
       long result = MathFunc.Factorial(-3);
-      Assert.IsTrue(result == 0); 
+      Assert.IsTrue(result == 0);
     }
 
     [TestMethod]
@@ -335,84 +335,84 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_RecursiveFactorial_twelve()
     {
-     ulong result = MathFunc.RecursiveFactorial(12);
+      ulong result = MathFunc.RecursiveFactorial(12);
       Assert.IsTrue(result == 479001600);
     }
 
     [TestMethod]
     public void TestMethod_RecursiveFactorial_thirteen()
     {
-     ulong result = MathFunc.RecursiveFactorial(13);
+      ulong result = MathFunc.RecursiveFactorial(13);
       Assert.IsTrue(result == 6227020800);
     }
 
     [TestMethod]
     public void TestMethod_RecursiveFactorial_fourteen()
     {
-     ulong result = MathFunc.RecursiveFactorial(14);
+      ulong result = MathFunc.RecursiveFactorial(14);
       Assert.IsTrue(result == 87178291200);
     }
 
     [TestMethod]
     public void TestMethod_RecursiveFactorial_fifteen()
     {
-     ulong result = MathFunc.RecursiveFactorial(15);
+      ulong result = MathFunc.RecursiveFactorial(15);
       Assert.IsTrue(result == 1307674368000);
     }
 
     [TestMethod]
     public void TestMethod_RecursiveFactorial_sixteen()
     {
-     ulong result = MathFunc.RecursiveFactorial(16);
+      ulong result = MathFunc.RecursiveFactorial(16);
       Assert.IsTrue(result == 20922789888000);
     }
 
     [TestMethod]
     public void TestMethod_RecursiveFactorial_seventeen()
     {
-     ulong result = MathFunc.RecursiveFactorial(17);
+      ulong result = MathFunc.RecursiveFactorial(17);
       Assert.IsTrue(result == 355687428096000);
     }
 
     [TestMethod]
     public void TestMethod_RecursiveFactorial_eighteen()
     {
-     ulong result = MathFunc.RecursiveFactorial(18);
+      ulong result = MathFunc.RecursiveFactorial(18);
       Assert.IsTrue(result == 6402373705728000);
     }
 
     [TestMethod]
     public void TestMethod_RecursiveFactorial_nineteen()
     {
-     ulong result = MathFunc.RecursiveFactorial(19);
+      ulong result = MathFunc.RecursiveFactorial(19);
       Assert.IsTrue(result == 121645100408832000);
     }
 
     [TestMethod]
     public void TestMethod_RecursiveFactorial_twenty()
     {
-     ulong result = MathFunc.RecursiveFactorial(20);
+      ulong result = MathFunc.RecursiveFactorial(20);
       Assert.IsTrue(result == 2432902008176640000);
     }
 
     [TestMethod]
     public void TestMethod_RecursiveFactorial_twentyOne()
     {
-     ulong result = MathFunc.RecursiveFactorial(21);
-      Assert.IsTrue(result == 14197454024290336768); 
+      ulong result = MathFunc.RecursiveFactorial(21);
+      Assert.IsTrue(result == 14197454024290336768);
     }
 
     [TestMethod]
     public void TestMethod_RecursiveFactorial_Negative_number()
     {
-     ulong result = MathFunc.RecursiveFactorial(-3);
+      ulong result = MathFunc.RecursiveFactorial(-3);
       Assert.IsTrue(result == 0);
     }
 
     [TestMethod]
     public void TestMethod_RecursiveFactorial_zero()
     {
-     ulong result = MathFunc.RecursiveFactorial(0);
+      ulong result = MathFunc.RecursiveFactorial(0);
       Assert.IsTrue(result == 0);
     }
 
@@ -633,7 +633,7 @@ namespace UnitTestUsefullFunctions
       string result = StringFunc.RemoveInString("azerty", "azertyuiop ", true);
       Assert.IsTrue(result == "uiop");
     }
-    
+
     [TestMethod]
     public void TestMethod_RemoveInString_with_trim_end_equal_to_false()
     {
@@ -951,7 +951,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_ReverseString2_several_palindromes()
     {
-      List<string> sourceWords = new List<string> { "laval", "lol", "ete", "lieur à rueil"};
+      List<string> sourceWords = new List<string> { "laval", "lol", "ete", "lieur à rueil" };
       foreach (string source in sourceWords)
       {
         string result = StringFunc.ReverseString2(source);
@@ -1968,7 +1968,7 @@ namespace UnitTestUsefullFunctions
       bool result = StringFunc.IsTitle(source, separator);
       Assert.AreEqual(result, expected);
     }
-    
+
     [TestMethod]
     public void TestMethod_IsTitle_with_one_separator_false()
     {
@@ -2216,6 +2216,37 @@ namespace UnitTestUsefullFunctions
       bool expected = true;
       bool result = StringFunc.IsEmailAddressValid(source);
       Assert.AreEqual(result, expected);
+    }
+
+    // **********************LoadAlphabetInList**************
+    [TestMethod]
+    public void TestMethod_LoadAlphabetInList_false_empty_source_array()
+    {
+      char[] source = new char[] {  };
+      char[] expected = new char[] { };
+      char[] result = StringFunc.LoadAlphabetInList(source, false, false, false);
+      Assert.AreEqual(result.Length, expected.Length);
+    }
+
+    [TestMethod]
+    public void TestMethod_LoadAlphabetInList_false_empty_source_array_give_zero_length_array()
+    {
+      char[] source = new char[] { };
+      char[] expected = new char[] { };
+      char[] result = StringFunc.LoadAlphabetInList(source, false, false, false);
+      Assert.IsTrue(result.Length == 0);
+    }
+
+    [TestMethod]
+    public void TestMethod_LoadAlphabetInList_true_only_digits()
+    {
+      char[] source = new char[10];
+      char[] expected = new [] {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+      char[] result = StringFunc.LoadAlphabetInList(source, true, false, false);
+      Assert.AreEqual(result.Length, expected.Length);
+      Assert.AreEqual(result[0], expected[0]);
+      Assert.AreEqual(result[5], expected[5]);
+      Assert.AreEqual(result[9], expected[9]);
     }
   }
 }
