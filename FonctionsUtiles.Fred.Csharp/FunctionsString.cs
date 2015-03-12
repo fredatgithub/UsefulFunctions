@@ -1014,14 +1014,13 @@ namespace FonctionsUtiles.Fred.Csharp
       return regex.IsMatch(s);
     }
 
-    public static char[] LoadAlphabetInList(char[] list, bool addDigit = true, bool addLowerCaseLetters = true, bool addUpperCaseLetters = false)
+    public static char[] LoadAlphabetInList(bool addDigit = true, bool addLowerCaseLetters = true, bool addUpperCaseLetters = false)
     {
+      char[] list = new char[26 + 26 + 10]; // lower case + upper case letters + 10 digits
       int compteur = 0;
-      char letter;
-      short chiffre;
       if (addLowerCaseLetters)
       {
-        for (letter = 'a'; letter <= 'z'; letter++)
+        for (char letter = 'a'; letter <= 'z'; letter++)
         {
           list[compteur] = letter;
           compteur++;
@@ -1030,7 +1029,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       if (addUpperCaseLetters)
       {
-        for (letter = 'A'; letter <= 'Z'; letter++)
+        for (char letter = 'A'; letter <= 'Z'; letter++)
         {
           list[compteur] = letter;
           compteur++;
@@ -1039,7 +1038,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       if (addDigit)
       {
-        for (chiffre = 48; chiffre < 58; chiffre++) // 48 = asc('0')
+        for (short chiffre = 48; chiffre < 58; chiffre++) // 48 = asc('0')
         {
           list[compteur] = (char)chiffre;
           compteur++;
@@ -1205,6 +1204,48 @@ namespace FonctionsUtiles.Fred.Csharp
       }
 
       return found;
+    }
+
+    public static string ToTitleCase(string myString)
+    {
+      return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(myString.ToLower());
+    }
+
+    public static string UpperCaseFirstLetter(string value)
+    {
+      //
+      // Uppercase the first letter in the string this extension is called on.
+      //
+      if (value.Length > 0)
+      {
+        char[] array = value.ToCharArray();
+        array[0] = char.ToUpper(array[0]);
+        return new string(array);
+      }
+      return value;
+    }
+
+    public static char[] GetAlphabet(bool lowerCase = true)
+    {
+      char[] list = new char[26];
+      int compteur = 0;
+      for (char letter = 'a'; letter <= 'z'; letter++)
+      {
+        if (lowerCase)
+        {
+          list[compteur] = letter;
+        }
+        else
+        {
+          list[compteur] = char.ToUpper(letter);
+        }
+
+        // to convert to one line code
+        // lowerCase == true ? list[compteur] = letter : list[compteur] = char.ToUpper(letter);
+        compteur++;
+      }
+
+      return list;
     }
   }
 }

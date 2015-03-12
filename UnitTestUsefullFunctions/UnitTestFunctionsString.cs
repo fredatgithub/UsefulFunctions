@@ -2222,31 +2222,167 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_LoadAlphabetInList_false_empty_source_array()
     {
-      char[] source = new char[] {  };
-      char[] expected = new char[] { };
-      char[] result = StringFunc.LoadAlphabetInList(source, false, false, false);
+      char[] expected = new char[62];
+      char[] result = StringFunc.LoadAlphabetInList(false, false, false);
       Assert.AreEqual(result.Length, expected.Length);
+      Assert.AreEqual(result[0], expected[0]); 
+      Assert.AreEqual(result[5], expected[5]);
+      Assert.AreEqual(result[9], expected[9]);
     }
 
     [TestMethod]
-    public void TestMethod_LoadAlphabetInList_false_empty_source_array_give_zero_length_array()
+    public void TestMethod_LoadAlphabetInList_false_empty_source_array_give_sixty_two_length_array()
     {
-      char[] source = new char[] { };
-      char[] expected = new char[] { };
-      char[] result = StringFunc.LoadAlphabetInList(source, false, false, false);
-      Assert.IsTrue(result.Length == 0);
+      char[] result = StringFunc.LoadAlphabetInList(false, false, false);
+      Assert.IsTrue(result.Length == 26 + 26 + 10);
     }
 
     [TestMethod]
     public void TestMethod_LoadAlphabetInList_true_only_digits()
     {
-      char[] source = new char[10];
       char[] expected = new [] {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-      char[] result = StringFunc.LoadAlphabetInList(source, true, false, false);
-      Assert.AreEqual(result.Length, expected.Length);
-      Assert.AreEqual(result[0], expected[0]);
+      char[] result = StringFunc.LoadAlphabetInList(true, false, false);
+      Assert.AreEqual(result[0], expected[0]); // '0'
+      Assert.AreEqual(result[5], expected[5]); // '5'
+      Assert.AreEqual(result[9], expected[9]); // '9'
+    }
+
+    [TestMethod]
+    public void TestMethod_LoadAlphabetInList_true_only_lower_case_letters()
+    {
+      char[] expected = new char[62];
+      expected = StringFunc.GetAlphabet();
+      char[] result = StringFunc.LoadAlphabetInList(false, true, false);
+      Assert.AreEqual(result[0], expected[0]); // 'a'
       Assert.AreEqual(result[5], expected[5]);
       Assert.AreEqual(result[9], expected[9]);
+      Assert.AreEqual(result[25], expected[25]); // 'z'
+    }
+
+    [TestMethod]
+    public void TestMethod_LoadAlphabetInList_true_only_upper_case_letters()
+    {
+      char[] expected = new char[62];
+      expected = StringFunc.GetAlphabet(false);
+      char[] result = StringFunc.LoadAlphabetInList(false, false, true);
+      Assert.AreEqual(result[0], expected[0]); // 'A'
+      Assert.AreEqual(result[5], expected[5]);
+      Assert.AreEqual(result[9], expected[9]);
+      Assert.AreEqual(result[25], expected[25]); // 'Z'
+    }
+
+    [TestMethod]
+    public void TestMethod_LoadAlphabetInList_true_lower_and_upper_case_letters()
+    {
+      char[] expected = new char[62];
+      char[] lower = StringFunc.GetAlphabet();
+      char[] upper = StringFunc.GetAlphabet(false);
+      int counter = 0;
+      for (int i = 0; i < lower.Length; i++)
+      {
+        expected[counter] = lower[i];
+        counter++;
+      }
+      for (int i = 0; i < upper.Length; i++)
+      {
+        expected[counter] = upper[i];
+        counter++;
+      }
+      char[] result = StringFunc.LoadAlphabetInList(false, true, true);
+      Assert.AreEqual(result[0], expected[0]); // 'a'
+      Assert.AreEqual(result[5], expected[5]);
+      Assert.AreEqual(result[9], expected[9]);
+      Assert.AreEqual(result[25], expected[25]); // 'z'
+      Assert.AreEqual(result[26], expected[26]); // 'A'
+      Assert.AreEqual(result[51], expected[51]); // 'Z'
+    }
+
+    [TestMethod]
+    public void TestMethod_LoadAlphabetInList_true_digit_lower_and_upper_case_letters()
+    {
+      char[] expected = new char[62];
+      char[] lower = StringFunc.GetAlphabet();
+      char[] upper = StringFunc.GetAlphabet(false);
+      int counter = 0;
+      for (int i = 0; i < lower.Length; i++)
+      {
+        expected[counter] = lower[i];
+        counter++;
+      }
+      for (int i = 0; i < upper.Length; i++)
+      {
+        expected[counter] = upper[i];
+        counter++;
+      }
+      for (short chiffre = 48; chiffre < 58; chiffre++) // 48 = asc('0')
+      {
+        expected[counter] = (char)chiffre;
+        counter++;
+      }
+
+      char[] result = StringFunc.LoadAlphabetInList(true, true, true);
+      Assert.AreEqual(result[0], expected[0]); // 'a'
+      Assert.AreEqual(result[5], expected[5]);
+      Assert.AreEqual(result[9], expected[9]);
+      Assert.AreEqual(result[25], expected[25]); // 'z'
+      Assert.AreEqual(result[26], expected[26]); // 'A'
+      Assert.AreEqual(result[51], expected[51]); // 'Z'
+      Assert.AreEqual(result[52], expected[52]); // '0'
+      Assert.AreEqual(result[61], expected[61]); // '9'
+    }
+
+    [TestMethod]
+    public void TestMethod_LoadAlphabetInList_true_lower_case_letters_and_digit()
+    {
+      char[] expected = new char[62];
+      char[] lower = StringFunc.GetAlphabet();
+      int counter = 0;
+      for (int i = 0; i < lower.Length; i++)
+      {
+        expected[counter] = lower[i];
+        counter++;
+      }
+
+      for (short chiffre = 48; chiffre < 58; chiffre++) // 48 = asc('0')
+      {
+        expected[counter] = (char)chiffre;
+        counter++;
+      }
+
+      char[] result = StringFunc.LoadAlphabetInList(true, true, false);
+      Assert.AreEqual(result[0], expected[0]); // 'a'
+      Assert.AreEqual(result[5], expected[5]);
+      Assert.AreEqual(result[9], expected[9]);
+      Assert.AreEqual(result[25], expected[25]); // 'z'
+      Assert.AreEqual(result[26], expected[26]); // '0'
+      Assert.AreEqual(result[35], expected[35]); // '9'
+    }
+
+    [TestMethod]
+    public void TestMethod_LoadAlphabetInList_true_upper_case_letters_and_digit()
+    {
+      char[] expected = new char[62];
+      char[] upper = StringFunc.GetAlphabet(false);
+      int counter = 0;
+      for (int i = 0; i < upper.Length; i++)
+      {
+        expected[counter] = upper[i];
+        counter++;
+      }
+
+      for (short chiffre = 48; chiffre < 58; chiffre++) // 48 = asc('0')
+      {
+        expected[counter] = (char)chiffre;
+        counter++;
+      }
+
+      char[] result = StringFunc.LoadAlphabetInList(true, false, true);
+      Assert.AreEqual(result[0], expected[0]); // 'a'
+      Assert.AreEqual(result[5], expected[5]);
+      Assert.AreEqual(result[9], expected[9]);
+      Assert.AreEqual(result[25], expected[25]); // 'z'
+      Assert.AreEqual(result[26], expected[26]); // '0'
+      Assert.AreEqual(result[35], expected[35]); // '9'
     }
   }
 }
