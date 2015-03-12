@@ -1042,7 +1042,7 @@ namespace FonctionsUtiles.Fred.Csharp
         {
           list[counter] = (char)digit;
           counter++;
-        } 
+        }
       }
 
       return list;
@@ -1066,36 +1066,77 @@ namespace FonctionsUtiles.Fred.Csharp
       return list;
     }
 
-    public static List<string> GetAlphabetToList(bool addLowerCaseLetters = true, bool addUpperCaseLetters = false, 
+    public static List<string> GetAlphabetToList(bool addLowerCaseLetters = true, bool addUpperCaseLetters = false,
       bool addDigit = true, LetterCasingSequence letterSequence = LetterCasingSequence.LowerUpperDigit)
     {
       List<string> list = new List<string>();
-
-      if (addLowerCaseLetters)
+      switch (letterSequence)
       {
-        for (char letter = 'a'; letter <= 'z'; letter++)
-        {
-          list.Add(letter.ToString(CultureInfo.InvariantCulture));
-        } 
-      }
-
-      if (addUpperCaseLetters)
-      {
-        for (char letter = 'A'; letter <= 'Z'; letter++)
-        {
-          list.Add(letter.ToString(CultureInfo.InvariantCulture));
-        }
-      }
-
-      if (addDigit)
-      {
-        for (short digit = 0; digit < 10; digit++)
-        {
-          list.Add(digit.ToString(CultureInfo.InvariantCulture));
-        } 
+        case LetterCasingSequence.LowerUpperDigit:
+          list = AddLowerCaseLetters(list);
+          list = AddUpperCaseLetters(list);
+          list = AddDigits(list);
+          break;
+        case LetterCasingSequence.UpperLowerDigit:
+          list = AddUpperCaseLetters(list);
+          list = AddLowerCaseLetters(list);
+          list = AddDigits(list);
+          break;
+        case LetterCasingSequence.DigitLowerUpper:
+          list = AddDigits(list);
+          list = AddLowerCaseLetters(list);
+          list = AddUpperCaseLetters(list);
+          break;
+        case LetterCasingSequence.DigitUpperLower:
+          list = AddDigits(list);
+          list = AddUpperCaseLetters(list);
+          list = AddLowerCaseLetters(list);
+          break;
+        case LetterCasingSequence.LowerDigitUpper:
+          list = AddLowerCaseLetters(list);
+          list = AddDigits(list);
+          list = AddUpperCaseLetters(list);
+          break;
+        case LetterCasingSequence.UpperDigitLower:
+          list = AddUpperCaseLetters(list);
+          list = AddDigits(list);
+          list = AddLowerCaseLetters(list);
+          break;
+        default:
+          break;
       }
 
       return list;
+    }
+
+    public static List<string> AddDigits(List<string> startingList)
+    {
+      for (short digit = 0; digit < 10; digit++)
+      {
+        startingList.Add(digit.ToString(CultureInfo.InvariantCulture));
+      }
+
+      return startingList;
+    }
+
+    public static List<string> AddLowerCaseLetters(List<string> startingList)
+    {
+      for (char letter = 'a'; letter <= 'z'; letter++)
+      {
+        startingList.Add(letter.ToString(CultureInfo.InvariantCulture));
+      }
+
+      return startingList;
+    }
+
+    public static List<string> AddUpperCaseLetters(List<string> startingList)
+    {
+      for (char letter = 'A'; letter <= 'Z'; letter++)
+      {
+        startingList.Add(letter.ToString(CultureInfo.InvariantCulture));
+      }
+
+      return startingList;
     }
 
     public enum LetterCasingSequence
