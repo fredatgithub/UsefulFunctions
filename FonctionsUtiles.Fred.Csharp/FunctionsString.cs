@@ -1066,7 +1066,8 @@ namespace FonctionsUtiles.Fred.Csharp
       return list;
     }
 
-    public static List<string> GetAlphabetToList(bool addDigit = true, bool addLowerCaseLetters = true, bool addUpperCaseLetters = false)
+    public static List<string> GetAlphabetToList(bool addLowerCaseLetters = true, bool addUpperCaseLetters = false, 
+      bool addDigit = true, LetterCasingSequence letterSequence = LetterCasingSequence.LowerUpperDigit)
     {
       List<string> list = new List<string>();
 
@@ -1097,6 +1098,15 @@ namespace FonctionsUtiles.Fred.Csharp
       return list;
     }
 
+    public enum LetterCasingSequence
+    {
+      LowerUpperDigit,
+      UpperLowerDigit,
+      DigitLowerUpper,
+      DigitUpperLower,
+      LowerDigitUpper,
+      UpperDigitLower
+    }
     public static string NumberToWordsEnglish(int number)
     {
       if (number == 0)
