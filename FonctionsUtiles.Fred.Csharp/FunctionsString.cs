@@ -1010,7 +1010,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static bool IsEmailAddressValid(string s)
     {
-      Regex regex = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,13}$"); // 5 characters since .paris
+      Regex regex = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,13}$"); // 13 characters since .international
       return regex.IsMatch(s);
     }
 
