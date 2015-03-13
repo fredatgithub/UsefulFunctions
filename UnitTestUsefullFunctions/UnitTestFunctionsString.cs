@@ -2389,7 +2389,7 @@ namespace UnitTestUsefullFunctions
 
     // **********************LetterCasingSequence**************
     [TestMethod]
-    public void TestMethod_LetterCasingSequence_true()
+    public void TestMethod_LetterCasingSequence_true_all_enum_exists_no_deleted_item()
     {
       Assert.AreEqual(StringFunc.LetterCasingSequence.DigitLowerUpper, StringFunc.LetterCasingSequence.DigitLowerUpper);
       Assert.AreEqual(StringFunc.LetterCasingSequence.DigitUpperLower, StringFunc.LetterCasingSequence.DigitUpperLower);
@@ -2400,7 +2400,7 @@ namespace UnitTestUsefullFunctions
     }
 
     [TestMethod]
-    public void TestMethod_LetterCasingSequence_false()
+    public void TestMethod_LetterCasingSequence_false_no_equality()
     {
       Assert.AreNotEqual(StringFunc.LetterCasingSequence.DigitLowerUpper, StringFunc.LetterCasingSequence.DigitUpperLower);
       Assert.AreNotEqual(StringFunc.LetterCasingSequence.DigitUpperLower, StringFunc.LetterCasingSequence.LowerDigitUpper);
@@ -2409,5 +2409,30 @@ namespace UnitTestUsefullFunctions
       Assert.AreNotEqual(StringFunc.LetterCasingSequence.UpperDigitLower, StringFunc.LetterCasingSequence.UpperLowerDigit);
       Assert.AreNotEqual(StringFunc.LetterCasingSequence.UpperLowerDigit, StringFunc.LetterCasingSequence.DigitLowerUpper);
     }
+
+    [TestMethod]
+    public void TestMethod_LetterCasingSequence_true_all_enum_exist_by_their_value_number()
+    {
+      Assert.IsTrue(Enum.IsDefined(typeof(StringFunc.LetterCasingSequence), 0));
+      Assert.IsTrue(Enum.IsDefined(typeof(StringFunc.LetterCasingSequence), 1));
+      Assert.IsTrue(Enum.IsDefined(typeof(StringFunc.LetterCasingSequence), 2));
+      Assert.IsTrue(Enum.IsDefined(typeof(StringFunc.LetterCasingSequence), 3));
+      Assert.IsTrue(Enum.IsDefined(typeof(StringFunc.LetterCasingSequence), 4));
+      Assert.IsTrue(Enum.IsDefined(typeof(StringFunc.LetterCasingSequence), 5));
+    }
+
+    [TestMethod]
+    public void TestMethod_LetterCasingSequence_true_all_enum_exists_with_no_change_in_their_value()
+    {
+      Assert.AreEqual((int)StringFunc.LetterCasingSequence.LowerUpperDigit, 0);
+      Assert.AreEqual((int)StringFunc.LetterCasingSequence.UpperLowerDigit, 1);
+      Assert.AreEqual((int) StringFunc.LetterCasingSequence.DigitLowerUpper, 2);
+      Assert.AreEqual((int) StringFunc.LetterCasingSequence.DigitUpperLower, 3);
+      Assert.AreEqual((int) StringFunc.LetterCasingSequence.LowerDigitUpper, 4);
+      Assert.AreEqual((int) StringFunc.LetterCasingSequence.UpperDigitLower, 5);
+    }
+
+    // NumberToWordsEnglish
+
   }
 }
