@@ -1151,7 +1151,7 @@ namespace FonctionsUtiles.Fred.Csharp
       LowerDigitUpper,
       UpperDigitLower
     }
-    public static string NumberToWordsEnglish(int number)
+    public static string NumberToEnglishWords(int number)
     {
       if (number == 0)
       {
@@ -1160,26 +1160,26 @@ namespace FonctionsUtiles.Fred.Csharp
 
       if (number < 0)
       {
-        return "minus " + NumberToWordsEnglish(Math.Abs(number));
+        return "minus " + NumberToEnglishWords(Math.Abs(number));
       }
 
       string words = string.Empty;
 
       if ((number / 1000000) > 0)
       {
-        words += NumberToWordsEnglish(number / 1000000) + " million ";
+        words += NumberToEnglishWords(number / 1000000) + " million ";
         number %= 1000000;
       }
 
       if ((number / 1000) > 0)
       {
-        words += NumberToWordsEnglish(number / 1000) + " thousand ";
+        words += NumberToEnglishWords(number / 1000) + " thousand ";
         number %= 1000;
       }
 
       if ((number / 100) > 0)
       {
-        words += NumberToWordsEnglish(number / 100) + " hundred ";
+        words += NumberToEnglishWords(number / 100) + " hundred ";
         number %= 100;
       }
 
@@ -1213,7 +1213,7 @@ namespace FonctionsUtiles.Fred.Csharp
       return words;
     }
 
-    public static string NumberToWordsFrench(int number)
+    public static string NumberToFrenchWords(int number)
     {
       if (number == 0)
       {
@@ -1222,25 +1222,25 @@ namespace FonctionsUtiles.Fred.Csharp
 
       if (number < 0)
       {
-        return "moins " + NumberToWordsFrench(Math.Abs(number));
+        return "moins " + NumberToFrenchWords(Math.Abs(number));
       }
 
       string words = string.Empty;
       if ((number / 1000000) > 0)
       {
-        words += NumberToWordsFrench(number / 1000000) + " million ";
+        words += NumberToFrenchWords(number / 1000000) + " million ";
         number %= 1000000;
       }
 
       if ((number / 1000) > 0)
       {
-        words += NumberToWordsFrench(number / 1000) + " millier ";
+        words += NumberToFrenchWords(number / 1000) + " millier ";
         number %= 1000;
       }
 
       if ((number / 100) > 0)
       {
-        words += NumberToWordsFrench(number / 100) + " cent ";
+        words += NumberToFrenchWords(number / 100) + " cent ";
         number %= 100;
       }
 
@@ -1278,7 +1278,27 @@ namespace FonctionsUtiles.Fred.Csharp
       return words;
     }
 
-    
+    public static Dictionary<int, string> DicoNumberToWordsFrench(int startNumber, int endNumber)
+    {
+      Dictionary<int, string> result = new Dictionary<int, string>();
+      for (int i = startNumber; i < endNumber; i++)
+      {
+        result.Add(i, NumberToFrenchWords(i));
+      }
+
+      return result;
+    }
+
+    public static Dictionary<int, string> DicoNumberToEnglishWords(int startNumber, int endNumber)
+    {
+      Dictionary<int, string> result = new Dictionary<int, string>();
+      for (int i = startNumber; i < endNumber; i++)
+      {
+        result.Add(i, NumberToEnglishWords(i));
+      }
+
+      return result;
+    }
 
     public static bool IsInside(int number, params int[] array)
     {

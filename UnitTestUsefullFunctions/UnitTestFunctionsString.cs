@@ -2437,7 +2437,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_zero()
     {
       string expected = "zero";
-      string result = StringFunc.NumberToWordsEnglish(0);
+      string result = StringFunc.NumberToEnglishWords(0);
       Assert.AreEqual(result, expected);
     }
 
@@ -2445,7 +2445,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_one()
     {
       string expected = "one";
-      string result = StringFunc.NumberToWordsEnglish(1);
+      string result = StringFunc.NumberToEnglishWords(1);
       Assert.AreEqual(result, expected);
     }
 
@@ -2453,7 +2453,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_minus_one()
     {
       string expected = "minus one";
-      string result = StringFunc.NumberToWordsEnglish(-1);
+      string result = StringFunc.NumberToEnglishWords(-1);
       Assert.AreEqual(result, expected);
     }
 
@@ -2461,7 +2461,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_two()
     {
       string expected = "two";
-      string result = StringFunc.NumberToWordsEnglish(2);
+      string result = StringFunc.NumberToEnglishWords(2);
       Assert.AreEqual(result, expected);
     }
 
@@ -2469,7 +2469,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_minus_two()
     {
       string expected = "minus two";
-      string result = StringFunc.NumberToWordsEnglish(-2);
+      string result = StringFunc.NumberToEnglishWords(-2);
       Assert.AreEqual(result, expected);
     }
 
@@ -2477,7 +2477,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_three()
     {
       string expected = "three";
-      string result = StringFunc.NumberToWordsEnglish(3);
+      string result = StringFunc.NumberToEnglishWords(3);
       Assert.AreEqual(result, expected);
     }
 
@@ -2485,7 +2485,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_minus_three()
     {
       string expected = "minus three";
-      string result = StringFunc.NumberToWordsEnglish(-3);
+      string result = StringFunc.NumberToEnglishWords(-3);
       Assert.AreEqual(result, expected);
     }
 
@@ -2493,7 +2493,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_four()
     {
       string expected = "four";
-      string result = StringFunc.NumberToWordsEnglish(4);
+      string result = StringFunc.NumberToEnglishWords(4);
       Assert.AreEqual(result, expected);
     }
 
@@ -2501,7 +2501,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_minus_four()
     {
       string expected = "minus four";
-      string result = StringFunc.NumberToWordsEnglish(-4);
+      string result = StringFunc.NumberToEnglishWords(-4);
       Assert.AreEqual(result, expected);
     }
 
@@ -2509,7 +2509,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_five()
     {
       string expected = "five";
-      string result = StringFunc.NumberToWordsEnglish(5);
+      string result = StringFunc.NumberToEnglishWords(5);
       Assert.AreEqual(result, expected);
     }
 
@@ -2517,7 +2517,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_minus_five()
     {
       string expected = "minus five";
-      string result = StringFunc.NumberToWordsEnglish(-5);
+      string result = StringFunc.NumberToEnglishWords(-5);
       Assert.AreEqual(result, expected);
     }
 
@@ -2525,7 +2525,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_six()
     {
       string expected = "six";
-      string result = StringFunc.NumberToWordsEnglish(6);
+      string result = StringFunc.NumberToEnglishWords(6);
       Assert.AreEqual(result, expected);
     }
 
@@ -2533,7 +2533,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_minus_six()
     {
       string expected = "minus six";
-      string result = StringFunc.NumberToWordsEnglish(-6);
+      string result = StringFunc.NumberToEnglishWords(-6);
       Assert.AreEqual(result, expected);
     }
 
@@ -2541,7 +2541,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_seven()
     {
       string expected = "seven";
-      string result = StringFunc.NumberToWordsEnglish(7);
+      string result = StringFunc.NumberToEnglishWords(7);
       Assert.AreEqual(result, expected);
     }
 
@@ -2549,7 +2549,143 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_eight()
     {
       string expected = "eight";
-      string result = StringFunc.NumberToWordsEnglish(8);
+      string result = StringFunc.NumberToEnglishWords(8);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_nine()
+    {
+      string expected = "nine";
+      string result = StringFunc.NumberToEnglishWords(9);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_ten()
+    {
+      string expected = "ten";
+      string result = StringFunc.NumberToEnglishWords(10);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_eleven()
+    {
+      string expected = "eleven";
+      string result = StringFunc.NumberToEnglishWords(11);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_twelve()
+    {
+      string expected = "twelve";
+      string result = StringFunc.NumberToEnglishWords(12);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_minus_thirteen()
+    {
+      string expected = "thirteen";
+      string result = StringFunc.NumberToEnglishWords(13);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_fourteen()
+    {
+      string expected = "fourteen";
+      string result = StringFunc.NumberToEnglishWords(14);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_minus_fifteen()
+    {
+      string expected = "fifteen";
+      string result = StringFunc.NumberToEnglishWords(15);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_sixteen()
+    {
+      string expected = "sixteen";
+      string result = StringFunc.NumberToEnglishWords(16);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_seventeen()
+    {
+      string expected = "seventeen";
+      string result = StringFunc.NumberToEnglishWords(17);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_eighteen()
+    {
+      string expected = "eighteen";
+      string result = StringFunc.NumberToEnglishWords(18);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_nineteen()
+    {
+      string expected = "nineteen";
+      string result = StringFunc.NumberToEnglishWords(19);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_twenty()
+    {
+      string expected = "twenty";
+      string result = StringFunc.NumberToEnglishWords(20);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_twenty_one()
+    {
+      string expected = "twenty-one";
+      string result = StringFunc.NumberToEnglishWords(21);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_twenty_five()
+    {
+      string expected = "twenty-five";
+      string result = StringFunc.NumberToEnglishWords(25);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_thirty()
+    {
+      string expected = "thirty";
+      string result = StringFunc.NumberToEnglishWords(30);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_thirty_one()
+    {
+      string expected = "thirty-one";
+      string result = StringFunc.NumberToEnglishWords(31);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_thirty_five()
+    {
+      string expected = "thirty-five";
+      string result = StringFunc.NumberToEnglishWords(35);
       Assert.AreEqual(result, expected);
     }
   }
