@@ -2432,7 +2432,125 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual((int) StringFunc.LetterCasingSequence.UpperDigitLower, 5);
     }
 
-    // NumberToWordsEnglish
+    // **********************NumberToWordsEnglish**************
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_zero()
+    {
+      string expected = "zero";
+      string result = StringFunc.NumberToWordsEnglish(0);
+      Assert.AreEqual(result, expected);
+    }
 
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_one()
+    {
+      string expected = "one";
+      string result = StringFunc.NumberToWordsEnglish(1);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_minus_one()
+    {
+      string expected = "minus one";
+      string result = StringFunc.NumberToWordsEnglish(-1);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_two()
+    {
+      string expected = "two";
+      string result = StringFunc.NumberToWordsEnglish(2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_minus_two()
+    {
+      string expected = "minus two";
+      string result = StringFunc.NumberToWordsEnglish(-2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_three()
+    {
+      string expected = "three";
+      string result = StringFunc.NumberToWordsEnglish(3);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_minus_three()
+    {
+      string expected = "minus three";
+      string result = StringFunc.NumberToWordsEnglish(-3);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_four()
+    {
+      string expected = "four";
+      string result = StringFunc.NumberToWordsEnglish(4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_minus_four()
+    {
+      string expected = "minus four";
+      string result = StringFunc.NumberToWordsEnglish(-4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_five()
+    {
+      string expected = "five";
+      string result = StringFunc.NumberToWordsEnglish(5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_minus_five()
+    {
+      string expected = "minus five";
+      string result = StringFunc.NumberToWordsEnglish(-5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_six()
+    {
+      string expected = "six";
+      string result = StringFunc.NumberToWordsEnglish(6);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_minus_six()
+    {
+      string expected = "minus six";
+      string result = StringFunc.NumberToWordsEnglish(-6);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_seven()
+    {
+      string expected = "seven";
+      string result = StringFunc.NumberToWordsEnglish(7);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_eight()
+    {
+      string expected = "eight";
+      string result = StringFunc.NumberToWordsEnglish(8);
+      Assert.AreEqual(result, expected);
+    }
   }
 }

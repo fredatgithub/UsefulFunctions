@@ -1222,7 +1222,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       if (number < 0)
       {
-        return "minus " + NumberToWordsFrench(Math.Abs(number));
+        return "moins " + NumberToWordsFrench(Math.Abs(number));
       }
 
       string words = string.Empty;
@@ -1277,6 +1277,8 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return words;
     }
+
+    
 
     public static bool IsInside(int number, params int[] array)
     {
