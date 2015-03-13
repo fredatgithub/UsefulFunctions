@@ -1048,8 +1048,13 @@ namespace FonctionsUtiles.Fred.Csharp
       return list;
     }
 
-    public static string[] LoadAlphabetInList(string[] list)
+    public static string[] LoadAlphabetInStringArray(string[] list)
     {
+      if (list.Length == 0)
+      {
+        return new string[0];
+      }
+
       int counter = 0;
       for (char letter = 'a'; letter <= 'z'; letter++)
       {

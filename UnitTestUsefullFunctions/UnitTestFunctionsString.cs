@@ -2384,5 +2384,9 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result[26], expected[26]); // '0'
       Assert.AreEqual(result[35], expected[35]); // '9'
     }
+
+    // LoadAlphabetInStringArray tests to write
+
+
   }
 }
