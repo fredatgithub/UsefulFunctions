@@ -2385,8 +2385,29 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result[35], expected[35]); // '9'
     }
 
-    // LoadAlphabetInStringArray tests to write
+    // LoadAlphabetInStringArray TODO tests to write
 
+    // **********************LetterCasingSequence**************
+    [TestMethod]
+    public void TestMethod_LetterCasingSequence_true()
+    {
+      Assert.AreEqual(StringFunc.LetterCasingSequence.DigitLowerUpper, StringFunc.LetterCasingSequence.DigitLowerUpper);
+      Assert.AreEqual(StringFunc.LetterCasingSequence.DigitUpperLower, StringFunc.LetterCasingSequence.DigitUpperLower);
+      Assert.AreEqual(StringFunc.LetterCasingSequence.LowerDigitUpper, StringFunc.LetterCasingSequence.LowerDigitUpper);
+      Assert.AreEqual(StringFunc.LetterCasingSequence.LowerUpperDigit, StringFunc.LetterCasingSequence.LowerUpperDigit);
+      Assert.AreEqual(StringFunc.LetterCasingSequence.UpperDigitLower, StringFunc.LetterCasingSequence.UpperDigitLower);
+      Assert.AreEqual(StringFunc.LetterCasingSequence.UpperLowerDigit, StringFunc.LetterCasingSequence.UpperLowerDigit);
+    }
 
+    [TestMethod]
+    public void TestMethod_LetterCasingSequence_false()
+    {
+      Assert.AreNotEqual(StringFunc.LetterCasingSequence.DigitLowerUpper, StringFunc.LetterCasingSequence.DigitUpperLower);
+      Assert.AreNotEqual(StringFunc.LetterCasingSequence.DigitUpperLower, StringFunc.LetterCasingSequence.LowerDigitUpper);
+      Assert.AreNotEqual(StringFunc.LetterCasingSequence.LowerDigitUpper, StringFunc.LetterCasingSequence.LowerUpperDigit);
+      Assert.AreNotEqual(StringFunc.LetterCasingSequence.LowerUpperDigit, StringFunc.LetterCasingSequence.UpperDigitLower);
+      Assert.AreNotEqual(StringFunc.LetterCasingSequence.UpperDigitLower, StringFunc.LetterCasingSequence.UpperLowerDigit);
+      Assert.AreNotEqual(StringFunc.LetterCasingSequence.UpperLowerDigit, StringFunc.LetterCasingSequence.DigitLowerUpper);
+    }
   }
 }
