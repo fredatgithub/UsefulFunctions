@@ -2704,5 +2704,13 @@ namespace UnitTestUsefullFunctions
       string result = StringFunc.NumberToEnglishWords(50);
       Assert.AreEqual(result, expected);
     }
+
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_sixty()
+    {
+      string expected = "sixty";
+      string result = StringFunc.NumberToEnglishWords(60);
+      Assert.AreEqual(result, expected);
+    }
   }
 }
