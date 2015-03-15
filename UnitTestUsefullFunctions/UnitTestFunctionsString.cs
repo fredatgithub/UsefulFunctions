@@ -2716,8 +2716,16 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToWordsEnglish_seventy()
     {
-      string expected = "seventy";
+      const string expected = "seventy";
       string result = StringFunc.NumberToEnglishWords(70);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_eighty()
+    {
+      const string expected = "eighty";
+      string result = StringFunc.NumberToEnglishWords(80);
       Assert.AreEqual(result, expected);
     }
   }
