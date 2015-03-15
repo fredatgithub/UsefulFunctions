@@ -1210,7 +1210,7 @@ namespace FonctionsUtiles.Fred.Csharp
         }
       }
 
-      return words;
+      return words.Trim();
     }
 
     public static string NumberToFrenchWords(int number)

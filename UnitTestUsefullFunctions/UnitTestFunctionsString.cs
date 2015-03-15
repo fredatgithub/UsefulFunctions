@@ -2728,5 +2728,61 @@ namespace UnitTestUsefullFunctions
       string result = StringFunc.NumberToEnglishWords(80);
       Assert.AreEqual(result, expected);
     }
+
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_ninety()
+    {
+      const string expected = "ninety";
+      string result = StringFunc.NumberToEnglishWords(90);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_one_hundred()
+    {
+      const string expected = "one hundred";
+      string result = StringFunc.NumberToEnglishWords(100);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_five_hundred()
+    {
+      const string expected = "five hundred";
+      string result = StringFunc.NumberToEnglishWords(500);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_seven_hundred_fifty()
+    {
+      const string expected = "seven hundred and fifty";
+      string result = StringFunc.NumberToEnglishWords(750);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_seven_hundred_and_fourty_seven()
+    {
+      const string expected = "seven hundred and forty-seven";
+      string result = StringFunc.NumberToEnglishWords(747);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_nine_hundred_and_nine()
+    {
+      const string expected = "nine hundred and nine";
+      string result = StringFunc.NumberToEnglishWords(909);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_one_thousand()
+    {
+      const string expected = "one thousand";
+      string result = StringFunc.NumberToEnglishWords(1000);
+      Assert.AreEqual(result, expected);
+    }
   }
 }
