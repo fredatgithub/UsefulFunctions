@@ -2794,6 +2794,30 @@ namespace UnitTestUsefullFunctions
     }
 
     [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_one_thousand_seven_hundred_and_eighty_nine()
+    {
+      const string expected = "one thousand seven hundred and eighty-nine";
+      string result = StringFunc.NumberToEnglishWords(1789);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_two_thousand_and_fifteen()
+    {
+      const string expected = "two thousand and fifteen";
+      string result = StringFunc.NumberToEnglishWords(2015);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_nine_thousand_nine_hundred_and_ninety_nine()
+    {
+      const string expected = "nine thousand nine hundred and ninety-nine";
+      string result = StringFunc.NumberToEnglishWords(9999);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
     public void TestMethod_NumberToWordsEnglish_int_maxvalue()
     {
       const string expected = "two thousand one hundred and forty-seven million four hundred and eighty-three thousand six hundred and forty-seven";
