@@ -1164,6 +1164,11 @@ namespace FonctionsUtiles.Fred.Csharp
       }
 
       string words = string.Empty;
+      if ((number / 1000000000) > 0)
+      {
+        words += NumberToEnglishWords(number / 1000000000) + " billion ";
+        number %= 1000000000;
+      }
 
       if ((number / 1000000) > 0)
       {
