@@ -2866,9 +2866,18 @@ namespace UnitTestUsefullFunctions
     }
 
     [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_two_billion()
+    {
+      const string expected = "two billion";
+      string result = StringFunc.NumberToEnglishWords(2000000000);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
     public void TestMethod_NumberToWordsEnglish_int_maxvalue()
     {
       const string expected = "two billion one hundred and forty-seven million four hundred and eighty-three thousand six hundred and forty-seven";
+      // The value of int.MaxValue constant is 2,147,483,647
       string result = StringFunc.NumberToEnglishWords(int.MaxValue);
       Assert.AreEqual(result, expected);
     }

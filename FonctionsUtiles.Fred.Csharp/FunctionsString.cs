@@ -1164,6 +1164,7 @@ namespace FonctionsUtiles.Fred.Csharp
       }
 
       string words = string.Empty;
+
       if ((number / 1000000000) > 0)
       {
         words += NumberToEnglishWords(number / 1000000000) + " billion ";
@@ -1231,6 +1232,13 @@ namespace FonctionsUtiles.Fred.Csharp
       }
 
       string words = string.Empty;
+
+      if ((number / 1000000000) > 0)
+      {
+        words += NumberToEnglishWords(number / 1000000000) + " milliard ";
+        number %= 1000000000;
+      }
+
       if ((number / 1000000) > 0)
       {
         words += NumberToFrenchWords(number / 1000000) + " million ";
