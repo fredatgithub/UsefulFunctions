@@ -2910,7 +2910,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_long_maxvalue()
     {
       const string expected = "nine million two hundred and twenty-three thousand three hundred and seventy-two trillion thirty-six billion eight hundred and fifty-four million seven hundred and seventy-five thousand eight hundred and seven";
-      // The value of long.MaxValue constant is 2,147,483,647
+      // The value of long.MaxValue constant is 9,223,372,036,854,775,807
       string result = StringFunc.NumberToEnglishWords(long.MaxValue);
       Assert.AreEqual(result, expected);
     }
