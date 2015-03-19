@@ -2874,6 +2874,15 @@ namespace UnitTestUsefullFunctions
     }
 
     [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_int_maxvalue()
+    {
+      const string expected = "two billion one hundred and forty-seven million four hundred and eighty-three thousand six hundred and forty-seven";
+      // The value of int.MaxValue constant is 2,147,483,647
+      string result = StringFunc.NumberToEnglishWords(int.MaxValue);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
     public void TestMethod_NumberToWordsEnglish_three_billion()
     {
       const string expected = "three billion";
@@ -2890,11 +2899,19 @@ namespace UnitTestUsefullFunctions
     }
 
     [TestMethod]
-    public void TestMethod_NumberToWordsEnglish_int_maxvalue()
+    public void TestMethod_NumberToWordsEnglish_nine_hundred_trillion()
     {
-      const string expected = "two billion one hundred and forty-seven million four hundred and eighty-three thousand six hundred and forty-seven";
-      // The value of int.MaxValue constant is 2,147,483,647
-      string result = StringFunc.NumberToEnglishWords(int.MaxValue);
+      const string expected = "nine hundred trillion";
+      string result = StringFunc.NumberToEnglishWords(900000000000000);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_long_maxvalue()
+    {
+      const string expected = "nine million two hundred and twenty-three thousand three hundred and seventy-two trillion thirty-six billion eight hundred and fifty-four million seven hundred and seventy-five thousand eight hundred and seven";
+      // The value of long.MaxValue constant is 2,147,483,647
+      string result = StringFunc.NumberToEnglishWords(long.MaxValue);
       Assert.AreEqual(result, expected);
     }
 
