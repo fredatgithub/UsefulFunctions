@@ -2915,5 +2915,23 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_ulong_maxvalue()
+    {
+      const string expected = "eighteen quintillion four hundred and forty-six quadrillion seven hundred and forty-four trillion seventy-three billion seven hundred and nine million five hundred and fifty-one thousand six hundred and fifteen";
+      // The value of ulong.MaxValue constant is 18,446,744,073,709,551,615
+      string result = StringFunc.NumberToEnglishWords(ulong.MaxValue);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_eighteen_quintillion()
+    {
+      const string expected = "eighteen quintillion";
+      // The value of ulong.MaxValue constant is 18,446,744,073,709,551,615
+      string result = StringFunc.NumberToEnglishWords(18000000000000000000);
+      Assert.AreEqual(result, expected);
+    }
+
   }
 }
