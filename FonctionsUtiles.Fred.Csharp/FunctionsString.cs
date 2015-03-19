@@ -1233,6 +1233,18 @@ namespace FonctionsUtiles.Fred.Csharp
 
       string words = string.Empty;
 
+      if ((number / 1000000000000000000) > 0)
+      {
+        words += NumberToEnglishWords(number / 1000000000000000000) + " quintillion ";
+        number %= 1000000000000000000;
+      }
+
+      if ((number / 1000000000000000) > 0)
+      {
+        words += NumberToEnglishWords(number / 1000000000000000) + " quadrillion ";
+        number %= 1000000000000000;
+      }
+
       if ((number / 1000000000000) > 0)
       {
         words += NumberToEnglishWords(number / 1000000000000) + " trillion ";
@@ -1301,6 +1313,18 @@ namespace FonctionsUtiles.Fred.Csharp
       }
 
       string words = string.Empty;
+
+      if ((number / 1000000000000000000) > 0)
+      {
+        words += NumberToEnglishWords(number / 1000000000000000000) + " quintillion ";
+        number %= 1000000000000000000;
+      }
+
+      if ((number / 1000000000000000) > 0)
+      {
+        words += NumberToEnglishWords(number / 1000000000000000) + " quadrillion ";
+        number %= 1000000000000000;
+      }
 
       if ((number / 1000000000000) > 0)
       {
