@@ -2939,7 +2939,14 @@ namespace UnitTestUsefullFunctions
       // The value of ulong.MaxValue constant is 18,446,744,073,709,551,615
       string result = StringFunc.NumberToEnglishWords(18000000000000000000);
       Assert.AreEqual(result, expected);
-      
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberToWordsEnglish_eighteen_quintillion_and_twenty_two()
+    {
+      const string expected = "eighteen quintillion and twenty-two";
+      string result = StringFunc.NumberToEnglishWords(18000000000000000022);
+      Assert.AreEqual(result, expected);
     }
 
   }
