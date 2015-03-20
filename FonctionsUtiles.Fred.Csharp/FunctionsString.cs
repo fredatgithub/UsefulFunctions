@@ -1456,7 +1456,7 @@ namespace FonctionsUtiles.Fred.Csharp
         }
       }
 
-      return words;
+      return words.Trim();
     }
 
     public static string NumberToFrenchWords(long number)
@@ -1546,7 +1546,7 @@ namespace FonctionsUtiles.Fred.Csharp
         }
       }
 
-      return words;
+      return words.Trim();
     }
 
     public static string NumberToFrenchWords(ulong number)
@@ -1631,7 +1631,7 @@ namespace FonctionsUtiles.Fred.Csharp
         }
       }
 
-      return words;
+      return words.Trim();
     }
 
     public static Dictionary<int, string> DicoNumberToWordsFrench(int startNumber, int endNumber)
