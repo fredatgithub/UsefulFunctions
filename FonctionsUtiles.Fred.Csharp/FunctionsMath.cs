@@ -17,6 +17,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
+using System.Security.Cryptography;
+
 namespace FonctionsUtiles.Fred.Csharp
 {
   public class FunctionsMath
@@ -95,6 +97,24 @@ namespace FonctionsUtiles.Fred.Csharp
       }
 
       return startNumber + SommielleRecursive(startNumber + 1, endNumber);
+    }
+
+    public static int GenerateRandomNumberUsingCrypto(int min, int max)
+    {
+      if (max >= 255)
+      {
+        return 0;
+      }
+      int result;
+      var crypto = new RNGCryptoServiceProvider();
+      byte[] randomNumber = new byte[1];
+      do
+      {
+        crypto.GetBytes(randomNumber);
+        result = randomNumber[0];
+      } while (result <= min || result >= max);
+
+      return result;
     }
   }
 }

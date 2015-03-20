@@ -1,9 +1,27 @@
-﻿using System;
+﻿/*
+The MIT License(MIT)
+Copyright(c) 2015 Freddy Juhel
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+using System;
 using System.Diagnostics;
 using System.Reflection;
 using System.Windows.Forms;
 using CodeGenerationWinForm.Properties;
-using System.Security.Cryptography;
 
 namespace CodeGenerationWinForm
 {
@@ -36,6 +54,17 @@ namespace CodeGenerationWinForm
     {
       DisplayTitle();
       GetWindowValue();
+      FillComboBoxLanguage(comboBoxLanguage);
+      FillComboBoxLanguage(comboBoxRndMethodLanguage);
+    }
+
+    private void FillComboBoxLanguage(ComboBox cb)
+    {
+      cb.Items.Clear();
+      cb.Items.Add("French");
+      cb.Items.Add("English");
+      cb.Items.Add("Both French and English");
+      cb.SelectedIndex = 2;
     }
 
     private void GetWindowValue()
@@ -101,29 +130,85 @@ namespace CodeGenerationWinForm
     private void buttonGenerateCode_Click(object sender, EventArgs e)
     {
       var method1 = new UnitTestCodeGenerated(
-        "two_million", 
+        "two_million",
         "const string expected = \"two million\";",
         "string result = StringFunc.NumberToEnglishWords(2000000);",
         "Assert.AreEqual(expected, result);");
       textBoxCodeGeneratedResult.Text += method1.ToString();
     }
 
-    private static int GenerateRandomNumberUsingCrypto(int min, int max)
+    private void buttonGenerateSeveralMethods_Click(object sender, EventArgs e)
     {
-      if (max >= 255)
+      // sample generated method
+      /*
+      [TestMethod]
+    public void TestMethod_NumberToEnglishWords_two_million()
+    {
+      const string expected = "two million";
+      string result = StringFunc.NumberToEnglishWords(2000000);
+      Assert.AreEqual(expected, result);
+    }
+    */
+      /*
+      var method1 = new UnitTestCodeGenerated(
+          "two_million",
+          "  const string expected = \"two million\";",
+          "  string result = StringFunc.NumberToEnglishWords(2000000);",
+          "  Assert.AreEqual(expected, result);");
+        textBoxCodeGeneratedResult.Text += method1.ToString();
+        */
+      if (textBoxFromNumber.Text == string.Empty)
       {
-        return 0;
-      }
-      int result;
-      RNGCryptoServiceProvider crypto = new RNGCryptoServiceProvider();
-      byte[] randomNumber = new byte[1];
-      do
-      {
-        crypto.GetBytes(randomNumber);
-        result = randomNumber[0];
-      } while (result <= min || result >= max);
 
-      return result;
+      }
+
+    }
+
+    private void buttonGenerateRdnMethod_Click(object sender, EventArgs e)
+    {
+      // sample generated method
+      /*
+      [TestMethod]
+    public void TestMethod_NumberToEnglishWords_two_million()
+    {
+      const string expected = "two million";
+      string result = StringFunc.NumberToEnglishWords(2000000);
+      Assert.AreEqual(expected, result);
+    }
+    */
+      /*
+      var method1 = new UnitTestCodeGenerated(
+          "two_million",
+          "  const string expected = \"two million\";",
+          "  string result = StringFunc.NumberToEnglishWords(2000000);",
+          "  Assert.AreEqual(expected, result);");
+        textBoxCodeGeneratedResult.Text += method1.ToString();
+        */
+      if (textBoxNumberOfRndMethod.Text == string.Empty)
+      {
+        DialogResult dr = DisplayMessage("The number of method requested cannot be empty", "Empty field", MessageBoxButtons.OK);
+        return;
+      }
+
+      int numberOfMethodToBeGenerated = 0;
+      if (!int.TryParse(textBoxNumberOfRndMethod.Text, out numberOfMethodToBeGenerated))
+      {
+        DialogResult dr = DisplayMessage("This is not a number", "Not a number", MessageBoxButtons.OK);
+        textBoxNumberOfRndMethod.Text = string.Empty;
+        return;
+      }
+
+      textBoxRandomMethodResult.Text = string.Empty;
+      for (int i = 1; i < numberOfMethodToBeGenerated; i++)
+      {
+        var method1 = new UnitTestCodeGenerated(
+          "two_million",
+          "  const string expected = \"two million\";",
+          "  string result = StringFunc.NumberToEnglishWords(2000000);",
+          "  Assert.AreEqual(expected, result);");
+        textBoxCodeGeneratedResult.Text += method1.ToString();
+      }
+
     }
   }
 }

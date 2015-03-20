@@ -63,7 +63,27 @@
       this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.textBoxCodeGeneratedResult = new System.Windows.Forms.TextBox();
       this.buttonGenerateCode = new System.Windows.Forms.Button();
+      this.tabControlMain = new System.Windows.Forms.TabControl();
+      this.tabPageOneMethod = new System.Windows.Forms.TabPage();
+      this.tabPageSeveralMethods = new System.Windows.Forms.TabPage();
+      this.buttonGenerateSeveralMethods = new System.Windows.Forms.Button();
+      this.textBoxToNumber = new System.Windows.Forms.TextBox();
+      this.textBoxFromNumber = new System.Windows.Forms.TextBox();
+      this.labelTo = new System.Windows.Forms.Label();
+      this.labelFrom = new System.Windows.Forms.Label();
+      this.textBoxRangeMethods = new System.Windows.Forms.TextBox();
+      this.comboBoxLanguage = new System.Windows.Forms.ComboBox();
+      this.tabPageRandomMethods = new System.Windows.Forms.TabPage();
+      this.buttonGenerateRdnMethod = new System.Windows.Forms.Button();
+      this.textBoxNumberOfRndMethod = new System.Windows.Forms.TextBox();
+      this.labelNumberOfRndMethod = new System.Windows.Forms.Label();
+      this.comboBoxRndMethodLanguage = new System.Windows.Forms.ComboBox();
+      this.textBoxRandomMethodResult = new System.Windows.Forms.TextBox();
       this.menuStrip1.SuspendLayout();
+      this.tabControlMain.SuspendLayout();
+      this.tabPageOneMethod.SuspendLayout();
+      this.tabPageSeveralMethods.SuspendLayout();
+      this.tabPageRandomMethods.SuspendLayout();
       this.SuspendLayout();
       // 
       // menuStrip1
@@ -323,29 +343,192 @@
       // 
       // textBoxCodeGeneratedResult
       // 
-      this.textBoxCodeGeneratedResult.Location = new System.Drawing.Point(36, 97);
+      this.textBoxCodeGeneratedResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.textBoxCodeGeneratedResult.Location = new System.Drawing.Point(27, 86);
       this.textBoxCodeGeneratedResult.Multiline = true;
       this.textBoxCodeGeneratedResult.Name = "textBoxCodeGeneratedResult";
-      this.textBoxCodeGeneratedResult.Size = new System.Drawing.Size(717, 390);
+      this.textBoxCodeGeneratedResult.Size = new System.Drawing.Size(770, 383);
       this.textBoxCodeGeneratedResult.TabIndex = 2;
       // 
       // buttonGenerateCode
       // 
-      this.buttonGenerateCode.Location = new System.Drawing.Point(36, 49);
+      this.buttonGenerateCode.Location = new System.Drawing.Point(27, 29);
       this.buttonGenerateCode.Name = "buttonGenerateCode";
-      this.buttonGenerateCode.Size = new System.Drawing.Size(123, 30);
+      this.buttonGenerateCode.Size = new System.Drawing.Size(227, 30);
       this.buttonGenerateCode.TabIndex = 3;
-      this.buttonGenerateCode.Text = "Generate code";
+      this.buttonGenerateCode.Text = "Generate code for one method";
       this.buttonGenerateCode.UseVisualStyleBackColor = true;
       this.buttonGenerateCode.Click += new System.EventHandler(this.buttonGenerateCode_Click);
+      // 
+      // tabControlMain
+      // 
+      this.tabControlMain.Controls.Add(this.tabPageOneMethod);
+      this.tabControlMain.Controls.Add(this.tabPageSeveralMethods);
+      this.tabControlMain.Controls.Add(this.tabPageRandomMethods);
+      this.tabControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.tabControlMain.Location = new System.Drawing.Point(0, 28);
+      this.tabControlMain.Name = "tabControlMain";
+      this.tabControlMain.SelectedIndex = 0;
+      this.tabControlMain.Size = new System.Drawing.Size(811, 506);
+      this.tabControlMain.TabIndex = 4;
+      // 
+      // tabPageOneMethod
+      // 
+      this.tabPageOneMethod.Controls.Add(this.textBoxCodeGeneratedResult);
+      this.tabPageOneMethod.Controls.Add(this.buttonGenerateCode);
+      this.tabPageOneMethod.Location = new System.Drawing.Point(4, 25);
+      this.tabPageOneMethod.Name = "tabPageOneMethod";
+      this.tabPageOneMethod.Padding = new System.Windows.Forms.Padding(3);
+      this.tabPageOneMethod.Size = new System.Drawing.Size(803, 477);
+      this.tabPageOneMethod.TabIndex = 0;
+      this.tabPageOneMethod.Text = "One Method";
+      this.tabPageOneMethod.UseVisualStyleBackColor = true;
+      // 
+      // tabPageSeveralMethods
+      // 
+      this.tabPageSeveralMethods.Controls.Add(this.buttonGenerateSeveralMethods);
+      this.tabPageSeveralMethods.Controls.Add(this.textBoxToNumber);
+      this.tabPageSeveralMethods.Controls.Add(this.textBoxFromNumber);
+      this.tabPageSeveralMethods.Controls.Add(this.labelTo);
+      this.tabPageSeveralMethods.Controls.Add(this.labelFrom);
+      this.tabPageSeveralMethods.Controls.Add(this.textBoxRangeMethods);
+      this.tabPageSeveralMethods.Controls.Add(this.comboBoxLanguage);
+      this.tabPageSeveralMethods.Location = new System.Drawing.Point(4, 25);
+      this.tabPageSeveralMethods.Name = "tabPageSeveralMethods";
+      this.tabPageSeveralMethods.Padding = new System.Windows.Forms.Padding(3);
+      this.tabPageSeveralMethods.Size = new System.Drawing.Size(803, 477);
+      this.tabPageSeveralMethods.TabIndex = 1;
+      this.tabPageSeveralMethods.Text = "Several Methods by range";
+      this.tabPageSeveralMethods.UseVisualStyleBackColor = true;
+      // 
+      // buttonGenerateSeveralMethods
+      // 
+      this.buttonGenerateSeveralMethods.Location = new System.Drawing.Point(672, 49);
+      this.buttonGenerateSeveralMethods.Name = "buttonGenerateSeveralMethods";
+      this.buttonGenerateSeveralMethods.Size = new System.Drawing.Size(88, 24);
+      this.buttonGenerateSeveralMethods.TabIndex = 6;
+      this.buttonGenerateSeveralMethods.Text = "Generate";
+      this.buttonGenerateSeveralMethods.UseVisualStyleBackColor = true;
+      this.buttonGenerateSeveralMethods.Click += new System.EventHandler(this.buttonGenerateSeveralMethods_Click);
+      // 
+      // textBoxToNumber
+      // 
+      this.textBoxToNumber.Location = new System.Drawing.Point(495, 50);
+      this.textBoxToNumber.Name = "textBoxToNumber";
+      this.textBoxToNumber.Size = new System.Drawing.Size(169, 22);
+      this.textBoxToNumber.TabIndex = 5;
+      this.textBoxToNumber.Text = "25";
+      // 
+      // textBoxFromNumber
+      // 
+      this.textBoxFromNumber.Location = new System.Drawing.Point(285, 50);
+      this.textBoxFromNumber.Name = "textBoxFromNumber";
+      this.textBoxFromNumber.Size = new System.Drawing.Size(169, 22);
+      this.textBoxFromNumber.TabIndex = 4;
+      this.textBoxFromNumber.Text = "21";
+      // 
+      // labelTo
+      // 
+      this.labelTo.AutoSize = true;
+      this.labelTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.labelTo.Location = new System.Drawing.Point(459, 53);
+      this.labelTo.Name = "labelTo";
+      this.labelTo.Size = new System.Drawing.Size(37, 17);
+      this.labelTo.TabIndex = 3;
+      this.labelTo.Text = "To: ";
+      // 
+      // labelFrom
+      // 
+      this.labelFrom.AutoSize = true;
+      this.labelFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.labelFrom.Location = new System.Drawing.Point(233, 53);
+      this.labelFrom.Name = "labelFrom";
+      this.labelFrom.Size = new System.Drawing.Size(54, 17);
+      this.labelFrom.TabIndex = 2;
+      this.labelFrom.Text = "From: ";
+      // 
+      // textBoxRangeMethods
+      // 
+      this.textBoxRangeMethods.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.textBoxRangeMethods.Location = new System.Drawing.Point(30, 99);
+      this.textBoxRangeMethods.Multiline = true;
+      this.textBoxRangeMethods.Name = "textBoxRangeMethods";
+      this.textBoxRangeMethods.Size = new System.Drawing.Size(730, 345);
+      this.textBoxRangeMethods.TabIndex = 1;
+      // 
+      // comboBoxLanguage
+      // 
+      this.comboBoxLanguage.FormattingEnabled = true;
+      this.comboBoxLanguage.Location = new System.Drawing.Point(30, 49);
+      this.comboBoxLanguage.Name = "comboBoxLanguage";
+      this.comboBoxLanguage.Size = new System.Drawing.Size(198, 24);
+      this.comboBoxLanguage.TabIndex = 0;
+      // 
+      // tabPageRandomMethods
+      // 
+      this.tabPageRandomMethods.Controls.Add(this.buttonGenerateRdnMethod);
+      this.tabPageRandomMethods.Controls.Add(this.textBoxNumberOfRndMethod);
+      this.tabPageRandomMethods.Controls.Add(this.labelNumberOfRndMethod);
+      this.tabPageRandomMethods.Controls.Add(this.comboBoxRndMethodLanguage);
+      this.tabPageRandomMethods.Controls.Add(this.textBoxRandomMethodResult);
+      this.tabPageRandomMethods.Location = new System.Drawing.Point(4, 25);
+      this.tabPageRandomMethods.Name = "tabPageRandomMethods";
+      this.tabPageRandomMethods.Size = new System.Drawing.Size(803, 477);
+      this.tabPageRandomMethods.TabIndex = 2;
+      this.tabPageRandomMethods.Text = "Random Methods";
+      this.tabPageRandomMethods.UseVisualStyleBackColor = true;
+      // 
+      // buttonGenerateRdnMethod
+      // 
+      this.buttonGenerateRdnMethod.Location = new System.Drawing.Point(660, 38);
+      this.buttonGenerateRdnMethod.Name = "buttonGenerateRdnMethod";
+      this.buttonGenerateRdnMethod.Size = new System.Drawing.Size(88, 24);
+      this.buttonGenerateRdnMethod.TabIndex = 7;
+      this.buttonGenerateRdnMethod.Text = "Generate";
+      this.buttonGenerateRdnMethod.UseVisualStyleBackColor = true;
+      this.buttonGenerateRdnMethod.Click += new System.EventHandler(this.buttonGenerateRdnMethod_Click);
+      // 
+      // textBoxNumberOfRndMethod
+      // 
+      this.textBoxNumberOfRndMethod.Location = new System.Drawing.Point(516, 39);
+      this.textBoxNumberOfRndMethod.Name = "textBoxNumberOfRndMethod";
+      this.textBoxNumberOfRndMethod.Size = new System.Drawing.Size(138, 22);
+      this.textBoxNumberOfRndMethod.TabIndex = 5;
+      this.textBoxNumberOfRndMethod.Text = "21";
+      // 
+      // labelNumberOfRndMethod
+      // 
+      this.labelNumberOfRndMethod.AutoSize = true;
+      this.labelNumberOfRndMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.labelNumberOfRndMethod.Location = new System.Drawing.Point(233, 42);
+      this.labelNumberOfRndMethod.Name = "labelNumberOfRndMethod";
+      this.labelNumberOfRndMethod.Size = new System.Drawing.Size(289, 17);
+      this.labelNumberOfRndMethod.TabIndex = 4;
+      this.labelNumberOfRndMethod.Text = "Number of generated random method: ";
+      // 
+      // comboBoxRndMethodLanguage
+      // 
+      this.comboBoxRndMethodLanguage.FormattingEnabled = true;
+      this.comboBoxRndMethodLanguage.Location = new System.Drawing.Point(18, 38);
+      this.comboBoxRndMethodLanguage.Name = "comboBoxRndMethodLanguage";
+      this.comboBoxRndMethodLanguage.Size = new System.Drawing.Size(198, 24);
+      this.comboBoxRndMethodLanguage.TabIndex = 3;
+      // 
+      // textBoxRandomMethodResult
+      // 
+      this.textBoxRandomMethodResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.textBoxRandomMethodResult.Location = new System.Drawing.Point(18, 68);
+      this.textBoxRandomMethodResult.Multiline = true;
+      this.textBoxRandomMethodResult.Name = "textBoxRandomMethodResult";
+      this.textBoxRandomMethodResult.Size = new System.Drawing.Size(730, 392);
+      this.textBoxRandomMethodResult.TabIndex = 2;
       // 
       // FormMain
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(811, 534);
-      this.Controls.Add(this.buttonGenerateCode);
-      this.Controls.Add(this.textBoxCodeGeneratedResult);
+      this.Controls.Add(this.tabControlMain);
       this.Controls.Add(this.menuStrip1);
       this.MainMenuStrip = this.menuStrip1;
       this.Name = "FormMain";
@@ -355,6 +538,13 @@
       this.Load += new System.EventHandler(this.FormMain_Load);
       this.menuStrip1.ResumeLayout(false);
       this.menuStrip1.PerformLayout();
+      this.tabControlMain.ResumeLayout(false);
+      this.tabPageOneMethod.ResumeLayout(false);
+      this.tabPageOneMethod.PerformLayout();
+      this.tabPageSeveralMethods.ResumeLayout(false);
+      this.tabPageSeveralMethods.PerformLayout();
+      this.tabPageRandomMethods.ResumeLayout(false);
+      this.tabPageRandomMethods.PerformLayout();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -397,5 +587,21 @@
     private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem;
     private System.Windows.Forms.TextBox textBoxCodeGeneratedResult;
     private System.Windows.Forms.Button buttonGenerateCode;
+    private System.Windows.Forms.TabControl tabControlMain;
+    private System.Windows.Forms.TabPage tabPageOneMethod;
+    private System.Windows.Forms.TabPage tabPageSeveralMethods;
+    private System.Windows.Forms.TextBox textBoxRangeMethods;
+    private System.Windows.Forms.ComboBox comboBoxLanguage;
+    private System.Windows.Forms.TabPage tabPageRandomMethods;
+    private System.Windows.Forms.ComboBox comboBoxRndMethodLanguage;
+    private System.Windows.Forms.TextBox textBoxRandomMethodResult;
+    private System.Windows.Forms.Button buttonGenerateSeveralMethods;
+    private System.Windows.Forms.TextBox textBoxToNumber;
+    private System.Windows.Forms.TextBox textBoxFromNumber;
+    private System.Windows.Forms.Label labelTo;
+    private System.Windows.Forms.Label labelFrom;
+    private System.Windows.Forms.Button buttonGenerateRdnMethod;
+    private System.Windows.Forms.TextBox textBoxNumberOfRndMethod;
+    private System.Windows.Forms.Label labelNumberOfRndMethod;
   }
 }
