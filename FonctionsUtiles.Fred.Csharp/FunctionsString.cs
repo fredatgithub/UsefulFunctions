@@ -1307,6 +1307,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static string NumberToEnglishWords(ulong number)
     {
+      // The value of ulong.MaxValue constant is 18,446,744,073,709,551,615
       if (number == 0)
       {
         return "zero";
@@ -1399,6 +1400,181 @@ namespace FonctionsUtiles.Fred.Csharp
       }
 
       string words = string.Empty;
+
+      if ((number / 1000000000) > 0)
+      {
+        words += NumberToEnglishWords(number / 1000000000) + " milliard ";
+        number %= 1000000000;
+      }
+
+      if ((number / 1000000) > 0)
+      {
+        words += NumberToFrenchWords(number / 1000000) + " million ";
+        number %= 1000000;
+      }
+
+      if ((number / 1000) > 0)
+      {
+        words += NumberToFrenchWords(number / 1000) + " millier ";
+        number %= 1000;
+      }
+
+      if ((number / 100) > 0)
+      {
+        words += NumberToFrenchWords(number / 100) + " cent ";
+        number %= 100;
+      }
+
+      if (number > 0)
+      {
+        if (words != string.Empty)
+        {
+          words += "et ";
+        }
+
+        var unitsMap = new[]
+          {
+            "zéro", "un", "deux", "trois", "quatre", "cinq", "six", "sept", "huit", "neuf", "dix", "onze", "douze",
+            "treize", "quatorze", "quinze", "seize", "dix-sept", "dix-huit", "dix-neuf"
+          };
+        var tensMap = new[]
+          {
+            "zéro", "dix", "vingt", "trente", "quarante", "cinquante", "soixante", "soixante-dix", "quatre-vingt",
+            "quatre-vingt-dix"
+          };
+        if (number < 20)
+        {
+          words += unitsMap[number];
+        }
+        else
+        {
+          words += tensMap[number / 10];
+          if ((number % 10) > 0)
+          {
+            words += "-" + unitsMap[number % 10];
+          }
+        }
+      }
+
+      return words;
+    }
+
+    public static string NumberToFrenchWords(long number)
+    {
+      if (number == 0)
+      {
+        return "zero";
+      }
+
+      if (number < 0)
+      {
+        return "moins " + NumberToFrenchWords(Math.Abs(number));
+      }
+
+      string words = string.Empty;
+
+      if ((number / 1000000000000000000) > 0)
+      {
+        words += NumberToEnglishWords(number / 1000000000000000000) + " trillion ";
+        number %= 1000000000000000000;
+      }
+
+      if ((number / 1000000000000000) > 0)
+      {
+        words += NumberToEnglishWords(number / 1000000000000000) + " billiard ";
+        number %= 1000000000000000;
+      }
+
+      if ((number / 1000000000000) > 0)
+      {
+        words += NumberToEnglishWords(number / 1000000000000) + " billion ";
+        number %= 1000000000000;
+      }
+
+      if ((number / 1000000000) > 0)
+      {
+        words += NumberToEnglishWords(number / 1000000000) + " milliard ";
+        number %= 1000000000;
+      }
+
+      if ((number / 1000000) > 0)
+      {
+        words += NumberToFrenchWords(number / 1000000) + " million ";
+        number %= 1000000;
+      }
+
+      if ((number / 1000) > 0)
+      {
+        words += NumberToFrenchWords(number / 1000) + " millier ";
+        number %= 1000;
+      }
+
+      if ((number / 100) > 0)
+      {
+        words += NumberToFrenchWords(number / 100) + " cent ";
+        number %= 100;
+      }
+
+      if (number > 0)
+      {
+        if (words != string.Empty)
+        {
+          words += "et ";
+        }
+
+        var unitsMap = new[]
+          {
+            "zéro", "un", "deux", "trois", "quatre", "cinq", "six", "sept", "huit", "neuf", "dix", "onze", "douze",
+            "treize", "quatorze", "quinze", "seize", "dix-sept", "dix-huit", "dix-neuf"
+          };
+        var tensMap = new[]
+          {
+            "zéro", "dix", "vingt", "trente", "quarante", "cinquante", "soixante", "soixante-dix", "quatre-vingt",
+            "quatre-vingt-dix"
+          };
+        if (number < 20)
+        {
+          words += unitsMap[number];
+        }
+        else
+        {
+          words += tensMap[number / 10];
+          if ((number % 10) > 0)
+          {
+            words += "-" + unitsMap[number % 10];
+          }
+        }
+      }
+
+      return words;
+    }
+
+    public static string NumberToFrenchWords(ulong number)
+    {
+      if (number == 0)
+      {
+        return "zero";
+      }
+
+      string words = string.Empty;
+
+      if ((number / 1000000000000000000) > 0)
+      {
+        words += NumberToEnglishWords(number / 1000000000000000000) + " trillion ";
+        number %= 1000000000000000000;
+      }
+
+      if ((number / 1000000000000000) > 0)
+      {
+        words += NumberToEnglishWords(number / 1000000000000000) + " billiard ";
+        number %= 1000000000000000;
+      }
+
+      if ((number / 1000000000000) > 0)
+      {
+        words += NumberToEnglishWords(number / 1000000000000) + " billion ";
+        number %= 1000000000000;
+      }
 
       if ((number / 1000000000) > 0)
       {
