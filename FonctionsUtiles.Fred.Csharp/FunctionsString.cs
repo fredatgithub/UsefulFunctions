@@ -1391,7 +1391,7 @@ namespace FonctionsUtiles.Fred.Csharp
     {
       if (number == 0)
       {
-        return "zero";
+        return "zéro";
       }
 
       if (number < 0)
@@ -1463,7 +1463,7 @@ namespace FonctionsUtiles.Fred.Csharp
     {
       if (number == 0)
       {
-        return "zero";
+        return "zéro";
       }
 
       if (number < 0)
@@ -1553,7 +1553,7 @@ namespace FonctionsUtiles.Fred.Csharp
     {
       if (number == 0)
       {
-        return "zero";
+        return "zéro";
       }
 
       string words = string.Empty;

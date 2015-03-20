@@ -2834,7 +2834,7 @@ namespace UnitTestUsefullFunctions
     }
 
     [TestMethod]
-    public void TestMethod_two_million()
+    public void TestMethod_NumberToEnglishWords_two_million()
     {
       const string expected = "two million";
       string result = StringFunc.NumberToEnglishWords(2000000);
@@ -2953,7 +2953,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_zero()
     {
-      string expected = "zero";
+      string expected = "zéro";
       string result = StringFunc.NumberToFrenchWords(0);
       Assert.AreEqual(result, expected);
     }
@@ -2961,7 +2961,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_one()
     {
-      string expected = "one";
+      string expected = "un";
       string result = StringFunc.NumberToFrenchWords(1);
       Assert.AreEqual(result, expected);
     }
@@ -2969,7 +2969,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_minus_one()
     {
-      string expected = "minus one";
+      string expected = "moins un";
       string result = StringFunc.NumberToFrenchWords(-1);
       Assert.AreEqual(result, expected);
     }
@@ -2977,7 +2977,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_two()
     {
-      string expected = "two";
+      string expected = "deux";
       string result = StringFunc.NumberToFrenchWords(2);
       Assert.AreEqual(result, expected);
     }
@@ -2985,7 +2985,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_minus_two()
     {
-      string expected = "minus two";
+      string expected = "moins deux";
       string result = StringFunc.NumberToFrenchWords(-2);
       Assert.AreEqual(result, expected);
     }
@@ -2993,15 +2993,15 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_three()
     {
-      string expected = "three";
+      string expected = "trois";
       string result = StringFunc.NumberToFrenchWords(3);
       Assert.AreEqual(result, expected);
     }
 
     [TestMethod]
-    public void TestMethod_NumberToFrenchWords_minus_three()
+    public void TestMethod_NumberToFrenchWords_moins_three()
     {
-      string expected = "minus three";
+      string expected = "moins trois";
       string result = StringFunc.NumberToFrenchWords(-3);
       Assert.AreEqual(result, expected);
     }
@@ -3009,15 +3009,15 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_four()
     {
-      string expected = "four";
+      string expected = "quatre";
       string result = StringFunc.NumberToFrenchWords(4);
       Assert.AreEqual(result, expected);
     }
 
     [TestMethod]
-    public void TestMethod_NumberToFrenchWords_minus_four()
+    public void TestMethod_NumberToFrenchWords_moins_four()
     {
-      string expected = "minus four";
+      string expected = "moins quatre";
       string result = StringFunc.NumberToFrenchWords(-4);
       Assert.AreEqual(result, expected);
     }
@@ -3025,15 +3025,15 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_five()
     {
-      string expected = "five";
+      string expected = "cinq";
       string result = StringFunc.NumberToFrenchWords(5);
       Assert.AreEqual(result, expected);
     }
 
     [TestMethod]
-    public void TestMethod_NumberToFrenchWords_minus_five()
+    public void TestMethod_NumberToFrenchWords_moins_five()
     {
-      string expected = "minus five";
+      string expected = "moins cinq";
       string result = StringFunc.NumberToFrenchWords(-5);
       Assert.AreEqual(result, expected);
     }
@@ -3047,9 +3047,9 @@ namespace UnitTestUsefullFunctions
     }
 
     [TestMethod]
-    public void TestMethod_NumberToFrenchWords_minus_six()
+    public void TestMethod_NumberToFrenchWords_moins_six()
     {
-      string expected = "minus six";
+      string expected = "moins six";
       string result = StringFunc.NumberToFrenchWords(-6);
       Assert.AreEqual(result, expected);
     }
@@ -3057,7 +3057,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_seven()
     {
-      string expected = "seven";
+      string expected = "sept";
       string result = StringFunc.NumberToFrenchWords(7);
       Assert.AreEqual(result, expected);
     }
@@ -3065,7 +3065,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_eight()
     {
-      string expected = "eight";
+      string expected = "huit";
       string result = StringFunc.NumberToFrenchWords(8);
       Assert.AreEqual(result, expected);
     }
@@ -3073,7 +3073,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_nine()
     {
-      string expected = "nine";
+      string expected = "neuf";
       string result = StringFunc.NumberToFrenchWords(9);
       Assert.AreEqual(result, expected);
     }
@@ -3081,7 +3081,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_ten()
     {
-      string expected = "ten";
+      string expected = "dix";
       string result = StringFunc.NumberToFrenchWords(10);
       Assert.AreEqual(result, expected);
     }
@@ -3089,7 +3089,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_eleven()
     {
-      string expected = "eleven";
+      string expected = "onze";
       string result = StringFunc.NumberToFrenchWords(11);
       Assert.AreEqual(result, expected);
     }
@@ -3097,15 +3097,15 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_twelve()
     {
-      string expected = "twelve";
+      string expected = "douze";
       string result = StringFunc.NumberToFrenchWords(12);
       Assert.AreEqual(result, expected);
     }
 
     [TestMethod]
-    public void TestMethod_NumberToFrenchWords_minus_thirteen()
+    public void TestMethod_NumberToFrenchWords_moins_thirteen()
     {
-      string expected = "thirteen";
+      string expected = "treize";
       string result = StringFunc.NumberToFrenchWords(13);
       Assert.AreEqual(result, expected);
     }
@@ -3113,15 +3113,15 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_fourteen()
     {
-      string expected = "fourteen";
+      string expected = "quatorze";
       string result = StringFunc.NumberToFrenchWords(14);
       Assert.AreEqual(result, expected);
     }
 
     [TestMethod]
-    public void TestMethod_NumberToFrenchWords_minus_fifteen()
+    public void TestMethod_NumberToFrenchWords_moins_fifteen()
     {
-      string expected = "fifteen";
+      string expected = "quinze";
       string result = StringFunc.NumberToFrenchWords(15);
       Assert.AreEqual(result, expected);
     }
@@ -3129,7 +3129,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_sixteen()
     {
-      string expected = "sixteen";
+      string expected = "seize";
       string result = StringFunc.NumberToFrenchWords(16);
       Assert.AreEqual(result, expected);
     }
@@ -3137,7 +3137,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_seventeen()
     {
-      string expected = "seventeen";
+      string expected = "dis-sept";
       string result = StringFunc.NumberToFrenchWords(17);
       Assert.AreEqual(result, expected);
     }
@@ -3145,7 +3145,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_eighteen()
     {
-      string expected = "eighteen";
+      string expected = "dix-huit";
       string result = StringFunc.NumberToFrenchWords(18);
       Assert.AreEqual(result, expected);
     }
@@ -3153,7 +3153,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_nineteen()
     {
-      string expected = "nineteen";
+      string expected = "dix-neuf";
       string result = StringFunc.NumberToFrenchWords(19);
       Assert.AreEqual(result, expected);
     }
@@ -3161,7 +3161,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_twenty()
     {
-      string expected = "twenty";
+      string expected = "vingt";
       string result = StringFunc.NumberToFrenchWords(20);
       Assert.AreEqual(result, expected);
     }
@@ -3169,7 +3169,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_twenty_one()
     {
-      string expected = "twenty-one";
+      string expected = "vingt et un";
       string result = StringFunc.NumberToFrenchWords(21);
       Assert.AreEqual(result, expected);
     }
@@ -3177,7 +3177,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_twenty_five()
     {
-      string expected = "twenty-five";
+      string expected = "vingt cinq";
       string result = StringFunc.NumberToFrenchWords(25);
       Assert.AreEqual(result, expected);
     }
@@ -3185,7 +3185,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_thirty()
     {
-      string expected = "thirty";
+      string expected = "trente";
       string result = StringFunc.NumberToFrenchWords(30);
       Assert.AreEqual(result, expected);
     }
@@ -3193,7 +3193,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_thirty_one()
     {
-      string expected = "thirty-one";
+      string expected = "trente et un";
       string result = StringFunc.NumberToFrenchWords(31);
       Assert.AreEqual(result, expected);
     }
@@ -3201,7 +3201,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_thirty_five()
     {
-      string expected = "thirty-five";
+      string expected = "trente cinq";
       string result = StringFunc.NumberToFrenchWords(35);
       Assert.AreEqual(result, expected);
     }
@@ -3209,7 +3209,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_forty()
     {
-      string expected = "forty";
+      string expected = "quarante";
       string result = StringFunc.NumberToFrenchWords(40);
       Assert.AreEqual(result, expected);
     }
@@ -3217,7 +3217,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_fifty()
     {
-      string expected = "fifty";
+      string expected = "cinquante";
       string result = StringFunc.NumberToFrenchWords(50);
       Assert.AreEqual(result, expected);
     }
@@ -3225,7 +3225,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_sixty()
     {
-      string expected = "sixty";
+      string expected = "soixante";
       string result = StringFunc.NumberToFrenchWords(60);
       Assert.AreEqual(result, expected);
     }
@@ -3233,7 +3233,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_seventy()
     {
-      const string expected = "seventy";
+      const string expected = "soixante dix";
       string result = StringFunc.NumberToFrenchWords(70);
       Assert.AreEqual(result, expected);
     }
@@ -3241,7 +3241,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_eighty()
     {
-      const string expected = "eighty";
+      const string expected = "quatre-vingt";
       string result = StringFunc.NumberToFrenchWords(80);
       Assert.AreEqual(result, expected);
     }
@@ -3249,7 +3249,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_ninety()
     {
-      const string expected = "ninety";
+      const string expected = "quatre-vingt-dix";
       string result = StringFunc.NumberToFrenchWords(90);
       Assert.AreEqual(result, expected);
     }
@@ -3257,7 +3257,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_one_hundred()
     {
-      const string expected = "one hundred";
+      const string expected = "cent";
       string result = StringFunc.NumberToFrenchWords(100);
       Assert.AreEqual(result, expected);
     }
@@ -3265,7 +3265,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_five_hundred()
     {
-      const string expected = "five hundred";
+      const string expected = "cinq cent";
       string result = StringFunc.NumberToFrenchWords(500);
       Assert.AreEqual(result, expected);
     }
@@ -3273,7 +3273,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_seven_hundred_fifty()
     {
-      const string expected = "seven hundred and fifty";
+      const string expected = "sept cent cinquante";
       string result = StringFunc.NumberToFrenchWords(750);
       Assert.AreEqual(result, expected);
     }
@@ -3281,7 +3281,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_seven_hundred_and_fourty_seven()
     {
-      const string expected = "seven hundred and forty-seven";
+      const string expected = "sept cent quarante sept";
       string result = StringFunc.NumberToFrenchWords(747);
       Assert.AreEqual(result, expected);
     }
@@ -3289,7 +3289,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_nine_hundred_and_nine()
     {
-      const string expected = "nine hundred and nine";
+      const string expected = "neuf cent neuf";
       string result = StringFunc.NumberToFrenchWords(909);
       Assert.AreEqual(result, expected);
     }
@@ -3297,7 +3297,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_one_thousand()
     {
-      const string expected = "one thousand";
+      const string expected = "mille";
       string result = StringFunc.NumberToFrenchWords(1000);
       Assert.AreEqual(result, expected);
     }
@@ -3305,7 +3305,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_one_thousand_five_hundred()
     {
-      const string expected = "one thousand five hundred";
+      const string expected = "mille cenq cent";
       string result = StringFunc.NumberToFrenchWords(1500);
       Assert.AreEqual(result, expected);
     }
@@ -3313,7 +3313,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_one_thousand_seven_hundred_and_eighty_nine()
     {
-      const string expected = "one thousand seven hundred and eighty-nine";
+      const string expected = "mille sept cent quatre vingt neuf";
       string result = StringFunc.NumberToFrenchWords(1789);
       Assert.AreEqual(result, expected);
     }
@@ -3321,7 +3321,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_two_thousand_and_fifteen()
     {
-      const string expected = "two thousand and fifteen";
+      const string expected = "deux mille quinze";
       string result = StringFunc.NumberToFrenchWords(2015);
       Assert.AreEqual(result, expected);
     }
@@ -3329,7 +3329,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_nine_thousand_nine_hundred_and_ninety_nine()
     {
-      const string expected = "nine thousand nine hundred and ninety-nine";
+      const string expected = "neuf mille neuf cent quatre vingt dix neuf";
       string result = StringFunc.NumberToFrenchWords(9999);
       Assert.AreEqual(result, expected);
     }
@@ -3345,7 +3345,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_one_million()
     {
-      const string expected = "one million";
+      const string expected = "un million";
       string result = StringFunc.NumberToFrenchWords(1000000);
       Assert.AreEqual(result, expected);
     }
@@ -3353,7 +3353,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_two_million()
     {
-      const string expected = "two million";
+      const string expected = "deux million";
       string result = StringFunc.NumberToFrenchWords(2000000);
       Assert.AreEqual(expected, result);
     }
@@ -3361,7 +3361,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_one_million_five_hundred_thousand()
     {
-      const string expected = "one million five hundred thousand";
+      const string expected = "un million cinq cent mille";
       string result = StringFunc.NumberToFrenchWords(1500000);
       Assert.AreEqual(result, expected);
     }
@@ -3369,7 +3369,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_one_million_five_hundred_thousand_and_one()
     {
-      const string expected = "one million five hundred thousand and one";
+      const string expected = "un million cinq cent mille et un";
       string result = StringFunc.NumberToFrenchWords(1500001);
       Assert.AreEqual(result, expected);
     }
@@ -3377,7 +3377,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_one_million_five_hundred_thousand_and_twenty()
     {
-      const string expected = "one million five hundred thousand and twenty";
+      const string expected = "un million cinq cent mille et vingt";
       string result = StringFunc.NumberToFrenchWords(1500020);
       Assert.AreEqual(result, expected);
     }
@@ -3385,7 +3385,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_one_million_five_hundred_thousand_and_two_hundred()
     {
-      const string expected = "one million five hundred thousand two hundred";
+      const string expected = "un million cinq cent mille deux cent";
       string result = StringFunc.NumberToFrenchWords(1500200);
       Assert.AreEqual(result, expected);
     }
@@ -3393,7 +3393,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_two_billion()
     {
-      const string expected = "two billion";
+      const string expected = "deux milliard";
       string result = StringFunc.NumberToFrenchWords(2000000000);
       Assert.AreEqual(result, expected);
     }
@@ -3410,7 +3410,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_three_billion()
     {
-      const string expected = "three billion";
+      const string expected = "trois milliard";
       string result = StringFunc.NumberToFrenchWords(3000000000);
       Assert.AreEqual(result, expected);
     }
@@ -3418,7 +3418,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_one_trillion()
     {
-      const string expected = "one trillion";
+      const string expected = "un billion";
       string result = StringFunc.NumberToFrenchWords(1000000000000);
       Assert.AreEqual(result, expected);
     }
@@ -3426,7 +3426,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_nine_hundred_trillion()
     {
-      const string expected = "nine hundred trillion";
+      const string expected = "neuf cent billion";
       string result = StringFunc.NumberToFrenchWords(900000000000000);
       Assert.AreEqual(result, expected);
     }
@@ -3452,7 +3452,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_eighteen_quintillion()
     {
-      const string expected = "eighteen quintillion";
+      const string expected = "dix huit trillion";
       // The value of ulong.MaxValue constant is 18,446,744,073,709,551,615
       string result = StringFunc.NumberToFrenchWords(18000000000000000000);
       Assert.AreEqual(result, expected);
@@ -3461,7 +3461,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_NumberToFrenchWords_eighteen_quintillion_and_twenty_two()
     {
-      const string expected = "eighteen quintillion and twenty-two";
+      const string expected = "dix huit trillion et vingt deux";
       string result = StringFunc.NumberToFrenchWords(18000000000000000022);
       Assert.AreEqual(result, expected);
     }
