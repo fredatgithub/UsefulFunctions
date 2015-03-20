@@ -862,9 +862,9 @@ namespace UnitTestUsefullFunctions
     {
       // TODO debug
       //string source = "";
-      //byte[] result2 = new byte[0];
+      //byte[] expected = new byte[0];
       //byte[] result = StringFunc.HexaStringToByteArray(source);
-      //Assert.AreEqual(result, result2);
+      //Assert.AreEqual(result, expected);
     }
 
     // **********************ReverseString****************
