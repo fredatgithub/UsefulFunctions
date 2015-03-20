@@ -30,6 +30,9 @@ namespace UnitTestUsefullFunctions
   [TestClass]
   public class UnitTestFunctionsString
   {
+    #region String Functions
+
+    //**********************String Functions***************
     [TestMethod]
     public void TestMethod_HasDuplicate_no_on_One_item()
     {
@@ -92,7 +95,9 @@ namespace UnitTestUsefullFunctions
       bool result = StringFunc.HasDuplicate(1, 2, 3, 4, 5, 6, 7, 8, 9, 1);
       Assert.IsTrue(result);
     }
-
+    #endregion
+    #region Math functions
+    #region Math functions - Factorial
     [TestMethod]
     public void TestMethod_Factorial_one()
     {
@@ -254,6 +259,21 @@ namespace UnitTestUsefullFunctions
       Assert.IsTrue(result == 0);
     }
 
+    [TestMethod]
+    public void TestMethod_Factorial_lowerBound_one_step()
+    {
+      long result = MathFunc.Factorial(10, 9);
+      Assert.IsTrue(result == 10);
+    }
+
+    [TestMethod]
+    public void TestMethod_Factorial_lowerBound_two_step()
+    {
+      long result = MathFunc.Factorial(10, 8);
+      Assert.IsTrue(result == 90);
+    }
+    #endregion Math functions - Factorial
+    #region Math functions - Recursive Factorial
     // **********************Recursive Factorial****************
     [TestMethod]
     public void TestMethod_RecursiveFactorial_one()
@@ -415,7 +435,8 @@ namespace UnitTestUsefullFunctions
       ulong result = MathFunc.RecursiveFactorial(0);
       Assert.IsTrue(result == 0);
     }
-
+    #endregion Math functions - Recursive Factorial
+    #region Math functions - Sommielle
     // **********************Sommielle****************
     [TestMethod]
     public void TestMethod_Sommielle_zero()
@@ -466,7 +487,6 @@ namespace UnitTestUsefullFunctions
       Assert.IsTrue(result == 1275);
     }
 
-
     [TestMethod]
     public void TestMethod_Sommielle_ten_ten()
     {
@@ -487,7 +507,8 @@ namespace UnitTestUsefullFunctions
       long result = MathFunc.Sommielle(0, 150);
       Assert.IsTrue(result == 11325);
     }
-
+    #endregion Math functions - Sommielle
+    #region Math functions - Sommielle Recursive
     // **********************Sommielle Recursive****************
     [TestMethod]
     public void TestMethod_SommielleRecursive_zero()
@@ -538,7 +559,6 @@ namespace UnitTestUsefullFunctions
       Assert.IsTrue(result == 1275);
     }
 
-
     [TestMethod]
     public void TestMethod_SommielleRecursive_ten_ten()
     {
@@ -552,22 +572,9 @@ namespace UnitTestUsefullFunctions
       long result = MathFunc.SommielleRecursive(0, 100);
       Assert.IsTrue(result == 5050);
     }
-
-    // **********************Sommielle Recursive****************
-    [TestMethod]
-    public void TestMethod_Factorial_lowerBound_one_step()
-    {
-      long result = MathFunc.Factorial(10, 9);
-      Assert.IsTrue(result == 10);
-    }
-
-    [TestMethod]
-    public void TestMethod_Factorial_lowerBound_two_step()
-    {
-      long result = MathFunc.Factorial(10, 8);
-      Assert.IsTrue(result == 90);
-    }
-
+    #endregion Math functions - Sommielle Recursive
+    #endregion
+    #region String Functions
     // **********************EndPadding****************
     [TestMethod]
     public void TestMethod_EndPadding()
@@ -3465,5 +3472,6 @@ namespace UnitTestUsefullFunctions
       string result = StringFunc.NumberToFrenchWords(18000000000000000022);
       Assert.AreEqual(result, expected);
     }
+    #endregion
   }
 }

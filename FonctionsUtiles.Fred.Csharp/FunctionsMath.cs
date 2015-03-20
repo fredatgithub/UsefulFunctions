@@ -116,5 +116,24 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return result;
     }
+
+    public static ulong GenerateRandomBigNumbers(int min, int max)
+    {
+      ulong result = 0;
+      int hundreds = 0;
+      int thousands = 0;
+      int tenOfThousands = 0;
+      int hundredOfThousands = 0;
+      int millions = 0;
+      int tenOfMillions = 0;
+      int hundredOfMillions = 0;
+      int billions = 0;
+      int tenOfBillions = 0;
+      int hundredOfBillions = 0;
+      int trillions = 0;
+      int tenOfTrillions = 0;
+      int hundredOfTrillions = 0;
+      int quintillions = 0;
+    }
   }
 }

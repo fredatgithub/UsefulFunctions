@@ -26,7 +26,7 @@ namespace CodeGenerationWinForm
   {
     public string CodeAttribute { get; set; }
     private const string CodeSignatureStart = "public void TestMethod_";
-    public string CodeSignatureMiddle { get; set; }
+    public string codeSignatureMethodName { get; set; }
     private const string CodeSignatureEnd = "()";
     private const string openCurlyBrace = "{";
     public string CodeExpected { get; set; }
@@ -46,7 +46,7 @@ namespace CodeGenerationWinForm
       string codeAttribute = "[TestMethod]")
     {
       CodeAttribute = codeAttribute;
-      CodeSignatureMiddle = codeSignatureMiddle;
+      codeSignatureMethodName = codeSignatureMiddle;
       CodeExpected = tabulation + codeExpected;
       CodeResult = tabulation + codeResult;
       CodeAssert = tabulation + codeAssert;
@@ -58,7 +58,7 @@ namespace CodeGenerationWinForm
       result.Append(CodeAttribute);
       result.Append(carriageReturn);
       result.Append(CodeSignatureStart);
-      result.Append(CodeSignatureMiddle);
+      result.Append(codeSignatureMethodName);
       result.Append(CodeSignatureEnd);
       result.Append(carriageReturn);
       result.Append(openCurlyBrace);
@@ -70,6 +70,7 @@ namespace CodeGenerationWinForm
       result.Append(CodeAssert);
       result.Append(carriageReturn);
       result.Append(closeCurlyBrace);
+      result.Append(carriageReturn);
       result.Append(carriageReturn);
       return result.ToString();
     }

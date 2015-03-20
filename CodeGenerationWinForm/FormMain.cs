@@ -199,14 +199,14 @@ namespace CodeGenerationWinForm
       }
 
       textBoxRandomMethodResult.Text = string.Empty;
-      for (int i = 1; i < numberOfMethodToBeGenerated; i++)
+      for (int i = 0; i < numberOfMethodToBeGenerated; i++)
       {
         var method1 = new UnitTestCodeGenerated(
           "two_million",
           "  const string expected = \"two million\";",
           "  string result = StringFunc.NumberToEnglishWords(2000000);",
           "  Assert.AreEqual(expected, result);");
-        textBoxCodeGeneratedResult.Text += method1.ToString();
+        textBoxRandomMethodResult.Text += method1.ToString();
       }
 
     }

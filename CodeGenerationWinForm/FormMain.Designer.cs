@@ -453,6 +453,7 @@
       this.textBoxRangeMethods.Location = new System.Drawing.Point(30, 99);
       this.textBoxRangeMethods.Multiline = true;
       this.textBoxRangeMethods.Name = "textBoxRangeMethods";
+      this.textBoxRangeMethods.ScrollBars = System.Windows.Forms.ScrollBars.Both;
       this.textBoxRangeMethods.Size = new System.Drawing.Size(730, 345);
       this.textBoxRangeMethods.TabIndex = 1;
       // 
@@ -520,6 +521,7 @@
       this.textBoxRandomMethodResult.Location = new System.Drawing.Point(18, 68);
       this.textBoxRandomMethodResult.Multiline = true;
       this.textBoxRandomMethodResult.Name = "textBoxRandomMethodResult";
+      this.textBoxRandomMethodResult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
       this.textBoxRandomMethodResult.Size = new System.Drawing.Size(730, 392);
       this.textBoxRandomMethodResult.TabIndex = 2;
       // 
