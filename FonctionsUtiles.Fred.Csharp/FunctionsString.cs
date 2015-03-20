@@ -1403,7 +1403,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       if ((number / 1000000000) > 0)
       {
-        words += NumberToEnglishWords(number / 1000000000) + " milliard ";
+        words += NumberToFrenchWords(number / 1000000000) + " milliard ";
         number %= 1000000000;
       }
 
@@ -1415,7 +1415,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       if ((number / 1000) > 0)
       {
-        words += NumberToFrenchWords(number / 1000) + " millier ";
+        words += NumberToFrenchWords(number / 1000) + " mille ";
         number %= 1000;
       }
 
@@ -1475,25 +1475,25 @@ namespace FonctionsUtiles.Fred.Csharp
 
       if ((number / 1000000000000000000) > 0)
       {
-        words += NumberToEnglishWords(number / 1000000000000000000) + " trillion ";
+        words += NumberToFrenchWords(number / 1000000000000000000) + " trillion ";
         number %= 1000000000000000000;
       }
 
       if ((number / 1000000000000000) > 0)
       {
-        words += NumberToEnglishWords(number / 1000000000000000) + " billiard ";
+        words += NumberToFrenchWords(number / 1000000000000000) + " billiard ";
         number %= 1000000000000000;
       }
 
       if ((number / 1000000000000) > 0)
       {
-        words += NumberToEnglishWords(number / 1000000000000) + " billion ";
+        words += NumberToFrenchWords(number / 1000000000000) + " billion ";
         number %= 1000000000000;
       }
 
       if ((number / 1000000000) > 0)
       {
-        words += NumberToEnglishWords(number / 1000000000) + " milliard ";
+        words += NumberToFrenchWords(number / 1000000000) + " milliard ";
         number %= 1000000000;
       }
 
@@ -1505,7 +1505,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       if ((number / 1000) > 0)
       {
-        words += NumberToFrenchWords(number / 1000) + " millier ";
+        words += NumberToFrenchWords(number / 1000) + " mille ";
         number %= 1000;
       }
 
@@ -1560,25 +1560,25 @@ namespace FonctionsUtiles.Fred.Csharp
 
       if ((number / 1000000000000000000) > 0)
       {
-        words += NumberToEnglishWords(number / 1000000000000000000) + " trillion ";
+        words += NumberToFrenchWords(number / 1000000000000000000) + " trillion ";
         number %= 1000000000000000000;
       }
 
       if ((number / 1000000000000000) > 0)
       {
-        words += NumberToEnglishWords(number / 1000000000000000) + " billiard ";
+        words += NumberToFrenchWords(number / 1000000000000000) + " billiard ";
         number %= 1000000000000000;
       }
 
       if ((number / 1000000000000) > 0)
       {
-        words += NumberToEnglishWords(number / 1000000000000) + " billion ";
+        words += NumberToFrenchWords(number / 1000000000000) + " billion ";
         number %= 1000000000000;
       }
 
       if ((number / 1000000000) > 0)
       {
-        words += NumberToEnglishWords(number / 1000000000) + " milliard ";
+        words += NumberToFrenchWords(number / 1000000000) + " milliard ";
         number %= 1000000000;
       }
 
@@ -1590,7 +1590,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       if ((number / 1000) > 0)
       {
-        words += NumberToFrenchWords(number / 1000) + " millier ";
+        words += NumberToFrenchWords(number / 1000) + " mille ";
         number %= 1000;
       }
 
