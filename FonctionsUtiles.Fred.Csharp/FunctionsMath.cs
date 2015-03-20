@@ -119,21 +119,32 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static ulong GenerateRandomBigNumbers(int min, int max)
     {
+      if ((ulong)max >= ulong.MaxValue)
+      {
+        return 0;
+      }
+
       ulong result = 0;
-      int hundreds = 0;
-      int thousands = 0;
-      int tenOfThousands = 0;
-      int hundredOfThousands = 0;
-      int millions = 0;
-      int tenOfMillions = 0;
-      int hundredOfMillions = 0;
-      int billions = 0;
-      int tenOfBillions = 0;
-      int hundredOfBillions = 0;
-      int trillions = 0;
-      int tenOfTrillions = 0;
-      int hundredOfTrillions = 0;
-      int quintillions = 0;
+      do
+      {
+        ulong hundreds = (ulong)GenerateRandomNumberUsingCrypto(0, 9);
+        ulong thousands = (ulong)GenerateRandomNumberUsingCrypto(0, 9);
+        ulong tenOfThousands = (ulong)GenerateRandomNumberUsingCrypto(0, 9);
+        ulong hundredOfThousands = (ulong)GenerateRandomNumberUsingCrypto(0, 9);
+        ulong millions = (ulong)GenerateRandomNumberUsingCrypto(0, 9);
+        ulong tenOfMillions = (ulong)GenerateRandomNumberUsingCrypto(0, 9);
+        ulong hundredOfMillions = (ulong)GenerateRandomNumberUsingCrypto(0, 9);
+        ulong billions = (ulong)GenerateRandomNumberUsingCrypto(0, 9);
+        ulong tenOfBillions = (ulong)GenerateRandomNumberUsingCrypto(0, 9);
+        ulong hundredOfBillions = (ulong)GenerateRandomNumberUsingCrypto(0, 9);
+        ulong trillions = (ulong)GenerateRandomNumberUsingCrypto(0, 9);
+        ulong tenOfTrillions = (ulong)GenerateRandomNumberUsingCrypto(0, 9);
+        ulong hundredOfTrillions = (ulong)GenerateRandomNumberUsingCrypto(0, 9);
+        ulong quintillions = (ulong)GenerateRandomNumberUsingCrypto(0, 9);
+        result = hundreds * 100 + thousands * 1000 + tenOfThousands * 10000 + hundredOfThousands * 100000 + millions * 1000000 + tenOfMillions * 10000000 + hundredOfMillions * 100000000 + billions * 1 + tenOfBillions * 1 + hundredOfBillions * 1 + trillions * 1 + tenOfTrillions * 1 + hundredOfTrillions * 1 + quintillions * 1;
+      } while (result >= (ulong)min && result <= (ulong)max);
+      
+      return result;
     }
   }
 }

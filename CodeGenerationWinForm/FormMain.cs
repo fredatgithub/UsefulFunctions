@@ -22,6 +22,7 @@ using System.Diagnostics;
 using System.Reflection;
 using System.Windows.Forms;
 using CodeGenerationWinForm.Properties;
+using MathFunc = FonctionsUtiles.Fred.Csharp.FunctionsMath;
 
 namespace CodeGenerationWinForm
 {
@@ -159,8 +160,34 @@ namespace CodeGenerationWinForm
         */
       if (textBoxFromNumber.Text == string.Empty)
       {
-
+        DialogResult dr = DisplayMessage("The number of method requested cannot be empty", "Empty field", MessageBoxButtons.OK);
+        return;
       }
+
+      int fromNumberOfMethodToBeGenerated = 0;
+      if (!int.TryParse(textBoxFromNumber.Text, out fromNumberOfMethodToBeGenerated))
+      {
+        DialogResult dr = DisplayMessage("The lower bound is not a number", "Not a number", MessageBoxButtons.OK);
+        textBoxFromNumber.Text = string.Empty;
+        return;
+      }
+
+      int toNumberOfMethodToBeGenerated = 0;
+      if (!int.TryParse(textBoxToNumber.Text, out toNumberOfMethodToBeGenerated))
+      {
+        DialogResult dr = DisplayMessage("The upper bound is not a number", "Not a number", MessageBoxButtons.OK);
+        textBoxToNumber.Text = string.Empty;
+        return;
+      }
+
+      if (toNumberOfMethodToBeGenerated <  fromNumberOfMethodToBeGenerated)
+      {
+        DialogResult dr = DisplayMessage("The upper bound is smaller than the lower bound", "Negative range", MessageBoxButtons.OK);
+        textBoxToNumber.Text = string.Empty;
+        return;
+      }
+
+      textBoxRangeMethods.Text = string.Empty;
 
     }
 
@@ -201,10 +228,11 @@ namespace CodeGenerationWinForm
       textBoxRandomMethodResult.Text = string.Empty;
       for (int i = 0; i < numberOfMethodToBeGenerated; i++)
       {
+        ulong rndNumber = MathFunc.GenerateRandomBigNumbers(1, 1000000);
         var method1 = new UnitTestCodeGenerated(
-          "two_million",
+          rndNumber.ToString(),
           "  const string expected = \"two million\";",
-          "  string result = StringFunc.NumberToEnglishWords(2000000);",
+          "  string result = StringFunc.NumberToEnglishWords(" + rndNumber.ToString() + ");",
           "  Assert.AreEqual(expected, result);");
         textBoxRandomMethodResult.Text += method1.ToString();
       }
