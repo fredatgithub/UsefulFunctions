@@ -1455,8 +1455,8 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_IsAlternateCases()
     {
-      string source = "once upon a time in a galaxy far far away";
-      bool expected = false;
+      const string source = "once upon a time in a galaxy far far away";
+      const bool expected = false;
       bool result = StringFunc.IsAlternateCases(source);
       Assert.AreEqual(result, expected);
     }
@@ -1464,8 +1464,8 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_IsAlternateCases_empty_string()
     {
-      string source = "";
-      bool expected = false;
+      const string source = "";
+      const bool expected = false;
       bool result = StringFunc.IsAlternateCases(source);
       Assert.AreEqual(result, expected);
     }
