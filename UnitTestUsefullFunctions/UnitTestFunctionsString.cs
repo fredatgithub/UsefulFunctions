@@ -1099,37 +1099,37 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_InsertSeparatorForEachCharacter_one_string()
     {
-      string source = "azerty";
-      string result2 = "a z e r t y";
+      const string source = "azerty";
+      const string expected = "a z e r t y";
       string result = StringFunc.InsertSeparatorForEachCharacter(source, " ");
-      Assert.AreEqual(result, result2);
+      Assert.AreEqual(result, expected);
     }
 
     [TestMethod]
     public void TestMethod_InsertSeparatorForEachCharacter_empty_string()
     {
-      string source = "";
-      string result2 = "";
+      const string source = "";
+      const string expected = "";
       string result = StringFunc.InsertSeparatorForEachCharacter(source, " ");
-      Assert.AreEqual(result, result2);
+      Assert.AreEqual(result, expected);
     }
 
     // **********************InsertSeparatorAtInterval****************
     [TestMethod]
     public void TestMethod_InsertSeparatorAtInterval_one_element()
     {
-      string source = "azerty";
-      string result2 = "az er ty";
+      const string source = "azerty";
+      const string expected = "az er ty";
       string result = StringFunc.InsertSeparatorAtInterval(source, " ", 2);
-      Assert.AreEqual(result, result2);
+      Assert.AreEqual(result, expected);
     }
 
     // **********************RemoveVowels****************
     [TestMethod]
     public void TestMethod_RemoveVowels_one_string()
     {
-      string source = "azerty";
-      string expected = "zrt";
+      const string source = "azerty";
+      const string expected = "zrt";
       string result = StringFunc.RemoveVowels(source);
       Assert.AreEqual(result, expected);
     }
@@ -1137,8 +1137,8 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_RemoveVowels_empty_string()
     {
-      string source = "";
-      string expected = "";
+      const string source = "";
+      const string expected = "";
       string result = StringFunc.RemoveVowels(source);
       Assert.AreEqual(result, expected);
     }
@@ -1146,8 +1146,8 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_RemoveVowels_only_vowels()
     {
-      string source = "aeiouy";
-      string expected = "";
+      const string source = "aeiouy";
+      const string expected = "";
       string result = StringFunc.RemoveVowels(source);
       Assert.AreEqual(result, expected);
     }
@@ -1155,8 +1155,8 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_RemoveVowels_only_consonant()
     {
-      string source = "qsdfghjklm";
-      string expected = "qsdfghjklm";
+      const string source = "qsdfghjklm";
+      const string expected = "qsdfghjklm";
       string result = StringFunc.RemoveVowels(source);
       Assert.AreEqual(result, expected);
     }
@@ -1165,8 +1165,8 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_KeepVowels_one_string()
     {
-      string source = "azerty";
-      string expected = "aey";
+      const string source = "azerty";
+      const string expected = "aey";
       string result = StringFunc.KeepVowels(source);
       Assert.AreEqual(result, expected);
     }
@@ -1174,8 +1174,8 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_KeepVowels_empty_string()
     {
-      string source = "";
-      string expected = "";
+      const string source = "";
+      const string expected = "";
       string result = StringFunc.KeepVowels(source);
       Assert.AreEqual(result, expected);
     }
@@ -1183,8 +1183,8 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_KeepVowels_only_vowels()
     {
-      string source = "aeiouy";
-      string expected = "aeiouy";
+      const string source = "aeiouy";
+      const string expected = "aeiouy";
       string result = StringFunc.KeepVowels(source);
       Assert.AreEqual(result, expected);
     }
@@ -1192,8 +1192,8 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_KeepVowels_only_consonant()
     {
-      string source = "qsdfghjklm";
-      string expected = "";
+      const string source = "qsdfghjklm";
+      const string expected = "";
       string result = StringFunc.KeepVowels(source);
       Assert.AreEqual(result, expected);
     }
@@ -1202,8 +1202,8 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_AlternateCases_one_string()
     {
-      string source = "TheWonderfulMethodThatDoesALotOfThings";
-      string expected = "ThEwOnDeRfUlMeThOdThAtDoEsAlOtOfThInGs";
+      const string source = "TheWonderfulMethodThatDoesALotOfThings";
+      const string expected = "ThEwOnDeRfUlMeThOdThAtDoEsAlOtOfThInGs";
       string result = StringFunc.AlternateCases(source);
       Assert.AreEqual(result, expected);
     }
@@ -1212,8 +1212,8 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Capitalize_one_string()
     {
-      string source = "once upon a time in a galaxy far far away";
-      string expected = "Once upon a time in a galaxy far far away";
+      const string source = "once upon a time in a galaxy far far away";
+      const string expected = "Once upon a time in a galaxy far far away";
       string result = StringFunc.Capitalize(source);
       Assert.AreEqual(result, expected);
     }
@@ -1222,8 +1222,8 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_GetInitials_one_string()
     {
-      string source = "once upon a time in a galaxy far far away";
-      string expected = "ouatiagffa";
+      const string source = "once upon a time in a galaxy far far away";
+      const string expected = "ouatiagffa";
       string result = StringFunc.GetInitials(source, " ", false, false, false);
       Assert.AreEqual(result, expected);
     }
