@@ -30,72 +30,7 @@ namespace UnitTestUsefullFunctions
   [TestClass]
   public class UnitTestFunctionsString
   {
-    #region String Functions
-
-    //**********************String Functions***************
-    [TestMethod]
-    public void TestMethod_HasDuplicate_no_on_One_item()
-    {
-      int[] source = { 1 };
-      bool result = StringFunc.HasDuplicate(source);
-      Assert.IsFalse(result);
-    }
-
-    [TestMethod]
-    public void TestMethod_HasDuplicate_yes_on_Two_items()
-    {
-      int[] source = { 1, 1 };
-      bool result = StringFunc.HasDuplicate(source);
-      Assert.IsTrue(result);
-    }
-
-    [TestMethod]
-    public void TestMethod_HasDuplicate_no_on_Two_items()
-    {
-      int[] source = { 1, 2 };
-      bool result = StringFunc.HasDuplicate(source);
-      Assert.IsFalse(result);
-    }
-
-    [TestMethod]
-    public void TestMethod_HasDuplicate_none()
-    {
-      int[] source = { 1, 2, 3, 4 };
-      bool result = StringFunc.HasDuplicate(source);
-      Assert.IsFalse(result);
-    }
-
-    [TestMethod]
-    public void TestMethod_HasDuplicate_yes_on_Empty_list_because_all_items_equal_zero()
-    {
-      int[] source = new int[5];
-      bool result = StringFunc.HasDuplicate(source);
-      Assert.IsTrue(result);
-    }
-
-    [TestMethod]
-    public void TestMethod_HasDuplicate_null_list()
-    {
-      int[] source = null;
-      bool result = StringFunc.HasDuplicate(source);
-      Assert.IsFalse(result);
-    }
-
-    [TestMethod]
-    public void TestMethod_HasDuplicate_no_on_several_items()
-    {
-      bool result = StringFunc.HasDuplicate(1, 2, 3, 4, 5, 6, 7, 8, 9);
-      Assert.IsFalse(result);
-    }
-
-
-    [TestMethod]
-    public void TestMethod_HasDuplicate_yes_on_several_items()
-    {
-      bool result = StringFunc.HasDuplicate(1, 2, 3, 4, 5, 6, 7, 8, 9, 1);
-      Assert.IsTrue(result);
-    }
-    #endregion
+    
     #region Math functions
     #region Math functions - Factorial
     [TestMethod]
@@ -575,6 +510,71 @@ namespace UnitTestUsefullFunctions
     #endregion Math functions - Sommielle Recursive
     #endregion
     #region String Functions
+
+    //**********************String Functions***************
+    [TestMethod]
+    public void TestMethod_HasDuplicate_no_on_One_item()
+    {
+      int[] source = { 1 };
+      bool result = StringFunc.HasDuplicate(source);
+      Assert.IsFalse(result);
+    }
+
+    [TestMethod]
+    public void TestMethod_HasDuplicate_yes_on_Two_items()
+    {
+      int[] source = { 1, 1 };
+      bool result = StringFunc.HasDuplicate(source);
+      Assert.IsTrue(result);
+    }
+
+    [TestMethod]
+    public void TestMethod_HasDuplicate_no_on_Two_items()
+    {
+      int[] source = { 1, 2 };
+      bool result = StringFunc.HasDuplicate(source);
+      Assert.IsFalse(result);
+    }
+
+    [TestMethod]
+    public void TestMethod_HasDuplicate_none()
+    {
+      int[] source = { 1, 2, 3, 4 };
+      bool result = StringFunc.HasDuplicate(source);
+      Assert.IsFalse(result);
+    }
+
+    [TestMethod]
+    public void TestMethod_HasDuplicate_yes_on_Empty_list_because_all_items_equal_zero()
+    {
+      int[] source = new int[5];
+      bool result = StringFunc.HasDuplicate(source);
+      Assert.IsTrue(result);
+    }
+
+    [TestMethod]
+    public void TestMethod_HasDuplicate_null_list()
+    {
+      int[] source = null;
+      bool result = StringFunc.HasDuplicate(source);
+      Assert.IsFalse(result);
+    }
+
+    [TestMethod]
+    public void TestMethod_HasDuplicate_no_on_several_items()
+    {
+      bool result = StringFunc.HasDuplicate(1, 2, 3, 4, 5, 6, 7, 8, 9);
+      Assert.IsFalse(result);
+    }
+
+
+    [TestMethod]
+    public void TestMethod_HasDuplicate_yes_on_several_items()
+    {
+      bool result = StringFunc.HasDuplicate(1, 2, 3, 4, 5, 6, 7, 8, 9, 1);
+      Assert.IsTrue(result);
+    }
+    
     // **********************EndPadding****************
     [TestMethod]
     public void TestMethod_EndPadding()
