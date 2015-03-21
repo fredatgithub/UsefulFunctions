@@ -1473,8 +1473,8 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_IsAlternateCases_True()
     {
-      string source = "OnCe";
-      bool expected = true;
+      const string source = "OnCe";
+      const bool expected = true;
       bool result = StringFunc.IsAlternateCases(source);
       Assert.AreEqual(result, expected);
     }
@@ -1482,8 +1482,8 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_IsAlternateCases_True_two_words()
     {
-      string source = "OnCe uPoN";
-      bool expected = true;
+      const string source = "OnCe uPoN";
+      const bool expected = true;
       bool result = StringFunc.IsAlternateCases(source);
       Assert.AreEqual(result, expected);
     }
@@ -1491,8 +1491,8 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_IsAlternateCases_True_four_words()
     {
-      string source = "OnCe uPoN A TiMe";
-      bool expected = true;
+      const string source = "OnCe uPoN A TiMe";
+      const bool expected = true;
       bool result = StringFunc.IsAlternateCases(source);
       Assert.AreEqual(result, expected);
     }
@@ -1501,8 +1501,8 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_IsCapitalized_true()
     {
-      string source = "Once upon a time in a galaxy far far away";
-      bool expected = true;
+      const string source = "Once upon a time in a galaxy far far away";
+      const bool expected = true;
       bool result = StringFunc.IsCapitalized(source);
       Assert.AreEqual(result, expected);
     }
@@ -1510,8 +1510,8 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_IsCapitalized_empty_string()
     {
-      string source = "";
-      bool expected = false;
+      const string source = "";
+      const bool expected = false;
       bool result = StringFunc.IsCapitalized(source);
       Assert.AreEqual(result, expected);
     }
@@ -1519,8 +1519,8 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_IsCapitalized_false()
     {
-      string source = "once upon a time in a galaxy far far away";
-      bool expected = false;
+      const string source = "once upon a time in a galaxy far far away";
+      const bool expected = false;
       bool result = StringFunc.IsCapitalized(source);
       Assert.AreEqual(result, expected);
     }
@@ -1529,8 +1529,8 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_IsLowerCase_true()
     {
-      string source = "once upon a time in a galaxy far far away";
-      bool expected = true;
+      const string source = "once upon a time in a galaxy far far away";
+      const bool expected = true;
       bool result = StringFunc.IsLowerCase(source);
       Assert.AreEqual(result, expected);
     }
@@ -1538,8 +1538,8 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_IsLowerCase_false()
     {
-      string source = "Once upon a time in a galaxy far far away";
-      bool expected = false;
+      const string source = "Once upon a time in a galaxy far far away";
+      const bool expected = false;
       bool result = StringFunc.IsLowerCase(source);
       Assert.AreEqual(result, expected);
     }
