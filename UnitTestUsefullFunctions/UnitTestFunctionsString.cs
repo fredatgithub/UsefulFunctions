@@ -3476,5 +3476,11 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
     #endregion
+
+    #region Files Functions
+    #endregion Files Functions
+
+    #region Useful Functions
+    #endregion Useful Functions
   }
 }
