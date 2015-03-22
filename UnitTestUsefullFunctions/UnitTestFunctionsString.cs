@@ -21,6 +21,7 @@ SOFTWARE.
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
 using MathFunc = FonctionsUtiles.Fred.Csharp.FunctionsMath;
+using UsefulFunc = FonctionsUtiles.Fred.Csharp.FunctionsDateTime;
 using System.Collections.Generic;
 using System;
 using System.Globalization;
@@ -3481,6 +3482,16 @@ namespace UnitTestUsefullFunctions
     #endregion Files Functions
 
     #region Useful Functions
+
+    [TestMethod]
+    public void TestMethod_IsMorning()
+    {
+      DateTime source = new DateTime(2015, 03, 22, 11, 58, 00);
+      const bool expected = true;
+      bool result = UsefulFunc.IsMorning(source);
+      Assert.AreEqual(result, expected);
+    }
+
     #endregion Useful Functions
   }
 }
