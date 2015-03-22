@@ -3512,22 +3512,23 @@ namespace UnitTestUsefullFunctions
     }
     #endregion IsMorning Functions
     #region OutsideWeekEnd Functions
-
-    [TestMethod]
-    public void TestMethod_OutsideWeekEnd_true()
-    {
-      DateTime source = new DateTime(2015, 03, 22, 11, 58, 00);
-      const bool expected = true;
-      bool result = UsefulFunc.IsMorning(source);
-      Assert.AreEqual(result, expected);
-    }
+    //**********************OutsideWeekEnd Functions***************
 
     [TestMethod]
     public void TestMethod_OutsideWeekEnd_false()
     {
-      DateTime source = new DateTime(2015, 03, 23, 14, 58, 00);
+      DateTime source = new DateTime(2015, 03, 22, 11, 58, 00);
       const bool expected = false;
-      bool result = UsefulFunc.IsMorning(source);
+      bool result = UsefulFunc.OutsideWeekEnd(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_OutsideWeekEnd_true()
+    {
+      DateTime source = new DateTime(2015, 03, 23, 14, 58, 00);
+      const bool expected = true;
+      bool result = UsefulFunc.OutsideWeekEnd(source);
       Assert.AreEqual(result, expected);
     }
 
