@@ -3482,9 +3482,10 @@ namespace UnitTestUsefullFunctions
     #endregion Files Functions
 
     #region Useful Functions
-
+    #region IsMorning Functions
+    //**********************IsMorning Functions***************
     [TestMethod]
-    public void TestMethod_IsMorning()
+    public void TestMethod_IsMorning_true()
     {
       DateTime source = new DateTime(2015, 03, 22, 11, 58, 00);
       const bool expected = true;
@@ -3492,6 +3493,45 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
+    [TestMethod]
+    public void TestMethod_IsMorning_false()
+    {
+      DateTime source = new DateTime(2015, 03, 22, 14, 58, 00);
+      const bool expected = false;
+      bool result = UsefulFunc.IsMorning(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsMorning_noon_is_false()
+    {
+      DateTime source = new DateTime(2015, 03, 22, 12, 00, 00);
+      const bool expected = false;
+      bool result = UsefulFunc.IsMorning(source);
+      Assert.AreEqual(result, expected);
+    }
+    #endregion IsMorning Functions
+    #region OutsideWeekEnd Functions
+
+    [TestMethod]
+    public void TestMethod_OutsideWeekEnd_true()
+    {
+      DateTime source = new DateTime(2015, 03, 22, 11, 58, 00);
+      const bool expected = true;
+      bool result = UsefulFunc.IsMorning(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_OutsideWeekEnd_false()
+    {
+      DateTime source = new DateTime(2015, 03, 23, 14, 58, 00);
+      const bool expected = false;
+      bool result = UsefulFunc.IsMorning(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    #endregion OutsideWeekEnd Functions
     #endregion Useful Functions
   }
 }

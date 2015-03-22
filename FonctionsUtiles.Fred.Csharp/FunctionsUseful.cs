@@ -26,12 +26,7 @@ namespace FonctionsUtiles.Fred.Csharp
   {
     public static bool OutsideWeekEnd()
     {
-      if ((DateTime.Now.DayOfWeek != DayOfWeek.Sunday) && (DateTime.Now.DayOfWeek != DayOfWeek.Saturday))
-      {
-        return true;
-      }
-
-      return false;
+      return (DateTime.Now.DayOfWeek != DayOfWeek.Sunday) && (DateTime.Now.DayOfWeek != DayOfWeek.Saturday);
     }
 
     public static bool IsMorning(DateTime time)
