@@ -3550,6 +3550,15 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
+    [TestMethod]
+    public void TestMethod_OutsideWeekEnd_true_Jesus_birth()
+    {
+      DateTime source = new DateTime(1, 12, 25, 1, 0, 0);
+      const bool expected = true;
+      bool result = UsefulFunc.OutsideWeekEnd(source);
+      Assert.AreEqual(result, expected);
+    }
+
     //**********************DateToByteArray Functions***************
 
     #endregion OutsideWeekEnd Functions
