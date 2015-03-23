@@ -254,8 +254,10 @@
       // selectAllToolStripMenuItem
       // 
       this.selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
-      this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
+      this.selectAllToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+      this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(249, 26);
       this.selectAllToolStripMenuItem.Text = "Sélectio&nner tout";
+      this.selectAllToolStripMenuItem.Click += new System.EventHandler(this.selectAllToolStripMenuItem_Click);
       // 
       // toolsToolStripMenuItem
       // 

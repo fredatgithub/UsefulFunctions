@@ -108,13 +108,58 @@ namespace CodeGenerationWinForm
 
     private void copyToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      if (textBoxCodeGeneratedResult.Text == string.Empty)
+      string selectedTab = tabControlMain.SelectedTab.ToString();
+      switch (selectedTab)
       {
-        DialogResult result = DisplayMessage("There is no text to copy", "No text", MessageBoxButtons.OK);
-        return;
+        case "TabPage: {One Method}":
+          if (textBoxCodeGeneratedResult.Text == string.Empty)
+          {
+            DialogResult result = DisplayMessage("There is no text to copy", "No text", MessageBoxButtons.OK);
+            return;
+          }
+          else
+          {
+            textBoxCodeGeneratedResult.SelectAll();
+          }
+          
+          break;
+        case "TabPage: {Several Methods by range}":
+          if (textBoxRangeMethods.Text == string.Empty)
+          {
+            DialogResult result = DisplayMessage("There is no text to copy", "No text", MessageBoxButtons.OK);
+            return;
+          }
+          else
+          {
+            textBoxRangeMethods.SelectAll();
+          }
+
+          break;
+        case "TabPage: {Random Methods}":
+          if (textBoxRandomMethodResult.Text == string.Empty)
+          {
+            DialogResult result = DisplayMessage("There is no text to copy", "No text", MessageBoxButtons.OK);
+            return;
+          }
+          else
+          {
+            textBoxRandomMethodResult.SelectAll();
+          }
+          break;
       }
 
-      Clipboard.SetText(textBoxCodeGeneratedResult.Text);
+      switch (selectedTab)
+      {
+        case "TabPage: {One Method}":
+          Clipboard.SetText(textBoxCodeGeneratedResult.Text);
+          break;
+        case "TabPage: {Several Methods by range}":
+          Clipboard.SetText(textBoxRangeMethods.Text);
+          break;
+        case "TabPage: {Random Methods}":
+          Clipboard.SetText(textBoxRandomMethodResult.Text);
+          break;
+      }
     }
 
     private void cutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -266,6 +311,23 @@ namespace CodeGenerationWinForm
       }
     }
 
-    
+    private void selectAllToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      string selectedTab = tabControlMain.SelectedTab.ToString();
+      switch (selectedTab)
+      {
+        case "TabPage: {One Method}":
+          textBoxCodeGeneratedResult.SelectAll();
+          break;
+        case "TabPage: {Several Methods by range}":
+          textBoxRangeMethods.SelectAll();
+          break;
+        case "TabPage: {Random Methods}":
+          textBoxRandomMethodResult.SelectAll();
+          break;
+        default:
+          break;
+      }
+    }
   }
 }
