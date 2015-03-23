@@ -97,24 +97,24 @@ namespace CodeGenerationWinForm
       return result;
     }
 
-    private void DisplayMessageOK(string message, string title, MessageBoxButtons buttons)
+    private void DisplayMessageOk(string message, string title, MessageBoxButtons buttons)
     {
       MessageBox.Show(this, message, title, buttons);
     }
 
-    private bool IsTextBoxEmpty(TextBox tb)
+    private static bool IsTextBoxEmpty(Control tb)
     {
       return tb.Text == string.Empty;
     }
 
     private void DisplayEmptyTextMessage()
     {
-      DialogResult result = DisplayMessage("There is no text to copy", "No text", MessageBoxButtons.OK);
+      DisplayMessageOk("There is no text to copy", "No text", MessageBoxButtons.OK);
     }
 
     private void DisplayNoTextSelectedMessage()
     {
-      DialogResult result = DisplayMessage("There is no text selected", "No text selected", MessageBoxButtons.OK);
+      DisplayMessageOk("There is no text selected", "No text selected", MessageBoxButtons.OK);
     }
 
     private void copyToolStripMenuItem_Click(object sender, EventArgs e)
@@ -126,7 +126,6 @@ namespace CodeGenerationWinForm
           if (IsTextBoxEmpty(textBoxCodeGeneratedResult))
           {
             DisplayEmptyTextMessage();
-            return;
           }
           else
           {
@@ -146,7 +145,6 @@ namespace CodeGenerationWinForm
           if (textBoxRangeMethods.Text == string.Empty)
           {
             DisplayEmptyTextMessage();
-            return;
           }
           else
           {
@@ -158,12 +156,12 @@ namespace CodeGenerationWinForm
           if (textBoxRandomMethodResult.Text == string.Empty)
           {
             DisplayEmptyTextMessage();
-            return;
           }
           else
           {
             Clipboard.SetText(textBoxRandomMethodResult.SelectedText);
           }
+
           break;
       }
     }
@@ -172,7 +170,7 @@ namespace CodeGenerationWinForm
     {
       if (textBoxCodeGeneratedResult.Text == string.Empty)
       {
-        DialogResult result = DisplayMessage("There is no text to copy", "No text", MessageBoxButtons.OK);
+        DisplayMessageOk("There is no text to copy", "No text", MessageBoxButtons.OK);
         return;
       }
 
@@ -199,14 +197,14 @@ namespace CodeGenerationWinForm
     {
       if (textBoxFromNumber.Text == string.Empty)
       {
-        DialogResult dr = DisplayMessage("The number of method requested cannot be empty", "Empty field", MessageBoxButtons.OK);
+        DisplayMessageOk("The number of method requested cannot be empty", "Empty field", MessageBoxButtons.OK);
         return;
       }
 
       int fromNumberOfMethodToBeGenerated = 0;
       if (!int.TryParse(textBoxFromNumber.Text, out fromNumberOfMethodToBeGenerated))
       {
-        DialogResult dr = DisplayMessage("The lower bound is not a number", "Not a number", MessageBoxButtons.OK);
+        DisplayMessageOk("The lower bound is not a number", "Not a number", MessageBoxButtons.OK);
         textBoxFromNumber.Text = string.Empty;
         return;
       }
@@ -214,14 +212,14 @@ namespace CodeGenerationWinForm
       int toNumberOfMethodToBeGenerated = 0;
       if (!int.TryParse(textBoxToNumber.Text, out toNumberOfMethodToBeGenerated))
       {
-        DialogResult dr = DisplayMessage("The upper bound is not a number", "Not a number", MessageBoxButtons.OK);
+        DisplayMessageOk("The upper bound is not a number", "Not a number", MessageBoxButtons.OK);
         textBoxToNumber.Text = string.Empty;
         return;
       }
 
       if (toNumberOfMethodToBeGenerated < fromNumberOfMethodToBeGenerated)
       {
-        DialogResult dr = DisplayMessage("The upper bound is smaller than the lower bound", "Negative range", MessageBoxButtons.OK);
+        DisplayMessageOk("The upper bound is smaller than the lower bound", "Negative range", MessageBoxButtons.OK);
         textBoxToNumber.Text = string.Empty;
         return;
       }
@@ -234,14 +232,14 @@ namespace CodeGenerationWinForm
     {
       if (textBoxNumberOfRndMethod.Text == string.Empty)
       {
-        DisplayMessageOK("The number of method requested cannot be empty", "Empty field", MessageBoxButtons.OK);
+        DisplayMessageOk("The number of method requested cannot be empty", "Empty field", MessageBoxButtons.OK);
         return;
       }
 
       int numberOfMethodToBeGenerated = 0;
       if (!int.TryParse(textBoxNumberOfRndMethod.Text, out numberOfMethodToBeGenerated))
       {
-        DisplayMessageOK("This is not a number", "Not a number", MessageBoxButtons.OK);
+        DisplayMessageOk("This is not a number", "Not a number", MessageBoxButtons.OK);
         textBoxNumberOfRndMethod.Text = string.Empty;
         return;
       }
@@ -309,10 +307,10 @@ namespace CodeGenerationWinForm
         {
           textBoxRandomMethodResult.Text += method1.ToString();
         }
-
-        progressBarRandomMethods.Value = progressBarRandomMethods.Minimum;
-        progressBarRandomMethods.Visible = false;
       }
+
+      progressBarRandomMethods.Value = progressBarRandomMethods.Minimum;
+      progressBarRandomMethods.Visible = false;
     }
 
     private void selectAllToolStripMenuItem_Click(object sender, EventArgs e)

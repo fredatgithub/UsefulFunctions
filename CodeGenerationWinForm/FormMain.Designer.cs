@@ -65,6 +65,7 @@
       this.buttonGenerateCode = new System.Windows.Forms.Button();
       this.tabControlMain = new System.Windows.Forms.TabControl();
       this.tabPageOneMethod = new System.Windows.Forms.TabPage();
+      this.tableLayoutPanelOneMethod = new System.Windows.Forms.TableLayoutPanel();
       this.tabPageSeveralMethods = new System.Windows.Forms.TabPage();
       this.buttonGenerateSeveralMethods = new System.Windows.Forms.Button();
       this.textBoxToNumber = new System.Windows.Forms.TextBox();
@@ -74,17 +75,22 @@
       this.textBoxRangeMethods = new System.Windows.Forms.TextBox();
       this.comboBoxLanguage = new System.Windows.Forms.ComboBox();
       this.tabPageRandomMethods = new System.Windows.Forms.TabPage();
+      this.progressBarRandomMethods = new System.Windows.Forms.ProgressBar();
       this.buttonGenerateRdnMethod = new System.Windows.Forms.Button();
       this.textBoxNumberOfRndMethod = new System.Windows.Forms.TextBox();
       this.labelNumberOfRndMethod = new System.Windows.Forms.Label();
       this.comboBoxRndMethodLanguage = new System.Windows.Forms.ComboBox();
       this.textBoxRandomMethodResult = new System.Windows.Forms.TextBox();
-      this.progressBarRandomMethods = new System.Windows.Forms.ProgressBar();
+      this.tableLayoutPanelSeveralMethods = new System.Windows.Forms.TableLayoutPanel();
+      this.tableLayoutPanelRandomMethods = new System.Windows.Forms.TableLayoutPanel();
       this.menuStrip1.SuspendLayout();
       this.tabControlMain.SuspendLayout();
       this.tabPageOneMethod.SuspendLayout();
+      this.tableLayoutPanelOneMethod.SuspendLayout();
       this.tabPageSeveralMethods.SuspendLayout();
       this.tabPageRandomMethods.SuspendLayout();
+      this.tableLayoutPanelSeveralMethods.SuspendLayout();
+      this.tableLayoutPanelRandomMethods.SuspendLayout();
       this.SuspendLayout();
       // 
       // menuStrip1
@@ -347,18 +353,21 @@
       // 
       // textBoxCodeGeneratedResult
       // 
+      this.tableLayoutPanelOneMethod.SetColumnSpan(this.textBoxCodeGeneratedResult, 2);
+      this.textBoxCodeGeneratedResult.Dock = System.Windows.Forms.DockStyle.Fill;
       this.textBoxCodeGeneratedResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.textBoxCodeGeneratedResult.Location = new System.Drawing.Point(20, 70);
-      this.textBoxCodeGeneratedResult.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.textBoxCodeGeneratedResult.Location = new System.Drawing.Point(2, 33);
+      this.textBoxCodeGeneratedResult.Margin = new System.Windows.Forms.Padding(2);
       this.textBoxCodeGeneratedResult.Multiline = true;
       this.textBoxCodeGeneratedResult.Name = "textBoxCodeGeneratedResult";
-      this.textBoxCodeGeneratedResult.Size = new System.Drawing.Size(578, 312);
+      this.textBoxCodeGeneratedResult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+      this.textBoxCodeGeneratedResult.Size = new System.Drawing.Size(653, 440);
       this.textBoxCodeGeneratedResult.TabIndex = 2;
       // 
       // buttonGenerateCode
       // 
-      this.buttonGenerateCode.Location = new System.Drawing.Point(20, 24);
-      this.buttonGenerateCode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.buttonGenerateCode.Location = new System.Drawing.Point(2, 2);
+      this.buttonGenerateCode.Margin = new System.Windows.Forms.Padding(2);
       this.buttonGenerateCode.Name = "buttonGenerateCode";
       this.buttonGenerateCode.Size = new System.Drawing.Size(170, 24);
       this.buttonGenerateCode.TabIndex = 3;
@@ -373,7 +382,7 @@
       this.tabControlMain.Controls.Add(this.tabPageRandomMethods);
       this.tabControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
       this.tabControlMain.Location = new System.Drawing.Point(0, 24);
-      this.tabControlMain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.tabControlMain.Margin = new System.Windows.Forms.Padding(2);
       this.tabControlMain.Name = "tabControlMain";
       this.tabControlMain.SelectedIndex = 0;
       this.tabControlMain.Size = new System.Drawing.Size(669, 505);
@@ -381,39 +390,48 @@
       // 
       // tabPageOneMethod
       // 
-      this.tabPageOneMethod.Controls.Add(this.textBoxCodeGeneratedResult);
-      this.tabPageOneMethod.Controls.Add(this.buttonGenerateCode);
+      this.tabPageOneMethod.Controls.Add(this.tableLayoutPanelOneMethod);
       this.tabPageOneMethod.Location = new System.Drawing.Point(4, 22);
-      this.tabPageOneMethod.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.tabPageOneMethod.Margin = new System.Windows.Forms.Padding(2);
       this.tabPageOneMethod.Name = "tabPageOneMethod";
-      this.tabPageOneMethod.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.tabPageOneMethod.Padding = new System.Windows.Forms.Padding(2);
       this.tabPageOneMethod.Size = new System.Drawing.Size(661, 479);
       this.tabPageOneMethod.TabIndex = 0;
       this.tabPageOneMethod.Text = "One Method";
       this.tabPageOneMethod.UseVisualStyleBackColor = true;
       // 
+      // tableLayoutPanelOneMethod
+      // 
+      this.tableLayoutPanelOneMethod.ColumnCount = 2;
+      this.tableLayoutPanelOneMethod.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.44444F));
+      this.tableLayoutPanelOneMethod.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.55556F));
+      this.tableLayoutPanelOneMethod.Controls.Add(this.textBoxCodeGeneratedResult, 0, 1);
+      this.tableLayoutPanelOneMethod.Controls.Add(this.buttonGenerateCode, 0, 0);
+      this.tableLayoutPanelOneMethod.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.tableLayoutPanelOneMethod.Location = new System.Drawing.Point(2, 2);
+      this.tableLayoutPanelOneMethod.Name = "tableLayoutPanelOneMethod";
+      this.tableLayoutPanelOneMethod.RowCount = 1;
+      this.tableLayoutPanelOneMethod.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.720091F));
+      this.tableLayoutPanelOneMethod.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93.27991F));
+      this.tableLayoutPanelOneMethod.Size = new System.Drawing.Size(657, 475);
+      this.tableLayoutPanelOneMethod.TabIndex = 4;
+      // 
       // tabPageSeveralMethods
       // 
-      this.tabPageSeveralMethods.Controls.Add(this.buttonGenerateSeveralMethods);
-      this.tabPageSeveralMethods.Controls.Add(this.textBoxToNumber);
-      this.tabPageSeveralMethods.Controls.Add(this.textBoxFromNumber);
-      this.tabPageSeveralMethods.Controls.Add(this.labelTo);
-      this.tabPageSeveralMethods.Controls.Add(this.labelFrom);
-      this.tabPageSeveralMethods.Controls.Add(this.textBoxRangeMethods);
-      this.tabPageSeveralMethods.Controls.Add(this.comboBoxLanguage);
+      this.tabPageSeveralMethods.Controls.Add(this.tableLayoutPanelSeveralMethods);
       this.tabPageSeveralMethods.Location = new System.Drawing.Point(4, 22);
-      this.tabPageSeveralMethods.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.tabPageSeveralMethods.Margin = new System.Windows.Forms.Padding(2);
       this.tabPageSeveralMethods.Name = "tabPageSeveralMethods";
-      this.tabPageSeveralMethods.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-      this.tabPageSeveralMethods.Size = new System.Drawing.Size(600, 385);
+      this.tabPageSeveralMethods.Padding = new System.Windows.Forms.Padding(2);
+      this.tabPageSeveralMethods.Size = new System.Drawing.Size(661, 479);
       this.tabPageSeveralMethods.TabIndex = 1;
       this.tabPageSeveralMethods.Text = "Several Methods by range";
       this.tabPageSeveralMethods.UseVisualStyleBackColor = true;
       // 
       // buttonGenerateSeveralMethods
       // 
-      this.buttonGenerateSeveralMethods.Location = new System.Drawing.Point(504, 40);
-      this.buttonGenerateSeveralMethods.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.buttonGenerateSeveralMethods.Location = new System.Drawing.Point(522, 2);
+      this.buttonGenerateSeveralMethods.Margin = new System.Windows.Forms.Padding(2);
       this.buttonGenerateSeveralMethods.Name = "buttonGenerateSeveralMethods";
       this.buttonGenerateSeveralMethods.Size = new System.Drawing.Size(66, 20);
       this.buttonGenerateSeveralMethods.TabIndex = 6;
@@ -423,17 +441,17 @@
       // 
       // textBoxToNumber
       // 
-      this.textBoxToNumber.Location = new System.Drawing.Point(371, 41);
-      this.textBoxToNumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.textBoxToNumber.Location = new System.Drawing.Point(393, 2);
+      this.textBoxToNumber.Margin = new System.Windows.Forms.Padding(2);
       this.textBoxToNumber.Name = "textBoxToNumber";
-      this.textBoxToNumber.Size = new System.Drawing.Size(128, 20);
+      this.textBoxToNumber.Size = new System.Drawing.Size(125, 20);
       this.textBoxToNumber.TabIndex = 5;
       this.textBoxToNumber.Text = "25";
       // 
       // textBoxFromNumber
       // 
-      this.textBoxFromNumber.Location = new System.Drawing.Point(214, 41);
-      this.textBoxFromNumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.textBoxFromNumber.Location = new System.Drawing.Point(227, 2);
+      this.textBoxFromNumber.Margin = new System.Windows.Forms.Padding(2);
       this.textBoxFromNumber.Name = "textBoxFromNumber";
       this.textBoxFromNumber.Size = new System.Drawing.Size(128, 20);
       this.textBoxFromNumber.TabIndex = 4;
@@ -443,10 +461,10 @@
       // 
       this.labelTo.AutoSize = true;
       this.labelTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.labelTo.Location = new System.Drawing.Point(344, 43);
+      this.labelTo.Location = new System.Drawing.Point(360, 0);
       this.labelTo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
       this.labelTo.Name = "labelTo";
-      this.labelTo.Size = new System.Drawing.Size(30, 13);
+      this.labelTo.Size = new System.Drawing.Size(26, 13);
       this.labelTo.TabIndex = 3;
       this.labelTo.Text = "To: ";
       // 
@@ -454,7 +472,7 @@
       // 
       this.labelFrom.AutoSize = true;
       this.labelFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.labelFrom.Location = new System.Drawing.Point(175, 43);
+      this.labelFrom.Location = new System.Drawing.Point(164, 0);
       this.labelFrom.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
       this.labelFrom.Name = "labelFrom";
       this.labelFrom.Size = new System.Drawing.Size(42, 13);
@@ -463,44 +481,51 @@
       // 
       // textBoxRangeMethods
       // 
+      this.tableLayoutPanelSeveralMethods.SetColumnSpan(this.textBoxRangeMethods, 6);
+      this.textBoxRangeMethods.Dock = System.Windows.Forms.DockStyle.Fill;
       this.textBoxRangeMethods.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.textBoxRangeMethods.Location = new System.Drawing.Point(22, 80);
-      this.textBoxRangeMethods.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.textBoxRangeMethods.Location = new System.Drawing.Point(2, 32);
+      this.textBoxRangeMethods.Margin = new System.Windows.Forms.Padding(2);
       this.textBoxRangeMethods.Multiline = true;
       this.textBoxRangeMethods.Name = "textBoxRangeMethods";
       this.textBoxRangeMethods.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-      this.textBoxRangeMethods.Size = new System.Drawing.Size(548, 281);
+      this.textBoxRangeMethods.Size = new System.Drawing.Size(653, 441);
       this.textBoxRangeMethods.TabIndex = 1;
       // 
       // comboBoxLanguage
       // 
       this.comboBoxLanguage.FormattingEnabled = true;
-      this.comboBoxLanguage.Location = new System.Drawing.Point(22, 40);
-      this.comboBoxLanguage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.comboBoxLanguage.Location = new System.Drawing.Point(2, 2);
+      this.comboBoxLanguage.Margin = new System.Windows.Forms.Padding(2);
       this.comboBoxLanguage.Name = "comboBoxLanguage";
       this.comboBoxLanguage.Size = new System.Drawing.Size(150, 21);
       this.comboBoxLanguage.TabIndex = 0;
       // 
       // tabPageRandomMethods
       // 
-      this.tabPageRandomMethods.Controls.Add(this.progressBarRandomMethods);
-      this.tabPageRandomMethods.Controls.Add(this.buttonGenerateRdnMethod);
-      this.tabPageRandomMethods.Controls.Add(this.textBoxNumberOfRndMethod);
-      this.tabPageRandomMethods.Controls.Add(this.labelNumberOfRndMethod);
-      this.tabPageRandomMethods.Controls.Add(this.comboBoxRndMethodLanguage);
-      this.tabPageRandomMethods.Controls.Add(this.textBoxRandomMethodResult);
+      this.tabPageRandomMethods.Controls.Add(this.tableLayoutPanelRandomMethods);
       this.tabPageRandomMethods.Location = new System.Drawing.Point(4, 22);
-      this.tabPageRandomMethods.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.tabPageRandomMethods.Margin = new System.Windows.Forms.Padding(2);
       this.tabPageRandomMethods.Name = "tabPageRandomMethods";
       this.tabPageRandomMethods.Size = new System.Drawing.Size(661, 479);
       this.tabPageRandomMethods.TabIndex = 2;
       this.tabPageRandomMethods.Text = "Random Methods";
       this.tabPageRandomMethods.UseVisualStyleBackColor = true;
       // 
+      // progressBarRandomMethods
+      // 
+      this.tableLayoutPanelRandomMethods.SetColumnSpan(this.progressBarRandomMethods, 4);
+      this.progressBarRandomMethods.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.progressBarRandomMethods.Location = new System.Drawing.Point(3, 461);
+      this.progressBarRandomMethods.Name = "progressBarRandomMethods";
+      this.progressBarRandomMethods.Size = new System.Drawing.Size(655, 15);
+      this.progressBarRandomMethods.TabIndex = 8;
+      this.progressBarRandomMethods.Visible = false;
+      // 
       // buttonGenerateRdnMethod
       // 
-      this.buttonGenerateRdnMethod.Location = new System.Drawing.Point(495, 31);
-      this.buttonGenerateRdnMethod.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.buttonGenerateRdnMethod.Location = new System.Drawing.Point(577, 2);
+      this.buttonGenerateRdnMethod.Margin = new System.Windows.Forms.Padding(2);
       this.buttonGenerateRdnMethod.Name = "buttonGenerateRdnMethod";
       this.buttonGenerateRdnMethod.Size = new System.Drawing.Size(66, 20);
       this.buttonGenerateRdnMethod.TabIndex = 7;
@@ -510,8 +535,8 @@
       // 
       // textBoxNumberOfRndMethod
       // 
-      this.textBoxNumberOfRndMethod.Location = new System.Drawing.Point(403, 32);
-      this.textBoxNumberOfRndMethod.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.textBoxNumberOfRndMethod.Location = new System.Drawing.Point(482, 2);
+      this.textBoxNumberOfRndMethod.Margin = new System.Windows.Forms.Padding(2);
       this.textBoxNumberOfRndMethod.Name = "textBoxNumberOfRndMethod";
       this.textBoxNumberOfRndMethod.Size = new System.Drawing.Size(88, 20);
       this.textBoxNumberOfRndMethod.TabIndex = 5;
@@ -520,42 +545,84 @@
       // labelNumberOfRndMethod
       // 
       this.labelNumberOfRndMethod.AutoSize = true;
+      this.labelNumberOfRndMethod.Dock = System.Windows.Forms.DockStyle.Fill;
       this.labelNumberOfRndMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.labelNumberOfRndMethod.Location = new System.Drawing.Point(175, 34);
+      this.labelNumberOfRndMethod.Location = new System.Drawing.Point(148, 0);
       this.labelNumberOfRndMethod.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
       this.labelNumberOfRndMethod.Name = "labelNumberOfRndMethod";
-      this.labelNumberOfRndMethod.Size = new System.Drawing.Size(224, 13);
+      this.labelNumberOfRndMethod.Size = new System.Drawing.Size(330, 26);
       this.labelNumberOfRndMethod.TabIndex = 4;
       this.labelNumberOfRndMethod.Text = "Number of generated random method: ";
       // 
       // comboBoxRndMethodLanguage
       // 
       this.comboBoxRndMethodLanguage.FormattingEnabled = true;
-      this.comboBoxRndMethodLanguage.Location = new System.Drawing.Point(14, 31);
-      this.comboBoxRndMethodLanguage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.comboBoxRndMethodLanguage.Location = new System.Drawing.Point(2, 2);
+      this.comboBoxRndMethodLanguage.Margin = new System.Windows.Forms.Padding(2);
       this.comboBoxRndMethodLanguage.Name = "comboBoxRndMethodLanguage";
-      this.comboBoxRndMethodLanguage.Size = new System.Drawing.Size(150, 21);
+      this.comboBoxRndMethodLanguage.Size = new System.Drawing.Size(142, 21);
       this.comboBoxRndMethodLanguage.TabIndex = 3;
       // 
       // textBoxRandomMethodResult
       // 
+      this.tableLayoutPanelRandomMethods.SetColumnSpan(this.textBoxRandomMethodResult, 4);
+      this.textBoxRandomMethodResult.Dock = System.Windows.Forms.DockStyle.Fill;
       this.textBoxRandomMethodResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.textBoxRandomMethodResult.Location = new System.Drawing.Point(14, 55);
-      this.textBoxRandomMethodResult.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.textBoxRandomMethodResult.Location = new System.Drawing.Point(2, 28);
+      this.textBoxRandomMethodResult.Margin = new System.Windows.Forms.Padding(2);
       this.textBoxRandomMethodResult.Multiline = true;
       this.textBoxRandomMethodResult.Name = "textBoxRandomMethodResult";
       this.textBoxRandomMethodResult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-      this.textBoxRandomMethodResult.Size = new System.Drawing.Size(548, 319);
+      this.textBoxRandomMethodResult.Size = new System.Drawing.Size(657, 428);
       this.textBoxRandomMethodResult.TabIndex = 2;
       // 
-      // progressBarRandomMethods
+      // tableLayoutPanelSeveralMethods
       // 
-      this.progressBarRandomMethods.Dock = System.Windows.Forms.DockStyle.Bottom;
-      this.progressBarRandomMethods.Location = new System.Drawing.Point(0, 456);
-      this.progressBarRandomMethods.Name = "progressBarRandomMethods";
-      this.progressBarRandomMethods.Size = new System.Drawing.Size(661, 23);
-      this.progressBarRandomMethods.TabIndex = 8;
-      this.progressBarRandomMethods.Visible = false;
+      this.tableLayoutPanelSeveralMethods.ColumnCount = 6;
+      this.tableLayoutPanelSeveralMethods.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 72F));
+      this.tableLayoutPanelSeveralMethods.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28F));
+      this.tableLayoutPanelSeveralMethods.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 133F));
+      this.tableLayoutPanelSeveralMethods.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+      this.tableLayoutPanelSeveralMethods.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 129F));
+      this.tableLayoutPanelSeveralMethods.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 136F));
+      this.tableLayoutPanelSeveralMethods.Controls.Add(this.textBoxRangeMethods, 0, 1);
+      this.tableLayoutPanelSeveralMethods.Controls.Add(this.buttonGenerateSeveralMethods, 5, 0);
+      this.tableLayoutPanelSeveralMethods.Controls.Add(this.comboBoxLanguage, 0, 0);
+      this.tableLayoutPanelSeveralMethods.Controls.Add(this.textBoxToNumber, 4, 0);
+      this.tableLayoutPanelSeveralMethods.Controls.Add(this.labelFrom, 1, 0);
+      this.tableLayoutPanelSeveralMethods.Controls.Add(this.labelTo, 3, 0);
+      this.tableLayoutPanelSeveralMethods.Controls.Add(this.textBoxFromNumber, 2, 0);
+      this.tableLayoutPanelSeveralMethods.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.tableLayoutPanelSeveralMethods.Location = new System.Drawing.Point(2, 2);
+      this.tableLayoutPanelSeveralMethods.Name = "tableLayoutPanelSeveralMethods";
+      this.tableLayoutPanelSeveralMethods.RowCount = 2;
+      this.tableLayoutPanelSeveralMethods.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.526316F));
+      this.tableLayoutPanelSeveralMethods.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93.47369F));
+      this.tableLayoutPanelSeveralMethods.Size = new System.Drawing.Size(657, 475);
+      this.tableLayoutPanelSeveralMethods.TabIndex = 7;
+      // 
+      // tableLayoutPanelRandomMethods
+      // 
+      this.tableLayoutPanelRandomMethods.ColumnCount = 4;
+      this.tableLayoutPanelRandomMethods.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.37475F));
+      this.tableLayoutPanelRandomMethods.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.62524F));
+      this.tableLayoutPanelRandomMethods.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 95F));
+      this.tableLayoutPanelRandomMethods.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
+      this.tableLayoutPanelRandomMethods.Controls.Add(this.textBoxRandomMethodResult, 0, 1);
+      this.tableLayoutPanelRandomMethods.Controls.Add(this.buttonGenerateRdnMethod, 3, 0);
+      this.tableLayoutPanelRandomMethods.Controls.Add(this.progressBarRandomMethods, 0, 2);
+      this.tableLayoutPanelRandomMethods.Controls.Add(this.textBoxNumberOfRndMethod, 2, 0);
+      this.tableLayoutPanelRandomMethods.Controls.Add(this.comboBoxRndMethodLanguage, 0, 0);
+      this.tableLayoutPanelRandomMethods.Controls.Add(this.labelNumberOfRndMethod, 1, 0);
+      this.tableLayoutPanelRandomMethods.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.tableLayoutPanelRandomMethods.Location = new System.Drawing.Point(0, 0);
+      this.tableLayoutPanelRandomMethods.Name = "tableLayoutPanelRandomMethods";
+      this.tableLayoutPanelRandomMethods.RowCount = 3;
+      this.tableLayoutPanelRandomMethods.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.676856F));
+      this.tableLayoutPanelRandomMethods.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 94.32314F));
+      this.tableLayoutPanelRandomMethods.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+      this.tableLayoutPanelRandomMethods.Size = new System.Drawing.Size(661, 479);
+      this.tableLayoutPanelRandomMethods.TabIndex = 9;
       // 
       // FormMain
       // 
@@ -565,7 +632,7 @@
       this.Controls.Add(this.tabControlMain);
       this.Controls.Add(this.menuStrip1);
       this.MainMenuStrip = this.menuStrip1;
-      this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.Margin = new System.Windows.Forms.Padding(2);
       this.Name = "FormMain";
       this.ShowIcon = false;
       this.Text = "CodeGeneration for Unit tests";
@@ -575,11 +642,14 @@
       this.menuStrip1.PerformLayout();
       this.tabControlMain.ResumeLayout(false);
       this.tabPageOneMethod.ResumeLayout(false);
-      this.tabPageOneMethod.PerformLayout();
+      this.tableLayoutPanelOneMethod.ResumeLayout(false);
+      this.tableLayoutPanelOneMethod.PerformLayout();
       this.tabPageSeveralMethods.ResumeLayout(false);
-      this.tabPageSeveralMethods.PerformLayout();
       this.tabPageRandomMethods.ResumeLayout(false);
-      this.tabPageRandomMethods.PerformLayout();
+      this.tableLayoutPanelSeveralMethods.ResumeLayout(false);
+      this.tableLayoutPanelSeveralMethods.PerformLayout();
+      this.tableLayoutPanelRandomMethods.ResumeLayout(false);
+      this.tableLayoutPanelRandomMethods.PerformLayout();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -639,5 +709,8 @@
     private System.Windows.Forms.TextBox textBoxNumberOfRndMethod;
     private System.Windows.Forms.Label labelNumberOfRndMethod;
     private System.Windows.Forms.ProgressBar progressBarRandomMethods;
+    private System.Windows.Forms.TableLayoutPanel tableLayoutPanelOneMethod;
+    private System.Windows.Forms.TableLayoutPanel tableLayoutPanelSeveralMethods;
+    private System.Windows.Forms.TableLayoutPanel tableLayoutPanelRandomMethods;
   }
 }
