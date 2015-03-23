@@ -199,24 +199,6 @@ namespace CodeGenerationWinForm
 
     private void buttonGenerateRdnMethod_Click(object sender, EventArgs e)
     {
-      // sample generated method
-      /*
-      [TestMethod]
-    public void TestMethod_NumberToEnglishWords_two_million()
-    {
-      const string expected = "two million";
-      string result = StringFunc.NumberToEnglishWords(2000000);
-      Assert.AreEqual(expected, result);
-    }
-    */
-      /*
-      var method1 = new UnitTestCodeGenerated(
-          "two_million",
-          "  const string expected = \"two million\";",
-          "  string result = StringFunc.NumberToEnglishWords(2000000);",
-          "  Assert.AreEqual(expected, result);");
-        textBoxCodeGeneratedResult.Text += method1.ToString();
-        */
       if (textBoxNumberOfRndMethod.Text == string.Empty)
       {
         DisplayMessageOK("The number of method requested cannot be empty", "Empty field", MessageBoxButtons.OK);
