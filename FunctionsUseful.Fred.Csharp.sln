@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestUsefullFunctions", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeGenerationWinForm", "CodeGenerationWinForm\CodeGenerationWinForm.csproj", "{B492FE99-F506-48C7-8D6D-B35C2CDEF668}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeGeneration", "CodeGeneration\CodeGeneration.csproj", "{44B976DD-98E0-41EE-A1B2-EB60C4476A5C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeGenerationConsole", "CodeGeneration\CodeGenerationConsole.csproj", "{44B976DD-98E0-41EE-A1B2-EB60C4476A5C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

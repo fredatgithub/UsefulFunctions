@@ -102,58 +102,68 @@ namespace CodeGenerationWinForm
       MessageBox.Show(this, message, title, buttons);
     }
 
+    private bool IsTextBoxEmpty(TextBox tb)
+    {
+      return tb.Text == string.Empty;
+    }
+
+    private void DisplayEmptyTextMessage()
+    {
+      DialogResult result = DisplayMessage("There is no text to copy", "No text", MessageBoxButtons.OK);
+    }
+
+    private void DisplayNoTextSelectedMessage()
+    {
+      DialogResult result = DisplayMessage("There is no text selected", "No text selected", MessageBoxButtons.OK);
+    }
+
     private void copyToolStripMenuItem_Click(object sender, EventArgs e)
     {
       string selectedTab = tabControlMain.SelectedTab.ToString();
       switch (selectedTab)
       {
         case "TabPage: {One Method}":
-          if (textBoxCodeGeneratedResult.Text == string.Empty)
+          if (IsTextBoxEmpty(textBoxCodeGeneratedResult))
           {
-            DialogResult result = DisplayMessage("There is no text to copy", "No text", MessageBoxButtons.OK);
+            DisplayEmptyTextMessage();
             return;
           }
           else
           {
-            textBoxCodeGeneratedResult.SelectAll();
+            // test if there is any text selected
+            if (textBoxCodeGeneratedResult.SelectedText != string.Empty)
+            {
+              Clipboard.SetText(textBoxCodeGeneratedResult.SelectedText);
+            }
+            else
+            {
+              DisplayNoTextSelectedMessage();
+            }
           }
           
           break;
         case "TabPage: {Several Methods by range}":
           if (textBoxRangeMethods.Text == string.Empty)
           {
-            DialogResult result = DisplayMessage("There is no text to copy", "No text", MessageBoxButtons.OK);
+            DisplayEmptyTextMessage();
             return;
           }
           else
           {
-            textBoxRangeMethods.SelectAll();
+            Clipboard.SetText(textBoxRangeMethods.SelectedText);
           }
 
           break;
         case "TabPage: {Random Methods}":
           if (textBoxRandomMethodResult.Text == string.Empty)
           {
-            DialogResult result = DisplayMessage("There is no text to copy", "No text", MessageBoxButtons.OK);
+            DisplayEmptyTextMessage();
             return;
           }
           else
           {
-            textBoxRandomMethodResult.SelectAll();
+            Clipboard.SetText(textBoxRandomMethodResult.SelectedText);
           }
-          break;
-      }
-
-      switch (selectedTab)
-      {
-        case "TabPage: {One Method}":
-          Clipboard.SetText(textBoxCodeGeneratedResult.Text);
-          break;
-        case "TabPage: {Several Methods by range}":
-          Clipboard.SetText(textBoxRangeMethods.Text);
-          break;
-        case "TabPage: {Random Methods}":
-          Clipboard.SetText(textBoxRandomMethodResult.Text);
           break;
       }
     }
@@ -298,12 +308,15 @@ namespace CodeGenerationWinForm
       switch (selectedTab)
       {
         case "TabPage: {One Method}":
+          textBoxCodeGeneratedResult.Focus();
           textBoxCodeGeneratedResult.SelectAll();
           break;
         case "TabPage: {Several Methods by range}":
+          textBoxRangeMethods.Focus();
           textBoxRangeMethods.SelectAll();
           break;
         case "TabPage: {Random Methods}":
+          textBoxRandomMethodResult.Focus();
           textBoxRandomMethodResult.SelectAll();
           break;
         default:
