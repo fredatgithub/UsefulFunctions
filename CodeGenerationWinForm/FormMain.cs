@@ -247,17 +247,24 @@ namespace CodeGenerationWinForm
       }
 
       textBoxRandomMethodResult.Text = string.Empty;
-      string LanguageToTranslate = comboBoxRndMethodLanguage.SelectedItem.ToString();
+      string languageToTranslate = comboBoxRndMethodLanguage.SelectedItem.ToString();
+      progressBarRandomMethods.Visible = true;
+      progressBarRandomMethods.Minimum = 0;
+      progressBarRandomMethods.Maximum = numberOfMethodToBeGenerated;
+      progressBarRandomMethods.Value = progressBarRandomMethods.Minimum;
+      Application.DoEvents();
       for (int i = 0; i < numberOfMethodToBeGenerated; i++)
       {
+        progressBarRandomMethods.Value = i;
+        Application.DoEvents();
         ulong rndNumber = MathFunc.GenerateRandomBigNumbers(1, 1000000);
 
         var method1 = new UnitTestCodeGenerated(
           rndNumber.ToString(),
           "  const string expected = \"two million\";",
-          "  string result = StringFunc.NumberToEnglishWords(" + rndNumber.ToString() + ");",
+          "  string result = StringFunc.NumberToEnglishWords(" + rndNumber + ");",
           "  Assert.AreEqual(expected, result);");
-        switch (LanguageToTranslate)
+        switch (languageToTranslate)
         {
           case "English":
             method1.codeSignatureMethodName = StringFunc.ReplaceCharacters(StringFunc.NumberToEnglishWords(rndNumber), ' ', '_');
@@ -268,7 +275,7 @@ namespace CodeGenerationWinForm
             method1.codeSignatureMethodName = StringFunc.ReplaceCharacters(StringFunc.NumberToFrenchWords(rndNumber), ' ', '_');
             method1.codeSignatureMethodName = StringFunc.ReplaceCharacters(method1.codeSignatureMethodName, '-', '_');
             method1.CodeExpected = "  const string expected = \"" + StringFunc.NumberToFrenchWords(rndNumber) + "\";";
-            method1.CodeResult = "  string result = StringFunc.NumberToFrenchWords(" + rndNumber.ToString() + ");";
+            method1.CodeResult = "  string result = StringFunc.NumberToFrenchWords(" + rndNumber + ");";
             break;
           case "Both French and English":
             method1.codeSignatureMethodName = StringFunc.ReplaceCharacters(StringFunc.NumberToEnglishWords(rndNumber), ' ', '_');
@@ -281,24 +288,30 @@ namespace CodeGenerationWinForm
             break;
         }
 
-        if (LanguageToTranslate == "Both French and English")
+        if (languageToTranslate == "Both French and English")
         {
           textBoxRandomMethodResult.Text += method1.ToString();
           var method2 = new UnitTestCodeGenerated(
           StringFunc.NumberToFrenchWords(rndNumber),
           "  const string expected = \"" + StringFunc.NumberToFrenchWords(rndNumber) + "\";",
-          "  string result = StringFunc.NumberToEnglishWords(" + rndNumber.ToString() + ");",
-          "  Assert.AreEqual(expected, result);");
-          method2.codeSignatureMethodName = StringFunc.ReplaceCharacters(StringFunc.NumberToFrenchWords(rndNumber), ' ', '_');
+          "  string result = StringFunc.NumberToEnglishWords(" + rndNumber + ");",
+          "  Assert.AreEqual(expected, result);")
+          {
+            codeSignatureMethodName = StringFunc.ReplaceCharacters(StringFunc.NumberToFrenchWords(rndNumber), ' ', '_')
+          };
+
           method2.codeSignatureMethodName = StringFunc.ReplaceCharacters(method2.codeSignatureMethodName, '-', '_');
           method2.CodeExpected = "  const string expected = \"" + StringFunc.NumberToFrenchWords(rndNumber) + "\";";
-          method2.CodeResult = "  string result = StringFunc.NumberToFrenchWords(" + rndNumber.ToString() + ");";
+          method2.CodeResult = "  string result = StringFunc.NumberToFrenchWords(" + rndNumber + ");";
           textBoxRandomMethodResult.Text += method2.ToString();
         }
         else
         {
           textBoxRandomMethodResult.Text += method1.ToString();
         }
+
+        progressBarRandomMethods.Value = progressBarRandomMethods.Minimum;
+        progressBarRandomMethods.Visible = false;
       }
     }
 
@@ -318,8 +331,6 @@ namespace CodeGenerationWinForm
         case "TabPage: {Random Methods}":
           textBoxRandomMethodResult.Focus();
           textBoxRandomMethodResult.SelectAll();
-          break;
-        default:
           break;
       }
     }

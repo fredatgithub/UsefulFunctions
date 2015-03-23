@@ -77,8 +77,9 @@ namespace FonctionsUtiles.Fred.Csharp
       StringBuilder sb = new StringBuilder();
       for (int i = 0; i < bytes.Length; i++)
       {
-        sb.Append(bytes[i].ToString("X2"));
+        sb.Append(i.ToString("X2"));
       }
+
       return sb.ToString();
     }
 
