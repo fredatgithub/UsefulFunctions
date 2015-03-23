@@ -3559,6 +3559,53 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
+    //**********************IsWeekEnd Methods***************
+    #region IsWeekEnd Functions
+    [TestMethod]
+    public void TestMethod_IsWeekEnd_true()
+    {
+      DateTime source = new DateTime(2015, 03, 22, 11, 58, 00);
+      const bool expected = true;
+      bool result = UsefulFunc.IsWeekEnd(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsWeekEnd_false()
+    {
+      DateTime source = new DateTime(2015, 03, 23, 14, 58, 00);
+      const bool expected = false;
+      bool result = UsefulFunc.IsWeekEnd(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsWeekEnd_true_January_first_2000()
+    {
+      DateTime source = new DateTime(2000, 01, 01, 14, 58, 00);
+      const bool expected = true;
+      bool result = UsefulFunc.IsWeekEnd(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsWeekEnd_false_nine_eleven_2001()
+    {
+      DateTime source = new DateTime(2000, 09, 11, 10, 11, 00);
+      const bool expected = false;
+      bool result = UsefulFunc.IsWeekEnd(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsWeekEnd_false_Jesus_birth()
+    {
+      DateTime source = new DateTime(1, 12, 25, 1, 0, 0);
+      const bool expected = false;
+      bool result = UsefulFunc.IsWeekEnd(source);
+      Assert.AreEqual(result, expected);
+    }
+    #endregion IsWeekEnd Functions
     //**********************DateToByteArray Functions***************
 
     #endregion OutsideWeekEnd Functions
