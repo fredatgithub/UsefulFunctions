@@ -19,21 +19,21 @@ SOFTWARE.
 */
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
-using MathFunc = FonctionsUtiles.Fred.Csharp.FunctionsMath;
-using UsefulFunc = FonctionsUtiles.Fred.Csharp.FunctionsDateTime;
+using StringFunc = FonctionsUtiles.Fred.Csharp.MethodsString;
+using MathFunc = FonctionsUtiles.Fred.Csharp.MethodsMath;
+using UsefulFunc = FonctionsUtiles.Fred.Csharp.MethodsDateTime;
 using System.Collections.Generic;
 using System;
 using System.Globalization;
 
-namespace UnitTestUsefullFunctions
+namespace UnitTestUsefullMethods
 {
   [TestClass]
-  public class UnitTestFunctionsString
+  public class UnitTestMethodsString
   {
     
-    #region Math functions
-    #region Math functions - Factorial
+    #region Math Methods
+    #region Math Methods - Factorial
     [TestMethod]
     public void TestMethod_Factorial_one()
     {
@@ -208,8 +208,8 @@ namespace UnitTestUsefullFunctions
       long result = MathFunc.Factorial(10, 8);
       Assert.IsTrue(result == 90);
     }
-    #endregion Math functions - Factorial
-    #region Math functions - Recursive Factorial
+    #endregion Math Methods - Factorial
+    #region Math Methods - Recursive Factorial
     // **********************Recursive Factorial****************
     [TestMethod]
     public void TestMethod_RecursiveFactorial_one()
@@ -371,8 +371,8 @@ namespace UnitTestUsefullFunctions
       ulong result = MathFunc.RecursiveFactorial(0);
       Assert.IsTrue(result == 0);
     }
-    #endregion Math functions - Recursive Factorial
-    #region Math functions - Sommielle
+    #endregion Math Methods - Recursive Factorial
+    #region Math Methods - Sommielle
     // **********************Sommielle****************
     [TestMethod]
     public void TestMethod_Sommielle_zero()
@@ -443,8 +443,8 @@ namespace UnitTestUsefullFunctions
       long result = MathFunc.Sommielle(0, 150);
       Assert.IsTrue(result == 11325);
     }
-    #endregion Math functions - Sommielle
-    #region Math functions - Sommielle Recursive
+    #endregion Math Methods - Sommielle
+    #region Math Methods - Sommielle Recursive
     // **********************Sommielle Recursive****************
     [TestMethod]
     public void TestMethod_SommielleRecursive_zero()
@@ -508,11 +508,11 @@ namespace UnitTestUsefullFunctions
       long result = MathFunc.SommielleRecursive(0, 100);
       Assert.IsTrue(result == 5050);
     }
-    #endregion Math functions - Sommielle Recursive
+    #endregion Math Methods - Sommielle Recursive
     #endregion
-    #region String Functions
+    #region String Methods
 
-    //**********************String Functions***************
+    //**********************String Methods***************
     [TestMethod]
     public void TestMethod_HasDuplicate_no_on_One_item()
     {
@@ -3478,12 +3478,12 @@ namespace UnitTestUsefullFunctions
     }
     #endregion
 
-    #region Files Functions
-    #endregion Files Functions
+    #region Files Methods
+    #endregion Files Methods
 
-    #region Useful Functions
-    #region IsMorning Functions
-    //**********************IsMorning Functions***************
+    #region Useful Methods
+    #region IsMorning Methods
+    //**********************IsMorning Methods***************
     [TestMethod]
     public void TestMethod_IsMorning_true()
     {
@@ -3510,9 +3510,9 @@ namespace UnitTestUsefullFunctions
       bool result = UsefulFunc.IsMorning(source);
       Assert.AreEqual(result, expected);
     }
-    #endregion IsMorning Functions
-    #region OutsideWeekEnd Functions
-    //**********************OutsideWeekEnd Functions***************
+    #endregion IsMorning Methods
+    #region OutsideWeekEnd Methods
+    //**********************OutsideWeekEnd Methods***************
 
     [TestMethod]
     public void TestMethod_OutsideWeekEnd_false()
@@ -3560,7 +3560,7 @@ namespace UnitTestUsefullFunctions
     }
 
     //**********************IsWeekEnd Methods***************
-    #region IsWeekEnd Functions
+    #region IsWeekEnd Methods
     [TestMethod]
     public void TestMethod_IsWeekEnd_true()
     {
@@ -3605,10 +3605,10 @@ namespace UnitTestUsefullFunctions
       bool result = UsefulFunc.IsWeekEnd(source);
       Assert.AreEqual(result, expected);
     }
-    #endregion IsWeekEnd Functions
-    //**********************DateToByteArray Functions***************
+    #endregion IsWeekEnd Methods
+    //**********************DateToByteArray Methods***************
 
-    #endregion OutsideWeekEnd Functions
-    #endregion Useful Functions
+    #endregion OutsideWeekEnd Methods
+    #endregion Useful Methods
   }
 }
