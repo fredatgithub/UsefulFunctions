@@ -71,11 +71,7 @@ namespace CodeGenerationWinForm
 
     private void GetWindowValue()
     {
-      // Set this if you want a minimum width
-      //Width = Settings.Default.WindowWidth < 395 ? 395 : Settings.Default.WindowWidth;
       Width = Settings.Default.WindowWidth;
-      // Set this if you want a minimum Height
-      // Height = Settings.Default.WindowHeight < 180 ? 180 : Settings.Default.WindowHeight;
       Height = Settings.Default.WindowHeight;
       Top = Settings.Default.WindowTop < 0 ? 0 : Settings.Default.WindowTop;
       Left = Settings.Default.WindowLeft < 0 ? 0 : Settings.Default.WindowLeft;
@@ -191,24 +187,6 @@ namespace CodeGenerationWinForm
 
     private void buttonGenerateSeveralMethods_Click(object sender, EventArgs e)
     {
-      // sample generated method
-      /*
-      [TestMethod]
-    public void TestMethod_NumberToEnglishWords_two_million()
-    {
-      const string expected = "two million";
-      string result = StringFunc.NumberToEnglishWords(2000000);
-      Assert.AreEqual(expected, result);
-    }
-    */
-      /*
-      var method1 = new UnitTestCodeGenerated(
-          "two_million",
-          "  const string expected = \"two million\";",
-          "  string result = StringFunc.NumberToEnglishWords(2000000);",
-          "  Assert.AreEqual(expected, result);");
-        textBoxCodeGeneratedResult.Text += method1.ToString();
-        */
       if (textBoxFromNumber.Text == string.Empty)
       {
         DialogResult dr = DisplayMessage("The number of method requested cannot be empty", "Empty field", MessageBoxButtons.OK);
@@ -311,7 +289,6 @@ namespace CodeGenerationWinForm
         {
           textBoxRandomMethodResult.Text += method1.ToString();
         }
-
       }
     }
 
