@@ -495,7 +495,7 @@
       this.textBoxNumberOfRndMethod.Name = "textBoxNumberOfRndMethod";
       this.textBoxNumberOfRndMethod.Size = new System.Drawing.Size(138, 22);
       this.textBoxNumberOfRndMethod.TabIndex = 5;
-      this.textBoxNumberOfRndMethod.Text = "21";
+      this.textBoxNumberOfRndMethod.Text = "2";
       // 
       // labelNumberOfRndMethod
       // 

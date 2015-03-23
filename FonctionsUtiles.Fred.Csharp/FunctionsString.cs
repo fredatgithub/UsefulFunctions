@@ -1698,5 +1698,10 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return list;
     }
+
+    public static string ReplaceCharacters(string originalString, char oldChar = ' ', char newChar = ' ')
+    {
+      return originalString.Replace(oldChar, newChar);
+    }
   }
 }

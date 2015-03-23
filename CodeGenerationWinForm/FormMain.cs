@@ -23,6 +23,7 @@ using System.Reflection;
 using System.Windows.Forms;
 using CodeGenerationWinForm.Properties;
 using MathFunc = FonctionsUtiles.Fred.Csharp.FunctionsMath;
+using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
 
 namespace CodeGenerationWinForm
 {
@@ -98,6 +99,11 @@ namespace CodeGenerationWinForm
     {
       DialogResult result = MessageBox.Show(this, message, title, buttons);
       return result;
+    }
+
+    private void DisplayMessageOK(string message, string title, MessageBoxButtons buttons)
+    {
+      MessageBox.Show(this, message, title, buttons);
     }
 
     private void copyToolStripMenuItem_Click(object sender, EventArgs e)
@@ -180,7 +186,7 @@ namespace CodeGenerationWinForm
         return;
       }
 
-      if (toNumberOfMethodToBeGenerated <  fromNumberOfMethodToBeGenerated)
+      if (toNumberOfMethodToBeGenerated < fromNumberOfMethodToBeGenerated)
       {
         DialogResult dr = DisplayMessage("The upper bound is smaller than the lower bound", "Negative range", MessageBoxButtons.OK);
         textBoxToNumber.Text = string.Empty;
@@ -213,30 +219,71 @@ namespace CodeGenerationWinForm
         */
       if (textBoxNumberOfRndMethod.Text == string.Empty)
       {
-        DialogResult dr = DisplayMessage("The number of method requested cannot be empty", "Empty field", MessageBoxButtons.OK);
+        DisplayMessageOK("The number of method requested cannot be empty", "Empty field", MessageBoxButtons.OK);
         return;
       }
 
       int numberOfMethodToBeGenerated = 0;
       if (!int.TryParse(textBoxNumberOfRndMethod.Text, out numberOfMethodToBeGenerated))
       {
-        DialogResult dr = DisplayMessage("This is not a number", "Not a number", MessageBoxButtons.OK);
+        DisplayMessageOK("This is not a number", "Not a number", MessageBoxButtons.OK);
         textBoxNumberOfRndMethod.Text = string.Empty;
         return;
       }
 
       textBoxRandomMethodResult.Text = string.Empty;
+      string LanguageToTranslate = comboBoxRndMethodLanguage.SelectedItem.ToString();
       for (int i = 0; i < numberOfMethodToBeGenerated; i++)
       {
         ulong rndNumber = MathFunc.GenerateRandomBigNumbers(1, 1000000);
+
         var method1 = new UnitTestCodeGenerated(
           rndNumber.ToString(),
           "  const string expected = \"two million\";",
           "  string result = StringFunc.NumberToEnglishWords(" + rndNumber.ToString() + ");",
           "  Assert.AreEqual(expected, result);");
-        textBoxRandomMethodResult.Text += method1.ToString();
-      }
+        switch (LanguageToTranslate)
+        {
+          case "English":
+            method1.codeSignatureMethodName = StringFunc.ReplaceCharacters(StringFunc.NumberToEnglishWords(rndNumber), ' ', '_');
+            method1.CodeExpected = "  const string expected = \"" + StringFunc.NumberToEnglishWords(rndNumber) + "\";";
+            break;
+          case "French":
+            method1.codeSignatureMethodName = StringFunc.ReplaceCharacters(StringFunc.NumberToFrenchWords(rndNumber), ' ', '_');
+            method1.CodeExpected = "  const string expected = \"" + StringFunc.NumberToFrenchWords(rndNumber) + "\";";
+            method1.CodeResult = "  string result = StringFunc.NumberToFrenchWords(" + rndNumber.ToString() + ");";
+            break;
+          case "Both French and English":
+            method1.codeSignatureMethodName = StringFunc.ReplaceCharacters(StringFunc.NumberToEnglishWords(rndNumber), ' ', '_');
+            method1.CodeExpected = "  const string expected = \"" + StringFunc.NumberToEnglishWords(rndNumber) + "\";";
+            break;
+          default:
+            method1.codeSignatureMethodName = StringFunc.ReplaceCharacters(StringFunc.NumberToEnglishWords(rndNumber), ' ', '_');
+            method1.CodeExpected = "  const string expected = \"" + StringFunc.NumberToEnglishWords(rndNumber) + "\";";
+            break;
+        }
 
+        if (LanguageToTranslate == "Both French and English")
+        {
+          textBoxRandomMethodResult.Text += method1.ToString();
+          var method2 = new UnitTestCodeGenerated(
+          StringFunc.NumberToFrenchWords(rndNumber),
+          "  const string expected = \"" + StringFunc.NumberToFrenchWords(rndNumber) + "\";",
+          "  string result = StringFunc.NumberToEnglishWords(" + rndNumber.ToString() + ");",
+          "  Assert.AreEqual(expected, result);");
+          method2.codeSignatureMethodName = StringFunc.ReplaceCharacters(StringFunc.NumberToFrenchWords(rndNumber), ' ', '_');
+          method2.CodeExpected = "  const string expected = \"" + StringFunc.NumberToFrenchWords(rndNumber) + "\";";
+          method2.CodeResult = "  string result = StringFunc.NumberToFrenchWords(" + rndNumber.ToString() + ");";
+          textBoxRandomMethodResult.Text += method2.ToString();
+        }
+        else
+        {
+          textBoxRandomMethodResult.Text += method1.ToString();
+        }
+
+      }
     }
+
+    
   }
 }

@@ -19,9 +19,9 @@ SOFTWARE.
 */
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using StringFunc = FonctionsUtiles.Fred.Csharp.MethodsString;
-using MathFunc = FonctionsUtiles.Fred.Csharp.MethodsMath;
-using UsefulFunc = FonctionsUtiles.Fred.Csharp.MethodsDateTime;
+using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
+using MathFunc = FonctionsUtiles.Fred.Csharp.FunctionsMath;
+using UsefulFunc = FonctionsUtiles.Fred.Csharp.FunctionsDateTime;
 using System.Collections.Generic;
 using System;
 using System.Globalization;
