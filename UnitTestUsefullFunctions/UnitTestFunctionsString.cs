@@ -3477,6 +3477,105 @@ namespace UnitTestUsefullMethods
       Assert.AreEqual(result, expected);
     }
 
+    #region Random Unit tests generated
+    // ********************************Unit tests Random code generated Methods****************************
+    [TestMethod]
+    public void TestMethod_one_hundred_and_twenty_three_million_four_hundred_and_twenty_seven_thousand_three_hundred_and_thirty_nine()
+    {
+      const string expected = "one hundred and twenty-three million four hundred and twenty-seven thousand three hundred and thirty-nine";
+      string result = StringFunc.NumberToEnglishWords(123427339);
+      Assert.AreEqual(expected, result);
+    }
+
+    [TestMethod]
+    public void TestMethod_un_cent_et_vingt_trois_million_quatre_cent_et_vingt_sept_mille_trois_cent_et_trente_neuf()
+    {
+      const string expected = "un cent et vingt-trois million quatre cent et vingt-sept mille trois cent et trente-neuf";
+      string result = StringFunc.NumberToFrenchWords(123427339);
+      Assert.AreEqual(expected, result);
+    }
+
+    [TestMethod]
+    public void TestMethod_three_hundred_and_seventeen_million_four_hundred_and_seventy_six_thousand_one_hundred_and_twenty_seven()
+    {
+      const string expected = "three hundred and seventeen million four hundred and seventy-six thousand one hundred and twenty-seven";
+      string result = StringFunc.NumberToEnglishWords(317476127);
+      Assert.AreEqual(expected, result);
+    }
+
+    [TestMethod]
+    public void TestMethod_trois_cent_et_dix_sept_million_quatre_cent_et_soixante_dix_six_mille_un_cent_et_vingt_sept()
+    {
+      const string expected = "trois cent et dix-sept million quatre cent et soixante-dix-six mille un cent et vingt-sept";
+      string result = StringFunc.NumberToFrenchWords(317476127);
+      Assert.AreEqual(expected, result);
+    }
+
+    [TestMethod]
+    public void TestMethod_five_hundred_and_fifteen_million_six_hundred_and_seventeen_thousand_seven_hundred_and_twenty_nine()
+    {
+      const string expected = "five hundred and fifteen million six hundred and seventeen thousand seven hundred and twenty-nine";
+      string result = StringFunc.NumberToEnglishWords(515617729);
+      Assert.AreEqual(expected, result);
+    }
+
+    [TestMethod]
+    public void TestMethod_cinq_cent_et_quinze_million_six_cent_et_dix_sept_mille_sept_cent_et_vingt_neuf()
+    {
+      const string expected = "cinq cent et quinze million six cent et dix-sept mille sept cent et vingt-neuf";
+      string result = StringFunc.NumberToFrenchWords(515617729);
+      Assert.AreEqual(expected, result);
+    }
+
+    [TestMethod]
+    public void TestMethod_three_hundred_and_sixty_three_million_four_hundred_and_seventy_one_thousand_six_hundred_and_twenty_four()
+    {
+      const string expected = "three hundred and sixty-three million four hundred and seventy-one thousand six hundred and twenty-four";
+      string result = StringFunc.NumberToEnglishWords(363471624);
+      Assert.AreEqual(expected, result);
+    }
+
+    [TestMethod]
+    public void TestMethod_trois_cent_et_soixante_trois_million_quatre_cent_et_soixante_dix_un_mille_six_cent_et_vingt_quatre()
+    {
+      const string expected = "trois cent et soixante-trois million quatre cent et soixante-dix-un mille six cent et vingt-quatre";
+      string result = StringFunc.NumberToFrenchWords(363471624);
+      Assert.AreEqual(expected, result);
+    }
+
+    [TestMethod]
+    public void TestMethod_seven_hundred_and_eighty_three_million_three_hundred_and_sixty_one_thousand_six_hundred_and_twenty_five()
+    {
+      const string expected = "seven hundred and eighty-three million three hundred and sixty-one thousand six hundred and twenty-five";
+      string result = StringFunc.NumberToEnglishWords(783361625);
+      Assert.AreEqual(expected, result);
+    }
+
+    [TestMethod]
+    public void TestMethod_sept_cent_et_quatre_vingt_trois_million_trois_cent_et_soixante_un_mille_six_cent_et_vingt_cinq()
+    {
+      const string expected = "sept cent et quatre-vingt-trois million trois cent et soixante-un mille six cent et vingt-cinq";
+      string result = StringFunc.NumberToFrenchWords(783361625);
+      Assert.AreEqual(expected, result);
+    }
+
+    [TestMethod]
+    public void TestMethod_four_hundred_and_fifty_seven_million_one_hundred_and_thirty_one_thousand_three_hundred_and_twenty_eight()
+    {
+      const string expected = "four hundred and fifty-seven million one hundred and thirty-one thousand three hundred and twenty-eight";
+      string result = StringFunc.NumberToEnglishWords(457131328);
+      Assert.AreEqual(expected, result);
+    }
+
+    [TestMethod]
+    public void TestMethod_quatre_cent_et_cinquante_sept_million_un_cent_et_trente_un_mille_trois_cent_et_vingt_huit()
+    {
+      const string expected = "quatre cent et cinquante-sept million un cent et trente-un mille trois cent et vingt-huit";
+      string result = StringFunc.NumberToFrenchWords(457131328);
+      Assert.AreEqual(expected, result);
+    }
+    #endregion Random Unit tests generated
+
 
     #endregion
 

@@ -273,15 +273,18 @@ namespace CodeGenerationWinForm
         {
           case "English":
             method1.codeSignatureMethodName = StringFunc.ReplaceCharacters(StringFunc.NumberToEnglishWords(rndNumber), ' ', '_');
+            method1.codeSignatureMethodName = StringFunc.ReplaceCharacters(method1.codeSignatureMethodName, '-', '_');
             method1.CodeExpected = "  const string expected = \"" + StringFunc.NumberToEnglishWords(rndNumber) + "\";";
             break;
           case "French":
             method1.codeSignatureMethodName = StringFunc.ReplaceCharacters(StringFunc.NumberToFrenchWords(rndNumber), ' ', '_');
+            method1.codeSignatureMethodName = StringFunc.ReplaceCharacters(method1.codeSignatureMethodName, '-', '_');
             method1.CodeExpected = "  const string expected = \"" + StringFunc.NumberToFrenchWords(rndNumber) + "\";";
             method1.CodeResult = "  string result = StringFunc.NumberToFrenchWords(" + rndNumber.ToString() + ");";
             break;
           case "Both French and English":
             method1.codeSignatureMethodName = StringFunc.ReplaceCharacters(StringFunc.NumberToEnglishWords(rndNumber), ' ', '_');
+            method1.codeSignatureMethodName = StringFunc.ReplaceCharacters(method1.codeSignatureMethodName, '-', '_');
             method1.CodeExpected = "  const string expected = \"" + StringFunc.NumberToEnglishWords(rndNumber) + "\";";
             break;
           default:
@@ -299,6 +302,7 @@ namespace CodeGenerationWinForm
           "  string result = StringFunc.NumberToEnglishWords(" + rndNumber.ToString() + ");",
           "  Assert.AreEqual(expected, result);");
           method2.codeSignatureMethodName = StringFunc.ReplaceCharacters(StringFunc.NumberToFrenchWords(rndNumber), ' ', '_');
+          method2.codeSignatureMethodName = StringFunc.ReplaceCharacters(method2.codeSignatureMethodName, '-', '_');
           method2.CodeExpected = "  const string expected = \"" + StringFunc.NumberToFrenchWords(rndNumber) + "\";";
           method2.CodeResult = "  string result = StringFunc.NumberToFrenchWords(" + rndNumber.ToString() + ");";
           textBoxRandomMethodResult.Text += method2.ToString();
