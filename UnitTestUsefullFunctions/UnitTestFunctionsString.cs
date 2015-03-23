@@ -3532,6 +3532,26 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
+    [TestMethod]
+    public void TestMethod_OutsideWeekEnd_false_January_first_2000()
+    {
+      DateTime source = new DateTime(2000, 01, 01, 14, 58, 00);
+      const bool expected = false;
+      bool result = UsefulFunc.OutsideWeekEnd(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_OutsideWeekEnd_true_nine_eleven_2001()
+    {
+      DateTime source = new DateTime(2000, 09, 11, 10, 11, 00);
+      const bool expected = true;
+      bool result = UsefulFunc.OutsideWeekEnd(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    //**********************DateToByteArray Functions***************
+
     #endregion OutsideWeekEnd Functions
     #endregion Useful Functions
   }
