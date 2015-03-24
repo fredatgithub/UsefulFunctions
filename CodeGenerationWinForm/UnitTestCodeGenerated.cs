@@ -26,16 +26,16 @@ namespace CodeGenerationWinForm
   {
     public string CodeAttribute { get; set; }
     private const string CodeSignatureStart = "public void TestMethod_";
-    public string codeSignatureMethodName { get; set; }
+    public string CodeSignatureMethodName { get; set; }
     private const string CodeSignatureEnd = "()";
-    private const string openCurlyBrace = "{";
+    private const string OpenCurlyBrace = "{";
     public string CodeExpected { get; set; }
     public string CodeResult { get; set; }
     public string CodeAssert { get; set; }
-    private const string closeCurlyBrace = "}";
-    public string tabulation {get;} = "  ";
+    private const string CloseCurlyBrace = "}";
+    public string Tabulation {get; private set; } 
 
-    private string carriageReturn = Environment.NewLine;
+    private readonly string carriageReturn = Environment.NewLine;
 
     public UnitTestCodeGenerated( 
       string codeSignatureMiddle = "no_title", 
@@ -46,7 +46,7 @@ namespace CodeGenerationWinForm
       string codeAttribute = "[TestMethod]")
     {
       CodeAttribute = codeAttribute;
-      codeSignatureMethodName = codeSignatureMiddle;
+      CodeSignatureMethodName = codeSignatureMiddle;
       CodeExpected = codeExpected;
       CodeResult =  codeResult;
       CodeAssert =  codeAssert;
@@ -58,21 +58,21 @@ namespace CodeGenerationWinForm
       result.Append(CodeAttribute);
       result.Append(carriageReturn);
       result.Append(CodeSignatureStart);
-      result.Append(codeSignatureMethodName);
+      result.Append(CodeSignatureMethodName);
       result.Append(CodeSignatureEnd);
       result.Append(carriageReturn);
-      result.Append(openCurlyBrace);
+      result.Append(OpenCurlyBrace);
       result.Append(carriageReturn);
-      result.Append(tabulation);
+      result.Append(Tabulation);
       result.Append(CodeExpected);
       result.Append(carriageReturn);
-      result.Append(tabulation);
+      result.Append(Tabulation);
       result.Append(CodeResult);
       result.Append(carriageReturn);
-      result.Append(tabulation);
+      result.Append(Tabulation);
       result.Append(CodeAssert);
       result.Append(carriageReturn);
-      result.Append(closeCurlyBrace);
+      result.Append(CloseCurlyBrace);
       result.Append(carriageReturn);
       result.Append(carriageReturn);
       return result.ToString();
