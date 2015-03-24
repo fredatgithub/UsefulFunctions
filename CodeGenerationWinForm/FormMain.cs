@@ -120,10 +120,12 @@ namespace CodeGenerationWinForm
 
     private void copyToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      Control focusControl = null; // TODO implemented
       if (textBoxOneMethodNumber == ActiveControl)
       {
-
+        if (textBoxOneMethodNumber.SelectedText != string.Empty)
+        {
+          Clipboard.SetText(textBoxOneMethodNumber.SelectedText);
+        }
       }
 
       if (textBoxCodeGeneratedResult == ActiveControl)
@@ -180,19 +182,42 @@ namespace CodeGenerationWinForm
 
     private void cutToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      if (textBoxCodeGeneratedResult.Text == string.Empty)
+      if (textBoxCodeGeneratedResult == ActiveControl)
       {
-        DisplayMessageOk("There is no text to copy", "No text", MessageBoxButtons.OK);
-        return;
+        if (textBoxCodeGeneratedResult.Text == string.Empty)
+        {
+          DisplayMessageOk("There is no text to copy", "No text", MessageBoxButtons.OK);
+          return;
+        }
+
+        Clipboard.SetText(textBoxCodeGeneratedResult.SelectedText);
+        textBoxCodeGeneratedResult.SelectedText = string.Empty;
       }
 
-      Clipboard.SetText(textBoxCodeGeneratedResult.SelectedText);
-      textBoxCodeGeneratedResult.SelectedText = string.Empty;
+      if (textBoxOneMethodNumber == ActiveControl)
+      {
+        if (textBoxOneMethodNumber.Text == string.Empty)
+        {
+          DisplayMessageOk("There is no number to copy", "No number", MessageBoxButtons.OK);
+          return;
+        }
+
+        Clipboard.SetText(textBoxOneMethodNumber.SelectedText);
+        textBoxOneMethodNumber.SelectedText = string.Empty;
+      }
     }
 
     private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      textBoxCodeGeneratedResult.Text += Clipboard.GetText();
+      if (textBoxOneMethodNumber == ActiveControl)
+      {
+        textBoxOneMethodNumber.Text += Clipboard.GetText();
+      }
+
+      if (textBoxCodeGeneratedResult == ActiveControl)
+      {
+        textBoxCodeGeneratedResult.Text += Clipboard.GetText();
+      }
     }
 
     private void buttonGenerateCode_Click(object sender, EventArgs e)

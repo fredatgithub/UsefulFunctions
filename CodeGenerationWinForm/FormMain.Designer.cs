@@ -503,12 +503,12 @@
       // comboBoxLanguage
       // 
       this.comboBoxLanguage.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.comboBoxLanguage.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.comboBoxLanguage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.comboBoxLanguage.FormattingEnabled = true;
       this.comboBoxLanguage.Location = new System.Drawing.Point(3, 2);
       this.comboBoxLanguage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.comboBoxLanguage.Name = "comboBoxLanguage";
-      this.comboBoxLanguage.Size = new System.Drawing.Size(211, 24);
+      this.comboBoxLanguage.Size = new System.Drawing.Size(211, 28);
       this.comboBoxLanguage.TabIndex = 0;
       // 
       // textBoxToNumber
@@ -641,11 +641,12 @@
       // comboBoxRndMethodLanguage
       // 
       this.comboBoxRndMethodLanguage.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.comboBoxRndMethodLanguage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.comboBoxRndMethodLanguage.FormattingEnabled = true;
       this.comboBoxRndMethodLanguage.Location = new System.Drawing.Point(3, 2);
       this.comboBoxRndMethodLanguage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.comboBoxRndMethodLanguage.Name = "comboBoxRndMethodLanguage";
-      this.comboBoxRndMethodLanguage.Size = new System.Drawing.Size(189, 24);
+      this.comboBoxRndMethodLanguage.Size = new System.Drawing.Size(189, 28);
       this.comboBoxRndMethodLanguage.TabIndex = 3;
       // 
       // labelNumberOfRndMethod
