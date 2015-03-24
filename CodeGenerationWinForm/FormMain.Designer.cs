@@ -83,6 +83,7 @@
       this.textBoxNumberOfRndMethod = new System.Windows.Forms.TextBox();
       this.comboBoxRndMethodLanguage = new System.Windows.Forms.ComboBox();
       this.labelNumberOfRndMethod = new System.Windows.Forms.Label();
+      this.progressBarSeveralMethods = new System.Windows.Forms.ProgressBar();
       this.menuStrip1.SuspendLayout();
       this.tabControlMain.SuspendLayout();
       this.tabPageOneMethod.SuspendLayout();
@@ -438,6 +439,7 @@
       this.tableLayoutPanelSeveralMethods.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
       this.tableLayoutPanelSeveralMethods.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 172F));
       this.tableLayoutPanelSeveralMethods.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 183F));
+      this.tableLayoutPanelSeveralMethods.Controls.Add(this.progressBarSeveralMethods, 0, 2);
       this.tableLayoutPanelSeveralMethods.Controls.Add(this.textBoxRangeMethods, 0, 1);
       this.tableLayoutPanelSeveralMethods.Controls.Add(this.buttonGenerateSeveralMethods, 5, 0);
       this.tableLayoutPanelSeveralMethods.Controls.Add(this.comboBoxLanguage, 0, 0);
@@ -449,9 +451,16 @@
       this.tableLayoutPanelSeveralMethods.Location = new System.Drawing.Point(3, 2);
       this.tableLayoutPanelSeveralMethods.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
       this.tableLayoutPanelSeveralMethods.Name = "tableLayoutPanelSeveralMethods";
-      this.tableLayoutPanelSeveralMethods.RowCount = 2;
+      this.tableLayoutPanelSeveralMethods.RowCount = 3;
       this.tableLayoutPanelSeveralMethods.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.526316F));
       this.tableLayoutPanelSeveralMethods.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93.47369F));
+      this.tableLayoutPanelSeveralMethods.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+      this.tableLayoutPanelSeveralMethods.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+      this.tableLayoutPanelSeveralMethods.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+      this.tableLayoutPanelSeveralMethods.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+      this.tableLayoutPanelSeveralMethods.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+      this.tableLayoutPanelSeveralMethods.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+      this.tableLayoutPanelSeveralMethods.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
       this.tableLayoutPanelSeveralMethods.Size = new System.Drawing.Size(878, 590);
       this.tableLayoutPanelSeveralMethods.TabIndex = 7;
       // 
@@ -460,12 +469,12 @@
       this.tableLayoutPanelSeveralMethods.SetColumnSpan(this.textBoxRangeMethods, 6);
       this.textBoxRangeMethods.Dock = System.Windows.Forms.DockStyle.Fill;
       this.textBoxRangeMethods.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.textBoxRangeMethods.Location = new System.Drawing.Point(3, 40);
+      this.textBoxRangeMethods.Location = new System.Drawing.Point(3, 39);
       this.textBoxRangeMethods.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.textBoxRangeMethods.Multiline = true;
       this.textBoxRangeMethods.Name = "textBoxRangeMethods";
       this.textBoxRangeMethods.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-      this.textBoxRangeMethods.Size = new System.Drawing.Size(872, 548);
+      this.textBoxRangeMethods.Size = new System.Drawing.Size(872, 528);
       this.textBoxRangeMethods.TabIndex = 1;
       // 
       // buttonGenerateSeveralMethods
@@ -625,6 +634,16 @@
       this.labelNumberOfRndMethod.TabIndex = 4;
       this.labelNumberOfRndMethod.Text = "Number of generated random method: ";
       // 
+      // progressBarSeveralMethods
+      // 
+      this.tableLayoutPanelSeveralMethods.SetColumnSpan(this.progressBarSeveralMethods, 6);
+      this.progressBarSeveralMethods.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.progressBarSeveralMethods.Location = new System.Drawing.Point(3, 572);
+      this.progressBarSeveralMethods.Name = "progressBarSeveralMethods";
+      this.progressBarSeveralMethods.Size = new System.Drawing.Size(872, 15);
+      this.progressBarSeveralMethods.TabIndex = 8;
+      this.progressBarSeveralMethods.Visible = false;
+      // 
       // FormMain
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -713,5 +732,6 @@
     private System.Windows.Forms.TableLayoutPanel tableLayoutPanelOneMethod;
     private System.Windows.Forms.TableLayoutPanel tableLayoutPanelSeveralMethods;
     private System.Windows.Forms.TableLayoutPanel tableLayoutPanelRandomMethods;
+    private System.Windows.Forms.ProgressBar progressBarSeveralMethods;
   }
 }

@@ -225,7 +225,10 @@ namespace CodeGenerationWinForm
       }
 
       textBoxRangeMethods.Text = string.Empty;
+      for (int i = fromNumberOfMethodToBeGenerated; i < toNumberOfMethodToBeGenerated; i++)
+      {
 
+      }
     }
 
     private void buttonGenerateRdnMethod_Click(object sender, EventArgs e)
