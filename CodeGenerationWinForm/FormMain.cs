@@ -120,50 +120,61 @@ namespace CodeGenerationWinForm
 
     private void copyToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      string selectedTab = tabControlMain.SelectedTab.ToString();
-      switch (selectedTab)
+      Control focusControl = null; // TODO implemented
+      if (textBoxOneMethodNumber == ActiveControl)
       {
-        case "TabPage: {One Method}":
-          if (IsTextBoxEmpty(textBoxCodeGeneratedResult))
-          {
-            DisplayEmptyTextMessage();
-          }
-          else
-          {
-            // test if there is any text selected
-            if (textBoxCodeGeneratedResult.SelectedText != string.Empty)
+
+      }
+
+      if (textBoxCodeGeneratedResult == ActiveControl)
+      {
+        string selectedTab = tabControlMain.SelectedTab.ToString();
+        switch (selectedTab)
+        {
+          case "TabPage: {One Method}":
+            if (IsTextBoxEmpty(textBoxCodeGeneratedResult))
             {
-              Clipboard.SetText(textBoxCodeGeneratedResult.SelectedText);
+              DisplayEmptyTextMessage();
             }
             else
             {
-              DisplayNoTextSelectedMessage();
+              // test if there is any text selected
+              if (textBoxCodeGeneratedResult.SelectedText != string.Empty)
+              {
+                Clipboard.SetText(textBoxCodeGeneratedResult.SelectedText);
+              }
+              else
+              {
+                DisplayNoTextSelectedMessage();
+              }
             }
-          }
-          
-          break;
-        case "TabPage: {Several Methods by range}":
-          if (textBoxRangeMethods.Text == string.Empty)
-          {
-            DisplayEmptyTextMessage();
-          }
-          else
-          {
-            Clipboard.SetText(textBoxRangeMethods.SelectedText);
-          }
 
-          break;
-        case "TabPage: {Random Methods}":
-          if (textBoxRandomMethodResult.Text == string.Empty)
-          {
-            DisplayEmptyTextMessage();
-          }
-          else
-          {
-            Clipboard.SetText(textBoxRandomMethodResult.SelectedText);
-          }
+            break;
 
-          break;
+          case "TabPage: {Several Methods by range}":
+            if (textBoxRangeMethods.Text == string.Empty)
+            {
+              DisplayEmptyTextMessage();
+            }
+            else
+            {
+              Clipboard.SetText(textBoxRangeMethods.SelectedText);
+            }
+
+            break;
+
+          case "TabPage: {Random Methods}":
+            if (textBoxRandomMethodResult.Text == string.Empty)
+            {
+              DisplayEmptyTextMessage();
+            }
+            else
+            {
+              Clipboard.SetText(textBoxRandomMethodResult.SelectedText);
+            }
+
+            break;
+        }
       }
     }
 
@@ -284,7 +295,7 @@ namespace CodeGenerationWinForm
       }
 
       textBoxRangeMethods.Text = string.Empty;
-      
+
       string languageToTranslate = comboBoxLanguage.SelectedItem.ToString();
       progressBarSeveralMethods.Visible = true;
       progressBarSeveralMethods.Minimum = fromNumberOfMethodToBeGenerated;
@@ -350,7 +361,7 @@ namespace CodeGenerationWinForm
 
       progressBarSeveralMethods.Value = progressBarSeveralMethods.Minimum;
       progressBarSeveralMethods.Visible = false;
-  
+
     }
 
     private void buttonGenerateRdnMethod_Click(object sender, EventArgs e)
