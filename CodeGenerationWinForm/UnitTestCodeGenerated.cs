@@ -33,7 +33,7 @@ namespace CodeGenerationWinForm
     public string CodeResult { get; set; }
     public string CodeAssert { get; set; }
     private const string closeCurlyBrace = "}";
-    private const string tabulation = "  ";
+    public string tabulation {get;} = "  ";
 
     private string carriageReturn = Environment.NewLine;
 
@@ -47,9 +47,9 @@ namespace CodeGenerationWinForm
     {
       CodeAttribute = codeAttribute;
       codeSignatureMethodName = codeSignatureMiddle;
-      CodeExpected = tabulation + codeExpected;
-      CodeResult = tabulation + codeResult;
-      CodeAssert = tabulation + codeAssert;
+      CodeExpected = codeExpected;
+      CodeResult =  codeResult;
+      CodeAssert =  codeAssert;
     }
 
     public override string ToString()
@@ -63,10 +63,13 @@ namespace CodeGenerationWinForm
       result.Append(carriageReturn);
       result.Append(openCurlyBrace);
       result.Append(carriageReturn);
+      result.Append(tabulation);
       result.Append(CodeExpected);
       result.Append(carriageReturn);
+      result.Append(tabulation);
       result.Append(CodeResult);
       result.Append(carriageReturn);
+      result.Append(tabulation);
       result.Append(CodeAssert);
       result.Append(carriageReturn);
       result.Append(closeCurlyBrace);
