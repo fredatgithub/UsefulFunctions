@@ -58,6 +58,7 @@ namespace CodeGenerationWinForm
       GetWindowValue();
       FillComboBoxLanguage(comboBoxLanguage);
       FillComboBoxLanguage(comboBoxRndMethodLanguage);
+      FillComboBoxLanguage(comboBoxOneMethodLanguage);
     }
 
     private void FillComboBoxLanguage(ComboBox cb)
@@ -185,12 +186,70 @@ namespace CodeGenerationWinForm
 
     private void buttonGenerateCode_Click(object sender, EventArgs e)
     {
+      if (textBoxOneMethodNumber.Text == string.Empty)
+      {
+        DisplayMessageOk("The number cannot be empty", "Empty field", MessageBoxButtons.OK);
+        return;
+      }
+
+      int numberToBeGenerated = 0;
+      if (!int.TryParse(textBoxOneMethodNumber.Text, out numberToBeGenerated))
+      {
+        DisplayMessageOk("The characters are not a number or\nthe number is too big (above 2,147,483,647)", "Not a number", MessageBoxButtons.OK);
+        textBoxOneMethodNumber.Text = string.Empty;
+        return;
+      }
+
+      string languageToTranslate = comboBoxOneMethodLanguage.SelectedItem.ToString();
       var method1 = new UnitTestCodeGenerated(
-        "two_million",
-        "const string expected = \"two million\";",
-        "string result = StringFunc.NumberToEnglishWords(2000000);",
+        numberToBeGenerated.ToString(),
+        "const string expected = \"" + numberToBeGenerated + "\";",
+        "string result = StringFunc.NumberToEnglishWords(" + numberToBeGenerated + ");",
         "Assert.AreEqual(expected, result);");
-      textBoxCodeGeneratedResult.Text += method1.ToString();
+      switch (languageToTranslate)
+      {
+        case "English":
+          method1.codeSignatureMethodName = StringFunc.ReplaceCharacters(StringFunc.NumberToEnglishWords(numberToBeGenerated), ' ', '_');
+          method1.codeSignatureMethodName = StringFunc.ReplaceCharacters(method1.codeSignatureMethodName, '-', '_');
+          method1.CodeExpected = "const string expected = \"" + StringFunc.NumberToEnglishWords(numberToBeGenerated) + "\";";
+          break;
+        case "French":
+          method1.codeSignatureMethodName = StringFunc.ReplaceCharacters(StringFunc.NumberToFrenchWords(numberToBeGenerated), ' ', '_');
+          method1.codeSignatureMethodName = StringFunc.ReplaceCharacters(method1.codeSignatureMethodName, '-', '_');
+          method1.CodeExpected = "const string expected = \"" + StringFunc.NumberToFrenchWords(numberToBeGenerated) + "\";";
+          method1.CodeResult = "string result = StringFunc.NumberToFrenchWords(" + numberToBeGenerated + ");";
+          break;
+        case "Both French and English":
+          method1.codeSignatureMethodName = StringFunc.ReplaceCharacters(StringFunc.NumberToEnglishWords(numberToBeGenerated), ' ', '_');
+          method1.codeSignatureMethodName = StringFunc.ReplaceCharacters(method1.codeSignatureMethodName, '-', '_');
+          method1.CodeExpected = "const string expected = \"" + StringFunc.NumberToEnglishWords(numberToBeGenerated) + "\";";
+          break;
+        default:
+          method1.codeSignatureMethodName = StringFunc.ReplaceCharacters(StringFunc.NumberToEnglishWords(numberToBeGenerated), ' ', '_');
+          method1.CodeExpected = "const string expected = \"" + StringFunc.NumberToEnglishWords(numberToBeGenerated) + "\";";
+          break;
+      }
+      if (languageToTranslate == "Both French and English")
+      {
+        textBoxCodeGeneratedResult.Text += method1.ToString();
+        var method2 = new UnitTestCodeGenerated(
+        StringFunc.NumberToFrenchWords(numberToBeGenerated),
+        "const string expected = \"" + StringFunc.NumberToFrenchWords(numberToBeGenerated) + "\";",
+        "string result = StringFunc.NumberToEnglishWords(" + numberToBeGenerated + ");",
+        "Assert.AreEqual(expected, result);")
+        {
+          codeSignatureMethodName = StringFunc.ReplaceCharacters(StringFunc.NumberToFrenchWords(numberToBeGenerated), ' ', '_')
+        };
+
+        method2.codeSignatureMethodName = StringFunc.ReplaceCharacters(method2.codeSignatureMethodName, '-', '_');
+        method2.CodeExpected = "const string expected = \"" + StringFunc.NumberToFrenchWords(numberToBeGenerated) + "\";";
+        method2.CodeResult = "string result = StringFunc.NumberToFrenchWords(" + numberToBeGenerated + ");";
+        textBoxCodeGeneratedResult.Text += method2.ToString();
+      }
+      else
+      {
+        textBoxCodeGeneratedResult.Text += method1.ToString();
+      }
     }
 
     private void buttonGenerateSeveralMethods_Click(object sender, EventArgs e)
@@ -204,7 +263,7 @@ namespace CodeGenerationWinForm
       int fromNumberOfMethodToBeGenerated = 0;
       if (!int.TryParse(textBoxFromNumber.Text, out fromNumberOfMethodToBeGenerated))
       {
-        DisplayMessageOk("The lower bound is not a number", "Not a number", MessageBoxButtons.OK);
+        DisplayMessageOk("The lower bound is not a number or\nthe number is too big (above 2,147,483,647)", "Not a number", MessageBoxButtons.OK);
         textBoxFromNumber.Text = string.Empty;
         return;
       }
@@ -212,7 +271,7 @@ namespace CodeGenerationWinForm
       int toNumberOfMethodToBeGenerated = 0;
       if (!int.TryParse(textBoxToNumber.Text, out toNumberOfMethodToBeGenerated))
       {
-        DisplayMessageOk("The upper bound is not a number", "Not a number", MessageBoxButtons.OK);
+        DisplayMessageOk("The upper bound is not a number or\nthe number is too big (above 2,147,483,647)", "Not a number", MessageBoxButtons.OK);
         textBoxToNumber.Text = string.Empty;
         return;
       }
@@ -305,7 +364,7 @@ namespace CodeGenerationWinForm
       int numberOfMethodToBeGenerated = 0;
       if (!int.TryParse(textBoxNumberOfRndMethod.Text, out numberOfMethodToBeGenerated))
       {
-        DisplayMessageOk("This is not a number", "Not a number", MessageBoxButtons.OK);
+        DisplayMessageOk("This is not a number or\nthe number is too big (above 2,147,483,647)", "Not a number", MessageBoxButtons.OK);
         textBoxNumberOfRndMethod.Text = string.Empty;
         return;
       }
@@ -397,6 +456,11 @@ namespace CodeGenerationWinForm
           textBoxRandomMethodResult.SelectAll();
           break;
       }
+    }
+
+    private void buttonClearOneMethodTextBox_Click(object sender, EventArgs e)
+    {
+      textBoxCodeGeneratedResult.Text = string.Empty;
     }
   }
 }

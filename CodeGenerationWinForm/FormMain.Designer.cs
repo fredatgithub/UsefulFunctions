@@ -84,6 +84,9 @@
       this.comboBoxRndMethodLanguage = new System.Windows.Forms.ComboBox();
       this.labelNumberOfRndMethod = new System.Windows.Forms.Label();
       this.progressBarSeveralMethods = new System.Windows.Forms.ProgressBar();
+      this.textBoxOneMethodNumber = new System.Windows.Forms.TextBox();
+      this.buttonClearOneMethodTextBox = new System.Windows.Forms.Button();
+      this.comboBoxOneMethodLanguage = new System.Windows.Forms.ComboBox();
       this.menuStrip1.SuspendLayout();
       this.tabControlMain.SuspendLayout();
       this.tabPageOneMethod.SuspendLayout();
@@ -354,7 +357,7 @@
       // 
       // textBoxCodeGeneratedResult
       // 
-      this.tableLayoutPanelOneMethod.SetColumnSpan(this.textBoxCodeGeneratedResult, 2);
+      this.tableLayoutPanelOneMethod.SetColumnSpan(this.textBoxCodeGeneratedResult, 4);
       this.textBoxCodeGeneratedResult.Dock = System.Windows.Forms.DockStyle.Fill;
       this.textBoxCodeGeneratedResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.textBoxCodeGeneratedResult.Location = new System.Drawing.Point(3, 41);
@@ -367,10 +370,12 @@
       // 
       // buttonGenerateCode
       // 
-      this.buttonGenerateCode.Location = new System.Drawing.Point(3, 2);
+      this.buttonGenerateCode.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.buttonGenerateCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.buttonGenerateCode.Location = new System.Drawing.Point(403, 2);
       this.buttonGenerateCode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.buttonGenerateCode.Name = "buttonGenerateCode";
-      this.buttonGenerateCode.Size = new System.Drawing.Size(227, 30);
+      this.buttonGenerateCode.Size = new System.Drawing.Size(244, 35);
       this.buttonGenerateCode.TabIndex = 3;
       this.buttonGenerateCode.Text = "Generate code for one method";
       this.buttonGenerateCode.UseVisualStyleBackColor = true;
@@ -403,11 +408,16 @@
       // 
       // tableLayoutPanelOneMethod
       // 
-      this.tableLayoutPanelOneMethod.ColumnCount = 2;
-      this.tableLayoutPanelOneMethod.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.44444F));
-      this.tableLayoutPanelOneMethod.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.55556F));
+      this.tableLayoutPanelOneMethod.ColumnCount = 4;
+      this.tableLayoutPanelOneMethod.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 250F));
+      this.tableLayoutPanelOneMethod.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+      this.tableLayoutPanelOneMethod.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 250F));
+      this.tableLayoutPanelOneMethod.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
       this.tableLayoutPanelOneMethod.Controls.Add(this.textBoxCodeGeneratedResult, 0, 1);
-      this.tableLayoutPanelOneMethod.Controls.Add(this.buttonGenerateCode, 0, 0);
+      this.tableLayoutPanelOneMethod.Controls.Add(this.buttonGenerateCode, 2, 0);
+      this.tableLayoutPanelOneMethod.Controls.Add(this.textBoxOneMethodNumber, 1, 0);
+      this.tableLayoutPanelOneMethod.Controls.Add(this.buttonClearOneMethodTextBox, 3, 0);
+      this.tableLayoutPanelOneMethod.Controls.Add(this.comboBoxOneMethodLanguage, 0, 0);
       this.tableLayoutPanelOneMethod.Dock = System.Windows.Forms.DockStyle.Fill;
       this.tableLayoutPanelOneMethod.Location = new System.Drawing.Point(3, 2);
       this.tableLayoutPanelOneMethod.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -479,10 +489,12 @@
       // 
       // buttonGenerateSeveralMethods
       // 
+      this.buttonGenerateSeveralMethods.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.buttonGenerateSeveralMethods.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.buttonGenerateSeveralMethods.Location = new System.Drawing.Point(697, 2);
       this.buttonGenerateSeveralMethods.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.buttonGenerateSeveralMethods.Name = "buttonGenerateSeveralMethods";
-      this.buttonGenerateSeveralMethods.Size = new System.Drawing.Size(88, 25);
+      this.buttonGenerateSeveralMethods.Size = new System.Drawing.Size(178, 33);
       this.buttonGenerateSeveralMethods.TabIndex = 6;
       this.buttonGenerateSeveralMethods.Text = "Generate";
       this.buttonGenerateSeveralMethods.UseVisualStyleBackColor = true;
@@ -490,48 +502,56 @@
       // 
       // comboBoxLanguage
       // 
+      this.comboBoxLanguage.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.comboBoxLanguage.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.comboBoxLanguage.FormattingEnabled = true;
       this.comboBoxLanguage.Location = new System.Drawing.Point(3, 2);
       this.comboBoxLanguage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.comboBoxLanguage.Name = "comboBoxLanguage";
-      this.comboBoxLanguage.Size = new System.Drawing.Size(199, 24);
+      this.comboBoxLanguage.Size = new System.Drawing.Size(211, 24);
       this.comboBoxLanguage.TabIndex = 0;
       // 
       // textBoxToNumber
       // 
+      this.textBoxToNumber.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.textBoxToNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.textBoxToNumber.Location = new System.Drawing.Point(525, 2);
       this.textBoxToNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.textBoxToNumber.Name = "textBoxToNumber";
-      this.textBoxToNumber.Size = new System.Drawing.Size(165, 22);
+      this.textBoxToNumber.Size = new System.Drawing.Size(166, 30);
       this.textBoxToNumber.TabIndex = 5;
       this.textBoxToNumber.Text = "25";
       // 
       // labelFrom
       // 
       this.labelFrom.AutoSize = true;
-      this.labelFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.labelFrom.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.labelFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.labelFrom.Location = new System.Drawing.Point(220, 0);
       this.labelFrom.Name = "labelFrom";
-      this.labelFrom.Size = new System.Drawing.Size(54, 17);
+      this.labelFrom.Size = new System.Drawing.Size(78, 37);
       this.labelFrom.TabIndex = 2;
       this.labelFrom.Text = "From: ";
       // 
       // labelTo
       // 
       this.labelTo.AutoSize = true;
-      this.labelTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.labelTo.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.labelTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.labelTo.Location = new System.Drawing.Point(481, 0);
       this.labelTo.Name = "labelTo";
-      this.labelTo.Size = new System.Drawing.Size(37, 17);
+      this.labelTo.Size = new System.Drawing.Size(38, 37);
       this.labelTo.TabIndex = 3;
       this.labelTo.Text = "To: ";
       // 
       // textBoxFromNumber
       // 
+      this.textBoxFromNumber.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.textBoxFromNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.textBoxFromNumber.Location = new System.Drawing.Point(304, 2);
       this.textBoxFromNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.textBoxFromNumber.Name = "textBoxFromNumber";
-      this.textBoxFromNumber.Size = new System.Drawing.Size(169, 22);
+      this.textBoxFromNumber.Size = new System.Drawing.Size(171, 30);
       this.textBoxFromNumber.TabIndex = 4;
       this.textBoxFromNumber.Text = "21";
       // 
@@ -596,10 +616,12 @@
       // 
       // buttonGenerateRdnMethod
       // 
+      this.buttonGenerateRdnMethod.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.buttonGenerateRdnMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.buttonGenerateRdnMethod.Location = new System.Drawing.Point(771, 2);
       this.buttonGenerateRdnMethod.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.buttonGenerateRdnMethod.Name = "buttonGenerateRdnMethod";
-      this.buttonGenerateRdnMethod.Size = new System.Drawing.Size(88, 25);
+      this.buttonGenerateRdnMethod.Size = new System.Drawing.Size(110, 28);
       this.buttonGenerateRdnMethod.TabIndex = 7;
       this.buttonGenerateRdnMethod.Text = "Generate";
       this.buttonGenerateRdnMethod.UseVisualStyleBackColor = true;
@@ -607,27 +629,30 @@
       // 
       // textBoxNumberOfRndMethod
       // 
+      this.textBoxNumberOfRndMethod.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.textBoxNumberOfRndMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.textBoxNumberOfRndMethod.Location = new System.Drawing.Point(644, 2);
       this.textBoxNumberOfRndMethod.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.textBoxNumberOfRndMethod.Name = "textBoxNumberOfRndMethod";
-      this.textBoxNumberOfRndMethod.Size = new System.Drawing.Size(116, 22);
+      this.textBoxNumberOfRndMethod.Size = new System.Drawing.Size(121, 30);
       this.textBoxNumberOfRndMethod.TabIndex = 5;
       this.textBoxNumberOfRndMethod.Text = "2";
       // 
       // comboBoxRndMethodLanguage
       // 
+      this.comboBoxRndMethodLanguage.Dock = System.Windows.Forms.DockStyle.Fill;
       this.comboBoxRndMethodLanguage.FormattingEnabled = true;
       this.comboBoxRndMethodLanguage.Location = new System.Drawing.Point(3, 2);
       this.comboBoxRndMethodLanguage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.comboBoxRndMethodLanguage.Name = "comboBoxRndMethodLanguage";
-      this.comboBoxRndMethodLanguage.Size = new System.Drawing.Size(188, 24);
+      this.comboBoxRndMethodLanguage.Size = new System.Drawing.Size(189, 24);
       this.comboBoxRndMethodLanguage.TabIndex = 3;
       // 
       // labelNumberOfRndMethod
       // 
       this.labelNumberOfRndMethod.AutoSize = true;
       this.labelNumberOfRndMethod.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.labelNumberOfRndMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.labelNumberOfRndMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.labelNumberOfRndMethod.Location = new System.Drawing.Point(198, 0);
       this.labelNumberOfRndMethod.Name = "labelNumberOfRndMethod";
       this.labelNumberOfRndMethod.Size = new System.Drawing.Size(440, 32);
@@ -643,6 +668,38 @@
       this.progressBarSeveralMethods.Size = new System.Drawing.Size(872, 15);
       this.progressBarSeveralMethods.TabIndex = 8;
       this.progressBarSeveralMethods.Visible = false;
+      // 
+      // textBoxOneMethodNumber
+      // 
+      this.textBoxOneMethodNumber.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.textBoxOneMethodNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.textBoxOneMethodNumber.Location = new System.Drawing.Point(253, 3);
+      this.textBoxOneMethodNumber.Name = "textBoxOneMethodNumber";
+      this.textBoxOneMethodNumber.Size = new System.Drawing.Size(144, 30);
+      this.textBoxOneMethodNumber.TabIndex = 4;
+      this.textBoxOneMethodNumber.Text = "2147483647";
+      // 
+      // buttonClearOneMethodTextBox
+      // 
+      this.buttonClearOneMethodTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.buttonClearOneMethodTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.buttonClearOneMethodTextBox.Location = new System.Drawing.Point(653, 3);
+      this.buttonClearOneMethodTextBox.Name = "buttonClearOneMethodTextBox";
+      this.buttonClearOneMethodTextBox.Size = new System.Drawing.Size(222, 33);
+      this.buttonClearOneMethodTextBox.TabIndex = 5;
+      this.buttonClearOneMethodTextBox.Text = "Clear text";
+      this.buttonClearOneMethodTextBox.UseVisualStyleBackColor = true;
+      this.buttonClearOneMethodTextBox.Click += new System.EventHandler(this.buttonClearOneMethodTextBox_Click);
+      // 
+      // comboBoxOneMethodLanguage
+      // 
+      this.comboBoxOneMethodLanguage.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.comboBoxOneMethodLanguage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.comboBoxOneMethodLanguage.FormattingEnabled = true;
+      this.comboBoxOneMethodLanguage.Location = new System.Drawing.Point(3, 3);
+      this.comboBoxOneMethodLanguage.Name = "comboBoxOneMethodLanguage";
+      this.comboBoxOneMethodLanguage.Size = new System.Drawing.Size(244, 28);
+      this.comboBoxOneMethodLanguage.TabIndex = 6;
       // 
       // FormMain
       // 
@@ -733,5 +790,8 @@
     private System.Windows.Forms.TableLayoutPanel tableLayoutPanelSeveralMethods;
     private System.Windows.Forms.TableLayoutPanel tableLayoutPanelRandomMethods;
     private System.Windows.Forms.ProgressBar progressBarSeveralMethods;
+    private System.Windows.Forms.TextBox textBoxOneMethodNumber;
+    private System.Windows.Forms.Button buttonClearOneMethodTextBox;
+    private System.Windows.Forms.ComboBox comboBoxOneMethodLanguage;
   }
 }
