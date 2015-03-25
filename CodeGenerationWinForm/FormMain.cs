@@ -488,7 +488,7 @@ namespace CodeGenerationWinForm
 
           if (textBoxOneMethodNumber == ActiveControl)
           {
-            textBoxCodeGeneratedResult.SelectAll();
+            textBoxOneMethodNumber.SelectAll();
           }
 
           break;
