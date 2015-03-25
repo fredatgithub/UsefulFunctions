@@ -480,16 +480,29 @@ namespace CodeGenerationWinForm
       switch (selectedTab)
       {
         case "TabPage: {One Method}":
-          textBoxCodeGeneratedResult.Focus();
-          textBoxCodeGeneratedResult.SelectAll();
+          //detect which TextBox has the focus
+          if (textBoxCodeGeneratedResult == ActiveControl)
+          {
+            textBoxCodeGeneratedResult.SelectAll();
+          }
+
+          if (textBoxOneMethodNumber == ActiveControl)
+          {
+            textBoxCodeGeneratedResult.SelectAll();
+          }
+
           break;
         case "TabPage: {Several Methods by range}":
-          textBoxRangeMethods.Focus();
-          textBoxRangeMethods.SelectAll();
+          if (textBoxRangeMethods == ActiveControl)
+          {
+            textBoxRangeMethods.SelectAll();
+          }
           break;
         case "TabPage: {Random Methods}":
-          textBoxRandomMethodResult.Focus();
-          textBoxRandomMethodResult.SelectAll();
+          if (textBoxRandomMethodResult == ActiveControl)
+          {
+            textBoxRandomMethodResult.SelectAll();
+          }
           break;
       }
     }
