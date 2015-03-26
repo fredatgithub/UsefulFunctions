@@ -497,12 +497,28 @@ namespace CodeGenerationWinForm
           {
             textBoxRangeMethods.SelectAll();
           }
+
+          if (textBoxFromNumber == ActiveControl)
+          {
+            textBoxFromNumber.SelectAll();
+          }
+
+          if (textBoxToNumber == ActiveControl)
+          {
+            textBoxToNumber.SelectAll();
+          }
           break;
         case "TabPage: {Random Methods}":
           if (textBoxRandomMethodResult == ActiveControl)
           {
             textBoxRandomMethodResult.SelectAll();
           }
+
+          if (textBoxNumberOfRndMethod == ActiveControl)
+          {
+            textBoxNumberOfRndMethod.SelectAll();
+          }
+
           break;
       }
     }
