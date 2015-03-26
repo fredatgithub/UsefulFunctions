@@ -163,6 +163,16 @@ namespace CodeGenerationWinForm
       }
     }
 
+    private void PasteFromClipboard(TextBox tb)
+    {
+      if (tb == ActiveControl)
+      {
+        var selectionIndex = tb.SelectionStart;
+        tb.Text = tb.Text.Insert(selectionIndex, Clipboard.GetText());
+        tb.SelectionStart = selectionIndex + Clipboard.GetText().Length;
+      }
+    }
+
     private void cutToolStripMenuItem_Click(object sender, EventArgs e)
     {
       // first tab: textBoxCodeGeneratedResult
@@ -181,15 +191,18 @@ namespace CodeGenerationWinForm
 
     private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      if (textBoxOneMethodNumber == ActiveControl)
-      {
-        textBoxOneMethodNumber.Text += Clipboard.GetText();
-      }
+      // first tab: textBoxCodeGeneratedResult
+      PasteFromClipboard(textBoxCodeGeneratedResult);
+      PasteFromClipboard(textBoxOneMethodNumber);
 
-      if (textBoxCodeGeneratedResult == ActiveControl)
-      {
-        textBoxCodeGeneratedResult.Text += Clipboard.GetText();
-      }
+      // second tab: textBoxRangeMethods 
+      PasteFromClipboard(textBoxRangeMethods);
+      PasteFromClipboard(textBoxFromNumber);
+      PasteFromClipboard(textBoxToNumber);
+
+      // third tab: textBoxRandomMethodResult
+      PasteFromClipboard(textBoxRandomMethodResult);
+      PasteFromClipboard(textBoxNumberOfRndMethod);
     }
 
     private void buttonGenerateCode_Click(object sender, EventArgs e)
