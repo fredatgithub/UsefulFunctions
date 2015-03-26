@@ -180,31 +180,35 @@ namespace CodeGenerationWinForm
       }
     }
 
+    private void CopyToClipboard(TextBox tb, string message = "nothing")
+    {
+      if (tb == ActiveControl)
+      {
+        if (tb.Text == string.Empty)
+        {
+          DisplayMessageOk("There is " + message +" to copy", message, MessageBoxButtons.OK);
+          return;
+        }
+
+        Clipboard.SetText(tb.SelectedText);
+        tb.SelectedText = string.Empty;
+      }
+    }
+
     private void cutToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      if (textBoxCodeGeneratedResult == ActiveControl)
-      {
-        if (textBoxCodeGeneratedResult.Text == string.Empty)
-        {
-          DisplayMessageOk("There is no text to copy", "No text", MessageBoxButtons.OK);
-          return;
-        }
+      // first tab: textBoxCodeGeneratedResult
+      CopyToClipboard(textBoxCodeGeneratedResult, "no text");
+      CopyToClipboard(textBoxOneMethodNumber, "no number");
 
-        Clipboard.SetText(textBoxCodeGeneratedResult.SelectedText);
-        textBoxCodeGeneratedResult.SelectedText = string.Empty;
-      }
+      // second tab: range textBoxRangeMethods 
+      CopyToClipboard(textBoxRangeMethods, "no text");
+      CopyToClipboard(textBoxFromNumber, "no number");
+      CopyToClipboard(textBoxToNumber, "no number");
 
-      if (textBoxOneMethodNumber == ActiveControl)
-      {
-        if (textBoxOneMethodNumber.Text == string.Empty)
-        {
-          DisplayMessageOk("There is no number to copy", "No number", MessageBoxButtons.OK);
-          return;
-        }
-
-        Clipboard.SetText(textBoxOneMethodNumber.SelectedText);
-        textBoxOneMethodNumber.SelectedText = string.Empty;
-      }
+      // third tab: textBoxRandomMethodResult
+      CopyToClipboard(textBoxRandomMethodResult, "no text");
+      CopyToClipboard(textBoxNumberOfRndMethod, "no number");
     }
 
     private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
