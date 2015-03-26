@@ -20,6 +20,7 @@ SOFTWARE.
 namespace FonctionsUtiles.Fred.Csharp
 {
   using System;
+  using System.Globalization;
   using System.IO;
 
   public class FunctionsFiles
@@ -177,6 +178,57 @@ namespace FonctionsUtiles.Fred.Csharp
       }
 
       return result;
+    }
+
+    public static string GenerateUniqueFileName(string fileName)
+    {
+      string result = string.Empty;
+      if (File.Exists(fileName))
+      {
+        return fileName;
+      }
+
+      int fileNumber = 1;
+      result = AddAtTheEndOfFileName(fileName, fileNumber.ToString(CultureInfo.InvariantCulture));
+      while (File.Exists(result))
+      {
+        fileNumber++;
+        result = AddAtTheEndOfFileName(fileName, fileNumber.ToString(CultureInfo.InvariantCulture));
+      }
+
+      return result;
+    }
+
+    private static string IncreaseFileName(string fileName)
+    {
+      int fileNumber = 1;
+      string result = AddAtTheEndOfFileName(fileName, fileNumber.ToString(CultureInfo.InvariantCulture));
+      while (File.Exists(result))
+      {
+        fileNumber++;
+        result = AddAtTheEndOfFileName(fileName, fileNumber.ToString(CultureInfo.InvariantCulture));
+      }
+
+      return result;
+    }
+
+    private static string AddAtTheEndOfFileName(string fileName, string textToBeAdded)
+    {
+      string Backslash = "\\";
+      string result = GetDirectoryFileNameAndExtension(fileName)[0] + Backslash
+                                 + GetDirectoryFileNameAndExtension(fileName)[1]
+                                 + textToBeAdded
+                                 + GetDirectoryFileNameAndExtension(fileName)[2];
+      return result;
+    }
+
+    private static string[] GetDirectoryFileNameAndExtension(string filePath)
+    {
+      string directory = Path.GetDirectoryName(filePath);
+      string fileName = Path.GetFileNameWithoutExtension(filePath);
+      string extension = Path.GetExtension(filePath);
+
+      return new[] { directory, fileName, extension };
     }
   }
 }
