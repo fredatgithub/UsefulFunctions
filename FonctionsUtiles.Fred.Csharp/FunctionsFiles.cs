@@ -90,26 +90,26 @@ namespace FonctionsUtiles.Fred.Csharp
       return File.GetLastAccessTimeUtc(chemin);
     }
 
-    public static void Lit(string chemin)
+    public static void ReadAndDisplayInConsole(string chemin)
     {
-      Action<string> affiche = Console.WriteLine;
-      string[] donnees = File.ReadAllLines(chemin);
-      foreach (string t in donnees)
+      Action<string> display = Console.WriteLine;
+      string[] lines = File.ReadAllLines(chemin);
+      foreach (string line in lines)
       {
-        affiche(t);
+        display(line);
       }
 
-      affiche(string.Empty);
+      display(string.Empty);
     }
 
-    public static bool Deletefile(string chemin)
+    public static bool Deletefile(string filePath)
     {
-      if (!File.Exists(chemin))
+      if (!File.Exists(filePath))
       {
         return false;
       }
 
-      File.Delete(chemin);
+      File.Delete(filePath);
       return true;
     }
 
@@ -129,43 +129,54 @@ namespace FonctionsUtiles.Fred.Csharp
       return true;
     }
 
-    public static void Ecris(string chemin, string[] donnee)
+    public static void WriteDataArray(string FilePath, string[] dataArray)
     {
-      if (File.Exists(chemin))
+      if (File.Exists(FilePath))
       {
-        File.AppendAllLines(chemin, donnee);
+        File.AppendAllLines(FilePath, dataArray);
       }
       else
       {
-        File.WriteAllLines(chemin, donnee);
+        File.WriteAllLines(FilePath, dataArray);
       }
     }
 
-    public static void Ecris(string chemin, string donnee)
+    public static void WriteData(string filePath, string stringData)
     {
-      if (File.Exists(chemin))
+      if (File.Exists(filePath))
       {
-        File.AppendAllText(chemin, donnee);
+        File.AppendAllText(filePath, stringData);
       }
       else
       {
-        File.WriteAllText(chemin, donnee);
+        File.WriteAllText(filePath, stringData);
       }
     }
 
-    public static void Ecris(string chemin, byte[] donnee)
+    public static void WriteByteArray(string filePath, byte[] byteArray)
     {
-      File.WriteAllBytes(chemin, donnee);
+      File.WriteAllBytes(filePath, byteArray);
     }
 
-    public static void CreateFile(string chemin, string donnee = " ")
+    public static void CreateFile(string filePath, string stringData = " ")
     {
-      File.Create(chemin, donnee.Length);
+      File.Create(filePath, stringData.Length);
     }
 
-    public static void FileRename(string file1, string file2)
+    public static bool FileRename(string file1, string file2)
     {
-      File.Move(file1, file2);
+      bool result = false;
+      try
+      {
+        File.Move(file1, file2);
+        result = true;
+      }
+      catch (Exception)
+      {
+        result = false;
+      }
+
+      return result;
     }
   }
 }
