@@ -377,7 +377,7 @@
       this.buttonGenerateCode.Name = "buttonGenerateCode";
       this.buttonGenerateCode.Size = new System.Drawing.Size(245, 35);
       this.buttonGenerateCode.TabIndex = 3;
-      this.buttonGenerateCode.Text = "Generate code for one method";
+      this.buttonGenerateCode.Text = "Generate code for one number";
       this.buttonGenerateCode.UseVisualStyleBackColor = true;
       this.buttonGenerateCode.Click += new System.EventHandler(this.buttonGenerateCode_Click);
       // 
