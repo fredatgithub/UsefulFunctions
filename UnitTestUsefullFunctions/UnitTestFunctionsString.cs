@@ -35,141 +35,177 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Factorial_one()
     {
-      long result = FunctionsMath.Factorial(1);
-      Assert.IsTrue(result == 1);
+      TestFactorial(1, 1);
+    }
+
+    public void TestFactorial(long numberToBeTested, long resultExpected)
+    {
+      long testedNumber = numberToBeTested;
+      long expected = resultExpected;
+      long result = FunctionsMath.Factorial(testedNumber);
+      Assert.AreEqual(result, expected);
     }
 
     [TestMethod]
     public void TestMethod_Factorial_two()
     {
-      long result = FunctionsMath.Factorial(2);
-      Assert.IsTrue(result == 2);
+      TestFactorial(2, 2);
     }
 
     [TestMethod]
     public void TestMethod_Factorial_three()
     {
-      long result = FunctionsMath.Factorial(3);
-      Assert.IsTrue(result == 6);
+      TestFactorial(3, 6);
     }
 
     [TestMethod]
     public void TestMethod_Factorial_four()
     {
-      long result = FunctionsMath.Factorial(4);
-      Assert.IsTrue(result == 24);
+      TestFactorial(4, 24);
     }
 
     [TestMethod]
     public void TestMethod_Factorial_five()
     {
-      long result = FunctionsMath.Factorial(5);
-      Assert.IsTrue(result == 120);
+      const long testedNumber = 5;
+      const long expected = 120;
+      long result = FunctionsMath.Factorial(testedNumber);
+      Assert.AreEqual(result, expected);
     }
 
     [TestMethod]
     public void TestMethod_Factorial_six()
     {
-      long result = FunctionsMath.Factorial(6);
-      Assert.IsTrue(result == 720);
+      const long testedNumber = 6;
+      const long expected = 720;
+      long result = FunctionsMath.Factorial(testedNumber);
+      Assert.AreEqual(result, expected);
     }
 
     [TestMethod]
     public void TestMethod_Factorial_seven()
     {
-      long result = FunctionsMath.Factorial(7);
-      Assert.IsTrue(result == 5040);
+      const long testedNumber = 7;
+      const long expected = 5040;
+      long result = FunctionsMath.Factorial(testedNumber);
+      Assert.AreEqual(result, expected);
     }
 
     [TestMethod]
     public void TestMethod_Factorial_eight()
     {
-      long result = FunctionsMath.Factorial(8);
-      Assert.IsTrue(result == 40320);
+      const long testedNumber = 8;
+      const long expected = 40320;
+      long result = FunctionsMath.Factorial(testedNumber);
+      Assert.AreEqual(result, expected);
     }
 
     [TestMethod]
     public void TestMethod_Factorial_nine()
     {
-      long result = FunctionsMath.Factorial(9);
-      Assert.IsTrue(result == 362880);
+      const long testedNumber = 9;
+      const long expected = 362880;
+      long result = FunctionsMath.Factorial(testedNumber);
+      Assert.AreEqual(result, expected);
     }
 
     [TestMethod]
     public void TestMethod_Factorial_ten()
     {
-      long result = FunctionsMath.Factorial(10);
-      Assert.IsTrue(result == 3628800);
+      const long testedNumber = 10;
+      const long expected = 3628800;
+      long result = FunctionsMath.Factorial(testedNumber);
+      Assert.AreEqual(result, expected);
     }
 
     [TestMethod]
     public void TestMethod_Factorial_eleven()
     {
-      long result = FunctionsMath.Factorial(11);
-      Assert.IsTrue(result == 39916800);
+      const long testedNumber = 11;
+      const long expected = 39916800;
+      long result = FunctionsMath.Factorial(testedNumber);
+      Assert.AreEqual(result, expected);
     }
 
     [TestMethod]
     public void TestMethod_Factorial_twelve()
     {
-      long result = FunctionsMath.Factorial(12);
-      Assert.IsTrue(result == 479001600);
+      const long testedNumber = 12;
+      const long expected = 479001600;
+      long result = FunctionsMath.Factorial(testedNumber);
+      Assert.AreEqual(result, expected);
     }
 
     [TestMethod]
     public void TestMethod_Factorial_thirteen()
     {
-      long result = FunctionsMath.Factorial(13);
-      Assert.IsTrue(result == 6227020800);
+      const long testedNumber = 13;
+      const long expected = 6227020800;
+      long result = FunctionsMath.Factorial(testedNumber);
+      Assert.AreEqual(result, expected);
     }
 
     [TestMethod]
     public void TestMethod_Factorial_fourteen()
     {
-      long result = FunctionsMath.Factorial(14);
-      Assert.IsTrue(result == 87178291200);
+      const long testedNumber = 14;
+      const long expected = 87178291200;
+      long result = FunctionsMath.Factorial(testedNumber);
+      Assert.AreEqual(result, expected);
     }
 
     [TestMethod]
     public void TestMethod_Factorial_fifteen()
     {
-      long result = FunctionsMath.Factorial(15);
-      Assert.IsTrue(result == 1307674368000);
+      const long testedNumber = 15;
+      const long expected = 1307674368000;
+      long result = FunctionsMath.Factorial(testedNumber);
+      Assert.AreEqual(result, expected);
     }
 
     [TestMethod]
     public void TestMethod_Factorial_sixteen()
     {
-      long result = FunctionsMath.Factorial(16);
-      Assert.IsTrue(result == 20922789888000);
+      const long testedNumber = 16;
+      const long expected = 20922789888000;
+      long result = FunctionsMath.Factorial(testedNumber);
+      Assert.AreEqual(result, expected);
     }
 
     [TestMethod]
     public void TestMethod_Factorial_seventeen()
     {
-      long result = FunctionsMath.Factorial(17);
-      Assert.IsTrue(result == 355687428096000);
+      const long testedNumber = 17;
+      const long expected = 355687428096000;
+      long result = FunctionsMath.Factorial(testedNumber);
+      Assert.AreEqual(result, expected);
     }
 
     [TestMethod]
     public void TestMethod_Factorial_eighteen()
     {
-      long result = FunctionsMath.Factorial(18);
-      Assert.IsTrue(result == 6402373705728000);
+      const long testedNumber = 18;
+      const long expected = 6402373705728000;
+      long result = FunctionsMath.Factorial(testedNumber);
+      Assert.AreEqual(result, expected);
     }
 
     [TestMethod]
     public void TestMethod_Factorial_nineteen()
     {
-      long result = FunctionsMath.Factorial(19);
-      Assert.IsTrue(result == 121645100408832000);
+      const long testedNumber = 19;
+      const long expected = 121645100408832000;
+      long result = FunctionsMath.Factorial(testedNumber);
+      Assert.AreEqual(result, expected);
     }
 
     [TestMethod]
     public void TestMethod_Factorial_twenty()
     {
-      long result = FunctionsMath.Factorial(20);
-      Assert.IsTrue(result == 2432902008176640000);
+      const long testedNumber = 20;
+      const long expected = 2432902008176640000;
+      long result = FunctionsMath.Factorial(testedNumber);
+      Assert.AreEqual(result, expected);
     }
 
     [TestMethod]
@@ -717,22 +753,25 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_zero()
     {
+      string expected = string.Empty;
       string result = FunctionsString.Plural(0);
-      Assert.IsTrue(result == string.Empty);
+      Assert.AreEqual(result, expected);
     }
 
     [TestMethod]
     public void TestMethod_Plural_one()
     {
+      string expected = string.Empty;
       string result = FunctionsString.Plural(1);
-      Assert.IsTrue(result == string.Empty);
+      Assert.AreEqual(result, expected);
     }
 
     [TestMethod]
     public void TestMethod_Plural_two()
     {
+      string expected = "s";
       string result = FunctionsString.Plural(2);
-      Assert.IsTrue(result == "s");
+      Assert.AreEqual(result, expected);
     }
 
     // **********************StringOccurrenceWithContains****************
