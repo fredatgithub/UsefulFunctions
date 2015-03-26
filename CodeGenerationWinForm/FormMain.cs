@@ -120,73 +120,41 @@ namespace CodeGenerationWinForm
 
     private void copyToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      if (textBoxOneMethodNumber == ActiveControl)
-      {
-        if (textBoxOneMethodNumber.SelectedText != string.Empty)
-        {
-          Clipboard.SetText(textBoxOneMethodNumber.SelectedText);
-        }
-      }
+      // first tab: textBoxOneMethodNumber
+      CopytToClipboard(textBoxCodeGeneratedResult, "no text");
+      CopytToClipboard(textBoxOneMethodNumber, "no number");
 
-      if (textBoxCodeGeneratedResult == ActiveControl)
-      {
-        string selectedTab = tabControlMain.SelectedTab.ToString();
-        switch (selectedTab)
-        {
-          case "TabPage: {One Method}":
-            if (IsTextBoxEmpty(textBoxCodeGeneratedResult))
-            {
-              DisplayEmptyTextMessage();
-            }
-            else
-            {
-              // test if there is any text selected
-              if (textBoxCodeGeneratedResult.SelectedText != string.Empty)
-              {
-                Clipboard.SetText(textBoxCodeGeneratedResult.SelectedText);
-              }
-              else
-              {
-                DisplayNoTextSelectedMessage();
-              }
-            }
+      // second tab: textBoxRangeMethods 
+      CopytToClipboard(textBoxRangeMethods, "no text");
+      CopytToClipboard(textBoxFromNumber, "no number");
+      CopytToClipboard(textBoxToNumber, "no number");
 
-            break;
-
-          case "TabPage: {Several Methods by range}":
-            if (textBoxRangeMethods.Text == string.Empty)
-            {
-              DisplayEmptyTextMessage();
-            }
-            else
-            {
-              Clipboard.SetText(textBoxRangeMethods.SelectedText);
-            }
-
-            break;
-
-          case "TabPage: {Random Methods}":
-            if (textBoxRandomMethodResult.Text == string.Empty)
-            {
-              DisplayEmptyTextMessage();
-            }
-            else
-            {
-              Clipboard.SetText(textBoxRandomMethodResult.SelectedText);
-            }
-
-            break;
-        }
-      }
+      // third tab: textBoxRandomMethodResult
+      CopytToClipboard(textBoxRandomMethodResult, "no text");
+      CopytToClipboard(textBoxNumberOfRndMethod, "no number");
     }
 
-    private void CopyToClipboard(TextBox tb, string message = "nothing")
+    private void CopytToClipboard(TextBox tb, string message = "nothing")
     {
       if (tb == ActiveControl)
       {
         if (tb.Text == string.Empty)
         {
-          DisplayMessageOk("There is " + message +" to copy", message, MessageBoxButtons.OK);
+          DisplayMessageOk("There is nothing to copy ", message, MessageBoxButtons.OK);
+          return;
+        }
+
+        Clipboard.SetText(tb.SelectedText);
+      }
+    }
+
+    private void CutToClipboard(TextBox tb, string message = "nothing")
+    {
+      if (tb == ActiveControl)
+      {
+        if (tb.Text == string.Empty)
+        {
+          DisplayMessageOk("There is " + message +" to cut ", message, MessageBoxButtons.OK);
           return;
         }
 
@@ -198,17 +166,17 @@ namespace CodeGenerationWinForm
     private void cutToolStripMenuItem_Click(object sender, EventArgs e)
     {
       // first tab: textBoxCodeGeneratedResult
-      CopyToClipboard(textBoxCodeGeneratedResult, "no text");
-      CopyToClipboard(textBoxOneMethodNumber, "no number");
+      CutToClipboard(textBoxCodeGeneratedResult, "no text");
+      CutToClipboard(textBoxOneMethodNumber, "no number");
 
-      // second tab: range textBoxRangeMethods 
-      CopyToClipboard(textBoxRangeMethods, "no text");
-      CopyToClipboard(textBoxFromNumber, "no number");
-      CopyToClipboard(textBoxToNumber, "no number");
+      // second tab: textBoxRangeMethods 
+      CutToClipboard(textBoxRangeMethods, "no text");
+      CutToClipboard(textBoxFromNumber, "no number");
+      CutToClipboard(textBoxToNumber, "no number");
 
       // third tab: textBoxRandomMethodResult
-      CopyToClipboard(textBoxRandomMethodResult, "no text");
-      CopyToClipboard(textBoxNumberOfRndMethod, "no number");
+      CutToClipboard(textBoxRandomMethodResult, "no text");
+      CutToClipboard(textBoxNumberOfRndMethod, "no number");
     }
 
     private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
