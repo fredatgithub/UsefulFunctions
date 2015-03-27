@@ -23,6 +23,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using FonctionsUtiles.Fred.Csharp;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.IO;
 
 namespace UnitTestUsefullFunctions
 {
@@ -3626,6 +3627,56 @@ namespace UnitTestUsefullFunctions
     #endregion
 
     #region Files Methods
+    //**************************GenerateUniqueFileName Methods****
+    [TestMethod]
+    public void TestMethod_GenerateUniqueFileName_true_file_does_not_exist()
+    {
+      const string sourceDir = @"c:\temp\UnitTestVS\";
+      FunctionsFiles.CreateDirectory(sourceDir);
+      const string sourceFile = @"c:\temp\UnitTestVS\test.txt";
+      const string expected =   @"c:\temp\UnitTestVS\test.txt";
+      string result = FunctionsFiles.GenerateUniqueFileName(sourceFile);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GenerateUniqueFileName_true_increment_filename_by_one()
+    {
+      const string sourceDir = @"c:\temp\UnitTestVS\";
+      FunctionsFiles.CreateDirectory(sourceDir);
+      const string sourceFile = @"c:\temp\UnitTestVS\test.txt";
+      FunctionsFiles.CreateFile(sourceFile);
+      const string expected = @"c:\temp\UnitTestVS\test1.txt";
+      string result = FunctionsFiles.GenerateUniqueFileName(sourceFile);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GenerateUniqueFileName_true_increment_filename_by_one_one()
+    {
+      const string sourceDir = @"c:\temp\UnitTestVS\";
+      FunctionsFiles.CreateDirectory(sourceDir);
+      const string sourceFile = @"c:\temp\UnitTestVS\test1.txt";
+      FunctionsFiles.CreateFile(sourceFile);
+      const string expected = @"c:\temp\UnitTestVS\test11.txt";
+      string result = FunctionsFiles.GenerateUniqueFileName(sourceFile);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GenerateUniqueFileName_true_increment_filename_by_two()
+    {
+      const string sourceDir = @"c:\temp\UnitTestVS\";
+      FunctionsFiles.CreateDirectory(sourceDir);
+      const string sourceFile = @"c:\temp\UnitTestVS\test.txt";
+      FunctionsFiles.CreateFile(sourceFile);
+      FunctionsFiles.CreateFile(@"c:\temp\UnitTestVS\test1.txt");
+      const string expected = @"c:\temp\UnitTestVS\test2.txt";
+      string result = FunctionsFiles.GenerateUniqueFileName(sourceFile);
+      Assert.AreEqual(result, expected);
+    }
+
+    
     #endregion Files Methods
 
     #region Useful Methods
@@ -3706,7 +3757,7 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
     #endregion OutsideWeekEnd Methods
-    //**********************IsWeekEnd Methods***************
+    //**********************IsWeekEnd Methods*********************
     #region IsWeekEnd Methods
     [TestMethod]
     public void TestMethod_IsWeekEnd_true()

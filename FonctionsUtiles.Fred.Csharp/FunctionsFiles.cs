@@ -183,7 +183,7 @@ namespace FonctionsUtiles.Fred.Csharp
     public static string GenerateUniqueFileName(string fileName)
     {
       string result = string.Empty;
-      if (File.Exists(fileName))
+      if (!File.Exists(fileName))
       {
         return fileName;
       }
@@ -229,6 +229,21 @@ namespace FonctionsUtiles.Fred.Csharp
       string extension = Path.GetExtension(filePath);
 
       return new[] { directory, fileName, extension };
+    }
+
+    public static void CreateDirectory(string tempDirectory)
+    {
+      Directory.CreateDirectory(tempDirectory);
+    }
+
+    public static void CleanDirectory(string tempDirectory)
+    {
+      Directory.Delete(tempDirectory);
+    }
+
+    public static void CreateFile(string filename)
+    {
+      File.Create(filename);
     }
   }
 }
