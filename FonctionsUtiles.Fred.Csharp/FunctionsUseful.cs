@@ -72,12 +72,12 @@ namespace FonctionsUtiles.Fred.Csharp
       return DateTime.FromFileTime(longDate);
     }
 
-    public static string ByteArrayToHexString(byte[] bytes)
+    public static string ByteArrayToString(byte[] bytes)
     {
       StringBuilder sb = new StringBuilder();
       for (int i = 0; i < bytes.Length; i++)
       {
-        sb.Append(i.ToString("X2"));
+        sb.Append(bytes[i].ToString("X2"));
       }
 
       return sb.ToString();

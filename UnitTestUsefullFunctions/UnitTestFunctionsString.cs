@@ -3775,7 +3775,34 @@ namespace UnitTestUsefullFunctions
       Assert.AreNotEqual(result, expected);
     }
 
+    [TestMethod]
+    public void TestMethod_DateToByteArray_false_length_not_equal_to_eight()
+    {
+      byte[] source = new byte[] { 0x01, 0x01, 0x01, 0x01};
+      DateTime expected = new DateTime();
+      DateTime result = FunctionsDateTime.ByteArrayToDate(source);
+      Assert.AreEqual(result, expected);
+    }
     #endregion DateToByteArray Methods
+    #region ByteArrayToString Methods
+    [TestMethod]
+    public void TestMethod_ByteArrayToHexString_true()
+    {
+      byte[] source = new byte[] { 0x01, 0x02, 0x03, 0x09, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17 };
+      string expected = "010203091011121314151617";
+      string result = FunctionsDateTime.ByteArrayToString(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ByteArrayToString_true_one()
+    {
+      byte[] source = new byte[] { 0x01};
+      string expected = "01";
+      string result = FunctionsDateTime.ByteArrayToString(source);
+      Assert.AreEqual(result, expected);
+    }
+    #endregion ByteArrayToString Methods
     #endregion OutsideWeekEnd Methods
     #endregion Useful Methods
   }
