@@ -29,7 +29,6 @@ namespace UnitTestUsefullFunctions
   [TestClass]
   public class UnitTestMethodsString
   {
-    
     #region Math Methods
     #region Math Methods - Factorial
     [TestMethod]
@@ -553,7 +552,7 @@ namespace UnitTestUsefullFunctions
       Assert.IsTrue(result == 5050);
     }
     #endregion Math Methods - Sommielle Recursive
-    #endregion
+    #endregion Math Methods
     #region String Methods
 
     //**********************String Methods***************
@@ -3706,7 +3705,7 @@ namespace UnitTestUsefullFunctions
       bool result = FunctionsDateTime.OutsideWeekEnd(source);
       Assert.AreEqual(result, expected);
     }
-
+    #endregion OutsideWeekEnd Methods
     //**********************IsWeekEnd Methods***************
     #region IsWeekEnd Methods
     [TestMethod]
@@ -3756,7 +3755,7 @@ namespace UnitTestUsefullFunctions
     #endregion IsWeekEnd Methods
     //**********************DateToByteArray Methods***************
     #region DateToByteArray Methods
-
+    //**********************DateToByteArray Methods***************
     [TestMethod]
     public void TestMethod_DateToByteArray_true()
     {
@@ -3785,6 +3784,7 @@ namespace UnitTestUsefullFunctions
     }
     #endregion DateToByteArray Methods
     #region ByteArrayToString Methods
+    //**********************ByteArrayToString Methods***************
     [TestMethod]
     public void TestMethod_ByteArrayToHexString_true()
     {
@@ -3856,7 +3856,7 @@ namespace UnitTestUsefullFunctions
     }
 
     #endregion HexStringToByteArray Methods
-    #endregion OutsideWeekEnd Methods
+
     #endregion Useful Methods
   }
 }
