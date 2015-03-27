@@ -218,8 +218,10 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Factorial_Negative_number()
     {
-      long result = FunctionsMath.Factorial(-3);
-      Assert.IsTrue(result == 0);
+      const long testedNumber = -3;
+      const long expected = 0;
+      long result = FunctionsMath.Factorial(testedNumber);
+      Assert.AreEqual(result, expected);
     }
 
     [TestMethod]
