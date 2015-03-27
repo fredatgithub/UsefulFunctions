@@ -130,15 +130,15 @@ namespace FonctionsUtiles.Fred.Csharp
       return true;
     }
 
-    public static void WriteDataArray(string FilePath, string[] dataArray)
+    public static void WriteDataArray(string filePath, string[] dataArray)
     {
-      if (File.Exists(FilePath))
+      if (File.Exists(filePath))
       {
-        File.AppendAllLines(FilePath, dataArray);
+        File.AppendAllLines(filePath, dataArray);
       }
       else
       {
-        File.WriteAllLines(FilePath, dataArray);
+        File.WriteAllLines(filePath, dataArray);
       }
     }
 
@@ -231,9 +231,28 @@ namespace FonctionsUtiles.Fred.Csharp
       return new[] { directory, fileName, extension };
     }
 
-    public static void CreateDirectory(string tempDirectory)
+    public static void CreateDirectory(string directory)
     {
-      Directory.CreateDirectory(tempDirectory);
+      Directory.CreateDirectory(directory);
+    }
+
+    public static void DeleteDirectory(string directory)
+    {
+      if (Directory.Exists(directory))
+      {
+        // check for subdirectories and files within
+        string[] files = Directory.GetFiles(directory);
+        if (files.Length == 0)
+        {
+          Directory.Delete(directory);
+        }
+        else
+        {
+            // delete subdirectories
+
+        }
+        
+      }
     }
 
     public static void CleanDirectory(string tempDirectory)

@@ -3632,6 +3632,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GenerateUniqueFileName_true_file_does_not_exist()
     {
       const string sourceDir = @"c:\temp\UnitTestVS\";
+      FunctionsFiles.DeleteDirectory(sourceDir);
       FunctionsFiles.CreateDirectory(sourceDir);
       const string sourceFile = @"c:\temp\UnitTestVS\test.txt";
       const string expected =   @"c:\temp\UnitTestVS\test.txt";
