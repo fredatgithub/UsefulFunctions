@@ -227,22 +227,30 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Factorial_zero()
     {
-      long result = FunctionsMath.Factorial(0);
-      Assert.IsTrue(result == 0);
+      const long testedNumber = 0;
+      const long expected = 0;
+      long result = FunctionsMath.Factorial(testedNumber);
+      Assert.AreEqual(result, expected);
     }
 
     [TestMethod]
     public void TestMethod_Factorial_lowerBound_one_step()
     {
-      long result = FunctionsMath.Factorial(10, 9);
-      Assert.IsTrue(result == 10);
+      const long testedNumber1 = 10;
+      const long testedNumber2 = 9;
+      const long expected = 10;
+      long result = FunctionsMath.Factorial(testedNumber1, testedNumber2);
+      Assert.AreEqual(result, expected);
     }
 
     [TestMethod]
     public void TestMethod_Factorial_lowerBound_two_step()
     {
-      long result = FunctionsMath.Factorial(10, 8);
-      Assert.IsTrue(result == 90);
+      const long testedNumber1 = 10;
+      const long testedNumber2 = 8;
+      const long expected = 90;
+      long result = FunctionsMath.Factorial(testedNumber1, testedNumber2);
+      Assert.AreEqual(result, expected);
     }
     #endregion Math Methods - Factorial
     #region Math Methods - Recursive Factorial
