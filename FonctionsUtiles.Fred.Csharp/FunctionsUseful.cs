@@ -84,14 +84,19 @@ namespace FonctionsUtiles.Fred.Csharp
     }
 
     /// Converts a hex string to a byte array
-    /// <param name="hexString">The hex string to convert</param>
+    /// <param name="hexaString">The hex string to convert</param>
     /// <returns>A byte array representing the hex string</returns>
-    public static byte[] HexStringToByteArray(string hexString)
+    public static byte[] HexStringToByteArray(string hexaString)
     {
-      byte[] returnBytes = new byte[hexString.Length / 2];
+      if (hexaString.Length % 2 != 0)
+      {
+        return new byte[] { };
+      }
+
+      byte[] returnBytes = new byte[hexaString.Length / 2];
       for (int i = 0; i < returnBytes.Length; i++)
       {
-        returnBytes[i] = Convert.ToByte(hexString.Substring(i * 2, 2), 16);
+        returnBytes[i] = Convert.ToByte(hexaString.Substring(i * 2, 2), 16);
       }
 
       return returnBytes;

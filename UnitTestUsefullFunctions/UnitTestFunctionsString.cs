@@ -3802,7 +3802,47 @@ namespace UnitTestUsefullFunctions
       string result = FunctionsDateTime.ByteArrayToString(source);
       Assert.AreEqual(result, expected);
     }
+
+    [TestMethod]
+    public void TestMethod_ByteArrayToHexString_false()
+    {
+      byte[] source = new byte[] { 0x01, 0x02, 0x03, 0x09, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17 };
+      string expected = "01";
+      string result = FunctionsDateTime.ByteArrayToString(source);
+      Assert.AreNotEqual(result, expected);
+    }
+
     #endregion ByteArrayToString Methods
+
+    #region HexStringToByteArray Methods
+    [TestMethod]
+    public void TestMethod_HexStringToByteArray_true()
+    {
+      string source = "010203091011121314151617";
+      byte[] expected = new byte[] { 0x01, 0x02, 0x03, 0x09, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17 };
+      byte[] result = FunctionsDateTime.HexStringToByteArray(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_HexStringToByteArray_true_one()
+    {
+      string source = "0102";
+      byte[] expected = new byte[] { 0x01, 0x02 };
+      byte[] result = FunctionsDateTime.HexStringToByteArray(source);
+      Assert.IsTrue(result == expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_HexStringToByteArray_false()
+    {
+      string source = "010203091011121314151617";
+      byte[] expected = new byte[] { 0x01 };
+      byte[] result = FunctionsDateTime.HexStringToByteArray(source);
+      Assert.AreNotEqual(result, expected);
+    }
+
+    #endregion HexStringToByteArray Methods
     #endregion OutsideWeekEnd Methods
     #endregion Useful Methods
   }
