@@ -3821,16 +3821,20 @@ namespace UnitTestUsefullFunctions
       string source = "010203091011121314151617";
       byte[] expected = new byte[] { 0x01, 0x02, 0x03, 0x09, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17 };
       byte[] result = FunctionsDateTime.HexStringToByteArray(source);
-      Assert.AreEqual(result, expected);
+      for (int i = 0; i < expected.Length; i++)
+      {
+        Assert.IsTrue(result[i] == expected[i]);
+      }
     }
 
     [TestMethod]
-    public void TestMethod_HexStringToByteArray_true_one()
+    public void TestMethod_HexStringToByteArray_true_two_values()
     {
       string source = "0102";
       byte[] expected = new byte[] { 0x01, 0x02 };
       byte[] result = FunctionsDateTime.HexStringToByteArray(source);
-      Assert.IsTrue(result == expected);
+      Assert.IsTrue(result[0] == expected[0]);
+      Assert.IsTrue(result[1] == expected[1]);
     }
 
     [TestMethod]
@@ -3838,6 +3842,15 @@ namespace UnitTestUsefullFunctions
     {
       string source = "010203091011121314151617";
       byte[] expected = new byte[] { 0x01 };
+      byte[] result = FunctionsDateTime.HexStringToByteArray(source);
+      Assert.AreNotEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_HexStringToByteArray_false_not_even_length()
+    {
+      string source = "01020";
+      byte[] expected = new byte[] { 0x01, 0x02 };
       byte[] result = FunctionsDateTime.HexStringToByteArray(source);
       Assert.AreNotEqual(result, expected);
     }
