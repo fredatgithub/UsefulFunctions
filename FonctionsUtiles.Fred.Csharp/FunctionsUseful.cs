@@ -65,7 +65,7 @@ namespace FonctionsUtiles.Fred.Csharp
     {
       if (bytes.Length != 8)
       {
-        throw new ArgumentException("bytes");
+        return new DateTime();
       }
 
       long longDate = BitConverter.ToInt64(bytes, 0);

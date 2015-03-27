@@ -3692,7 +3692,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_OutsideWeekEnd_true_nine_eleven_2001()
     {
-      DateTime source = new DateTime(2000, 09, 11, 10, 11, 00);
+      DateTime source = new DateTime(2001, 09, 11, 10, 11, 00);
       const bool expected = true;
       bool result = FunctionsDateTime.OutsideWeekEnd(source);
       Assert.AreEqual(result, expected);
@@ -3739,7 +3739,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_IsWeekEnd_false_nine_eleven_2001()
     {
-      DateTime source = new DateTime(2000, 09, 11, 10, 11, 00);
+      DateTime source = new DateTime(2001, 09, 11, 10, 11, 00);
       const bool expected = false;
       bool result = FunctionsDateTime.IsWeekEnd(source);
       Assert.AreEqual(result, expected);
@@ -3755,7 +3755,27 @@ namespace UnitTestUsefullFunctions
     }
     #endregion IsWeekEnd Methods
     //**********************DateToByteArray Methods***************
+    #region DateToByteArray Methods
 
+    [TestMethod]
+    public void TestMethod_DateToByteArray_true()
+    {
+      byte[] source = new byte[] { 0x20, 0x15, 0x03, 0x27, 0x13, 0x30, 0x00, 0x00, 0x00 };
+      DateTime expected = new DateTime(01, 01, 01, 00, 00, 00, DateTimeKind.Local);
+      DateTime result = FunctionsDateTime.ByteArrayToDate(source);
+      Assert.IsTrue(result == expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_DateToByteArray_false()
+    {
+      byte[] source = new byte[] { 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01 };
+      DateTime expected = new DateTime(1601, 03, 03, 05, 18, 01);
+      DateTime result = FunctionsDateTime.ByteArrayToDate(source);
+      Assert.AreNotEqual(result, expected);
+    }
+
+    #endregion DateToByteArray Methods
     #endregion OutsideWeekEnd Methods
     #endregion Useful Methods
   }
