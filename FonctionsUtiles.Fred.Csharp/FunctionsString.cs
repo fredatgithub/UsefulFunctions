@@ -1709,8 +1709,10 @@ namespace FonctionsUtiles.Fred.Csharp
       return new Guid().ToString();
     }
 
-    public static string GenerateUniqueFilename(string filePath, byte length = 8)
+    public static string GenerateUniqueFilename(string filePath, RandomCharacters rdnCharacters = RandomCharacters.LowerCase, byte length = 8)
     {
+      string[] forbiddenCharacters = {"\\", "/", ":", "*", "?", "\"", "<", ">", "|"};
+
       if (filePath == string.Empty)
       {
         return string.Empty;
@@ -1720,6 +1722,21 @@ namespace FonctionsUtiles.Fred.Csharp
       // TODO to complete
 
       return result;
+    }
+
+    public enum RandomCharacters
+    {
+      LowerCase = 2,
+      UpperCase = 4,
+      Digit = 6,
+      SpecialCharacter = 8,
+      UpperLower = LowerCase & UpperCase,
+      LowerDigit = LowerCase & Digit,
+      UpperDigit = UpperCase & Digit,
+      UpperLowerDigit = UpperLower & Digit,
+      LowerSpecialChar = LowerCase & SpecialCharacter,
+      UpperSpecialChar = UpperCase & SpecialCharacter,
+      DigitSpecialChar = Digit & SpecialCharacter
     }
   }
 }
