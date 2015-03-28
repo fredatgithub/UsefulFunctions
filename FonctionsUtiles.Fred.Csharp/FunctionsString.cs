@@ -1716,7 +1716,10 @@ namespace FonctionsUtiles.Fred.Csharp
         return string.Empty;
       }
 
+      string result = string.Empty;
       // TODO to complete
+
+      return result;
     }
   }
 }
