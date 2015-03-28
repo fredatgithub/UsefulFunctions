@@ -3631,12 +3631,12 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GenerateUniqueFileName_true_file_does_not_exist()
     {
       const string sourceDir = @"c:\temp\UnitTestVS\";
-      FunctionsFiles.DeleteDirectory(sourceDir);
       FunctionsFiles.CreateDirectory(sourceDir);
       const string sourceFile = @"c:\temp\UnitTestVS\test.txt";
       const string expected =   @"c:\temp\UnitTestVS\test.txt";
       string result = FunctionsFiles.GenerateUniqueFileName(sourceFile);
       Assert.AreEqual(result, expected);
+      FunctionsFiles.DeleteDirectory(sourceDir);
     }
 
     [TestMethod]
@@ -3649,6 +3649,8 @@ namespace UnitTestUsefullFunctions
       const string expected = @"c:\temp\UnitTestVS\test1.txt";
       string result = FunctionsFiles.GenerateUniqueFileName(sourceFile);
       Assert.AreEqual(result, expected);
+      FunctionsFiles.Deletefile(sourceFile);
+      FunctionsFiles.DeleteDirectory(sourceDir);
     }
 
     [TestMethod]
@@ -3661,6 +3663,8 @@ namespace UnitTestUsefullFunctions
       const string expected = @"c:\temp\UnitTestVS\test11.txt";
       string result = FunctionsFiles.GenerateUniqueFileName(sourceFile);
       Assert.AreEqual(result, expected);
+      FunctionsFiles.Deletefile(sourceFile);
+      FunctionsFiles.DeleteDirectory(sourceDir);
     }
 
     [TestMethod]
@@ -3674,6 +3678,9 @@ namespace UnitTestUsefullFunctions
       const string expected = @"c:\temp\UnitTestVS\test2.txt";
       string result = FunctionsFiles.GenerateUniqueFileName(sourceFile);
       Assert.AreEqual(result, expected);
+      FunctionsFiles.Deletefile(sourceFile);
+      FunctionsFiles.CreateFile(@"c:\temp\UnitTestVS\test1.txt");
+      FunctionsFiles.DeleteDirectory(sourceDir);
     }
 
     
