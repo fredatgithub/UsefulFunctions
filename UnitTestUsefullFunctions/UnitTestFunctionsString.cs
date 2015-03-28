@@ -21,6 +21,7 @@ SOFTWARE.
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Threading;
 using FonctionsUtiles.Fred.Csharp;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -3649,6 +3650,7 @@ namespace UnitTestUsefullFunctions
       const string expected = @"c:\temp\UnitTestVS\test1.txt";
       string result = FunctionsFiles.GenerateUniqueFileName(sourceFile);
       Assert.AreEqual(result, expected);
+      Thread.Sleep(5000);
       FunctionsFiles.Deletefile(sourceFile);
       FunctionsFiles.DeleteDirectory(sourceDir);
     }
