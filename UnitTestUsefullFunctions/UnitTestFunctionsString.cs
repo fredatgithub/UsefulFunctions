@@ -23,7 +23,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using FonctionsUtiles.Fred.Csharp;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.IO;
 
 namespace UnitTestUsefullFunctions
 {
@@ -1149,7 +1148,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "azerty";
       const string expected = "a z e r t y";
-      string result = FunctionsString.InsertSeparatorForEachCharacter(source, " ");
+      string result = FunctionsString.InsertSeparatorForEachCharacter(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1158,7 +1157,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "";
       const string expected = "";
-      string result = FunctionsString.InsertSeparatorForEachCharacter(source, " ");
+      string result = FunctionsString.InsertSeparatorForEachCharacter(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -2278,7 +2277,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_LoadAlphabetInList_false_empty_source_array()
     {
       char[] expected = new char[62];
-      char[] result = FunctionsString.LoadAlphabetInList(false, false, false);
+      char[] result = FunctionsString.LoadAlphabetInList(false, false);
       Assert.AreEqual(result.Length, expected.Length);
       Assert.AreEqual(result[0], expected[0]); 
       Assert.AreEqual(result[5], expected[5]);
@@ -2288,7 +2287,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_LoadAlphabetInList_false_empty_source_array_give_sixty_two_length_array()
     {
-      char[] result = FunctionsString.LoadAlphabetInList(false, false, false);
+      char[] result = FunctionsString.LoadAlphabetInList(false, false);
       Assert.IsTrue(result.Length == 26 + 26 + 10);
     }
 
@@ -2296,7 +2295,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_LoadAlphabetInList_true_only_digits()
     {
       char[] expected = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-      char[] result = FunctionsString.LoadAlphabetInList(true, false, false);
+      char[] result = FunctionsString.LoadAlphabetInList(true, false);
       Assert.AreEqual(result[0], expected[0]); // '0'
       Assert.AreEqual(result[5], expected[5]); // '5'
       Assert.AreEqual(result[9], expected[9]); // '9'
@@ -2307,7 +2306,7 @@ namespace UnitTestUsefullFunctions
     {
       char[] expected = new char[62];
       expected = FunctionsString.GetAlphabet();
-      char[] result = FunctionsString.LoadAlphabetInList(false, true, false);
+      char[] result = FunctionsString.LoadAlphabetInList(false);
       Assert.AreEqual(result[0], expected[0]); // 'a'
       Assert.AreEqual(result[5], expected[5]);
       Assert.AreEqual(result[9], expected[9]);
@@ -2407,7 +2406,7 @@ namespace UnitTestUsefullFunctions
         counter++;
       }
 
-      char[] result = FunctionsString.LoadAlphabetInList(true, true, false);
+      char[] result = FunctionsString.LoadAlphabetInList();
       Assert.AreEqual(result[0], expected[0]); // 'a'
       Assert.AreEqual(result[5], expected[5]);
       Assert.AreEqual(result[9], expected[9]);
@@ -3811,7 +3810,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_DateToByteArray_true()
     {
-      byte[] source = new byte[] { 0x20, 0x15, 0x03, 0x27, 0x13, 0x30, 0x00, 0x00, 0x00 };
+      byte[] source = { 0x20, 0x15, 0x03, 0x27, 0x13, 0x30, 0x00, 0x00, 0x00 };
       DateTime expected = new DateTime(01, 01, 01, 00, 00, 00, DateTimeKind.Local);
       DateTime result = FunctionsDateTime.ByteArrayToDate(source);
       Assert.IsTrue(result == expected);
@@ -3820,7 +3819,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_DateToByteArray_false()
     {
-      byte[] source = new byte[] { 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01 };
+      byte[] source = { 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01 };
       DateTime expected = new DateTime(1601, 03, 03, 05, 18, 01);
       DateTime result = FunctionsDateTime.ByteArrayToDate(source);
       Assert.AreNotEqual(result, expected);
@@ -3829,7 +3828,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_DateToByteArray_false_length_not_equal_to_eight()
     {
-      byte[] source = new byte[] { 0x01, 0x01, 0x01, 0x01};
+      byte[] source = { 0x01, 0x01, 0x01, 0x01};
       DateTime expected = new DateTime();
       DateTime result = FunctionsDateTime.ByteArrayToDate(source);
       Assert.AreEqual(result, expected);
@@ -3840,8 +3839,8 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_ByteArrayToHexString_true()
     {
-      byte[] source = new byte[] { 0x01, 0x02, 0x03, 0x09, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17 };
-      string expected = "010203091011121314151617";
+      byte[] source = { 0x01, 0x02, 0x03, 0x09, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17 };
+      const string expected = "010203091011121314151617";
       string result = FunctionsDateTime.ByteArrayToString(source);
       Assert.AreEqual(result, expected);
     }
@@ -3849,8 +3848,8 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_ByteArrayToString_true_one()
     {
-      byte[] source = new byte[] { 0x01};
-      string expected = "01";
+      byte[] source = { 0x01};
+      const string expected = "01";
       string result = FunctionsDateTime.ByteArrayToString(source);
       Assert.AreEqual(result, expected);
     }
@@ -3858,8 +3857,8 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_ByteArrayToHexString_false()
     {
-      byte[] source = new byte[] { 0x01, 0x02, 0x03, 0x09, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17 };
-      string expected = "01";
+      byte[] source = { 0x01, 0x02, 0x03, 0x09, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17 };
+      const string expected = "01";
       string result = FunctionsDateTime.ByteArrayToString(source);
       Assert.AreNotEqual(result, expected);
     }
@@ -3871,7 +3870,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_HexStringToByteArray_true()
     {
       string source = "010203091011121314151617";
-      byte[] expected = new byte[] { 0x01, 0x02, 0x03, 0x09, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17 };
+      byte[] expected = { 0x01, 0x02, 0x03, 0x09, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17 };
       byte[] result = FunctionsDateTime.HexStringToByteArray(source);
       for (int i = 0; i < expected.Length; i++)
       {
@@ -3883,7 +3882,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_HexStringToByteArray_true_two_values()
     {
       string source = "0102";
-      byte[] expected = new byte[] { 0x01, 0x02 };
+      byte[] expected = { 0x01, 0x02 };
       byte[] result = FunctionsDateTime.HexStringToByteArray(source);
       Assert.IsTrue(result[0] == expected[0]);
       Assert.IsTrue(result[1] == expected[1]);
@@ -3893,7 +3892,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_HexStringToByteArray_false()
     {
       string source = "010203091011121314151617";
-      byte[] expected = new byte[] { 0x01 };
+      byte[] expected = { 0x01 };
       byte[] result = FunctionsDateTime.HexStringToByteArray(source);
       Assert.AreNotEqual(result, expected);
     }
@@ -3902,7 +3901,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_HexStringToByteArray_false_not_even_length()
     {
       string source = "01020";
-      byte[] expected = new byte[] { 0x01, 0x02 };
+      byte[] expected = { 0x01, 0x02 };
       byte[] result = FunctionsDateTime.HexStringToByteArray(source);
       Assert.AreNotEqual(result, expected);
     }
