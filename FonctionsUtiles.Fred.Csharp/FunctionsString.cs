@@ -1708,5 +1708,15 @@ namespace FonctionsUtiles.Fred.Csharp
     {
       return new Guid().ToString();
     }
+
+    public static string GenerateUniqueFilename(string filePath, byte length = 8)
+    {
+      if (filePath == string.Empty)
+      {
+        return string.Empty;
+      }
+
+      // TODO to complete
+    }
   }
 }
