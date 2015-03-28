@@ -1703,5 +1703,10 @@ namespace FonctionsUtiles.Fred.Csharp
     {
       return originalString.Replace(oldChar, newChar);
     }
+
+    public static string GenerateGuid()
+    {
+      return new Guid().ToString();
+    }
   }
 }
