@@ -18,6 +18,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 using System.Security.Cryptography;
+using System.Numerics;
 
 namespace FonctionsUtiles.Fred.Csharp
 {
@@ -32,6 +33,24 @@ namespace FonctionsUtiles.Fred.Csharp
 
       long fact = 1;
       long i = 1;
+      while (i <= x)
+      {
+        fact = fact * i;
+        i++;
+      }
+
+      return fact;
+    }
+
+    public static BigInt Factorial(BigInt x)
+    {
+      if (x < 1)
+      {
+        return 0;
+      }
+
+      BigInt fact = 1;
+      BigInt i = 1;
       while (i <= x)
       {
         fact = fact * i;
