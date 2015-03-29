@@ -252,7 +252,19 @@ namespace UnitTestUsefullFunctions
       long result = FunctionsMath.Factorial(testedNumber1, testedNumber2);
       Assert.AreEqual(result, expected);
     }
+
+    // *******************************BigInt Method******
+    [TestMethod]
+    public void TestMethod_Factorial_BigInt_one()
+    {
+      BigInt source = 1;
+      BigInt expected = 1;
+      BigInt result = FunctionsMath.Factorial(source);
+      Assert.AreEqual(result, expected);
+    }
     #endregion Math Methods - Factorial
+    
+
     #region Math Methods - Recursive Factorial
     // **********************Recursive Factorial****************
     [TestMethod]
@@ -553,6 +565,7 @@ namespace UnitTestUsefullFunctions
       Assert.IsTrue(result == 5050);
     }
     #endregion Math Methods - Sommielle Recursive
+
     #endregion Math Methods
     #region String Methods
 
