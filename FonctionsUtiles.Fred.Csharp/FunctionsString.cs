@@ -27,6 +27,8 @@ namespace FonctionsUtiles.Fred.Csharp
   using System.Linq;
   using System.Text;
   using System.Text.RegularExpressions;
+  using MathFunc = FunctionsMath;
+
 
   public class FunctionsString
   {
@@ -1752,7 +1754,7 @@ namespace FonctionsUtiles.Fred.Csharp
       string result = string.Empty;
       for (int i = 0; i < numberOfCharacters; i++)
       {
-        result += source[GenerateRandomNumberUsingCrypto(0, source.Count - 1)];
+        result += source[MathFunc.GenerateRandomNumberUsingCrypto(0, source.Count - 1)];
       }
 
       return result;
