@@ -1722,6 +1722,7 @@ namespace FonctionsUtiles.Fred.Csharp
       // TODO to complete
       // string[26 + 26 + 10 + 10] 26 lower case + 26 upper case + 10 digits + 10 special characters
       string[] charactersToBeSearchFrom = new string[26 + 26 + 10 + 10];
+      // feed the source list of characters chosen
 
       return result;
     }
@@ -1739,6 +1740,22 @@ namespace FonctionsUtiles.Fred.Csharp
       LowerSpecialChar = LowerCase & SpecialCharacter,
       UpperSpecialChar = UpperCase & SpecialCharacter,
       DigitSpecialChar = Digit & SpecialCharacter
+    }
+
+    public static string GenerateCharacters(List<string> source, int numberOfCharacters = 1)
+    {
+      if (source == null || source.Count == 0)
+      {
+        return string.Empty;
+      }
+
+      string result = string.Empty;
+      for (int i = 0; i < numberOfCharacters; i++)
+      {
+        result += source[GenerateRandomNumberUsingCrypto(0, source.Count - 1)];
+      }
+
+      return result;
     }
   }
 }
