@@ -1720,6 +1720,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       string result = string.Empty;
       // TODO to complete
+      // string[26 + 26 + 10 + 10] 26 lower case + 26 upper case + 10 digits + 10 special characters
       string[] charactersToBeSearchFrom = new string[26 + 26 + 10 + 10];
 
       return result;
