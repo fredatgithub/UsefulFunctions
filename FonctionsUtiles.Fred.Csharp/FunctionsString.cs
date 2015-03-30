@@ -1720,6 +1720,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       string result = string.Empty;
       // TODO to complete
+      string[] charactersToBeSearchFrom = new string[26 + 26 + 10 + 10];
 
       return result;
     }
