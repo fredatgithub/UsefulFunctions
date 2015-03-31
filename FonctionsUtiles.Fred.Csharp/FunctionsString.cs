@@ -1713,7 +1713,13 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static string GenerateUniqueFilename(string filePath, RandomCharacters rdnCharacters = RandomCharacters.LowerCase, byte length = 8)
     {
-      string[] forbiddenCharacters = {"\\", "/", ":", "*", "?", "\"", "<", ">", "|"};
+      string[] forbiddenWindowsFilenameCharacters = {"\\", "/", ":", "*", "?", "\"", "<", ">", "|"};
+      char[] UpperCaseCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
+      char[] LowerCaseCharacters = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
+      char[] DigitCharacters = "0123456789".ToCharArray();
+      char[] SpecialCharacters = ",.;:?!/@#$%^&()=+*-_{}[]|~".ToCharArray();
+      char[] ForbiddenCharacters = new char[26 + 26 + 10 + 26]; // max size
+      char[] SearchedCharacters = new char[26 + 26 + 10 + 26]; // max size
 
       if (filePath == string.Empty)
       {
@@ -1725,6 +1731,20 @@ namespace FonctionsUtiles.Fred.Csharp
       // string[26 + 26 + 10 + 10] 26 lower case + 26 upper case + 10 digits + 10 special characters
       string[] charactersToBeSearchFrom = new string[26 + 26 + 10 + 10];
       // feed the source list of characters chosen
+
+      return result;
+    }
+
+    public static string GenerateString(RandomCharacters rdnCharacters = RandomCharacters.LowerCase, byte length = 8)
+    {
+      string result = string.Empty;
+      string[] forbiddenWindowsFilenameCharacters = { "\\", "/", ":", "*", "?", "\"", "<", ">", "|" };
+      char[] UpperCaseCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
+      char[] LowerCaseCharacters = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
+      char[] DigitCharacters = "0123456789".ToCharArray();
+      char[] SpecialCharacters = ",.;:?!/@#$%^&()=+*-_{}[]|~".ToCharArray();
+      char[] ForbiddenCharacters = new char[26 + 26 + 10 + 26]; // max size
+      char[] SearchedCharacters = new char[26 + 26 + 10 + 26]; // max size
 
       return result;
     }
