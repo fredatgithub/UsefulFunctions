@@ -26,7 +26,7 @@ namespace FonctionsUtiles.Fred.Csharp
       PatternDriven = false;
       Pattern = "";
       Random = new RNGCryptoServiceProvider();
-      ExistingStrings = new List();
+      ExistingStrings = new List<string>();
     }
 
     #region character sets managers
@@ -350,19 +350,21 @@ namespace FonctionsUtiles.Fred.Csharp
         UseLowerCaseCharacters = true;
       }
 
-      if (!RepeatCharacters && (CurrentGeneralCharacters.Length 3 chars).
- if (UniqueStrings && ExistingStrings.Contains(result))
-        return GenerateString(length);
-      AddExistingString(result); // Saving history
-      return result;
+      //if (!RepeatCharacters && (CurrentGeneralCharacters.Length 3 chars).
+      //if (UniqueStrings && ExistingStrings.Contains(result))
+      //       return GenerateString(length);
+      //     AddExistingString(result); // Saving history
+      //     return result;
+      return string.Empty; // while debug needed
     }
+
     ///
     /// Generate a random string following the pattern
     ///
     private string PatternDrivenAlgo(string Pattern)
     {
       string result = "";
-      List Characters = new List();
+      var Characters = new List<string>();
       foreach (char character in Pattern.ToCharArray())
       {
         char newChar = ' ';
@@ -398,7 +400,8 @@ namespace FonctionsUtiles.Fred.Csharp
               throw new Exception("The character '" + character + "' is not supported");
             }
         }
-        Characters.Add(newChar);
+
+        Characters.Add(newChar.ToString());
         result += newChar;
       }
       return result;
@@ -450,25 +453,25 @@ namespace FonctionsUtiles.Fred.Csharp
       - MinNumericCharacters - MinSpecialCharacters;
       string result = "";
       // generation character set in order to support unique characters
-      List Characters = new List();
+      var Characters = new List<string>();
       // adding chars to an array
-      for (int i = 0; i < MinUpperCaseCharacters; i++)
-        Characters.Add(GetRandomCharFromArray(UpperCaseCharacters, Characters));
-      for (int i = 0; i < MinLowerCaseCharacters; i++)
-        Characters.Add(GetRandomCharFromArray(LowerCaseCharacters, Characters));
-      for (int i = 0; i < MinNumericCharacters; i++)
-        Characters.Add(GetRandomCharFromArray(NumericCharacters, Characters));
-      for (int i = 0; i < MinSpecialCharacters; i++)
-        Characters.Add(GetRandomCharFromArray(SpecialCharacters, Characters));
-      for (int i = 0; i < AllowedNumberOfGeneralChatacters; i++)
-        Characters.Add(GetRandomCharFromArray(CurrentGeneralCharacters, Characters));
+      //for (int i = 0; i < MinUpperCaseCharacters; i++)
+      //  Characters.Add(GetRandomCharFromArray(UpperCaseCharacters, Characters.ToString()));
+      //for (int i = 0; i < MinLowerCaseCharacters; i++)
+      //  Characters.Add(GetRandomCharFromArray(LowerCaseCharacters.ToString(), Characters));
+      //for (int i = 0; i < MinNumericCharacters; i++)
+      //  Characters.Add(GetRandomCharFromArray(NumericCharacters, Characters));
+      //for (int i = 0; i < MinSpecialCharacters; i++)
+      //  Characters.Add(GetRandomCharFromArray(SpecialCharacters, Characters));
+      //for (int i = 0; i < AllowedNumberOfGeneralChatacters; i++)
+      //  Characters.Add(GetRandomCharFromArray(CurrentGeneralCharacters, Characters));
       // generating result
       for (int i = 0; i < length; i++)
       {
         int position = GetRandomInt() % Characters.Count;
-        char CurrentChar = Characters[position];
+        //char CurrentChar = Characters[position];
         Characters.RemoveAt(position);
-        result += CurrentChar;
+        //result += CurrentChar;
       }
       return result;
     }
@@ -509,13 +512,14 @@ namespace FonctionsUtiles.Fred.Csharp
     /// Source of symbols
     /// Existing symbols. Can be null if RepeatCharacters flag is false
     /// A random character from the array
-    private char GetRandomCharFromArray(char[] array, List existentItems)
+    private char GetRandomCharFromArray(char[] array, List<string> existentItems)
     {
       char Character = ' ';
       do
       {
         Character = array[GetRandomInt() % array.Length];
-      } while (!RepeatCharacters && existentItems.Contains(Character));
+      } while (!RepeatCharacters && existentItems.Contains(Character.ToString()));
+
       return Character;
     }
     #endregion
@@ -529,7 +533,7 @@ namespace FonctionsUtiles.Fred.Csharp
     private char[] CurrentSpecialCharacters;
     private char[] CurrentGeneralCharacters; // All used characters
     private RNGCryptoServiceProvider Random;
-    private List ExistingStrings; // History
+    private List<string> ExistingStrings; // History
     #endregion
   }
 }
