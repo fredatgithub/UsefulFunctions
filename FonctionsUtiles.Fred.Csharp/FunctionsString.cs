@@ -1755,20 +1755,20 @@ namespace FonctionsUtiles.Fred.Csharp
       switch (rdnCharacters)
       {
         case RandomCharacters.LowerCase:
-          result += FillSearchedCharactersWithoutForbiddenChar(LowerCaseCharacters, forbiddenCharacters);
+          result += FillSearchedCharWithoutForbiddenChar(LowerCaseCharacters, forbiddenCharacters);
           break;
         case RandomCharacters.UpperCase:
-          result += FillSearchedCharactersWithoutForbiddenChar(UpperCaseCharacters, forbiddenCharacters);
+          result += FillSearchedCharWithoutForbiddenChar(UpperCaseCharacters, forbiddenCharacters);
           break;
         case RandomCharacters.Digit:
-          result += FillSearchedCharactersWithoutForbiddenChar(DigitCharacters, forbiddenCharacters);
+          result += FillSearchedCharWithoutForbiddenChar(DigitCharacters, forbiddenCharacters);
           break;
         case RandomCharacters.SpecialCharacter:
-          result += FillSearchedCharactersWithoutForbiddenChar(SpecialCharacters, forbiddenCharacters);
+          result += FillSearchedCharWithoutForbiddenChar(SpecialCharacters, forbiddenCharacters);
           break;
         case RandomCharacters.UpperLower:
-          result += FillSearchedCharactersWithoutForbiddenChar(UpperCaseCharacters, forbiddenCharacters);
-          result += FillSearchedCharactersWithoutForbiddenChar(LowerCaseCharacters, forbiddenCharacters);
+          result += FillSearchedCharWithoutForbiddenChar(UpperCaseCharacters, forbiddenCharacters);
+          result += FillSearchedCharWithoutForbiddenChar(LowerCaseCharacters, forbiddenCharacters);
           break;
         default:
           result += string.Join(string.Empty, LowerCaseCharacters);
@@ -1778,7 +1778,7 @@ namespace FonctionsUtiles.Fred.Csharp
       return result;
     }
 
-    public static IEnumerable<string> FillSearchedCharactersWithoutForbiddenChar(char[] source, char[] forbiddenCharacters)
+    public static IEnumerable<string> FillSearchedCharWithoutForbiddenChar(char[] source, char[] forbiddenCharacters)
     {
       foreach (char item in source)
       {
