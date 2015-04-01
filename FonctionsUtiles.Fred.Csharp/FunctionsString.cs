@@ -1736,10 +1736,10 @@ namespace FonctionsUtiles.Fred.Csharp
     }
 
     public static string GenerateString(char[] forbiddenCharacters,
-      RandomCharacters rdnCharacters = RandomCharacters.LowerCase, byte length = 8)
+      RandomCharacters rdnCharacters = RandomCharacters.LowerCase, byte length = 8, 
+      bool windowsFileName = false)
     {
       string result = string.Empty;
-      int NumberOfCharacter = 1;
       string RndString = string.Empty;
 
       string[] forbiddenWindowsFilenameCharacters = { "\\", "/", ":", "*", "?", "\"", "<", ">", "|" };
@@ -1755,20 +1755,20 @@ namespace FonctionsUtiles.Fred.Csharp
       switch (rdnCharacters)
       {
         case RandomCharacters.LowerCase:
-          result += string.Join(string.Empty, LowerCaseCharacters);
+          result += FillSearchedCharactersWithoutForbiddenChar(LowerCaseCharacters, forbiddenCharacters);
           break;
         case RandomCharacters.UpperCase:
-          result += string.Join(string.Empty, UpperCaseCharacters);
+          result += FillSearchedCharactersWithoutForbiddenChar(UpperCaseCharacters, forbiddenCharacters);
           break;
         case RandomCharacters.Digit:
-          result += string.Join(string.Empty, DigitCharacters);
+          result += FillSearchedCharactersWithoutForbiddenChar(DigitCharacters, forbiddenCharacters);
           break;
         case RandomCharacters.SpecialCharacter:
-          result += string.Join(string.Empty, SpecialCharacters);
+          result += FillSearchedCharactersWithoutForbiddenChar(SpecialCharacters, forbiddenCharacters);
           break;
         case RandomCharacters.UpperLower:
-          result += string.Join(string.Empty, UpperCaseCharacters);
-          result += string.Join(string.Empty, LowerCaseCharacters);
+          result += FillSearchedCharactersWithoutForbiddenChar(UpperCaseCharacters, forbiddenCharacters);
+          result += FillSearchedCharactersWithoutForbiddenChar(LowerCaseCharacters, forbiddenCharacters);
           break;
         default:
           result += string.Join(string.Empty, LowerCaseCharacters);
@@ -1776,6 +1776,17 @@ namespace FonctionsUtiles.Fred.Csharp
       }
 
       return result;
+    }
+
+    public static IEnumerable<string> FillSearchedCharactersWithoutForbiddenChar(char[] source, char[] forbiddenCharacters)
+    {
+      foreach (char item in source)
+      {
+        if (!forbiddenCharacters.Contains(item))
+        {
+          yield return item.ToString();
+        }
+      }
     }
 
     public enum RandomCharacters
