@@ -1735,7 +1735,8 @@ namespace FonctionsUtiles.Fred.Csharp
       return result;
     }
 
-    public static string GenerateString(RandomCharacters rdnCharacters = RandomCharacters.LowerCase, byte length = 8)
+    public static string GenerateString(char[] forbiddenCharacters,
+      RandomCharacters rdnCharacters = RandomCharacters.LowerCase, byte length = 8)
     {
       string result = string.Empty;
       int NumberOfCharacter = 1;
@@ -1746,41 +1747,35 @@ namespace FonctionsUtiles.Fred.Csharp
       char[] LowerCaseCharacters = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
       char[] DigitCharacters = "0123456789".ToCharArray();
       char[] SpecialCharacters = ",.;:?!/@#$%^&()=+*-_{}[]|~".ToCharArray();
-      char[] ForbiddenCharacters = new char[26 + 26 + 10 + 26]; // max size
+      //char[] ForbiddenCharacters = new char[26 + 26 + 10 + 26]; // max size
       char[] SearchedCharacters = new char[26 + 26 + 10 + 26]; // max size
 
-      // TODO to be implemented
       int numberOfCharactersToPickFrom = (int)rdnCharacters;
       SearchedCharacters = new char[numberOfCharactersToPickFrom];
       switch (rdnCharacters)
       {
         case RandomCharacters.LowerCase:
-          FillSearchedCharacters(LowerCaseCharacters);
+          result += string.Join(string.Empty, LowerCaseCharacters);
           break;
         case RandomCharacters.UpperCase:
-          FillSearchedCharacters(UpperCaseCharacters);
+          result += string.Join(string.Empty, UpperCaseCharacters);
           break;
         case RandomCharacters.Digit:
-          FillSearchedCharacters(DigitCharacters);
+          result += string.Join(string.Empty, DigitCharacters);
           break;
         case RandomCharacters.SpecialCharacter:
-          FillSearchedCharacters(SpecialCharacters);
+          result += string.Join(string.Empty, SpecialCharacters);
           break;
         case RandomCharacters.UpperLower:
-          FillSearchedCharacters(UpperCaseCharacters);
-          FillSearchedCharacters(LowerCaseCharacters);
+          result += string.Join(string.Empty, UpperCaseCharacters);
+          result += string.Join(string.Empty, LowerCaseCharacters);
           break;
-
         default:
+          result += string.Join(string.Empty, LowerCaseCharacters);
           break;
       }
 
       return result;
-    }
-
-    public static void FillSearchedCharacters(char[] source)
-    {
-
     }
 
     public enum RandomCharacters
