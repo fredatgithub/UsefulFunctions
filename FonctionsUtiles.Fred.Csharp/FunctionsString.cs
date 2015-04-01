@@ -1792,9 +1792,9 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static char[] AddCharArray(char[] source, char[] toBeAdded, char[] forbiddenCharacters)
     {
-      List<char> tmpSource = source.ToList<char>();
-      List<char> tmpToBeAdded = toBeAdded.ToList<char>();
-      List<char> tmpforbiddenChar = forbiddenCharacters.ToList<char>();
+      List<char> tmpSource = source.ToList();
+      List<char> tmpToBeAdded = toBeAdded.ToList();
+      List<char> tmpforbiddenChar = forbiddenCharacters.ToList();
       foreach (char item in tmpToBeAdded)
       {
         if (!tmpforbiddenChar.Contains(item))
