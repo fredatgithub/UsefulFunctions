@@ -1713,7 +1713,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static string GenerateUniqueFilename(string filePath, RandomCharacters rdnCharacters = RandomCharacters.LowerCase, byte length = 8)
     {
-      string[] forbiddenWindowsFilenameCharacters = {"\\", "/", ":", "*", "?", "\"", "<", ">", "|"};
+      string[] forbiddenWindowsFilenameCharacters = { "\\", "/", ":", "*", "?", "\"", "<", ">", "|" };
       char[] UpperCaseCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
       char[] LowerCaseCharacters = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
       char[] DigitCharacters = "0123456789".ToCharArray();
@@ -1738,6 +1738,9 @@ namespace FonctionsUtiles.Fred.Csharp
     public static string GenerateString(RandomCharacters rdnCharacters = RandomCharacters.LowerCase, byte length = 8)
     {
       string result = string.Empty;
+      int NumberOfCharacter = 1;
+      string RndString = string.Empty;
+
       string[] forbiddenWindowsFilenameCharacters = { "\\", "/", ":", "*", "?", "\"", "<", ">", "|" };
       char[] UpperCaseCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
       char[] LowerCaseCharacters = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
@@ -1746,7 +1749,38 @@ namespace FonctionsUtiles.Fred.Csharp
       char[] ForbiddenCharacters = new char[26 + 26 + 10 + 26]; // max size
       char[] SearchedCharacters = new char[26 + 26 + 10 + 26]; // max size
 
+      // TODO to be implemented
+      int numberOfCharactersToPickFrom = (int)rdnCharacters;
+      SearchedCharacters = new char[numberOfCharactersToPickFrom];
+      switch (rdnCharacters)
+      {
+        case RandomCharacters.LowerCase:
+          FillSearchedCharacters(LowerCaseCharacters);
+          break;
+        case RandomCharacters.UpperCase:
+          FillSearchedCharacters(UpperCaseCharacters);
+          break;
+        case RandomCharacters.Digit:
+          FillSearchedCharacters(DigitCharacters);
+          break;
+        case RandomCharacters.SpecialCharacter:
+          FillSearchedCharacters(SpecialCharacters);
+          break;
+        case RandomCharacters.UpperLower:
+          FillSearchedCharacters(UpperCaseCharacters);
+          FillSearchedCharacters(LowerCaseCharacters);
+          break;
+
+        default:
+          break;
+      }
+
       return result;
+    }
+
+    public static void FillSearchedCharacters(char[] source)
+    {
+
     }
 
     public enum RandomCharacters
@@ -1764,7 +1798,7 @@ namespace FonctionsUtiles.Fred.Csharp
       DigitSpecialChar = Digit & SpecialCharacter
     }
 
-    public static string GenerateCharacters(List<string> source, int numberOfCharacters = 1)
+    public static string GenerateCharactersFromSource(List<string> source, int numberOfCharacters = 1)
     {
       if (source == null || source.Count == 0)
       {

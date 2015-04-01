@@ -47,7 +47,6 @@
     <Compile Include="FunctionsString.cs" />
     <Compile Include="FunctionsUseful.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RandomString.cs" />
     <Compile Include="RandomStringGenerator.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
