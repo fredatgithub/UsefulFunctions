@@ -1736,6 +1736,7 @@ namespace FonctionsUtiles.Fred.Csharp
     }
 
     public static string GenerateString(char[] forbiddenCharacters,
+      bool hasForbiddenCharacters = false,
       RandomCharacters rdnCharacters = RandomCharacters.LowerCase, byte length = 8, 
       bool windowsFileName = false)
     {
@@ -1787,6 +1788,22 @@ namespace FonctionsUtiles.Fred.Csharp
           yield return item.ToString();
         }
       }
+    }
+
+    public static char[] AddCharArray(char[] source, char[] toBeAdded, char[] forbiddenCharacters)
+    {
+      List<char> tmpSource = source.ToList<char>();
+      List<char> tmpToBeAdded = toBeAdded.ToList<char>();
+      List<char> tmpforbiddenChar = forbiddenCharacters.ToList<char>();
+      foreach (char item in tmpToBeAdded)
+      {
+        if (!tmpforbiddenChar.Contains(item))
+        {
+          tmpSource.Add(item);
+        }
+      }
+
+      return tmpSource.ToArray();
     }
 
     public enum RandomCharacters

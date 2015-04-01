@@ -3635,7 +3635,18 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(expected, result);
     }
     #endregion Random Unit tests generated
-
+    #region GenerateString method Unit tests
+    //**************************GenerateString Methods****
+    [TestMethod]
+    public void TestMethod_GenerateString_true_default_length()
+    {
+      char[] source = new char[] { };
+      const string expectedString = @"azertyui";
+      string result = FunctionsString.GenerateString(source, false, 
+        FunctionsString.RandomCharacters.LowerCase);
+      Assert.AreEqual(result.Length, expectedString.Length);
+    }
+    #endregion GenerateString method Unit tests
 
     #endregion
 
