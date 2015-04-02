@@ -28,18 +28,23 @@ namespace ConsoleApplicationUsageDemo
     static void Main()
     {
       Action<string> display = Console.WriteLine;
-      Action<string> displayOneLine = Console.Write;
+      Action<string> displayOnOneLine = Console.Write;
       display("Demo to use the useful functions DLL");
       int[] list = { 1, 2, 3, 1 };
       bool result = StringFunc.HasDuplicate(list);
       display("The array: {1, 2, 3, 1 } has duplicate: " + result);
       display(string.Empty);
-      displayOneLine("Factorial 3 with lowerBound 2 is ");
-      displayOneLine(MathFunc.Factorial(3, 2).ToString());
+      displayOnOneLine("Factorial 3 with lowerBound 2 is ");
+      displayOnOneLine(MathFunc.Factorial(3, 2).ToString());
       display(string.Empty);
-      displayOneLine("IsNumeric of '4' ");
-      displayOneLine(StringFunc.IsNumeric("4").ToString());
-      
+      displayOnOneLine("IsNumeric of '4' ");
+      displayOnOneLine(StringFunc.IsNumeric("4").ToString());
+
+      Char[] tmpNull = null;
+      string rdnString = StringFunc.GenerateRandomString(tmpNull, false, StringFunc.RandomCharacters.LowerCase);
+      display("");
+
+      display("Generation of a random string: " + rdnString);
       Console.ReadKey();
     }
   }

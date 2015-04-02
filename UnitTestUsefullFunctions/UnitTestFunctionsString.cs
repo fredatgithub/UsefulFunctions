@@ -3647,14 +3647,16 @@ namespace UnitTestUsefullFunctions
     #region GenerateString method Unit tests
     //**************************GenerateString Methods****
     [TestMethod]
-    public void TestMethod_GenerateString_true_default_length()
+    public void TestMethod_GenerateRandomString_true_default_length()
     {
       char[] source = new char[] { };
       const string expectedString = @"azertyui";
-      string result = FunctionsString.GenerateString(source, false, 
+      string result = FunctionsString.GenerateRandomString(source, false, 
         FunctionsString.RandomCharacters.LowerCase);
       Assert.AreEqual(result.Length, expectedString.Length);
     }
+
+
     #endregion GenerateString method Unit tests
 
     #endregion

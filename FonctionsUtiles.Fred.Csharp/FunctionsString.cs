@@ -1735,12 +1735,11 @@ namespace FonctionsUtiles.Fred.Csharp
       return result;
     }
 
-    public static string GenerateString(char[] forbiddenCharacters,
+    public static string GenerateRandomString(char[] forbiddenCharacters,
       bool hasForbiddenCharacters = false,
       RandomCharacters rdnCharacters = RandomCharacters.LowerCase, byte length = 8, 
       bool windowsFileName = false)
     {
-      string result = string.Empty;
       string RndString = string.Empty;
 
       string[] forbiddenWindowsFilenameCharacters = { "\\", "/", ":", "*", "?", "\"", "<", ">", "|" };
@@ -1748,46 +1747,61 @@ namespace FonctionsUtiles.Fred.Csharp
       char[] LowerCaseCharacters = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
       char[] DigitCharacters = "0123456789".ToCharArray();
       char[] SpecialCharacters = ",.;:?!/@#$%^&()=+*-_{}[]|~".ToCharArray();
-      //char[] ForbiddenCharacters = new char[26 + 26 + 10 + 26]; // max size
       char[] SearchedCharacters = new char[26 + 26 + 10 + 26]; // max size
 
       int numberOfCharactersToPickFrom = (int)rdnCharacters;
-      SearchedCharacters = new char[numberOfCharactersToPickFrom];
       switch (rdnCharacters)
       {
         case RandomCharacters.LowerCase:
-          result += FillSearchedCharWithoutForbiddenChar(LowerCaseCharacters, forbiddenCharacters);
+          SearchedCharacters = FillSearchedCharWithoutForbiddenChar(LowerCaseCharacters, forbiddenCharacters).ToCharArray();
           break;
         case RandomCharacters.UpperCase:
-          result += FillSearchedCharWithoutForbiddenChar(UpperCaseCharacters, forbiddenCharacters);
+          SearchedCharacters = FillSearchedCharWithoutForbiddenChar(UpperCaseCharacters, forbiddenCharacters).ToCharArray();
           break;
         case RandomCharacters.Digit:
-          result += FillSearchedCharWithoutForbiddenChar(DigitCharacters, forbiddenCharacters);
+          SearchedCharacters = FillSearchedCharWithoutForbiddenChar(DigitCharacters, forbiddenCharacters).ToCharArray();
           break;
         case RandomCharacters.SpecialCharacter:
-          result += FillSearchedCharWithoutForbiddenChar(SpecialCharacters, forbiddenCharacters);
+          SearchedCharacters = FillSearchedCharWithoutForbiddenChar(SpecialCharacters, forbiddenCharacters).ToCharArray();
           break;
         case RandomCharacters.UpperLower:
-          result += FillSearchedCharWithoutForbiddenChar(UpperCaseCharacters, forbiddenCharacters);
-          result += FillSearchedCharWithoutForbiddenChar(LowerCaseCharacters, forbiddenCharacters);
+          SearchedCharacters = (FillSearchedCharWithoutForbiddenChar(UpperCaseCharacters, forbiddenCharacters) +
+            FillSearchedCharWithoutForbiddenChar(LowerCaseCharacters, forbiddenCharacters)).ToCharArray();
           break;
         default:
-          result += string.Join(string.Empty, LowerCaseCharacters);
+          SearchedCharacters = FillSearchedCharWithoutForbiddenChar(LowerCaseCharacters, forbiddenCharacters).ToCharArray();
           break;
+      }
+
+      // once we have the SearchedCharacters filled out, we can select random characters from it
+      string result = string.Empty;
+      for (int i = 0; i < length; i++)
+      {
+        result += SearchedCharacters[MathFunc.GenerateRandomNumberUsingCrypto(0, SearchedCharacters.Length - 1)];
       }
 
       return result;
     }
 
-    public static IEnumerable<string> FillSearchedCharWithoutForbiddenChar(char[] source, char[] forbiddenCharacters)
+    public static string FillSearchedCharWithoutForbiddenChar(char[] source, char[] forbiddenCharacters)
     {
+      string result = string.Empty;
       foreach (char item in source)
       {
-        if (!forbiddenCharacters.Contains(item))
+        if (forbiddenCharacters != null)
         {
-          yield return item.ToString();
+          if (!forbiddenCharacters.Contains(item))
+          {
+            result += item.ToString();
+          }
+        }
+        else
+        {
+          result += item.ToString();
         }
       }
+
+      return result;
     }
 
     public static char[] AddCharArray(char[] source, char[] toBeAdded, char[] forbiddenCharacters)
