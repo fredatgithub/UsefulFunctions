@@ -3647,7 +3647,7 @@ namespace UnitTestUsefullFunctions
     #region GenerateString method Unit tests
     //**************************GenerateRandomString Method****
     [TestMethod]
-    public void TestMethod_GenerateRandomString_true_default_length()
+    public void TestMethod_GenerateRandomString_true_LowerCase_default_length()
     {
       char[] source = new char[] { };
       const byte stringLength = 8;
@@ -3657,7 +3657,7 @@ namespace UnitTestUsefullFunctions
     }
 
     [TestMethod]
-    public void TestMethod_GenerateRandomString_true_length_of_20()
+    public void TestMethod_GenerateRandomString_true_LowerCase_length_of_20()
     {
       char[] source = new char[] { };
       const byte stringLength = 20;
@@ -3667,7 +3667,7 @@ namespace UnitTestUsefullFunctions
     }
 
     [TestMethod]
-    public void TestMethod_GenerateRandomString_true_length_of_byte_MaxValue()
+    public void TestMethod_GenerateRandomString_true_LowerCase_length_of_byte_MaxValue()
     {
       char[] source = new char[] { };
       const byte stringLength = byte.MaxValue;
@@ -3686,7 +3686,7 @@ namespace UnitTestUsefullFunctions
     }
 
     [TestMethod]
-    public void TestMethod_GenerateRandomString_true_upper_case()
+    public void TestMethod_GenerateRandomString_UpperCase_true_upper_case()
     {
       char[] source = new char[] { };
       string result = FunctionsString.GenerateRandomString(source, false,
@@ -3695,7 +3695,7 @@ namespace UnitTestUsefullFunctions
     }
 
     [TestMethod]
-    public void TestMethod_GenerateRandomString_true_digits()
+    public void TestMethod_GenerateRandomString_digit_true()
     {
       const bool expected = true;
       char[] source = new char[] { };
@@ -3753,6 +3753,17 @@ namespace UnitTestUsefullFunctions
       string result = FunctionsString.GenerateRandomString(source, false,
         FunctionsString.RandomCharacters.DigitSpecialChar, stringLength);
       Assert.AreEqual(FunctionsString.HasNumeric(result), expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GenerateRandomString_UpperLower_true_has_consonant()
+    {
+      const bool expected = true;
+      char[] source = new char[] { };
+      const byte stringLength = 254;
+      string result = FunctionsString.GenerateRandomString(source, false,
+        FunctionsString.RandomCharacters.UpperLower, stringLength);
+      Assert.AreEqual(FunctionsString.HasConsonants(result), expected);
     }
 
     #endregion GenerateString method Unit tests
