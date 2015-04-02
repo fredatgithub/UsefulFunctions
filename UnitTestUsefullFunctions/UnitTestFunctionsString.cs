@@ -262,8 +262,17 @@ namespace UnitTestUsefullFunctions
       BigInt result = FunctionsMath.Factorial(source);
       Assert.AreEqual(result, expected);
     }
+
+    [TestMethod]
+    public void TestMethod_Factorial_BigInt_two()
+    {
+      BigInt source = 2;
+      BigInt expected = 2;
+      BigInt result = FunctionsMath.Factorial(source);
+      Assert.AreEqual(result, expected);
+    }
     #endregion Math Methods - Factorial
-    
+
 
     #region Math Methods - Recursive Factorial
     // **********************Recursive Factorial****************
