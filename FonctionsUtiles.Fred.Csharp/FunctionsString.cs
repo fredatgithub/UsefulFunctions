@@ -839,6 +839,36 @@ namespace FonctionsUtiles.Fred.Csharp
       return input.Any(t => t == 'a' || t == 'A' || t == 'e' || t == 'E' || t == 'i' || t == 'I' || t == 'o' || t == 'O' || t == 'u' || t == 'U' || t == 'y' || t == 'Y');
     }
 
+    public static bool HasConsonants(string input)
+    {
+      // Returns whether a string contains any consonant letters
+      if (string.IsNullOrEmpty(input))
+      {
+        return false;
+      }
+
+      return input.Any(t => t == 'b' || t == 'B' || 
+      t == 'c' || t == 'C' || 
+      t == 'd' || t == 'D' || 
+      t == 'f' || t == 'F' ||
+      t == 'g' || t == 'G' || 
+      t == 'h' || t == 'H' ||
+      t == 'j' || t == 'J' ||
+      t == 'k' || t == 'K' ||
+      t == 'l' || t == 'L' ||
+      t == 'm' || t == 'M' ||
+      t == 'n' || t == 'N' ||
+      t == 'p' || t == 'P' ||
+      t == 'q' || t == 'Q' ||
+      t == 'r' || t == 'R' ||
+      t == 's' || t == 'S' ||
+      t == 't' || t == 'T' ||
+      t == 'v' || t == 'V' ||
+      t == 'w' || t == 'W' ||
+      t == 'x' || t == 'X' ||
+      t == 'z' || t == 'Z' );
+    }
+
     public static bool IsSpaces(string input)
     {
       // //  Returns whether a string is all empty spaces
@@ -1783,6 +1813,48 @@ namespace FonctionsUtiles.Fred.Csharp
           SearchedCharacters = (FillSearchedCharWithoutForbiddenChar(UpperCaseCharacters, forbiddenCharacters) +
             FillSearchedCharWithoutForbiddenChar(LowerCaseCharacters, forbiddenCharacters)).ToCharArray();
           break;
+        case RandomCharacters.DigitSpecialChar:
+          SearchedCharacters = (FillSearchedCharWithoutForbiddenChar(DigitCharacters, forbiddenCharacters) +
+            FillSearchedCharWithoutForbiddenChar(SpecialCharacters, forbiddenCharacters)).ToCharArray();
+          break;
+        case RandomCharacters.LowerDigit:
+          SearchedCharacters = (FillSearchedCharWithoutForbiddenChar(LowerCaseCharacters, forbiddenCharacters) +
+            FillSearchedCharWithoutForbiddenChar(DigitCharacters, forbiddenCharacters)).ToCharArray();
+          break;
+        case RandomCharacters.LowerSpecialChar:
+          SearchedCharacters = (FillSearchedCharWithoutForbiddenChar(SpecialCharacters, forbiddenCharacters) +
+            FillSearchedCharWithoutForbiddenChar(LowerCaseCharacters, forbiddenCharacters)).ToCharArray();
+          break;
+        case RandomCharacters.UpperDigit:
+          SearchedCharacters = (FillSearchedCharWithoutForbiddenChar(UpperCaseCharacters, forbiddenCharacters) +
+            FillSearchedCharWithoutForbiddenChar(DigitCharacters, forbiddenCharacters)).ToCharArray();
+          break;
+        case RandomCharacters.UpperLowerDigit:
+          SearchedCharacters = (FillSearchedCharWithoutForbiddenChar(UpperCaseCharacters, forbiddenCharacters) +
+            FillSearchedCharWithoutForbiddenChar(LowerCaseCharacters, forbiddenCharacters)+
+            FillSearchedCharWithoutForbiddenChar(DigitCharacters, forbiddenCharacters)).ToCharArray();
+          break;
+        case RandomCharacters.UpperSpecialChar:
+          SearchedCharacters = (FillSearchedCharWithoutForbiddenChar(UpperCaseCharacters, forbiddenCharacters) +
+            FillSearchedCharWithoutForbiddenChar(SpecialCharacters, forbiddenCharacters)).ToCharArray();
+          break;
+        case RandomCharacters.UpperLowerSpecial:
+          SearchedCharacters = (FillSearchedCharWithoutForbiddenChar(UpperCaseCharacters, forbiddenCharacters) +
+            FillSearchedCharWithoutForbiddenChar(LowerCaseCharacters, forbiddenCharacters) +
+            FillSearchedCharWithoutForbiddenChar(SpecialCharacters, forbiddenCharacters)).ToCharArray();
+          break;
+        case RandomCharacters.UpperDigitSpecial:
+          SearchedCharacters = (FillSearchedCharWithoutForbiddenChar(UpperCaseCharacters, forbiddenCharacters) +
+            FillSearchedCharWithoutForbiddenChar(SpecialCharacters, forbiddenCharacters) +
+            FillSearchedCharWithoutForbiddenChar(DigitCharacters, forbiddenCharacters)).ToCharArray();
+          break;
+        case RandomCharacters.UpperLowerDigitSpecial:
+          SearchedCharacters = (FillSearchedCharWithoutForbiddenChar(UpperCaseCharacters, forbiddenCharacters) +
+            FillSearchedCharWithoutForbiddenChar(LowerCaseCharacters, forbiddenCharacters) +
+            FillSearchedCharWithoutForbiddenChar(DigitCharacters, forbiddenCharacters) +
+            FillSearchedCharWithoutForbiddenChar(SpecialCharacters, forbiddenCharacters)).ToCharArray();
+          break;
+
         default:
           SearchedCharacters = FillSearchedCharWithoutForbiddenChar(LowerCaseCharacters, forbiddenCharacters).ToCharArray();
           break;
@@ -1837,17 +1909,20 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public enum RandomCharacters
     {
-      LowerCase = 2,
-      UpperCase = 4,
-      Digit = 6,
-      SpecialCharacter = 8,
-      UpperLower = LowerCase & UpperCase,
-      LowerDigit = LowerCase & Digit,
-      UpperDigit = UpperCase & Digit,
-      UpperLowerDigit = UpperLower & Digit,
-      LowerSpecialChar = LowerCase & SpecialCharacter,
-      UpperSpecialChar = UpperCase & SpecialCharacter,
-      DigitSpecialChar = Digit & SpecialCharacter
+      LowerCase = 1,
+      UpperCase = 2,
+      Digit = 3,
+      SpecialCharacter = 4,
+      UpperLower = 5, //LowerCase & UpperCase,
+      LowerDigit = 6, //LowerCase & Digit,
+      UpperDigit = 7, //UpperCase & Digit,
+      UpperLowerDigit = 8, //UpperLower & Digit,
+      LowerSpecialChar = 9, //LowerCase & SpecialCharacter,
+      UpperSpecialChar = 10, //UpperCase & SpecialCharacter,
+      DigitSpecialChar = 11, //Digit & SpecialCharacter
+      UpperLowerSpecial = 12,
+      UpperDigitSpecial = 13,
+      UpperLowerDigitSpecial = 14 // kept numbering because of a possible future change
     }
 
     public static string GenerateCharactersFromSource(List<string> source, int numberOfCharacters = 1)

@@ -3697,15 +3697,123 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_GenerateRandomString_true_digits()
     {
+      const bool expected = true;
       char[] source = new char[] { };
       string result = FunctionsString.GenerateRandomString(source, false,
         FunctionsString.RandomCharacters.Digit);
-      Assert.AreEqual(FunctionsString.IsNumeric2(result), true);
+      Assert.AreEqual(FunctionsString.IsNumeric2(result), expected);
     }
 
+    [TestMethod]
+    public void TestMethod_GenerateRandomString_false_SpecialCharacter_no_digit()
+    {
+      const bool expected = false;
+      char[] source = new char[] { };
+      string result = FunctionsString.GenerateRandomString(source, false,
+        FunctionsString.RandomCharacters.SpecialCharacter);
+      Assert.AreEqual(FunctionsString.IsNumeric2(result), expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GenerateRandomString_false_SpecialCharacter_no_vowel()
+    {
+      const bool expected = false;
+      char[] source = new char[] { };
+      string result = FunctionsString.GenerateRandomString(source, false,
+        FunctionsString.RandomCharacters.SpecialCharacter);
+      Assert.AreEqual(FunctionsString.HasVowels(result), expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GenerateRandomString_false_SpecialCharacter_no_consonant()
+    {
+      const bool expected = false;
+      char[] source = new char[] { };
+      string result = FunctionsString.GenerateRandomString(source, false,
+        FunctionsString.RandomCharacters.SpecialCharacter);
+      Assert.AreEqual(FunctionsString.HasConsonants(result), expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GenerateRandomString_true_DigitSpecialChar_length_default()
+    {
+      char[] source = new char[] { };
+      const byte stringLength = 250;
+      string result = FunctionsString.GenerateRandomString(source, false,
+        FunctionsString.RandomCharacters.DigitSpecialChar, stringLength);
+      Assert.AreEqual(result.Length, stringLength);
+    }
+
+    [TestMethod]
+    public void TestMethod_GenerateRandomString_true_DigitSpecialChar_has_digit()
+    {
+      const bool expected = true;
+      char[] source = new char[] { };
+      const byte stringLength = 254;
+      string result = FunctionsString.GenerateRandomString(source, false,
+        FunctionsString.RandomCharacters.DigitSpecialChar, stringLength);
+      Assert.AreEqual(FunctionsString.HasNumeric(result), expected);
+    }
 
     #endregion GenerateString method Unit tests
+    #region HasSomeLowerCaseLetters method Unit tests
+    //*********************HasSomeLowerCaseLetters*******
+    [TestMethod]
+    public void TestMethod_HasSomeLowerCaseLetters_true()
+    {
+      string source = "azerty and qwerty";
+      const bool expected = true;
+      bool result = FunctionsString.HasSomeLowerCaseLetters(source);
+      Assert.AreEqual(result, expected);
+    }
 
+    [TestMethod]
+    public void TestMethod_HasSomeLowerCaseLetters_false()
+    {
+      string source = "AZERTY AND QWERTY";
+      const bool expected = false;
+      bool result = FunctionsString.HasSomeLowerCaseLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_HasSomeLowerCaseLetters_true_one_letter()
+    {
+      string source = "AZERTY AND QWERTy";
+      const bool expected = true;
+      bool result = FunctionsString.HasSomeLowerCaseLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+    #endregion HasSomeLowerCaseLetters method Unit tests
+    #region HasSomeUpperCaseLetters method Unit tests
+    //*********************HasSomeUpperCaseLetters*******
+    [TestMethod]
+    public void TestMethod_HasSomeUpperCaseLetters_false()
+    {
+      string source = "azerty and qwerty";
+      const bool expected = false;
+      bool result = FunctionsString.HasSomeUpperCaseLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_HasSomeUpperCaseLetters_true()
+    {
+      string source = "AZERTY AND QWERTY";
+      const bool expected = true;
+      bool result = FunctionsString.HasSomeUpperCaseLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_HasSomeUpperCaseLetters_true_one_letter()
+    {
+      string source = "azerty and qwertY";
+      const bool expected = true;
+      bool result = FunctionsString.HasSomeUpperCaseLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+    #endregion HasSomeUpperCaseLetters method Unit tests
     #endregion
 
     #region Files Methods
