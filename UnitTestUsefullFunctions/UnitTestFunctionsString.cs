@@ -1975,7 +1975,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "123456789";
       const bool expected = false;
-      bool result = FunctionsString.IsLetters(source);
+      bool result = FunctionsString.IsOnlyLetters(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1984,7 +1984,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "qwertyAndazerty";
       const bool expected = true;
-      bool result = FunctionsString.IsLetters(source);
+      bool result = FunctionsString.IsOnlyLetters(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1993,7 +1993,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "";
       const bool expected = false;
-      bool result = FunctionsString.IsLetters(source);
+      bool result = FunctionsString.IsOnlyLetters(source);
       Assert.AreEqual(result, expected);
     }
 

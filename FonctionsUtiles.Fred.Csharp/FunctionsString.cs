@@ -928,13 +928,24 @@ namespace FonctionsUtiles.Fred.Csharp
       return true;
     }
 
-    public static bool IsLetters(string input)
+    public static bool IsOnlyLetters(string input)
     {
-      //  Returns whether a string is composed of all letter characters.
+      //  Returns whether a string is composed of only letter characters.
       return !string.IsNullOrEmpty(input) && input.All(char.IsLetter);
-      // was :
-      //  return input.All(t => char.IsLetter(t));
     }
+
+    public static bool HasSomeLowerCaseLetters(string input)
+    {
+      return !string.IsNullOrEmpty(input) && input.Any(char.IsLower);
+
+    }
+
+    public static bool HasSomeUpperCaseLetters(string input)
+    {
+      //  Returns whether a string has at least one upper case letter.
+      return !string.IsNullOrEmpty(input) && input.Any(char.IsUpper);
+    }
+
 
     public static bool IsTitle(string input)
     {
@@ -1737,7 +1748,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static string GenerateRandomString(char[] forbiddenCharacters,
       bool hasForbiddenCharacters = false,
-      RandomCharacters rdnCharacters = RandomCharacters.LowerCase, byte length = 8, 
+      RandomCharacters rdnCharacters = RandomCharacters.LowerCase, byte length = 8,
       bool windowsFileName = false)
     {
       string RndString = string.Empty;
