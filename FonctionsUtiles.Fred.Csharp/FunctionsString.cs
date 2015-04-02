@@ -1741,6 +1741,10 @@ namespace FonctionsUtiles.Fred.Csharp
       bool windowsFileName = false)
     {
       string RndString = string.Empty;
+      if (length > byte.MaxValue)
+      {
+        length = byte.MaxValue;
+      }
 
       string[] forbiddenWindowsFilenameCharacters = { "\\", "/", ":", "*", "?", "\"", "<", ">", "|" };
       char[] UpperCaseCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();

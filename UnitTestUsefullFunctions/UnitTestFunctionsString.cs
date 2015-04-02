@@ -3645,15 +3645,62 @@ namespace UnitTestUsefullFunctions
     }
     #endregion Random Unit tests generated
     #region GenerateString method Unit tests
-    //**************************GenerateString Methods****
+    //**************************GenerateRandomString Method****
     [TestMethod]
     public void TestMethod_GenerateRandomString_true_default_length()
     {
       char[] source = new char[] { };
-      const string expectedString = @"azertyui";
+      const byte stringLength = 8;
       string result = FunctionsString.GenerateRandomString(source, false, 
         FunctionsString.RandomCharacters.LowerCase);
-      Assert.AreEqual(result.Length, expectedString.Length);
+      Assert.AreEqual(result.Length, stringLength);
+    }
+
+    [TestMethod]
+    public void TestMethod_GenerateRandomString_true_length_of_20()
+    {
+      char[] source = new char[] { };
+      const byte stringLength = 20;
+      string result = FunctionsString.GenerateRandomString(source, false,
+        FunctionsString.RandomCharacters.LowerCase, stringLength);
+      Assert.AreEqual(result.Length, stringLength);
+    }
+
+    [TestMethod]
+    public void TestMethod_GenerateRandomString_true_length_of_byte_MaxValue()
+    {
+      char[] source = new char[] { };
+      const byte stringLength = byte.MaxValue;
+      string result = FunctionsString.GenerateRandomString(source, false,
+        FunctionsString.RandomCharacters.LowerCase, stringLength);
+      Assert.AreEqual(result.Length, stringLength);
+    }
+
+    [TestMethod]
+    public void TestMethod_GenerateRandomString_true_lower_case()
+    {
+      char[] source = new char[] { };
+      string result = FunctionsString.GenerateRandomString(source, false,
+        FunctionsString.RandomCharacters.LowerCase);
+      Assert.AreEqual(result.ToLower(), result);
+    }
+
+    [TestMethod]
+    public void TestMethod_GenerateRandomString_true_upper_case()
+    {
+      char[] source = new char[] { };
+      string result = FunctionsString.GenerateRandomString(source, false,
+        FunctionsString.RandomCharacters.UpperCase);
+      Assert.AreEqual(result.ToUpper(), result);
+    }
+
+    [TestMethod]
+    public void TestMethod_GenerateRandomString_true_digits()
+    {
+      char[] source = new char[] { };
+      string result = FunctionsString.GenerateRandomString(source, false,
+        FunctionsString.RandomCharacters.Digit);
+      Assert.AreEqual(FunctionsString.IsNumeric2(result), true);
     }
 
 
