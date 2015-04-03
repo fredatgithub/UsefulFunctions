@@ -3810,6 +3810,39 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(FunctionsString.HasSomeLowerCaseLetters(result), expected);
     }
 
+    [TestMethod]
+    public void TestMethod_GenerateRandomString_UpperDigit_true_has_digit()
+    {
+      const bool expected = true;
+      char[] source = new char[] { };
+      const byte stringLength = 254;
+      string result = FunctionsString.GenerateRandomString(source, false,
+        FunctionsString.RandomCharacters.UpperDigit, stringLength);
+      Assert.AreEqual(FunctionsString.HasVowels(result), expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GenerateRandomString_UpperDigit_true_has_letters()
+    {
+      const bool expected = true;
+      char[] source = new char[] { };
+      const byte stringLength = 254;
+      string result = FunctionsString.GenerateRandomString(source, false,
+        FunctionsString.RandomCharacters.UpperDigit, stringLength);
+      Assert.AreEqual(FunctionsString.HasSomeLetters(result), expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GenerateRandomString_UpperDigit_true_has_Upper_case_letters()
+    {
+      const bool expected = true;
+      char[] source = new char[] { };
+      const byte stringLength = 254;
+      string result = FunctionsString.GenerateRandomString(source, false,
+        FunctionsString.RandomCharacters.UpperDigit, stringLength);
+      Assert.AreEqual(FunctionsString.HasSomeUpperCaseLetters(result), expected);
+    }
+
     #endregion GenerateString method Unit tests
     #region HasSomeLowerCaseLetters method Unit tests
     //*********************HasSomeLowerCaseLetters*******
