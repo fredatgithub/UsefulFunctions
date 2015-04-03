@@ -42,9 +42,10 @@ namespace ConsoleApplicationUsageDemo
 
       Char[] tmpNull = null;
       string rdnString = StringFunc.GenerateRandomString(tmpNull, false, StringFunc.RandomCharacters.LowerCase);
-      display("");
-
+      display(string.Empty);
       display("Generation of a random string: " + rdnString);
+      display(string.Empty);
+      display("Manifest of the DLL: " + StringFunc.Manifest());
       Console.ReadKey();
     }
   }

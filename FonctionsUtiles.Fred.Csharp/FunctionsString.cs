@@ -32,6 +32,23 @@ namespace FonctionsUtiles.Fred.Csharp
 
   public class FunctionsString
   {
+    /// <summary>
+    /// List all the public method available from this DLL
+    /// </summary>
+    /// <returns></returns>
+    public static string Manifest()
+    {
+      const string newLine = "\n";
+      StringBuilder result = new StringBuilder();
+      result.Append(newLine + "Name= FonctionsUtiles.Fred.Csharp" + newLine);
+      result.Append("Version= 1.0.0.0" + newLine);
+      result.Append("Method= bool HasDuplicate(params int[] liste)" + newLine);
+      result.Append("Method= bool HasNoDuplicate(params int[] liste)" + newLine);
+      result.Append("Method= string EndPadding(string chaine, byte blankLength)" + newLine);
+      result.Append("Method= " + newLine);
+      return result.ToString();
+    }
+
     public static bool HasDuplicate(params int[] liste)
     {
       if (liste == null)
@@ -41,6 +58,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return liste.Distinct().Count() != liste.Count();
     }
+
     public static bool HasNoDuplicate(params int[] liste)
     {
       if (liste == null)
