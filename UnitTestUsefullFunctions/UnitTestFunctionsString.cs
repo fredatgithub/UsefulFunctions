@@ -3766,6 +3766,17 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(FunctionsString.HasConsonants(result), expected);
     }
 
+    [TestMethod]
+    public void TestMethod_GenerateRandomString_UpperLower_true_has_vowel()
+    {
+      const bool expected = true;
+      char[] source = new char[] { };
+      const byte stringLength = 254;
+      string result = FunctionsString.GenerateRandomString(source, false,
+        FunctionsString.RandomCharacters.UpperLower, stringLength);
+      Assert.AreEqual(FunctionsString.HasVowels(result), expected);
+    }
+
     #endregion GenerateString method Unit tests
     #region HasSomeLowerCaseLetters method Unit tests
     //*********************HasSomeLowerCaseLetters*******
