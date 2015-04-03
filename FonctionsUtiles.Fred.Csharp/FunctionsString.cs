@@ -958,16 +958,24 @@ namespace FonctionsUtiles.Fred.Csharp
       return true;
     }
 
+    /// <summary>
+    /// Returns whether a string is composed of only letter characters.
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns></returns>
     public static bool IsOnlyLetters(string input)
     {
-      //  Returns whether a string is composed of only letter characters.
       return !string.IsNullOrEmpty(input) && input.All(char.IsLetter);
+    }
+
+    public static bool HasSomeLetters(string input)
+    {
+      return !string.IsNullOrEmpty(input) && input.Any(char.IsLetter);
     }
 
     public static bool HasSomeLowerCaseLetters(string input)
     {
       return !string.IsNullOrEmpty(input) && input.Any(char.IsLower);
-
     }
 
     public static bool HasSomeUpperCaseLetters(string input)
@@ -1717,9 +1725,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static string UpperCaseFirstLetter(string value)
     {
-      //
       // Uppercase the first letter in the string this extension is called on.
-      //
       if (value.Length > 0)
       {
         char[] array = value.ToCharArray();

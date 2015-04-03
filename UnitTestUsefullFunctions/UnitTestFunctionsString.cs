@@ -3777,6 +3777,28 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(FunctionsString.HasVowels(result), expected);
     }
 
+    [TestMethod]
+    public void TestMethod_GenerateRandomString_LowerDigit_true_has_digit()
+    {
+      const bool expected = true;
+      char[] source = new char[] { };
+      const byte stringLength = 254;
+      string result = FunctionsString.GenerateRandomString(source, false,
+        FunctionsString.RandomCharacters.LowerDigit, stringLength);
+      Assert.AreEqual(FunctionsString.HasVowels(result), expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GenerateRandomString_LowerDigit_true_has_letters()
+    {
+      const bool expected = true;
+      char[] source = new char[] { };
+      const byte stringLength = 254;
+      string result = FunctionsString.GenerateRandomString(source, false,
+        FunctionsString.RandomCharacters.LowerDigit, stringLength);
+      Assert.AreEqual(FunctionsString.HasSomeLetters(result), expected);
+    }
+
     #endregion GenerateString method Unit tests
     #region HasSomeLowerCaseLetters method Unit tests
     //*********************HasSomeLowerCaseLetters*******
