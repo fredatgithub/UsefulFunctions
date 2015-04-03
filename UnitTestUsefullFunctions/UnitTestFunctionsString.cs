@@ -4051,6 +4051,42 @@ namespace UnitTestUsefullFunctions
         FunctionsString.RandomCharacters.UpperLowerDigitSpecial, stringLength);
       Assert.AreEqual(FunctionsString.HasSymbols(result), expected);
     }
+
+    [TestMethod]
+    public void TestMethod_GenerateRandomString_UpperLowerDigitSpecial_false_with_forbidden_digits()
+    {
+      const bool expected = false;
+      char[] source = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+      const byte stringLength = 254;
+      string result = FunctionsString.GenerateRandomString(source, true,
+        FunctionsString.RandomCharacters.UpperLowerDigitSpecial, stringLength);
+      Assert.AreEqual(FunctionsString.HasNumeric(result), expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GenerateRandomString_UpperLowerDigitSpecial_false_with_forbidden_vowels()
+    {
+      const bool expected = false;
+      char[] source = new char[] { 'a', 'e', 'i', 'o', 'u', 'y', 'A', 'E', 'I', 'O', 'U', 'Y' };
+      const byte stringLength = 254;
+      string result = FunctionsString.GenerateRandomString(source, true,
+        FunctionsString.RandomCharacters.UpperLowerDigitSpecial, stringLength);
+      Assert.AreEqual(FunctionsString.HasVowels(result), expected); // failed on I (i uppercase)
+    }
+
+    [TestMethod]
+    public void TestMethod_GenerateRandomString_UpperLowerDigitSpecial_false_with_forbidden_consonants()
+    {
+      const bool expected = false;
+      char[] source = new char[] { 'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'z',
+      'B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Z'};
+      const byte stringLength = 254;
+      string result = FunctionsString.GenerateRandomString(source, true,
+        FunctionsString.RandomCharacters.UpperLowerDigitSpecial, stringLength);
+      Assert.AreEqual(FunctionsString.HasConsonants(result), expected);
+    }
+
+
     #endregion GenerateString method Unit tests
     #region HasSomeLowerCaseLetters method Unit tests
     //*********************HasSomeLowerCaseLetters*******
