@@ -996,12 +996,25 @@ namespace FonctionsUtiles.Fred.Csharp
       return !string.IsNullOrEmpty(input) && input.Any(char.IsLower);
     }
 
+    /// <summary>
+    /// Returns whether a string has at least one upper case letter.
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns></returns>
     public static bool HasSomeUpperCaseLetters(string input)
     {
-      //  Returns whether a string has at least one upper case letter.
       return !string.IsNullOrEmpty(input) && input.Any(char.IsUpper);
     }
 
+    public static bool HasLettersOrDigits(string input)
+    {
+      return !string.IsNullOrEmpty(input) && input.Any(char.IsLetterOrDigit);
+    }
+
+    public static bool HasSymbols(string input)
+    {
+      return !string.IsNullOrEmpty(input) && input.Any(char.IsSymbol);
+    }
 
     public static bool IsTitle(string input)
     {
@@ -1220,6 +1233,7 @@ namespace FonctionsUtiles.Fred.Csharp
       LowerDigitUpper,
       UpperDigitLower
     }
+
     public static string NumberToEnglishWords(int number)
     {
       if (number == 0)
@@ -1731,6 +1745,7 @@ namespace FonctionsUtiles.Fred.Csharp
       foreach (var item in array.Where(item => number == item))
       {
         found = true;
+        break;
       }
 
       return found;
