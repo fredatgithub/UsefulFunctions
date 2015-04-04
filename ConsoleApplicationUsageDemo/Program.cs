@@ -41,11 +41,20 @@ namespace ConsoleApplicationUsageDemo
       displayOnOneLine(StringFunc.IsNumeric("4").ToString());
 
       Char[] tmpNull = null;
-      string rdnString = StringFunc.GenerateRandomString(tmpNull, false, StringFunc.RandomCharacters.LowerCase);
+      string rdnString = StringFunc.GenerateRandomString(tmpNull);
       display(string.Empty);
       display("Generation of a random string: " + rdnString);
       display(string.Empty);
       display("Manifest of the DLL: " + StringFunc.Manifest());
+      display(string.Empty);
+      display("Generation of a 10 random filename strings: ");
+      for (int i = 0; i < 10; i++)
+      {
+        rdnString = StringFunc.GenerateRandomString(new []{' '}, true, StringFunc.RandomCharacters.UpperLowerDigitSpecial, 8, true);
+        display("Random filename: " + rdnString);
+      }
+      
+
       Console.ReadKey();
     }
   }

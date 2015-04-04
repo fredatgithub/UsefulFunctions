@@ -4184,6 +4184,17 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result.Length, expected);
     }
 
+    [TestMethod]
+    public void TestMethod_GenerateRandomString_Special_characters_only_false_with_is_Windows_Filename_length_254()
+    {
+      const int expected = 254;
+      char[] source = { };
+      const byte stringLength = 254;
+      string result = FunctionsString.GenerateRandomString(source, false,
+        FunctionsString.RandomCharacters.SpecialCharacter, stringLength, true);
+      Assert.AreEqual(result.Length, expected);
+    }
+
 
     #endregion GenerateString method Unit tests
     #region HasSomeLowerCaseLetters method Unit tests
@@ -4255,7 +4266,7 @@ namespace UnitTestUsefullFunctions
       FunctionsFiles.CreateDirectory(sourceDir);
       const string sourceFile = @"c:\temp\UnitTestVS\test.txt";
       const string expected =   @"c:\temp\UnitTestVS\test.txt";
-      string result = FunctionsFiles.GenerateUniqueFileName(sourceFile);
+      string result = FunctionsString.GenerateUniqueFilename(sourceFile, FunctionsString.RandomCharacters.UpperLowerDigitSpecial, 8, true);
       Assert.AreEqual(result, expected);
       FunctionsFiles.DeleteDirectory(sourceDir);
     }

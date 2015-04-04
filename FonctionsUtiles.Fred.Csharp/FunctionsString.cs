@@ -1791,27 +1791,32 @@ namespace FonctionsUtiles.Fred.Csharp
       return new Guid().ToString();
     }
 
-    public static string GenerateUniqueFilename(string filePath, RandomCharacters rdnCharacters = RandomCharacters.LowerCase, byte length = 8)
+    public static string GenerateUniqueFilename(string directoryPath, 
+      RandomCharacters rdnCharacters = RandomCharacters.LowerCase, 
+      byte length = 8, 
+      bool withFileExtension = false, 
+      string fileExtension = "txt")
     {
-      string[] forbiddenWindowsFilenameCharacters = { "\\", "/", ":", "*", "?", "\"", "<", ">", "|" };
-      char[] upperCaseCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
-      char[] lowerCaseCharacters = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
-      char[] digitCharacters = "0123456789".ToCharArray();
-      char[] specialCharacters = ",.;:?!/@#$%^&()=+*-_{}[]|~".ToCharArray();
-      char[] forbiddenCharacters = new char[26 + 26 + 10 + 26]; // max size
-      char[] searchedCharacters = new char[26 + 26 + 10 + 26]; // max size
+      if (directoryPath == string.Empty)
+      {
+        return string.Empty;
+      }
 
-      if (filePath == string.Empty)
+      if (!Directory.Exists(directoryPath))
       {
         return string.Empty;
       }
 
       string result = string.Empty;
-      // TODO to complete
-      // string[26 + 26 + 10 + 10] 26 lower case + 26 upper case + 10 digits + 10 special characters
-      string[] charactersToBeSearchFrom = new string[26 + 26 + 10 + 10];
-      // feed the source list of characters chosen
-
+      do
+      {
+        result = GenerateRandomString(new[] { ' ' }, true, rdnCharacters, length, true);
+        if (withFileExtension)
+        {
+          result += fileExtension;
+        }
+      } while (File.Exists(Path.Combine(directoryPath, result)));
+      
       return result;
     }
 
