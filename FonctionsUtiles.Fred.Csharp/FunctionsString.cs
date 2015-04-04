@@ -1794,12 +1794,12 @@ namespace FonctionsUtiles.Fred.Csharp
     public static string GenerateUniqueFilename(string filePath, RandomCharacters rdnCharacters = RandomCharacters.LowerCase, byte length = 8)
     {
       string[] forbiddenWindowsFilenameCharacters = { "\\", "/", ":", "*", "?", "\"", "<", ">", "|" };
-      char[] UpperCaseCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
-      char[] LowerCaseCharacters = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
-      char[] DigitCharacters = "0123456789".ToCharArray();
-      char[] SpecialCharacters = ",.;:?!/@#$%^&()=+*-_{}[]|~".ToCharArray();
-      char[] ForbiddenCharacters = new char[26 + 26 + 10 + 26]; // max size
-      char[] SearchedCharacters = new char[26 + 26 + 10 + 26]; // max size
+      char[] upperCaseCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
+      char[] lowerCaseCharacters = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
+      char[] digitCharacters = "0123456789".ToCharArray();
+      char[] specialCharacters = ",.;:?!/@#$%^&()=+*-_{}[]|~".ToCharArray();
+      char[] forbiddenCharacters = new char[26 + 26 + 10 + 26]; // max size
+      char[] searchedCharacters = new char[26 + 26 + 10 + 26]; // max size
 
       if (filePath == string.Empty)
       {
@@ -1820,82 +1820,82 @@ namespace FonctionsUtiles.Fred.Csharp
       RandomCharacters rdnCharacters = RandomCharacters.LowerCase, byte length = 8,
       bool windowsFileName = false)
     {
-      string RndString = string.Empty;
+      string rndString = string.Empty;
       if (length > byte.MaxValue)
       {
         length = byte.MaxValue;
       }
 
       string[] forbiddenWindowsFilenameCharacters = { "\\", "/", ":", "*", "?", "\"", "<", ">", "|" };
-      char[] UpperCaseCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
-      char[] LowerCaseCharacters = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
-      char[] DigitCharacters = "0123456789".ToCharArray();
-      char[] SpecialCharacters = ",.;:?!/@#$%^&()=+*-_{}[]|~".ToCharArray();
-      char[] SearchedCharacters = new char[26 + 26 + 10 + 26]; // max size
+      char[] upperCaseCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
+      char[] lowerCaseCharacters = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
+      char[] digitCharacters = "0123456789".ToCharArray();
+      char[] specialCharacters = ",.;:?!/@#$%^&()=+*-_{}[]|~".ToCharArray();
+      char[] searchedCharacters = new char[26 + 26 + 10 + 26]; // max size
 
       int numberOfCharactersToPickFrom = (int)rdnCharacters;
       switch (rdnCharacters)
       {
         case RandomCharacters.LowerCase:
-          SearchedCharacters = FillSearchedCharWithoutForbiddenChar(LowerCaseCharacters, forbiddenCharacters).ToCharArray();
+          searchedCharacters = FillSearchedCharWithoutForbiddenChar(lowerCaseCharacters, forbiddenCharacters).ToCharArray();
           break;
         case RandomCharacters.UpperCase:
-          SearchedCharacters = FillSearchedCharWithoutForbiddenChar(UpperCaseCharacters, forbiddenCharacters).ToCharArray();
+          searchedCharacters = FillSearchedCharWithoutForbiddenChar(upperCaseCharacters, forbiddenCharacters).ToCharArray();
           break;
         case RandomCharacters.Digit:
-          SearchedCharacters = FillSearchedCharWithoutForbiddenChar(DigitCharacters, forbiddenCharacters).ToCharArray();
+          searchedCharacters = FillSearchedCharWithoutForbiddenChar(digitCharacters, forbiddenCharacters).ToCharArray();
           break;
         case RandomCharacters.SpecialCharacter:
-          SearchedCharacters = FillSearchedCharWithoutForbiddenChar(SpecialCharacters, forbiddenCharacters).ToCharArray();
+          searchedCharacters = FillSearchedCharWithoutForbiddenChar(specialCharacters, forbiddenCharacters).ToCharArray();
           break;
         case RandomCharacters.UpperLower:
-          SearchedCharacters = (FillSearchedCharWithoutForbiddenChar(UpperCaseCharacters, forbiddenCharacters) +
-            FillSearchedCharWithoutForbiddenChar(LowerCaseCharacters, forbiddenCharacters)).ToCharArray();
+          searchedCharacters = (FillSearchedCharWithoutForbiddenChar(upperCaseCharacters, forbiddenCharacters) +
+            FillSearchedCharWithoutForbiddenChar(lowerCaseCharacters, forbiddenCharacters)).ToCharArray();
           break;
         case RandomCharacters.DigitSpecialChar:
-          SearchedCharacters = (FillSearchedCharWithoutForbiddenChar(DigitCharacters, forbiddenCharacters) +
-            FillSearchedCharWithoutForbiddenChar(SpecialCharacters, forbiddenCharacters)).ToCharArray();
+          searchedCharacters = (FillSearchedCharWithoutForbiddenChar(digitCharacters, forbiddenCharacters) +
+            FillSearchedCharWithoutForbiddenChar(specialCharacters, forbiddenCharacters)).ToCharArray();
           break;
         case RandomCharacters.LowerDigit:
-          SearchedCharacters = (FillSearchedCharWithoutForbiddenChar(LowerCaseCharacters, forbiddenCharacters) +
-            FillSearchedCharWithoutForbiddenChar(DigitCharacters, forbiddenCharacters)).ToCharArray();
+          searchedCharacters = (FillSearchedCharWithoutForbiddenChar(lowerCaseCharacters, forbiddenCharacters) +
+            FillSearchedCharWithoutForbiddenChar(digitCharacters, forbiddenCharacters)).ToCharArray();
           break;
         case RandomCharacters.LowerSpecialChar:
-          SearchedCharacters = (FillSearchedCharWithoutForbiddenChar(SpecialCharacters, forbiddenCharacters) +
-            FillSearchedCharWithoutForbiddenChar(LowerCaseCharacters, forbiddenCharacters)).ToCharArray();
+          searchedCharacters = (FillSearchedCharWithoutForbiddenChar(specialCharacters, forbiddenCharacters) +
+            FillSearchedCharWithoutForbiddenChar(lowerCaseCharacters, forbiddenCharacters)).ToCharArray();
           break;
         case RandomCharacters.UpperDigit:
-          SearchedCharacters = (FillSearchedCharWithoutForbiddenChar(UpperCaseCharacters, forbiddenCharacters) +
-            FillSearchedCharWithoutForbiddenChar(DigitCharacters, forbiddenCharacters)).ToCharArray();
+          searchedCharacters = (FillSearchedCharWithoutForbiddenChar(upperCaseCharacters, forbiddenCharacters) +
+            FillSearchedCharWithoutForbiddenChar(digitCharacters, forbiddenCharacters)).ToCharArray();
           break;
         case RandomCharacters.UpperLowerDigit:
-          SearchedCharacters = (FillSearchedCharWithoutForbiddenChar(UpperCaseCharacters, forbiddenCharacters) +
-            FillSearchedCharWithoutForbiddenChar(LowerCaseCharacters, forbiddenCharacters)+
-            FillSearchedCharWithoutForbiddenChar(DigitCharacters, forbiddenCharacters)).ToCharArray();
+          searchedCharacters = (FillSearchedCharWithoutForbiddenChar(upperCaseCharacters, forbiddenCharacters) +
+            FillSearchedCharWithoutForbiddenChar(lowerCaseCharacters, forbiddenCharacters)+
+            FillSearchedCharWithoutForbiddenChar(digitCharacters, forbiddenCharacters)).ToCharArray();
           break;
         case RandomCharacters.UpperSpecialChar:
-          SearchedCharacters = (FillSearchedCharWithoutForbiddenChar(UpperCaseCharacters, forbiddenCharacters) +
-            FillSearchedCharWithoutForbiddenChar(SpecialCharacters, forbiddenCharacters)).ToCharArray();
+          searchedCharacters = (FillSearchedCharWithoutForbiddenChar(upperCaseCharacters, forbiddenCharacters) +
+            FillSearchedCharWithoutForbiddenChar(specialCharacters, forbiddenCharacters)).ToCharArray();
           break;
         case RandomCharacters.UpperLowerSpecial:
-          SearchedCharacters = (FillSearchedCharWithoutForbiddenChar(UpperCaseCharacters, forbiddenCharacters) +
-            FillSearchedCharWithoutForbiddenChar(LowerCaseCharacters, forbiddenCharacters) +
-            FillSearchedCharWithoutForbiddenChar(SpecialCharacters, forbiddenCharacters)).ToCharArray();
+          searchedCharacters = (FillSearchedCharWithoutForbiddenChar(upperCaseCharacters, forbiddenCharacters) +
+            FillSearchedCharWithoutForbiddenChar(lowerCaseCharacters, forbiddenCharacters) +
+            FillSearchedCharWithoutForbiddenChar(specialCharacters, forbiddenCharacters)).ToCharArray();
           break;
         case RandomCharacters.UpperDigitSpecial:
-          SearchedCharacters = (FillSearchedCharWithoutForbiddenChar(UpperCaseCharacters, forbiddenCharacters) +
-            FillSearchedCharWithoutForbiddenChar(SpecialCharacters, forbiddenCharacters) +
-            FillSearchedCharWithoutForbiddenChar(DigitCharacters, forbiddenCharacters)).ToCharArray();
+          searchedCharacters = (FillSearchedCharWithoutForbiddenChar(upperCaseCharacters, forbiddenCharacters) +
+            FillSearchedCharWithoutForbiddenChar(specialCharacters, forbiddenCharacters) +
+            FillSearchedCharWithoutForbiddenChar(digitCharacters, forbiddenCharacters)).ToCharArray();
           break;
         case RandomCharacters.UpperLowerDigitSpecial:
-          SearchedCharacters = (FillSearchedCharWithoutForbiddenChar(UpperCaseCharacters, forbiddenCharacters) +
-            FillSearchedCharWithoutForbiddenChar(LowerCaseCharacters, forbiddenCharacters) +
-            FillSearchedCharWithoutForbiddenChar(DigitCharacters, forbiddenCharacters) +
-            FillSearchedCharWithoutForbiddenChar(SpecialCharacters, forbiddenCharacters)).ToCharArray();
+          searchedCharacters = (FillSearchedCharWithoutForbiddenChar(upperCaseCharacters, forbiddenCharacters) +
+            FillSearchedCharWithoutForbiddenChar(lowerCaseCharacters, forbiddenCharacters) +
+            FillSearchedCharWithoutForbiddenChar(digitCharacters, forbiddenCharacters) +
+            FillSearchedCharWithoutForbiddenChar(specialCharacters, forbiddenCharacters)).ToCharArray();
           break;
 
         default:
-          SearchedCharacters = FillSearchedCharWithoutForbiddenChar(LowerCaseCharacters, forbiddenCharacters).ToCharArray();
+          searchedCharacters = FillSearchedCharWithoutForbiddenChar(lowerCaseCharacters, forbiddenCharacters).ToCharArray();
           break;
       }
 
@@ -1903,7 +1903,7 @@ namespace FonctionsUtiles.Fred.Csharp
       string result = string.Empty;
       for (int i = 0; i < length; i++)
       {
-        result += SearchedCharacters[MathFunc.GenerateRandomNumberUsingCrypto(0, SearchedCharacters.Length - 1)];
+        result += searchedCharacters[MathFunc.GenerateRandomNumberUsingCrypto(0, searchedCharacters.Length - 1)];
       }
 
       return result;
