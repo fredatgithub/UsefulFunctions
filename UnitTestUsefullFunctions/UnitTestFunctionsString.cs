@@ -3649,17 +3649,16 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_GenerateRandomString_true_LowerCase_default_length()
     {
-      char[] source = new char[] { };
+      char[] source = { };
       const byte stringLength = 8;
-      string result = FunctionsString.GenerateRandomString(source, false, 
-        FunctionsString.RandomCharacters.LowerCase);
+      string result = FunctionsString.GenerateRandomString(source);
       Assert.AreEqual(result.Length, stringLength);
     }
 
     [TestMethod]
     public void TestMethod_GenerateRandomString_true_LowerCase_length_of_20()
     {
-      char[] source = new char[] { };
+      char[] source = { };
       const byte stringLength = 20;
       string result = FunctionsString.GenerateRandomString(source, false,
         FunctionsString.RandomCharacters.LowerCase, stringLength);
@@ -3669,7 +3668,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_GenerateRandomString_true_LowerCase_length_of_byte_MaxValue()
     {
-      char[] source = new char[] { };
+      char[] source = { };
       const byte stringLength = byte.MaxValue;
       string result = FunctionsString.GenerateRandomString(source, false,
         FunctionsString.RandomCharacters.LowerCase, stringLength);
@@ -3679,9 +3678,8 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_GenerateRandomString_true_lower_case()
     {
-      char[] source = new char[] { };
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.LowerCase);
+      char[] source = { };
+      string result = FunctionsString.GenerateRandomString(source);
       Assert.AreEqual(result.ToLower(), result);
     }
 
@@ -3689,7 +3687,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GenerateRandomString_LowerCase_false_has_no_symbol()
     {
       const bool expected = false;
-      char[] source = new char[] { };
+      char[] source = { };
       const byte stringLength = 254;
       string result = FunctionsString.GenerateRandomString(source, false,
         FunctionsString.RandomCharacters.LowerCase, stringLength);
@@ -3699,7 +3697,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_GenerateRandomString_UpperCase_true_upper_case()
     {
-      char[] source = new char[] { };
+      char[] source = { };
       string result = FunctionsString.GenerateRandomString(source, false,
         FunctionsString.RandomCharacters.UpperCase);
       Assert.AreEqual(result.ToUpper(), result);
@@ -3709,7 +3707,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GenerateRandomString_UpperCase_false_has_no_symbol()
     {
       const bool expected = false;
-      char[] source = new char[] { };
+      char[] source = { };
       const byte stringLength = 254;
       string result = FunctionsString.GenerateRandomString(source, false,
         FunctionsString.RandomCharacters.UpperCase, stringLength);
@@ -3720,7 +3718,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GenerateRandomString_digit_true()
     {
       const bool expected = true;
-      char[] source = new char[] { };
+      char[] source = { };
       string result = FunctionsString.GenerateRandomString(source, false,
         FunctionsString.RandomCharacters.Digit);
       Assert.AreEqual(FunctionsString.IsNumeric2(result), expected);
@@ -3730,7 +3728,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GenerateRandomString_Digit_false_has_no_symbol()
     {
       const bool expected = false;
-      char[] source = new char[] { };
+      char[] source = { };
       const byte stringLength = 254;
       string result = FunctionsString.GenerateRandomString(source, false,
         FunctionsString.RandomCharacters.Digit, stringLength);
@@ -3741,7 +3739,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GenerateRandomString_false_SpecialCharacter_no_digit()
     {
       const bool expected = false;
-      char[] source = new char[] { };
+      char[] source = { };
       string result = FunctionsString.GenerateRandomString(source, false,
         FunctionsString.RandomCharacters.SpecialCharacter);
       Assert.AreEqual(FunctionsString.IsNumeric2(result), expected);
@@ -3751,7 +3749,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GenerateRandomString_false_SpecialCharacter_no_vowel()
     {
       const bool expected = false;
-      char[] source = new char[] { };
+      char[] source = { };
       string result = FunctionsString.GenerateRandomString(source, false,
         FunctionsString.RandomCharacters.SpecialCharacter);
       Assert.AreEqual(FunctionsString.HasVowels(result), expected);
@@ -3761,7 +3759,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GenerateRandomString_false_SpecialCharacter_no_consonant()
     {
       const bool expected = false;
-      char[] source = new char[] { };
+      char[] source = { };
       string result = FunctionsString.GenerateRandomString(source, false,
         FunctionsString.RandomCharacters.SpecialCharacter);
       Assert.AreEqual(FunctionsString.HasConsonants(result), expected);
@@ -3771,7 +3769,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GenerateRandomString_SpecialCharacter_true_has_symbols()
     {
       const bool expected = true;
-      char[] source = new char[] { };
+      char[] source = { };
       const byte stringLength = 254;
       string result = FunctionsString.GenerateRandomString(source, false,
         FunctionsString.RandomCharacters.SpecialCharacter, stringLength);
@@ -3781,7 +3779,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_GenerateRandomString_true_DigitSpecialChar_length_default()
     {
-      char[] source = new char[] { };
+      char[] source = { };
       const byte stringLength = 250;
       string result = FunctionsString.GenerateRandomString(source, false,
         FunctionsString.RandomCharacters.DigitSpecialChar, stringLength);
@@ -3792,7 +3790,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GenerateRandomString_true_DigitSpecialChar_has_digit()
     {
       const bool expected = true;
-      char[] source = new char[] { };
+      char[] source = { };
       const byte stringLength = 254;
       string result = FunctionsString.GenerateRandomString(source, false,
         FunctionsString.RandomCharacters.DigitSpecialChar, stringLength);
@@ -3803,7 +3801,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GenerateRandomString_DigitSpecialChar_true_has_symbols()
     {
       const bool expected = true;
-      char[] source = new char[] { };
+      char[] source = { };
       const byte stringLength = 254;
       string result = FunctionsString.GenerateRandomString(source, false,
         FunctionsString.RandomCharacters.DigitSpecialChar, stringLength);
@@ -3814,7 +3812,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GenerateRandomString_DigitSpecial_false_has_symbols()
     {
       const bool expected = true;
-      char[] source = new char[] { };
+      char[] source = { };
       const byte stringLength = 254;
       string result = FunctionsString.GenerateRandomString(source, false,
         FunctionsString.RandomCharacters.DigitSpecialChar, stringLength);
@@ -3825,7 +3823,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GenerateRandomString_UpperLower_true_has_consonant()
     {
       const bool expected = true;
-      char[] source = new char[] { };
+      char[] source = { };
       const byte stringLength = 254;
       string result = FunctionsString.GenerateRandomString(source, false,
         FunctionsString.RandomCharacters.UpperLower, stringLength);
@@ -3836,7 +3834,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GenerateRandomString_UpperLower_true_has_vowel()
     {
       const bool expected = true;
-      char[] source = new char[] { };
+      char[] source = { };
       const byte stringLength = 254;
       string result = FunctionsString.GenerateRandomString(source, false,
         FunctionsString.RandomCharacters.UpperLower, stringLength);
@@ -3847,7 +3845,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GenerateRandomString_UpperLower_false_has_no_symbol()
     {
       const bool expected = false;
-      char[] source = new char[] { };
+      char[] source = { };
       const byte stringLength = 254;
       string result = FunctionsString.GenerateRandomString(source, false,
         FunctionsString.RandomCharacters.UpperLower, stringLength);
@@ -3858,7 +3856,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GenerateRandomString_LowerDigit_true_has_digit()
     {
       const bool expected = true;
-      char[] source = new char[] { };
+      char[] source = { };
       const byte stringLength = 254;
       string result = FunctionsString.GenerateRandomString(source, false,
         FunctionsString.RandomCharacters.LowerDigit, stringLength);
@@ -3869,7 +3867,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GenerateRandomString_LowerDigit_true_has_letters()
     {
       const bool expected = true;
-      char[] source = new char[] { };
+      char[] source = { };
       const byte stringLength = 254;
       string result = FunctionsString.GenerateRandomString(source, false,
         FunctionsString.RandomCharacters.LowerDigit, stringLength);
@@ -3880,7 +3878,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GenerateRandomString_LowerDigit_true_has_lower_case_letters()
     {
       const bool expected = true;
-      char[] source = new char[] { };
+      char[] source = { };
       const byte stringLength = 254;
       string result = FunctionsString.GenerateRandomString(source, false,
         FunctionsString.RandomCharacters.LowerDigit, stringLength);
@@ -3891,7 +3889,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GenerateRandomString_LowerDigit_false_has_no_symbol()
     {
       const bool expected = false;
-      char[] source = new char[] { };
+      char[] source = { };
       const byte stringLength = 254;
       string result = FunctionsString.GenerateRandomString(source, false,
         FunctionsString.RandomCharacters.LowerDigit, stringLength);
@@ -3902,7 +3900,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GenerateRandomString_UpperDigit_true_has_digit()
     {
       const bool expected = true;
-      char[] source = new char[] { };
+      char[] source = { };
       const byte stringLength = 254;
       string result = FunctionsString.GenerateRandomString(source, false,
         FunctionsString.RandomCharacters.UpperDigit, stringLength);
@@ -3913,7 +3911,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GenerateRandomString_UpperDigit_true_has_letters()
     {
       const bool expected = true;
-      char[] source = new char[] { };
+      char[] source = { };
       const byte stringLength = 254;
       string result = FunctionsString.GenerateRandomString(source, false,
         FunctionsString.RandomCharacters.UpperDigit, stringLength);
@@ -3924,7 +3922,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GenerateRandomString_UpperDigit_true_has_Upper_case_letters()
     {
       const bool expected = true;
-      char[] source = new char[] { };
+      char[] source = { };
       const byte stringLength = 254;
       string result = FunctionsString.GenerateRandomString(source, false,
         FunctionsString.RandomCharacters.UpperDigit, stringLength);
@@ -3935,7 +3933,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GenerateRandomString_UpperDigit_false_has_no_symbol()
     {
       const bool expected = false;
-      char[] source = new char[] { };
+      char[] source = { };
       const byte stringLength = 254;
       string result = FunctionsString.GenerateRandomString(source, false,
         FunctionsString.RandomCharacters.UpperDigit, stringLength);
@@ -3946,7 +3944,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GenerateRandomString_UpperLowerDigit_true_has_digit()
     {
       const bool expected = true;
-      char[] source = new char[] { };
+      char[] source = { };
       const byte stringLength = 254;
       string result = FunctionsString.GenerateRandomString(source, false,
         FunctionsString.RandomCharacters.UpperLowerDigit, stringLength);
@@ -3957,7 +3955,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GenerateRandomString_UpperLowerDigit_true_has_letters()
     {
       const bool expected = true;
-      char[] source = new char[] { };
+      char[] source = { };
       const byte stringLength = 254;
       string result = FunctionsString.GenerateRandomString(source, false,
         FunctionsString.RandomCharacters.UpperLowerDigit, stringLength);
@@ -3968,7 +3966,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GenerateRandomString_UpperLowerDigit_true_has_Upper_case_letters()
     {
       const bool expected = true;
-      char[] source = new char[] { };
+      char[] source = { };
       const byte stringLength = 254;
       string result = FunctionsString.GenerateRandomString(source, false,
         FunctionsString.RandomCharacters.UpperLowerDigit, stringLength);
@@ -3979,7 +3977,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GenerateRandomString_UpperLowerDigit_true_has_lower_case_letters()
     {
       const bool expected = true;
-      char[] source = new char[] { };
+      char[] source = { };
       const byte stringLength = 254;
       string result = FunctionsString.GenerateRandomString(source, false,
         FunctionsString.RandomCharacters.UpperLowerDigit, stringLength);
@@ -3990,7 +3988,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GenerateRandomString_UpperLowerDigit_false_has_no_symbol()
     {
       const bool expected = false;
-      char[] source = new char[] { };
+      char[] source = { };
       const byte stringLength = 254;
       string result = FunctionsString.GenerateRandomString(source, false,
         FunctionsString.RandomCharacters.UpperLowerDigit, stringLength);
@@ -4001,7 +3999,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GenerateRandomString_UpperLowerDigitSpecial_true_has_digit()
     {
       const bool expected = true;
-      char[] source = new char[] { };
+      char[] source = { };
       const byte stringLength = 254;
       string result = FunctionsString.GenerateRandomString(source, false,
         FunctionsString.RandomCharacters.UpperLowerDigitSpecial, stringLength);
@@ -4012,7 +4010,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GenerateRandomString_UpperLowerDigitSpecial_true_has_letters()
     {
       const bool expected = true;
-      char[] source = new char[] { };
+      char[] source = { };
       const byte stringLength = 254;
       string result = FunctionsString.GenerateRandomString(source, false,
         FunctionsString.RandomCharacters.UpperLowerDigitSpecial, stringLength);
@@ -4023,7 +4021,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GenerateRandomString_UpperLowerDigitSpecial_true_has_Upper_case_letters()
     {
       const bool expected = true;
-      char[] source = new char[] { };
+      char[] source = { };
       const byte stringLength = 254;
       string result = FunctionsString.GenerateRandomString(source, false,
         FunctionsString.RandomCharacters.UpperLowerDigitSpecial, stringLength);
@@ -4034,7 +4032,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GenerateRandomString_UpperLowerDigitSpecial_true_has_lower_case_letters()
     {
       const bool expected = true;
-      char[] source = new char[] { };
+      char[] source = { };
       const byte stringLength = 254;
       string result = FunctionsString.GenerateRandomString(source, false,
         FunctionsString.RandomCharacters.UpperLowerDigitSpecial, stringLength);
@@ -4045,7 +4043,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GenerateRandomString_UpperLowerDigitSpecial_true_has_symbols()
     {
       const bool expected = true;
-      char[] source = new char[] { };
+      char[] source = { };
       const byte stringLength = 254;
       string result = FunctionsString.GenerateRandomString(source, false,
         FunctionsString.RandomCharacters.UpperLowerDigitSpecial, stringLength);
