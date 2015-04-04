@@ -1820,7 +1820,6 @@ namespace FonctionsUtiles.Fred.Csharp
       RandomCharacters rdnCharacters = RandomCharacters.LowerCase, byte length = 8,
       bool windowsFileName = false)
     {
-      string rndString = string.Empty;
       if (length > byte.MaxValue)
       {
         length = byte.MaxValue;
