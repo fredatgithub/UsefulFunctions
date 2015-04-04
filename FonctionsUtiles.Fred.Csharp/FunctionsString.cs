@@ -1813,7 +1813,7 @@ namespace FonctionsUtiles.Fred.Csharp
         result = GenerateRandomString(new[] { ' ' }, true, rdnCharacters, length, true);
         if (withFileExtension)
         {
-          result += fileExtension;
+          result += "." + fileExtension;
         }
       } while (File.Exists(Path.Combine(directoryPath, result)));
       

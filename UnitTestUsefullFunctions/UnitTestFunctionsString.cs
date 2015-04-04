@@ -4260,62 +4260,31 @@ namespace UnitTestUsefullFunctions
     #region Files Methods
     //**************************GenerateUniqueFileName Methods****
     [TestMethod]
-    public void TestMethod_GenerateUniqueFileName_true_file_does_not_exist()
+    public void TestMethod_GenerateUniqueFileName_true_length_eight()
     {
-      const string sourceDir = @"c:\temp\UnitTestVS\";
-      FunctionsFiles.CreateDirectory(sourceDir);
-      const string sourceFile = @"c:\temp\UnitTestVS\test.txt";
-      const string expected =   @"c:\temp\UnitTestVS\test.txt";
-      string result = FunctionsString.GenerateUniqueFilename(sourceFile, FunctionsString.RandomCharacters.UpperLowerDigitSpecial, 8, true);
-      Assert.AreEqual(result, expected);
-      FunctionsFiles.DeleteDirectory(sourceDir);
+      const string sourceDir = @"c:\temp\";
+      const int expected = 8;
+      string result = FunctionsString.GenerateUniqueFilename(sourceDir, FunctionsString.RandomCharacters.UpperLowerDigitSpecial);
+      Assert.AreEqual(result.Length, expected);
     }
 
     [TestMethod]
-    public void TestMethod_GenerateUniqueFileName_true_increment_filename_by_one()
+    public void TestMethod_GenerateUniqueFileName_true_length_twelve()
     {
-      const string sourceDir = @"c:\temp\UnitTestVS\";
-      FunctionsFiles.CreateDirectory(sourceDir);
-      const string sourceFile = @"c:\temp\UnitTestVS\test.txt";
-      FunctionsFiles.CreateFile(sourceFile);
-      const string expected = @"c:\temp\UnitTestVS\test1.txt";
-      string result = FunctionsFiles.GenerateUniqueFileName(sourceFile);
-      Assert.AreEqual(result, expected);
-      Thread.Sleep(5000);
-      FunctionsFiles.Deletefile(sourceFile);
-      FunctionsFiles.DeleteDirectory(sourceDir);
+      const string sourceDir = @"c:\temp\";
+      const int expected = 12;
+      string result = FunctionsString.GenerateUniqueFilename(sourceDir, FunctionsString.RandomCharacters.UpperLowerDigitSpecial, 8, true, "doc");
+      Assert.AreEqual(result.Length, expected);
     }
 
     [TestMethod]
-    public void TestMethod_GenerateUniqueFileName_true_increment_filename_by_one_one()
+    public void TestMethod_GenerateUniqueFileName_true_length_thirteen()
     {
-      const string sourceDir = @"c:\temp\UnitTestVS\";
-      FunctionsFiles.CreateDirectory(sourceDir);
-      const string sourceFile = @"c:\temp\UnitTestVS\test1.txt";
-      FunctionsFiles.CreateFile(sourceFile);
-      const string expected = @"c:\temp\UnitTestVS\test11.txt";
-      string result = FunctionsFiles.GenerateUniqueFileName(sourceFile);
-      Assert.AreEqual(result, expected);
-      FunctionsFiles.Deletefile(sourceFile);
-      FunctionsFiles.DeleteDirectory(sourceDir);
+      const string sourceDir = @"c:\temp\";
+      const int expected = 13;
+      string result = FunctionsString.GenerateUniqueFilename(sourceDir, FunctionsString.RandomCharacters.UpperLowerDigitSpecial, 8, true, "docx");
+      Assert.AreEqual(result.Length, expected);
     }
-
-    [TestMethod]
-    public void TestMethod_GenerateUniqueFileName_true_increment_filename_by_two()
-    {
-      const string sourceDir = @"c:\temp\UnitTestVS\";
-      FunctionsFiles.CreateDirectory(sourceDir);
-      const string sourceFile = @"c:\temp\UnitTestVS\test.txt";
-      FunctionsFiles.CreateFile(sourceFile);
-      FunctionsFiles.CreateFile(@"c:\temp\UnitTestVS\test1.txt");
-      const string expected = @"c:\temp\UnitTestVS\test2.txt";
-      string result = FunctionsFiles.GenerateUniqueFileName(sourceFile);
-      Assert.AreEqual(result, expected);
-      FunctionsFiles.Deletefile(sourceFile);
-      FunctionsFiles.CreateFile(@"c:\temp\UnitTestVS\test1.txt");
-      FunctionsFiles.DeleteDirectory(sourceDir);
-    }
-
     
     #endregion Files Methods
 
