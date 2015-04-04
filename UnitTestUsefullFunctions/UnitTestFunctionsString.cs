@@ -21,7 +21,7 @@ SOFTWARE.
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Threading;
+using System.IO;
 using FonctionsUtiles.Fred.Csharp;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -4262,7 +4262,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_GenerateUniqueFileName_true_length_eight()
     {
-      const string sourceDir = @"c:\temp\";
+      string sourceDir = Path.GetTempPath();
       const int expected = 8;
       string result = FunctionsString.GenerateUniqueFilename(sourceDir, FunctionsString.RandomCharacters.UpperLowerDigitSpecial);
       Assert.AreEqual(result.Length, expected);
@@ -4271,7 +4271,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_GenerateUniqueFileName_true_length_twelve()
     {
-      const string sourceDir = @"c:\temp\";
+      string sourceDir = Path.GetTempPath(); 
       const int expected = 12;
       string result = FunctionsString.GenerateUniqueFilename(sourceDir, FunctionsString.RandomCharacters.UpperLowerDigitSpecial, 8, true, "doc");
       Assert.AreEqual(result.Length, expected);
@@ -4280,7 +4280,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_GenerateUniqueFileName_true_length_thirteen()
     {
-      const string sourceDir = @"c:\temp\";
+      string sourceDir = Path.GetTempPath(); 
       const int expected = 13;
       string result = FunctionsString.GenerateUniqueFilename(sourceDir, FunctionsString.RandomCharacters.UpperLowerDigitSpecial, 8, true, "docx");
       Assert.AreEqual(result.Length, expected);

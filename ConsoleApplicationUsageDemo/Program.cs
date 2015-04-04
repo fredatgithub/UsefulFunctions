@@ -18,6 +18,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 using System;
+using System.IO;
 using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
 using MathFunc = FonctionsUtiles.Fred.Csharp.FunctionsMath;
 
@@ -53,8 +54,14 @@ namespace ConsoleApplicationUsageDemo
         rdnString = StringFunc.GenerateRandomString(new []{' '}, true, StringFunc.RandomCharacters.UpperLowerDigitSpecial, 8, true);
         display("Random filename: " + rdnString);
       }
-      
 
+      string test = Path.GetRandomFileName();
+      display(string.Empty);
+      display("Generation of a 10 Path.GetRandomFileName: ");
+      for (int i = 0; i < 10; i++)
+      {
+        display("Random filename: " + Path.GetRandomFileName());
+      }
       Console.ReadKey();
     }
   }
