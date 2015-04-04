@@ -1815,24 +1815,36 @@ namespace FonctionsUtiles.Fred.Csharp
       return result;
     }
 
+    // needed or not ?
+    //public static char[] operator + (FunctionsString source, char[] target)
+    //{
+    //  char[] tmpChar = AddCharArray(source.ToString().ToCharArray(), target, new[] {' '});
+    //  return tmpChar;
+    //}
+
     public static string GenerateRandomString(char[] forbiddenCharacters,
       bool hasForbiddenCharacters = false,
       RandomCharacters rdnCharacters = RandomCharacters.LowerCase, byte length = 8,
-      bool windowsFileName = false)
+      bool isWindowsFileName = false)
     {
       if (length > byte.MaxValue)
       {
         length = byte.MaxValue;
       }
 
-      string[] forbiddenWindowsFilenameCharacters = { "\\", "/", ":", "*", "?", "\"", "<", ">", "|" };
+      char[] forbiddenWindowsFilenameCharacters = { '\\', '/', ':', '*', '?', '\"', '<', '>', '|' };
       char[] upperCaseCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
       char[] lowerCaseCharacters = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
       char[] digitCharacters = "0123456789".ToCharArray();
       char[] specialCharacters = ",.;:?!/@#$%^&()=+*-_{}[]|~".ToCharArray();
       char[] searchedCharacters = new char[26 + 26 + 10 + 26]; // max size
 
-      int numberOfCharactersToPickFrom = (int)rdnCharacters;
+      // int numberOfCharactersToPickFrom = (int)rdnCharacters;
+      if (isWindowsFileName)
+      {
+        forbiddenCharacters = AddCharArray(forbiddenCharacters, forbiddenWindowsFilenameCharacters, new[] { ' ' });
+      }
+
       switch (rdnCharacters)
       {
         case RandomCharacters.LowerCase:
