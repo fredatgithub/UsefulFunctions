@@ -1815,13 +1815,6 @@ namespace FonctionsUtiles.Fred.Csharp
       return result;
     }
 
-    // needed or not ?
-    //public static char[] operator + (FunctionsString source, char[] target)
-    //{
-    //  char[] tmpChar = AddCharArray(source.ToString().ToCharArray(), target, new[] {' '});
-    //  return tmpChar;
-    //}
-
     public static string GenerateRandomString(char[] forbiddenCharacters,
       bool hasForbiddenCharacters = false,
       RandomCharacters rdnCharacters = RandomCharacters.LowerCase, byte length = 8,
@@ -1843,6 +1836,8 @@ namespace FonctionsUtiles.Fred.Csharp
       if (isWindowsFileName)
       {
         forbiddenCharacters = AddCharArray(forbiddenCharacters, forbiddenWindowsFilenameCharacters, new[] { ' ' });
+        char[] badWindowsFileName = {',', '!', '.', ';', '@', '#', '$', '%', '^', '&', '(', ')', '=', '+', '{', '}', '~'};
+        forbiddenCharacters = AddCharArray(forbiddenCharacters, badWindowsFileName, new[] { ' ' });
       }
 
       switch (rdnCharacters)

@@ -4085,6 +4085,105 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(FunctionsString.HasConsonants(result), expected);
     }
 
+    [TestMethod]
+    public void TestMethod_GenerateRandomString_UpperLowerDigitSpecial_true_with_is_Windows_Filename_has_letters()
+    {
+      const bool expected = true;
+      char[] source = { };
+      const byte stringLength = 254;
+      string result = FunctionsString.GenerateRandomString(source, false,
+        FunctionsString.RandomCharacters.UpperLowerDigitSpecial, stringLength, true);
+      Assert.AreEqual(FunctionsString.HasSomeLetters(result), expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GenerateRandomString_UpperLowerDigitSpecial_true_with_is_Windows_Filename_has_digits()
+    {
+      const bool expected = true;
+      char[] source = { };
+      const byte stringLength = 254;
+      string result = FunctionsString.GenerateRandomString(source, false,
+        FunctionsString.RandomCharacters.UpperLowerDigitSpecial, stringLength, true);
+      Assert.AreEqual(FunctionsString.HasNumeric(result), expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GenerateRandomString_UpperLowerDigit_true_with_is_Windows_Filename_has_letters()
+    {
+      const bool expected = true;
+      char[] source = { };
+      const byte stringLength = 254;
+      string result = FunctionsString.GenerateRandomString(source, false,
+        FunctionsString.RandomCharacters.UpperLowerDigit, stringLength, true);
+      Assert.AreEqual(FunctionsString.HasSomeLetters(result), expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GenerateRandomString_UpperLowerDigit_true_with_is_Windows_Filename_has_digits()
+    {
+      const bool expected = true;
+      char[] source = { };
+      const byte stringLength = 254;
+      string result = FunctionsString.GenerateRandomString(source, false,
+        FunctionsString.RandomCharacters.UpperLowerDigit, stringLength, true);
+      Assert.AreEqual(FunctionsString.HasNumeric(result), expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GenerateRandomString_UpperLower_false_with_is_Windows_Filename_has_no_digits()
+    {
+      const bool expected = false;
+      char[] source = { };
+      const byte stringLength = 254;
+      string result = FunctionsString.GenerateRandomString(source, false,
+        FunctionsString.RandomCharacters.UpperLower, stringLength, true);
+      Assert.AreEqual(FunctionsString.HasNumeric(result), expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GenerateRandomString_Special_characters_only_false_with_is_Windows_Filename_has_no_digits()
+    {
+      const bool expected = false;
+      char[] source = { };
+      const byte stringLength = 2;
+      string result = FunctionsString.GenerateRandomString(source, false,
+        FunctionsString.RandomCharacters.SpecialCharacter, stringLength, true);
+      Assert.AreEqual(FunctionsString.HasNumeric(result), expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GenerateRandomString_Special_characters_only_false_with_is_Windows_Filename_has_no_letters()
+    {
+      const bool expected = false;
+      char[] source = { };
+      const byte stringLength = 2;
+      string result = FunctionsString.GenerateRandomString(source, false,
+        FunctionsString.RandomCharacters.SpecialCharacter, stringLength, true);
+      Assert.AreEqual(FunctionsString.HasSomeLetters(result), expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GenerateRandomString_Special_characters_only_false_with_is_Windows_Filename_has_symbols()
+    {
+      const bool expected = false;
+      char[] source = { };
+      const byte stringLength = 2;
+      string result = FunctionsString.GenerateRandomString(source, false,
+        FunctionsString.RandomCharacters.SpecialCharacter, stringLength, true);
+      Assert.AreEqual(FunctionsString.HasSymbols(result), expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GenerateRandomString_Special_characters_only_false_with_is_Windows_Filename_length_one()
+    {
+      const int expected = 1;
+      char[] source = { };
+      const byte stringLength = 1;
+      string result = FunctionsString.GenerateRandomString(source, false,
+        FunctionsString.RandomCharacters.SpecialCharacter, stringLength, true);
+      Assert.AreEqual(result.Length, expected);
+    }
+
 
     #endregion GenerateString method Unit tests
     #region HasSomeLowerCaseLetters method Unit tests
