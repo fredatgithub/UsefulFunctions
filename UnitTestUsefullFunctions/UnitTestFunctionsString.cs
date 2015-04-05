@@ -4285,6 +4285,25 @@ namespace UnitTestUsefullFunctions
       string result = FunctionsString.GenerateUniqueFilename(sourceDir, FunctionsString.RandomCharacters.UpperLowerDigitSpecial, 8, true, "docx");
       Assert.AreEqual(result.Length, expected);
     }
+
+    [TestMethod]
+    public void TestMethod_GenerateUniqueFileName_false_file_does_not_exist_in_temp_dir()
+    {
+      string sourceDir = Path.GetTempPath();
+      const bool expected = false;
+      string result = FunctionsString.GenerateUniqueFilename(sourceDir, FunctionsString.RandomCharacters.UpperLowerDigitSpecial);
+      Assert.AreEqual(File.Exists(Path.Combine(sourceDir, result)), expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GenerateUniqueFileName_false_file_does_not_exist_in_document_dir()
+    {
+      string sourceDir = Environment.SpecialFolder.MyDocuments.ToString();
+      const bool expected = false;
+      string result = FunctionsString.GenerateUniqueFilename(sourceDir, FunctionsString.RandomCharacters.UpperLowerDigitSpecial);
+      Assert.AreEqual(File.Exists(Path.Combine(sourceDir, result)), expected);
+    }
+    
     
     #endregion Files Methods
 
