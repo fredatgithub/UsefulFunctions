@@ -24,6 +24,7 @@ using System.Windows.Forms;
 using CodeGenerationWinForm.Properties;
 using MathFunc = FonctionsUtiles.Fred.Csharp.FunctionsMath;
 using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
+using FonctionsUtiles.Fred.Csharp;
 
 namespace CodeGenerationWinForm
 {
@@ -59,6 +60,7 @@ namespace CodeGenerationWinForm
       FillComboBoxLanguage(comboBoxLanguage);
       FillComboBoxLanguage(comboBoxRndMethodLanguage);
       FillComboBoxLanguage(comboBoxOneMethodLanguage);
+      FillComboBoxOtherMethods(comboBoxOthersMethodName);
     }
 
     private void FillComboBoxLanguage(ComboBox cb)
@@ -68,6 +70,13 @@ namespace CodeGenerationWinForm
       cb.Items.Add("English");
       cb.Items.Add("Both French and English");
       cb.SelectedIndex = 2;
+    }
+
+    private void FillComboBoxOtherMethods(ComboBox cb)
+    {
+      cb.Items.Clear();
+      cb.Items.Add("BigInt");
+      cb.SelectedIndex = 0;
     }
 
     private void GetWindowValue()
@@ -132,6 +141,11 @@ namespace CodeGenerationWinForm
       // third tab: textBoxRandomMethodResult
       CopytToClipboard(textBoxRandomMethodResult, "no text");
       CopytToClipboard(textBoxNumberOfRndMethod, "no number");
+
+      // fourth tab: textBoxOthersResult
+      CopytToClipboard(textBoxOthersResult, "no text");
+      CopytToClipboard(textBoxOthersFrom, "no number");
+      CopytToClipboard(textBoxOthersTo, "no number");
     }
 
     private void CopytToClipboard(TextBox tb, string message = "nothing")
@@ -148,13 +162,13 @@ namespace CodeGenerationWinForm
       }
     }
 
-    private void CutToClipboard(TextBox tb, string message = "nothing")
+    private void CutToClipboard(TextBox tb, string errorMessage = "nothing")
     {
       if (tb == ActiveControl)
       {
         if (tb.Text == string.Empty)
         {
-          DisplayMessageOk("There is " + message +" to cut ", message, MessageBoxButtons.OK);
+          DisplayMessageOk("There is " + errorMessage + " to cut ", errorMessage, MessageBoxButtons.OK);
           return;
         }
 
@@ -187,6 +201,11 @@ namespace CodeGenerationWinForm
       // third tab: textBoxRandomMethodResult
       CutToClipboard(textBoxRandomMethodResult, "no text");
       CutToClipboard(textBoxNumberOfRndMethod, "no number");
+
+      // fourth tab: textBoxOthersResult 
+      CutToClipboard(textBoxOthersResult, "no text");
+      CutToClipboard(textBoxOthersFrom, "no number");
+      CutToClipboard(textBoxOthersTo, "no number");
     }
 
     private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -203,6 +222,11 @@ namespace CodeGenerationWinForm
       // third tab: textBoxRandomMethodResult
       PasteFromClipboard(textBoxRandomMethodResult);
       PasteFromClipboard(textBoxNumberOfRndMethod);
+
+      // fourth tab: textBoxOthersResult 
+      PasteFromClipboard(textBoxOthersResult);
+      PasteFromClipboard(textBoxOthersFrom);
+      PasteFromClipboard(textBoxOthersTo);
     }
 
     private void buttonGenerateCode_Click(object sender, EventArgs e)
@@ -505,12 +529,96 @@ namespace CodeGenerationWinForm
           }
 
           break;
+        case "TabPage: {Others}":
+          if (textBoxOthersResult == ActiveControl)
+          {
+            textBoxOthersResult.SelectAll();
+          }
+
+          if (textBoxOthersFrom == ActiveControl)
+          {
+            textBoxOthersFrom.SelectAll();
+          }
+
+          if (textBoxOthersTo == ActiveControl)
+          {
+            textBoxOthersTo.SelectAll();
+          }
+          break;
       }
     }
 
     private void buttonClearOneMethodTextBox_Click(object sender, EventArgs e)
     {
       textBoxCodeGeneratedResult.Text = string.Empty;
+    }
+
+    private void buttonOthersGenerate_Click(object sender, EventArgs e)
+    {
+      if (textBoxOthersFrom.Text == string.Empty)
+      {
+        DisplayMessageOk("The number of method requested cannot be empty", "Empty field", MessageBoxButtons.OK);
+        return;
+      }
+
+      int fromNumberOfMethodToBeGenerated = 0;
+      if (!int.TryParse(textBoxOthersFrom.Text, out fromNumberOfMethodToBeGenerated))
+      {
+        DisplayMessageOk("The lower bound is not a number or\nthe number is too big (above 2,147,483,647)", "Not a number", MessageBoxButtons.OK);
+        textBoxOthersFrom.Text = string.Empty;
+        return;
+      }
+
+      int toNumberOfMethodToBeGenerated = 0;
+      if (!int.TryParse(textBoxOthersTo.Text, out toNumberOfMethodToBeGenerated))
+      {
+        DisplayMessageOk("The upper bound is not a number or\nthe number is too big (above 2,147,483,647)", "Not a number", MessageBoxButtons.OK);
+        textBoxOthersTo.Text = string.Empty;
+        return;
+      }
+
+      if (toNumberOfMethodToBeGenerated < fromNumberOfMethodToBeGenerated)
+      {
+        DisplayMessageOk("The upper bound is smaller than the lower bound", "Negative range", MessageBoxButtons.OK);
+        textBoxOthersTo.Text = string.Empty;
+        return;
+      }
+
+      textBoxOthersResult.Text = string.Empty;
+
+      string ChosenMethod = comboBoxOthersMethodName.SelectedItem.ToString();
+      progressBarOtherMethods.Visible = true;
+      progressBarOtherMethods.Minimum = fromNumberOfMethodToBeGenerated;
+      progressBarOtherMethods.Maximum = toNumberOfMethodToBeGenerated;
+      progressBarOtherMethods.Value = progressBarOtherMethods.Minimum;
+      Application.DoEvents();
+      for (int i = fromNumberOfMethodToBeGenerated; i <= toNumberOfMethodToBeGenerated; i++)
+      {
+        progressBarOtherMethods.Value = i;
+        Application.DoEvents();
+
+        var method1 = new UnitTestCodeGenerated(
+          i.ToString(),
+          "const string expected = \"\";",
+          "string result = StringFunc." + ChosenMethod + "(" + i + ");",
+          "Assert.AreEqual(expected, result);");
+        switch (ChosenMethod)
+        {
+          case "BigInt":
+            BigInt j = i;
+            method1.CodeSource = ChosenMethod + " source = " + i + ";";
+            method1.CodeSignatureMethodName = "Factorial_" + ChosenMethod + "_" + StringFunc.ReplaceCharacters(StringFunc.NumberToEnglishWords(i), '-', '_');
+            method1.CodeExpected = ChosenMethod + " expected = " + MathFunc.Factorial(j) + ";";
+            method1.CodeResult = ChosenMethod + " result = FunctionsMath.Factorial(source);";
+            break;
+
+        }
+
+        textBoxOthersResult.Text += method1.ToString();
+      }
+
+      progressBarOtherMethods.Value = progressBarOtherMethods.Minimum;
+      progressBarOtherMethods.Visible = false;
     }
   }
 }

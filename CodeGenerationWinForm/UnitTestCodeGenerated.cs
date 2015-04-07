@@ -29,6 +29,7 @@ namespace CodeGenerationWinForm
     public string CodeSignatureMethodName { get; set; }
     private const string CodeSignatureEnd = "()";
     private const string OpenCurlyBrace = "{";
+    public string CodeSource { get; set; }
     public string CodeExpected { get; set; }
     public string CodeResult { get; set; }
     public string CodeAssert { get; set; }
@@ -39,14 +40,16 @@ namespace CodeGenerationWinForm
 
     public UnitTestCodeGenerated( 
       string codeSignatureMiddle = "no_title", 
+      string codeSource = "const string source = ",
       string codeExpected = @"const string expected = "";",
       string codeResult = @"string result = "";",
-      string codeAssert = "Assert.AreEqual(string.Empty, string.Empty);",
+      string codeAssert = "Assert.AreEqual(result, expected);",
       string tabulation = "  ",
       string codeAttribute = "[TestMethod]")
     {
       CodeAttribute = codeAttribute;
       CodeSignatureMethodName = codeSignatureMiddle;
+      CodeSource = codeSource;
       CodeExpected = codeExpected;
       CodeResult =  codeResult;
       CodeAssert =  codeAssert;
@@ -62,6 +65,9 @@ namespace CodeGenerationWinForm
       result.Append(CodeSignatureEnd);
       result.Append(carriageReturn);
       result.Append(OpenCurlyBrace);
+      result.Append(carriageReturn);
+      result.Append(Tabulation);
+      result.Append(CodeSource);
       result.Append(carriageReturn);
       result.Append(Tabulation);
       result.Append(CodeExpected);

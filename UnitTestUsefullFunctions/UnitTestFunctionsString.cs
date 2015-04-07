@@ -291,6 +291,150 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
+    [TestMethod]
+    public void TestMethod_Factorial_BigInt_five()
+    {
+      BigInt source = 5;
+      BigInt expected = 120;
+      BigInt result = FunctionsMath.Factorial(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Factorial_BigInt_six()
+    {
+      BigInt source = 6;
+      BigInt expected = 720;
+      BigInt result = FunctionsMath.Factorial(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Factorial_BigInt_seven()
+    {
+      BigInt source = 7;
+      BigInt expected = 5040;
+      BigInt result = FunctionsMath.Factorial(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Factorial_BigInt_eight()
+    {
+      BigInt source = 8;
+      BigInt expected = 40320;
+      BigInt result = FunctionsMath.Factorial(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Factorial_BigInt_nine()
+    {
+      BigInt source = 9;
+      BigInt expected = 362880;
+      BigInt result = FunctionsMath.Factorial(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Factorial_BigInt_ten()
+    {
+      BigInt source = 10;
+      BigInt expected = 3628800;
+      BigInt result = FunctionsMath.Factorial(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Factorial_BigInt_eleven()
+    {
+      BigInt source = 11;
+      BigInt expected = 39916800;
+      BigInt result = FunctionsMath.Factorial(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Factorial_BigInt_twelve()
+    {
+      BigInt source = 12;
+      BigInt expected = 479001600;
+      BigInt result = FunctionsMath.Factorial(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Factorial_BigInt_thirteen()
+    {
+      BigInt source = 13;
+      BigInt expected = 6227020800;
+      BigInt result = FunctionsMath.Factorial(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Factorial_BigInt_fourteen()
+    {
+      BigInt source = 14;
+      BigInt expected = 87178291200;
+      BigInt result = FunctionsMath.Factorial(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Factorial_BigInt_fifteen()
+    {
+      BigInt source = 15;
+      BigInt expected = 1307674368000;
+      BigInt result = FunctionsMath.Factorial(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Factorial_BigInt_sixteen()
+    {
+      BigInt source = 16;
+      BigInt expected = 20922789888000;
+      BigInt result = FunctionsMath.Factorial(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Factorial_BigInt_seventeen()
+    {
+      BigInt source = 17;
+      BigInt expected = 355687428096000;
+      BigInt result = FunctionsMath.Factorial(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Factorial_BigInt_eighteen()
+    {
+      BigInt source = 18;
+      BigInt expected = 6402373705728000;
+      BigInt result = FunctionsMath.Factorial(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Factorial_BigInt_nineteen()
+    {
+      BigInt source = 19;
+      BigInt expected = 121645100408832000;
+      BigInt result = FunctionsMath.Factorial(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Factorial_BigInt_twenty()
+    {
+      BigInt source = 20;
+      BigInt expected = 2432902008176640000;
+      BigInt result = FunctionsMath.Factorial(source);
+      Assert.AreEqual(result, expected);
+    }
+        
     #endregion Math Methods - BigInt Factorial
     #endregion Math Methods - Factorial
 
@@ -661,7 +805,7 @@ namespace UnitTestUsefullFunctions
       bool result = FunctionsString.HasDuplicate(1, 2, 3, 4, 5, 6, 7, 8, 9, 1);
       Assert.IsTrue(result);
     }
-    
+
     // **********************EndPadding****************
     [TestMethod]
     public void TestMethod_EndPadding()
@@ -2322,7 +2466,7 @@ namespace UnitTestUsefullFunctions
       char[] expected = new char[62];
       char[] result = FunctionsString.LoadAlphabetInList(false, false);
       Assert.AreEqual(result.Length, expected.Length);
-      Assert.AreEqual(result[0], expected[0]); 
+      Assert.AreEqual(result[0], expected[0]);
       Assert.AreEqual(result[5], expected[5]);
       Assert.AreEqual(result[9], expected[9]);
     }
@@ -2337,7 +2481,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_LoadAlphabetInList_true_only_digits()
     {
-      char[] expected = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+      char[] expected = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
       char[] result = FunctionsString.LoadAlphabetInList(true, false);
       Assert.AreEqual(result[0], expected[0]); // '0'
       Assert.AreEqual(result[5], expected[5]); // '5'
@@ -2526,10 +2670,10 @@ namespace UnitTestUsefullFunctions
     {
       Assert.AreEqual((int)FunctionsString.LetterCasingSequence.LowerUpperDigit, 0);
       Assert.AreEqual((int)FunctionsString.LetterCasingSequence.UpperLowerDigit, 1);
-      Assert.AreEqual((int) FunctionsString.LetterCasingSequence.DigitLowerUpper, 2);
-      Assert.AreEqual((int) FunctionsString.LetterCasingSequence.DigitUpperLower, 3);
-      Assert.AreEqual((int) FunctionsString.LetterCasingSequence.LowerDigitUpper, 4);
-      Assert.AreEqual((int) FunctionsString.LetterCasingSequence.UpperDigitLower, 5);
+      Assert.AreEqual((int)FunctionsString.LetterCasingSequence.DigitLowerUpper, 2);
+      Assert.AreEqual((int)FunctionsString.LetterCasingSequence.DigitUpperLower, 3);
+      Assert.AreEqual((int)FunctionsString.LetterCasingSequence.LowerDigitUpper, 4);
+      Assert.AreEqual((int)FunctionsString.LetterCasingSequence.UpperDigitLower, 5);
     }
 
     // **********************NumberToWordsEnglish**************
@@ -4074,7 +4218,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GenerateRandomString_UpperLowerDigitSpecial_false_with_forbidden_digits()
     {
       const bool expected = false;
-      char[] source = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+      char[] source = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
       const byte stringLength = 254;
       string result = FunctionsString.GenerateRandomString(source, true,
         FunctionsString.RandomCharacters.UpperLowerDigitSpecial, stringLength);
@@ -4291,7 +4435,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_GenerateUniqueFileName_true_length_twelve()
     {
-      string sourceDir = Path.GetTempPath(); 
+      string sourceDir = Path.GetTempPath();
       const int expected = 12;
       string result = FunctionsString.GenerateUniqueFilename(sourceDir, FunctionsString.RandomCharacters.UpperLowerDigitSpecial, 8, true, "doc");
       Assert.AreEqual(result.Length, expected);
@@ -4300,7 +4444,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_GenerateUniqueFileName_true_length_thirteen()
     {
-      string sourceDir = Path.GetTempPath(); 
+      string sourceDir = Path.GetTempPath();
       const int expected = 13;
       string result = FunctionsString.GenerateUniqueFilename(sourceDir, FunctionsString.RandomCharacters.UpperLowerDigitSpecial, 8, true, "docx");
       Assert.AreEqual(result.Length, expected);
@@ -4323,8 +4467,8 @@ namespace UnitTestUsefullFunctions
       string result = FunctionsString.GenerateUniqueFilename(sourceDir, FunctionsString.RandomCharacters.UpperLowerDigitSpecial);
       Assert.AreEqual(File.Exists(Path.Combine(sourceDir, result)), expected);
     }
-    
-    
+
+
     #endregion Files Methods
 
     #region Useful Methods
@@ -4476,7 +4620,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_DateToByteArray_false_length_not_equal_to_eight()
     {
-      byte[] source = { 0x01, 0x01, 0x01, 0x01};
+      byte[] source = { 0x01, 0x01, 0x01, 0x01 };
       DateTime expected = new DateTime();
       DateTime result = FunctionsDateTime.ByteArrayToDate(source);
       Assert.AreEqual(result, expected);
@@ -4496,7 +4640,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_ByteArrayToString_true_one()
     {
-      byte[] source = { 0x01};
+      byte[] source = { 0x01 };
       const string expected = "01";
       string result = FunctionsDateTime.ByteArrayToString(source);
       Assert.AreEqual(result, expected);
