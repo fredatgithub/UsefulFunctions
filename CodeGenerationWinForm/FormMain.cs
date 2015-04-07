@@ -274,6 +274,7 @@ namespace CodeGenerationWinForm
           method1.CodeExpected = "const string expected = \"" + StringFunc.NumberToEnglishWords(numberToBeGenerated) + "\";";
           break;
       }
+
       if (languageToTranslate == "Both French and English")
       {
         textBoxCodeGeneratedResult.Text += method1.ToString();
@@ -611,7 +612,6 @@ namespace CodeGenerationWinForm
             method1.CodeExpected = ChosenMethod + " expected = " + MathFunc.Factorial(j) + ";";
             method1.CodeResult = ChosenMethod + " result = FunctionsMath.Factorial(source);";
             break;
-
         }
 
         textBoxOthersResult.Text += method1.ToString();

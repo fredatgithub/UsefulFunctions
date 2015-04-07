@@ -434,7 +434,9 @@ namespace UnitTestUsefullFunctions
       BigInt result = FunctionsMath.Factorial(source);
       Assert.AreEqual(result, expected);
     }
-        
+
+    
+
     #endregion Math Methods - BigInt Factorial
     #endregion Math Methods - Factorial
 

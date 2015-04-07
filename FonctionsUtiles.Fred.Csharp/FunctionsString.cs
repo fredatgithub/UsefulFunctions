@@ -33,9 +33,11 @@ namespace FonctionsUtiles.Fred.Csharp
   public class FunctionsString
   {
     /// <summary>
-    /// List all the public method available from this DLL
+    /// List all the public methods available from this DLL
     /// </summary>
-    /// <returns></returns>
+    /// <returns>
+    /// Returns a list of all the methods used in this DLL with their signature.
+    /// </returns>
     public static string Manifest()
     {
       const string newLine = "\n";
@@ -45,6 +47,15 @@ namespace FonctionsUtiles.Fred.Csharp
       result.Append("Method= bool HasDuplicate(params int[] liste)" + newLine);
       result.Append("Method= bool HasNoDuplicate(params int[] liste)" + newLine);
       result.Append("Method= string EndPadding(string chaine, byte blankLength)" + newLine);
+      result.Append("Method= string GetLastName(string chaine, char dernierCaractereRecherche)" + newLine);
+      result.Append("Method= string GetFileNameAfterLastSlash(string longCheminFichier)" + newLine);
+      result.Append("Method= string RemoveInString(string stringToBeRemoved, string inString, bool trimEnd = false)" + newLine);
+      result.Append("Method= string CamelCase(string myString)" + newLine);
+      result.Append("Method= bool IsNumeric(char letter)" + newLine);
+      result.Append("Method= bool IsLetter(char myLetter)" + newLine);
+      result.Append("Method= string Plural(int number)" + newLine);
+      result.Append("Method= " + newLine);
+      result.Append("Method= " + newLine);
       result.Append("Method= " + newLine);
       return result.ToString();
     }
@@ -58,7 +69,6 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return liste.Distinct().Count() != liste.Count();
     }
-
     public static bool HasNoDuplicate(params int[] liste)
     {
       if (liste == null)
@@ -68,7 +78,6 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return liste.Distinct().Count() == liste.Count();
     }
-
     public static string EndPadding(string chaine, byte blankLength)
     {
       if (chaine.Length == blankLength)
@@ -84,7 +93,6 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return chaine + blanc;
     }
-
     public static string GetLastName(string chaine, char dernierCaractereRecherche)
     {
       int at = 0;
@@ -105,39 +113,35 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return chaine.Substring(at + 1);
     }
-
     public static string GetFileNameAfterLastSlash(string longCheminFichier)
     {
       return Path.GetFileName(longCheminFichier);
     }
-
     public static string RemoveInString(string stringToBeRemoved, string inString, bool trimEnd = false)
     {
       string tmpString = inString.Replace(stringToBeRemoved, string.Empty);
       return trimEnd ? tmpString.TrimEnd() : tmpString;
     }
-
-    public static string CamelCase(string p)
+    public static string CamelCase(string myString)
     {
-      string chaine = string.Empty;
-      bool estLettrePrecedente = false;
-      foreach (var item in p)
+      string result = string.Empty;
+      bool isPreviousLetter = false;
+      foreach (var item in myString)
       {
-        if (estLettrePrecedente && IsLetter(item))
+        if (isPreviousLetter && IsLetter(item))
         {
-          chaine += item.ToString(CultureInfo.InvariantCulture).ToLower();
+          result += item.ToString(CultureInfo.InvariantCulture).ToLower();
         }
         else
         {
-          chaine += item.ToString(CultureInfo.InvariantCulture).ToUpper();
+          result += item.ToString(CultureInfo.InvariantCulture).ToUpper();
         }
 
-        estLettrePrecedente = IsLetter(item);
+        isPreviousLetter = IsLetter(item);
       }
 
-      return chaine;
+      return result;
     }
-
     public static bool IsNumeric(char letter)
     {
       var digits = new List<int>();
@@ -148,24 +152,39 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return digits.Contains(letter);
     }
-
-    public static bool IsLetter(char lettre)
+    public static bool IsLetter(char myLetter)
     {
-      var alphabet = new List<char>();
-      for (char letter = 'A'; letter <= 'Z'; letter++)
-      {
-        alphabet.Add(letter);
-        alphabet.Add(letter.ToString(CultureInfo.InvariantCulture).ToLower().ToCharArray()[0]);
-      }
-
-      return alphabet.Contains(lettre);
+      return char.IsLetter(myLetter);
     }
-
     public static string Plural(int number)
     {
       return number > 1 ? "s" : string.Empty;
     }
-
+    public static string Plural(byte number)
+    {
+      return number > 1 ? "s" : string.Empty;
+    }
+    public static string Plural(Int16 number)
+    {
+      return number > 1 ? "s" : string.Empty;
+    }
+    public static string Plural(Int64 number)
+    {
+      return number > 1 ? "s" : string.Empty;
+    }
+    public static string Plural(uint number)
+    {
+      return number > 1 ? "s" : string.Empty;
+    }
+    public static string Plural(UInt16 number)
+    {
+      return number > 1 ? "s" : string.Empty;
+    }
+    public static string Plural(UInt64 number)
+    {
+      return number > 1 ? "s" : string.Empty;
+    }
+    
     public static int StringOccurrenceWithIndexOf(string chaineTotale, string chaineRecherchee)
     {
       int occurrence = 0;

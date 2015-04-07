@@ -633,7 +633,7 @@
       this.tableLayoutPanelRandomMethods.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.37475F));
       this.tableLayoutPanelRandomMethods.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.62524F));
       this.tableLayoutPanelRandomMethods.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 127F));
-      this.tableLayoutPanelRandomMethods.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+      this.tableLayoutPanelRandomMethods.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 121F));
       this.tableLayoutPanelRandomMethods.Controls.Add(this.textBoxRandomMethodResult, 0, 1);
       this.tableLayoutPanelRandomMethods.Controls.Add(this.buttonGenerateRdnMethod, 3, 0);
       this.tableLayoutPanelRandomMethods.Controls.Add(this.progressBarRandomMethods, 0, 2);
@@ -668,10 +668,10 @@
       // 
       this.buttonGenerateRdnMethod.Dock = System.Windows.Forms.DockStyle.Fill;
       this.buttonGenerateRdnMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.buttonGenerateRdnMethod.Location = new System.Drawing.Point(766, 2);
+      this.buttonGenerateRdnMethod.Location = new System.Drawing.Point(765, 2);
       this.buttonGenerateRdnMethod.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.buttonGenerateRdnMethod.Name = "buttonGenerateRdnMethod";
-      this.buttonGenerateRdnMethod.Size = new System.Drawing.Size(115, 28);
+      this.buttonGenerateRdnMethod.Size = new System.Drawing.Size(116, 28);
       this.buttonGenerateRdnMethod.TabIndex = 7;
       this.buttonGenerateRdnMethod.Text = "Generate";
       this.buttonGenerateRdnMethod.UseVisualStyleBackColor = true;
@@ -692,7 +692,7 @@
       // 
       this.textBoxNumberOfRndMethod.Dock = System.Windows.Forms.DockStyle.Fill;
       this.textBoxNumberOfRndMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.textBoxNumberOfRndMethod.Location = new System.Drawing.Point(639, 2);
+      this.textBoxNumberOfRndMethod.Location = new System.Drawing.Point(638, 2);
       this.textBoxNumberOfRndMethod.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.textBoxNumberOfRndMethod.Name = "textBoxNumberOfRndMethod";
       this.textBoxNumberOfRndMethod.Size = new System.Drawing.Size(121, 30);
@@ -717,7 +717,7 @@
       this.labelNumberOfRndMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.labelNumberOfRndMethod.Location = new System.Drawing.Point(196, 0);
       this.labelNumberOfRndMethod.Name = "labelNumberOfRndMethod";
-      this.labelNumberOfRndMethod.Size = new System.Drawing.Size(437, 32);
+      this.labelNumberOfRndMethod.Size = new System.Drawing.Size(436, 32);
       this.labelNumberOfRndMethod.TabIndex = 4;
       this.labelNumberOfRndMethod.Text = "Number of generated random method: ";
       // 
@@ -739,7 +739,7 @@
       this.tableLayoutPanelOthers.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 61F));
       this.tableLayoutPanelOthers.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
       this.tableLayoutPanelOthers.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 153F));
-      this.tableLayoutPanelOthers.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 308F));
+      this.tableLayoutPanelOthers.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 309F));
       this.tableLayoutPanelOthers.Controls.Add(this.textBoxOthersResult, 0, 1);
       this.tableLayoutPanelOthers.Controls.Add(this.buttonOthersGenerate, 5, 0);
       this.tableLayoutPanelOthers.Controls.Add(this.textBoxOthersTo, 4, 0);
@@ -775,10 +775,10 @@
       // 
       this.buttonOthersGenerate.Dock = System.Windows.Forms.DockStyle.Fill;
       this.buttonOthersGenerate.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.buttonOthersGenerate.Location = new System.Drawing.Point(578, 2);
+      this.buttonOthersGenerate.Location = new System.Drawing.Point(577, 2);
       this.buttonOthersGenerate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.buttonOthersGenerate.Name = "buttonOthersGenerate";
-      this.buttonOthersGenerate.Size = new System.Drawing.Size(303, 30);
+      this.buttonOthersGenerate.Size = new System.Drawing.Size(304, 30);
       this.buttonOthersGenerate.TabIndex = 8;
       this.buttonOthersGenerate.Text = "Generate";
       this.buttonOthersGenerate.UseVisualStyleBackColor = true;
@@ -788,7 +788,7 @@
       // 
       this.textBoxOthersTo.Dock = System.Windows.Forms.DockStyle.Fill;
       this.textBoxOthersTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.textBoxOthersTo.Location = new System.Drawing.Point(425, 2);
+      this.textBoxOthersTo.Location = new System.Drawing.Point(424, 2);
       this.textBoxOthersTo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.textBoxOthersTo.Name = "textBoxOthersTo";
       this.textBoxOthersTo.Size = new System.Drawing.Size(147, 30);
@@ -800,7 +800,7 @@
       this.labelOthersTo.AutoSize = true;
       this.labelOthersTo.Dock = System.Windows.Forms.DockStyle.Fill;
       this.labelOthersTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.labelOthersTo.Location = new System.Drawing.Point(365, 0);
+      this.labelOthersTo.Location = new System.Drawing.Point(364, 0);
       this.labelOthersTo.Name = "labelOthersTo";
       this.labelOthersTo.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
       this.labelOthersTo.Size = new System.Drawing.Size(54, 34);
@@ -811,7 +811,7 @@
       // 
       this.textBoxOthersFrom.Dock = System.Windows.Forms.DockStyle.Fill;
       this.textBoxOthersFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.textBoxOthersFrom.Location = new System.Drawing.Point(304, 2);
+      this.textBoxOthersFrom.Location = new System.Drawing.Point(303, 2);
       this.textBoxOthersFrom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.textBoxOthersFrom.Name = "textBoxOthersFrom";
       this.textBoxOthersFrom.Size = new System.Drawing.Size(55, 30);
@@ -823,7 +823,7 @@
       this.labelOthersFrom.AutoSize = true;
       this.labelOthersFrom.Dock = System.Windows.Forms.DockStyle.Fill;
       this.labelOthersFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.labelOthersFrom.Location = new System.Drawing.Point(227, 0);
+      this.labelOthersFrom.Location = new System.Drawing.Point(226, 0);
       this.labelOthersFrom.Name = "labelOthersFrom";
       this.labelOthersFrom.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
       this.labelOthersFrom.Size = new System.Drawing.Size(71, 34);
@@ -836,7 +836,7 @@
       this.comboBoxOthersMethodName.FormattingEnabled = true;
       this.comboBoxOthersMethodName.Location = new System.Drawing.Point(3, 3);
       this.comboBoxOthersMethodName.Name = "comboBoxOthersMethodName";
-      this.comboBoxOthersMethodName.Size = new System.Drawing.Size(218, 24);
+      this.comboBoxOthersMethodName.Size = new System.Drawing.Size(217, 24);
       this.comboBoxOthersMethodName.TabIndex = 0;
       // 
       // progressBarOtherMethods
