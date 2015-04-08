@@ -1143,8 +1143,9 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_Plural_al_one_with_int()
     {
       int source = 1;
-      string expected = string.Empty;
-      string result = FunctionsString.Plural(source);
+      string source2 = "al";
+      string expected = source2;
+      string result = FunctionsString.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -1152,8 +1153,9 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_Plural_al_two_with_int()
     {
       int source = 2;
-      string expected = "s";
-      string result = FunctionsString.Plural(source);
+      string source2 = "al";
+      string expected = "aux";
+      string result = FunctionsString.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
     #endregion String methods - Plural
