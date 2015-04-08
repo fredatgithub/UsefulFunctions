@@ -1003,6 +1003,159 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
+    [TestMethod]
+    public void TestMethod_Plural_zero_with_Int16()
+    {
+      Int16 source = 0;
+      string expected = string.Empty;
+      string result = FunctionsString.Plural(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_one_with_Int16()
+    {
+      Int16 source = 1;
+      string expected = string.Empty;
+      string result = FunctionsString.Plural(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_two_with_Int16()
+    {
+      Int16 source = 2;
+      string expected = "s";
+      string result = FunctionsString.Plural(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_zero_with_Int64()
+    {
+      Int64 source = 0;
+      string expected = string.Empty;
+      string result = FunctionsString.Plural(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_one_with_Int64()
+    {
+      Int64 source = 1;
+      string expected = string.Empty;
+      string result = FunctionsString.Plural(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_two_with_Int64()
+    {
+      Int64 source = 2;
+      string expected = "s";
+      string result = FunctionsString.Plural(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_zero_with_uint()
+    {
+      uint source = 0;
+      string expected = string.Empty;
+      string result = FunctionsString.Plural(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_one_with_uint()
+    {
+      uint source = 1;
+      string expected = string.Empty;
+      string result = FunctionsString.Plural(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_two_with_uint()
+    {
+      uint source = 2;
+      string expected = "s";
+      string result = FunctionsString.Plural(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_zero_with_UInt16()
+    {
+      UInt16 source = 0;
+      string expected = string.Empty;
+      string result = FunctionsString.Plural(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_one_with_UInt16()
+    {
+      UInt16 source = 1;
+      string expected = string.Empty;
+      string result = FunctionsString.Plural(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_two_with_UInt16()
+    {
+      UInt16 source = 2;
+      string expected = "s";
+      string result = FunctionsString.Plural(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_zero_with_UInt64()
+    {
+      UInt64 source = 0;
+      string expected = string.Empty;
+      string result = FunctionsString.Plural(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_one_with_UInt64()
+    {
+      UInt64 source = 1;
+      string expected = string.Empty;
+      string result = FunctionsString.Plural(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_two_with_UInt64()
+    {
+      UInt64 source = 2;
+      string expected = "s";
+      string result = FunctionsString.Plural(source);
+      Assert.AreEqual(result, expected);
+    }
+
+
+    [TestMethod]
+    public void TestMethod_Plural_al_one_with_int()
+    {
+      int source = 1;
+      string expected = string.Empty;
+      string result = FunctionsString.Plural(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_al_two_with_int()
+    {
+      int source = 2;
+      string expected = "s";
+      string result = FunctionsString.Plural(source);
+      Assert.AreEqual(result, expected);
+    }
     #endregion String methods - Plural
     // **********************StringOccurrenceWithContains****************
     [TestMethod]
