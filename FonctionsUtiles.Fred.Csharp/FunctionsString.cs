@@ -53,7 +53,13 @@ namespace FonctionsUtiles.Fred.Csharp
       result.Append("Method= string CamelCase(string myString)" + newLine);
       result.Append("Method= bool IsNumeric(char letter)" + newLine);
       result.Append("Method= bool IsLetter(char myLetter)" + newLine);
-      result.Append("Method= string Plural(int number)" + newLine);
+      result.Append("Method= string Plural(int    number, string irregularNoun = \"\")" + newLine);
+      result.Append("Method= string Plural(byte   number, string irregularNoun = \"\")" + newLine);
+      result.Append("Method= string Plural(Int16  number, string irregularNoun = \"\")" + newLine);
+      result.Append("Method= string Plural(Int64  number, string irregularNoun = \"\")" + newLine);
+      result.Append("Method= string Plural(uint   number, string irregularNoun = \"\")" + newLine);
+      result.Append("Method= string Plural(UInt16 number, string irregularNoun = \"\")" + newLine);
+      result.Append("Method= string Plural(UInt64 number, string irregularNoun = \"\")" + newLine);
       result.Append("Method= " + newLine);
       result.Append("Method= " + newLine);
       result.Append("Method= " + newLine);
@@ -156,7 +162,7 @@ namespace FonctionsUtiles.Fred.Csharp
     {
       return char.IsLetter(myLetter);
     }
-    public static string Plural(int number, string irregularNoun = "")
+    public static string Plural(int    number, string irregularNoun = "")
     {
       switch (irregularNoun)
       {
@@ -238,29 +244,491 @@ namespace FonctionsUtiles.Fred.Csharp
       }
       
     }
-    public static string Plural(byte number)
+    public static string Plural(byte   number, string irregularNoun = "")
     {
-      return number > 1 ? "s" : string.Empty;
+      switch (irregularNoun)
+      {
+        case "":
+          return number > 1 ? "s" : string.Empty;
+        case "al":
+          return number > 1 ? "aux" : "al";
+        case "au":
+          return number > 1 ? "aux" : "au";
+        case "eau":
+          return number > 1 ? "eaux" : "eau";
+        case "eu":
+          return number > 1 ? "eux" : "eu";
+        case "landau":
+          return number > 1 ? "landaus" : "landau";
+        case "sarrau":
+          return number > 1 ? "sarraus" : "sarrau";
+        case "bleu":
+          return number > 1 ? "bleus" : "bleu";
+        case "émeu":
+          return number > 1 ? "émeus" : "émeu";
+        case "lieu":
+          return number > 1 ? "lieux" : "lieu";
+        case "pneu":
+          return number > 1 ? "pneus" : "pneu";
+        case "aval":
+          return number > 1 ? "avals" : "aval";
+        case "bal":
+          return number > 1 ? "bals" : "bal";
+        case "chacal":
+          return number > 1 ? "chacals" : "chacal";
+        case "carnaval":
+          return number > 1 ? "carnavals" : "carnaval";
+        case "festival":
+          return number > 1 ? "festivals" : "festival";
+        case "récital":
+          return number > 1 ? "récitals" : "récital";
+        case "régal":
+          return number > 1 ? "régals" : "régal";
+        case "cal":
+          return number > 1 ? "cals" : "cal";
+        case "serval":
+          return number > 1 ? "servals" : "serval";
+        case "choral":
+          return number > 1 ? "chorals" : "choral";
+        case "narval":
+          return number > 1 ? "narvals" : "narval";
+        case "bail":
+          return number > 1 ? "baux" : "bail";
+        case "corail":
+          return number > 1 ? "coraux" : "corail";
+        case "émail":
+          return number > 1 ? "émaux" : "émail";
+        case "soupirail":
+          return number > 1 ? "soupiraux" : "soupirail";
+        case "travail":
+          return number > 1 ? "travaux" : "travail";
+        case "vantail":
+          return number > 1 ? "vantaux" : "vantail";
+        case "vitrail":
+          return number > 1 ? "vitraux" : "vitrail";
+        case "bijou":
+          return number > 1 ? "bojaux" : "bijou";
+        case "caillou":
+          return number > 1 ? "cailloux" : "caillou";
+        case "chou":
+          return number > 1 ? "choux" : "chou";
+        case "genou":
+          return number > 1 ? "genoux" : "genou";
+        case "hibou":
+          return number > 1 ? "hiboux" : "hibou";
+        case "joujou":
+          return number > 1 ? "joujoux" : "joujou";
+        case "pou":
+          return number > 1 ? "poux" : "pou";
+
+        default:
+          return number > 1 ? "s" : string.Empty;
+      }
     }
-    public static string Plural(Int16 number)
+    public static string Plural(Int16  number, string irregularNoun = "")
     {
-      return number > 1 ? "s" : string.Empty;
+      switch (irregularNoun)
+      {
+        case "":
+          return number > 1 ? "s" : string.Empty;
+        case "al":
+          return number > 1 ? "aux" : "al";
+        case "au":
+          return number > 1 ? "aux" : "au";
+        case "eau":
+          return number > 1 ? "eaux" : "eau";
+        case "eu":
+          return number > 1 ? "eux" : "eu";
+        case "landau":
+          return number > 1 ? "landaus" : "landau";
+        case "sarrau":
+          return number > 1 ? "sarraus" : "sarrau";
+        case "bleu":
+          return number > 1 ? "bleus" : "bleu";
+        case "émeu":
+          return number > 1 ? "émeus" : "émeu";
+        case "lieu":
+          return number > 1 ? "lieux" : "lieu";
+        case "pneu":
+          return number > 1 ? "pneus" : "pneu";
+        case "aval":
+          return number > 1 ? "avals" : "aval";
+        case "bal":
+          return number > 1 ? "bals" : "bal";
+        case "chacal":
+          return number > 1 ? "chacals" : "chacal";
+        case "carnaval":
+          return number > 1 ? "carnavals" : "carnaval";
+        case "festival":
+          return number > 1 ? "festivals" : "festival";
+        case "récital":
+          return number > 1 ? "récitals" : "récital";
+        case "régal":
+          return number > 1 ? "régals" : "régal";
+        case "cal":
+          return number > 1 ? "cals" : "cal";
+        case "serval":
+          return number > 1 ? "servals" : "serval";
+        case "choral":
+          return number > 1 ? "chorals" : "choral";
+        case "narval":
+          return number > 1 ? "narvals" : "narval";
+        case "bail":
+          return number > 1 ? "baux" : "bail";
+        case "corail":
+          return number > 1 ? "coraux" : "corail";
+        case "émail":
+          return number > 1 ? "émaux" : "émail";
+        case "soupirail":
+          return number > 1 ? "soupiraux" : "soupirail";
+        case "travail":
+          return number > 1 ? "travaux" : "travail";
+        case "vantail":
+          return number > 1 ? "vantaux" : "vantail";
+        case "vitrail":
+          return number > 1 ? "vitraux" : "vitrail";
+        case "bijou":
+          return number > 1 ? "bojaux" : "bijou";
+        case "caillou":
+          return number > 1 ? "cailloux" : "caillou";
+        case "chou":
+          return number > 1 ? "choux" : "chou";
+        case "genou":
+          return number > 1 ? "genoux" : "genou";
+        case "hibou":
+          return number > 1 ? "hiboux" : "hibou";
+        case "joujou":
+          return number > 1 ? "joujoux" : "joujou";
+        case "pou":
+          return number > 1 ? "poux" : "pou";
+
+        default:
+          return number > 1 ? "s" : string.Empty;
+      }
     }
-    public static string Plural(Int64 number)
+    public static string Plural(Int64  number, string irregularNoun = "")
     {
-      return number > 1 ? "s" : string.Empty;
+      switch (irregularNoun)
+      {
+        case "":
+          return number > 1 ? "s" : string.Empty;
+        case "al":
+          return number > 1 ? "aux" : "al";
+        case "au":
+          return number > 1 ? "aux" : "au";
+        case "eau":
+          return number > 1 ? "eaux" : "eau";
+        case "eu":
+          return number > 1 ? "eux" : "eu";
+        case "landau":
+          return number > 1 ? "landaus" : "landau";
+        case "sarrau":
+          return number > 1 ? "sarraus" : "sarrau";
+        case "bleu":
+          return number > 1 ? "bleus" : "bleu";
+        case "émeu":
+          return number > 1 ? "émeus" : "émeu";
+        case "lieu":
+          return number > 1 ? "lieux" : "lieu";
+        case "pneu":
+          return number > 1 ? "pneus" : "pneu";
+        case "aval":
+          return number > 1 ? "avals" : "aval";
+        case "bal":
+          return number > 1 ? "bals" : "bal";
+        case "chacal":
+          return number > 1 ? "chacals" : "chacal";
+        case "carnaval":
+          return number > 1 ? "carnavals" : "carnaval";
+        case "festival":
+          return number > 1 ? "festivals" : "festival";
+        case "récital":
+          return number > 1 ? "récitals" : "récital";
+        case "régal":
+          return number > 1 ? "régals" : "régal";
+        case "cal":
+          return number > 1 ? "cals" : "cal";
+        case "serval":
+          return number > 1 ? "servals" : "serval";
+        case "choral":
+          return number > 1 ? "chorals" : "choral";
+        case "narval":
+          return number > 1 ? "narvals" : "narval";
+        case "bail":
+          return number > 1 ? "baux" : "bail";
+        case "corail":
+          return number > 1 ? "coraux" : "corail";
+        case "émail":
+          return number > 1 ? "émaux" : "émail";
+        case "soupirail":
+          return number > 1 ? "soupiraux" : "soupirail";
+        case "travail":
+          return number > 1 ? "travaux" : "travail";
+        case "vantail":
+          return number > 1 ? "vantaux" : "vantail";
+        case "vitrail":
+          return number > 1 ? "vitraux" : "vitrail";
+        case "bijou":
+          return number > 1 ? "bojaux" : "bijou";
+        case "caillou":
+          return number > 1 ? "cailloux" : "caillou";
+        case "chou":
+          return number > 1 ? "choux" : "chou";
+        case "genou":
+          return number > 1 ? "genoux" : "genou";
+        case "hibou":
+          return number > 1 ? "hiboux" : "hibou";
+        case "joujou":
+          return number > 1 ? "joujoux" : "joujou";
+        case "pou":
+          return number > 1 ? "poux" : "pou";
+
+        default:
+          return number > 1 ? "s" : string.Empty;
+      }
     }
-    public static string Plural(uint number)
+    public static string Plural(uint   number, string irregularNoun = "")
     {
-      return number > 1 ? "s" : string.Empty;
+      switch (irregularNoun)
+      {
+        case "":
+          return number > 1 ? "s" : string.Empty;
+        case "al":
+          return number > 1 ? "aux" : "al";
+        case "au":
+          return number > 1 ? "aux" : "au";
+        case "eau":
+          return number > 1 ? "eaux" : "eau";
+        case "eu":
+          return number > 1 ? "eux" : "eu";
+        case "landau":
+          return number > 1 ? "landaus" : "landau";
+        case "sarrau":
+          return number > 1 ? "sarraus" : "sarrau";
+        case "bleu":
+          return number > 1 ? "bleus" : "bleu";
+        case "émeu":
+          return number > 1 ? "émeus" : "émeu";
+        case "lieu":
+          return number > 1 ? "lieux" : "lieu";
+        case "pneu":
+          return number > 1 ? "pneus" : "pneu";
+        case "aval":
+          return number > 1 ? "avals" : "aval";
+        case "bal":
+          return number > 1 ? "bals" : "bal";
+        case "chacal":
+          return number > 1 ? "chacals" : "chacal";
+        case "carnaval":
+          return number > 1 ? "carnavals" : "carnaval";
+        case "festival":
+          return number > 1 ? "festivals" : "festival";
+        case "récital":
+          return number > 1 ? "récitals" : "récital";
+        case "régal":
+          return number > 1 ? "régals" : "régal";
+        case "cal":
+          return number > 1 ? "cals" : "cal";
+        case "serval":
+          return number > 1 ? "servals" : "serval";
+        case "choral":
+          return number > 1 ? "chorals" : "choral";
+        case "narval":
+          return number > 1 ? "narvals" : "narval";
+        case "bail":
+          return number > 1 ? "baux" : "bail";
+        case "corail":
+          return number > 1 ? "coraux" : "corail";
+        case "émail":
+          return number > 1 ? "émaux" : "émail";
+        case "soupirail":
+          return number > 1 ? "soupiraux" : "soupirail";
+        case "travail":
+          return number > 1 ? "travaux" : "travail";
+        case "vantail":
+          return number > 1 ? "vantaux" : "vantail";
+        case "vitrail":
+          return number > 1 ? "vitraux" : "vitrail";
+        case "bijou":
+          return number > 1 ? "bojaux" : "bijou";
+        case "caillou":
+          return number > 1 ? "cailloux" : "caillou";
+        case "chou":
+          return number > 1 ? "choux" : "chou";
+        case "genou":
+          return number > 1 ? "genoux" : "genou";
+        case "hibou":
+          return number > 1 ? "hiboux" : "hibou";
+        case "joujou":
+          return number > 1 ? "joujoux" : "joujou";
+        case "pou":
+          return number > 1 ? "poux" : "pou";
+
+        default:
+          return number > 1 ? "s" : string.Empty;
+      }
     }
-    public static string Plural(UInt16 number)
+    public static string Plural(UInt16 number, string irregularNoun = "")
     {
-      return number > 1 ? "s" : string.Empty;
+      switch (irregularNoun)
+      {
+        case "":
+          return number > 1 ? "s" : string.Empty;
+        case "al":
+          return number > 1 ? "aux" : "al";
+        case "au":
+          return number > 1 ? "aux" : "au";
+        case "eau":
+          return number > 1 ? "eaux" : "eau";
+        case "eu":
+          return number > 1 ? "eux" : "eu";
+        case "landau":
+          return number > 1 ? "landaus" : "landau";
+        case "sarrau":
+          return number > 1 ? "sarraus" : "sarrau";
+        case "bleu":
+          return number > 1 ? "bleus" : "bleu";
+        case "émeu":
+          return number > 1 ? "émeus" : "émeu";
+        case "lieu":
+          return number > 1 ? "lieux" : "lieu";
+        case "pneu":
+          return number > 1 ? "pneus" : "pneu";
+        case "aval":
+          return number > 1 ? "avals" : "aval";
+        case "bal":
+          return number > 1 ? "bals" : "bal";
+        case "chacal":
+          return number > 1 ? "chacals" : "chacal";
+        case "carnaval":
+          return number > 1 ? "carnavals" : "carnaval";
+        case "festival":
+          return number > 1 ? "festivals" : "festival";
+        case "récital":
+          return number > 1 ? "récitals" : "récital";
+        case "régal":
+          return number > 1 ? "régals" : "régal";
+        case "cal":
+          return number > 1 ? "cals" : "cal";
+        case "serval":
+          return number > 1 ? "servals" : "serval";
+        case "choral":
+          return number > 1 ? "chorals" : "choral";
+        case "narval":
+          return number > 1 ? "narvals" : "narval";
+        case "bail":
+          return number > 1 ? "baux" : "bail";
+        case "corail":
+          return number > 1 ? "coraux" : "corail";
+        case "émail":
+          return number > 1 ? "émaux" : "émail";
+        case "soupirail":
+          return number > 1 ? "soupiraux" : "soupirail";
+        case "travail":
+          return number > 1 ? "travaux" : "travail";
+        case "vantail":
+          return number > 1 ? "vantaux" : "vantail";
+        case "vitrail":
+          return number > 1 ? "vitraux" : "vitrail";
+        case "bijou":
+          return number > 1 ? "bojaux" : "bijou";
+        case "caillou":
+          return number > 1 ? "cailloux" : "caillou";
+        case "chou":
+          return number > 1 ? "choux" : "chou";
+        case "genou":
+          return number > 1 ? "genoux" : "genou";
+        case "hibou":
+          return number > 1 ? "hiboux" : "hibou";
+        case "joujou":
+          return number > 1 ? "joujoux" : "joujou";
+        case "pou":
+          return number > 1 ? "poux" : "pou";
+
+        default:
+          return number > 1 ? "s" : string.Empty;
+      }
     }
-    public static string Plural(UInt64 number)
+    public static string Plural(UInt64 number, string irregularNoun = "")
     {
-      return number > 1 ? "s" : string.Empty;
+      switch (irregularNoun)
+      {
+        case "":
+          return number > 1 ? "s" : string.Empty;
+        case "al":
+          return number > 1 ? "aux" : "al";
+        case "au":
+          return number > 1 ? "aux" : "au";
+        case "eau":
+          return number > 1 ? "eaux" : "eau";
+        case "eu":
+          return number > 1 ? "eux" : "eu";
+        case "landau":
+          return number > 1 ? "landaus" : "landau";
+        case "sarrau":
+          return number > 1 ? "sarraus" : "sarrau";
+        case "bleu":
+          return number > 1 ? "bleus" : "bleu";
+        case "émeu":
+          return number > 1 ? "émeus" : "émeu";
+        case "lieu":
+          return number > 1 ? "lieux" : "lieu";
+        case "pneu":
+          return number > 1 ? "pneus" : "pneu";
+        case "aval":
+          return number > 1 ? "avals" : "aval";
+        case "bal":
+          return number > 1 ? "bals" : "bal";
+        case "chacal":
+          return number > 1 ? "chacals" : "chacal";
+        case "carnaval":
+          return number > 1 ? "carnavals" : "carnaval";
+        case "festival":
+          return number > 1 ? "festivals" : "festival";
+        case "récital":
+          return number > 1 ? "récitals" : "récital";
+        case "régal":
+          return number > 1 ? "régals" : "régal";
+        case "cal":
+          return number > 1 ? "cals" : "cal";
+        case "serval":
+          return number > 1 ? "servals" : "serval";
+        case "choral":
+          return number > 1 ? "chorals" : "choral";
+        case "narval":
+          return number > 1 ? "narvals" : "narval";
+        case "bail":
+          return number > 1 ? "baux" : "bail";
+        case "corail":
+          return number > 1 ? "coraux" : "corail";
+        case "émail":
+          return number > 1 ? "émaux" : "émail";
+        case "soupirail":
+          return number > 1 ? "soupiraux" : "soupirail";
+        case "travail":
+          return number > 1 ? "travaux" : "travail";
+        case "vantail":
+          return number > 1 ? "vantaux" : "vantail";
+        case "vitrail":
+          return number > 1 ? "vitraux" : "vitrail";
+        case "bijou":
+          return number > 1 ? "bojaux" : "bijou";
+        case "caillou":
+          return number > 1 ? "cailloux" : "caillou";
+        case "chou":
+          return number > 1 ? "choux" : "chou";
+        case "genou":
+          return number > 1 ? "genoux" : "genou";
+        case "hibou":
+          return number > 1 ? "hiboux" : "hibou";
+        case "joujou":
+          return number > 1 ? "joujoux" : "joujou";
+        case "pou":
+          return number > 1 ? "poux" : "pou";
+
+        default:
+          return number > 1 ? "s" : string.Empty;
+      }
     }
     
     public static int StringOccurrenceWithIndexOf(string chaineTotale, string chaineRecherchee)
