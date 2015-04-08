@@ -947,31 +947,63 @@ namespace UnitTestUsefullFunctions
       Assert.IsFalse(result);
     }
 
+    #region String methods - Plural
     // **********************Plural****************
     [TestMethod]
-    public void TestMethod_Plural_zero()
+    public void TestMethod_Plural_zero_with_int()
     {
+      int source = 0;
       string expected = string.Empty;
-      string result = FunctionsString.Plural(0);
+      string result = FunctionsString.Plural(source);
       Assert.AreEqual(result, expected);
     }
 
     [TestMethod]
-    public void TestMethod_Plural_one()
+    public void TestMethod_Plural_one_with_int()
     {
+      int source = 1;
       string expected = string.Empty;
-      string result = FunctionsString.Plural(1);
+      string result = FunctionsString.Plural(source);
       Assert.AreEqual(result, expected);
     }
 
     [TestMethod]
-    public void TestMethod_Plural_two()
+    public void TestMethod_Plural_two_with_int()
     {
+      int source = 2;
       string expected = "s";
-      string result = FunctionsString.Plural(2);
+      string result = FunctionsString.Plural(source);
       Assert.AreEqual(result, expected);
     }
 
+    [TestMethod]
+    public void TestMethod_Plural_zero_with_byte()
+    {
+      byte source = 0;
+      string expected = string.Empty;
+      string result = FunctionsString.Plural(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_one_with_byte()
+    {
+      byte source = 1;
+      string expected = string.Empty;
+      string result = FunctionsString.Plural(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_two_with_byte()
+    {
+      byte source = 2;
+      string expected = "s";
+      string result = FunctionsString.Plural(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    #endregion String methods - Plural
     // **********************StringOccurrenceWithContains****************
     [TestMethod]
     public void TestMethod_StringOccurrenceWithContains()
