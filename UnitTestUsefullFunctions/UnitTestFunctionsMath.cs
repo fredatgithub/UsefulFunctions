@@ -22,10 +22,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace UnitTestUsefullFunctions
 {
   [TestClass]
-  public class UnitTest1
+  public class UnitTestFunctionsMath
   {
     [TestMethod]
-    public void TestMethod1()
+    public void TestMethodMath_()
     {
       Assert.IsTrue(true);
     }
