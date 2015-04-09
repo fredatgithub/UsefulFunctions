@@ -61,6 +61,7 @@ namespace CodeGenerationWinForm
       FillComboBoxLanguage(comboBoxRndMethodLanguage);
       FillComboBoxLanguage(comboBoxOneMethodLanguage);
       FillComboBoxOtherMethods(comboBoxOthersMethodName);
+      FillComboBoxWithTypes(comboBoxCustoSourceType);
     }
 
     private void FillComboBoxLanguage(ComboBox cb)
@@ -76,6 +77,20 @@ namespace CodeGenerationWinForm
     {
       cb.Items.Clear();
       cb.Items.Add("BigInt");
+      cb.SelectedIndex = 0;
+    }
+
+    private void FillComboBoxWithTypes(ComboBox cb)
+    {
+      cb.Items.Clear();
+      cb.Items.Add("int");
+      cb.Items.Add("int[]");
+      cb.Items.Add("string");
+      cb.Items.Add("string[]");
+      cb.Items.Add("byte");
+      cb.Items.Add("byte[]");
+      cb.Items.Add("bool");
+      cb.Items.Add("bool[]");
       cb.SelectedIndex = 0;
     }
 

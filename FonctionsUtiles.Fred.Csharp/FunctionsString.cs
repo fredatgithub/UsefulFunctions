@@ -166,7 +166,7 @@ namespace FonctionsUtiles.Fred.Csharp
     {
       return char.IsLetter(myLetter);
     }
-    public static string Plural(int    number, string irregularNoun = "")
+    public static string Plural(int number, string irregularNoun = "")
     {
       switch (irregularNoun)
       {
@@ -246,9 +246,9 @@ namespace FonctionsUtiles.Fred.Csharp
         default:
           return number > 1 ? "s" : string.Empty;
       }
-      
+
     }
-    public static string Plural(byte   number, string irregularNoun = "")
+    public static string Plural(byte number, string irregularNoun = "")
     {
       switch (irregularNoun)
       {
@@ -329,7 +329,7 @@ namespace FonctionsUtiles.Fred.Csharp
           return number > 1 ? "s" : string.Empty;
       }
     }
-    public static string Plural(Int16  number, string irregularNoun = "")
+    public static string Plural(Int16 number, string irregularNoun = "")
     {
       switch (irregularNoun)
       {
@@ -410,7 +410,7 @@ namespace FonctionsUtiles.Fred.Csharp
           return number > 1 ? "s" : string.Empty;
       }
     }
-    public static string Plural(Int64  number, string irregularNoun = "")
+    public static string Plural(Int64 number, string irregularNoun = "")
     {
       switch (irregularNoun)
       {
@@ -491,7 +491,7 @@ namespace FonctionsUtiles.Fred.Csharp
           return number > 1 ? "s" : string.Empty;
       }
     }
-    public static string Plural(uint   number, string irregularNoun = "")
+    public static string Plural(uint number, string irregularNoun = "")
     {
       switch (irregularNoun)
       {
@@ -838,7 +838,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static bool IsPalindrome(string myString, bool spaceRemoval = false)
     {
-      if (spaceRemoval)
+      if (spaceRemoval) // can you use ternary twice ?
       {
         return ReverseString2(myString, spaceRemoval) == myString.Replace(" ", "");
       }
@@ -1448,11 +1448,11 @@ namespace FonctionsUtiles.Fred.Csharp
         return false;
       }
 
-      return input.Any(t => t == 'b' || t == 'B' || 
-      t == 'c' || t == 'C' || 
-      t == 'd' || t == 'D' || 
+      return input.Any(t => t == 'b' || t == 'B' ||
+      t == 'c' || t == 'C' ||
+      t == 'd' || t == 'D' ||
       t == 'f' || t == 'F' ||
-      t == 'g' || t == 'G' || 
+      t == 'g' || t == 'G' ||
       t == 'h' || t == 'H' ||
       t == 'j' || t == 'J' ||
       t == 'k' || t == 'K' ||
@@ -1467,7 +1467,7 @@ namespace FonctionsUtiles.Fred.Csharp
       t == 'v' || t == 'V' ||
       t == 'w' || t == 'W' ||
       t == 'x' || t == 'X' ||
-      t == 'z' || t == 'Z' );
+      t == 'z' || t == 'Z');
     }
 
     public static bool IsSpaces(string input)
@@ -2374,10 +2374,10 @@ namespace FonctionsUtiles.Fred.Csharp
       return new Guid().ToString();
     }
 
-    public static string GenerateUniqueFilename(string directoryPath, 
-      RandomCharacters rdnCharacters = RandomCharacters.LowerCase, 
-      byte length = 8, 
-      bool withFileExtension = false, 
+    public static string GenerateUniqueFilename(string directoryPath,
+      RandomCharacters rdnCharacters = RandomCharacters.LowerCase,
+      byte length = 8,
+      bool withFileExtension = false,
       string fileExtension = "txt")
     {
       if (directoryPath == string.Empty)
@@ -2399,7 +2399,7 @@ namespace FonctionsUtiles.Fred.Csharp
           result += "." + fileExtension;
         }
       } while (File.Exists(Path.Combine(directoryPath, result)));
-      
+
       return result;
     }
 
@@ -2424,7 +2424,7 @@ namespace FonctionsUtiles.Fred.Csharp
       if (isWindowsFileName)
       {
         forbiddenCharacters = AddCharArray(forbiddenCharacters, forbiddenWindowsFilenameCharacters, new[] { ' ' });
-        char[] badWindowsFileName = {',', '!', '.', ';', '@', '#', '$', '%', '^', '&', '(', ')', '=', '+', '{', '}', '~'};
+        char[] badWindowsFileName = { ',', '!', '.', ';', '@', '#', '$', '%', '^', '&', '(', ')', '=', '+', '{', '}', '~' };
         forbiddenCharacters = AddCharArray(forbiddenCharacters, badWindowsFileName, new[] { ' ' });
       }
 
@@ -2464,7 +2464,7 @@ namespace FonctionsUtiles.Fred.Csharp
           break;
         case RandomCharacters.UpperLowerDigit:
           searchedCharacters = (FillSearchedCharWithoutForbiddenChar(upperCaseCharacters, forbiddenCharacters) +
-            FillSearchedCharWithoutForbiddenChar(lowerCaseCharacters, forbiddenCharacters)+
+            FillSearchedCharWithoutForbiddenChar(lowerCaseCharacters, forbiddenCharacters) +
             FillSearchedCharWithoutForbiddenChar(digitCharacters, forbiddenCharacters)).ToCharArray();
           break;
         case RandomCharacters.UpperSpecialChar:
