@@ -29,7 +29,7 @@ namespace UnitTestUsefullFunctions
   [TestClass]
   public class UnitTestMethodsString
   {
-    
+
     #region String Methods
 
     //**********************String Methods***************
@@ -4240,7 +4240,7 @@ namespace UnitTestUsefullFunctions
     #region StringOccurrenceWithIndexOf
 
     [TestMethod]
-    public void TestMethod_StringOccurrenceWithIndexOf_true_occurence_2()
+    public void TestMethod_StringOccurrenceWithIndexOf_true_occurence_8()
     {
       const int expected = 8;
       string source = "A long long time ago in a galaxy far far away";
@@ -4248,9 +4248,168 @@ namespace UnitTestUsefullFunctions
       int result = FunctionsString.StringOccurrenceWithIndexOf(source, source2);
       Assert.AreEqual(result, expected);
     }
+
+    [TestMethod]
+    public void TestMethod_StringOccurrenceWithIndexOf_true_long_occurence_2()
+    {
+      const int expected = 2;
+      string source = "A long long time ago in a galaxy far far away";
+      string source2 = "long";
+      int result = FunctionsString.StringOccurrenceWithIndexOf(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+
+    [TestMethod]
+    public void TestMethod_StringOccurrenceWithIndexOf_true_far_occurence_2()
+    {
+      const int expected = 2;
+      string source = "A long long time ago in a galaxy far far away";
+      string source2 = "far";
+      int result = FunctionsString.StringOccurrenceWithIndexOf(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+
+    [TestMethod]
+    public void TestMethod_StringOccurrenceWithIndexOf_true_source_string_is_empty()
+    {
+      const int expected = 0;
+      string source = "A long long time ago in a galaxy far far away";
+      string source2 = "";
+      int result = FunctionsString.StringOccurrenceWithIndexOf(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+
+    [TestMethod]
+    public void TestMethod_StringOccurrenceWithIndexOf_true_searched_string_is_empty()
+    {
+      const int expected = 0;
+      string source = string.Empty;
+      string source2 = "long";
+      int result = FunctionsString.StringOccurrenceWithIndexOf(source, source2);
+      Assert.AreEqual(result, expected);
+    }
     #endregion StringOccurrenceWithIndexOf
+    #region StringOccurrenceWithContains
 
+    [TestMethod]
+    public void TestMethod_StringOccurrenceWithContains_true_occurence_8()
+    {
+      const int expected = 8;
+      string source = "A long long time ago in a galaxy far far away";
+      string source2 = "a";
+      int result = FunctionsString.StringOccurrenceWithContains(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_StringOccurrenceWithContains_true_long_occurence_2()
+    {
+      const int expected = 2;
+      string source = "A long long time ago in a galaxy far far away";
+      string source2 = "long";
+      int result = FunctionsString.StringOccurrenceWithContains(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+
+    [TestMethod]
+    public void TestMethod_StringOccurrenceWithContains_true_far_occurence_2()
+    {
+      const int expected = 2;
+      string source = "A long long time ago in a galaxy far far away";
+      string source2 = "far";
+      int result = FunctionsString.StringOccurrenceWithContains(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+
+    [TestMethod]
+    public void TestMethod_StringOccurrenceWithContains_true_source_string_is_empty()
+    {
+      const int expected = 0;
+      string source = "A long long time ago in a galaxy far far away";
+      string source2 = "";
+      int result = FunctionsString.StringOccurrenceWithContains(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+
+    [TestMethod]
+    public void TestMethod_StringOccurrenceWithContains_true_searched_string_is_empty()
+    {
+      const int expected = 0;
+      string source = string.Empty;
+      string source2 = "long";
+      int result = FunctionsString.StringOccurrenceWithContains(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+    #endregion StringOccurrenceWithContains
+    #region Palindrome
+    // **********************Palindrome****************
+    [TestMethod]
+    public void TestMethod_Palindrome_true_on_numbers()
+    {
+      const bool expected = true;
+      const string source = "12345678900987654321";
+      bool result = FunctionsString.IsPalindrome(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Palindrome_true_on_an_empty_string()
+    {
+      const bool expected = true;
+      const string source = "";
+      bool result = FunctionsString.IsPalindrome(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Palindrome_one_number()
+    {
+      const bool expected = true;
+      const string source = "1";
+      bool result = FunctionsString.IsPalindrome(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Palindrome_palindrome_one_word()
+    {
+      const bool expected = true;
+      const string source = "laval";
+      bool result = FunctionsString.IsPalindrome(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsPalindrome_several_palindromes_in_words()
+    {
+      const bool expected = true;
+      List<string> sourceWords = new List<string> { "laval", "lol", "ete", "lieur à rueil" };
+      foreach (string source in sourceWords)
+      {
+        bool result = FunctionsString.IsPalindrome(source);
+        Assert.AreEqual(result, expected);
+      }
+    }
+
+    [TestMethod]
+    public void TestMethod_IsPalindrome_several_palindromes_with_removal_of_space()
+    {
+      const bool expected = true;
+      List<string> sourceWords = new List<string> { "esope reste ici et se repose", "éric notre valet alla te laver ton ciré" };
+      foreach (string source in sourceWords)
+      {
+        bool result = FunctionsString.IsPalindrome(source, true);
+        Assert.AreEqual(result, expected);
+      }
+    }
+
+    #endregion Palindrome
     #endregion
-
   }
 }

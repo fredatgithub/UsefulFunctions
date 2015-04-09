@@ -61,10 +61,10 @@ namespace FonctionsUtiles.Fred.Csharp
       result.Append("Method= string Plural(UInt16 number, string irregularNoun = \"\")" + newLine);
       result.Append("Method= string Plural(UInt64 number, string irregularNoun = \"\")" + newLine);
       result.Append("Method= int StringOccurrenceWithIndexOf(string wholeString, string searchedString)" + newLine);
-      result.Append("Method= " + newLine);
-      result.Append("Method= " + newLine);
-      result.Append("Method= " + newLine);
-      result.Append("Method= " + newLine);
+      result.Append("Method= int StringOccurrenceWithContains(string myString, string searchedString)" + newLine);
+      result.Append("Method= string ByteArrayToHexaString(byte[] bytes, bool oneDigitOnly = false)" + newLine);
+      result.Append("Method= byte[] HexaStringToByteArray(string hexaString)" + newLine);
+      result.Append("Method= string ReverseString(string strValue, bool removeSpace = false)" + newLine);
       result.Append("Method= " + newLine);
       result.Append("Method= " + newLine);
       return result.ToString();
@@ -734,9 +734,13 @@ namespace FonctionsUtiles.Fred.Csharp
           return number > 1 ? "s" : string.Empty;
       }
     }
-    
     public static int StringOccurrenceWithIndexOf(string wholeString, string searchedString)
     {
+      if (wholeString == string.Empty || searchedString == string.Empty)
+      {
+        return 0;
+      }
+
       int occurrence = 0;
       int str2Length = searchedString.Length;
       int index = 0;
@@ -748,42 +752,40 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return occurrence;
     }
-
-    public static int StringOccurrenceWithContains(string chaineTotale, string chaineRecherchee)
+    public static int StringOccurrenceWithContains(string myString, string searchedString)
     {
-      if (chaineRecherchee == string.Empty || chaineTotale == string.Empty)
+      if (searchedString == string.Empty || myString == string.Empty)
       {
         return 0;
       }
 
       int occurrence = 0;
-      int chaineRechercheeLength = chaineRecherchee.Length;
+      int chaineRechercheeLength = searchedString.Length;
       int index = 0;
-      string chaineTempo = chaineTotale.Substring(index, chaineRechercheeLength);
-      while (index < chaineTotale.Length)
+      string chaineTempo = myString.Substring(index, chaineRechercheeLength);
+      while (index < myString.Length)
       {
-        if (chaineTempo.Contains(chaineRecherchee))
+        if (chaineTempo.Contains(searchedString))
         {
           occurrence++;
         }
 
-        if (index + chaineRechercheeLength > chaineTotale.Length)
+        if (index + chaineRechercheeLength > myString.Length)
         {
           return occurrence;
         }
 
         index += 1;
-        if ((index + chaineRechercheeLength > chaineTotale.Length))
+        if ((index + chaineRechercheeLength > myString.Length))
         {
           return occurrence;
         }
 
-        chaineTempo = chaineTotale.Substring(index, chaineRechercheeLength);
+        chaineTempo = myString.Substring(index, chaineRechercheeLength);
       }
 
       return occurrence;
     }
-
     public static string ByteArrayToHexaString(byte[] bytes, bool oneDigitOnly = false)
     {
       var sb = new StringBuilder();
@@ -801,7 +803,6 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return sb.ToString();
     }
-
     public static byte[] HexaStringToByteArray(string hexaString)
     {
       if (hexaString == string.Empty)
@@ -835,6 +836,18 @@ namespace FonctionsUtiles.Fred.Csharp
       return reversedString;
     }
 
+    public static bool IsPalindrome(string myString, bool spaceRemoval = false)
+    {
+      if (spaceRemoval)
+      {
+        return ReverseString2(myString, spaceRemoval) == myString.Replace(" ", "");
+      }
+      else
+      {
+        return ReverseString2(myString, spaceRemoval) == myString;
+      }
+    }
+
     public static string ReverseString2(string input, bool removeSpace = false)
     {
       //  Validate input
@@ -847,6 +860,7 @@ namespace FonctionsUtiles.Fred.Csharp
       {
         input = input.Replace(" ", "");
       }
+
       char[] outputChars = input.ToCharArray();
 
       //  Reverse
