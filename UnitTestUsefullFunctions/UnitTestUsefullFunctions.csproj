@@ -52,7 +52,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="UnitTestFunctionsUseful.cs" />
-    <Compile Include="UnitTestFiles.cs" />
+    <Compile Include="UnitTestFunctionsFiles.cs" />
     <Compile Include="UnitTestFunctionsMath.cs" />
     <Compile Include="UnitTestFunctionsString.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

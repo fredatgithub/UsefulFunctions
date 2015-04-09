@@ -22,7 +22,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace UnitTestUsefullFunctions
 {
   [TestClass]
-  public class UnitTestFunctionsUseful
+  public class UnitTestFunctionsFiles
   {
     [TestMethod]
     public void TestMethod1()
