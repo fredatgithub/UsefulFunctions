@@ -21,7 +21,6 @@ SOFTWARE.
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.IO;
 using FonctionsUtiles.Fred.Csharp;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -447,7 +446,349 @@ namespace UnitTestUsefullFunctions
       string result = FunctionsString.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
+
+    [TestMethod]
+    public void TestMethod_Plural_au_two_with_int()
+    {
+      int source = 2;
+      string source2 = "au";
+      string expected = "aux";
+      string result = FunctionsString.Plural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_eau_two_with_int()
+    {
+      int source = 2;
+      string source2 = "eau";
+      string expected = "eaux";
+      string result = FunctionsString.Plural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_eu_two_with_int()
+    {
+      int source = 2;
+      string source2 = "eu";
+      string expected = "eux";
+      string result = FunctionsString.Plural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_landau_two_with_int()
+    {
+      int source = 2;
+      string source2 = "landau";
+      string expected = "landaus";
+      string result = FunctionsString.Plural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_sarrau_two_with_int()
+    {
+      int source = 2;
+      string source2 = "sarrau";
+      string expected = "sarraus";
+      string result = FunctionsString.Plural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_bleu_two_with_int()
+    {
+      int source = 2;
+      string source2 = "bleu";
+      string expected = "bleus";
+      string result = FunctionsString.Plural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_émeu_two_with_int()
+    {
+      int source = 2;
+      string source2 = "émeu";
+      string expected = "émeus";
+      string result = FunctionsString.Plural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_lieu_two_with_int()
+    {
+      int source = 2;
+      string source2 = "lieu";
+      string expected = "lieux";
+      string result = FunctionsString.Plural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_pneu_two_with_int()
+    {
+      int source = 2;
+      string source2 = "pneu";
+      string expected = "pneus";
+      string result = FunctionsString.Plural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_aval_two_with_int()
+    {
+      int source = 2;
+      string source2 = "aval";
+      string expected = "avals";
+      string result = FunctionsString.Plural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_bal_two_with_int()
+    {
+      int source = 2;
+      string source2 = "bal";
+      string expected = "bals";
+      string result = FunctionsString.Plural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_chacal_two_with_int()
+    {
+      int source = 2;
+      string source2 = "chacal";
+      string expected = "chacals";
+      string result = FunctionsString.Plural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_carnaval_two_with_int()
+    {
+      int source = 2;
+      string source2 = "carnaval";
+      string expected = "carnavals";
+      string result = FunctionsString.Plural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_festival_two_with_int()
+    {
+      int source = 2;
+      string source2 = "festival";
+      string expected = "festivals";
+      string result = FunctionsString.Plural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_récital_two_with_int()
+    {
+      int source = 2;
+      string source2 = "récital";
+      string expected = "récitals";
+      string result = FunctionsString.Plural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_régal_two_with_int()
+    {
+      int source = 2;
+      string source2 = "régal";
+      string expected = "régals";
+      string result = FunctionsString.Plural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_cal_two_with_int()
+    {
+      int source = 2;
+      string source2 = "cal";
+      string expected = "cals";
+      string result = FunctionsString.Plural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_serval_two_with_int()
+    {
+      int source = 2;
+      string source2 = "serval";
+      string expected = "servals";
+      string result = FunctionsString.Plural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_choral_two_with_int()
+    {
+      int source = 2;
+      string source2 = "choral";
+      string expected = "chorals";
+      string result = FunctionsString.Plural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_narval_two_with_int()
+    {
+      int source = 2;
+      string source2 = "narval";
+      string expected = "narvals";
+      string result = FunctionsString.Plural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_bail_two_with_int()
+    {
+      int source = 2;
+      string source2 = "bail";
+      string expected = "baux";
+      string result = FunctionsString.Plural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_corail_two_with_int()
+    {
+      int source = 2;
+      string source2 = "corail";
+      string expected = "coraux";
+      string result = FunctionsString.Plural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_émail_two_with_int()
+    {
+      int source = 2;
+      string source2 = "émail";
+      string expected = "émaux";
+      string result = FunctionsString.Plural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_soupirail_two_with_int()
+    {
+      int source = 2;
+      string source2 = "soupirail";
+      string expected = "soupiraux";
+      string result = FunctionsString.Plural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_travail_two_with_int()
+    {
+      int source = 2;
+      string source2 = "travail";
+      string expected = "travaux";
+      string result = FunctionsString.Plural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_vantail_two_with_int()
+    {
+      int source = 2;
+      string source2 = "vantail";
+      string expected = "vantaux";
+      string result = FunctionsString.Plural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_vitrail_two_with_int()
+    {
+      int source = 2;
+      string source2 = "vitrail";
+      string expected = "vitraux";
+      string result = FunctionsString.Plural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_bijou_two_with_int()
+    {
+      int source = 2;
+      string source2 = "bijou";
+      string expected = "bijoux";
+      string result = FunctionsString.Plural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_caillou_two_with_int()
+    {
+      int source = 2;
+      string source2 = "caillou";
+      string expected = "cailloux";
+      string result = FunctionsString.Plural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_chou_two_with_int()
+    {
+      int source = 2;
+      string source2 = "chou";
+      string expected = "choux";
+      string result = FunctionsString.Plural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_genou_two_with_int()
+    {
+      int source = 2;
+      string source2 = "genou";
+      string expected = "genoux";
+      string result = FunctionsString.Plural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_hibou_two_with_int()
+    {
+      int source = 2;
+      string source2 = "hibou";
+      string expected = "hiboux";
+      string result = FunctionsString.Plural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_joujou_two_with_int()
+    {
+      int source = 2;
+      string source2 = "joujou";
+      string expected = "joujoux";
+      string result = FunctionsString.Plural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_pou_two_with_int()
+    {
+      int source = 2;
+      string source2 = "pou";
+      string expected = "poux";
+      string result = FunctionsString.Plural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
     #endregion String methods - Plural
+
     // **********************StringOccurrenceWithContains****************
     [TestMethod]
     public void TestMethod_StringOccurrenceWithContains()
@@ -3836,7 +4177,6 @@ namespace UnitTestUsefullFunctions
         FunctionsString.RandomCharacters.SpecialCharacter, stringLength, true);
       Assert.AreEqual(result.Length, expected);
     }
-
 
     #endregion GenerateString method Unit tests
     #region HasSomeLowerCaseLetters method Unit tests

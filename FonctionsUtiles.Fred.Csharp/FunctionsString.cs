@@ -225,7 +225,7 @@ namespace FonctionsUtiles.Fred.Csharp
         case "vitrail":
           return number > 1 ? "vitraux" : "vitrail";
         case "bijou":
-          return number > 1 ? "bojaux" : "bijou";
+          return number > 1 ? "bijoux" : "bijou";
         case "caillou":
           return number > 1 ? "cailloux" : "caillou";
         case "chou":
@@ -712,7 +712,7 @@ namespace FonctionsUtiles.Fred.Csharp
         case "vitrail":
           return number > 1 ? "vitraux" : "vitrail";
         case "bijou":
-          return number > 1 ? "bojaux" : "bijou";
+          return number > 1 ? "bijoux" : "bijou";
         case "caillou":
           return number > 1 ? "cailloux" : "caillou";
         case "chou":
