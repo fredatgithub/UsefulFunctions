@@ -4237,6 +4237,19 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
     #endregion HasSomeUpperCaseLetters method Unit tests
+    #region StringOccurrenceWithIndexOf
+
+    [TestMethod]
+    public void TestMethod_StringOccurrenceWithIndexOf_true_occurence_2()
+    {
+      const int expected = 8;
+      string source = "A long long time ago in a galaxy far far away";
+      string source2 = "a";
+      int result = FunctionsString.StringOccurrenceWithIndexOf(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+    #endregion StringOccurrenceWithIndexOf
+
     #endregion
 
   }

@@ -60,6 +60,10 @@ namespace FonctionsUtiles.Fred.Csharp
       result.Append("Method= string Plural(uint   number, string irregularNoun = \"\")" + newLine);
       result.Append("Method= string Plural(UInt16 number, string irregularNoun = \"\")" + newLine);
       result.Append("Method= string Plural(UInt64 number, string irregularNoun = \"\")" + newLine);
+      result.Append("Method= int StringOccurrenceWithIndexOf(string wholeString, string searchedString)" + newLine);
+      result.Append("Method= " + newLine);
+      result.Append("Method= " + newLine);
+      result.Append("Method= " + newLine);
       result.Append("Method= " + newLine);
       result.Append("Method= " + newLine);
       result.Append("Method= " + newLine);
@@ -731,12 +735,12 @@ namespace FonctionsUtiles.Fred.Csharp
       }
     }
     
-    public static int StringOccurrenceWithIndexOf(string chaineTotale, string chaineRecherchee)
+    public static int StringOccurrenceWithIndexOf(string wholeString, string searchedString)
     {
       int occurrence = 0;
-      int str2Length = chaineRecherchee.Length;
+      int str2Length = searchedString.Length;
       int index = 0;
-      while ((index = chaineTotale.IndexOf(chaineRecherchee, index, StringComparison.Ordinal)) > -1)
+      while ((index = wholeString.IndexOf(searchedString, index, StringComparison.Ordinal)) > -1)
       {
         occurrence++;
         index += str2Length;
