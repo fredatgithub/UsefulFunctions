@@ -73,7 +73,7 @@ namespace CodeGenerationWinForm
       FillComboBoxWithAssertMethods(comboBoxCustoAssertMethod);
     }
 
-  private void FillComboBoxLanguage(ComboBox cb)
+    private void FillComboBoxLanguage(ComboBox cb)
     {
       cb.Items.Clear();
       cb.Items.Add("French");
@@ -132,6 +132,33 @@ namespace CodeGenerationWinForm
       cb.Items.Add("bool");
       cb.Items.Add("bool[]");
       cb.SelectedIndex = 0;
+    }
+
+    private int MatchingComboBox(string typeString)
+    {
+      if (typeString == "int")
+      {
+        return 0;
+      }
+
+      if (typeString == "string")
+      {
+        return 2;
+      }
+
+      if (typeString == "byte")
+      {
+        return 4;
+      }
+
+      if (typeString == "bool")
+      {
+        return 6;
+      }
+      else
+      {
+        return 0;
+      }
     }
 
     private void GetWindowValue()
@@ -692,9 +719,131 @@ namespace CodeGenerationWinForm
       progressBarOtherMethods.Visible = false;
     }
 
+    private Type TypeExpected(string textInTextBox)
+    {
+      Type result = null;
+      if (textInTextBox == "true")
+      {
+        result = typeof(bool);
+      }
+
+      if (textInTextBox == "false")
+      {
+        result = typeof(bool);
+      }
+
+      if (textInTextBox == "false")
+      {
+        result = typeof(bool);
+      }
+
+      if (textInTextBox.StartsWith("\""))
+      {
+        result = typeof(string);
+      }
+
+      int tmp = 0;
+      if (int.TryParse(textInTextBox, out tmp))
+      {
+        result = typeof(int);
+      }
+
+      byte tmp2 = 0;
+      if (byte.TryParse(textInTextBox, out tmp2))
+      {
+        result = typeof(byte);
+      }
+
+      return result;
+    }
+
+    private bool TypesAreMatching(TextBox tb, ComboBox cb)
+    {
+      bool result = false;
+      switch (cb.SelectedItem.ToString())
+      {
+        case "bool":
+          if ((tb.Text == "true" || tb.Text == "false") &&
+        cb.SelectedItem.ToString() != "bool")
+          {
+            result = false;
+          }
+          else
+          {
+            result = true;
+          }
+
+          break;
+        case "string":
+          if (tb.Text.StartsWith("\"") && cb.SelectedItem.ToString() != "string")
+          {
+            result = false;
+          }
+          else
+          {
+            result = true;
+          }
+
+          break;
+        case "int":
+          int tmp = 0;
+          if (int.TryParse(tb.Text, out tmp) && cb.SelectedItem.ToString() != "int")
+          {
+            result = false;
+          }
+          else
+          {
+            result = true;
+          }
+
+          break;
+        case "byte":
+          byte tmp2 = 1;
+          if (byte.TryParse(tb.Text, out tmp2) && cb.SelectedItem.ToString() != "byte")
+          {
+            result = false;
+          }
+          else
+          {
+            result = true;
+          }
+
+          break;
+      }
+
+      return result;
+    }
+
     private void buttonCustomizedMethodGenerate_Click(object sender, EventArgs e)
     {
       // Verification of all types used with values
+      if (!TypesAreMatching(textBoxCustoExpectedValue, comboBoxCustoExpectedType))
+      {
+        string keyword = string.Empty;
+       
+        DialogResult wrongType = DisplayMessage(
+          "The type for the EXPECTED value doesn't match " +
+           comboBoxCustoExpectedType.SelectedItem
+          + "\nWould you like to fix this?",
+          "Type mismatched", MessageBoxButtons.YesNo);
+        if (wrongType == DialogResult.Yes)
+        {
+          comboBoxCustoExpectedType.SelectedIndex = MatchingComboBox(textBoxCustoExpectedValue.Text);
+        }
+      }
+
+      if (!TypesAreMatching(textBoxCustoSourceValue, comboBoxCustoSourceType))
+      {
+        DialogResult wrongType = DisplayMessage(
+          "The type for the SOURCE value should be boolean\nWould you like to fix this?",
+          "Should be boolean", MessageBoxButtons.YesNo);
+        if (wrongType == DialogResult.Yes)
+        {
+          comboBoxCustoSourceType.SelectedIndex = 6;
+        }
+      }
+
+      
 
       // Generation of the result result
       textBoxCustoResult.Text = string.Empty;
