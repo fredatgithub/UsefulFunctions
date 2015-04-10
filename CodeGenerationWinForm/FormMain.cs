@@ -61,7 +61,7 @@ namespace CodeGenerationWinForm
       FillComboBoxLanguage(comboBoxRndMethodLanguage);
       FillComboBoxLanguage(comboBoxOneMethodLanguage);
       FillComboBoxOtherMethods(comboBoxOthersMethodName);
-      FillComboBoxWithTypes(comboBoxCustoSourceType);
+      FillComboBoxWithTypes(comboBoxCustoExpectedType);
     }
 
     private void FillComboBoxLanguage(ComboBox cb)

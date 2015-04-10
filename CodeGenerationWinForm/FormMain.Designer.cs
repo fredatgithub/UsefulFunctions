@@ -108,12 +108,18 @@
       this.textBoxCustPublic = new System.Windows.Forms.TextBox();
       this.textBoxCustoAttribute = new System.Windows.Forms.TextBox();
       this.buttonCustomizedMethodGenerate = new System.Windows.Forms.Button();
-      this.comboBoxCustoSourceType = new System.Windows.Forms.ComboBox();
-      this.textBoxCustoConstantExpected = new System.Windows.Forms.TextBox();
-      this.textBoxCustoExpected = new System.Windows.Forms.TextBox();
-      this.textBoxCustoEqualSign = new System.Windows.Forms.TextBox();
+      this.comboBoxCustoExpectedType = new System.Windows.Forms.ComboBox();
+      this.textBoxCustoExpectedCosntant = new System.Windows.Forms.TextBox();
+      this.textBoxCustoExpectedWord = new System.Windows.Forms.TextBox();
+      this.textBoxCustoExpectedEqualSign = new System.Windows.Forms.TextBox();
       this.textBoxCustoExpectedValue = new System.Windows.Forms.TextBox();
-      this.textBoxCustoSemiColon = new System.Windows.Forms.TextBox();
+      this.textBoxCustoExpectedSemiColon = new System.Windows.Forms.TextBox();
+      this.textBoxCustoConstantSource = new System.Windows.Forms.TextBox();
+      this.comboBoxCustoSourceType = new System.Windows.Forms.ComboBox();
+      this.textBoxCustoSourceWord = new System.Windows.Forms.TextBox();
+      this.textBoxCustoSourceEqualSign = new System.Windows.Forms.TextBox();
+      this.textBoxCustoSourceValue = new System.Windows.Forms.TextBox();
+      this.textBoxCustoSourceSemiColon = new System.Windows.Forms.TextBox();
       this.menuStrip1.SuspendLayout();
       this.tabControlMain.SuspendLayout();
       this.tabPageOneMethod.SuspendLayout();
@@ -888,10 +894,16 @@
       this.tableLayoutPanelCustomizedMethod.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 237F));
       this.tableLayoutPanelCustomizedMethod.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 309F));
       this.tableLayoutPanelCustomizedMethod.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-      this.tableLayoutPanelCustomizedMethod.Controls.Add(this.textBoxCustoSemiColon, 5, 3);
+      this.tableLayoutPanelCustomizedMethod.Controls.Add(this.textBoxCustoSourceSemiColon, 5, 4);
+      this.tableLayoutPanelCustomizedMethod.Controls.Add(this.textBoxCustoSourceValue, 4, 4);
+      this.tableLayoutPanelCustomizedMethod.Controls.Add(this.textBoxCustoSourceEqualSign, 3, 4);
+      this.tableLayoutPanelCustomizedMethod.Controls.Add(this.textBoxCustoSourceWord, 2, 4);
+      this.tableLayoutPanelCustomizedMethod.Controls.Add(this.comboBoxCustoSourceType, 1, 4);
+      this.tableLayoutPanelCustomizedMethod.Controls.Add(this.textBoxCustoConstantSource, 0, 4);
+      this.tableLayoutPanelCustomizedMethod.Controls.Add(this.textBoxCustoExpectedSemiColon, 5, 3);
       this.tableLayoutPanelCustomizedMethod.Controls.Add(this.textBoxCustoExpectedValue, 4, 3);
-      this.tableLayoutPanelCustomizedMethod.Controls.Add(this.textBoxCustoEqualSign, 3, 3);
-      this.tableLayoutPanelCustomizedMethod.Controls.Add(this.textBoxCustoExpected, 2, 3);
+      this.tableLayoutPanelCustomizedMethod.Controls.Add(this.textBoxCustoExpectedEqualSign, 3, 3);
+      this.tableLayoutPanelCustomizedMethod.Controls.Add(this.textBoxCustoExpectedWord, 2, 3);
       this.tableLayoutPanelCustomizedMethod.Controls.Add(this.textBoxCustoResult, 0, 9);
       this.tableLayoutPanelCustomizedMethod.Controls.Add(this.textBoxCustoCloseCurlyBrace, 0, 6);
       this.tableLayoutPanelCustomizedMethod.Controls.Add(this.textBoxcustoOpen_CurlyBrace, 0, 2);
@@ -901,8 +913,8 @@
       this.tableLayoutPanelCustomizedMethod.Controls.Add(this.textBoxCustPublic, 0, 1);
       this.tableLayoutPanelCustomizedMethod.Controls.Add(this.textBoxCustoAttribute, 0, 0);
       this.tableLayoutPanelCustomizedMethod.Controls.Add(this.buttonCustomizedMethodGenerate, 4, 9);
-      this.tableLayoutPanelCustomizedMethod.Controls.Add(this.comboBoxCustoSourceType, 1, 3);
-      this.tableLayoutPanelCustomizedMethod.Controls.Add(this.textBoxCustoConstantExpected, 0, 3);
+      this.tableLayoutPanelCustomizedMethod.Controls.Add(this.comboBoxCustoExpectedType, 1, 3);
+      this.tableLayoutPanelCustomizedMethod.Controls.Add(this.textBoxCustoExpectedCosntant, 0, 3);
       this.tableLayoutPanelCustomizedMethod.Dock = System.Windows.Forms.DockStyle.Fill;
       this.tableLayoutPanelCustomizedMethod.Location = new System.Drawing.Point(0, 0);
       this.tableLayoutPanelCustomizedMethod.Name = "tableLayoutPanelCustomizedMethod";
@@ -911,8 +923,8 @@
       this.tableLayoutPanelCustomizedMethod.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
       this.tableLayoutPanelCustomizedMethod.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 51F));
       this.tableLayoutPanelCustomizedMethod.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-      this.tableLayoutPanelCustomizedMethod.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 96F));
-      this.tableLayoutPanelCustomizedMethod.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+      this.tableLayoutPanelCustomizedMethod.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+      this.tableLayoutPanelCustomizedMethod.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 116F));
       this.tableLayoutPanelCustomizedMethod.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 101F));
       this.tableLayoutPanelCustomizedMethod.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 229F));
       this.tableLayoutPanelCustomizedMethod.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
@@ -959,12 +971,12 @@
       // 
       // textBoxCustoMethodName
       // 
-      this.tableLayoutPanelCustomizedMethod.SetColumnSpan(this.textBoxCustoMethodName, 2);
+      this.tableLayoutPanelCustomizedMethod.SetColumnSpan(this.textBoxCustoMethodName, 3);
       this.textBoxCustoMethodName.Dock = System.Windows.Forms.DockStyle.Fill;
       this.textBoxCustoMethodName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.textBoxCustoMethodName.Location = new System.Drawing.Point(341, 38);
       this.textBoxCustoMethodName.Name = "textBoxCustoMethodName";
-      this.textBoxCustoMethodName.Size = new System.Drawing.Size(540, 26);
+      this.textBoxCustoMethodName.Size = new System.Drawing.Size(900, 26);
       this.textBoxCustoMethodName.TabIndex = 4;
       this.textBoxCustoMethodName.Text = "Method_Name_Returned_True_or_False_on_Condition";
       // 
@@ -1019,38 +1031,40 @@
       this.buttonCustomizedMethodGenerate.Text = "Generate";
       this.buttonCustomizedMethodGenerate.UseVisualStyleBackColor = true;
       // 
-      // comboBoxCustoSourceType
+      // comboBoxCustoExpectedType
       // 
-      this.comboBoxCustoSourceType.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.comboBoxCustoSourceType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.comboBoxCustoSourceType.FormattingEnabled = true;
-      this.comboBoxCustoSourceType.Location = new System.Drawing.Point(130, 124);
-      this.comboBoxCustoSourceType.Name = "comboBoxCustoSourceType";
-      this.comboBoxCustoSourceType.Size = new System.Drawing.Size(98, 28);
-      this.comboBoxCustoSourceType.TabIndex = 9;
+      this.comboBoxCustoExpectedType.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.comboBoxCustoExpectedType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.comboBoxCustoExpectedType.FormattingEnabled = true;
+      this.comboBoxCustoExpectedType.Location = new System.Drawing.Point(130, 124);
+      this.comboBoxCustoExpectedType.Name = "comboBoxCustoExpectedType";
+      this.comboBoxCustoExpectedType.Size = new System.Drawing.Size(98, 28);
+      this.comboBoxCustoExpectedType.TabIndex = 9;
       // 
-      // textBoxCustoConstantExpected
+      // textBoxCustoExpectedCosntant
       // 
-      this.textBoxCustoConstantExpected.Location = new System.Drawing.Point(3, 124);
-      this.textBoxCustoConstantExpected.Name = "textBoxCustoConstantExpected";
-      this.textBoxCustoConstantExpected.Size = new System.Drawing.Size(100, 22);
-      this.textBoxCustoConstantExpected.TabIndex = 10;
+      this.textBoxCustoExpectedCosntant.Location = new System.Drawing.Point(3, 124);
+      this.textBoxCustoExpectedCosntant.Name = "textBoxCustoExpectedCosntant";
+      this.textBoxCustoExpectedCosntant.Size = new System.Drawing.Size(100, 22);
+      this.textBoxCustoExpectedCosntant.TabIndex = 10;
       // 
-      // textBoxCustoExpected
+      // textBoxCustoExpectedWord
       // 
-      this.textBoxCustoExpected.Location = new System.Drawing.Point(234, 124);
-      this.textBoxCustoExpected.Name = "textBoxCustoExpected";
-      this.textBoxCustoExpected.Size = new System.Drawing.Size(100, 22);
-      this.textBoxCustoExpected.TabIndex = 11;
+      this.textBoxCustoExpectedWord.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.textBoxCustoExpectedWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.textBoxCustoExpectedWord.Location = new System.Drawing.Point(234, 124);
+      this.textBoxCustoExpectedWord.Name = "textBoxCustoExpectedWord";
+      this.textBoxCustoExpectedWord.Size = new System.Drawing.Size(101, 26);
+      this.textBoxCustoExpectedWord.TabIndex = 11;
       // 
-      // textBoxCustoEqualSign
+      // textBoxCustoExpectedEqualSign
       // 
-      this.textBoxCustoEqualSign.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.textBoxCustoEqualSign.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.textBoxCustoEqualSign.Location = new System.Drawing.Point(341, 124);
-      this.textBoxCustoEqualSign.Name = "textBoxCustoEqualSign";
-      this.textBoxCustoEqualSign.Size = new System.Drawing.Size(231, 26);
-      this.textBoxCustoEqualSign.TabIndex = 12;
+      this.textBoxCustoExpectedEqualSign.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.textBoxCustoExpectedEqualSign.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.textBoxCustoExpectedEqualSign.Location = new System.Drawing.Point(341, 124);
+      this.textBoxCustoExpectedEqualSign.Name = "textBoxCustoExpectedEqualSign";
+      this.textBoxCustoExpectedEqualSign.Size = new System.Drawing.Size(231, 26);
+      this.textBoxCustoExpectedEqualSign.TabIndex = 12;
       // 
       // textBoxCustoExpectedValue
       // 
@@ -1061,15 +1075,71 @@
       this.textBoxCustoExpectedValue.Size = new System.Drawing.Size(303, 26);
       this.textBoxCustoExpectedValue.TabIndex = 13;
       // 
-      // textBoxCustoSemiColon
+      // textBoxCustoExpectedSemiColon
       // 
-      this.textBoxCustoSemiColon.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.textBoxCustoSemiColon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.textBoxCustoSemiColon.Location = new System.Drawing.Point(887, 124);
-      this.textBoxCustoSemiColon.Name = "textBoxCustoSemiColon";
-      this.textBoxCustoSemiColon.Size = new System.Drawing.Size(354, 26);
-      this.textBoxCustoSemiColon.TabIndex = 14;
-      this.textBoxCustoSemiColon.Text = ";";
+      this.textBoxCustoExpectedSemiColon.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.textBoxCustoExpectedSemiColon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.textBoxCustoExpectedSemiColon.Location = new System.Drawing.Point(887, 124);
+      this.textBoxCustoExpectedSemiColon.Name = "textBoxCustoExpectedSemiColon";
+      this.textBoxCustoExpectedSemiColon.Size = new System.Drawing.Size(354, 26);
+      this.textBoxCustoExpectedSemiColon.TabIndex = 14;
+      this.textBoxCustoExpectedSemiColon.Text = ";";
+      // 
+      // textBoxCustoConstantSource
+      // 
+      this.textBoxCustoConstantSource.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.textBoxCustoConstantSource.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.textBoxCustoConstantSource.Location = new System.Drawing.Point(3, 157);
+      this.textBoxCustoConstantSource.Name = "textBoxCustoConstantSource";
+      this.textBoxCustoConstantSource.Size = new System.Drawing.Size(121, 26);
+      this.textBoxCustoConstantSource.TabIndex = 15;
+      // 
+      // comboBoxCustoSourceType
+      // 
+      this.comboBoxCustoSourceType.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.comboBoxCustoSourceType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.comboBoxCustoSourceType.FormattingEnabled = true;
+      this.comboBoxCustoSourceType.Location = new System.Drawing.Point(130, 157);
+      this.comboBoxCustoSourceType.Name = "comboBoxCustoSourceType";
+      this.comboBoxCustoSourceType.Size = new System.Drawing.Size(98, 28);
+      this.comboBoxCustoSourceType.TabIndex = 16;
+      // 
+      // textBoxCustoSourceWord
+      // 
+      this.textBoxCustoSourceWord.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.textBoxCustoSourceWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.textBoxCustoSourceWord.Location = new System.Drawing.Point(234, 157);
+      this.textBoxCustoSourceWord.Name = "textBoxCustoSourceWord";
+      this.textBoxCustoSourceWord.Size = new System.Drawing.Size(101, 26);
+      this.textBoxCustoSourceWord.TabIndex = 17;
+      // 
+      // textBoxCustoSourceEqualSign
+      // 
+      this.textBoxCustoSourceEqualSign.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.textBoxCustoSourceEqualSign.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.textBoxCustoSourceEqualSign.Location = new System.Drawing.Point(341, 157);
+      this.textBoxCustoSourceEqualSign.Name = "textBoxCustoSourceEqualSign";
+      this.textBoxCustoSourceEqualSign.Size = new System.Drawing.Size(231, 26);
+      this.textBoxCustoSourceEqualSign.TabIndex = 18;
+      // 
+      // textBoxCustoSourceValue
+      // 
+      this.textBoxCustoSourceValue.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.textBoxCustoSourceValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.textBoxCustoSourceValue.Location = new System.Drawing.Point(578, 157);
+      this.textBoxCustoSourceValue.Name = "textBoxCustoSourceValue";
+      this.textBoxCustoSourceValue.Size = new System.Drawing.Size(303, 26);
+      this.textBoxCustoSourceValue.TabIndex = 19;
+      // 
+      // textBoxCustoSourceSemiColon
+      // 
+      this.textBoxCustoSourceSemiColon.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.textBoxCustoSourceSemiColon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.textBoxCustoSourceSemiColon.Location = new System.Drawing.Point(887, 157);
+      this.textBoxCustoSourceSemiColon.Name = "textBoxCustoSourceSemiColon";
+      this.textBoxCustoSourceSemiColon.Size = new System.Drawing.Size(354, 26);
+      this.textBoxCustoSourceSemiColon.TabIndex = 20;
+      this.textBoxCustoSourceSemiColon.Text = ";";
       // 
       // FormMain
       // 
@@ -1189,11 +1259,17 @@
     private System.Windows.Forms.TextBox textBoxCustoCloseCurlyBrace;
     private System.Windows.Forms.TextBox textBoxcustoOpen_CurlyBrace;
     private System.Windows.Forms.Button buttonCustomizedMethodGenerate;
-    private System.Windows.Forms.ComboBox comboBoxCustoSourceType;
-    private System.Windows.Forms.TextBox textBoxCustoConstantExpected;
-    private System.Windows.Forms.TextBox textBoxCustoSemiColon;
+    private System.Windows.Forms.ComboBox comboBoxCustoExpectedType;
+    private System.Windows.Forms.TextBox textBoxCustoExpectedCosntant;
+    private System.Windows.Forms.TextBox textBoxCustoExpectedSemiColon;
     private System.Windows.Forms.TextBox textBoxCustoExpectedValue;
-    private System.Windows.Forms.TextBox textBoxCustoEqualSign;
-    private System.Windows.Forms.TextBox textBoxCustoExpected;
+    private System.Windows.Forms.TextBox textBoxCustoExpectedEqualSign;
+    private System.Windows.Forms.TextBox textBoxCustoExpectedWord;
+    private System.Windows.Forms.ComboBox comboBoxCustoSourceType;
+    private System.Windows.Forms.TextBox textBoxCustoConstantSource;
+    private System.Windows.Forms.TextBox textBoxCustoSourceSemiColon;
+    private System.Windows.Forms.TextBox textBoxCustoSourceValue;
+    private System.Windows.Forms.TextBox textBoxCustoSourceEqualSign;
+    private System.Windows.Forms.TextBox textBoxCustoSourceWord;
   }
 }
