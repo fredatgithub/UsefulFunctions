@@ -99,16 +99,21 @@
       this.progressBarOtherMethods = new System.Windows.Forms.ProgressBar();
       this.tabPageCustomized = new System.Windows.Forms.TabPage();
       this.tableLayoutPanelCustomizedMethod = new System.Windows.Forms.TableLayoutPanel();
-      this.textBoxCustoAttribute = new System.Windows.Forms.TextBox();
-      this.textBoxCustPublic = new System.Windows.Forms.TextBox();
-      this.textBoxCustoVoid = new System.Windows.Forms.TextBox();
-      this.textBoxCustoTestMethod = new System.Windows.Forms.TextBox();
-      this.textBoxCustoMethodName = new System.Windows.Forms.TextBox();
-      this.textBoxcustoOpen_CurlyBrace = new System.Windows.Forms.TextBox();
-      this.textBoxCustoCloseCurlyBrace = new System.Windows.Forms.TextBox();
-      this.buttonCustomizedMethodGenerate = new System.Windows.Forms.Button();
       this.textBoxCustoResult = new System.Windows.Forms.TextBox();
+      this.textBoxCustoCloseCurlyBrace = new System.Windows.Forms.TextBox();
+      this.textBoxcustoOpen_CurlyBrace = new System.Windows.Forms.TextBox();
+      this.textBoxCustoMethodName = new System.Windows.Forms.TextBox();
+      this.textBoxCustoTestMethod = new System.Windows.Forms.TextBox();
+      this.textBoxCustoVoid = new System.Windows.Forms.TextBox();
+      this.textBoxCustPublic = new System.Windows.Forms.TextBox();
+      this.textBoxCustoAttribute = new System.Windows.Forms.TextBox();
+      this.buttonCustomizedMethodGenerate = new System.Windows.Forms.Button();
       this.comboBoxCustoSourceType = new System.Windows.Forms.ComboBox();
+      this.textBoxCustoConstantExpected = new System.Windows.Forms.TextBox();
+      this.textBoxCustoExpected = new System.Windows.Forms.TextBox();
+      this.textBoxCustoEqualSign = new System.Windows.Forms.TextBox();
+      this.textBoxCustoExpectedValue = new System.Windows.Forms.TextBox();
+      this.textBoxCustoSemiColon = new System.Windows.Forms.TextBox();
       this.menuStrip1.SuspendLayout();
       this.tabControlMain.SuspendLayout();
       this.tabPageOneMethod.SuspendLayout();
@@ -135,7 +140,7 @@
       this.menuStrip1.Location = new System.Drawing.Point(0, 0);
       this.menuStrip1.Name = "menuStrip1";
       this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-      this.menuStrip1.Size = new System.Drawing.Size(892, 28);
+      this.menuStrip1.Size = new System.Drawing.Size(1252, 28);
       this.menuStrip1.TabIndex = 1;
       this.menuStrip1.Text = "menuStrip1";
       // 
@@ -419,7 +424,7 @@
       this.tabControlMain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.tabControlMain.Name = "tabControlMain";
       this.tabControlMain.SelectedIndex = 0;
-      this.tabControlMain.Size = new System.Drawing.Size(892, 623);
+      this.tabControlMain.Size = new System.Drawing.Size(1252, 623);
       this.tabControlMain.TabIndex = 4;
       // 
       // tabPageOneMethod
@@ -648,7 +653,7 @@
       this.tableLayoutPanelRandomMethods.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.37475F));
       this.tableLayoutPanelRandomMethods.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.62524F));
       this.tableLayoutPanelRandomMethods.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 127F));
-      this.tableLayoutPanelRandomMethods.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 122F));
+      this.tableLayoutPanelRandomMethods.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 123F));
       this.tableLayoutPanelRandomMethods.Controls.Add(this.textBoxRandomMethodResult, 0, 1);
       this.tableLayoutPanelRandomMethods.Controls.Add(this.buttonGenerateRdnMethod, 3, 0);
       this.tableLayoutPanelRandomMethods.Controls.Add(this.progressBarRandomMethods, 0, 2);
@@ -683,10 +688,10 @@
       // 
       this.buttonGenerateRdnMethod.Dock = System.Windows.Forms.DockStyle.Fill;
       this.buttonGenerateRdnMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.buttonGenerateRdnMethod.Location = new System.Drawing.Point(764, 2);
+      this.buttonGenerateRdnMethod.Location = new System.Drawing.Point(763, 2);
       this.buttonGenerateRdnMethod.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.buttonGenerateRdnMethod.Name = "buttonGenerateRdnMethod";
-      this.buttonGenerateRdnMethod.Size = new System.Drawing.Size(117, 28);
+      this.buttonGenerateRdnMethod.Size = new System.Drawing.Size(118, 28);
       this.buttonGenerateRdnMethod.TabIndex = 7;
       this.buttonGenerateRdnMethod.Text = "Generate";
       this.buttonGenerateRdnMethod.UseVisualStyleBackColor = true;
@@ -707,7 +712,7 @@
       // 
       this.textBoxNumberOfRndMethod.Dock = System.Windows.Forms.DockStyle.Fill;
       this.textBoxNumberOfRndMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.textBoxNumberOfRndMethod.Location = new System.Drawing.Point(637, 2);
+      this.textBoxNumberOfRndMethod.Location = new System.Drawing.Point(636, 2);
       this.textBoxNumberOfRndMethod.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.textBoxNumberOfRndMethod.Name = "textBoxNumberOfRndMethod";
       this.textBoxNumberOfRndMethod.Size = new System.Drawing.Size(121, 30);
@@ -732,7 +737,7 @@
       this.labelNumberOfRndMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.labelNumberOfRndMethod.Location = new System.Drawing.Point(195, 0);
       this.labelNumberOfRndMethod.Name = "labelNumberOfRndMethod";
-      this.labelNumberOfRndMethod.Size = new System.Drawing.Size(436, 32);
+      this.labelNumberOfRndMethod.Size = new System.Drawing.Size(435, 32);
       this.labelNumberOfRndMethod.TabIndex = 4;
       this.labelNumberOfRndMethod.Text = "Number of generated random method: ";
       // 
@@ -754,7 +759,7 @@
       this.tableLayoutPanelOthers.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 61F));
       this.tableLayoutPanelOthers.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
       this.tableLayoutPanelOthers.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 153F));
-      this.tableLayoutPanelOthers.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 310F));
+      this.tableLayoutPanelOthers.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 311F));
       this.tableLayoutPanelOthers.Controls.Add(this.textBoxOthersResult, 0, 1);
       this.tableLayoutPanelOthers.Controls.Add(this.buttonOthersGenerate, 5, 0);
       this.tableLayoutPanelOthers.Controls.Add(this.textBoxOthersTo, 4, 0);
@@ -790,10 +795,10 @@
       // 
       this.buttonOthersGenerate.Dock = System.Windows.Forms.DockStyle.Fill;
       this.buttonOthersGenerate.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.buttonOthersGenerate.Location = new System.Drawing.Point(576, 2);
+      this.buttonOthersGenerate.Location = new System.Drawing.Point(575, 2);
       this.buttonOthersGenerate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.buttonOthersGenerate.Name = "buttonOthersGenerate";
-      this.buttonOthersGenerate.Size = new System.Drawing.Size(305, 30);
+      this.buttonOthersGenerate.Size = new System.Drawing.Size(306, 30);
       this.buttonOthersGenerate.TabIndex = 8;
       this.buttonOthersGenerate.Text = "Generate";
       this.buttonOthersGenerate.UseVisualStyleBackColor = true;
@@ -803,7 +808,7 @@
       // 
       this.textBoxOthersTo.Dock = System.Windows.Forms.DockStyle.Fill;
       this.textBoxOthersTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.textBoxOthersTo.Location = new System.Drawing.Point(423, 2);
+      this.textBoxOthersTo.Location = new System.Drawing.Point(422, 2);
       this.textBoxOthersTo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.textBoxOthersTo.Name = "textBoxOthersTo";
       this.textBoxOthersTo.Size = new System.Drawing.Size(147, 30);
@@ -815,7 +820,7 @@
       this.labelOthersTo.AutoSize = true;
       this.labelOthersTo.Dock = System.Windows.Forms.DockStyle.Fill;
       this.labelOthersTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.labelOthersTo.Location = new System.Drawing.Point(363, 0);
+      this.labelOthersTo.Location = new System.Drawing.Point(362, 0);
       this.labelOthersTo.Name = "labelOthersTo";
       this.labelOthersTo.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
       this.labelOthersTo.Size = new System.Drawing.Size(54, 34);
@@ -826,7 +831,7 @@
       // 
       this.textBoxOthersFrom.Dock = System.Windows.Forms.DockStyle.Fill;
       this.textBoxOthersFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.textBoxOthersFrom.Location = new System.Drawing.Point(302, 2);
+      this.textBoxOthersFrom.Location = new System.Drawing.Point(301, 2);
       this.textBoxOthersFrom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.textBoxOthersFrom.Name = "textBoxOthersFrom";
       this.textBoxOthersFrom.Size = new System.Drawing.Size(55, 30);
@@ -838,7 +843,7 @@
       this.labelOthersFrom.AutoSize = true;
       this.labelOthersFrom.Dock = System.Windows.Forms.DockStyle.Fill;
       this.labelOthersFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.labelOthersFrom.Location = new System.Drawing.Point(225, 0);
+      this.labelOthersFrom.Location = new System.Drawing.Point(224, 0);
       this.labelOthersFrom.Name = "labelOthersFrom";
       this.labelOthersFrom.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
       this.labelOthersFrom.Size = new System.Drawing.Size(71, 34);
@@ -851,7 +856,7 @@
       this.comboBoxOthersMethodName.FormattingEnabled = true;
       this.comboBoxOthersMethodName.Location = new System.Drawing.Point(3, 3);
       this.comboBoxOthersMethodName.Name = "comboBoxOthersMethodName";
-      this.comboBoxOthersMethodName.Size = new System.Drawing.Size(216, 24);
+      this.comboBoxOthersMethodName.Size = new System.Drawing.Size(215, 24);
       this.comboBoxOthersMethodName.TabIndex = 0;
       // 
       // progressBarOtherMethods
@@ -869,19 +874,24 @@
       this.tabPageCustomized.Controls.Add(this.tableLayoutPanelCustomizedMethod);
       this.tabPageCustomized.Location = new System.Drawing.Point(4, 25);
       this.tabPageCustomized.Name = "tabPageCustomized";
-      this.tabPageCustomized.Size = new System.Drawing.Size(884, 594);
+      this.tabPageCustomized.Size = new System.Drawing.Size(1244, 594);
       this.tabPageCustomized.TabIndex = 4;
       this.tabPageCustomized.Text = "Customized Method";
       this.tabPageCustomized.UseVisualStyleBackColor = true;
       // 
       // tableLayoutPanelCustomizedMethod
       // 
-      this.tableLayoutPanelCustomizedMethod.ColumnCount = 5;
+      this.tableLayoutPanelCustomizedMethod.ColumnCount = 6;
       this.tableLayoutPanelCustomizedMethod.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 127F));
-      this.tableLayoutPanelCustomizedMethod.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 59F));
-      this.tableLayoutPanelCustomizedMethod.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 111F));
-      this.tableLayoutPanelCustomizedMethod.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 278F));
-      this.tableLayoutPanelCustomizedMethod.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
+      this.tableLayoutPanelCustomizedMethod.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 104F));
+      this.tableLayoutPanelCustomizedMethod.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 107F));
+      this.tableLayoutPanelCustomizedMethod.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 237F));
+      this.tableLayoutPanelCustomizedMethod.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 309F));
+      this.tableLayoutPanelCustomizedMethod.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+      this.tableLayoutPanelCustomizedMethod.Controls.Add(this.textBoxCustoSemiColon, 5, 3);
+      this.tableLayoutPanelCustomizedMethod.Controls.Add(this.textBoxCustoExpectedValue, 4, 3);
+      this.tableLayoutPanelCustomizedMethod.Controls.Add(this.textBoxCustoEqualSign, 3, 3);
+      this.tableLayoutPanelCustomizedMethod.Controls.Add(this.textBoxCustoExpected, 2, 3);
       this.tableLayoutPanelCustomizedMethod.Controls.Add(this.textBoxCustoResult, 0, 9);
       this.tableLayoutPanelCustomizedMethod.Controls.Add(this.textBoxCustoCloseCurlyBrace, 0, 6);
       this.tableLayoutPanelCustomizedMethod.Controls.Add(this.textBoxcustoOpen_CurlyBrace, 0, 2);
@@ -891,7 +901,8 @@
       this.tableLayoutPanelCustomizedMethod.Controls.Add(this.textBoxCustPublic, 0, 1);
       this.tableLayoutPanelCustomizedMethod.Controls.Add(this.textBoxCustoAttribute, 0, 0);
       this.tableLayoutPanelCustomizedMethod.Controls.Add(this.buttonCustomizedMethodGenerate, 4, 9);
-      this.tableLayoutPanelCustomizedMethod.Controls.Add(this.comboBoxCustoSourceType, 0, 3);
+      this.tableLayoutPanelCustomizedMethod.Controls.Add(this.comboBoxCustoSourceType, 1, 3);
+      this.tableLayoutPanelCustomizedMethod.Controls.Add(this.textBoxCustoConstantExpected, 0, 3);
       this.tableLayoutPanelCustomizedMethod.Dock = System.Windows.Forms.DockStyle.Fill;
       this.tableLayoutPanelCustomizedMethod.Location = new System.Drawing.Point(0, 0);
       this.tableLayoutPanelCustomizedMethod.Name = "tableLayoutPanelCustomizedMethod";
@@ -906,94 +917,9 @@
       this.tableLayoutPanelCustomizedMethod.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 229F));
       this.tableLayoutPanelCustomizedMethod.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
       this.tableLayoutPanelCustomizedMethod.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-      this.tableLayoutPanelCustomizedMethod.Size = new System.Drawing.Size(884, 594);
+      this.tableLayoutPanelCustomizedMethod.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+      this.tableLayoutPanelCustomizedMethod.Size = new System.Drawing.Size(1244, 594);
       this.tableLayoutPanelCustomizedMethod.TabIndex = 0;
-      // 
-      // textBoxCustoAttribute
-      // 
-      this.tableLayoutPanelCustomizedMethod.SetColumnSpan(this.textBoxCustoAttribute, 5);
-      this.textBoxCustoAttribute.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.textBoxCustoAttribute.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.textBoxCustoAttribute.Location = new System.Drawing.Point(3, 3);
-      this.textBoxCustoAttribute.Name = "textBoxCustoAttribute";
-      this.textBoxCustoAttribute.Size = new System.Drawing.Size(878, 26);
-      this.textBoxCustoAttribute.TabIndex = 0;
-      this.textBoxCustoAttribute.Text = "[TestMethod]";
-      // 
-      // textBoxCustPublic
-      // 
-      this.textBoxCustPublic.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.textBoxCustPublic.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.textBoxCustPublic.Location = new System.Drawing.Point(3, 38);
-      this.textBoxCustPublic.Name = "textBoxCustPublic";
-      this.textBoxCustPublic.Size = new System.Drawing.Size(121, 26);
-      this.textBoxCustPublic.TabIndex = 1;
-      this.textBoxCustPublic.Text = "Public";
-      // 
-      // textBoxCustoVoid
-      // 
-      this.textBoxCustoVoid.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.textBoxCustoVoid.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.textBoxCustoVoid.Location = new System.Drawing.Point(130, 38);
-      this.textBoxCustoVoid.Name = "textBoxCustoVoid";
-      this.textBoxCustoVoid.Size = new System.Drawing.Size(53, 26);
-      this.textBoxCustoVoid.TabIndex = 2;
-      this.textBoxCustoVoid.Text = "Void";
-      // 
-      // textBoxCustoTestMethod
-      // 
-      this.textBoxCustoTestMethod.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.textBoxCustoTestMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.textBoxCustoTestMethod.Location = new System.Drawing.Point(189, 38);
-      this.textBoxCustoTestMethod.Name = "textBoxCustoTestMethod";
-      this.textBoxCustoTestMethod.Size = new System.Drawing.Size(105, 26);
-      this.textBoxCustoTestMethod.TabIndex = 3;
-      this.textBoxCustoTestMethod.Text = "TestMethod_";
-      // 
-      // textBoxCustoMethodName
-      // 
-      this.tableLayoutPanelCustomizedMethod.SetColumnSpan(this.textBoxCustoMethodName, 2);
-      this.textBoxCustoMethodName.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.textBoxCustoMethodName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.textBoxCustoMethodName.Location = new System.Drawing.Point(300, 38);
-      this.textBoxCustoMethodName.Name = "textBoxCustoMethodName";
-      this.textBoxCustoMethodName.Size = new System.Drawing.Size(581, 26);
-      this.textBoxCustoMethodName.TabIndex = 4;
-      this.textBoxCustoMethodName.Text = "Method_Name_Returned_True_or_False_on_Condition";
-      // 
-      // textBoxcustoOpen_CurlyBrace
-      // 
-      this.tableLayoutPanelCustomizedMethod.SetColumnSpan(this.textBoxcustoOpen_CurlyBrace, 5);
-      this.textBoxcustoOpen_CurlyBrace.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.textBoxcustoOpen_CurlyBrace.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.textBoxcustoOpen_CurlyBrace.Location = new System.Drawing.Point(3, 73);
-      this.textBoxcustoOpen_CurlyBrace.Name = "textBoxcustoOpen_CurlyBrace";
-      this.textBoxcustoOpen_CurlyBrace.ReadOnly = true;
-      this.textBoxcustoOpen_CurlyBrace.Size = new System.Drawing.Size(878, 26);
-      this.textBoxcustoOpen_CurlyBrace.TabIndex = 5;
-      this.textBoxcustoOpen_CurlyBrace.Text = "{";
-      // 
-      // textBoxCustoCloseCurlyBrace
-      // 
-      this.tableLayoutPanelCustomizedMethod.SetColumnSpan(this.textBoxCustoCloseCurlyBrace, 5);
-      this.textBoxCustoCloseCurlyBrace.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.textBoxCustoCloseCurlyBrace.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.textBoxCustoCloseCurlyBrace.Location = new System.Drawing.Point(3, 313);
-      this.textBoxCustoCloseCurlyBrace.Name = "textBoxCustoCloseCurlyBrace";
-      this.textBoxCustoCloseCurlyBrace.ReadOnly = true;
-      this.textBoxCustoCloseCurlyBrace.Size = new System.Drawing.Size(878, 26);
-      this.textBoxCustoCloseCurlyBrace.TabIndex = 6;
-      this.textBoxCustoCloseCurlyBrace.Text = "}";
-      // 
-      // buttonCustomizedMethodGenerate
-      // 
-      this.buttonCustomizedMethodGenerate.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.buttonCustomizedMethodGenerate.Location = new System.Drawing.Point(578, 723);
-      this.buttonCustomizedMethodGenerate.Name = "buttonCustomizedMethodGenerate";
-      this.buttonCustomizedMethodGenerate.Size = new System.Drawing.Size(303, 14);
-      this.buttonCustomizedMethodGenerate.TabIndex = 7;
-      this.buttonCustomizedMethodGenerate.Text = "Generate";
-      this.buttonCustomizedMethodGenerate.UseVisualStyleBackColor = true;
       // 
       // textBoxCustoResult
       // 
@@ -1007,21 +933,149 @@
       this.textBoxCustoResult.TabIndex = 8;
       this.textBoxCustoResult.Text = "Void";
       // 
+      // textBoxCustoCloseCurlyBrace
+      // 
+      this.tableLayoutPanelCustomizedMethod.SetColumnSpan(this.textBoxCustoCloseCurlyBrace, 6);
+      this.textBoxCustoCloseCurlyBrace.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.textBoxCustoCloseCurlyBrace.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.textBoxCustoCloseCurlyBrace.Location = new System.Drawing.Point(3, 313);
+      this.textBoxCustoCloseCurlyBrace.Name = "textBoxCustoCloseCurlyBrace";
+      this.textBoxCustoCloseCurlyBrace.ReadOnly = true;
+      this.textBoxCustoCloseCurlyBrace.Size = new System.Drawing.Size(1238, 26);
+      this.textBoxCustoCloseCurlyBrace.TabIndex = 6;
+      this.textBoxCustoCloseCurlyBrace.Text = "}";
+      // 
+      // textBoxcustoOpen_CurlyBrace
+      // 
+      this.tableLayoutPanelCustomizedMethod.SetColumnSpan(this.textBoxcustoOpen_CurlyBrace, 6);
+      this.textBoxcustoOpen_CurlyBrace.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.textBoxcustoOpen_CurlyBrace.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.textBoxcustoOpen_CurlyBrace.Location = new System.Drawing.Point(3, 73);
+      this.textBoxcustoOpen_CurlyBrace.Name = "textBoxcustoOpen_CurlyBrace";
+      this.textBoxcustoOpen_CurlyBrace.ReadOnly = true;
+      this.textBoxcustoOpen_CurlyBrace.Size = new System.Drawing.Size(1238, 26);
+      this.textBoxcustoOpen_CurlyBrace.TabIndex = 5;
+      this.textBoxcustoOpen_CurlyBrace.Text = "{";
+      // 
+      // textBoxCustoMethodName
+      // 
+      this.tableLayoutPanelCustomizedMethod.SetColumnSpan(this.textBoxCustoMethodName, 2);
+      this.textBoxCustoMethodName.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.textBoxCustoMethodName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.textBoxCustoMethodName.Location = new System.Drawing.Point(341, 38);
+      this.textBoxCustoMethodName.Name = "textBoxCustoMethodName";
+      this.textBoxCustoMethodName.Size = new System.Drawing.Size(540, 26);
+      this.textBoxCustoMethodName.TabIndex = 4;
+      this.textBoxCustoMethodName.Text = "Method_Name_Returned_True_or_False_on_Condition";
+      // 
+      // textBoxCustoTestMethod
+      // 
+      this.textBoxCustoTestMethod.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.textBoxCustoTestMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.textBoxCustoTestMethod.Location = new System.Drawing.Point(234, 38);
+      this.textBoxCustoTestMethod.Name = "textBoxCustoTestMethod";
+      this.textBoxCustoTestMethod.Size = new System.Drawing.Size(101, 26);
+      this.textBoxCustoTestMethod.TabIndex = 3;
+      this.textBoxCustoTestMethod.Text = "TestMethod_";
+      // 
+      // textBoxCustoVoid
+      // 
+      this.textBoxCustoVoid.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.textBoxCustoVoid.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.textBoxCustoVoid.Location = new System.Drawing.Point(130, 38);
+      this.textBoxCustoVoid.Name = "textBoxCustoVoid";
+      this.textBoxCustoVoid.Size = new System.Drawing.Size(98, 26);
+      this.textBoxCustoVoid.TabIndex = 2;
+      this.textBoxCustoVoid.Text = "Void";
+      // 
+      // textBoxCustPublic
+      // 
+      this.textBoxCustPublic.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.textBoxCustPublic.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.textBoxCustPublic.Location = new System.Drawing.Point(3, 38);
+      this.textBoxCustPublic.Name = "textBoxCustPublic";
+      this.textBoxCustPublic.Size = new System.Drawing.Size(121, 26);
+      this.textBoxCustPublic.TabIndex = 1;
+      this.textBoxCustPublic.Text = "Public";
+      // 
+      // textBoxCustoAttribute
+      // 
+      this.tableLayoutPanelCustomizedMethod.SetColumnSpan(this.textBoxCustoAttribute, 6);
+      this.textBoxCustoAttribute.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.textBoxCustoAttribute.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.textBoxCustoAttribute.Location = new System.Drawing.Point(3, 3);
+      this.textBoxCustoAttribute.Name = "textBoxCustoAttribute";
+      this.textBoxCustoAttribute.Size = new System.Drawing.Size(1238, 26);
+      this.textBoxCustoAttribute.TabIndex = 0;
+      this.textBoxCustoAttribute.Text = "[TestMethod]";
+      // 
+      // buttonCustomizedMethodGenerate
+      // 
+      this.buttonCustomizedMethodGenerate.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.buttonCustomizedMethodGenerate.Location = new System.Drawing.Point(578, 723);
+      this.buttonCustomizedMethodGenerate.Name = "buttonCustomizedMethodGenerate";
+      this.buttonCustomizedMethodGenerate.Size = new System.Drawing.Size(303, 14);
+      this.buttonCustomizedMethodGenerate.TabIndex = 7;
+      this.buttonCustomizedMethodGenerate.Text = "Generate";
+      this.buttonCustomizedMethodGenerate.UseVisualStyleBackColor = true;
+      // 
       // comboBoxCustoSourceType
       // 
       this.comboBoxCustoSourceType.Dock = System.Windows.Forms.DockStyle.Fill;
       this.comboBoxCustoSourceType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.comboBoxCustoSourceType.FormattingEnabled = true;
-      this.comboBoxCustoSourceType.Location = new System.Drawing.Point(3, 124);
+      this.comboBoxCustoSourceType.Location = new System.Drawing.Point(130, 124);
       this.comboBoxCustoSourceType.Name = "comboBoxCustoSourceType";
-      this.comboBoxCustoSourceType.Size = new System.Drawing.Size(121, 28);
+      this.comboBoxCustoSourceType.Size = new System.Drawing.Size(98, 28);
       this.comboBoxCustoSourceType.TabIndex = 9;
+      // 
+      // textBoxCustoConstantExpected
+      // 
+      this.textBoxCustoConstantExpected.Location = new System.Drawing.Point(3, 124);
+      this.textBoxCustoConstantExpected.Name = "textBoxCustoConstantExpected";
+      this.textBoxCustoConstantExpected.Size = new System.Drawing.Size(100, 22);
+      this.textBoxCustoConstantExpected.TabIndex = 10;
+      // 
+      // textBoxCustoExpected
+      // 
+      this.textBoxCustoExpected.Location = new System.Drawing.Point(234, 124);
+      this.textBoxCustoExpected.Name = "textBoxCustoExpected";
+      this.textBoxCustoExpected.Size = new System.Drawing.Size(100, 22);
+      this.textBoxCustoExpected.TabIndex = 11;
+      // 
+      // textBoxCustoEqualSign
+      // 
+      this.textBoxCustoEqualSign.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.textBoxCustoEqualSign.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.textBoxCustoEqualSign.Location = new System.Drawing.Point(341, 124);
+      this.textBoxCustoEqualSign.Name = "textBoxCustoEqualSign";
+      this.textBoxCustoEqualSign.Size = new System.Drawing.Size(231, 26);
+      this.textBoxCustoEqualSign.TabIndex = 12;
+      // 
+      // textBoxCustoExpectedValue
+      // 
+      this.textBoxCustoExpectedValue.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.textBoxCustoExpectedValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.textBoxCustoExpectedValue.Location = new System.Drawing.Point(578, 124);
+      this.textBoxCustoExpectedValue.Name = "textBoxCustoExpectedValue";
+      this.textBoxCustoExpectedValue.Size = new System.Drawing.Size(303, 26);
+      this.textBoxCustoExpectedValue.TabIndex = 13;
+      // 
+      // textBoxCustoSemiColon
+      // 
+      this.textBoxCustoSemiColon.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.textBoxCustoSemiColon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.textBoxCustoSemiColon.Location = new System.Drawing.Point(887, 124);
+      this.textBoxCustoSemiColon.Name = "textBoxCustoSemiColon";
+      this.textBoxCustoSemiColon.Size = new System.Drawing.Size(354, 26);
+      this.textBoxCustoSemiColon.TabIndex = 14;
+      this.textBoxCustoSemiColon.Text = ";";
       // 
       // FormMain
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(892, 651);
+      this.ClientSize = new System.Drawing.Size(1252, 651);
       this.Controls.Add(this.tabControlMain);
       this.Controls.Add(this.menuStrip1);
       this.MainMenuStrip = this.menuStrip1;
@@ -1136,5 +1190,10 @@
     private System.Windows.Forms.TextBox textBoxcustoOpen_CurlyBrace;
     private System.Windows.Forms.Button buttonCustomizedMethodGenerate;
     private System.Windows.Forms.ComboBox comboBoxCustoSourceType;
+    private System.Windows.Forms.TextBox textBoxCustoConstantExpected;
+    private System.Windows.Forms.TextBox textBoxCustoSemiColon;
+    private System.Windows.Forms.TextBox textBoxCustoExpectedValue;
+    private System.Windows.Forms.TextBox textBoxCustoEqualSign;
+    private System.Windows.Forms.TextBox textBoxCustoExpected;
   }
 }

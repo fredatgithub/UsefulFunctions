@@ -4401,7 +4401,8 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_IsPalindrome_several_palindromes_with_removal_of_space()
     {
       const bool expected = true;
-      List<string> sourceWords = new List<string> { "esope reste ici et se repose", "éric notre valet alla te laver ton ciré" };
+      List<string> sourceWords = new List<string> {
+        "esope reste ici et se repose", "éric notre valet alla te laver ton ciré" };
       foreach (string source in sourceWords)
       {
         bool result = FunctionsString.IsPalindrome(source, true);
