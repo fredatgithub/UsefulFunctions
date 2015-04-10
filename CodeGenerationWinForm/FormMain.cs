@@ -67,15 +67,50 @@ namespace CodeGenerationWinForm
       FillComboBoxLanguage(comboBoxOneMethodLanguage);
       FillComboBoxOtherMethods(comboBoxOthersMethodName);
       FillComboBoxWithTypes(comboBoxCustoExpectedType);
+      FillComboBoxWithTypes(comboBoxCustoSourceType);
+      FillComboBoxWithTypes(comboBoxCustoResultReturnedType);
+      FillComboBoxWithDllMethods(comboBoxCustoResultFunctionClass);
+      FillComboBoxWithAssertMethods(comboBoxCustoAssertMethod);
     }
 
-    private void FillComboBoxLanguage(ComboBox cb)
+  private void FillComboBoxLanguage(ComboBox cb)
     {
       cb.Items.Clear();
       cb.Items.Add("French");
       cb.Items.Add("English");
       cb.Items.Add("Both French and English");
-      cb.SelectedIndex = 2;
+      cb.SelectedIndex = 0;
+    }
+
+    private void FillComboBoxWithDllMethods(ComboBox cb)
+    {
+      cb.Items.Clear();
+      cb.Items.Add("FunctionsFiles");
+      cb.Items.Add("FunctionsMath");
+      cb.Items.Add("FunctionsString");
+      cb.Items.Add("FunctionsUseful");
+      cb.SelectedIndex = 0;
+    }
+
+    private void FillComboBoxWithAssertMethods(ComboBox cb)
+    {
+      cb.Items.Clear();
+      cb.Items.Add("AreEqual");
+      cb.Items.Add("AreNotEqual");
+      cb.Items.Add("IsTrue");
+      cb.Items.Add("IsFalse");
+      cb.Items.Add("AreNotSame");
+      cb.Items.Add("AreSame");
+      cb.Items.Add("Equals");
+      cb.Items.Add("Fail");
+      cb.Items.Add("Inconclusive");
+      cb.Items.Add("IsInstanceOfType");
+      cb.Items.Add("IsNotInstanceOfType");
+      cb.Items.Add("IsNotNull");
+      cb.Items.Add("IsNull");
+      cb.Items.Add("ReferenceEquals");
+      cb.Items.Add("ReplaceNullChars");
+      cb.SelectedIndex = 0;
     }
 
     private void FillComboBoxOtherMethods(ComboBox cb)
@@ -149,23 +184,26 @@ namespace CodeGenerationWinForm
 
     private void copyToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      // first tab: textBoxOneMethodNumber
+      // first tab: One Method Number
       CopytToClipboard(textBoxCodeGeneratedResult, "no text");
       CopytToClipboard(textBoxOneMethodNumber, "no number");
 
-      // second tab: textBoxRangeMethods 
+      // second tab: Several Range Methods 
       CopytToClipboard(textBoxRangeMethods, "no text");
       CopytToClipboard(textBoxFromNumber, "no number");
       CopytToClipboard(textBoxToNumber, "no number");
 
-      // third tab: textBoxRandomMethodResult
+      // third tab: Random Method
       CopytToClipboard(textBoxRandomMethodResult, "no text");
       CopytToClipboard(textBoxNumberOfRndMethod, "no number");
 
-      // fourth tab: textBoxOthersResult
+      // fourth tab: Other Result
       CopytToClipboard(textBoxOthersResult, "no text");
       CopytToClipboard(textBoxOthersFrom, "no number");
       CopytToClipboard(textBoxOthersTo, "no number");
+
+      // fifth tab: Customized Method
+      CopytToClipboard(textBoxCustoResult, "no text");
     }
 
     private void CopytToClipboard(TextBox tb, string message = "nothing")
@@ -566,6 +604,13 @@ namespace CodeGenerationWinForm
             textBoxOthersTo.SelectAll();
           }
           break;
+        case "TabPage: {Customized Method}":
+          if (textBoxCustoResult == ActiveControl)
+          {
+            textBoxCustoResult.SelectAll();
+          }
+
+          break;
       }
     }
 
@@ -643,6 +688,9 @@ namespace CodeGenerationWinForm
 
     private void buttonCustomizedMethodGenerate_Click(object sender, EventArgs e)
     {
+      // Verification of all types used with values
+
+      // Generation of the result result
       textBoxCustoResult.Text = string.Empty;
       StringBuilder result = new StringBuilder();
       // next line ATTRIBUTE
@@ -731,26 +779,7 @@ namespace CodeGenerationWinForm
       result.Append(textBoxCustoCloseCurlyBrace.Text);
       result.Append(carriageReturn);
 
-
-
-
       textBoxCustoResult.Text = result.ToString();
-    }
-
-    private void buttonCustoSelectAll_Click(object sender, EventArgs e)
-    {
-      if (textBoxCustoResult.Text != string.Empty)
-      {
-        textBoxCustoResult.SelectAll();
-      }
-    }
-
-    private void buttonCustoCopyToClipBoard_Click(object sender, EventArgs e)
-    {
-      if (textBoxCustoResult.Text != string.Empty)
-      {
-
-      }
     }
   }
 }

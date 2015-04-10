@@ -133,8 +133,6 @@
       this.textBoxCustoAssertComma = new System.Windows.Forms.TextBox();
       this.textBoxCustoAssertExpectedWord = new System.Windows.Forms.TextBox();
       this.textBoxCustoAssertClosingParenthesis = new System.Windows.Forms.TextBox();
-      this.buttonCustoSelectAll = new System.Windows.Forms.Button();
-      this.buttonCustoCopyToClipBoard = new System.Windows.Forms.Button();
       this.menuStrip1.SuspendLayout();
       this.tabControlMain.SuspendLayout();
       this.tabPageOneMethod.SuspendLayout();
@@ -767,7 +765,7 @@
       this.tabPageOthers.Controls.Add(this.tableLayoutPanelOthers);
       this.tabPageOthers.Location = new System.Drawing.Point(4, 25);
       this.tabPageOthers.Name = "tabPageOthers";
-      this.tabPageOthers.Size = new System.Drawing.Size(884, 594);
+      this.tabPageOthers.Size = new System.Drawing.Size(1244, 613);
       this.tabPageOthers.TabIndex = 3;
       this.tabPageOthers.Text = "Others";
       this.tabPageOthers.UseVisualStyleBackColor = true;
@@ -796,7 +794,7 @@
       this.tableLayoutPanelOthers.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.933682F));
       this.tableLayoutPanelOthers.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 94.06631F));
       this.tableLayoutPanelOthers.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-      this.tableLayoutPanelOthers.Size = new System.Drawing.Size(884, 594);
+      this.tableLayoutPanelOthers.Size = new System.Drawing.Size(1244, 613);
       this.tableLayoutPanelOthers.TabIndex = 0;
       // 
       // textBoxOthersResult
@@ -804,22 +802,22 @@
       this.tableLayoutPanelOthers.SetColumnSpan(this.textBoxOthersResult, 6);
       this.textBoxOthersResult.Dock = System.Windows.Forms.DockStyle.Fill;
       this.textBoxOthersResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.textBoxOthersResult.Location = new System.Drawing.Point(3, 36);
+      this.textBoxOthersResult.Location = new System.Drawing.Point(3, 37);
       this.textBoxOthersResult.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.textBoxOthersResult.Multiline = true;
       this.textBoxOthersResult.Name = "textBoxOthersResult";
       this.textBoxOthersResult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-      this.textBoxOthersResult.Size = new System.Drawing.Size(878, 535);
+      this.textBoxOthersResult.Size = new System.Drawing.Size(1238, 553);
       this.textBoxOthersResult.TabIndex = 9;
       // 
       // buttonOthersGenerate
       // 
       this.buttonOthersGenerate.Dock = System.Windows.Forms.DockStyle.Fill;
       this.buttonOthersGenerate.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.buttonOthersGenerate.Location = new System.Drawing.Point(575, 2);
+      this.buttonOthersGenerate.Location = new System.Drawing.Point(935, 2);
       this.buttonOthersGenerate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.buttonOthersGenerate.Name = "buttonOthersGenerate";
-      this.buttonOthersGenerate.Size = new System.Drawing.Size(306, 30);
+      this.buttonOthersGenerate.Size = new System.Drawing.Size(306, 31);
       this.buttonOthersGenerate.TabIndex = 8;
       this.buttonOthersGenerate.Text = "Generate";
       this.buttonOthersGenerate.UseVisualStyleBackColor = true;
@@ -829,7 +827,7 @@
       // 
       this.textBoxOthersTo.Dock = System.Windows.Forms.DockStyle.Fill;
       this.textBoxOthersTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.textBoxOthersTo.Location = new System.Drawing.Point(422, 2);
+      this.textBoxOthersTo.Location = new System.Drawing.Point(782, 2);
       this.textBoxOthersTo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.textBoxOthersTo.Name = "textBoxOthersTo";
       this.textBoxOthersTo.Size = new System.Drawing.Size(147, 30);
@@ -841,10 +839,10 @@
       this.labelOthersTo.AutoSize = true;
       this.labelOthersTo.Dock = System.Windows.Forms.DockStyle.Fill;
       this.labelOthersTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.labelOthersTo.Location = new System.Drawing.Point(362, 0);
+      this.labelOthersTo.Location = new System.Drawing.Point(722, 0);
       this.labelOthersTo.Name = "labelOthersTo";
       this.labelOthersTo.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-      this.labelOthersTo.Size = new System.Drawing.Size(54, 34);
+      this.labelOthersTo.Size = new System.Drawing.Size(54, 35);
       this.labelOthersTo.TabIndex = 6;
       this.labelOthersTo.Text = "To: ";
       // 
@@ -852,7 +850,7 @@
       // 
       this.textBoxOthersFrom.Dock = System.Windows.Forms.DockStyle.Fill;
       this.textBoxOthersFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.textBoxOthersFrom.Location = new System.Drawing.Point(301, 2);
+      this.textBoxOthersFrom.Location = new System.Drawing.Point(661, 2);
       this.textBoxOthersFrom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.textBoxOthersFrom.Name = "textBoxOthersFrom";
       this.textBoxOthersFrom.Size = new System.Drawing.Size(55, 30);
@@ -864,10 +862,10 @@
       this.labelOthersFrom.AutoSize = true;
       this.labelOthersFrom.Dock = System.Windows.Forms.DockStyle.Fill;
       this.labelOthersFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.labelOthersFrom.Location = new System.Drawing.Point(224, 0);
+      this.labelOthersFrom.Location = new System.Drawing.Point(491, 0);
       this.labelOthersFrom.Name = "labelOthersFrom";
       this.labelOthersFrom.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-      this.labelOthersFrom.Size = new System.Drawing.Size(71, 34);
+      this.labelOthersFrom.Size = new System.Drawing.Size(164, 35);
       this.labelOthersFrom.TabIndex = 3;
       this.labelOthersFrom.Text = "From: ";
       // 
@@ -877,16 +875,16 @@
       this.comboBoxOthersMethodName.FormattingEnabled = true;
       this.comboBoxOthersMethodName.Location = new System.Drawing.Point(3, 3);
       this.comboBoxOthersMethodName.Name = "comboBoxOthersMethodName";
-      this.comboBoxOthersMethodName.Size = new System.Drawing.Size(215, 24);
+      this.comboBoxOthersMethodName.Size = new System.Drawing.Size(482, 24);
       this.comboBoxOthersMethodName.TabIndex = 0;
       // 
       // progressBarOtherMethods
       // 
       this.tableLayoutPanelOthers.SetColumnSpan(this.progressBarOtherMethods, 7);
       this.progressBarOtherMethods.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.progressBarOtherMethods.Location = new System.Drawing.Point(3, 576);
+      this.progressBarOtherMethods.Location = new System.Drawing.Point(3, 595);
       this.progressBarOtherMethods.Name = "progressBarOtherMethods";
-      this.progressBarOtherMethods.Size = new System.Drawing.Size(878, 15);
+      this.progressBarOtherMethods.Size = new System.Drawing.Size(1238, 15);
       this.progressBarOtherMethods.TabIndex = 10;
       this.progressBarOtherMethods.Visible = false;
       // 
@@ -910,8 +908,6 @@
       this.tableLayoutPanelCustomizedMethod.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 309F));
       this.tableLayoutPanelCustomizedMethod.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 141F));
       this.tableLayoutPanelCustomizedMethod.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 115F));
-      this.tableLayoutPanelCustomizedMethod.Controls.Add(this.buttonCustoCopyToClipBoard, 4, 8);
-      this.tableLayoutPanelCustomizedMethod.Controls.Add(this.buttonCustoSelectAll, 2, 8);
       this.tableLayoutPanelCustomizedMethod.Controls.Add(this.textBoxCustoAssertClosingParenthesis, 6, 6);
       this.tableLayoutPanelCustomizedMethod.Controls.Add(this.textBoxCustoAssertExpectedWord, 5, 6);
       this.tableLayoutPanelCustomizedMethod.Controls.Add(this.textBoxCustoAssertComma, 4, 6);
@@ -968,7 +964,7 @@
       // 
       this.tableLayoutPanelCustomizedMethod.SetColumnSpan(this.textBoxCustoResult, 7);
       this.textBoxCustoResult.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.textBoxCustoResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.textBoxCustoResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.textBoxCustoResult.Location = new System.Drawing.Point(3, 338);
       this.textBoxCustoResult.Multiline = true;
       this.textBoxCustoResult.Name = "textBoxCustoResult";
@@ -978,13 +974,13 @@
       // 
       // textBoxCustoCloseCurlyBrace
       // 
-      this.tableLayoutPanelCustomizedMethod.SetColumnSpan(this.textBoxCustoCloseCurlyBrace, 6);
+      this.tableLayoutPanelCustomizedMethod.SetColumnSpan(this.textBoxCustoCloseCurlyBrace, 7);
       this.textBoxCustoCloseCurlyBrace.Dock = System.Windows.Forms.DockStyle.Fill;
       this.textBoxCustoCloseCurlyBrace.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.textBoxCustoCloseCurlyBrace.Location = new System.Drawing.Point(3, 257);
       this.textBoxCustoCloseCurlyBrace.Name = "textBoxCustoCloseCurlyBrace";
       this.textBoxCustoCloseCurlyBrace.ReadOnly = true;
-      this.textBoxCustoCloseCurlyBrace.Size = new System.Drawing.Size(1019, 26);
+      this.textBoxCustoCloseCurlyBrace.Size = new System.Drawing.Size(1238, 26);
       this.textBoxCustoCloseCurlyBrace.TabIndex = 6;
       this.textBoxCustoCloseCurlyBrace.Text = "}";
       // 
@@ -1318,32 +1314,6 @@
       this.textBoxCustoAssertClosingParenthesis.TabIndex = 34;
       this.textBoxCustoAssertClosingParenthesis.Text = ");";
       // 
-      // buttonCustoSelectAll
-      // 
-      this.tableLayoutPanelCustomizedMethod.SetColumnSpan(this.buttonCustoSelectAll, 2);
-      this.buttonCustoSelectAll.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.buttonCustoSelectAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.buttonCustoSelectAll.Location = new System.Drawing.Point(234, 287);
-      this.buttonCustoSelectAll.Name = "buttonCustoSelectAll";
-      this.buttonCustoSelectAll.Size = new System.Drawing.Size(338, 45);
-      this.buttonCustoSelectAll.TabIndex = 35;
-      this.buttonCustoSelectAll.Text = "Select All";
-      this.buttonCustoSelectAll.UseVisualStyleBackColor = true;
-      this.buttonCustoSelectAll.Click += new System.EventHandler(this.buttonCustoSelectAll_Click);
-      // 
-      // buttonCustoCopyToClipBoard
-      // 
-      this.tableLayoutPanelCustomizedMethod.SetColumnSpan(this.buttonCustoCopyToClipBoard, 3);
-      this.buttonCustoCopyToClipBoard.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.buttonCustoCopyToClipBoard.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.buttonCustoCopyToClipBoard.Location = new System.Drawing.Point(578, 287);
-      this.buttonCustoCopyToClipBoard.Name = "buttonCustoCopyToClipBoard";
-      this.buttonCustoCopyToClipBoard.Size = new System.Drawing.Size(663, 45);
-      this.buttonCustoCopyToClipBoard.TabIndex = 36;
-      this.buttonCustoCopyToClipBoard.Text = "Copy to Clipboard";
-      this.buttonCustoCopyToClipBoard.UseVisualStyleBackColor = true;
-      this.buttonCustoCopyToClipBoard.Click += new System.EventHandler(this.buttonCustoCopyToClipBoard_Click);
-      // 
       // FormMain
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1487,7 +1457,5 @@
     private System.Windows.Forms.ComboBox comboBoxCustoAssertMethod;
     private System.Windows.Forms.TextBox textBoxCustoAssertWord;
     private System.Windows.Forms.TextBox textBoxCustoResultEqualSign;
-    private System.Windows.Forms.Button buttonCustoCopyToClipBoard;
-    private System.Windows.Forms.Button buttonCustoSelectAll;
   }
 }
