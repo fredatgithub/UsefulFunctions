@@ -25,6 +25,7 @@ using CodeGenerationWinForm.Properties;
 using MathFunc = FonctionsUtiles.Fred.Csharp.FunctionsMath;
 using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
 using FonctionsUtiles.Fred.Csharp;
+using System.Text;
 
 namespace CodeGenerationWinForm
 {
@@ -34,6 +35,10 @@ namespace CodeGenerationWinForm
     {
       InitializeComponent();
     }
+
+    private readonly string carriageReturn = Environment.NewLine;
+    private readonly string space = " ";
+    private readonly string tabulation = "  ";
 
     private void QuitToolStripMenuItem_Click(object sender, EventArgs e)
     {
@@ -634,6 +639,118 @@ namespace CodeGenerationWinForm
 
       progressBarOtherMethods.Value = progressBarOtherMethods.Minimum;
       progressBarOtherMethods.Visible = false;
+    }
+
+    private void buttonCustomizedMethodGenerate_Click(object sender, EventArgs e)
+    {
+      textBoxCustoResult.Text = string.Empty;
+      StringBuilder result = new StringBuilder();
+      // next line ATTRIBUTE
+      result.Append(textBoxCustoAttribute.Text);
+      result.Append(carriageReturn);
+
+      // next line METHOD SIGNATURE
+      result.Append(textBoxCustPublic.Text);
+      result.Append(space);
+      result.Append(textBoxCustoVoid.Text);
+      result.Append(space);
+      result.Append(textBoxCustoTestMethod.Text);
+      result.Append(space);
+      result.Append(textBoxCustoMethodName.Text);
+      result.Append(carriageReturn);
+
+      result.Append(textBoxcustoOpenCurlyBrace.Text);
+      result.Append(carriageReturn);
+
+      // next line EXPECTED
+      result.Append(tabulation);
+      result.Append(textBoxCustoExpectedCosntant.Text);
+      result.Append(space);
+      result.Append(comboBoxCustoExpectedType.SelectedItem);
+      result.Append(space);
+      result.Append(textBoxCustoExpectedWord.Text);
+      result.Append(space);
+      result.Append(textBoxCustoExpectedEqualSign.Text);
+      result.Append(space);
+      result.Append(textBoxCustoExpectedValue.Text);
+      result.Append(space);
+      result.Append(textBoxCustoExpectedSemiColon.Text);
+      result.Append(carriageReturn);
+
+      // next line SOURCE
+      result.Append(tabulation);
+      result.Append(textBoxCustoConstantSource.Text);
+      result.Append(space);
+      result.Append(comboBoxCustoSourceType.SelectedItem);
+      result.Append(space);
+      result.Append(textBoxCustoSourceWord.Text);
+      result.Append(space);
+      result.Append(textBoxCustoSourceEqualSign.Text);
+      result.Append(space);
+      result.Append(textBoxCustoSourceValue.Text);
+      result.Append(space);
+      result.Append(textBoxCustoSourceSemiColon.Text);
+      result.Append(carriageReturn);
+
+      // next line RESULT
+      result.Append(tabulation);
+      result.Append(comboBoxCustoResultReturnedType.SelectedItem);
+      result.Append(space);
+      result.Append(textBoxCustoResultWord.Text);
+      result.Append(space);
+      result.Append(textBoxCustoResultEqualSign.Text);
+      result.Append(space);
+      result.Append(comboBoxCustoResultFunctionClass.SelectedItem);
+      result.Append(space);
+      result.Append(textBoxcustoResultFunctionName.Text);
+      result.Append(space);
+      result.Append(textBoxCustoResultSourceWord.Text);
+      result.Append(carriageReturn);
+
+      // next line ASSERT
+      result.Append(tabulation);
+      result.Append(textBoxCustoAssertWord.Text);
+      result.Append(space);
+      result.Append(comboBoxCustoAssertMethod.SelectedItem);
+      result.Append(space);
+      result.Append(textBoxCustoAssertOpenParenthesis.Text);
+      result.Append(space);
+      result.Append(textBoxCustoAssertResultWord.Text);
+      result.Append(space);
+      result.Append(textBoxCustoAssertComma.Text);
+      if (!textBoxCustoAssertComma.Text.EndsWith(" "))
+      {
+        result.Append(space);
+      }
+      result.Append(textBoxCustoAssertExpectedWord.Text);
+      result.Append(space);
+      result.Append(textBoxCustoAssertClosingParenthesis.Text);
+      result.Append(carriageReturn);
+
+      // next line closing parenthesis
+      result.Append(textBoxCustoCloseCurlyBrace.Text);
+      result.Append(carriageReturn);
+
+
+
+
+      textBoxCustoResult.Text = result.ToString();
+    }
+
+    private void buttonCustoSelectAll_Click(object sender, EventArgs e)
+    {
+      if (textBoxCustoResult.Text != string.Empty)
+      {
+        textBoxCustoResult.SelectAll();
+      }
+    }
+
+    private void buttonCustoCopyToClipBoard_Click(object sender, EventArgs e)
+    {
+      if (textBoxCustoResult.Text != string.Empty)
+      {
+
+      }
     }
   }
 }
