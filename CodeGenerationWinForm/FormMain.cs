@@ -247,44 +247,50 @@ namespace CodeGenerationWinForm
 
     private void cutToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      // first tab: textBoxCodeGeneratedResult
+      // first tab: One Method Number
       CutToClipboard(textBoxCodeGeneratedResult, "no text");
       CutToClipboard(textBoxOneMethodNumber, "no number");
 
-      // second tab: textBoxRangeMethods 
+      // second tab: Range Methods 
       CutToClipboard(textBoxRangeMethods, "no text");
       CutToClipboard(textBoxFromNumber, "no number");
       CutToClipboard(textBoxToNumber, "no number");
 
-      // third tab: textBoxRandomMethodResult
+      // third tab: Random Method
       CutToClipboard(textBoxRandomMethodResult, "no text");
       CutToClipboard(textBoxNumberOfRndMethod, "no number");
 
-      // fourth tab: textBoxOthersResult 
+      // fourth tab: Other Results 
       CutToClipboard(textBoxOthersResult, "no text");
       CutToClipboard(textBoxOthersFrom, "no number");
       CutToClipboard(textBoxOthersTo, "no number");
+
+      // fifth tab: Customized Method
+      CutToClipboard(textBoxCustoResult, "no text");
     }
 
     private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      // first tab: textBoxCodeGeneratedResult
+      // first tab: Code Generated
       PasteFromClipboard(textBoxCodeGeneratedResult);
       PasteFromClipboard(textBoxOneMethodNumber);
 
-      // second tab: textBoxRangeMethods 
+      // second tab: Range Methods 
       PasteFromClipboard(textBoxRangeMethods);
       PasteFromClipboard(textBoxFromNumber);
       PasteFromClipboard(textBoxToNumber);
 
-      // third tab: textBoxRandomMethodResult
+      // third tab: Random Method
       PasteFromClipboard(textBoxRandomMethodResult);
       PasteFromClipboard(textBoxNumberOfRndMethod);
 
-      // fourth tab: textBoxOthersResult 
+      // fourth tab: Other Result
       PasteFromClipboard(textBoxOthersResult);
       PasteFromClipboard(textBoxOthersFrom);
       PasteFromClipboard(textBoxOthersTo);
+
+      // fifth tab: Customized Method
+      PasteFromClipboard(textBoxCustoResult);
     }
 
     private void buttonGenerateCode_Click(object sender, EventArgs e)
