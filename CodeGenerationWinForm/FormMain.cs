@@ -113,7 +113,7 @@ namespace CodeGenerationWinForm
       cb.SelectedIndex = 0;
     }
 
-    private void FillComboBoxOtherMethods(ComboBox cb)
+    private static void FillComboBoxOtherMethods(ComboBox cb)
     {
       cb.Items.Clear();
       cb.Items.Add("BigInt");
@@ -155,10 +155,8 @@ namespace CodeGenerationWinForm
       {
         return 6;
       }
-      else
-      {
-        return 0;
-      }
+      
+      return 0;
     }
 
     private void GetWindowValue()
@@ -235,41 +233,35 @@ namespace CodeGenerationWinForm
 
     private void CopytToClipboard(TextBox tb, string message = "nothing")
     {
-      if (tb == ActiveControl)
+      if (tb != ActiveControl) return;
+      if (tb.Text == string.Empty)
       {
-        if (tb.Text == string.Empty)
-        {
-          DisplayMessageOk("There is nothing to copy ", message, MessageBoxButtons.OK);
-          return;
-        }
-
-        Clipboard.SetText(tb.SelectedText);
+        DisplayMessageOk("There is nothing to copy ", message, MessageBoxButtons.OK);
+        return;
       }
+
+      Clipboard.SetText(tb.SelectedText);
     }
 
     private void CutToClipboard(TextBox tb, string errorMessage = "nothing")
     {
-      if (tb == ActiveControl)
+      if (tb != ActiveControl) return;
+      if (tb.Text == string.Empty)
       {
-        if (tb.Text == string.Empty)
-        {
-          DisplayMessageOk("There is " + errorMessage + " to cut ", errorMessage, MessageBoxButtons.OK);
-          return;
-        }
-
-        Clipboard.SetText(tb.SelectedText);
-        tb.SelectedText = string.Empty;
+        DisplayMessageOk("There is " + errorMessage + " to cut ", errorMessage, MessageBoxButtons.OK);
+        return;
       }
+
+      Clipboard.SetText(tb.SelectedText);
+      tb.SelectedText = string.Empty;
     }
 
-    private void PasteFromClipboard(TextBox tb)
+    private void PasteFromClipboard(TextBoxBase tb)
     {
-      if (tb == ActiveControl)
-      {
-        var selectionIndex = tb.SelectionStart;
-        tb.Text = tb.Text.Insert(selectionIndex, Clipboard.GetText());
-        tb.SelectionStart = selectionIndex + Clipboard.GetText().Length;
-      }
+      if (tb != ActiveControl) return;
+      var selectionIndex = tb.SelectionStart;
+      tb.Text = tb.Text.Insert(selectionIndex, Clipboard.GetText());
+      tb.SelectionStart = selectionIndex + Clipboard.GetText().Length;
     }
 
     private void cutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -685,7 +677,7 @@ namespace CodeGenerationWinForm
 
       textBoxOthersResult.Text = string.Empty;
 
-      string ChosenMethod = comboBoxOthersMethodName.SelectedItem.ToString();
+      string chosenMethod = comboBoxOthersMethodName.SelectedItem.ToString();
       progressBarOtherMethods.Visible = true;
       progressBarOtherMethods.Minimum = fromNumberOfMethodToBeGenerated;
       progressBarOtherMethods.Maximum = toNumberOfMethodToBeGenerated;
@@ -699,16 +691,16 @@ namespace CodeGenerationWinForm
         var method1 = new UnitTestCodeGenerated(
           i.ToString(),
           "const string expected = \"\";",
-          "string result = StringFunc." + ChosenMethod + "(" + i + ");",
+          "string result = StringFunc." + chosenMethod + "(" + i + ");",
           "Assert.AreEqual(expected, result);");
-        switch (ChosenMethod)
+        switch (chosenMethod)
         {
           case "BigInt":
             BigInt j = i;
-            method1.CodeSource = ChosenMethod + " source = " + i + ";";
-            method1.CodeSignatureMethodName = "Factorial_" + ChosenMethod + "_" + StringFunc.ReplaceCharacters(StringFunc.NumberToEnglishWords(i), '-', '_');
-            method1.CodeExpected = ChosenMethod + " expected = " + MathFunc.Factorial(j) + ";";
-            method1.CodeResult = ChosenMethod + " result = FunctionsMath.Factorial(source);";
+            method1.CodeSource = chosenMethod + " source = " + i + ";";
+            method1.CodeSignatureMethodName = "Factorial_" + chosenMethod + "_" + StringFunc.ReplaceCharacters(StringFunc.NumberToEnglishWords(i), '-', '_');
+            method1.CodeExpected = chosenMethod + " expected = " + MathFunc.Factorial(j) + ";";
+            method1.CodeResult = chosenMethod + " result = FunctionsMath.Factorial(source);";
             break;
         }
 
