@@ -29,7 +29,6 @@ namespace UnitTestUsefullFunctions
   [TestClass]
   public class UnitTestMethodsString
   {
-
     #region String Methods
 
     //**********************String Methods***************
