@@ -136,29 +136,31 @@ namespace CodeGenerationWinForm
 
     private static int MatchingComboBox(string typeString)
     {
-      if (typeString == "int")
+      if (typeString == "true") // bool
+      {
+        return 6;
+      }
+
+      if (typeString == "false") // bool
+      {
+        return 6;
+      }
+
+      int tmp = 0;
+      if (int.TryParse(typeString, out tmp)) // int
       {
         return 0;
       }
 
-      if (typeString == "string")
+      if (typeString.StartsWith("\"")) // string
       {
         return 2;
       }
 
-      if (typeString == "byte")
+      byte tmp2 = 0;
+      if (byte.TryParse(typeString, out tmp2)) // byte
       {
         return 4;
-      }
-
-      if (typeString == "true")
-      {
-        return 6;
-      }
-
-      if (typeString == "false")
-      {
-        return 6;
       }
       
       return 0;
@@ -796,25 +798,25 @@ namespace CodeGenerationWinForm
       return result;
     }
 
-    private void CheckMatchingType(string keyword)
+    private void CheckMatchingType(TextBoxBase tb, ComboBox cb, string keyword)
     {
-      if (TypesAreMatching(textBoxCustoExpectedValue, comboBoxCustoExpectedType)) return;
+      if (TypesAreMatching(tb, cb)) return;
       DialogResult wrongType = DisplayMessage(
         "The type for the " + keyword.ToUpper() + " value doesn't match " +
-        comboBoxCustoExpectedType.SelectedItem
+        cb.SelectedItem
         + "\nWould you like to fix this?",
         "Type mismatched", MessageBoxButtons.YesNo);
       if (wrongType == DialogResult.Yes)
       {
-        comboBoxCustoExpectedType.SelectedIndex = MatchingComboBox(textBoxCustoExpectedValue.Text);
+        cb.SelectedIndex = MatchingComboBox(tb.Text);
       }
     }
 
     private void buttonCustomizedMethodGenerate_Click(object sender, EventArgs e)
     {
       // Verification of all types used with values
-      CheckMatchingType("EXPECTED");
-      CheckMatchingType("SOURCE");
+      CheckMatchingType(textBoxCustoExpectedValue, comboBoxCustoExpectedType, "EXPECTED");
+      CheckMatchingType(textBoxCustoSourceValue, comboBoxCustoSourceType, "SOURCE");
      
       // Generation of the result result
       textBoxCustoResult.Text = string.Empty;
