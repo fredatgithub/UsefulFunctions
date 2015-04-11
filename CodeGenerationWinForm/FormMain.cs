@@ -134,7 +134,7 @@ namespace CodeGenerationWinForm
       cb.SelectedIndex = 0;
     }
 
-    private int MatchingComboBox(string typeString)
+    private static int MatchingComboBox(string typeString)
     {
       if (typeString == "int")
       {
@@ -151,7 +151,12 @@ namespace CodeGenerationWinForm
         return 4;
       }
 
-      if (typeString == "bool")
+      if (typeString == "true")
+      {
+        return 6;
+      }
+
+      if (typeString == "false")
       {
         return 6;
       }
@@ -791,37 +796,26 @@ namespace CodeGenerationWinForm
       return result;
     }
 
+    private void CheckMatchingType(string keyword)
+    {
+      if (TypesAreMatching(textBoxCustoExpectedValue, comboBoxCustoExpectedType)) return;
+      DialogResult wrongType = DisplayMessage(
+        "The type for the " + keyword.ToUpper() + " value doesn't match " +
+        comboBoxCustoExpectedType.SelectedItem
+        + "\nWould you like to fix this?",
+        "Type mismatched", MessageBoxButtons.YesNo);
+      if (wrongType == DialogResult.Yes)
+      {
+        comboBoxCustoExpectedType.SelectedIndex = MatchingComboBox(textBoxCustoExpectedValue.Text);
+      }
+    }
+
     private void buttonCustomizedMethodGenerate_Click(object sender, EventArgs e)
     {
       // Verification of all types used with values
-      if (!TypesAreMatching(textBoxCustoExpectedValue, comboBoxCustoExpectedType))
-      {
-        string keyword = string.Empty;
-       
-        DialogResult wrongType = DisplayMessage(
-          "The type for the EXPECTED value doesn't match " +
-           comboBoxCustoExpectedType.SelectedItem
-          + "\nWould you like to fix this?",
-          "Type mismatched", MessageBoxButtons.YesNo);
-        if (wrongType == DialogResult.Yes)
-        {
-          comboBoxCustoExpectedType.SelectedIndex = MatchingComboBox(textBoxCustoExpectedValue.Text);
-        }
-      }
-
-      if (!TypesAreMatching(textBoxCustoSourceValue, comboBoxCustoSourceType))
-      {
-        DialogResult wrongType = DisplayMessage(
-          "The type for the SOURCE value should be boolean\nWould you like to fix this?",
-          "Should be boolean", MessageBoxButtons.YesNo);
-        if (wrongType == DialogResult.Yes)
-        {
-          comboBoxCustoSourceType.SelectedIndex = 6;
-        }
-      }
-
-      
-
+      CheckMatchingType("EXPECTED");
+      CheckMatchingType("SOURCE");
+     
       // Generation of the result result
       textBoxCustoResult.Text = string.Empty;
       StringBuilder result = new StringBuilder();
