@@ -749,57 +749,42 @@ namespace CodeGenerationWinForm
       return result;
     }
 
-    private bool TypesAreMatching(TextBox tb, ComboBox cb)
+    private static bool TypesAreMatching(TextBoxBase tb, ComboBox cb)
     {
       bool result = false;
       switch (cb.SelectedItem.ToString())
       {
         case "bool":
-          if ((tb.Text == "true" || tb.Text == "false") &&
-        cb.SelectedItem.ToString() != "bool")
+          if (tb.Text.ToLower() == "true")
           {
-            result = false;
+            tb.Text = "true"; // remove uppercase
+          }
+
+          if (tb.Text.ToLower() == "false")
+          {
+            tb.Text = "false"; // remove uppercase
+          }
+
+          if (tb.Text == "true" || tb.Text == "false")
+          {
+            result = true;
           }
           else
           {
-            result = true;
+            result = false;
           }
 
           break;
         case "string":
-          if (tb.Text.StartsWith("\"") && cb.SelectedItem.ToString() != "string")
-          {
-            result = false;
-          }
-          else
-          {
-            result = true;
-          }
-
+          result = tb.Text.StartsWith("\"");
           break;
         case "int":
           int tmp = 0;
-          if (int.TryParse(tb.Text, out tmp) && cb.SelectedItem.ToString() != "int")
-          {
-            result = false;
-          }
-          else
-          {
-            result = true;
-          }
-
+          result = int.TryParse(tb.Text, out tmp);
           break;
         case "byte":
           byte tmp2 = 1;
-          if (byte.TryParse(tb.Text, out tmp2) && cb.SelectedItem.ToString() != "byte")
-          {
-            result = false;
-          }
-          else
-          {
-            result = true;
-          }
-
+          result = byte.TryParse(tb.Text, out tmp2);
           break;
       }
 
