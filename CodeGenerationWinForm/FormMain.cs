@@ -162,7 +162,7 @@ namespace CodeGenerationWinForm
       {
         return 4;
       }
-      
+
       return 0;
     }
 
@@ -199,22 +199,7 @@ namespace CodeGenerationWinForm
       MessageBox.Show(this, message, title, buttons);
     }
 
-    private static bool IsTextBoxEmpty(Control tb)
-    {
-      return tb.Text == string.Empty;
-    }
-
-    private void DisplayEmptyTextMessage()
-    {
-      DisplayMessageOk("There is no text to copy", "No text", MessageBoxButtons.OK);
-    }
-
-    private void DisplayNoTextSelectedMessage()
-    {
-      DisplayMessageOk("There is no text selected", "No text selected", MessageBoxButtons.OK);
-    }
-
-    private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+   private void copyToolStripMenuItem_Click(object sender, EventArgs e)
     {
       // first tab: One Method Number
       CopytToClipboard(textBoxCodeGeneratedResult, "no text");
@@ -718,44 +703,6 @@ namespace CodeGenerationWinForm
       progressBarOtherMethods.Visible = false;
     }
 
-    private Type TypeExpected(string textInTextBox)
-    {
-      Type result = null;
-      if (textInTextBox == "true")
-      {
-        result = typeof(bool);
-      }
-
-      if (textInTextBox == "false")
-      {
-        result = typeof(bool);
-      }
-
-      if (textInTextBox == "false")
-      {
-        result = typeof(bool);
-      }
-
-      if (textInTextBox.StartsWith("\""))
-      {
-        result = typeof(string);
-      }
-
-      int tmp = 0;
-      if (int.TryParse(textInTextBox, out tmp))
-      {
-        result = typeof(int);
-      }
-
-      byte tmp2 = 0;
-      if (byte.TryParse(textInTextBox, out tmp2))
-      {
-        result = typeof(byte);
-      }
-
-      return result;
-    }
-
     private static bool TypesAreMatching(TextBoxBase tb, ComboBox cb)
     {
       bool result = false;
@@ -817,8 +764,8 @@ namespace CodeGenerationWinForm
       // Verification of all types used with values
       CheckMatchingType(textBoxCustoExpectedValue, comboBoxCustoExpectedType, "EXPECTED");
       CheckMatchingType(textBoxCustoSourceValue, comboBoxCustoSourceType, "SOURCE");
-     
-      // Generation of the result result
+
+      // Generation of the result
       textBoxCustoResult.Text = string.Empty;
       StringBuilder result = new StringBuilder();
       // next line ATTRIBUTE
@@ -898,6 +845,7 @@ namespace CodeGenerationWinForm
       {
         result.Append(space);
       }
+
       result.Append(textBoxCustoAssertExpectedWord.Text);
       result.Append(space);
       result.Append(textBoxCustoAssertClosingParenthesis.Text);
