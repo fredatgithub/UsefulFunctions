@@ -65,6 +65,13 @@ namespace FonctionsUtiles.Fred.Csharp
       result.Append("Method= string ByteArrayToHexaString(byte[] bytes, bool oneDigitOnly = false)" + newLine);
       result.Append("Method= byte[] HexaStringToByteArray(string hexaString)" + newLine);
       result.Append("Method= string ReverseString(string strValue, bool removeSpace = false)" + newLine);
+      result.Append("Method= bool IsPalindrome(string myString, bool spaceRemoval = false)" + newLine);
+      result.Append("Method= " + newLine);
+      result.Append("Method= " + newLine);
+      result.Append("Method= " + newLine);
+      result.Append("Method= " + newLine);
+      result.Append("Method= " + newLine);
+      result.Append("Method= " + newLine);
       result.Append("Method= " + newLine);
       result.Append("Method= " + newLine);
       return result.ToString();
@@ -791,14 +798,7 @@ namespace FonctionsUtiles.Fred.Csharp
       var sb = new StringBuilder();
       for (int i = 0; i < bytes.Length; i++)
       {
-        if (oneDigitOnly)
-        {
-          sb.Append(bytes[i].ToString("X1"));
-        }
-        else
-        {
-          sb.Append(bytes[i].ToString("X2"));
-        }
+        sb.Append(oneDigitOnly ? bytes[i].ToString("X1") : bytes[i].ToString("X2"));
       }
 
       return sb.ToString();
@@ -818,7 +818,6 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return returnBytes;
     }
-
     public static string ReverseString(string strValue, bool removeSpace = false)
     {
       //  LINQ: return strValue.Aggregate(string.Empty, (current, caracter) => caracter + current);
@@ -835,17 +834,14 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return reversedString;
     }
-
     public static bool IsPalindrome(string myString, bool spaceRemoval = false)
     {
       if (spaceRemoval) // can you use ternary twice ?
       {
         return ReverseString2(myString, spaceRemoval) == myString.Replace(" ", "");
       }
-      else
-      {
-        return ReverseString2(myString, spaceRemoval) == myString;
-      }
+      
+      return ReverseString2(myString, spaceRemoval) == myString;
     }
 
     public static string ReverseString2(string input, bool removeSpace = false)
