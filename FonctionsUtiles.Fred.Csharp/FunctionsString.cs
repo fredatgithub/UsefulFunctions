@@ -818,7 +818,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return returnBytes;
     }
-    public static string ReverseString(string strValue, bool removeSpace = false)
+    public static string ReverseString2(string strValue, bool removeSpace = false)
     {
       //  LINQ: return strValue.Aggregate(string.Empty, (current, caracter) => caracter + current);
       if (removeSpace)
@@ -834,16 +834,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return reversedString;
     }
-    public static bool IsPalindrome(string myString, bool spaceRemoval = false)
-    {
-      if (spaceRemoval) // can you use ternary twice ?
-      {
-        return ReverseString2(myString, spaceRemoval) == myString.Replace(" ", "");
-      }
-      
-      return ReverseString2(myString, spaceRemoval) == myString;
-    }
-    public static string ReverseString2(string input, bool removeSpace = false)
+    public static string ReverseString(string input, bool removeSpace = false)
     {
       //  Validate input
       if (string.IsNullOrEmpty(input))
@@ -865,6 +856,16 @@ namespace FonctionsUtiles.Fred.Csharp
       return new string(outputChars);
     }
 
+    public static bool IsPalindrome(string myString, bool spaceRemoval = false)
+    {
+      if (spaceRemoval) // can you use ternary twice ?
+      {
+        return ReverseString(myString, spaceRemoval) == myString.Replace(" ", "");
+      }
+      
+      return ReverseString(myString, spaceRemoval) == myString;
+    }
+    
     public static string CompletePrefixWithZero(string numberInString)
     {
       return numberInString.Length == 1 ? "0" + numberInString : numberInString;

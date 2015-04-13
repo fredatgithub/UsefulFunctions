@@ -924,7 +924,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_ReverseString()
     {
       const string source = "123456789";
-      string result = FunctionsString.ReverseString(source);
+      string result = FunctionsString.ReverseString2(source);
       Assert.IsTrue(result == "987654321");
     }
 
@@ -932,7 +932,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_ReverseString_on_an_empty_string()
     {
       const string source = "";
-      string result = FunctionsString.ReverseString(source);
+      string result = FunctionsString.ReverseString2(source);
       Assert.IsTrue(result == "");
     }
 
@@ -940,7 +940,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_ReverseString_one_element()
     {
       const string source = "1";
-      string result = FunctionsString.ReverseString(source);
+      string result = FunctionsString.ReverseString2(source);
       Assert.IsTrue(result == "1");
     }
 
@@ -948,67 +948,12 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_ReverseString_palindrome()
     {
       const string source = "laval";
-      string result = FunctionsString.ReverseString(source);
+      string result = FunctionsString.ReverseString2(source);
       Assert.IsTrue(result == source);
     }
 
     [TestMethod]
     public void TestMethod_ReverseString_several_palindromes()
-    {
-      List<string> sourceWords = new List<string> { "laval", "lol", "ete", "lieur à rueil" };
-      foreach (string source in sourceWords)
-      {
-        string result = FunctionsString.ReverseString(source);
-        Assert.IsTrue(result == source);
-      }
-    }
-
-    [TestMethod]
-    public void TestMethod_ReverseString_several_palindromes_with_removal_of_space()
-    {
-      List<string> sourceWords = new List<string> { "esope reste ici et se repose", "éric notre valet alla te laver ton ciré" };
-      foreach (string source in sourceWords)
-      {
-        string result = FunctionsString.ReverseString(source, true);
-        Assert.IsTrue(result == source.Replace(" ", ""));
-      }
-    }
-
-    // **********************ReverseString2****************
-    [TestMethod]
-    public void TestMethod_ReverseString2()
-    {
-      const string source = "123456789";
-      string result = FunctionsString.ReverseString2(source);
-      Assert.IsTrue(result == "987654321");
-    }
-
-    [TestMethod]
-    public void TestMethod_ReverseString2_on_an_empty_string()
-    {
-      const string source = "";
-      string result = FunctionsString.ReverseString2(source);
-      Assert.IsTrue(result == "");
-    }
-
-    [TestMethod]
-    public void TestMethod_ReverseString2_one_element()
-    {
-      const string source = "1";
-      string result = FunctionsString.ReverseString2(source);
-      Assert.IsTrue(result == "1");
-    }
-
-    [TestMethod]
-    public void TestMethod_ReverseString2_palindrome()
-    {
-      const string source = "laval";
-      string result = FunctionsString.ReverseString2(source);
-      Assert.IsTrue(result == source);
-    }
-
-    [TestMethod]
-    public void TestMethod_ReverseString2_several_palindromes()
     {
       List<string> sourceWords = new List<string> { "laval", "lol", "ete", "lieur à rueil" };
       foreach (string source in sourceWords)
@@ -1019,12 +964,67 @@ namespace UnitTestUsefullFunctions
     }
 
     [TestMethod]
-    public void TestMethod_ReverseString2_several_palindromes_with_removal_of_space()
+    public void TestMethod_ReverseString_several_palindromes_with_removal_of_space()
     {
       List<string> sourceWords = new List<string> { "esope reste ici et se repose", "éric notre valet alla te laver ton ciré" };
       foreach (string source in sourceWords)
       {
         string result = FunctionsString.ReverseString2(source, true);
+        Assert.IsTrue(result == source.Replace(" ", ""));
+      }
+    }
+
+    // **********************ReverseString2****************
+    [TestMethod]
+    public void TestMethod_ReverseString2()
+    {
+      const string source = "123456789";
+      string result = FunctionsString.ReverseString(source);
+      Assert.IsTrue(result == "987654321");
+    }
+
+    [TestMethod]
+    public void TestMethod_ReverseString2_on_an_empty_string()
+    {
+      const string source = "";
+      string result = FunctionsString.ReverseString(source);
+      Assert.IsTrue(result == "");
+    }
+
+    [TestMethod]
+    public void TestMethod_ReverseString2_one_element()
+    {
+      const string source = "1";
+      string result = FunctionsString.ReverseString(source);
+      Assert.IsTrue(result == "1");
+    }
+
+    [TestMethod]
+    public void TestMethod_ReverseString2_palindrome()
+    {
+      const string source = "laval";
+      string result = FunctionsString.ReverseString(source);
+      Assert.IsTrue(result == source);
+    }
+
+    [TestMethod]
+    public void TestMethod_ReverseString2_several_palindromes()
+    {
+      List<string> sourceWords = new List<string> { "laval", "lol", "ete", "lieur à rueil" };
+      foreach (string source in sourceWords)
+      {
+        string result = FunctionsString.ReverseString(source);
+        Assert.IsTrue(result == source);
+      }
+    }
+
+    [TestMethod]
+    public void TestMethod_ReverseString2_several_palindromes_with_removal_of_space()
+    {
+      List<string> sourceWords = new List<string> { "esope reste ici et se repose", "éric notre valet alla te laver ton ciré" };
+      foreach (string source in sourceWords)
+      {
+        string result = FunctionsString.ReverseString(source, true);
         Assert.IsTrue(result == source.Replace(" ", ""));
       }
     }

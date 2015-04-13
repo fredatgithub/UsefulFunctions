@@ -61,7 +61,20 @@
       this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
       this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.labelBenchChooseMethod = new System.Windows.Forms.Label();
+      this.comboBoxBenchChooseMethod = new System.Windows.Forms.ComboBox();
+      this.buttonBenchStart = new System.Windows.Forms.Button();
+      this.progressBarBenchmark = new System.Windows.Forms.ProgressBar();
+      this.listViewBenchmark = new System.Windows.Forms.ListView();
+      this.columnHeaderMethod = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.columnHeaderIteration = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.columnHeadertimeLapse = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.labelBenchIteration = new System.Windows.Forms.Label();
+      this.textBoxBenchIteration = new System.Windows.Forms.TextBox();
+      this.tableLayoutPanelBenchmark = new System.Windows.Forms.TableLayoutPanel();
+      this.buttonBenchStartAllmethods = new System.Windows.Forms.Button();
       this.menuStrip1.SuspendLayout();
+      this.tableLayoutPanelBenchmark.SuspendLayout();
       this.SuspendLayout();
       // 
       // menuStrip1
@@ -75,7 +88,7 @@
             this.helpToolStripMenuItem});
       this.menuStrip1.Location = new System.Drawing.Point(0, 0);
       this.menuStrip1.Name = "menuStrip1";
-      this.menuStrip1.Size = new System.Drawing.Size(911, 28);
+      this.menuStrip1.Size = new System.Drawing.Size(1228, 28);
       this.menuStrip1.TabIndex = 1;
       this.menuStrip1.Text = "menuStrip1";
       // 
@@ -316,11 +329,146 @@
       this.aboutToolStripMenuItem.Text = "À &propos de...";
       this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
       // 
+      // labelBenchChooseMethod
+      // 
+      this.labelBenchChooseMethod.AutoSize = true;
+      this.labelBenchChooseMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.labelBenchChooseMethod.Location = new System.Drawing.Point(3, 0);
+      this.labelBenchChooseMethod.Name = "labelBenchChooseMethod";
+      this.labelBenchChooseMethod.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+      this.labelBenchChooseMethod.Size = new System.Drawing.Size(131, 30);
+      this.labelBenchChooseMethod.TabIndex = 2;
+      this.labelBenchChooseMethod.Text = "Choose Method:";
+      // 
+      // comboBoxBenchChooseMethod
+      // 
+      this.comboBoxBenchChooseMethod.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.comboBoxBenchChooseMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.comboBoxBenchChooseMethod.FormattingEnabled = true;
+      this.comboBoxBenchChooseMethod.Location = new System.Drawing.Point(140, 3);
+      this.comboBoxBenchChooseMethod.Name = "comboBoxBenchChooseMethod";
+      this.comboBoxBenchChooseMethod.Size = new System.Drawing.Size(164, 28);
+      this.comboBoxBenchChooseMethod.TabIndex = 3;
+      // 
+      // buttonBenchStart
+      // 
+      this.buttonBenchStart.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.buttonBenchStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.buttonBenchStart.Location = new System.Drawing.Point(574, 3);
+      this.buttonBenchStart.Name = "buttonBenchStart";
+      this.buttonBenchStart.Size = new System.Drawing.Size(105, 34);
+      this.buttonBenchStart.TabIndex = 4;
+      this.buttonBenchStart.Text = "Start";
+      this.buttonBenchStart.UseVisualStyleBackColor = true;
+      this.buttonBenchStart.Click += new System.EventHandler(this.buttonBenchStart_Click);
+      // 
+      // progressBarBenchmark
+      // 
+      this.tableLayoutPanelBenchmark.SetColumnSpan(this.progressBarBenchmark, 6);
+      this.progressBarBenchmark.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.progressBarBenchmark.Location = new System.Drawing.Point(3, 479);
+      this.progressBarBenchmark.Name = "progressBarBenchmark";
+      this.progressBarBenchmark.Size = new System.Drawing.Size(1222, 24);
+      this.progressBarBenchmark.TabIndex = 6;
+      this.progressBarBenchmark.Visible = false;
+      // 
+      // listViewBenchmark
+      // 
+      this.listViewBenchmark.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeaderMethod,
+            this.columnHeaderIteration,
+            this.columnHeadertimeLapse});
+      this.tableLayoutPanelBenchmark.SetColumnSpan(this.listViewBenchmark, 6);
+      this.listViewBenchmark.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.listViewBenchmark.LabelEdit = true;
+      this.listViewBenchmark.Location = new System.Drawing.Point(3, 43);
+      this.listViewBenchmark.MultiSelect = false;
+      this.listViewBenchmark.Name = "listViewBenchmark";
+      this.listViewBenchmark.Size = new System.Drawing.Size(1222, 430);
+      this.listViewBenchmark.TabIndex = 7;
+      this.listViewBenchmark.UseCompatibleStateImageBehavior = false;
+      this.listViewBenchmark.View = System.Windows.Forms.View.List;
+      // 
+      // columnHeaderMethod
+      // 
+      this.columnHeaderMethod.Text = "Method Name";
+      this.columnHeaderMethod.Width = 150;
+      // 
+      // columnHeaderIteration
+      // 
+      this.columnHeaderIteration.Text = "Iteration";
+      this.columnHeaderIteration.Width = 150;
+      // 
+      // columnHeadertimeLapse
+      // 
+      this.columnHeadertimeLapse.Text = "Time lapse";
+      this.columnHeadertimeLapse.Width = 500;
+      // 
+      // labelBenchIteration
+      // 
+      this.labelBenchIteration.AutoSize = true;
+      this.labelBenchIteration.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.labelBenchIteration.Location = new System.Drawing.Point(310, 0);
+      this.labelBenchIteration.Name = "labelBenchIteration";
+      this.labelBenchIteration.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+      this.labelBenchIteration.Size = new System.Drawing.Size(136, 30);
+      this.labelBenchIteration.TabIndex = 8;
+      this.labelBenchIteration.Text = "Choose iteration:";
+      // 
+      // textBoxBenchIteration
+      // 
+      this.textBoxBenchIteration.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.textBoxBenchIteration.Location = new System.Drawing.Point(460, 3);
+      this.textBoxBenchIteration.Name = "textBoxBenchIteration";
+      this.textBoxBenchIteration.Size = new System.Drawing.Size(108, 27);
+      this.textBoxBenchIteration.TabIndex = 9;
+      this.textBoxBenchIteration.Text = "100";
+      // 
+      // tableLayoutPanelBenchmark
+      // 
+      this.tableLayoutPanelBenchmark.ColumnCount = 6;
+      this.tableLayoutPanelBenchmark.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 137F));
+      this.tableLayoutPanelBenchmark.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 170F));
+      this.tableLayoutPanelBenchmark.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+      this.tableLayoutPanelBenchmark.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 114F));
+      this.tableLayoutPanelBenchmark.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 111F));
+      this.tableLayoutPanelBenchmark.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
+      this.tableLayoutPanelBenchmark.Controls.Add(this.buttonBenchStartAllmethods, 5, 0);
+      this.tableLayoutPanelBenchmark.Controls.Add(this.labelBenchChooseMethod, 0, 0);
+      this.tableLayoutPanelBenchmark.Controls.Add(this.progressBarBenchmark, 0, 2);
+      this.tableLayoutPanelBenchmark.Controls.Add(this.textBoxBenchIteration, 3, 0);
+      this.tableLayoutPanelBenchmark.Controls.Add(this.listViewBenchmark, 0, 1);
+      this.tableLayoutPanelBenchmark.Controls.Add(this.buttonBenchStart, 4, 0);
+      this.tableLayoutPanelBenchmark.Controls.Add(this.labelBenchIteration, 2, 0);
+      this.tableLayoutPanelBenchmark.Controls.Add(this.comboBoxBenchChooseMethod, 1, 0);
+      this.tableLayoutPanelBenchmark.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.tableLayoutPanelBenchmark.Location = new System.Drawing.Point(0, 28);
+      this.tableLayoutPanelBenchmark.Name = "tableLayoutPanelBenchmark";
+      this.tableLayoutPanelBenchmark.RowCount = 3;
+      this.tableLayoutPanelBenchmark.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+      this.tableLayoutPanelBenchmark.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+      this.tableLayoutPanelBenchmark.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+      this.tableLayoutPanelBenchmark.Size = new System.Drawing.Size(1228, 506);
+      this.tableLayoutPanelBenchmark.TabIndex = 10;
+      // 
+      // buttonBenchStartAllmethods
+      // 
+      this.buttonBenchStartAllmethods.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.buttonBenchStartAllmethods.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.buttonBenchStartAllmethods.Location = new System.Drawing.Point(685, 3);
+      this.buttonBenchStartAllmethods.Name = "buttonBenchStartAllmethods";
+      this.buttonBenchStartAllmethods.Size = new System.Drawing.Size(540, 34);
+      this.buttonBenchStartAllmethods.TabIndex = 10;
+      this.buttonBenchStartAllmethods.Text = "Start all methods, all iterations";
+      this.buttonBenchStartAllmethods.UseVisualStyleBackColor = true;
+      this.buttonBenchStartAllmethods.Click += new System.EventHandler(this.buttonBenchStartAllmethods_Click);
+      // 
       // FormMain
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(911, 534);
+      this.ClientSize = new System.Drawing.Size(1228, 534);
+      this.Controls.Add(this.tableLayoutPanelBenchmark);
       this.Controls.Add(this.menuStrip1);
       this.MainMenuStrip = this.menuStrip1;
       this.Name = "FormMain";
@@ -330,6 +478,8 @@
       this.Load += new System.EventHandler(this.FormMain_Load);
       this.menuStrip1.ResumeLayout(false);
       this.menuStrip1.PerformLayout();
+      this.tableLayoutPanelBenchmark.ResumeLayout(false);
+      this.tableLayoutPanelBenchmark.PerformLayout();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -370,5 +520,17 @@
     private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     private System.Windows.Forms.ToolStripMenuItem frenchToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem;
+    private System.Windows.Forms.Label labelBenchChooseMethod;
+    private System.Windows.Forms.ComboBox comboBoxBenchChooseMethod;
+    private System.Windows.Forms.Button buttonBenchStart;
+    private System.Windows.Forms.ProgressBar progressBarBenchmark;
+    private System.Windows.Forms.ListView listViewBenchmark;
+    private System.Windows.Forms.ColumnHeader columnHeaderMethod;
+    private System.Windows.Forms.ColumnHeader columnHeaderIteration;
+    private System.Windows.Forms.ColumnHeader columnHeadertimeLapse;
+    private System.Windows.Forms.Label labelBenchIteration;
+    private System.Windows.Forms.TextBox textBoxBenchIteration;
+    private System.Windows.Forms.TableLayoutPanel tableLayoutPanelBenchmark;
+    private System.Windows.Forms.Button buttonBenchStartAllmethods;
   }
 }
