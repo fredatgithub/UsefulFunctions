@@ -20,6 +20,9 @@ SOFTWARE.
 using FonctionsUtiles.Fred.Csharp;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using MathFunc = FonctionsUtiles.Fred.Csharp.FunctionsMath;
+using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
+using DateFunc = FonctionsUtiles.Fred.Csharp.FunctionsDateTime;
 
 namespace UnitTestUsefullFunctions
 {
@@ -34,7 +37,7 @@ namespace UnitTestUsefullFunctions
     {
       DateTime source = new DateTime(2015, 03, 22, 11, 58, 00);
       const bool expected = true;
-      bool result = FunctionsDateTime.IsMorning(source);
+      bool result = DateFunc.IsMorning(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -43,7 +46,7 @@ namespace UnitTestUsefullFunctions
     {
       DateTime source = new DateTime(2015, 03, 22, 14, 58, 00);
       const bool expected = false;
-      bool result = FunctionsDateTime.IsMorning(source);
+      bool result = DateFunc.IsMorning(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -52,7 +55,7 @@ namespace UnitTestUsefullFunctions
     {
       DateTime source = new DateTime(2015, 03, 22, 12, 00, 00);
       const bool expected = false;
-      bool result = FunctionsDateTime.IsMorning(source);
+      bool result = DateFunc.IsMorning(source);
       Assert.AreEqual(result, expected);
     }
     #endregion IsMorning Methods
@@ -64,7 +67,7 @@ namespace UnitTestUsefullFunctions
     {
       DateTime source = new DateTime(2015, 03, 22, 11, 58, 00);
       const bool expected = false;
-      bool result = FunctionsDateTime.OutsideWeekEnd(source);
+      bool result = DateFunc.OutsideWeekEnd(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -73,7 +76,7 @@ namespace UnitTestUsefullFunctions
     {
       DateTime source = new DateTime(2015, 03, 23, 14, 58, 00);
       const bool expected = true;
-      bool result = FunctionsDateTime.OutsideWeekEnd(source);
+      bool result = DateFunc.OutsideWeekEnd(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -82,7 +85,7 @@ namespace UnitTestUsefullFunctions
     {
       DateTime source = new DateTime(2000, 01, 01, 14, 58, 00);
       const bool expected = false;
-      bool result = FunctionsDateTime.OutsideWeekEnd(source);
+      bool result = DateFunc.OutsideWeekEnd(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -91,7 +94,7 @@ namespace UnitTestUsefullFunctions
     {
       DateTime source = new DateTime(2001, 09, 11, 10, 11, 00);
       const bool expected = true;
-      bool result = FunctionsDateTime.OutsideWeekEnd(source);
+      bool result = DateFunc.OutsideWeekEnd(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -100,7 +103,7 @@ namespace UnitTestUsefullFunctions
     {
       DateTime source = new DateTime(1, 12, 25, 1, 0, 0);
       const bool expected = true;
-      bool result = FunctionsDateTime.OutsideWeekEnd(source);
+      bool result = DateFunc.OutsideWeekEnd(source);
       Assert.AreEqual(result, expected);
     }
     #endregion OutsideWeekEnd Methods
@@ -111,7 +114,7 @@ namespace UnitTestUsefullFunctions
     {
       DateTime source = new DateTime(2015, 03, 22, 11, 58, 00);
       const bool expected = true;
-      bool result = FunctionsDateTime.IsWeekEnd(source);
+      bool result = DateFunc.IsWeekEnd(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -120,7 +123,7 @@ namespace UnitTestUsefullFunctions
     {
       DateTime source = new DateTime(2015, 03, 23, 14, 58, 00);
       const bool expected = false;
-      bool result = FunctionsDateTime.IsWeekEnd(source);
+      bool result = DateFunc.IsWeekEnd(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -129,7 +132,7 @@ namespace UnitTestUsefullFunctions
     {
       DateTime source = new DateTime(2000, 01, 01, 14, 58, 00);
       const bool expected = true;
-      bool result = FunctionsDateTime.IsWeekEnd(source);
+      bool result = DateFunc.IsWeekEnd(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -138,7 +141,7 @@ namespace UnitTestUsefullFunctions
     {
       DateTime source = new DateTime(2001, 09, 11, 10, 11, 00);
       const bool expected = false;
-      bool result = FunctionsDateTime.IsWeekEnd(source);
+      bool result = DateFunc.IsWeekEnd(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -147,7 +150,7 @@ namespace UnitTestUsefullFunctions
     {
       DateTime source = new DateTime(1, 12, 25, 1, 0, 0);
       const bool expected = false;
-      bool result = FunctionsDateTime.IsWeekEnd(source);
+      bool result = DateFunc.IsWeekEnd(source);
       Assert.AreEqual(result, expected);
     }
     #endregion IsWeekEnd Methods
@@ -159,7 +162,7 @@ namespace UnitTestUsefullFunctions
     {
       byte[] source = { 0x20, 0x15, 0x03, 0x27, 0x13, 0x30, 0x00, 0x00, 0x00 };
       DateTime expected = new DateTime(01, 01, 01, 00, 00, 00, DateTimeKind.Local);
-      DateTime result = FunctionsDateTime.ByteArrayToDate(source);
+      DateTime result = DateFunc.ByteArrayToDate(source);
       Assert.IsTrue(result == expected);
     }
 
@@ -168,7 +171,7 @@ namespace UnitTestUsefullFunctions
     {
       byte[] source = { 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01 };
       DateTime expected = new DateTime(1601, 03, 03, 05, 18, 01);
-      DateTime result = FunctionsDateTime.ByteArrayToDate(source);
+      DateTime result = DateFunc.ByteArrayToDate(source);
       Assert.AreNotEqual(result, expected);
     }
 
@@ -177,7 +180,7 @@ namespace UnitTestUsefullFunctions
     {
       byte[] source = { 0x01, 0x01, 0x01, 0x01 };
       DateTime expected = new DateTime();
-      DateTime result = FunctionsDateTime.ByteArrayToDate(source);
+      DateTime result = DateFunc.ByteArrayToDate(source);
       Assert.AreEqual(result, expected);
     }
     #endregion DateToByteArray Methods
@@ -188,7 +191,7 @@ namespace UnitTestUsefullFunctions
     {
       byte[] source = { 0x01, 0x02, 0x03, 0x09, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17 };
       const string expected = "010203091011121314151617";
-      string result = FunctionsDateTime.ByteArrayToString(source);
+      string result = StringFunc.ByteArrayToString(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -197,7 +200,7 @@ namespace UnitTestUsefullFunctions
     {
       byte[] source = { 0x01 };
       const string expected = "01";
-      string result = FunctionsDateTime.ByteArrayToString(source);
+      string result = StringFunc.ByteArrayToString(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -206,7 +209,7 @@ namespace UnitTestUsefullFunctions
     {
       byte[] source = { 0x01, 0x02, 0x03, 0x09, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17 };
       const string expected = "01";
-      string result = FunctionsDateTime.ByteArrayToString(source);
+      string result = StringFunc.ByteArrayToString(source);
       Assert.AreNotEqual(result, expected);
     }
 
@@ -218,7 +221,7 @@ namespace UnitTestUsefullFunctions
     {
       string source = "010203091011121314151617";
       byte[] expected = { 0x01, 0x02, 0x03, 0x09, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17 };
-      byte[] result = FunctionsDateTime.HexStringToByteArray(source);
+      byte[] result = StringFunc.HexStringToByteArray(source);
       for (int i = 0; i < expected.Length; i++)
       {
         Assert.IsTrue(result[i] == expected[i]);
@@ -230,7 +233,7 @@ namespace UnitTestUsefullFunctions
     {
       string source = "0102";
       byte[] expected = { 0x01, 0x02 };
-      byte[] result = FunctionsDateTime.HexStringToByteArray(source);
+      byte[] result = StringFunc.HexStringToByteArray(source);
       Assert.IsTrue(result[0] == expected[0]);
       Assert.IsTrue(result[1] == expected[1]);
     }
@@ -240,7 +243,7 @@ namespace UnitTestUsefullFunctions
     {
       string source = "010203091011121314151617";
       byte[] expected = { 0x01 };
-      byte[] result = FunctionsDateTime.HexStringToByteArray(source);
+      byte[] result = StringFunc.HexStringToByteArray(source);
       Assert.AreNotEqual(result, expected);
     }
 
@@ -249,7 +252,7 @@ namespace UnitTestUsefullFunctions
     {
       string source = "01020";
       byte[] expected = { 0x01, 0x02 };
-      byte[] result = FunctionsDateTime.HexStringToByteArray(source);
+      byte[] result = StringFunc.HexStringToByteArray(source);
       Assert.AreNotEqual(result, expected);
     }
 

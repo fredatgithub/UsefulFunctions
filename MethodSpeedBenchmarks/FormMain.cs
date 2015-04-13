@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using MethodSpeedBenchmarks.Properties;
 using MathFunc = FonctionsUtiles.Fred.Csharp.FunctionsMath;
 using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
+using DateFunc = FonctionsUtiles.Fred.Csharp.FunctionsDateTime;
 using FonctionsUtiles.Fred.Csharp;
 
 
@@ -114,7 +115,7 @@ namespace MethodSpeedBenchmarks
           chrono.Stop();
           ListViewItem item = new ListViewItem(comboBoxBenchChooseMethod.SelectedItem.ToString(), itemCounter++);
           item.SubItems.Add(iteration.ToString());
-          item.SubItems.Add(chrono.Elapsed.TotalMilliseconds.ToString());
+          item.SubItems.Add(DateFunc.TimeSpanToFriendlyDisplay(chrono.Elapsed));
           listViewBenchmark.Items.Add(item);
           break;
 
@@ -130,7 +131,7 @@ namespace MethodSpeedBenchmarks
           chrono.Stop();
           ListViewItem item2 = new ListViewItem(comboBoxBenchChooseMethod.SelectedItem.ToString(), itemCounter++);
           item2.SubItems.Add(iteration.ToString());
-          item2.SubItems.Add(chrono.Elapsed.TotalMilliseconds.ToString());
+          item2.SubItems.Add(DateFunc.TimeSpanToFriendlyDisplay(chrono.Elapsed));
           listViewBenchmark.Items.Add(item2);
           break;
 

@@ -2569,5 +2569,35 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return result;
     }
+
+    public static string ByteArrayToString(byte[] bytes)
+    {
+      StringBuilder sb = new StringBuilder();
+      for (int i = 0; i < bytes.Length; i++)
+      {
+        sb.Append(bytes[i].ToString("X2"));
+      }
+
+      return sb.ToString();
+    }
+
+    /// Converts a hex string to a byte array
+    /// <param name="hexaString">The hex string to convert</param>
+    /// <returns>A byte array representing the hex string</returns>
+    public static byte[] HexStringToByteArray(string hexaString)
+    {
+      if (hexaString.Length % 2 != 0)
+      {
+        return new byte[] { };
+      }
+
+      byte[] returnBytes = new byte[hexaString.Length / 2];
+      for (int i = 0; i < returnBytes.Length; i++)
+      {
+        returnBytes[i] = Convert.ToByte(hexaString.Substring(i * 2, 2), 16);
+      }
+
+      return returnBytes;
+    }
   }
 }
