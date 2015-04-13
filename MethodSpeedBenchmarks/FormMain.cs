@@ -115,6 +115,7 @@ namespace MethodSpeedBenchmarks
           chrono.Stop();
           ListViewItem item = new ListViewItem(comboBoxBenchChooseMethod.SelectedItem.ToString(), itemCounter++);
           item.SubItems.Add(iteration.ToString());
+          item.SubItems.Add(StringFunc.NumberToEnglishWords(iteration));
           item.SubItems.Add(DateFunc.TimeSpanToFriendlyDisplay(chrono.Elapsed));
           listViewBenchmark.Items.Add(item);
           break;
@@ -128,9 +129,11 @@ namespace MethodSpeedBenchmarks
             tmp2 = StringFunc.ReverseString2(source2);
             progressBarBenchmark.Value = i;
           }
+
           chrono.Stop();
           ListViewItem item2 = new ListViewItem(comboBoxBenchChooseMethod.SelectedItem.ToString(), itemCounter++);
           item2.SubItems.Add(iteration.ToString());
+          item2.SubItems.Add(StringFunc.NumberToEnglishWords(iteration));
           item2.SubItems.Add(DateFunc.TimeSpanToFriendlyDisplay(chrono.Elapsed));
           listViewBenchmark.Items.Add(item2);
           break;
@@ -154,7 +157,16 @@ namespace MethodSpeedBenchmarks
 
     private void buttonBenchStartAllmethods_Click(object sender, EventArgs e)
     {
-
+      for (int j = 10; j < int.MaxValue; j = j * 10)
+      {
+        textBoxBenchIteration.Text = j.ToString();
+        for (int i = 0; i < comboBoxBenchChooseMethod.Items.Count; i++)
+        {
+          comboBoxBenchChooseMethod.SelectedIndex = i;
+          buttonBenchStart_Click(sender, e);
+          Application.DoEvents();
+        }
+      }
     }
   }
 }

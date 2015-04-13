@@ -73,6 +73,7 @@
       this.textBoxBenchIteration = new System.Windows.Forms.TextBox();
       this.tableLayoutPanelBenchmark = new System.Windows.Forms.TableLayoutPanel();
       this.buttonBenchStartAllmethods = new System.Windows.Forms.Button();
+      this.columnHeaderIterationInWords = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
       this.menuStrip1.SuspendLayout();
       this.tableLayoutPanelBenchmark.SuspendLayout();
       this.SuspendLayout();
@@ -377,6 +378,7 @@
       this.listViewBenchmark.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeaderMethod,
             this.columnHeaderIteration,
+            this.columnHeaderIterationInWords,
             this.columnHeadertimeLapse});
       this.tableLayoutPanelBenchmark.SetColumnSpan(this.listViewBenchmark, 6);
       this.listViewBenchmark.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -397,10 +399,11 @@
       // columnHeaderIteration
       // 
       this.columnHeaderIteration.Text = "Iteration";
-      this.columnHeaderIteration.Width = 150;
+      this.columnHeaderIteration.Width = 100;
       // 
       // columnHeadertimeLapse
       // 
+      this.columnHeadertimeLapse.DisplayIndex = 2;
       this.columnHeadertimeLapse.Text = "Time lapse";
       this.columnHeadertimeLapse.Width = 500;
       // 
@@ -462,6 +465,11 @@
       this.buttonBenchStartAllmethods.Text = "Start all methods, all iterations";
       this.buttonBenchStartAllmethods.UseVisualStyleBackColor = true;
       this.buttonBenchStartAllmethods.Click += new System.EventHandler(this.buttonBenchStartAllmethods_Click);
+      // 
+      // columnHeaderIterationInWords
+      // 
+      this.columnHeaderIterationInWords.Text = "Iteration in words";
+      this.columnHeaderIterationInWords.Width = 200;
       // 
       // FormMain
       // 
@@ -532,5 +540,6 @@
     private System.Windows.Forms.TextBox textBoxBenchIteration;
     private System.Windows.Forms.TableLayoutPanel tableLayoutPanelBenchmark;
     private System.Windows.Forms.Button buttonBenchStartAllmethods;
+    private System.Windows.Forms.ColumnHeader columnHeaderIterationInWords;
   }
 }
