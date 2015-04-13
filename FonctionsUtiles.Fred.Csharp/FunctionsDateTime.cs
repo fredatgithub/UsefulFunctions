@@ -63,6 +63,12 @@ namespace FonctionsUtiles.Fred.Csharp
       Day
     }
 
+    public static string TimeSpanToLongTimeNotNull(TimeSpan timeSpan)
+    {
+      return TimeSpanToFriendlyDisplay(timeSpan) == string.Empty ? "1 millisecond" : 
+        TimeSpanToFriendlyDisplay(timeSpan);
+    }
+
     public static string TimeSpanToFriendlyDisplay(TimeSpan timeSpan, int maxNrOfElements = 5)
     {
       maxNrOfElements = Math.Max(Math.Min(maxNrOfElements, 5), 1);

@@ -116,7 +116,7 @@ namespace MethodSpeedBenchmarks
           ListViewItem item = new ListViewItem(comboBoxBenchChooseMethod.SelectedItem.ToString(), itemCounter++);
           item.SubItems.Add(iteration.ToString());
           item.SubItems.Add(StringFunc.NumberToEnglishWords(iteration));
-          item.SubItems.Add(DateFunc.TimeSpanToFriendlyDisplay(chrono.Elapsed));
+          item.SubItems.Add(DateFunc.TimeSpanToLongTimeNotNull(chrono.Elapsed));
           listViewBenchmark.Items.Add(item);
           break;
 
@@ -134,7 +134,7 @@ namespace MethodSpeedBenchmarks
           ListViewItem item2 = new ListViewItem(comboBoxBenchChooseMethod.SelectedItem.ToString(), itemCounter++);
           item2.SubItems.Add(iteration.ToString());
           item2.SubItems.Add(StringFunc.NumberToEnglishWords(iteration));
-          item2.SubItems.Add(DateFunc.TimeSpanToFriendlyDisplay(chrono.Elapsed));
+          item2.SubItems.Add(DateFunc.TimeSpanToLongTimeNotNull(chrono.Elapsed));
           listViewBenchmark.Items.Add(item2);
           break;
 
