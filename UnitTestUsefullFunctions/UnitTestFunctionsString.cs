@@ -1058,7 +1058,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_CompletePrefixWithZero_on_one_integer()
     {
       const int source = 1;
-      string result = FunctionsString.CompletePrefixeWithZeroInt(source);
+      string result = FunctionsString.CompletePrefixWithZeroInt(source);
       Assert.IsTrue(result == "01");
     }
 
@@ -1066,7 +1066,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_CompletePrefixWithZero_on_nine_integer()
     {
       const int source = 9;
-      string result = FunctionsString.CompletePrefixeWithZeroInt(source);
+      string result = FunctionsString.CompletePrefixWithZeroInt(source);
       Assert.IsTrue(result == "09");
     }
 
@@ -1074,7 +1074,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_CompletePrefixWithZero_on_two_digits_integer()
     {
       const int source = 12;
-      string result = FunctionsString.CompletePrefixeWithZeroInt(source);
+      string result = FunctionsString.CompletePrefixWithZeroInt(source);
       Assert.IsTrue(result == "12");
     }
 

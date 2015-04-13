@@ -66,7 +66,7 @@ namespace FonctionsUtiles.Fred.Csharp
       result.Append("Method= byte[] HexaStringToByteArray(string hexaString)" + newLine);
       result.Append("Method= string ReverseString(string strValue, bool removeSpace = false)" + newLine);
       result.Append("Method= bool IsPalindrome(string myString, bool spaceRemoval = false)" + newLine);
-      result.Append("Method= " + newLine);
+      result.Append("Method= string ReverseString2(string input, bool removeSpace = false)" + newLine);
       result.Append("Method= " + newLine);
       result.Append("Method= " + newLine);
       result.Append("Method= " + newLine);
@@ -843,7 +843,6 @@ namespace FonctionsUtiles.Fred.Csharp
       
       return ReverseString2(myString, spaceRemoval) == myString;
     }
-
     public static string ReverseString2(string input, bool removeSpace = false)
     {
       //  Validate input
@@ -871,7 +870,7 @@ namespace FonctionsUtiles.Fred.Csharp
       return numberInString.Length == 1 ? "0" + numberInString : numberInString;
     }
 
-    public static string CompletePrefixeWithZeroInt(int nombre)
+    public static string CompletePrefixWithZeroInt(int nombre)
     {
       if (nombre.ToString(CultureInfo.InvariantCulture).Length == 1)
       {
