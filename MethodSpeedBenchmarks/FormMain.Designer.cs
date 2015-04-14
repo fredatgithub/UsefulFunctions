@@ -68,12 +68,12 @@
       this.listViewBenchmark = new System.Windows.Forms.ListView();
       this.columnHeaderMethod = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
       this.columnHeaderIteration = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.columnHeaderIterationInWords = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
       this.columnHeadertimeLapse = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
       this.labelBenchIteration = new System.Windows.Forms.Label();
       this.textBoxBenchIteration = new System.Windows.Forms.TextBox();
       this.tableLayoutPanelBenchmark = new System.Windows.Forms.TableLayoutPanel();
       this.buttonBenchStartAllmethods = new System.Windows.Forms.Button();
-      this.columnHeaderIterationInWords = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
       this.menuStrip1.SuspendLayout();
       this.tableLayoutPanelBenchmark.SuspendLayout();
       this.SuspendLayout();
@@ -401,9 +401,13 @@
       this.columnHeaderIteration.Text = "Iteration";
       this.columnHeaderIteration.Width = 100;
       // 
+      // columnHeaderIterationInWords
+      // 
+      this.columnHeaderIterationInWords.Text = "Iteration in words";
+      this.columnHeaderIterationInWords.Width = 200;
+      // 
       // columnHeadertimeLapse
       // 
-      this.columnHeadertimeLapse.DisplayIndex = 2;
       this.columnHeadertimeLapse.Text = "Time lapse";
       this.columnHeadertimeLapse.Width = 500;
       // 
@@ -435,7 +439,7 @@
       this.tableLayoutPanelBenchmark.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
       this.tableLayoutPanelBenchmark.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 114F));
       this.tableLayoutPanelBenchmark.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 111F));
-      this.tableLayoutPanelBenchmark.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
+      this.tableLayoutPanelBenchmark.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 546F));
       this.tableLayoutPanelBenchmark.Controls.Add(this.buttonBenchStartAllmethods, 5, 0);
       this.tableLayoutPanelBenchmark.Controls.Add(this.labelBenchChooseMethod, 0, 0);
       this.tableLayoutPanelBenchmark.Controls.Add(this.progressBarBenchmark, 0, 2);
@@ -465,11 +469,6 @@
       this.buttonBenchStartAllmethods.Text = "Start all methods, all iterations";
       this.buttonBenchStartAllmethods.UseVisualStyleBackColor = true;
       this.buttonBenchStartAllmethods.Click += new System.EventHandler(this.buttonBenchStartAllmethods_Click);
-      // 
-      // columnHeaderIterationInWords
-      // 
-      this.columnHeaderIterationInWords.Text = "Iteration in words";
-      this.columnHeaderIterationInWords.Width = 200;
       // 
       // FormMain
       // 
