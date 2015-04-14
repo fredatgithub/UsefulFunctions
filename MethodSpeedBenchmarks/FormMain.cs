@@ -99,12 +99,11 @@ namespace MethodSpeedBenchmarks
       switch (comboBoxBenchChooseMethod.SelectedItem.ToString())
       {
         case "ReverseString":
-          string tmp = string.Empty;
           string source = "A long long time ago in a galaxy far far away";
           
           for (int i = 0; i < iteration; i++)
           {
-            tmp = StringFunc.ReverseString2(source);
+            string tmp = StringFunc.ReverseString(source);
             progressBarBenchmark.Value = i;
           }
 
@@ -117,12 +116,11 @@ namespace MethodSpeedBenchmarks
           break;
 
         case "ReverseString2":
-          string tmp2 = string.Empty;
           string source2 = "A long long time ago in a galaxy far far away";
 
           for (int i = 0; i < iteration; i++)
           {
-            tmp2 = StringFunc.ReverseString2(source2);
+            string tmp2 = StringFunc.ReverseString2(source2);
             progressBarBenchmark.Value = i;
           }
 
