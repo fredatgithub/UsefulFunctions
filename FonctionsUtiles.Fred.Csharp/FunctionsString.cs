@@ -864,7 +864,7 @@ namespace FonctionsUtiles.Fred.Csharp
       return ReverseString(myString, spaceRemoval) == myString;
     }
     
-    public static string CompletePrefixWithZero(string numberInString, byte numberOfZero = 1)
+    public static string CompletePrefixWithZero(string numberInString, byte numberOfZero = 0)
     {
       string numberOfZeroString = "";
       for (byte i = 0; i < numberOfZero; i++)
@@ -872,17 +872,18 @@ namespace FonctionsUtiles.Fred.Csharp
         numberOfZeroString += "0";
       }
 
-      return numberInString.Length == 1 ? numberOfZeroString + numberInString : numberInString;
+      return numberInString.Length >= 1 ? numberOfZeroString + numberInString : numberInString;
     }
 
-    public static string CompletePrefixWithZeroInt(int nombre)
+    public static string CompletePrefixWithZeroInt(int nombre, byte numberOfZero = 0)
     {
-      if (nombre.ToString(CultureInfo.InvariantCulture).Length == 1)
+      string numberOfZeroString = "";
+      for (byte i = 0; i < numberOfZero; i++)
       {
-        return "0" + nombre.ToString(CultureInfo.InvariantCulture);
+        numberOfZeroString += "0";
       }
-
-      return nombre.ToString(CultureInfo.InvariantCulture);
+      
+      return numberOfZeroString + nombre;
     }
 
     public static string ArrayToString(IList array)

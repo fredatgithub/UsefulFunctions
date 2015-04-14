@@ -1035,7 +1035,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "1";
       string result = FunctionsString.CompletePrefixWithZero(source);
-      Assert.IsTrue(result == "01");
+      Assert.IsTrue(result == "1");
     }
 
     [TestMethod]
@@ -1043,7 +1043,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "9";
       string result = FunctionsString.CompletePrefixWithZero(source);
-      Assert.IsTrue(result == "09");
+      Assert.IsTrue(result == "9");
     }
 
     [TestMethod]
@@ -1059,7 +1059,7 @@ namespace UnitTestUsefullFunctions
     {
       const int source = 1;
       string result = FunctionsString.CompletePrefixWithZeroInt(source);
-      Assert.IsTrue(result == "01");
+      Assert.IsTrue(result == "1");
     }
 
     [TestMethod]
@@ -1067,7 +1067,7 @@ namespace UnitTestUsefullFunctions
     {
       const int source = 9;
       string result = FunctionsString.CompletePrefixWithZeroInt(source);
-      Assert.IsTrue(result == "09");
+      Assert.IsTrue(result == "9");
     }
 
     [TestMethod]
@@ -1103,7 +1103,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "12";
       const byte source2 = 2;
-      string expected = "012";
+      string expected = "0012";
       string result = FunctionsString.CompletePrefixWithZero(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -1112,8 +1112,9 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_CompletePrefixWithZero_on_one_integer_with_three_digits()
     {
       const int source = 1;
-
-      string result = FunctionsString.CompletePrefixWithZeroInt(source);
+      const byte source2 = 2;
+      string expected = "001";
+      string result = FunctionsString.CompletePrefixWithZeroInt(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -1121,16 +1122,20 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_CompletePrefixWithZero_on_nine_integer_with_three_digits()
     {
       const int source = 9;
-      string result = FunctionsString.CompletePrefixWithZeroInt(source);
-      Assert.IsTrue(result == "09");
+      const byte source2 = 2;
+      string expected = "009";
+      string result = FunctionsString.CompletePrefixWithZeroInt(source, source2);
+      Assert.AreEqual(result, expected);
     }
 
     [TestMethod]
     public void TestMethod_CompletePrefixWithZero_on_two_digits_integer_with_three_digits()
     {
       const int source = 12;
-      string result = FunctionsString.CompletePrefixWithZeroInt(source);
-      Assert.IsTrue(result == "12");
+      const byte source2 = 3;
+      string expected = "00012";
+      string result = FunctionsString.CompletePrefixWithZeroInt(source, source2);
+      Assert.AreEqual(result, expected);
     }
 
     // **********************ArrayToString****************
