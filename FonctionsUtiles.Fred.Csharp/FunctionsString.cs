@@ -67,11 +67,11 @@ namespace FonctionsUtiles.Fred.Csharp
       result.Append("Method= string ReverseString(string strValue, bool removeSpace = false)" + newLine);
       result.Append("Method= bool IsPalindrome(string myString, bool spaceRemoval = false)" + newLine);
       result.Append("Method= string ReverseString2(string input, bool removeSpace = false)" + newLine);
-      result.Append("Method= " + newLine);
-      result.Append("Method= " + newLine);
-      result.Append("Method= " + newLine);
-      result.Append("Method= " + newLine);
-      result.Append("Method= " + newLine);
+      result.Append("Method= string CompletePrefixWithZero(string numberInString, byte numberOfZero = 0)" + newLine);
+      result.Append("Method= string CompletePrefixWithZeroInt(int nombre, byte numberOfZero = 0)" + newLine);
+      result.Append("Method= string ArrayToString(IList array)" + newLine);
+      result.Append("Method= string ArrayToString(IList array, string separator)" + newLine);
+      result.Append("Method= byte[] HexaStringToByteArray(string hexaString)" + newLine);
       result.Append("Method= " + newLine);
       result.Append("Method= " + newLine);
       return result.ToString();
@@ -863,7 +863,6 @@ namespace FonctionsUtiles.Fred.Csharp
       
       return ReverseString(myString, spaceRemoval) == myString;
     }
-    
     public static string CompletePrefixWithZero(string numberInString, byte numberOfZero = 0)
     {
       string numberOfZeroString = "";
@@ -874,7 +873,6 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return numberInString.Length >= 1 ? numberOfZeroString + numberInString : numberInString;
     }
-
     public static string CompletePrefixWithZeroInt(int nombre, byte numberOfZero = 0)
     {
       string numberOfZeroString = "";
@@ -885,7 +883,6 @@ namespace FonctionsUtiles.Fred.Csharp
       
       return numberOfZeroString + nombre;
     }
-
     public static string ArrayToString(IList array)
     {
       //  Returns a string representation of an array. Each element is written on a new line.
@@ -907,7 +904,6 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return output;
     }
-
     public static string ArrayToString(IList array, string separator)
     {
       //  Returns a string representation of an array. Each element is written on a new line.
@@ -930,7 +926,6 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return output;
     }
-
     public static string ArrayToStringWithStringBuilder(IList array)
     {
       //  Returns a string representation of an array. Each element is written on a new line. Effective for large strings.
@@ -1235,13 +1230,11 @@ namespace FonctionsUtiles.Fred.Csharp
       return string.Join(separator, words);
     }
 
-    public static string SubstringEnd(string input, int start, int end)
+    public static string SubStringEnd(string input, int start, int end)
     {
       //  Returns a segment of a string, marked by the start and end index (exclusive).
-      if (string.IsNullOrEmpty(input) || start == end)
-        return string.Empty;
-      if (start == 0 && end == input.Length)
-        return input; // entire string
+      if (string.IsNullOrEmpty(input) || start == end) return string.Empty;
+      if (start == 0 && end == input.Length) return input; // entire string
       if (start < 0) return string.Empty;
       if (start > input.Length) return string.Empty;
       if (end < 0) return string.Empty;
@@ -1680,7 +1673,7 @@ namespace FonctionsUtiles.Fred.Csharp
       return regex.IsMatch(s);
     }
 
-    public static char[] LoadAlphabetInList(bool addDigit = true, bool addLowerCaseLetters = true, bool addUpperCaseLetters = false)
+    public static char[] LoadAlphabetInCharArray(bool addDigit = true, bool addLowerCaseLetters = true, bool addUpperCaseLetters = false)
     {
       char[] list = new char[26 + 26 + 10]; // lower case + upper case letters + 10 digits
       int counter = 0;

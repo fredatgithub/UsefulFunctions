@@ -21,8 +21,11 @@ SOFTWARE.
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using FonctionsUtiles.Fred.Csharp;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MathFunc = FonctionsUtiles.Fred.Csharp.FunctionsMath;
+using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
+using DateFunc = FonctionsUtiles.Fred.Csharp.FunctionsDateTime;
+using FonctionsUtiles.Fred.Csharp;
 
 namespace UnitTestUsefullFunctions
 {
@@ -36,7 +39,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_HasDuplicate_no_on_One_item()
     {
       int[] source = { 1 };
-      bool result = FunctionsString.HasDuplicate(source);
+      bool result = StringFunc.HasDuplicate(source);
       Assert.IsFalse(result);
     }
 
@@ -44,83 +47,91 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_HasDuplicate_yes_on_Two_items()
     {
       int[] source = { 1, 1 };
-      bool result = FunctionsString.HasDuplicate(source);
-      Assert.IsTrue(result);
+      bool expected = true;
+      bool result = StringFunc.HasDuplicate(source);
+      Assert.AreEqual(result, expected);
     }
 
     [TestMethod]
     public void TestMethod_HasDuplicate_no_on_Two_items()
     {
       int[] source = { 1, 2 };
-      bool result = FunctionsString.HasDuplicate(source);
-      Assert.IsFalse(result);
+      bool expected = false;
+      bool result = StringFunc.HasDuplicate(source);
+      Assert.AreEqual(result, expected);
     }
 
     [TestMethod]
     public void TestMethod_HasDuplicate_none()
     {
       int[] source = { 1, 2, 3, 4 };
-      bool result = FunctionsString.HasDuplicate(source);
-      Assert.IsFalse(result);
+      bool expected = false;
+      bool result = StringFunc.HasDuplicate(source);
+      Assert.AreEqual(result, expected);
     }
 
     [TestMethod]
     public void TestMethod_HasDuplicate_yes_on_Empty_list_because_all_items_equal_zero()
     {
       int[] source = new int[5];
-      bool result = FunctionsString.HasDuplicate(source);
-      Assert.IsTrue(result);
+      bool expected = true;
+      bool result = StringFunc.HasDuplicate(source);
+      Assert.AreEqual(result, expected);
     }
 
     [TestMethod]
     public void TestMethod_HasDuplicate_null_list()
     {
       int[] source = null;
-      bool result = FunctionsString.HasDuplicate(source);
-      Assert.IsFalse(result);
+      bool expected = false;
+      bool result = StringFunc.HasDuplicate(source);
+      Assert.AreEqual(result, expected);
     }
 
     [TestMethod]
     public void TestMethod_HasDuplicate_no_on_several_items()
     {
-      bool result = FunctionsString.HasDuplicate(1, 2, 3, 4, 5, 6, 7, 8, 9);
-      Assert.IsFalse(result);
+      int[] source = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+      bool expected = false;
+      bool result = StringFunc.HasDuplicate(source);
+      Assert.AreEqual(result, expected);
     }
-
-
+    
     [TestMethod]
     public void TestMethod_HasDuplicate_yes_on_several_items()
     {
-      bool result = FunctionsString.HasDuplicate(1, 2, 3, 4, 5, 6, 7, 8, 9, 1);
-      Assert.IsTrue(result);
+      int[] source = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 9 };
+      bool expected = true;
+      bool result = StringFunc.HasDuplicate(source);
+      Assert.AreEqual(result, expected);
     }
 
     // **********************EndPadding****************
     [TestMethod]
     public void TestMethod_EndPadding()
     {
-      string result = FunctionsString.EndPadding("azerty", 8);
+      string result = StringFunc.EndPadding("azerty", 8);
       Assert.IsTrue(result == "azerty  ");
     }
 
     [TestMethod]
     public void TestMethod_EndPadding_length()
     {
-      string result = FunctionsString.EndPadding("azerty", 8);
+      string result = StringFunc.EndPadding("azerty", 8);
       Assert.IsTrue(result.Length == 8);
     }
 
     [TestMethod]
     public void TestMethod_EndPadding_none_length()
     {
-      string result = FunctionsString.EndPadding("azerty", 6);
+      string result = StringFunc.EndPadding("azerty", 6);
       Assert.IsTrue(result.Length == 6);
     }
 
     [TestMethod]
     public void TestMethod_EndPadding_none_string()
     {
-      string result = FunctionsString.EndPadding("azerty", 6);
+      string result = StringFunc.EndPadding("azerty", 6);
       Assert.IsTrue(result == "azerty");
     }
 
@@ -128,21 +139,21 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_GetFileNameAfterLastSlash()
     {
-      string result = FunctionsString.GetFileNameAfterLastSlash(@"C:\tmp\texte.txt");
+      string result = StringFunc.GetFileNameAfterLastSlash(@"C:\tmp\texte.txt");
       Assert.IsTrue(result == "texte.txt");
     }
 
     [TestMethod]
     public void TestMethod_GetFileNameAfterLastSlash_empty_string()
     {
-      string result = FunctionsString.GetFileNameAfterLastSlash(@"");
+      string result = StringFunc.GetFileNameAfterLastSlash(@"");
       Assert.IsTrue(result == "");
     }
 
     [TestMethod]
     public void TestMethod_GetFileNameAfterLastSlash_no_path()
     {
-      string result = FunctionsString.GetFileNameAfterLastSlash(@"texte.txt");
+      string result = StringFunc.GetFileNameAfterLastSlash(@"texte.txt");
       Assert.IsTrue(result == "texte.txt");
     }
 
@@ -150,28 +161,28 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_RemoveInString()
     {
-      string result = FunctionsString.RemoveInString("azerty", "azertyuiop");
+      string result = StringFunc.RemoveInString("azerty", "azertyuiop");
       Assert.IsTrue(result == "uiop");
     }
 
     [TestMethod]
     public void TestMethod_RemoveInString_with_trim_end_equal_to_true()
     {
-      string result = FunctionsString.RemoveInString("azerty", "azertyuiop ", true);
+      string result = StringFunc.RemoveInString("azerty", "azertyuiop ", true);
       Assert.IsTrue(result == "uiop");
     }
 
     [TestMethod]
     public void TestMethod_RemoveInString_with_trim_end_equal_to_false()
     {
-      string result = FunctionsString.RemoveInString("azerty", "azertyuiop ");
+      string result = StringFunc.RemoveInString("azerty", "azertyuiop ");
       Assert.IsTrue(result == "uiop ");
     }
 
     [TestMethod]
     public void TestMethod_RemoveInString__nothing()
     {
-      string result = FunctionsString.RemoveInString("azerty", "uiop");
+      string result = StringFunc.RemoveInString("azerty", "uiop");
       Assert.IsTrue(result == "uiop");
     }
 
@@ -179,21 +190,21 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_CamelCase_a_sentence()
     {
-      string result = FunctionsString.CamelCase("once upon a time");
+      string result = StringFunc.CamelCase("once upon a time");
       Assert.IsTrue(result == "Once Upon A Time");
     }
 
     [TestMethod]
     public void TestMethod_CamelCase_one_word()
     {
-      string result = FunctionsString.CamelCase("azerty");
+      string result = StringFunc.CamelCase("azerty");
       Assert.IsTrue(result == "Azerty");
     }
 
     [TestMethod]
     public void TestMethod_CamelCase_string_empty()
     {
-      string result = FunctionsString.CamelCase("");
+      string result = StringFunc.CamelCase("");
       Assert.IsTrue(result == "");
     }
 
@@ -201,14 +212,14 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_IsNumeric_A_character()
     {
-      bool result = FunctionsString.IsNumeric('a');
+      bool result = StringFunc.IsNumeric('a');
       Assert.IsFalse(result);
     }
 
     [TestMethod]
     public void TestMethod_IsNumeric_a_digit()
     {
-      bool result = FunctionsString.IsNumeric("4");
+      bool result = StringFunc.IsNumeric("4");
       Assert.IsTrue(result);
     }
 
@@ -216,21 +227,21 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_IsLetter_()
     {
-      bool result = FunctionsString.IsLetter('a');
+      bool result = StringFunc.IsLetter('a');
       Assert.IsTrue(result);
     }
 
     [TestMethod]
     public void TestMethod_IsLetter_upperCase()
     {
-      bool result = FunctionsString.IsLetter('A');
+      bool result = StringFunc.IsLetter('A');
       Assert.IsTrue(result);
     }
 
     [TestMethod]
     public void TestMethod_IsLetter_upperCase_blank()
     {
-      bool result = FunctionsString.IsLetter(' ');
+      bool result = StringFunc.IsLetter(' ');
       Assert.IsFalse(result);
     }
 
@@ -241,7 +252,7 @@ namespace UnitTestUsefullFunctions
     {
       int source = 0;
       string expected = string.Empty;
-      string result = FunctionsString.Plural(source);
+      string result = StringFunc.Plural(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -250,7 +261,7 @@ namespace UnitTestUsefullFunctions
     {
       int source = 1;
       string expected = string.Empty;
-      string result = FunctionsString.Plural(source);
+      string result = StringFunc.Plural(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -259,7 +270,7 @@ namespace UnitTestUsefullFunctions
     {
       int source = 2;
       string expected = "s";
-      string result = FunctionsString.Plural(source);
+      string result = StringFunc.Plural(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -268,7 +279,7 @@ namespace UnitTestUsefullFunctions
     {
       byte source = 0;
       string expected = string.Empty;
-      string result = FunctionsString.Plural(source);
+      string result = StringFunc.Plural(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -277,7 +288,7 @@ namespace UnitTestUsefullFunctions
     {
       byte source = 1;
       string expected = string.Empty;
-      string result = FunctionsString.Plural(source);
+      string result = StringFunc.Plural(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -286,7 +297,7 @@ namespace UnitTestUsefullFunctions
     {
       byte source = 2;
       string expected = "s";
-      string result = FunctionsString.Plural(source);
+      string result = StringFunc.Plural(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -295,7 +306,7 @@ namespace UnitTestUsefullFunctions
     {
       Int16 source = 0;
       string expected = string.Empty;
-      string result = FunctionsString.Plural(source);
+      string result = StringFunc.Plural(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -304,7 +315,7 @@ namespace UnitTestUsefullFunctions
     {
       Int16 source = 1;
       string expected = string.Empty;
-      string result = FunctionsString.Plural(source);
+      string result = StringFunc.Plural(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -313,7 +324,7 @@ namespace UnitTestUsefullFunctions
     {
       Int16 source = 2;
       string expected = "s";
-      string result = FunctionsString.Plural(source);
+      string result = StringFunc.Plural(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -322,7 +333,7 @@ namespace UnitTestUsefullFunctions
     {
       Int64 source = 0;
       string expected = string.Empty;
-      string result = FunctionsString.Plural(source);
+      string result = StringFunc.Plural(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -331,7 +342,7 @@ namespace UnitTestUsefullFunctions
     {
       Int64 source = 1;
       string expected = string.Empty;
-      string result = FunctionsString.Plural(source);
+      string result = StringFunc.Plural(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -340,7 +351,7 @@ namespace UnitTestUsefullFunctions
     {
       Int64 source = 2;
       string expected = "s";
-      string result = FunctionsString.Plural(source);
+      string result = StringFunc.Plural(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -349,7 +360,7 @@ namespace UnitTestUsefullFunctions
     {
       uint source = 0;
       string expected = string.Empty;
-      string result = FunctionsString.Plural(source);
+      string result = StringFunc.Plural(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -358,7 +369,7 @@ namespace UnitTestUsefullFunctions
     {
       uint source = 1;
       string expected = string.Empty;
-      string result = FunctionsString.Plural(source);
+      string result = StringFunc.Plural(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -367,7 +378,7 @@ namespace UnitTestUsefullFunctions
     {
       uint source = 2;
       string expected = "s";
-      string result = FunctionsString.Plural(source);
+      string result = StringFunc.Plural(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -376,7 +387,7 @@ namespace UnitTestUsefullFunctions
     {
       UInt16 source = 0;
       string expected = string.Empty;
-      string result = FunctionsString.Plural(source);
+      string result = StringFunc.Plural(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -385,7 +396,7 @@ namespace UnitTestUsefullFunctions
     {
       UInt16 source = 1;
       string expected = string.Empty;
-      string result = FunctionsString.Plural(source);
+      string result = StringFunc.Plural(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -394,7 +405,7 @@ namespace UnitTestUsefullFunctions
     {
       UInt16 source = 2;
       string expected = "s";
-      string result = FunctionsString.Plural(source);
+      string result = StringFunc.Plural(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -403,7 +414,7 @@ namespace UnitTestUsefullFunctions
     {
       UInt64 source = 0;
       string expected = string.Empty;
-      string result = FunctionsString.Plural(source);
+      string result = StringFunc.Plural(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -412,7 +423,7 @@ namespace UnitTestUsefullFunctions
     {
       UInt64 source = 1;
       string expected = string.Empty;
-      string result = FunctionsString.Plural(source);
+      string result = StringFunc.Plural(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -421,7 +432,7 @@ namespace UnitTestUsefullFunctions
     {
       UInt64 source = 2;
       string expected = "s";
-      string result = FunctionsString.Plural(source);
+      string result = StringFunc.Plural(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -432,7 +443,7 @@ namespace UnitTestUsefullFunctions
       int source = 1;
       string source2 = "al";
       string expected = source2;
-      string result = FunctionsString.Plural(source, source2);
+      string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -442,7 +453,7 @@ namespace UnitTestUsefullFunctions
       int source = 2;
       string source2 = "al";
       string expected = "aux";
-      string result = FunctionsString.Plural(source, source2);
+      string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -452,7 +463,7 @@ namespace UnitTestUsefullFunctions
       int source = 2;
       string source2 = "au";
       string expected = "aux";
-      string result = FunctionsString.Plural(source, source2);
+      string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -462,7 +473,7 @@ namespace UnitTestUsefullFunctions
       int source = 2;
       string source2 = "eau";
       string expected = "eaux";
-      string result = FunctionsString.Plural(source, source2);
+      string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -472,7 +483,7 @@ namespace UnitTestUsefullFunctions
       int source = 2;
       string source2 = "eu";
       string expected = "eux";
-      string result = FunctionsString.Plural(source, source2);
+      string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -482,7 +493,7 @@ namespace UnitTestUsefullFunctions
       int source = 2;
       string source2 = "landau";
       string expected = "landaus";
-      string result = FunctionsString.Plural(source, source2);
+      string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -492,7 +503,7 @@ namespace UnitTestUsefullFunctions
       int source = 2;
       string source2 = "sarrau";
       string expected = "sarraus";
-      string result = FunctionsString.Plural(source, source2);
+      string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -502,7 +513,7 @@ namespace UnitTestUsefullFunctions
       int source = 2;
       string source2 = "bleu";
       string expected = "bleus";
-      string result = FunctionsString.Plural(source, source2);
+      string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -512,7 +523,7 @@ namespace UnitTestUsefullFunctions
       int source = 2;
       string source2 = "émeu";
       string expected = "émeus";
-      string result = FunctionsString.Plural(source, source2);
+      string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -522,7 +533,7 @@ namespace UnitTestUsefullFunctions
       int source = 2;
       string source2 = "lieu";
       string expected = "lieux";
-      string result = FunctionsString.Plural(source, source2);
+      string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -532,7 +543,7 @@ namespace UnitTestUsefullFunctions
       int source = 2;
       string source2 = "pneu";
       string expected = "pneus";
-      string result = FunctionsString.Plural(source, source2);
+      string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -542,7 +553,7 @@ namespace UnitTestUsefullFunctions
       int source = 2;
       string source2 = "aval";
       string expected = "avals";
-      string result = FunctionsString.Plural(source, source2);
+      string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -552,7 +563,7 @@ namespace UnitTestUsefullFunctions
       int source = 2;
       string source2 = "bal";
       string expected = "bals";
-      string result = FunctionsString.Plural(source, source2);
+      string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -562,7 +573,7 @@ namespace UnitTestUsefullFunctions
       int source = 2;
       string source2 = "chacal";
       string expected = "chacals";
-      string result = FunctionsString.Plural(source, source2);
+      string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -572,7 +583,7 @@ namespace UnitTestUsefullFunctions
       int source = 2;
       string source2 = "carnaval";
       string expected = "carnavals";
-      string result = FunctionsString.Plural(source, source2);
+      string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -582,7 +593,7 @@ namespace UnitTestUsefullFunctions
       int source = 2;
       string source2 = "festival";
       string expected = "festivals";
-      string result = FunctionsString.Plural(source, source2);
+      string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -592,7 +603,7 @@ namespace UnitTestUsefullFunctions
       int source = 2;
       string source2 = "récital";
       string expected = "récitals";
-      string result = FunctionsString.Plural(source, source2);
+      string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -602,7 +613,7 @@ namespace UnitTestUsefullFunctions
       int source = 2;
       string source2 = "régal";
       string expected = "régals";
-      string result = FunctionsString.Plural(source, source2);
+      string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -612,7 +623,7 @@ namespace UnitTestUsefullFunctions
       int source = 2;
       string source2 = "cal";
       string expected = "cals";
-      string result = FunctionsString.Plural(source, source2);
+      string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -622,7 +633,7 @@ namespace UnitTestUsefullFunctions
       int source = 2;
       string source2 = "serval";
       string expected = "servals";
-      string result = FunctionsString.Plural(source, source2);
+      string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -632,7 +643,7 @@ namespace UnitTestUsefullFunctions
       int source = 2;
       string source2 = "choral";
       string expected = "chorals";
-      string result = FunctionsString.Plural(source, source2);
+      string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -642,7 +653,7 @@ namespace UnitTestUsefullFunctions
       int source = 2;
       string source2 = "narval";
       string expected = "narvals";
-      string result = FunctionsString.Plural(source, source2);
+      string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -652,7 +663,7 @@ namespace UnitTestUsefullFunctions
       int source = 2;
       string source2 = "bail";
       string expected = "baux";
-      string result = FunctionsString.Plural(source, source2);
+      string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -662,7 +673,7 @@ namespace UnitTestUsefullFunctions
       int source = 2;
       string source2 = "corail";
       string expected = "coraux";
-      string result = FunctionsString.Plural(source, source2);
+      string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -672,7 +683,7 @@ namespace UnitTestUsefullFunctions
       int source = 2;
       string source2 = "émail";
       string expected = "émaux";
-      string result = FunctionsString.Plural(source, source2);
+      string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -682,7 +693,7 @@ namespace UnitTestUsefullFunctions
       int source = 2;
       string source2 = "soupirail";
       string expected = "soupiraux";
-      string result = FunctionsString.Plural(source, source2);
+      string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -692,7 +703,7 @@ namespace UnitTestUsefullFunctions
       int source = 2;
       string source2 = "travail";
       string expected = "travaux";
-      string result = FunctionsString.Plural(source, source2);
+      string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -702,7 +713,7 @@ namespace UnitTestUsefullFunctions
       int source = 2;
       string source2 = "vantail";
       string expected = "vantaux";
-      string result = FunctionsString.Plural(source, source2);
+      string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -712,7 +723,7 @@ namespace UnitTestUsefullFunctions
       int source = 2;
       string source2 = "vitrail";
       string expected = "vitraux";
-      string result = FunctionsString.Plural(source, source2);
+      string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -722,7 +733,7 @@ namespace UnitTestUsefullFunctions
       int source = 2;
       string source2 = "bijou";
       string expected = "bijoux";
-      string result = FunctionsString.Plural(source, source2);
+      string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -732,7 +743,7 @@ namespace UnitTestUsefullFunctions
       int source = 2;
       string source2 = "caillou";
       string expected = "cailloux";
-      string result = FunctionsString.Plural(source, source2);
+      string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -742,7 +753,7 @@ namespace UnitTestUsefullFunctions
       int source = 2;
       string source2 = "chou";
       string expected = "choux";
-      string result = FunctionsString.Plural(source, source2);
+      string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -752,7 +763,7 @@ namespace UnitTestUsefullFunctions
       int source = 2;
       string source2 = "genou";
       string expected = "genoux";
-      string result = FunctionsString.Plural(source, source2);
+      string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -762,7 +773,7 @@ namespace UnitTestUsefullFunctions
       int source = 2;
       string source2 = "hibou";
       string expected = "hiboux";
-      string result = FunctionsString.Plural(source, source2);
+      string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -772,7 +783,7 @@ namespace UnitTestUsefullFunctions
       int source = 2;
       string source2 = "joujou";
       string expected = "joujoux";
-      string result = FunctionsString.Plural(source, source2);
+      string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -782,7 +793,7 @@ namespace UnitTestUsefullFunctions
       int source = 2;
       string source2 = "pou";
       string expected = "poux";
-      string result = FunctionsString.Plural(source, source2);
+      string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -792,42 +803,42 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_StringOccurrenceWithContains()
     {
-      int result = FunctionsString.StringOccurrenceWithContains("azerty", "zer");
+      int result = StringFunc.StringOccurrenceWithContains("azerty", "zer");
       Assert.IsTrue(result == 1);
     }
 
     [TestMethod]
     public void TestMethod_StringOccurrenceWithContains_search_empty_string()
     {
-      int result = FunctionsString.StringOccurrenceWithContains("azerty", "");
+      int result = StringFunc.StringOccurrenceWithContains("azerty", "");
       Assert.IsTrue(result == 0);
     }
 
     [TestMethod]
     public void TestMethod_StringOccurrenceWithContains_with_empty_string()
     {
-      int result = FunctionsString.StringOccurrenceWithContains("", "azerty");
+      int result = StringFunc.StringOccurrenceWithContains("", "azerty");
       Assert.IsTrue(result == 0);
     }
 
     [TestMethod]
     public void TestMethod_StringOccurrenceWithContains_both_empty_string()
     {
-      int result = FunctionsString.StringOccurrenceWithContains("", "");
+      int result = StringFunc.StringOccurrenceWithContains("", "");
       Assert.IsTrue(result == 0);
     }
 
     [TestMethod]
     public void TestMethod_StringOccurrenceWithContains_two_occurences()
     {
-      int result = FunctionsString.StringOccurrenceWithContains("azertyqwerty", "erty");
+      int result = StringFunc.StringOccurrenceWithContains("azertyqwerty", "erty");
       Assert.IsTrue(result == 2);
     }
 
     [TestMethod]
     public void TestMethod_StringOccurrenceWithContains_three_occurences()
     {
-      int result = FunctionsString.StringOccurrenceWithContains("azertyqwertyandanyothererty", "erty");
+      int result = StringFunc.StringOccurrenceWithContains("azertyqwertyandanyothererty", "erty");
       Assert.IsTrue(result == 3);
     }
 
@@ -838,7 +849,7 @@ namespace UnitTestUsefullFunctions
       byte[] source = new byte[2];
       source[0] = 0x01;
       source[1] = 0x02;
-      string result = FunctionsString.ByteArrayToHexaString(source);
+      string result = StringFunc.ByteArrayToHexaString(source);
       Assert.IsTrue(result == "0102");
     }
 
@@ -848,7 +859,7 @@ namespace UnitTestUsefullFunctions
       byte[] source = new byte[2];
       source[0] = 0x01;
       source[1] = 0x02;
-      string result = FunctionsString.ByteArrayToHexaString(source, true);
+      string result = StringFunc.ByteArrayToHexaString(source, true);
       Assert.IsTrue(result == "12");
     }
 
@@ -856,7 +867,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_ByteArrayToHexaString_three_elements()
     {
       byte[] source = { 0x01, 0x02, 0x03 };
-      string result = FunctionsString.ByteArrayToHexaString(source);
+      string result = StringFunc.ByteArrayToHexaString(source);
       Assert.IsTrue(result == "010203");
     }
 
@@ -864,7 +875,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_ByteArrayToHexaString_three_elements_OneDigitOnly()
     {
       byte[] source = { 0x01, 0x02, 0x03 };
-      string result = FunctionsString.ByteArrayToHexaString(source, true);
+      string result = StringFunc.ByteArrayToHexaString(source, true);
       Assert.IsTrue(result == "123");
     }
 
@@ -872,7 +883,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_ByteArrayToHexaString_empty_source()
     {
       byte[] source = { };
-      string result = FunctionsString.ByteArrayToHexaString(source);
+      string result = StringFunc.ByteArrayToHexaString(source);
       Assert.IsTrue(result == "");
     }
 
@@ -880,7 +891,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_ByteArrayToHexaString_empty_source_OneDigitOnly()
     {
       byte[] source = { };
-      string result = FunctionsString.ByteArrayToHexaString(source, true);
+      string result = StringFunc.ByteArrayToHexaString(source, true);
       Assert.IsTrue(result == "");
     }
 
@@ -889,34 +900,33 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_HexaStringToByteArray_three_elements()
     {
       const string source = "010203";
-      byte[] result2 = new byte[3];
-      result2[0] = 0x01;
-      result2[1] = 0x02;
-      result2[2] = 0x03;
-      byte[] result = FunctionsString.HexaStringToByteArray(source);
-      Assert.AreEqual(result[0], result2[0]);
-      Assert.AreEqual(result[1], result2[1]);
-      Assert.AreEqual(result[2], result2[2]);
+      byte[] expected = new byte[3];
+      expected[0] = 0x01;
+      expected[1] = 0x02;
+      expected[2] = 0x03;
+      byte[] result = StringFunc.HexaStringToByteArray(source);
+      Assert.AreEqual(result[0], expected[0]);
+      Assert.AreEqual(result[1], expected[1]);
+      Assert.AreEqual(result[2], expected[2]);
     }
 
     [TestMethod]
     public void TestMethod_HexaStringToByteArray_one_element()
     {
       const string source = "01";
-      byte[] result2 = new byte[1];
-      result2[0] = 0x01;
-      byte[] result = FunctionsString.HexaStringToByteArray(source);
-      Assert.AreEqual(result[0], result2[0]);
+      byte[] expected = new byte[1];
+      expected[0] = 0x01;
+      byte[] result = StringFunc.HexaStringToByteArray(source);
+      Assert.AreEqual(result[0], expected[0]);
     }
 
     [TestMethod]
     public void TestMethod_HexaStringToByteArray_empty_string()
     {
-      // TODO debug
-      //const string source = "";
-      //byte[] expected = new byte[0];
-      //byte[] result = StringFunc.HexaStringToByteArray(source);
-      //Assert.AreEqual(result, expected);
+      const string source = "";
+      byte[] expected = new byte[0];
+      byte[] result = StringFunc.HexaStringToByteArray(source);
+      Assert.AreEqual(result.Length, expected.Length);
     }
 
     // **********************ReverseString****************
@@ -924,7 +934,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_ReverseString()
     {
       const string source = "123456789";
-      string result = FunctionsString.ReverseString2(source);
+      string result = StringFunc.ReverseString2(source);
       Assert.IsTrue(result == "987654321");
     }
 
@@ -932,7 +942,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_ReverseString_on_an_empty_string()
     {
       const string source = "";
-      string result = FunctionsString.ReverseString2(source);
+      string result = StringFunc.ReverseString2(source);
       Assert.IsTrue(result == "");
     }
 
@@ -940,7 +950,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_ReverseString_one_element()
     {
       const string source = "1";
-      string result = FunctionsString.ReverseString2(source);
+      string result = StringFunc.ReverseString2(source);
       Assert.IsTrue(result == "1");
     }
 
@@ -948,7 +958,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_ReverseString_palindrome()
     {
       const string source = "laval";
-      string result = FunctionsString.ReverseString2(source);
+      string result = StringFunc.ReverseString2(source);
       Assert.IsTrue(result == source);
     }
 
@@ -958,7 +968,7 @@ namespace UnitTestUsefullFunctions
       List<string> sourceWords = new List<string> { "laval", "lol", "ete", "lieur à rueil" };
       foreach (string source in sourceWords)
       {
-        string result = FunctionsString.ReverseString2(source);
+        string result = StringFunc.ReverseString2(source);
         Assert.IsTrue(result == source);
       }
     }
@@ -969,7 +979,7 @@ namespace UnitTestUsefullFunctions
       List<string> sourceWords = new List<string> { "esope reste ici et se repose", "éric notre valet alla te laver ton ciré" };
       foreach (string source in sourceWords)
       {
-        string result = FunctionsString.ReverseString2(source, true);
+        string result = StringFunc.ReverseString2(source, true);
         Assert.IsTrue(result == source.Replace(" ", ""));
       }
     }
@@ -979,7 +989,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_ReverseString2()
     {
       const string source = "123456789";
-      string result = FunctionsString.ReverseString(source);
+      string result = StringFunc.ReverseString(source);
       Assert.IsTrue(result == "987654321");
     }
 
@@ -987,7 +997,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_ReverseString2_on_an_empty_string()
     {
       const string source = "";
-      string result = FunctionsString.ReverseString(source);
+      string result = StringFunc.ReverseString(source);
       Assert.IsTrue(result == "");
     }
 
@@ -995,7 +1005,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_ReverseString2_one_element()
     {
       const string source = "1";
-      string result = FunctionsString.ReverseString(source);
+      string result = StringFunc.ReverseString(source);
       Assert.IsTrue(result == "1");
     }
 
@@ -1003,7 +1013,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_ReverseString2_palindrome()
     {
       const string source = "laval";
-      string result = FunctionsString.ReverseString(source);
+      string result = StringFunc.ReverseString(source);
       Assert.IsTrue(result == source);
     }
 
@@ -1013,7 +1023,7 @@ namespace UnitTestUsefullFunctions
       List<string> sourceWords = new List<string> { "laval", "lol", "ete", "lieur à rueil" };
       foreach (string source in sourceWords)
       {
-        string result = FunctionsString.ReverseString(source);
+        string result = StringFunc.ReverseString(source);
         Assert.IsTrue(result == source);
       }
     }
@@ -1024,7 +1034,7 @@ namespace UnitTestUsefullFunctions
       List<string> sourceWords = new List<string> { "esope reste ici et se repose", "éric notre valet alla te laver ton ciré" };
       foreach (string source in sourceWords)
       {
-        string result = FunctionsString.ReverseString(source, true);
+        string result = StringFunc.ReverseString(source, true);
         Assert.IsTrue(result == source.Replace(" ", ""));
       }
     }
@@ -1034,7 +1044,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_CompletePrefixWithZero_on_one()
     {
       const string source = "1";
-      string result = FunctionsString.CompletePrefixWithZero(source);
+      string result = StringFunc.CompletePrefixWithZero(source);
       Assert.IsTrue(result == "1");
     }
 
@@ -1042,7 +1052,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_CompletePrefixWithZero_on_nine()
     {
       const string source = "9";
-      string result = FunctionsString.CompletePrefixWithZero(source);
+      string result = StringFunc.CompletePrefixWithZero(source);
       Assert.IsTrue(result == "9");
     }
 
@@ -1050,7 +1060,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_CompletePrefixWithZero_on_two_digits()
     {
       const string source = "12";
-      string result = FunctionsString.CompletePrefixWithZero(source);
+      string result = StringFunc.CompletePrefixWithZero(source);
       Assert.IsTrue(result == "12");
     }
 
@@ -1058,7 +1068,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_CompletePrefixWithZero_on_one_integer()
     {
       const int source = 1;
-      string result = FunctionsString.CompletePrefixWithZeroInt(source);
+      string result = StringFunc.CompletePrefixWithZeroInt(source);
       Assert.IsTrue(result == "1");
     }
 
@@ -1066,7 +1076,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_CompletePrefixWithZero_on_nine_integer()
     {
       const int source = 9;
-      string result = FunctionsString.CompletePrefixWithZeroInt(source);
+      string result = StringFunc.CompletePrefixWithZeroInt(source);
       Assert.IsTrue(result == "9");
     }
 
@@ -1074,7 +1084,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_CompletePrefixWithZero_on_two_digits_integer()
     {
       const int source = 12;
-      string result = FunctionsString.CompletePrefixWithZeroInt(source);
+      string result = StringFunc.CompletePrefixWithZeroInt(source);
       Assert.IsTrue(result == "12");
     }
 
@@ -1084,7 +1094,7 @@ namespace UnitTestUsefullFunctions
       const string source = "1";
       const byte source2 = 2;
       string expected = "001";
-      string result = FunctionsString.CompletePrefixWithZero(source, source2);
+      string result = StringFunc.CompletePrefixWithZero(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -1094,7 +1104,7 @@ namespace UnitTestUsefullFunctions
       const string source = "9";
       const byte source2 = 2;
       string expected = "009";
-      string result = FunctionsString.CompletePrefixWithZero(source, source2);
+      string result = StringFunc.CompletePrefixWithZero(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -1104,7 +1114,7 @@ namespace UnitTestUsefullFunctions
       const string source = "12";
       const byte source2 = 2;
       string expected = "0012";
-      string result = FunctionsString.CompletePrefixWithZero(source, source2);
+      string result = StringFunc.CompletePrefixWithZero(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -1114,7 +1124,7 @@ namespace UnitTestUsefullFunctions
       const int source = 1;
       const byte source2 = 2;
       string expected = "001";
-      string result = FunctionsString.CompletePrefixWithZeroInt(source, source2);
+      string result = StringFunc.CompletePrefixWithZeroInt(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -1124,7 +1134,7 @@ namespace UnitTestUsefullFunctions
       const int source = 9;
       const byte source2 = 2;
       string expected = "009";
-      string result = FunctionsString.CompletePrefixWithZeroInt(source, source2);
+      string result = StringFunc.CompletePrefixWithZeroInt(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -1134,7 +1144,7 @@ namespace UnitTestUsefullFunctions
       const int source = 12;
       const byte source2 = 3;
       string expected = "00012";
-      string result = FunctionsString.CompletePrefixWithZeroInt(source, source2);
+      string result = StringFunc.CompletePrefixWithZeroInt(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -1144,9 +1154,9 @@ namespace UnitTestUsefullFunctions
     {
       byte[] source = new byte[1];
       source[0] = 0x01;
-      const string result2 = "1";
-      string result = FunctionsString.ArrayToString(source);
-      Assert.AreEqual(result, result2);
+      const string expected = "1";
+      string result = StringFunc.ArrayToString(source);
+      Assert.AreEqual(result, expected);
     }
 
     [TestMethod]
@@ -1155,9 +1165,9 @@ namespace UnitTestUsefullFunctions
       byte[] source = new byte[2];
       source[0] = 0x01;
       source[1] = 0x02;
-      string result2 = "1" + Environment.NewLine + "2";
-      string result = FunctionsString.ArrayToString(source);
-      Assert.AreEqual(result, result2);
+      string expected = "1" + Environment.NewLine + "2";
+      string result = StringFunc.ArrayToString(source);
+      Assert.AreEqual(result, expected);
     }
 
     [TestMethod]
@@ -1167,9 +1177,34 @@ namespace UnitTestUsefullFunctions
       source[0] = 0x01;
       source[1] = 0x02;
       source[2] = 0x03;
-      string result2 = "1" + Environment.NewLine + "2" + Environment.NewLine + "3";
-      string result = FunctionsString.ArrayToString(source);
-      Assert.AreEqual(result, result2);
+      string expected = "1" + Environment.NewLine + "2" + Environment.NewLine + "3";
+      string result = StringFunc.ArrayToString(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ArrayToString_two_elements_with_separator()
+    {
+      byte[] source = new byte[2];
+      source[0] = 0x01;
+      source[1] = 0x02;
+      string separator = "-";
+      string expected = "1" + separator + "2";
+      string result = StringFunc.ArrayToString(source, separator);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ArrayToString_three_elements_with_separator()
+    {
+      byte[] source = new byte[3];
+      source[0] = 0x01;
+      source[1] = 0x02;
+      source[2] = 0x03;
+      string separator = "-";
+      string expected = "1" + separator + "2" + separator + "3";
+      string result = StringFunc.ArrayToString(source, separator);
+      Assert.AreEqual(result, expected);
     }
 
     // **********************ArrayToStringWithStringBuilder****************
@@ -1178,9 +1213,9 @@ namespace UnitTestUsefullFunctions
     {
       byte[] source = new byte[1];
       source[0] = 0x01;
-      const string result2 = "1";
-      string result = FunctionsString.ArrayToStringWithStringBuilder(source);
-      Assert.AreEqual(result, result2);
+      const string expected = "1";
+      string result = StringFunc.ArrayToStringWithStringBuilder(source);
+      Assert.AreEqual(result, expected);
     }
 
     [TestMethod]
@@ -1189,9 +1224,9 @@ namespace UnitTestUsefullFunctions
       byte[] source = new byte[2];
       source[0] = 0x01;
       source[1] = 0x02;
-      string result2 = "1" + Environment.NewLine + "2";
-      string result = FunctionsString.ArrayToString(source);
-      Assert.AreEqual(result, result2);
+      string expected = "1" + Environment.NewLine + "2";
+      string result = StringFunc.ArrayToString(source);
+      Assert.AreEqual(result, expected);
     }
 
     [TestMethod]
@@ -1201,9 +1236,9 @@ namespace UnitTestUsefullFunctions
       source[0] = 0x01;
       source[1] = 0x02;
       source[2] = 0x03;
-      string result2 = "1" + Environment.NewLine + "2" + Environment.NewLine + "3";
-      string result = FunctionsString.ArrayToString(source);
-      Assert.AreEqual(result, result2);
+      string expected = "1" + Environment.NewLine + "2" + Environment.NewLine + "3";
+      string result = StringFunc.ArrayToString(source);
+      Assert.AreEqual(result, expected);
     }
 
     // **********************InsertSeparatorForEachCharacter****************
@@ -1212,7 +1247,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "azerty";
       const string expected = "a z e r t y";
-      string result = FunctionsString.InsertSeparatorForEachCharacter(source);
+      string result = StringFunc.InsertSeparatorForEachCharacter(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1221,7 +1256,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "";
       const string expected = "";
-      string result = FunctionsString.InsertSeparatorForEachCharacter(source);
+      string result = StringFunc.InsertSeparatorForEachCharacter(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1231,7 +1266,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "azerty";
       const string expected = "az er ty";
-      string result = FunctionsString.InsertSeparatorAtInterval(source, " ", 2);
+      string result = StringFunc.InsertSeparatorAtInterval(source, " ", 2);
       Assert.AreEqual(result, expected);
     }
 
@@ -1241,7 +1276,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "azerty";
       const string expected = "zrt";
-      string result = FunctionsString.RemoveVowels(source);
+      string result = StringFunc.RemoveVowels(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1250,7 +1285,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "";
       const string expected = "";
-      string result = FunctionsString.RemoveVowels(source);
+      string result = StringFunc.RemoveVowels(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1259,7 +1294,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "aeiouy";
       const string expected = "";
-      string result = FunctionsString.RemoveVowels(source);
+      string result = StringFunc.RemoveVowels(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1268,7 +1303,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "qsdfghjklm";
       const string expected = "qsdfghjklm";
-      string result = FunctionsString.RemoveVowels(source);
+      string result = StringFunc.RemoveVowels(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1278,7 +1313,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "azerty";
       const string expected = "aey";
-      string result = FunctionsString.KeepVowels(source);
+      string result = StringFunc.KeepVowels(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1287,7 +1322,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "";
       const string expected = "";
-      string result = FunctionsString.KeepVowels(source);
+      string result = StringFunc.KeepVowels(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1296,7 +1331,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "aeiouy";
       const string expected = "aeiouy";
-      string result = FunctionsString.KeepVowels(source);
+      string result = StringFunc.KeepVowels(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1305,7 +1340,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "qsdfghjklm";
       const string expected = "";
-      string result = FunctionsString.KeepVowels(source);
+      string result = StringFunc.KeepVowels(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1315,7 +1350,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "TheWonderfulMethodThatDoesALotOfThings";
       const string expected = "ThEwOnDeRfUlMeThOdThAtDoEsAlOtOfThInGs";
-      string result = FunctionsString.AlternateCases(source);
+      string result = StringFunc.AlternateCases(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1325,7 +1360,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "once upon a time in a galaxy far far away";
       const string expected = "Once upon a time in a galaxy far far away";
-      string result = FunctionsString.Capitalize(source);
+      string result = StringFunc.Capitalize(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1335,7 +1370,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "once upon a time in a galaxy far far away";
       const string expected = "ouatiagffa";
-      string result = FunctionsString.GetInitials(source, " ", false, false, false);
+      string result = StringFunc.GetInitials(source, " ", false, false, false);
       Assert.AreEqual(result, expected);
     }
 
@@ -1344,7 +1379,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "";
       const string expected = "";
-      string result = FunctionsString.GetInitials(source, " ", false, false, false);
+      string result = StringFunc.GetInitials(source, " ", false, false, false);
       Assert.AreEqual(result, expected);
     }
 
@@ -1354,7 +1389,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "once upon a time in a galaxy far far away";
       const string expected = "Once Upon A Time In A Galaxy Far Far Away";
-      string result = FunctionsString.GetTitle(source);
+      string result = StringFunc.GetTitle(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1363,7 +1398,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "";
       const string expected = "";
-      string result = FunctionsString.GetTitle(source);
+      string result = StringFunc.GetTitle(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1372,7 +1407,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "once upon a time in a galaxy far far away";
       const string expected = "Once Upon A Time In A Galaxy Far Far Away";
-      string result = FunctionsString.GetTitle(source, " ");
+      string result = StringFunc.GetTitle(source, " ");
       Assert.AreEqual(result, expected);
     }
 
@@ -1381,7 +1416,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "once_upon_a_time_in_a_galaxy_far_far_away";
       const string expected = "Once_Upon_A_Time_In_A_Galaxy_Far_Far_Away";
-      string result = FunctionsString.GetTitle(source, "_");
+      string result = StringFunc.GetTitle(source, "_");
       Assert.AreEqual(result, expected);
     }
 
@@ -1391,7 +1426,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "once upon a time in a galaxy far far away";
       const string expected = "o";
-      string result = FunctionsString.SubstringEnd(source, 0, 1);
+      string result = StringFunc.SubStringEnd(source, 0, 1);
       Assert.AreEqual(result, expected);
     }
 
@@ -1400,7 +1435,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "once upon a time in a galaxy far far away";
       const string expected = "";
-      string result = FunctionsString.SubstringEnd(source, 0, 0);
+      string result = StringFunc.SubStringEnd(source, 0, 0);
       Assert.AreEqual(result, expected);
     }
 
@@ -1409,7 +1444,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "once upon a time in a galaxy far far away";
       const string expected = "nc";
-      string result = FunctionsString.SubstringEnd(source, 1, 2);
+      string result = StringFunc.SubStringEnd(source, 1, 2);
       Assert.AreEqual(result, expected);
     }
 
@@ -1418,7 +1453,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "once upon a time in a galaxy far far away";
       const string expected = "time";
-      string result = FunctionsString.SubstringEnd(source, 12, 4);
+      string result = StringFunc.SubStringEnd(source, 12, 4);
       Assert.AreEqual(result, expected);
     }
 
@@ -1427,7 +1462,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "azerty";
       const string expected = "y";
-      string result = FunctionsString.SubstringEnd(source, source.Length - 1, 1);
+      string result = StringFunc.SubStringEnd(source, source.Length - 1, 1);
       Assert.AreEqual(result, expected);
     }
 
@@ -1436,7 +1471,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "azerty";
       const string expected = "e";
-      string result = FunctionsString.SubstringEnd(source, 2, 1);
+      string result = StringFunc.SubStringEnd(source, 2, 1);
       Assert.AreEqual(result, expected);
     }
 
@@ -1446,7 +1481,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "once upon a time in a galaxy far far away";
       const char expected = 'y';
-      char result = FunctionsString.CharRight(source, 0);
+      char result = StringFunc.CharRight(source, 0);
       Assert.AreEqual(result, expected);
     }
 
@@ -1455,7 +1490,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "";
       const char expected = new char();
-      char result = FunctionsString.CharRight(source, 0);
+      char result = StringFunc.CharRight(source, 0);
       Assert.AreEqual(result, expected);
     }
 
@@ -1464,7 +1499,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "qwerty";
       const char expected = 'e';
-      char result = FunctionsString.CharRight(source, 3);
+      char result = StringFunc.CharRight(source, 3);
       Assert.AreEqual(result, expected);
     }
 
@@ -1474,7 +1509,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "once upon a time in a galaxy far far away";
       const char expected = 'n';
-      char result = FunctionsString.CharMid(source, 0, 1);
+      char result = StringFunc.CharMid(source, 0, 1);
       Assert.AreEqual(result, expected);
     }
 
@@ -1483,7 +1518,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "";
       const char expected = new char();
-      char result = FunctionsString.CharMid(source, 0, 0);
+      char result = StringFunc.CharMid(source, 0, 0);
       Assert.AreEqual(result, expected);
     }
 
@@ -1493,7 +1528,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "once upon a time in a galaxy far far away";
       const int expected = 2;
-      int result = FunctionsString.CountString(source, "far", true);
+      int result = StringFunc.CountString(source, "far", true);
       Assert.AreEqual(result, expected);
     }
 
@@ -1502,7 +1537,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "once upon a time in a galaxy far far away";
       const int expected = 2;
-      int result = FunctionsString.CountString(source, "far", false);
+      int result = StringFunc.CountString(source, "far", false);
       Assert.AreEqual(result, expected);
     }
 
@@ -1511,7 +1546,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "";
       const int expected = 0;
-      int result = FunctionsString.CountString(source, "far", true);
+      int result = StringFunc.CountString(source, "far", true);
       Assert.AreEqual(result, expected);
     }
 
@@ -1523,7 +1558,7 @@ namespace UnitTestUsefullFunctions
       int[] expected = new int[2];
       expected[0] = 29;
       expected[1] = 33;
-      int[] result = FunctionsString.IndexOfAll(source, "far", true);
+      int[] result = StringFunc.IndexOfAll(source, "far", true);
       Assert.AreEqual(result[0], expected[0]);
       Assert.AreEqual(result[1], expected[1]);
     }
@@ -1535,7 +1570,7 @@ namespace UnitTestUsefullFunctions
       int[] expected = new int[2];
       expected[0] = 29;
       expected[1] = 33;
-      int[] result = FunctionsString.IndexOfAll(source, "far", false);
+      int[] result = StringFunc.IndexOfAll(source, "far", false);
       Assert.AreEqual(result[0], expected[0]);
       Assert.AreEqual(result[1], expected[1]);
     }
@@ -1547,7 +1582,7 @@ namespace UnitTestUsefullFunctions
       int[] expected = new int[2];
       expected[0] = 29;
       expected[1] = 33;
-      int[] result = FunctionsString.IndexOfAll(source, "far", true);
+      int[] result = StringFunc.IndexOfAll(source, "far", true);
       Assert.AreEqual(result[0], expected[0]);
       Assert.AreEqual(result[1], expected[1]);
     }
@@ -1555,11 +1590,10 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_IndexOfAll_no_matching()
     {
-      // TODO debug
-      //const string source = "once upon a time in a galaxy far far away";
-      //int[] expected = new int[0];
-      //int[] result = StringFunc.IndexOfAll(source, "toto", true);
-      //Assert.AreEqual(result[0], expected[0]);
+      const string source = "once upon a time in a galaxy far far away";
+      int[] expected = new int[0];
+      int[] result = StringFunc.IndexOfAll(source, "toto", true);
+      Assert.AreEqual(result.Length, expected.Length);
     }
 
     // **********************IsAlternateCases****************
@@ -1568,7 +1602,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "once upon a time in a galaxy far far away";
       const bool expected = false;
-      bool result = FunctionsString.IsAlternateCases(source);
+      bool result = StringFunc.IsAlternateCases(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1577,7 +1611,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "";
       const bool expected = false;
-      bool result = FunctionsString.IsAlternateCases(source);
+      bool result = StringFunc.IsAlternateCases(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1586,7 +1620,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "OnCe";
       const bool expected = true;
-      bool result = FunctionsString.IsAlternateCases(source);
+      bool result = StringFunc.IsAlternateCases(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1595,7 +1629,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "OnCe uPoN";
       const bool expected = true;
-      bool result = FunctionsString.IsAlternateCases(source);
+      bool result = StringFunc.IsAlternateCases(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1604,7 +1638,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "OnCe uPoN A TiMe";
       const bool expected = true;
-      bool result = FunctionsString.IsAlternateCases(source);
+      bool result = StringFunc.IsAlternateCases(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1614,7 +1648,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "Once upon a time in a galaxy far far away";
       const bool expected = true;
-      bool result = FunctionsString.IsCapitalized(source);
+      bool result = StringFunc.IsCapitalized(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1623,7 +1657,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "";
       const bool expected = false;
-      bool result = FunctionsString.IsCapitalized(source);
+      bool result = StringFunc.IsCapitalized(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1632,7 +1666,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "once upon a time in a galaxy far far away";
       const bool expected = false;
-      bool result = FunctionsString.IsCapitalized(source);
+      bool result = StringFunc.IsCapitalized(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1642,7 +1676,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "once upon a time in a galaxy far far away";
       const bool expected = true;
-      bool result = FunctionsString.IsLowerCase(source);
+      bool result = StringFunc.IsLowerCase(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1651,7 +1685,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "Once upon a time in a galaxy far far away";
       const bool expected = false;
-      bool result = FunctionsString.IsLowerCase(source);
+      bool result = StringFunc.IsLowerCase(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1660,7 +1694,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "";
       const bool expected = false;
-      bool result = FunctionsString.IsLowerCase(source);
+      bool result = StringFunc.IsLowerCase(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1670,7 +1704,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "once upon a time in a galaxy far far away";
       const bool expected = true;
-      bool result = FunctionsString.IsLowerCase2(source);
+      bool result = StringFunc.IsLowerCase2(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1679,7 +1713,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "Once upon a time in a galaxy far far away";
       const bool expected = false;
-      bool result = FunctionsString.IsLowerCase2(source);
+      bool result = StringFunc.IsLowerCase2(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1688,7 +1722,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "";
       const bool expected = false;
-      bool result = FunctionsString.IsLowerCase2(source);
+      bool result = StringFunc.IsLowerCase2(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1699,7 +1733,7 @@ namespace UnitTestUsefullFunctions
       string source = "once upon a time in a galaxy far far away";
       source = source.ToUpper();
       const bool expected = true;
-      bool result = FunctionsString.IsUpperCase(source);
+      bool result = StringFunc.IsUpperCase(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1708,7 +1742,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "Once upon a time in a galaxy far far away";
       const bool expected = false;
-      bool result = FunctionsString.IsUpperCase(source);
+      bool result = StringFunc.IsUpperCase(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1717,7 +1751,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "";
       const bool expected = false;
-      bool result = FunctionsString.IsUpperCase(source);
+      bool result = StringFunc.IsUpperCase(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1728,7 +1762,7 @@ namespace UnitTestUsefullFunctions
       string source = "once upon a time in a galaxy far far away";
       source = source.ToUpper();
       const bool expected = true;
-      bool result = FunctionsString.IsUpperCase2(source);
+      bool result = StringFunc.IsUpperCase2(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1737,7 +1771,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "Once upon a time in a galaxy far far away";
       const bool expected = false;
-      bool result = FunctionsString.IsUpperCase2(source);
+      bool result = StringFunc.IsUpperCase2(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1746,7 +1780,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "";
       const bool expected = false;
-      bool result = FunctionsString.IsUpperCase2(source);
+      bool result = StringFunc.IsUpperCase2(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1756,7 +1790,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "azerty";
       const bool expected = true;
-      bool result = FunctionsString.HasVowels(source);
+      bool result = StringFunc.HasVowels(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1765,7 +1799,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "";
       const bool expected = false;
-      bool result = FunctionsString.HasVowels(source);
+      bool result = StringFunc.HasVowels(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1774,7 +1808,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "aeiouy";
       const bool expected = true;
-      bool result = FunctionsString.HasVowels(source);
+      bool result = StringFunc.HasVowels(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1783,7 +1817,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "qsdfghjklm";
       const bool expected = false;
-      bool result = FunctionsString.HasVowels(source);
+      bool result = StringFunc.HasVowels(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1793,7 +1827,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "       ";
       const bool expected = true;
-      bool result = FunctionsString.IsSpaces(source);
+      bool result = StringFunc.IsSpaces(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1802,7 +1836,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "";
       const bool expected = false;
-      bool result = FunctionsString.HasVowels(source);
+      bool result = StringFunc.HasVowels(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1811,7 +1845,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "qwerty";
       const bool expected = false;
-      bool result = FunctionsString.IsSpaces(source);
+      bool result = StringFunc.IsSpaces(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1821,7 +1855,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "aaaaaaa";
       const bool expected = true;
-      bool result = FunctionsString.IsRepeatedChar(source);
+      bool result = StringFunc.IsRepeatedChar(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1830,7 +1864,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "";
       const bool expected = true;
-      bool result = FunctionsString.IsRepeatedChar(source);
+      bool result = StringFunc.IsRepeatedChar(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1839,7 +1873,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "qwerty";
       const bool expected = false;
-      bool result = FunctionsString.IsRepeatedChar(source);
+      bool result = StringFunc.IsRepeatedChar(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1848,7 +1882,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "Once upon a time in a galaxy far far away";
       const bool expected = false;
-      bool result = FunctionsString.IsRepeatedChar(source);
+      bool result = StringFunc.IsRepeatedChar(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1858,7 +1892,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "azerty";
       const bool expected = false;
-      bool result = FunctionsString.IsNumeric(source);
+      bool result = StringFunc.IsNumeric(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1867,7 +1901,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "123456";
       const bool expected = true;
-      bool result = FunctionsString.IsNumeric(source);
+      bool result = StringFunc.IsNumeric(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1877,7 +1911,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "";
       const bool expected = false;
-      bool result = FunctionsString.IsNumeric(source);
+      bool result = StringFunc.IsNumeric(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1887,7 +1921,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "azerty";
       const bool expected = false;
-      bool result = FunctionsString.IsNumeric2(source);
+      bool result = StringFunc.IsNumeric2(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1896,7 +1930,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "123456";
       const bool expected = true;
-      bool result = FunctionsString.IsNumeric2(source);
+      bool result = StringFunc.IsNumeric2(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1906,7 +1940,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "";
       const bool expected = false;
-      bool result = FunctionsString.IsNumeric2(source);
+      bool result = StringFunc.IsNumeric2(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1917,7 +1951,7 @@ namespace UnitTestUsefullFunctions
       const string source = "azerty";
       const NumberStyles numberStyle = NumberStyles.Number;
       const bool expected = false;
-      bool result = FunctionsString.IsNumeric3(source, numberStyle);
+      bool result = StringFunc.IsNumeric3(source, numberStyle);
       Assert.AreEqual(result, expected);
     }
 
@@ -1927,7 +1961,7 @@ namespace UnitTestUsefullFunctions
       const string source = "123456";
       const NumberStyles numberStyle = NumberStyles.Number;
       const bool expected = true;
-      bool result = FunctionsString.IsNumeric3(source, numberStyle);
+      bool result = StringFunc.IsNumeric3(source, numberStyle);
       Assert.AreEqual(result, expected);
     }
 
@@ -1938,7 +1972,7 @@ namespace UnitTestUsefullFunctions
       const string source = "";
       const NumberStyles numberStyle = NumberStyles.Number;
       const bool expected = false;
-      bool result = FunctionsString.IsNumeric3(source, numberStyle);
+      bool result = StringFunc.IsNumeric3(source, numberStyle);
       Assert.AreEqual(result, expected);
     }
 
@@ -1948,7 +1982,7 @@ namespace UnitTestUsefullFunctions
       const string source = "123456  ";
       const NumberStyles numberStyle = NumberStyles.AllowTrailingWhite;
       const bool expected = true;
-      bool result = FunctionsString.IsNumeric3(source, numberStyle);
+      bool result = StringFunc.IsNumeric3(source, numberStyle);
       Assert.AreEqual(result, expected);
     }
 
@@ -1958,7 +1992,7 @@ namespace UnitTestUsefullFunctions
       const string source = "  123456";
       const NumberStyles numberStyle = NumberStyles.AllowLeadingWhite;
       const bool expected = true;
-      bool result = FunctionsString.IsNumeric3(source, numberStyle);
+      bool result = StringFunc.IsNumeric3(source, numberStyle);
       Assert.AreEqual(result, expected);
     }
 
@@ -1968,7 +2002,7 @@ namespace UnitTestUsefullFunctions
       const string source = "1234,56";
       const NumberStyles numberStyle = NumberStyles.AllowDecimalPoint;
       const bool expected = true;
-      bool result = FunctionsString.IsNumeric3(source, numberStyle);
+      bool result = StringFunc.IsNumeric3(source, numberStyle);
       Assert.AreEqual(result, expected);
     }
 
@@ -1978,7 +2012,7 @@ namespace UnitTestUsefullFunctions
       const string source = "123456";
       const NumberStyles numberStyle = NumberStyles.Integer;
       const bool expected = true;
-      bool result = FunctionsString.IsNumeric3(source, numberStyle);
+      bool result = StringFunc.IsNumeric3(source, numberStyle);
       Assert.AreEqual(result, expected);
     }
 
@@ -1988,7 +2022,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "1+azerty";
       const bool expected = false;
-      bool result = FunctionsString.IsAlphaNumeric(source);
+      bool result = StringFunc.IsAlphaNumeric(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -1997,7 +2031,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "1azerty";
       const bool expected = true;
-      bool result = FunctionsString.IsAlphaNumeric(source);
+      bool result = StringFunc.IsAlphaNumeric(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -2006,7 +2040,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "";
       const bool expected = false;
-      bool result = FunctionsString.IsAlphaNumeric(source);
+      bool result = StringFunc.IsAlphaNumeric(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -2016,7 +2050,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "123456789";
       const bool expected = false;
-      bool result = FunctionsString.IsOnlyLetters(source);
+      bool result = StringFunc.IsOnlyLetters(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -2025,7 +2059,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "qwertyAndazerty";
       const bool expected = true;
-      bool result = FunctionsString.IsOnlyLetters(source);
+      bool result = StringFunc.IsOnlyLetters(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -2034,7 +2068,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "";
       const bool expected = false;
-      bool result = FunctionsString.IsOnlyLetters(source);
+      bool result = StringFunc.IsOnlyLetters(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -2044,7 +2078,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "once upon a time";
       const bool expected = false;
-      bool result = FunctionsString.IsTitle(source);
+      bool result = StringFunc.IsTitle(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -2053,7 +2087,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "Once A Upon A Time";
       const bool expected = true;
-      bool result = FunctionsString.IsTitle(source);
+      bool result = StringFunc.IsTitle(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -2062,7 +2096,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "";
       const bool expected = false;
-      bool result = FunctionsString.IsTitle(source);
+      bool result = StringFunc.IsTitle(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -2073,7 +2107,7 @@ namespace UnitTestUsefullFunctions
       const string source = "once upon a time";
       const string separator = " ";
       const bool expected = false;
-      bool result = FunctionsString.IsTitle(source, separator);
+      bool result = StringFunc.IsTitle(source, separator);
       Assert.AreEqual(result, expected);
     }
 
@@ -2083,7 +2117,7 @@ namespace UnitTestUsefullFunctions
       const string source = "Once A Upon A Time";
       const string separator = " ";
       const bool expected = true;
-      bool result = FunctionsString.IsTitle(source, separator);
+      bool result = StringFunc.IsTitle(source, separator);
       Assert.AreEqual(result, expected);
     }
 
@@ -2093,7 +2127,7 @@ namespace UnitTestUsefullFunctions
       const string source = "once A Upon A Time_in a galaxy far far away";
       const string separator = "_";
       const bool expected = false;
-      bool result = FunctionsString.IsTitle(source, separator);
+      bool result = StringFunc.IsTitle(source, separator);
       Assert.AreEqual(result, expected);
     }
 
@@ -2103,7 +2137,7 @@ namespace UnitTestUsefullFunctions
       const string source = "Once A Upon A Time_In a galaxy far far away";
       const string separator = "_";
       const bool expected = true;
-      bool result = FunctionsString.IsTitle(source, separator);
+      bool result = StringFunc.IsTitle(source, separator);
       Assert.AreEqual(result, expected);
     }
 
@@ -2113,7 +2147,7 @@ namespace UnitTestUsefullFunctions
       const string source = "";
       const string separator = "_";
       const bool expected = false;
-      bool result = FunctionsString.IsTitle(source, separator);
+      bool result = StringFunc.IsTitle(source, separator);
       Assert.AreEqual(result, expected);
     }
 
@@ -2123,7 +2157,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "this is certainly not a valid email address";
       const bool expected = false;
-      bool result = FunctionsString.IsEmailAddress(source);
+      bool result = StringFunc.IsEmailAddress(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -2132,7 +2166,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "someone@aol.com";
       const bool expected = true;
-      bool result = FunctionsString.IsEmailAddress(source);
+      bool result = StringFunc.IsEmailAddress(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -2141,7 +2175,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "someone@somefai.com";
       const bool expected = true;
-      bool result = FunctionsString.IsEmailAddress(source);
+      bool result = StringFunc.IsEmailAddress(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -2150,7 +2184,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "firstName.LastName@someFAI.com";
       const bool expected = true;
-      bool result = FunctionsString.IsEmailAddress(source);
+      bool result = StringFunc.IsEmailAddress(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -2159,7 +2193,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "me@f2.fr";
       const bool expected = true;
-      bool result = FunctionsString.IsEmailAddress(source);
+      bool result = StringFunc.IsEmailAddress(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -2168,7 +2202,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "";
       const bool expected = false;
-      bool result = FunctionsString.IsEmailAddress(source);
+      bool result = StringFunc.IsEmailAddress(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -2178,7 +2212,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "someone@someFAI.com";
       const bool expected = true;
-      bool result = FunctionsString.IsEmailAddressValid(source);
+      bool result = StringFunc.IsEmailAddressValid(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -2187,7 +2221,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "";
       const bool expected = false;
-      bool result = FunctionsString.IsEmailAddressValid(source);
+      bool result = StringFunc.IsEmailAddressValid(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -2196,7 +2230,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "someoneatsomeFAI.com";
       const bool expected = false;
-      bool result = FunctionsString.IsEmailAddressValid(source);
+      bool result = StringFunc.IsEmailAddressValid(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -2205,7 +2239,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "someone@someFAIdotcom";
       const bool expected = false;
-      bool result = FunctionsString.IsEmailAddressValid(source);
+      bool result = StringFunc.IsEmailAddressValid(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -2214,7 +2248,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "s@I.c";
       const bool expected = false;
-      bool result = FunctionsString.IsEmailAddressValid(source);
+      bool result = StringFunc.IsEmailAddressValid(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -2223,7 +2257,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "firstName.lastName@free.fr";
       const bool expected = true;
-      bool result = FunctionsString.IsEmailAddressValid(source);
+      bool result = StringFunc.IsEmailAddressValid(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -2232,7 +2266,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "firstName.lastName@mairie.paris";
       const bool expected = true;
-      bool result = FunctionsString.IsEmailAddressValid(source);
+      bool result = StringFunc.IsEmailAddressValid(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -2241,7 +2275,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "firstName.lastName@mywonderful.website";
       const bool expected = true;
-      bool result = FunctionsString.IsEmailAddressValid(source);
+      bool result = StringFunc.IsEmailAddressValid(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -2250,7 +2284,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "firstName.lastName@mywonderful.memorial";
       const bool expected = true;
-      bool result = FunctionsString.IsEmailAddressValid(source);
+      bool result = StringFunc.IsEmailAddressValid(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -2259,7 +2293,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "firstName.lastName@supersite.solutions";
       const bool expected = true;
-      bool result = FunctionsString.IsEmailAddressValid(source);
+      bool result = StringFunc.IsEmailAddressValid(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -2268,7 +2302,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "firstName.lastName@maysupersite.consulting";
       const bool expected = true;
-      bool result = FunctionsString.IsEmailAddressValid(source);
+      bool result = StringFunc.IsEmailAddressValid(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -2277,7 +2311,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "firstName.lastName@mywonderful.co.com";
       const bool expected = true;
-      bool result = FunctionsString.IsEmailAddressValid(source);
+      bool result = StringFunc.IsEmailAddressValid(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -2286,7 +2320,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "firstName.lastName@site.co.uk";
       const bool expected = true;
-      bool result = FunctionsString.IsEmailAddressValid(source);
+      bool result = StringFunc.IsEmailAddressValid(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -2295,7 +2329,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "firstName.lastName@mysupersite.accountants";
       const bool expected = true;
-      bool result = FunctionsString.IsEmailAddressValid(source);
+      bool result = StringFunc.IsEmailAddressValid(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -2304,7 +2338,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "firstName.lastName@mysupersite.blackfriday";
       const bool expected = true;
-      bool result = FunctionsString.IsEmailAddressValid(source);
+      bool result = StringFunc.IsEmailAddressValid(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -2313,7 +2347,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "firstName.lastName@mysupersite.construction";
       const bool expected = true;
-      bool result = FunctionsString.IsEmailAddressValid(source);
+      bool result = StringFunc.IsEmailAddressValid(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -2323,7 +2357,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "firstName.lastName@mysupersite.contractors";
       const bool expected = true;
-      bool result = FunctionsString.IsEmailAddressValid(source);
+      bool result = StringFunc.IsEmailAddressValid(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -2332,7 +2366,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "firstName.lastName@supersite.international";
       const bool expected = true;
-      bool result = FunctionsString.IsEmailAddressValid(source);
+      bool result = StringFunc.IsEmailAddressValid(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -2341,7 +2375,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_LoadAlphabetInList_false_empty_source_array()
     {
       char[] expected = new char[62];
-      char[] result = FunctionsString.LoadAlphabetInList(false, false);
+      char[] result = StringFunc.LoadAlphabetInCharArray(false, false);
       Assert.AreEqual(result.Length, expected.Length);
       Assert.AreEqual(result[0], expected[0]);
       Assert.AreEqual(result[5], expected[5]);
@@ -2351,15 +2385,17 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_LoadAlphabetInList_false_empty_source_array_give_sixty_two_length_array()
     {
-      char[] result = FunctionsString.LoadAlphabetInList(false, false);
-      Assert.IsTrue(result.Length == 26 + 26 + 10);
+      bool source = false;
+      int expected = 26 + 26 + 10;
+      char[] result = StringFunc.LoadAlphabetInCharArray(source, source);
+      Assert.AreEqual(result.Length, expected);
     }
 
     [TestMethod]
     public void TestMethod_LoadAlphabetInList_true_only_digits()
     {
       char[] expected = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-      char[] result = FunctionsString.LoadAlphabetInList(true, false);
+      char[] result = StringFunc.LoadAlphabetInCharArray(true, false);
       Assert.AreEqual(result[0], expected[0]); // '0'
       Assert.AreEqual(result[5], expected[5]); // '5'
       Assert.AreEqual(result[9], expected[9]); // '9'
@@ -2369,8 +2405,8 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_LoadAlphabetInList_true_only_lower_case_letters()
     {
       char[] expected = new char[62];
-      expected = FunctionsString.GetAlphabet();
-      char[] result = FunctionsString.LoadAlphabetInList(false);
+      expected = StringFunc.GetAlphabet();
+      char[] result = StringFunc.LoadAlphabetInCharArray(false);
       Assert.AreEqual(result[0], expected[0]); // 'a'
       Assert.AreEqual(result[5], expected[5]);
       Assert.AreEqual(result[9], expected[9]);
@@ -2381,8 +2417,8 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_LoadAlphabetInList_true_only_upper_case_letters()
     {
       char[] expected = new char[62];
-      expected = FunctionsString.GetAlphabet(false);
-      char[] result = FunctionsString.LoadAlphabetInList(false, false, true);
+      expected = StringFunc.GetAlphabet(false);
+      char[] result = StringFunc.LoadAlphabetInCharArray(false, false, true);
       Assert.AreEqual(result[0], expected[0]); // 'A'
       Assert.AreEqual(result[5], expected[5]);
       Assert.AreEqual(result[9], expected[9]);
@@ -2393,8 +2429,8 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_LoadAlphabetInList_true_lower_and_upper_case_letters()
     {
       char[] expected = new char[62];
-      char[] lower = FunctionsString.GetAlphabet();
-      char[] upper = FunctionsString.GetAlphabet(false);
+      char[] lower = StringFunc.GetAlphabet();
+      char[] upper = StringFunc.GetAlphabet(false);
       int counter = 0;
       for (int i = 0; i < lower.Length; i++)
       {
@@ -2408,7 +2444,7 @@ namespace UnitTestUsefullFunctions
         counter++;
       }
 
-      char[] result = FunctionsString.LoadAlphabetInList(false, true, true);
+      char[] result = StringFunc.LoadAlphabetInCharArray(false, true, true);
       Assert.AreEqual(result[0], expected[0]); // 'a'
       Assert.AreEqual(result[5], expected[5]);
       Assert.AreEqual(result[9], expected[9]);
@@ -2421,8 +2457,8 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_LoadAlphabetInList_true_digit_lower_and_upper_case_letters()
     {
       char[] expected = new char[62];
-      char[] lower = FunctionsString.GetAlphabet();
-      char[] upper = FunctionsString.GetAlphabet(false);
+      char[] lower = StringFunc.GetAlphabet();
+      char[] upper = StringFunc.GetAlphabet(false);
       int counter = 0;
       for (int i = 0; i < lower.Length; i++)
       {
@@ -2441,7 +2477,7 @@ namespace UnitTestUsefullFunctions
         counter++;
       }
 
-      char[] result = FunctionsString.LoadAlphabetInList(true, true, true);
+      char[] result = StringFunc.LoadAlphabetInCharArray(true, true, true);
       Assert.AreEqual(result[0], expected[0]); // 'a'
       Assert.AreEqual(result[5], expected[5]);
       Assert.AreEqual(result[9], expected[9]);
@@ -2456,7 +2492,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_LoadAlphabetInList_true_lower_case_letters_and_digit()
     {
       char[] expected = new char[62];
-      char[] lower = FunctionsString.GetAlphabet();
+      char[] lower = StringFunc.GetAlphabet();
       int counter = 0;
       for (int i = 0; i < lower.Length; i++)
       {
@@ -2470,7 +2506,7 @@ namespace UnitTestUsefullFunctions
         counter++;
       }
 
-      char[] result = FunctionsString.LoadAlphabetInList();
+      char[] result = StringFunc.LoadAlphabetInCharArray();
       Assert.AreEqual(result[0], expected[0]); // 'a'
       Assert.AreEqual(result[5], expected[5]);
       Assert.AreEqual(result[9], expected[9]);
@@ -2483,7 +2519,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_LoadAlphabetInList_true_upper_case_letters_and_digit()
     {
       char[] expected = new char[62];
-      char[] upper = FunctionsString.GetAlphabet(false);
+      char[] upper = StringFunc.GetAlphabet(false);
       int counter = 0;
       for (int i = 0; i < upper.Length; i++)
       {
@@ -2497,7 +2533,7 @@ namespace UnitTestUsefullFunctions
         counter++;
       }
 
-      char[] result = FunctionsString.LoadAlphabetInList(true, false, true);
+      char[] result = StringFunc.LoadAlphabetInCharArray(true, false, true);
       Assert.AreEqual(result[0], expected[0]); // 'a'
       Assert.AreEqual(result[5], expected[5]);
       Assert.AreEqual(result[9], expected[9]);
@@ -2506,51 +2542,49 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result[35], expected[35]); // '9'
     }
 
-    // LoadAlphabetInStringArray TODO tests to write
-
     // **********************LetterCasingSequence**************
     [TestMethod]
     public void TestMethod_LetterCasingSequence_true_all_enum_exists_no_deleted_item()
     {
-      Assert.AreEqual(FunctionsString.LetterCasingSequence.DigitLowerUpper, FunctionsString.LetterCasingSequence.DigitLowerUpper);
-      Assert.AreEqual(FunctionsString.LetterCasingSequence.DigitUpperLower, FunctionsString.LetterCasingSequence.DigitUpperLower);
-      Assert.AreEqual(FunctionsString.LetterCasingSequence.LowerDigitUpper, FunctionsString.LetterCasingSequence.LowerDigitUpper);
-      Assert.AreEqual(FunctionsString.LetterCasingSequence.LowerUpperDigit, FunctionsString.LetterCasingSequence.LowerUpperDigit);
-      Assert.AreEqual(FunctionsString.LetterCasingSequence.UpperDigitLower, FunctionsString.LetterCasingSequence.UpperDigitLower);
-      Assert.AreEqual(FunctionsString.LetterCasingSequence.UpperLowerDigit, FunctionsString.LetterCasingSequence.UpperLowerDigit);
+      Assert.AreEqual(StringFunc.LetterCasingSequence.DigitLowerUpper, StringFunc.LetterCasingSequence.DigitLowerUpper);
+      Assert.AreEqual(StringFunc.LetterCasingSequence.DigitUpperLower, StringFunc.LetterCasingSequence.DigitUpperLower);
+      Assert.AreEqual(StringFunc.LetterCasingSequence.LowerDigitUpper, StringFunc.LetterCasingSequence.LowerDigitUpper);
+      Assert.AreEqual(StringFunc.LetterCasingSequence.LowerUpperDigit, StringFunc.LetterCasingSequence.LowerUpperDigit);
+      Assert.AreEqual(StringFunc.LetterCasingSequence.UpperDigitLower, StringFunc.LetterCasingSequence.UpperDigitLower);
+      Assert.AreEqual(StringFunc.LetterCasingSequence.UpperLowerDigit, StringFunc.LetterCasingSequence.UpperLowerDigit);
     }
 
     [TestMethod]
     public void TestMethod_LetterCasingSequence_false_no_equality()
     {
-      Assert.AreNotEqual(FunctionsString.LetterCasingSequence.DigitLowerUpper, FunctionsString.LetterCasingSequence.DigitUpperLower);
-      Assert.AreNotEqual(FunctionsString.LetterCasingSequence.DigitUpperLower, FunctionsString.LetterCasingSequence.LowerDigitUpper);
-      Assert.AreNotEqual(FunctionsString.LetterCasingSequence.LowerDigitUpper, FunctionsString.LetterCasingSequence.LowerUpperDigit);
-      Assert.AreNotEqual(FunctionsString.LetterCasingSequence.LowerUpperDigit, FunctionsString.LetterCasingSequence.UpperDigitLower);
-      Assert.AreNotEqual(FunctionsString.LetterCasingSequence.UpperDigitLower, FunctionsString.LetterCasingSequence.UpperLowerDigit);
-      Assert.AreNotEqual(FunctionsString.LetterCasingSequence.UpperLowerDigit, FunctionsString.LetterCasingSequence.DigitLowerUpper);
+      Assert.AreNotEqual(StringFunc.LetterCasingSequence.DigitLowerUpper, StringFunc.LetterCasingSequence.DigitUpperLower);
+      Assert.AreNotEqual(StringFunc.LetterCasingSequence.DigitUpperLower, StringFunc.LetterCasingSequence.LowerDigitUpper);
+      Assert.AreNotEqual(StringFunc.LetterCasingSequence.LowerDigitUpper, StringFunc.LetterCasingSequence.LowerUpperDigit);
+      Assert.AreNotEqual(StringFunc.LetterCasingSequence.LowerUpperDigit, StringFunc.LetterCasingSequence.UpperDigitLower);
+      Assert.AreNotEqual(StringFunc.LetterCasingSequence.UpperDigitLower, StringFunc.LetterCasingSequence.UpperLowerDigit);
+      Assert.AreNotEqual(StringFunc.LetterCasingSequence.UpperLowerDigit, StringFunc.LetterCasingSequence.DigitLowerUpper);
     }
 
     [TestMethod]
     public void TestMethod_LetterCasingSequence_true_all_enum_exist_by_their_value_number()
     {
-      Assert.IsTrue(Enum.IsDefined(typeof(FunctionsString.LetterCasingSequence), 0));
-      Assert.IsTrue(Enum.IsDefined(typeof(FunctionsString.LetterCasingSequence), 1));
-      Assert.IsTrue(Enum.IsDefined(typeof(FunctionsString.LetterCasingSequence), 2));
-      Assert.IsTrue(Enum.IsDefined(typeof(FunctionsString.LetterCasingSequence), 3));
-      Assert.IsTrue(Enum.IsDefined(typeof(FunctionsString.LetterCasingSequence), 4));
-      Assert.IsTrue(Enum.IsDefined(typeof(FunctionsString.LetterCasingSequence), 5));
+      Assert.IsTrue(Enum.IsDefined(typeof(StringFunc.LetterCasingSequence), 0));
+      Assert.IsTrue(Enum.IsDefined(typeof(StringFunc.LetterCasingSequence), 1));
+      Assert.IsTrue(Enum.IsDefined(typeof(StringFunc.LetterCasingSequence), 2));
+      Assert.IsTrue(Enum.IsDefined(typeof(StringFunc.LetterCasingSequence), 3));
+      Assert.IsTrue(Enum.IsDefined(typeof(StringFunc.LetterCasingSequence), 4));
+      Assert.IsTrue(Enum.IsDefined(typeof(StringFunc.LetterCasingSequence), 5));
     }
 
     [TestMethod]
     public void TestMethod_LetterCasingSequence_true_all_enum_exists_with_no_change_in_their_value()
     {
-      Assert.AreEqual((int)FunctionsString.LetterCasingSequence.LowerUpperDigit, 0);
-      Assert.AreEqual((int)FunctionsString.LetterCasingSequence.UpperLowerDigit, 1);
-      Assert.AreEqual((int)FunctionsString.LetterCasingSequence.DigitLowerUpper, 2);
-      Assert.AreEqual((int)FunctionsString.LetterCasingSequence.DigitUpperLower, 3);
-      Assert.AreEqual((int)FunctionsString.LetterCasingSequence.LowerDigitUpper, 4);
-      Assert.AreEqual((int)FunctionsString.LetterCasingSequence.UpperDigitLower, 5);
+      Assert.AreEqual((int)StringFunc.LetterCasingSequence.LowerUpperDigit, 0);
+      Assert.AreEqual((int)StringFunc.LetterCasingSequence.UpperLowerDigit, 1);
+      Assert.AreEqual((int)StringFunc.LetterCasingSequence.DigitLowerUpper, 2);
+      Assert.AreEqual((int)StringFunc.LetterCasingSequence.DigitUpperLower, 3);
+      Assert.AreEqual((int)StringFunc.LetterCasingSequence.LowerDigitUpper, 4);
+      Assert.AreEqual((int)StringFunc.LetterCasingSequence.UpperDigitLower, 5);
     }
 
     // **********************NumberToWordsEnglish**************
@@ -2558,7 +2592,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_zero()
     {
       const string expected = "zero";
-      string result = FunctionsString.NumberToEnglishWords(0);
+      string result = StringFunc.NumberToEnglishWords(0);
       Assert.AreEqual(result, expected);
     }
 
@@ -2566,7 +2600,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_one()
     {
       const string expected = "one";
-      string result = FunctionsString.NumberToEnglishWords(1);
+      string result = StringFunc.NumberToEnglishWords(1);
       Assert.AreEqual(result, expected);
     }
 
@@ -2574,7 +2608,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_minus_one()
     {
       const string expected = "minus one";
-      string result = FunctionsString.NumberToEnglishWords(-1);
+      string result = StringFunc.NumberToEnglishWords(-1);
       Assert.AreEqual(result, expected);
     }
 
@@ -2582,7 +2616,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_two()
     {
       const string expected = "two";
-      string result = FunctionsString.NumberToEnglishWords(2);
+      string result = StringFunc.NumberToEnglishWords(2);
       Assert.AreEqual(result, expected);
     }
 
@@ -2590,7 +2624,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_minus_two()
     {
       const string expected = "minus two";
-      string result = FunctionsString.NumberToEnglishWords(-2);
+      string result = StringFunc.NumberToEnglishWords(-2);
       Assert.AreEqual(result, expected);
     }
 
@@ -2598,7 +2632,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_three()
     {
       const string expected = "three";
-      string result = FunctionsString.NumberToEnglishWords(3);
+      string result = StringFunc.NumberToEnglishWords(3);
       Assert.AreEqual(result, expected);
     }
 
@@ -2606,7 +2640,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_minus_three()
     {
       const string expected = "minus three";
-      string result = FunctionsString.NumberToEnglishWords(-3);
+      string result = StringFunc.NumberToEnglishWords(-3);
       Assert.AreEqual(result, expected);
     }
 
@@ -2614,7 +2648,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_four()
     {
       const string expected = "four";
-      string result = FunctionsString.NumberToEnglishWords(4);
+      string result = StringFunc.NumberToEnglishWords(4);
       Assert.AreEqual(result, expected);
     }
 
@@ -2622,7 +2656,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_minus_four()
     {
       const string expected = "minus four";
-      string result = FunctionsString.NumberToEnglishWords(-4);
+      string result = StringFunc.NumberToEnglishWords(-4);
       Assert.AreEqual(result, expected);
     }
 
@@ -2630,7 +2664,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_five()
     {
       const string expected = "five";
-      string result = FunctionsString.NumberToEnglishWords(5);
+      string result = StringFunc.NumberToEnglishWords(5);
       Assert.AreEqual(result, expected);
     }
 
@@ -2638,7 +2672,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_minus_five()
     {
       const string expected = "minus five";
-      string result = FunctionsString.NumberToEnglishWords(-5);
+      string result = StringFunc.NumberToEnglishWords(-5);
       Assert.AreEqual(result, expected);
     }
 
@@ -2646,7 +2680,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_six()
     {
       const string expected = "six";
-      string result = FunctionsString.NumberToEnglishWords(6);
+      string result = StringFunc.NumberToEnglishWords(6);
       Assert.AreEqual(result, expected);
     }
 
@@ -2654,7 +2688,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_minus_six()
     {
       const string expected = "minus six";
-      string result = FunctionsString.NumberToEnglishWords(-6);
+      string result = StringFunc.NumberToEnglishWords(-6);
       Assert.AreEqual(result, expected);
     }
 
@@ -2662,7 +2696,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_seven()
     {
       const string expected = "seven";
-      string result = FunctionsString.NumberToEnglishWords(7);
+      string result = StringFunc.NumberToEnglishWords(7);
       Assert.AreEqual(result, expected);
     }
 
@@ -2670,7 +2704,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_eight()
     {
       const string expected = "eight";
-      string result = FunctionsString.NumberToEnglishWords(8);
+      string result = StringFunc.NumberToEnglishWords(8);
       Assert.AreEqual(result, expected);
     }
 
@@ -2678,7 +2712,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_nine()
     {
       const string expected = "nine";
-      string result = FunctionsString.NumberToEnglishWords(9);
+      string result = StringFunc.NumberToEnglishWords(9);
       Assert.AreEqual(result, expected);
     }
 
@@ -2686,7 +2720,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_ten()
     {
       const string expected = "ten";
-      string result = FunctionsString.NumberToEnglishWords(10);
+      string result = StringFunc.NumberToEnglishWords(10);
       Assert.AreEqual(result, expected);
     }
 
@@ -2694,7 +2728,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_eleven()
     {
       const string expected = "eleven";
-      string result = FunctionsString.NumberToEnglishWords(11);
+      string result = StringFunc.NumberToEnglishWords(11);
       Assert.AreEqual(result, expected);
     }
 
@@ -2702,7 +2736,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_twelve()
     {
       const string expected = "twelve";
-      string result = FunctionsString.NumberToEnglishWords(12);
+      string result = StringFunc.NumberToEnglishWords(12);
       Assert.AreEqual(result, expected);
     }
 
@@ -2710,7 +2744,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_minus_thirteen()
     {
       const string expected = "thirteen";
-      string result = FunctionsString.NumberToEnglishWords(13);
+      string result = StringFunc.NumberToEnglishWords(13);
       Assert.AreEqual(result, expected);
     }
 
@@ -2718,7 +2752,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_fourteen()
     {
       const string expected = "fourteen";
-      string result = FunctionsString.NumberToEnglishWords(14);
+      string result = StringFunc.NumberToEnglishWords(14);
       Assert.AreEqual(result, expected);
     }
 
@@ -2726,7 +2760,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_minus_fifteen()
     {
       const string expected = "fifteen";
-      string result = FunctionsString.NumberToEnglishWords(15);
+      string result = StringFunc.NumberToEnglishWords(15);
       Assert.AreEqual(result, expected);
     }
 
@@ -2734,7 +2768,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_sixteen()
     {
       const string expected = "sixteen";
-      string result = FunctionsString.NumberToEnglishWords(16);
+      string result = StringFunc.NumberToEnglishWords(16);
       Assert.AreEqual(result, expected);
     }
 
@@ -2742,7 +2776,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_seventeen()
     {
       const string expected = "seventeen";
-      string result = FunctionsString.NumberToEnglishWords(17);
+      string result = StringFunc.NumberToEnglishWords(17);
       Assert.AreEqual(result, expected);
     }
 
@@ -2750,7 +2784,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_eighteen()
     {
       const string expected = "eighteen";
-      string result = FunctionsString.NumberToEnglishWords(18);
+      string result = StringFunc.NumberToEnglishWords(18);
       Assert.AreEqual(result, expected);
     }
 
@@ -2758,7 +2792,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_nineteen()
     {
       const string expected = "nineteen";
-      string result = FunctionsString.NumberToEnglishWords(19);
+      string result = StringFunc.NumberToEnglishWords(19);
       Assert.AreEqual(result, expected);
     }
 
@@ -2766,7 +2800,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_twenty()
     {
       const string expected = "twenty";
-      string result = FunctionsString.NumberToEnglishWords(20);
+      string result = StringFunc.NumberToEnglishWords(20);
       Assert.AreEqual(result, expected);
     }
 
@@ -2774,7 +2808,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_twenty_one()
     {
       const string expected = "twenty-one";
-      string result = FunctionsString.NumberToEnglishWords(21);
+      string result = StringFunc.NumberToEnglishWords(21);
       Assert.AreEqual(result, expected);
     }
 
@@ -2782,7 +2816,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_twenty_five()
     {
       const string expected = "twenty-five";
-      string result = FunctionsString.NumberToEnglishWords(25);
+      string result = StringFunc.NumberToEnglishWords(25);
       Assert.AreEqual(result, expected);
     }
 
@@ -2790,7 +2824,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_thirty()
     {
       const string expected = "thirty";
-      string result = FunctionsString.NumberToEnglishWords(30);
+      string result = StringFunc.NumberToEnglishWords(30);
       Assert.AreEqual(result, expected);
     }
 
@@ -2798,7 +2832,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_thirty_one()
     {
       const string expected = "thirty-one";
-      string result = FunctionsString.NumberToEnglishWords(31);
+      string result = StringFunc.NumberToEnglishWords(31);
       Assert.AreEqual(result, expected);
     }
 
@@ -2806,7 +2840,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_thirty_five()
     {
       const string expected = "thirty-five";
-      string result = FunctionsString.NumberToEnglishWords(35);
+      string result = StringFunc.NumberToEnglishWords(35);
       Assert.AreEqual(result, expected);
     }
 
@@ -2814,7 +2848,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_forty()
     {
       const string expected = "forty";
-      string result = FunctionsString.NumberToEnglishWords(40);
+      string result = StringFunc.NumberToEnglishWords(40);
       Assert.AreEqual(result, expected);
     }
 
@@ -2822,7 +2856,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_fifty()
     {
       const string expected = "fifty";
-      string result = FunctionsString.NumberToEnglishWords(50);
+      string result = StringFunc.NumberToEnglishWords(50);
       Assert.AreEqual(result, expected);
     }
 
@@ -2830,7 +2864,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_sixty()
     {
       const string expected = "sixty";
-      string result = FunctionsString.NumberToEnglishWords(60);
+      string result = StringFunc.NumberToEnglishWords(60);
       Assert.AreEqual(result, expected);
     }
 
@@ -2838,7 +2872,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_seventy()
     {
       const string expected = "seventy";
-      string result = FunctionsString.NumberToEnglishWords(70);
+      string result = StringFunc.NumberToEnglishWords(70);
       Assert.AreEqual(result, expected);
     }
 
@@ -2846,7 +2880,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_eighty()
     {
       const string expected = "eighty";
-      string result = FunctionsString.NumberToEnglishWords(80);
+      string result = StringFunc.NumberToEnglishWords(80);
       Assert.AreEqual(result, expected);
     }
 
@@ -2854,7 +2888,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_ninety()
     {
       const string expected = "ninety";
-      string result = FunctionsString.NumberToEnglishWords(90);
+      string result = StringFunc.NumberToEnglishWords(90);
       Assert.AreEqual(result, expected);
     }
 
@@ -2862,7 +2896,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_one_hundred()
     {
       const string expected = "one hundred";
-      string result = FunctionsString.NumberToEnglishWords(100);
+      string result = StringFunc.NumberToEnglishWords(100);
       Assert.AreEqual(result, expected);
     }
 
@@ -2870,7 +2904,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_five_hundred()
     {
       const string expected = "five hundred";
-      string result = FunctionsString.NumberToEnglishWords(500);
+      string result = StringFunc.NumberToEnglishWords(500);
       Assert.AreEqual(result, expected);
     }
 
@@ -2878,7 +2912,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_seven_hundred_fifty()
     {
       const string expected = "seven hundred and fifty";
-      string result = FunctionsString.NumberToEnglishWords(750);
+      string result = StringFunc.NumberToEnglishWords(750);
       Assert.AreEqual(result, expected);
     }
 
@@ -2886,7 +2920,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_seven_hundred_and_fourty_seven()
     {
       const string expected = "seven hundred and forty-seven";
-      string result = FunctionsString.NumberToEnglishWords(747);
+      string result = StringFunc.NumberToEnglishWords(747);
       Assert.AreEqual(result, expected);
     }
 
@@ -2894,7 +2928,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_nine_hundred_and_nine()
     {
       const string expected = "nine hundred and nine";
-      string result = FunctionsString.NumberToEnglishWords(909);
+      string result = StringFunc.NumberToEnglishWords(909);
       Assert.AreEqual(result, expected);
     }
 
@@ -2902,7 +2936,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_one_thousand()
     {
       const string expected = "one thousand";
-      string result = FunctionsString.NumberToEnglishWords(1000);
+      string result = StringFunc.NumberToEnglishWords(1000);
       Assert.AreEqual(result, expected);
     }
 
@@ -2910,7 +2944,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_one_thousand_five_hundred()
     {
       const string expected = "one thousand five hundred";
-      string result = FunctionsString.NumberToEnglishWords(1500);
+      string result = StringFunc.NumberToEnglishWords(1500);
       Assert.AreEqual(result, expected);
     }
 
@@ -2918,7 +2952,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_one_thousand_seven_hundred_and_eighty_nine()
     {
       const string expected = "one thousand seven hundred and eighty-nine";
-      string result = FunctionsString.NumberToEnglishWords(1789);
+      string result = StringFunc.NumberToEnglishWords(1789);
       Assert.AreEqual(result, expected);
     }
 
@@ -2926,7 +2960,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_two_thousand_and_fifteen()
     {
       const string expected = "two thousand and fifteen";
-      string result = FunctionsString.NumberToEnglishWords(2015);
+      string result = StringFunc.NumberToEnglishWords(2015);
       Assert.AreEqual(result, expected);
     }
 
@@ -2934,7 +2968,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_nine_thousand_nine_hundred_and_ninety_nine()
     {
       const string expected = "nine thousand nine hundred and ninety-nine";
-      string result = FunctionsString.NumberToEnglishWords(9999);
+      string result = StringFunc.NumberToEnglishWords(9999);
       Assert.AreEqual(result, expected);
     }
 
@@ -2942,7 +2976,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_nine_hundred_ninety_nine_thousand_nine_hundred_and_ninety_nine()
     {
       const string expected = "nine hundred and ninety-nine thousand nine hundred and ninety-nine";
-      string result = FunctionsString.NumberToEnglishWords(999999);
+      string result = StringFunc.NumberToEnglishWords(999999);
       Assert.AreEqual(result, expected);
     }
 
@@ -2950,7 +2984,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_one_million()
     {
       const string expected = "one million";
-      string result = FunctionsString.NumberToEnglishWords(1000000);
+      string result = StringFunc.NumberToEnglishWords(1000000);
       Assert.AreEqual(result, expected);
     }
 
@@ -2958,7 +2992,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToEnglishWords_two_million()
     {
       const string expected = "two million";
-      string result = FunctionsString.NumberToEnglishWords(2000000);
+      string result = StringFunc.NumberToEnglishWords(2000000);
       Assert.AreEqual(expected, result);
     }
 
@@ -2966,7 +3000,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_one_million_five_hundred_thousand()
     {
       const string expected = "one million five hundred thousand";
-      string result = FunctionsString.NumberToEnglishWords(1500000);
+      string result = StringFunc.NumberToEnglishWords(1500000);
       Assert.AreEqual(result, expected);
     }
 
@@ -2974,7 +3008,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_one_million_five_hundred_thousand_and_one()
     {
       const string expected = "one million five hundred thousand and one";
-      string result = FunctionsString.NumberToEnglishWords(1500001);
+      string result = StringFunc.NumberToEnglishWords(1500001);
       Assert.AreEqual(result, expected);
     }
 
@@ -2982,7 +3016,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_one_million_five_hundred_thousand_and_twenty()
     {
       const string expected = "one million five hundred thousand and twenty";
-      string result = FunctionsString.NumberToEnglishWords(1500020);
+      string result = StringFunc.NumberToEnglishWords(1500020);
       Assert.AreEqual(result, expected);
     }
 
@@ -2990,7 +3024,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_one_million_five_hundred_thousand_and_two_hundred()
     {
       const string expected = "one million five hundred thousand two hundred";
-      string result = FunctionsString.NumberToEnglishWords(1500200);
+      string result = StringFunc.NumberToEnglishWords(1500200);
       Assert.AreEqual(result, expected);
     }
 
@@ -2998,7 +3032,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_two_billion()
     {
       const string expected = "two billion";
-      string result = FunctionsString.NumberToEnglishWords(2000000000);
+      string result = StringFunc.NumberToEnglishWords(2000000000);
       Assert.AreEqual(result, expected);
     }
 
@@ -3007,7 +3041,7 @@ namespace UnitTestUsefullFunctions
     {
       const string expected = "two billion one hundred and forty-seven million four hundred and eighty-three thousand six hundred and forty-seven";
       // The value of int.MaxValue constant is 2,147,483,647
-      string result = FunctionsString.NumberToEnglishWords(int.MaxValue);
+      string result = StringFunc.NumberToEnglishWords(int.MaxValue);
       Assert.AreEqual(result, expected);
     }
 
@@ -3015,7 +3049,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_three_billion()
     {
       const string expected = "three billion";
-      string result = FunctionsString.NumberToEnglishWords(3000000000);
+      string result = StringFunc.NumberToEnglishWords(3000000000);
       Assert.AreEqual(result, expected);
     }
 
@@ -3023,7 +3057,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_one_trillion()
     {
       const string expected = "one trillion";
-      string result = FunctionsString.NumberToEnglishWords(1000000000000);
+      string result = StringFunc.NumberToEnglishWords(1000000000000);
       Assert.AreEqual(result, expected);
     }
 
@@ -3031,7 +3065,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_nine_hundred_trillion()
     {
       const string expected = "nine hundred trillion";
-      string result = FunctionsString.NumberToEnglishWords(900000000000000);
+      string result = StringFunc.NumberToEnglishWords(900000000000000);
       Assert.AreEqual(result, expected);
     }
 
@@ -3040,7 +3074,7 @@ namespace UnitTestUsefullFunctions
     {
       const string expected = "nine quintillion two hundred and twenty-three quadrillion three hundred and seventy-two trillion thirty-six billion eight hundred and fifty-four million seven hundred and seventy-five thousand eight hundred and seven";
       // The value of long.MaxValue constant is 9,223,372,036,854,775,807
-      string result = FunctionsString.NumberToEnglishWords(long.MaxValue);
+      string result = StringFunc.NumberToEnglishWords(long.MaxValue);
       Assert.AreEqual(result, expected);
     }
 
@@ -3049,7 +3083,7 @@ namespace UnitTestUsefullFunctions
     {
       const string expected = "eighteen quintillion four hundred and forty-six quadrillion seven hundred and forty-four trillion seventy-three billion seven hundred and nine million five hundred and fifty-one thousand six hundred and fifteen";
       // The value of ulong.MaxValue constant is 18,446,744,073,709,551,615
-      string result = FunctionsString.NumberToEnglishWords(ulong.MaxValue);
+      string result = StringFunc.NumberToEnglishWords(ulong.MaxValue);
       Assert.AreEqual(result, expected);
     }
 
@@ -3058,7 +3092,7 @@ namespace UnitTestUsefullFunctions
     {
       const string expected = "eighteen quintillion";
       // The value of ulong.MaxValue constant is 18,446,744,073,709,551,615
-      string result = FunctionsString.NumberToEnglishWords(18000000000000000000);
+      string result = StringFunc.NumberToEnglishWords(18000000000000000000);
       Assert.AreEqual(result, expected);
     }
 
@@ -3066,7 +3100,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToWordsEnglish_eighteen_quintillion_and_twenty_two()
     {
       const string expected = "eighteen quintillion and twenty-two";
-      string result = FunctionsString.NumberToEnglishWords(18000000000000000022);
+      string result = StringFunc.NumberToEnglishWords(18000000000000000022);
       Assert.AreEqual(result, expected);
     }
 
@@ -3075,7 +3109,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_zero()
     {
       const string expected = "zéro";
-      string result = FunctionsString.NumberToFrenchWords(0);
+      string result = StringFunc.NumberToFrenchWords(0);
       Assert.AreEqual(result, expected);
     }
 
@@ -3083,7 +3117,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_one()
     {
       const string expected = "un";
-      string result = FunctionsString.NumberToFrenchWords(1);
+      string result = StringFunc.NumberToFrenchWords(1);
       Assert.AreEqual(result, expected);
     }
 
@@ -3091,7 +3125,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_minus_one()
     {
       const string expected = "moins un";
-      string result = FunctionsString.NumberToFrenchWords(-1);
+      string result = StringFunc.NumberToFrenchWords(-1);
       Assert.AreEqual(result, expected);
     }
 
@@ -3099,7 +3133,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_two()
     {
       const string expected = "deux";
-      string result = FunctionsString.NumberToFrenchWords(2);
+      string result = StringFunc.NumberToFrenchWords(2);
       Assert.AreEqual(result, expected);
     }
 
@@ -3107,7 +3141,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_minus_two()
     {
       const string expected = "moins deux";
-      string result = FunctionsString.NumberToFrenchWords(-2);
+      string result = StringFunc.NumberToFrenchWords(-2);
       Assert.AreEqual(result, expected);
     }
 
@@ -3115,7 +3149,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_three()
     {
       const string expected = "trois";
-      string result = FunctionsString.NumberToFrenchWords(3);
+      string result = StringFunc.NumberToFrenchWords(3);
       Assert.AreEqual(result, expected);
     }
 
@@ -3123,7 +3157,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_moins_three()
     {
       const string expected = "moins trois";
-      string result = FunctionsString.NumberToFrenchWords(-3);
+      string result = StringFunc.NumberToFrenchWords(-3);
       Assert.AreEqual(result, expected);
     }
 
@@ -3131,7 +3165,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_four()
     {
       const string expected = "quatre";
-      string result = FunctionsString.NumberToFrenchWords(4);
+      string result = StringFunc.NumberToFrenchWords(4);
       Assert.AreEqual(result, expected);
     }
 
@@ -3139,7 +3173,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_moins_four()
     {
       const string expected = "moins quatre";
-      string result = FunctionsString.NumberToFrenchWords(-4);
+      string result = StringFunc.NumberToFrenchWords(-4);
       Assert.AreEqual(result, expected);
     }
 
@@ -3147,7 +3181,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_five()
     {
       const string expected = "cinq";
-      string result = FunctionsString.NumberToFrenchWords(5);
+      string result = StringFunc.NumberToFrenchWords(5);
       Assert.AreEqual(result, expected);
     }
 
@@ -3155,7 +3189,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_moins_five()
     {
       const string expected = "moins cinq";
-      string result = FunctionsString.NumberToFrenchWords(-5);
+      string result = StringFunc.NumberToFrenchWords(-5);
       Assert.AreEqual(result, expected);
     }
 
@@ -3163,7 +3197,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_six()
     {
       const string expected = "six";
-      string result = FunctionsString.NumberToFrenchWords(6);
+      string result = StringFunc.NumberToFrenchWords(6);
       Assert.AreEqual(result, expected);
     }
 
@@ -3171,7 +3205,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_moins_six()
     {
       const string expected = "moins six";
-      string result = FunctionsString.NumberToFrenchWords(-6);
+      string result = StringFunc.NumberToFrenchWords(-6);
       Assert.AreEqual(result, expected);
     }
 
@@ -3179,7 +3213,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_seven()
     {
       const string expected = "sept";
-      string result = FunctionsString.NumberToFrenchWords(7);
+      string result = StringFunc.NumberToFrenchWords(7);
       Assert.AreEqual(result, expected);
     }
 
@@ -3187,7 +3221,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_eight()
     {
       const string expected = "huit";
-      string result = FunctionsString.NumberToFrenchWords(8);
+      string result = StringFunc.NumberToFrenchWords(8);
       Assert.AreEqual(result, expected);
     }
 
@@ -3195,7 +3229,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_nine()
     {
       const string expected = "neuf";
-      string result = FunctionsString.NumberToFrenchWords(9);
+      string result = StringFunc.NumberToFrenchWords(9);
       Assert.AreEqual(result, expected);
     }
 
@@ -3203,7 +3237,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_ten()
     {
       const string expected = "dix";
-      string result = FunctionsString.NumberToFrenchWords(10);
+      string result = StringFunc.NumberToFrenchWords(10);
       Assert.AreEqual(result, expected);
     }
 
@@ -3211,7 +3245,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_eleven()
     {
       const string expected = "onze";
-      string result = FunctionsString.NumberToFrenchWords(11);
+      string result = StringFunc.NumberToFrenchWords(11);
       Assert.AreEqual(result, expected);
     }
 
@@ -3219,7 +3253,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_twelve()
     {
       const string expected = "douze";
-      string result = FunctionsString.NumberToFrenchWords(12);
+      string result = StringFunc.NumberToFrenchWords(12);
       Assert.AreEqual(result, expected);
     }
 
@@ -3227,7 +3261,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_moins_thirteen()
     {
       const string expected = "treize";
-      string result = FunctionsString.NumberToFrenchWords(13);
+      string result = StringFunc.NumberToFrenchWords(13);
       Assert.AreEqual(result, expected);
     }
 
@@ -3235,7 +3269,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_fourteen()
     {
       const string expected = "quatorze";
-      string result = FunctionsString.NumberToFrenchWords(14);
+      string result = StringFunc.NumberToFrenchWords(14);
       Assert.AreEqual(result, expected);
     }
 
@@ -3243,7 +3277,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_moins_fifteen()
     {
       const string expected = "quinze";
-      string result = FunctionsString.NumberToFrenchWords(15);
+      string result = StringFunc.NumberToFrenchWords(15);
       Assert.AreEqual(result, expected);
     }
 
@@ -3251,7 +3285,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_sixteen()
     {
       const string expected = "seize";
-      string result = FunctionsString.NumberToFrenchWords(16);
+      string result = StringFunc.NumberToFrenchWords(16);
       Assert.AreEqual(result, expected);
     }
 
@@ -3259,7 +3293,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_seventeen()
     {
       const string expected = "dix-sept";
-      string result = FunctionsString.NumberToFrenchWords(17);
+      string result = StringFunc.NumberToFrenchWords(17);
       Assert.AreEqual(result, expected);
     }
 
@@ -3267,7 +3301,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_eighteen()
     {
       const string expected = "dix-huit";
-      string result = FunctionsString.NumberToFrenchWords(18);
+      string result = StringFunc.NumberToFrenchWords(18);
       Assert.AreEqual(result, expected);
     }
 
@@ -3275,7 +3309,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_nineteen()
     {
       const string expected = "dix-neuf";
-      string result = FunctionsString.NumberToFrenchWords(19);
+      string result = StringFunc.NumberToFrenchWords(19);
       Assert.AreEqual(result, expected);
     }
 
@@ -3283,7 +3317,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_twenty()
     {
       const string expected = "vingt";
-      string result = FunctionsString.NumberToFrenchWords(20);
+      string result = StringFunc.NumberToFrenchWords(20);
       Assert.AreEqual(result, expected);
     }
 
@@ -3291,7 +3325,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_twenty_one()
     {
       const string expected = "vingt-un";
-      string result = FunctionsString.NumberToFrenchWords(21);
+      string result = StringFunc.NumberToFrenchWords(21);
       Assert.AreEqual(result, expected);
     }
 
@@ -3299,7 +3333,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_twenty_five()
     {
       const string expected = "vingt-cinq";
-      string result = FunctionsString.NumberToFrenchWords(25);
+      string result = StringFunc.NumberToFrenchWords(25);
       Assert.AreEqual(result, expected);
     }
 
@@ -3307,7 +3341,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_thirty()
     {
       const string expected = "trente";
-      string result = FunctionsString.NumberToFrenchWords(30);
+      string result = StringFunc.NumberToFrenchWords(30);
       Assert.AreEqual(result, expected);
     }
 
@@ -3315,7 +3349,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_thirty_one()
     {
       const string expected = "trente-un";
-      string result = FunctionsString.NumberToFrenchWords(31);
+      string result = StringFunc.NumberToFrenchWords(31);
       Assert.AreEqual(result, expected);
     }
 
@@ -3323,7 +3357,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_thirty_five()
     {
       const string expected = "trente-cinq";
-      string result = FunctionsString.NumberToFrenchWords(35);
+      string result = StringFunc.NumberToFrenchWords(35);
       Assert.AreEqual(result, expected);
     }
 
@@ -3331,7 +3365,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_forty()
     {
       const string expected = "quarante";
-      string result = FunctionsString.NumberToFrenchWords(40);
+      string result = StringFunc.NumberToFrenchWords(40);
       Assert.AreEqual(result, expected);
     }
 
@@ -3339,7 +3373,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_fifty()
     {
       const string expected = "cinquante";
-      string result = FunctionsString.NumberToFrenchWords(50);
+      string result = StringFunc.NumberToFrenchWords(50);
       Assert.AreEqual(result, expected);
     }
 
@@ -3347,7 +3381,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_sixty()
     {
       const string expected = "soixante";
-      string result = FunctionsString.NumberToFrenchWords(60);
+      string result = StringFunc.NumberToFrenchWords(60);
       Assert.AreEqual(result, expected);
     }
 
@@ -3355,7 +3389,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_seventy()
     {
       const string expected = "soixante-dix";
-      string result = FunctionsString.NumberToFrenchWords(70);
+      string result = StringFunc.NumberToFrenchWords(70);
       Assert.AreEqual(result, expected);
     }
 
@@ -3363,7 +3397,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_eighty()
     {
       const string expected = "quatre-vingt";
-      string result = FunctionsString.NumberToFrenchWords(80);
+      string result = StringFunc.NumberToFrenchWords(80);
       Assert.AreEqual(result, expected);
     }
 
@@ -3371,7 +3405,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_ninety()
     {
       const string expected = "quatre-vingt-dix";
-      string result = FunctionsString.NumberToFrenchWords(90);
+      string result = StringFunc.NumberToFrenchWords(90);
       Assert.AreEqual(result, expected);
     }
 
@@ -3379,7 +3413,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_one_hundred()
     {
       const string expected = "un cent";
-      string result = FunctionsString.NumberToFrenchWords(100);
+      string result = StringFunc.NumberToFrenchWords(100);
       Assert.AreEqual(result, expected);
     }
 
@@ -3387,7 +3421,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_five_hundred()
     {
       const string expected = "cinq cent";
-      string result = FunctionsString.NumberToFrenchWords(500);
+      string result = StringFunc.NumberToFrenchWords(500);
       Assert.AreEqual(result, expected);
     }
 
@@ -3395,7 +3429,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_seven_hundred_fifty()
     {
       const string expected = "sept cent et cinquante";
-      string result = FunctionsString.NumberToFrenchWords(750);
+      string result = StringFunc.NumberToFrenchWords(750);
       Assert.AreEqual(result, expected);
     }
 
@@ -3403,7 +3437,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_seven_hundred_and_fourty_seven()
     {
       const string expected = "sept cent et quarante-sept";
-      string result = FunctionsString.NumberToFrenchWords(747);
+      string result = StringFunc.NumberToFrenchWords(747);
       Assert.AreEqual(result, expected);
     }
 
@@ -3411,7 +3445,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_nine_hundred_and_nine()
     {
       const string expected = "neuf cent et neuf";
-      string result = FunctionsString.NumberToFrenchWords(909);
+      string result = StringFunc.NumberToFrenchWords(909);
       Assert.AreEqual(result, expected);
     }
 
@@ -3419,7 +3453,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_one_thousand()
     {
       const string expected = "un mille";
-      string result = FunctionsString.NumberToFrenchWords(1000);
+      string result = StringFunc.NumberToFrenchWords(1000);
       Assert.AreEqual(result, expected);
     }
 
@@ -3427,7 +3461,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_one_thousand_five_hundred()
     {
       const string expected = "un mille cinq cent";
-      string result = FunctionsString.NumberToFrenchWords(1500);
+      string result = StringFunc.NumberToFrenchWords(1500);
       Assert.AreEqual(result, expected);
     }
 
@@ -3435,7 +3469,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_one_thousand_seven_hundred_and_eighty_nine()
     {
       const string expected = "un mille sept cent et quatre-vingt-neuf";
-      string result = FunctionsString.NumberToFrenchWords(1789);
+      string result = StringFunc.NumberToFrenchWords(1789);
       Assert.AreEqual(result, expected);
     }
 
@@ -3443,7 +3477,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_two_thousand_and_fifteen()
     {
       const string expected = "deux mille et quinze";
-      string result = FunctionsString.NumberToFrenchWords(2015);
+      string result = StringFunc.NumberToFrenchWords(2015);
       Assert.AreEqual(result, expected);
     }
 
@@ -3451,7 +3485,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_nine_thousand_nine_hundred_and_ninety_nine()
     {
       const string expected = "neuf mille neuf cent et quatre-vingt-dix-neuf";
-      string result = FunctionsString.NumberToFrenchWords(9999);
+      string result = StringFunc.NumberToFrenchWords(9999);
       Assert.AreEqual(result, expected);
     }
 
@@ -3459,7 +3493,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_nine_hundred_ninety_nine_thousand_nine_hundred_and_ninety_nine()
     {
       const string expected = "neuf cent et quatre-vingt-dix-neuf mille neuf cent et quatre-vingt-dix-neuf";
-      string result = FunctionsString.NumberToFrenchWords(999999);
+      string result = StringFunc.NumberToFrenchWords(999999);
       Assert.AreEqual(result, expected);
     }
 
@@ -3467,7 +3501,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_one_million()
     {
       const string expected = "un million";
-      string result = FunctionsString.NumberToFrenchWords(1000000);
+      string result = StringFunc.NumberToFrenchWords(1000000);
       Assert.AreEqual(result, expected);
     }
 
@@ -3475,7 +3509,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_two_million()
     {
       const string expected = "deux million";
-      string result = FunctionsString.NumberToFrenchWords(2000000);
+      string result = StringFunc.NumberToFrenchWords(2000000);
       Assert.AreEqual(expected, result);
     }
 
@@ -3483,7 +3517,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_one_million_five_hundred_thousand()
     {
       const string expected = "un million cinq cent mille";
-      string result = FunctionsString.NumberToFrenchWords(1500000);
+      string result = StringFunc.NumberToFrenchWords(1500000);
       Assert.AreEqual(result, expected);
     }
 
@@ -3491,7 +3525,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_one_million_five_hundred_thousand_and_one()
     {
       const string expected = "un million cinq cent mille et un";
-      string result = FunctionsString.NumberToFrenchWords(1500001);
+      string result = StringFunc.NumberToFrenchWords(1500001);
       Assert.AreEqual(result, expected);
     }
 
@@ -3499,7 +3533,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_one_million_five_hundred_thousand_and_twenty()
     {
       const string expected = "un million cinq cent mille et vingt";
-      string result = FunctionsString.NumberToFrenchWords(1500020);
+      string result = StringFunc.NumberToFrenchWords(1500020);
       Assert.AreEqual(result, expected);
     }
 
@@ -3507,7 +3541,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_one_million_five_hundred_thousand_and_two_hundred()
     {
       const string expected = "un million cinq cent mille deux cent";
-      string result = FunctionsString.NumberToFrenchWords(1500200);
+      string result = StringFunc.NumberToFrenchWords(1500200);
       Assert.AreEqual(result, expected);
     }
 
@@ -3515,7 +3549,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_two_billion()
     {
       const string expected = "deux milliard";
-      string result = FunctionsString.NumberToFrenchWords(2000000000);
+      string result = StringFunc.NumberToFrenchWords(2000000000);
       Assert.AreEqual(result, expected);
     }
 
@@ -3524,7 +3558,7 @@ namespace UnitTestUsefullFunctions
     {
       const string expected = "deux milliard un cent et quarante-sept million quatre cent et quatre-vingt-trois mille six cent et quarante-sept";
       // The value of int.MaxValue constant is 2,147,483,647
-      string result = FunctionsString.NumberToFrenchWords(int.MaxValue);
+      string result = StringFunc.NumberToFrenchWords(int.MaxValue);
       Assert.AreEqual(result, expected);
     }
 
@@ -3532,7 +3566,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_three_billion()
     {
       const string expected = "trois milliard";
-      string result = FunctionsString.NumberToFrenchWords(3000000000);
+      string result = StringFunc.NumberToFrenchWords(3000000000);
       Assert.AreEqual(result, expected);
     }
 
@@ -3540,7 +3574,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_one_trillion()
     {
       const string expected = "un billion";
-      string result = FunctionsString.NumberToFrenchWords(1000000000000);
+      string result = StringFunc.NumberToFrenchWords(1000000000000);
       Assert.AreEqual(result, expected);
     }
 
@@ -3548,7 +3582,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_nine_hundred_billion()
     {
       const string expected = "neuf cent billion";
-      string result = FunctionsString.NumberToFrenchWords(900000000000000);
+      string result = StringFunc.NumberToFrenchWords(900000000000000);
       Assert.AreEqual(result, expected);
     }
 
@@ -3557,7 +3591,7 @@ namespace UnitTestUsefullFunctions
     {
       const string expected = "neuf trillion deux cent et vingt-trois billiard trois cent et soixante-dix-deux billion trente-six milliard huit cent et cinquante-quatre million sept cent et soixante-dix-cinq mille huit cent et sept";
       // The value of long.MaxValue constant is 9,223,372,036,854,775,807
-      string result = FunctionsString.NumberToFrenchWords(long.MaxValue);
+      string result = StringFunc.NumberToFrenchWords(long.MaxValue);
       Assert.AreEqual(result, expected);
     }
 
@@ -3566,7 +3600,7 @@ namespace UnitTestUsefullFunctions
     {
       const string expected = "dix-huit trillion quatre cent et quarante-six billiard sept cent et quarante-quatre billion soixante-dix-trois milliard sept cent et neuf million cinq cent et cinquante-un mille six cent et quinze";
       // The value of ulong.MaxValue constant is 18,446,744,073,709,551,615
-      string result = FunctionsString.NumberToFrenchWords(ulong.MaxValue);
+      string result = StringFunc.NumberToFrenchWords(ulong.MaxValue);
       Assert.AreEqual(result, expected);
     }
 
@@ -3575,7 +3609,7 @@ namespace UnitTestUsefullFunctions
     {
       const string expected = "dix-huit trillion";
       // The value of ulong.MaxValue constant is 18,446,744,073,709,551,615
-      string result = FunctionsString.NumberToFrenchWords(18000000000000000000);
+      string result = StringFunc.NumberToFrenchWords(18000000000000000000);
       Assert.AreEqual(result, expected);
     }
 
@@ -3583,7 +3617,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberToFrenchWords_eighteen_quintillion_and_twenty_two()
     {
       const string expected = "dix-huit trillion et vingt-deux";
-      string result = FunctionsString.NumberToFrenchWords(18000000000000000022);
+      string result = StringFunc.NumberToFrenchWords(18000000000000000022);
       Assert.AreEqual(result, expected);
     }
 
@@ -3593,7 +3627,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_one_hundred_and_twenty_three_million_four_hundred_and_twenty_seven_thousand_three_hundred_and_thirty_nine()
     {
       const string expected = "one hundred and twenty-three million four hundred and twenty-seven thousand three hundred and thirty-nine";
-      string result = FunctionsString.NumberToEnglishWords(123427339);
+      string result = StringFunc.NumberToEnglishWords(123427339);
       Assert.AreEqual(expected, result);
     }
 
@@ -3601,7 +3635,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_un_cent_et_vingt_trois_million_quatre_cent_et_vingt_sept_mille_trois_cent_et_trente_neuf()
     {
       const string expected = "un cent et vingt-trois million quatre cent et vingt-sept mille trois cent et trente-neuf";
-      string result = FunctionsString.NumberToFrenchWords(123427339);
+      string result = StringFunc.NumberToFrenchWords(123427339);
       Assert.AreEqual(expected, result);
     }
 
@@ -3609,7 +3643,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_three_hundred_and_seventeen_million_four_hundred_and_seventy_six_thousand_one_hundred_and_twenty_seven()
     {
       const string expected = "three hundred and seventeen million four hundred and seventy-six thousand one hundred and twenty-seven";
-      string result = FunctionsString.NumberToEnglishWords(317476127);
+      string result = StringFunc.NumberToEnglishWords(317476127);
       Assert.AreEqual(expected, result);
     }
 
@@ -3617,7 +3651,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_trois_cent_et_dix_sept_million_quatre_cent_et_soixante_dix_six_mille_un_cent_et_vingt_sept()
     {
       const string expected = "trois cent et dix-sept million quatre cent et soixante-dix-six mille un cent et vingt-sept";
-      string result = FunctionsString.NumberToFrenchWords(317476127);
+      string result = StringFunc.NumberToFrenchWords(317476127);
       Assert.AreEqual(expected, result);
     }
 
@@ -3625,7 +3659,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_five_hundred_and_fifteen_million_six_hundred_and_seventeen_thousand_seven_hundred_and_twenty_nine()
     {
       const string expected = "five hundred and fifteen million six hundred and seventeen thousand seven hundred and twenty-nine";
-      string result = FunctionsString.NumberToEnglishWords(515617729);
+      string result = StringFunc.NumberToEnglishWords(515617729);
       Assert.AreEqual(expected, result);
     }
 
@@ -3633,7 +3667,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_cinq_cent_et_quinze_million_six_cent_et_dix_sept_mille_sept_cent_et_vingt_neuf()
     {
       const string expected = "cinq cent et quinze million six cent et dix-sept mille sept cent et vingt-neuf";
-      string result = FunctionsString.NumberToFrenchWords(515617729);
+      string result = StringFunc.NumberToFrenchWords(515617729);
       Assert.AreEqual(expected, result);
     }
 
@@ -3641,7 +3675,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_three_hundred_and_sixty_three_million_four_hundred_and_seventy_one_thousand_six_hundred_and_twenty_four()
     {
       const string expected = "three hundred and sixty-three million four hundred and seventy-one thousand six hundred and twenty-four";
-      string result = FunctionsString.NumberToEnglishWords(363471624);
+      string result = StringFunc.NumberToEnglishWords(363471624);
       Assert.AreEqual(expected, result);
     }
 
@@ -3649,7 +3683,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_trois_cent_et_soixante_trois_million_quatre_cent_et_soixante_dix_un_mille_six_cent_et_vingt_quatre()
     {
       const string expected = "trois cent et soixante-trois million quatre cent et soixante-dix-un mille six cent et vingt-quatre";
-      string result = FunctionsString.NumberToFrenchWords(363471624);
+      string result = StringFunc.NumberToFrenchWords(363471624);
       Assert.AreEqual(expected, result);
     }
 
@@ -3657,7 +3691,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_seven_hundred_and_eighty_three_million_three_hundred_and_sixty_one_thousand_six_hundred_and_twenty_five()
     {
       const string expected = "seven hundred and eighty-three million three hundred and sixty-one thousand six hundred and twenty-five";
-      string result = FunctionsString.NumberToEnglishWords(783361625);
+      string result = StringFunc.NumberToEnglishWords(783361625);
       Assert.AreEqual(expected, result);
     }
 
@@ -3665,7 +3699,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_sept_cent_et_quatre_vingt_trois_million_trois_cent_et_soixante_un_mille_six_cent_et_vingt_cinq()
     {
       const string expected = "sept cent et quatre-vingt-trois million trois cent et soixante-un mille six cent et vingt-cinq";
-      string result = FunctionsString.NumberToFrenchWords(783361625);
+      string result = StringFunc.NumberToFrenchWords(783361625);
       Assert.AreEqual(expected, result);
     }
 
@@ -3673,7 +3707,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_four_hundred_and_fifty_seven_million_one_hundred_and_thirty_one_thousand_three_hundred_and_twenty_eight()
     {
       const string expected = "four hundred and fifty-seven million one hundred and thirty-one thousand three hundred and twenty-eight";
-      string result = FunctionsString.NumberToEnglishWords(457131328);
+      string result = StringFunc.NumberToEnglishWords(457131328);
       Assert.AreEqual(expected, result);
     }
 
@@ -3681,7 +3715,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_quatre_cent_et_cinquante_sept_million_un_cent_et_trente_un_mille_trois_cent_et_vingt_huit()
     {
       const string expected = "quatre cent et cinquante-sept million un cent et trente-un mille trois cent et vingt-huit";
-      string result = FunctionsString.NumberToFrenchWords(457131328);
+      string result = StringFunc.NumberToFrenchWords(457131328);
       Assert.AreEqual(expected, result);
     }
     #endregion Random Unit tests generated
@@ -3692,7 +3726,7 @@ namespace UnitTestUsefullFunctions
     {
       char[] source = { };
       const byte stringLength = 8;
-      string result = FunctionsString.GenerateRandomString(source);
+      string result = StringFunc.GenerateRandomString(source);
       Assert.AreEqual(result.Length, stringLength);
     }
 
@@ -3701,8 +3735,8 @@ namespace UnitTestUsefullFunctions
     {
       char[] source = { };
       const byte stringLength = 20;
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.LowerCase, stringLength);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.LowerCase, stringLength);
       Assert.AreEqual(result.Length, stringLength);
     }
 
@@ -3711,8 +3745,8 @@ namespace UnitTestUsefullFunctions
     {
       char[] source = { };
       const byte stringLength = byte.MaxValue;
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.LowerCase, stringLength);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.LowerCase, stringLength);
       Assert.AreEqual(result.Length, stringLength);
     }
 
@@ -3720,7 +3754,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GenerateRandomString_true_lower_case()
     {
       char[] source = { };
-      string result = FunctionsString.GenerateRandomString(source);
+      string result = StringFunc.GenerateRandomString(source);
       Assert.AreEqual(result.ToLower(), result);
     }
 
@@ -3730,17 +3764,17 @@ namespace UnitTestUsefullFunctions
       const bool expected = false;
       char[] source = { };
       const byte stringLength = 254;
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.LowerCase, stringLength);
-      Assert.AreEqual(FunctionsString.HasSymbols(result), expected);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.LowerCase, stringLength);
+      Assert.AreEqual(StringFunc.HasSymbols(result), expected);
     }
 
     [TestMethod]
     public void TestMethod_GenerateRandomString_UpperCase_true_upper_case()
     {
       char[] source = { };
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.UpperCase);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.UpperCase);
       Assert.AreEqual(result.ToUpper(), result);
     }
 
@@ -3750,9 +3784,9 @@ namespace UnitTestUsefullFunctions
       const bool expected = false;
       char[] source = { };
       const byte stringLength = 254;
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.UpperCase, stringLength);
-      Assert.AreEqual(FunctionsString.HasSymbols(result), expected);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.UpperCase, stringLength);
+      Assert.AreEqual(StringFunc.HasSymbols(result), expected);
     }
 
     [TestMethod]
@@ -3760,9 +3794,9 @@ namespace UnitTestUsefullFunctions
     {
       const bool expected = true;
       char[] source = { };
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.Digit);
-      Assert.AreEqual(FunctionsString.IsNumeric2(result), expected);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.Digit);
+      Assert.AreEqual(StringFunc.IsNumeric2(result), expected);
     }
 
     [TestMethod]
@@ -3771,9 +3805,9 @@ namespace UnitTestUsefullFunctions
       const bool expected = false;
       char[] source = { };
       const byte stringLength = 254;
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.Digit, stringLength);
-      Assert.AreEqual(FunctionsString.HasSymbols(result), expected);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.Digit, stringLength);
+      Assert.AreEqual(StringFunc.HasSymbols(result), expected);
     }
 
     [TestMethod]
@@ -3781,9 +3815,9 @@ namespace UnitTestUsefullFunctions
     {
       const bool expected = false;
       char[] source = { };
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.SpecialCharacter);
-      Assert.AreEqual(FunctionsString.IsNumeric2(result), expected);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.SpecialCharacter);
+      Assert.AreEqual(StringFunc.IsNumeric2(result), expected);
     }
 
     [TestMethod]
@@ -3791,9 +3825,9 @@ namespace UnitTestUsefullFunctions
     {
       const bool expected = false;
       char[] source = { };
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.SpecialCharacter);
-      Assert.AreEqual(FunctionsString.HasVowels(result), expected);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.SpecialCharacter);
+      Assert.AreEqual(StringFunc.HasVowels(result), expected);
     }
 
     [TestMethod]
@@ -3801,9 +3835,9 @@ namespace UnitTestUsefullFunctions
     {
       const bool expected = false;
       char[] source = { };
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.SpecialCharacter);
-      Assert.AreEqual(FunctionsString.HasConsonants(result), expected);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.SpecialCharacter);
+      Assert.AreEqual(StringFunc.HasConsonants(result), expected);
     }
 
     [TestMethod]
@@ -3812,9 +3846,9 @@ namespace UnitTestUsefullFunctions
       const bool expected = true;
       char[] source = { };
       const byte stringLength = 254;
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.SpecialCharacter, stringLength);
-      Assert.AreEqual(FunctionsString.HasSymbols(result), expected);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.SpecialCharacter, stringLength);
+      Assert.AreEqual(StringFunc.HasSymbols(result), expected);
     }
 
     [TestMethod]
@@ -3822,8 +3856,8 @@ namespace UnitTestUsefullFunctions
     {
       char[] source = { };
       const byte stringLength = 250;
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.DigitSpecialChar, stringLength);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.DigitSpecialChar, stringLength);
       Assert.AreEqual(result.Length, stringLength);
     }
 
@@ -3833,9 +3867,9 @@ namespace UnitTestUsefullFunctions
       const bool expected = true;
       char[] source = { };
       const byte stringLength = 254;
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.DigitSpecialChar, stringLength);
-      Assert.AreEqual(FunctionsString.HasNumeric(result), expected);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.DigitSpecialChar, stringLength);
+      Assert.AreEqual(StringFunc.HasNumeric(result), expected);
     }
 
     [TestMethod]
@@ -3844,9 +3878,9 @@ namespace UnitTestUsefullFunctions
       const bool expected = true;
       char[] source = { };
       const byte stringLength = 254;
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.DigitSpecialChar, stringLength);
-      Assert.AreEqual(FunctionsString.HasSymbols(result), expected);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.DigitSpecialChar, stringLength);
+      Assert.AreEqual(StringFunc.HasSymbols(result), expected);
     }
 
     [TestMethod]
@@ -3855,9 +3889,9 @@ namespace UnitTestUsefullFunctions
       const bool expected = true;
       char[] source = { };
       const byte stringLength = 254;
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.DigitSpecialChar, stringLength);
-      Assert.AreEqual(FunctionsString.HasSymbols(result), expected);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.DigitSpecialChar, stringLength);
+      Assert.AreEqual(StringFunc.HasSymbols(result), expected);
     }
 
     [TestMethod]
@@ -3866,9 +3900,9 @@ namespace UnitTestUsefullFunctions
       const bool expected = true;
       char[] source = { };
       const byte stringLength = 254;
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.UpperLower, stringLength);
-      Assert.AreEqual(FunctionsString.HasConsonants(result), expected);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.UpperLower, stringLength);
+      Assert.AreEqual(StringFunc.HasConsonants(result), expected);
     }
 
     [TestMethod]
@@ -3877,9 +3911,9 @@ namespace UnitTestUsefullFunctions
       const bool expected = true;
       char[] source = { };
       const byte stringLength = 254;
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.UpperLower, stringLength);
-      Assert.AreEqual(FunctionsString.HasVowels(result), expected);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.UpperLower, stringLength);
+      Assert.AreEqual(StringFunc.HasVowels(result), expected);
     }
 
     [TestMethod]
@@ -3888,9 +3922,9 @@ namespace UnitTestUsefullFunctions
       const bool expected = false;
       char[] source = { };
       const byte stringLength = 254;
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.UpperLower, stringLength);
-      Assert.AreEqual(FunctionsString.HasSymbols(result), expected);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.UpperLower, stringLength);
+      Assert.AreEqual(StringFunc.HasSymbols(result), expected);
     }
 
     [TestMethod]
@@ -3899,9 +3933,9 @@ namespace UnitTestUsefullFunctions
       const bool expected = true;
       char[] source = { };
       const byte stringLength = 254;
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.LowerDigit, stringLength);
-      Assert.AreEqual(FunctionsString.HasVowels(result), expected);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.LowerDigit, stringLength);
+      Assert.AreEqual(StringFunc.HasVowels(result), expected);
     }
 
     [TestMethod]
@@ -3910,9 +3944,9 @@ namespace UnitTestUsefullFunctions
       const bool expected = true;
       char[] source = { };
       const byte stringLength = 254;
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.LowerDigit, stringLength);
-      Assert.AreEqual(FunctionsString.HasSomeLetters(result), expected);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.LowerDigit, stringLength);
+      Assert.AreEqual(StringFunc.HasSomeLetters(result), expected);
     }
 
     [TestMethod]
@@ -3921,9 +3955,9 @@ namespace UnitTestUsefullFunctions
       const bool expected = true;
       char[] source = { };
       const byte stringLength = 254;
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.LowerDigit, stringLength);
-      Assert.AreEqual(FunctionsString.HasSomeLowerCaseLetters(result), expected);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.LowerDigit, stringLength);
+      Assert.AreEqual(StringFunc.HasSomeLowerCaseLetters(result), expected);
     }
 
     [TestMethod]
@@ -3932,9 +3966,9 @@ namespace UnitTestUsefullFunctions
       const bool expected = false;
       char[] source = { };
       const byte stringLength = 254;
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.LowerDigit, stringLength);
-      Assert.AreEqual(FunctionsString.HasSymbols(result), expected);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.LowerDigit, stringLength);
+      Assert.AreEqual(StringFunc.HasSymbols(result), expected);
     }
 
     [TestMethod]
@@ -3943,9 +3977,9 @@ namespace UnitTestUsefullFunctions
       const bool expected = true;
       char[] source = { };
       const byte stringLength = 254;
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.UpperDigit, stringLength);
-      Assert.AreEqual(FunctionsString.HasVowels(result), expected);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.UpperDigit, stringLength);
+      Assert.AreEqual(StringFunc.HasVowels(result), expected);
     }
 
     [TestMethod]
@@ -3954,9 +3988,9 @@ namespace UnitTestUsefullFunctions
       const bool expected = true;
       char[] source = { };
       const byte stringLength = 254;
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.UpperDigit, stringLength);
-      Assert.AreEqual(FunctionsString.HasSomeLetters(result), expected);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.UpperDigit, stringLength);
+      Assert.AreEqual(StringFunc.HasSomeLetters(result), expected);
     }
 
     [TestMethod]
@@ -3965,9 +3999,9 @@ namespace UnitTestUsefullFunctions
       const bool expected = true;
       char[] source = { };
       const byte stringLength = 254;
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.UpperDigit, stringLength);
-      Assert.AreEqual(FunctionsString.HasSomeUpperCaseLetters(result), expected);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.UpperDigit, stringLength);
+      Assert.AreEqual(StringFunc.HasSomeUpperCaseLetters(result), expected);
     }
 
     [TestMethod]
@@ -3976,9 +4010,9 @@ namespace UnitTestUsefullFunctions
       const bool expected = false;
       char[] source = { };
       const byte stringLength = 254;
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.UpperDigit, stringLength);
-      Assert.AreEqual(FunctionsString.HasSymbols(result), expected);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.UpperDigit, stringLength);
+      Assert.AreEqual(StringFunc.HasSymbols(result), expected);
     }
 
     [TestMethod]
@@ -3987,9 +4021,9 @@ namespace UnitTestUsefullFunctions
       const bool expected = true;
       char[] source = { };
       const byte stringLength = 254;
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.UpperLowerDigit, stringLength);
-      Assert.AreEqual(FunctionsString.HasVowels(result), expected);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.UpperLowerDigit, stringLength);
+      Assert.AreEqual(StringFunc.HasVowels(result), expected);
     }
 
     [TestMethod]
@@ -3998,9 +4032,9 @@ namespace UnitTestUsefullFunctions
       const bool expected = true;
       char[] source = { };
       const byte stringLength = 254;
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.UpperLowerDigit, stringLength);
-      Assert.AreEqual(FunctionsString.HasSomeLetters(result), expected);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.UpperLowerDigit, stringLength);
+      Assert.AreEqual(StringFunc.HasSomeLetters(result), expected);
     }
 
     [TestMethod]
@@ -4009,9 +4043,9 @@ namespace UnitTestUsefullFunctions
       const bool expected = true;
       char[] source = { };
       const byte stringLength = 254;
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.UpperLowerDigit, stringLength);
-      Assert.AreEqual(FunctionsString.HasSomeUpperCaseLetters(result), expected);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.UpperLowerDigit, stringLength);
+      Assert.AreEqual(StringFunc.HasSomeUpperCaseLetters(result), expected);
     }
 
     [TestMethod]
@@ -4020,9 +4054,9 @@ namespace UnitTestUsefullFunctions
       const bool expected = true;
       char[] source = { };
       const byte stringLength = 254;
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.UpperLowerDigit, stringLength);
-      Assert.AreEqual(FunctionsString.HasSomeLowerCaseLetters(result), expected);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.UpperLowerDigit, stringLength);
+      Assert.AreEqual(StringFunc.HasSomeLowerCaseLetters(result), expected);
     }
 
     [TestMethod]
@@ -4031,9 +4065,9 @@ namespace UnitTestUsefullFunctions
       const bool expected = false;
       char[] source = { };
       const byte stringLength = 254;
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.UpperLowerDigit, stringLength);
-      Assert.AreEqual(FunctionsString.HasSymbols(result), expected);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.UpperLowerDigit, stringLength);
+      Assert.AreEqual(StringFunc.HasSymbols(result), expected);
     }
 
     [TestMethod]
@@ -4042,9 +4076,9 @@ namespace UnitTestUsefullFunctions
       const bool expected = true;
       char[] source = { };
       const byte stringLength = 254;
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.UpperLowerDigitSpecial, stringLength);
-      Assert.AreEqual(FunctionsString.HasVowels(result), expected);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.UpperLowerDigitSpecial, stringLength);
+      Assert.AreEqual(StringFunc.HasVowels(result), expected);
     }
 
     [TestMethod]
@@ -4053,9 +4087,9 @@ namespace UnitTestUsefullFunctions
       const bool expected = true;
       char[] source = { };
       const byte stringLength = 254;
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.UpperLowerDigitSpecial, stringLength);
-      Assert.AreEqual(FunctionsString.HasSomeLetters(result), expected);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.UpperLowerDigitSpecial, stringLength);
+      Assert.AreEqual(StringFunc.HasSomeLetters(result), expected);
     }
 
     [TestMethod]
@@ -4064,9 +4098,9 @@ namespace UnitTestUsefullFunctions
       const bool expected = true;
       char[] source = { };
       const byte stringLength = 254;
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.UpperLowerDigitSpecial, stringLength);
-      Assert.AreEqual(FunctionsString.HasSomeUpperCaseLetters(result), expected);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.UpperLowerDigitSpecial, stringLength);
+      Assert.AreEqual(StringFunc.HasSomeUpperCaseLetters(result), expected);
     }
 
     [TestMethod]
@@ -4075,9 +4109,9 @@ namespace UnitTestUsefullFunctions
       const bool expected = true;
       char[] source = { };
       const byte stringLength = 254;
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.UpperLowerDigitSpecial, stringLength);
-      Assert.AreEqual(FunctionsString.HasSomeLowerCaseLetters(result), expected);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.UpperLowerDigitSpecial, stringLength);
+      Assert.AreEqual(StringFunc.HasSomeLowerCaseLetters(result), expected);
     }
 
     [TestMethod]
@@ -4086,9 +4120,9 @@ namespace UnitTestUsefullFunctions
       const bool expected = true;
       char[] source = { };
       const byte stringLength = 254;
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.UpperLowerDigitSpecial, stringLength);
-      Assert.AreEqual(FunctionsString.HasSymbols(result), expected);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.UpperLowerDigitSpecial, stringLength);
+      Assert.AreEqual(StringFunc.HasSymbols(result), expected);
     }
 
     [TestMethod]
@@ -4097,9 +4131,9 @@ namespace UnitTestUsefullFunctions
       const bool expected = false;
       char[] source = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
       const byte stringLength = 254;
-      string result = FunctionsString.GenerateRandomString(source, true,
-        FunctionsString.RandomCharacters.UpperLowerDigitSpecial, stringLength);
-      Assert.AreEqual(FunctionsString.HasNumeric(result), expected);
+      string result = StringFunc.GenerateRandomString(source, true,
+        StringFunc.RandomCharacters.UpperLowerDigitSpecial, stringLength);
+      Assert.AreEqual(StringFunc.HasNumeric(result), expected);
     }
 
     [TestMethod]
@@ -4108,9 +4142,9 @@ namespace UnitTestUsefullFunctions
       const bool expected = false;
       char[] source = { 'a', 'e', 'i', 'o', 'u', 'y', 'A', 'E', 'I', 'O', 'U', 'Y' };
       const byte stringLength = 254;
-      string result = FunctionsString.GenerateRandomString(source, true,
-        FunctionsString.RandomCharacters.UpperLowerDigitSpecial, stringLength);
-      Assert.AreEqual(FunctionsString.HasVowels(result), expected); // failed on I (i uppercase)
+      string result = StringFunc.GenerateRandomString(source, true,
+        StringFunc.RandomCharacters.UpperLowerDigitSpecial, stringLength);
+      Assert.AreEqual(StringFunc.HasVowels(result), expected); // failed on I (i uppercase)
     }
 
     [TestMethod]
@@ -4121,9 +4155,9 @@ namespace UnitTestUsefullFunctions
       { 'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'z',
         'B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Z'};
       const byte stringLength = 254;
-      string result = FunctionsString.GenerateRandomString(source, true,
-        FunctionsString.RandomCharacters.UpperLowerDigitSpecial, stringLength);
-      Assert.AreEqual(FunctionsString.HasConsonants(result), expected);
+      string result = StringFunc.GenerateRandomString(source, true,
+        StringFunc.RandomCharacters.UpperLowerDigitSpecial, stringLength);
+      Assert.AreEqual(StringFunc.HasConsonants(result), expected);
     }
 
     [TestMethod]
@@ -4132,9 +4166,9 @@ namespace UnitTestUsefullFunctions
       const bool expected = true;
       char[] source = { };
       const byte stringLength = 254;
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.UpperLowerDigitSpecial, stringLength, true);
-      Assert.AreEqual(FunctionsString.HasSomeLetters(result), expected);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.UpperLowerDigitSpecial, stringLength, true);
+      Assert.AreEqual(StringFunc.HasSomeLetters(result), expected);
     }
 
     [TestMethod]
@@ -4143,9 +4177,9 @@ namespace UnitTestUsefullFunctions
       const bool expected = true;
       char[] source = { };
       const byte stringLength = 254;
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.UpperLowerDigitSpecial, stringLength, true);
-      Assert.AreEqual(FunctionsString.HasNumeric(result), expected);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.UpperLowerDigitSpecial, stringLength, true);
+      Assert.AreEqual(StringFunc.HasNumeric(result), expected);
     }
 
     [TestMethod]
@@ -4154,9 +4188,9 @@ namespace UnitTestUsefullFunctions
       const bool expected = true;
       char[] source = { };
       const byte stringLength = 254;
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.UpperLowerDigit, stringLength, true);
-      Assert.AreEqual(FunctionsString.HasSomeLetters(result), expected);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.UpperLowerDigit, stringLength, true);
+      Assert.AreEqual(StringFunc.HasSomeLetters(result), expected);
     }
 
     [TestMethod]
@@ -4165,9 +4199,9 @@ namespace UnitTestUsefullFunctions
       const bool expected = true;
       char[] source = { };
       const byte stringLength = 254;
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.UpperLowerDigit, stringLength, true);
-      Assert.AreEqual(FunctionsString.HasNumeric(result), expected);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.UpperLowerDigit, stringLength, true);
+      Assert.AreEqual(StringFunc.HasNumeric(result), expected);
     }
 
     [TestMethod]
@@ -4176,9 +4210,9 @@ namespace UnitTestUsefullFunctions
       const bool expected = false;
       char[] source = { };
       const byte stringLength = 254;
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.UpperLower, stringLength, true);
-      Assert.AreEqual(FunctionsString.HasNumeric(result), expected);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.UpperLower, stringLength, true);
+      Assert.AreEqual(StringFunc.HasNumeric(result), expected);
     }
 
     [TestMethod]
@@ -4187,9 +4221,9 @@ namespace UnitTestUsefullFunctions
       const bool expected = false;
       char[] source = { };
       const byte stringLength = 2;
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.SpecialCharacter, stringLength, true);
-      Assert.AreEqual(FunctionsString.HasNumeric(result), expected);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.SpecialCharacter, stringLength, true);
+      Assert.AreEqual(StringFunc.HasNumeric(result), expected);
     }
 
     [TestMethod]
@@ -4198,9 +4232,9 @@ namespace UnitTestUsefullFunctions
       const bool expected = false;
       char[] source = { };
       const byte stringLength = 2;
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.SpecialCharacter, stringLength, true);
-      Assert.AreEqual(FunctionsString.HasSomeLetters(result), expected);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.SpecialCharacter, stringLength, true);
+      Assert.AreEqual(StringFunc.HasSomeLetters(result), expected);
     }
 
     [TestMethod]
@@ -4209,9 +4243,9 @@ namespace UnitTestUsefullFunctions
       const bool expected = false;
       char[] source = { };
       const byte stringLength = 2;
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.SpecialCharacter, stringLength, true);
-      Assert.AreEqual(FunctionsString.HasSymbols(result), expected);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.SpecialCharacter, stringLength, true);
+      Assert.AreEqual(StringFunc.HasSymbols(result), expected);
     }
 
     [TestMethod]
@@ -4220,8 +4254,8 @@ namespace UnitTestUsefullFunctions
       const int expected = 1;
       char[] source = { };
       const byte stringLength = 1;
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.SpecialCharacter, stringLength, true);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.SpecialCharacter, stringLength, true);
       Assert.AreEqual(result.Length, expected);
     }
 
@@ -4231,8 +4265,8 @@ namespace UnitTestUsefullFunctions
       const int expected = 254;
       char[] source = { };
       const byte stringLength = 254;
-      string result = FunctionsString.GenerateRandomString(source, false,
-        FunctionsString.RandomCharacters.SpecialCharacter, stringLength, true);
+      string result = StringFunc.GenerateRandomString(source, false,
+        StringFunc.RandomCharacters.SpecialCharacter, stringLength, true);
       Assert.AreEqual(result.Length, expected);
     }
 
@@ -4244,7 +4278,7 @@ namespace UnitTestUsefullFunctions
     {
       string source = "azerty and qwerty";
       const bool expected = true;
-      bool result = FunctionsString.HasSomeLowerCaseLetters(source);
+      bool result = StringFunc.HasSomeLowerCaseLetters(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -4253,7 +4287,7 @@ namespace UnitTestUsefullFunctions
     {
       string source = "AZERTY AND QWERTY";
       const bool expected = false;
-      bool result = FunctionsString.HasSomeLowerCaseLetters(source);
+      bool result = StringFunc.HasSomeLowerCaseLetters(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -4262,7 +4296,7 @@ namespace UnitTestUsefullFunctions
     {
       string source = "AZERTY AND QWERTy";
       const bool expected = true;
-      bool result = FunctionsString.HasSomeLowerCaseLetters(source);
+      bool result = StringFunc.HasSomeLowerCaseLetters(source);
       Assert.AreEqual(result, expected);
     }
     #endregion HasSomeLowerCaseLetters method Unit tests
@@ -4273,7 +4307,7 @@ namespace UnitTestUsefullFunctions
     {
       string source = "azerty and qwerty";
       const bool expected = false;
-      bool result = FunctionsString.HasSomeUpperCaseLetters(source);
+      bool result = StringFunc.HasSomeUpperCaseLetters(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -4282,7 +4316,7 @@ namespace UnitTestUsefullFunctions
     {
       string source = "AZERTY AND QWERTY";
       const bool expected = true;
-      bool result = FunctionsString.HasSomeUpperCaseLetters(source);
+      bool result = StringFunc.HasSomeUpperCaseLetters(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -4291,7 +4325,7 @@ namespace UnitTestUsefullFunctions
     {
       string source = "azerty and qwertY";
       const bool expected = true;
-      bool result = FunctionsString.HasSomeUpperCaseLetters(source);
+      bool result = StringFunc.HasSomeUpperCaseLetters(source);
       Assert.AreEqual(result, expected);
     }
     #endregion HasSomeUpperCaseLetters method Unit tests
@@ -4303,7 +4337,7 @@ namespace UnitTestUsefullFunctions
       const int expected = 8;
       string source = "A long long time ago in a galaxy far far away";
       string source2 = "a";
-      int result = FunctionsString.StringOccurrenceWithIndexOf(source, source2);
+      int result = StringFunc.StringOccurrenceWithIndexOf(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -4313,7 +4347,7 @@ namespace UnitTestUsefullFunctions
       const int expected = 2;
       string source = "A long long time ago in a galaxy far far away";
       string source2 = "long";
-      int result = FunctionsString.StringOccurrenceWithIndexOf(source, source2);
+      int result = StringFunc.StringOccurrenceWithIndexOf(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -4324,7 +4358,7 @@ namespace UnitTestUsefullFunctions
       const int expected = 2;
       string source = "A long long time ago in a galaxy far far away";
       string source2 = "far";
-      int result = FunctionsString.StringOccurrenceWithIndexOf(source, source2);
+      int result = StringFunc.StringOccurrenceWithIndexOf(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -4335,7 +4369,7 @@ namespace UnitTestUsefullFunctions
       const int expected = 0;
       string source = "A long long time ago in a galaxy far far away";
       string source2 = "";
-      int result = FunctionsString.StringOccurrenceWithIndexOf(source, source2);
+      int result = StringFunc.StringOccurrenceWithIndexOf(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -4346,7 +4380,7 @@ namespace UnitTestUsefullFunctions
       const int expected = 0;
       string source = string.Empty;
       string source2 = "long";
-      int result = FunctionsString.StringOccurrenceWithIndexOf(source, source2);
+      int result = StringFunc.StringOccurrenceWithIndexOf(source, source2);
       Assert.AreEqual(result, expected);
     }
     #endregion StringOccurrenceWithIndexOf
@@ -4358,7 +4392,7 @@ namespace UnitTestUsefullFunctions
       const int expected = 8;
       string source = "A long long time ago in a galaxy far far away";
       string source2 = "a";
-      int result = FunctionsString.StringOccurrenceWithContains(source, source2);
+      int result = StringFunc.StringOccurrenceWithContains(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -4368,7 +4402,7 @@ namespace UnitTestUsefullFunctions
       const int expected = 2;
       string source = "A long long time ago in a galaxy far far away";
       string source2 = "long";
-      int result = FunctionsString.StringOccurrenceWithContains(source, source2);
+      int result = StringFunc.StringOccurrenceWithContains(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -4379,7 +4413,7 @@ namespace UnitTestUsefullFunctions
       const int expected = 2;
       string source = "A long long time ago in a galaxy far far away";
       string source2 = "far";
-      int result = FunctionsString.StringOccurrenceWithContains(source, source2);
+      int result = StringFunc.StringOccurrenceWithContains(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -4390,7 +4424,7 @@ namespace UnitTestUsefullFunctions
       const int expected = 0;
       string source = "A long long time ago in a galaxy far far away";
       string source2 = "";
-      int result = FunctionsString.StringOccurrenceWithContains(source, source2);
+      int result = StringFunc.StringOccurrenceWithContains(source, source2);
       Assert.AreEqual(result, expected);
     }
 
@@ -4401,7 +4435,7 @@ namespace UnitTestUsefullFunctions
       const int expected = 0;
       string source = string.Empty;
       string source2 = "long";
-      int result = FunctionsString.StringOccurrenceWithContains(source, source2);
+      int result = StringFunc.StringOccurrenceWithContains(source, source2);
       Assert.AreEqual(result, expected);
     }
     #endregion StringOccurrenceWithContains
@@ -4412,7 +4446,7 @@ namespace UnitTestUsefullFunctions
     {
       const bool expected = true;
       const string source = "12345678900987654321";
-      bool result = FunctionsString.IsPalindrome(source);
+      bool result = StringFunc.IsPalindrome(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -4421,7 +4455,7 @@ namespace UnitTestUsefullFunctions
     {
       const bool expected = true;
       const string source = "";
-      bool result = FunctionsString.IsPalindrome(source);
+      bool result = StringFunc.IsPalindrome(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -4430,7 +4464,7 @@ namespace UnitTestUsefullFunctions
     {
       const bool expected = true;
       const string source = "1";
-      bool result = FunctionsString.IsPalindrome(source);
+      bool result = StringFunc.IsPalindrome(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -4439,7 +4473,7 @@ namespace UnitTestUsefullFunctions
     {
       const bool expected = true;
       const string source = "laval";
-      bool result = FunctionsString.IsPalindrome(source);
+      bool result = StringFunc.IsPalindrome(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -4450,7 +4484,7 @@ namespace UnitTestUsefullFunctions
       List<string> sourceWords = new List<string> { "laval", "lol", "ete", "lieur à rueil" };
       foreach (string source in sourceWords)
       {
-        bool result = FunctionsString.IsPalindrome(source);
+        bool result = StringFunc.IsPalindrome(source);
         Assert.AreEqual(result, expected);
       }
     }
@@ -4463,7 +4497,7 @@ namespace UnitTestUsefullFunctions
         "esope reste ici et se repose", "éric notre valet alla te laver ton ciré" };
       foreach (string source in sourceWords)
       {
-        bool result = FunctionsString.IsPalindrome(source, true);
+        bool result = StringFunc.IsPalindrome(source, true);
         Assert.AreEqual(result, expected);
       }
     }
