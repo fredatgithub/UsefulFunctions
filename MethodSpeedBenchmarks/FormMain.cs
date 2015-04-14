@@ -163,6 +163,8 @@ namespace MethodSpeedBenchmarks
           Application.DoEvents();
         }
       }
+
+      DisplayMessageOk("All the iterations and methods have been run.", "Benchmark is over", MessageBoxButtons.OK);
     }
   }
 }

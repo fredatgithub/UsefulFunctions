@@ -848,14 +848,12 @@ namespace FonctionsUtiles.Fred.Csharp
       }
 
       char[] outputChars = input.ToCharArray();
-
       //  Reverse
       Array.Reverse(outputChars);
 
       //  build a string from the processed characters and return it
       return new string(outputChars);
     }
-
     public static bool IsPalindrome(string myString, bool spaceRemoval = false)
     {
       if (spaceRemoval) // can you use ternary twice ?
@@ -866,9 +864,15 @@ namespace FonctionsUtiles.Fred.Csharp
       return ReverseString(myString, spaceRemoval) == myString;
     }
     
-    public static string CompletePrefixWithZero(string numberInString)
+    public static string CompletePrefixWithZero(string numberInString, byte numberOfZero = 1)
     {
-      return numberInString.Length == 1 ? "0" + numberInString : numberInString;
+      string numberOfZeroString = "";
+      for (byte i = 0; i < numberOfZero; i++)
+      {
+        numberOfZeroString += "0";
+      }
+
+      return numberInString.Length == 1 ? numberOfZeroString + numberInString : numberInString;
     }
 
     public static string CompletePrefixWithZeroInt(int nombre)

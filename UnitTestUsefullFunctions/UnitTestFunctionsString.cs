@@ -1078,6 +1078,60 @@ namespace UnitTestUsefullFunctions
       Assert.IsTrue(result == "12");
     }
 
+    [TestMethod]
+    public void TestMethod_CompletePrefixWithZero_on_one_with_three_digits()
+    {
+      const string source = "1";
+      const byte source2 = 2;
+      string expected = "001";
+      string result = FunctionsString.CompletePrefixWithZero(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_CompletePrefixWithZero_on_nine_with_three_digits()
+    {
+      const string source = "9";
+      const byte source2 = 2;
+      string expected = "009";
+      string result = FunctionsString.CompletePrefixWithZero(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_CompletePrefixWithZero_on_two_digits_with_three_digits()
+    {
+      const string source = "12";
+      const byte source2 = 2;
+      string expected = "012";
+      string result = FunctionsString.CompletePrefixWithZero(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_CompletePrefixWithZero_on_one_integer_with_three_digits()
+    {
+      const int source = 1;
+
+      string result = FunctionsString.CompletePrefixWithZeroInt(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_CompletePrefixWithZero_on_nine_integer_with_three_digits()
+    {
+      const int source = 9;
+      string result = FunctionsString.CompletePrefixWithZeroInt(source);
+      Assert.IsTrue(result == "09");
+    }
+
+    [TestMethod]
+    public void TestMethod_CompletePrefixWithZero_on_two_digits_integer_with_three_digits()
+    {
+      const int source = 12;
+      string result = FunctionsString.CompletePrefixWithZeroInt(source);
+      Assert.IsTrue(result == "12");
+    }
 
     // **********************ArrayToString****************
     [TestMethod]
