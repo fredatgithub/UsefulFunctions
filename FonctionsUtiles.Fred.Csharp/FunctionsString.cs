@@ -1243,14 +1243,19 @@ namespace FonctionsUtiles.Fred.Csharp
       return input.Substring(start, end);
     }
 
+    /// <summary>
+    /// Returns the character in a string at a given index counting from the right.
+    /// </summary>
+    /// <param name="input">
+    /// The starting position from the right. (Index 0 = last character)
+    /// </param>
+    /// <param name="index"></param>
+    /// <returns></returns>
     public static char CharRight(string input, int index)
     {
-      //  Returns the character in a string at a given index counting from the right.
-      // //  <param name="index">The starting position from the right. (Index 0 = last character)</param>
       if (string.IsNullOrEmpty(input)) return new char();
       if (input.Length - index - 1 >= input.Length) return new char();
       if (input.Length - index - 1 < 0) return new char();
-
       return input[input.Length - index - 1];
     }
 
