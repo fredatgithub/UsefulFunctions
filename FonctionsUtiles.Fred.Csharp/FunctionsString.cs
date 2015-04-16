@@ -1259,10 +1259,17 @@ namespace FonctionsUtiles.Fred.Csharp
       return input[input.Length - index - 1];
     }
 
+    /// <summary>
+    /// Returns the character at a position given by the startingIndex plus the given count.
+    /// </summary>
+    /// <param name="input"></param>
+    /// <param name="startingIndex"></param>
+    /// <param name="count">
+    /// The number of characters to count from the starting position.
+    /// </param>
+    /// <returns></returns>
     public static char CharMid(string input, int startingIndex, int count)
     {
-      //  Returns the character at a position given by the startingIndex plus the given count.
-      // //  <param name="countIndex">The number of characters to count from the starting position.</param>
       if (string.IsNullOrEmpty(input)) return new char();
       if (startingIndex < 0) return new char();
       if (startingIndex >= input.Length) return new char();
@@ -1271,10 +1278,19 @@ namespace FonctionsUtiles.Fred.Csharp
       return input[startingIndex + count];
     }
 
+    /// <summary>
+    /// Returns the total number of times a given sequence appears in a string.
+    /// </summary>
+    /// <param name="input"></param>
+    /// <param name="sequence"></param>
+    /// <param name="ignoreCase">
+    /// True, to ignore the difference in case between the sequence and the original string.
+    /// </param>
+    /// <returns>
+    /// An integer showing the number of sequence in the input
+    /// </returns>
     public static int CountString(string input, string sequence, bool ignoreCase)
     {
-      //  Returns the total number of times a given sequence appears in a string.
-      // //  <param name="ignoreCase">True, to ignore the difference in case between the sequence and the original string.</param>
       if (string.IsNullOrEmpty(input) || string.IsNullOrEmpty(sequence)) return 0;
       int count = 0;
       for (int i = 0; i < input.Length; i++)
