@@ -1310,10 +1310,17 @@ namespace FonctionsUtiles.Fred.Csharp
       return count;
     }
 
+    /// <summary>
+    /// Returns an array of every index where a sequence is found on the specified string. Note: Overlaps will be counted.
+    /// </summary>
+    /// <param name="input"></param>
+    /// <param name="sequence"></param>
+    /// <param name="ignoreCase">
+    /// True, to ignore the difference in case between the sequence and the original string.
+    /// </param>
+    /// <returns></returns>
     public static int[] IndexOfAll(string input, string sequence, bool ignoreCase)
     {
-      //  Returns an array of every index where a sequence is found on the specified string. Note: Overlaps will be counted.
-      // //  <param name="ignoreCase">True, to ignore the difference in case between the sequence and the original string.</param>
       if (string.IsNullOrEmpty(input)) return new int[0]; // empty array
       var indices = new List<int>();
       for (int i = 0; i < input.Length; i++)
