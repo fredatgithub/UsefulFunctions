@@ -174,7 +174,7 @@ namespace MethodSpeedBenchmarks
       {
         if (j < 1)
         {
-          return;
+          break;
         }
 
         textBoxBenchIteration.Text = j.ToString();
