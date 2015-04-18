@@ -21,6 +21,7 @@ using System;
 using System.Diagnostics;
 using System.Reflection;
 using System.Windows.Forms;
+using MethodSpeedBenchmarks.Annotations;
 using MethodSpeedBenchmarks.Properties;
 using MathFunc = FonctionsUtiles.Fred.Csharp.FunctionsMath;
 using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
@@ -32,7 +33,7 @@ namespace MethodSpeedBenchmarks
 {
   public partial class FormMain : Form
   {
-    public object comboBoxOthersMethodName { get; private set; }
+    public object ComboBoxOthersMethodName { get; private set; }
 
     public FormMain()
     {

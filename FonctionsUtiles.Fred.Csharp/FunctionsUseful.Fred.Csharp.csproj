@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="BigInt.cs" />
     <Compile Include="FunctionsFiles.cs" />
+    <Compile Include="FunctionsInternet.cs" />
     <Compile Include="FunctionsMath.cs" />
     <Compile Include="FunctionsString.cs" />
     <Compile Include="FunctionsDateTime.cs" />
