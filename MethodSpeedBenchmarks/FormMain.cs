@@ -172,15 +172,17 @@ namespace MethodSpeedBenchmarks
     {
       for (int j = 10; j < int.MaxValue; j = j * 10)
       {
-        if (j > 0)
+        if (j < 1)
         {
-          textBoxBenchIteration.Text = j.ToString();
-          for (int i = 0; i < comboBoxBenchChooseMethod.Items.Count; i++)
-          {
-            comboBoxBenchChooseMethod.SelectedIndex = i;
-            buttonBenchStart_Click(sender, e);
-            Application.DoEvents();
-          }
+          return;
+        }
+
+        textBoxBenchIteration.Text = j.ToString();
+        for (int i = 0; i < comboBoxBenchChooseMethod.Items.Count; i++)
+        {
+          comboBoxBenchChooseMethod.SelectedIndex = i;
+          buttonBenchStart_Click(sender, e);
+          Application.DoEvents();
         }
       }
 
