@@ -250,10 +250,13 @@ namespace FonctionsUtiles.Fred.Csharp
         case "pou":
           return number > 1 ? "poux" : "pou";
 
+        // English
+        case "is":
+          return number > 1 ? "are" : "is";
+
         default:
           return number > 1 ? "s" : string.Empty;
       }
-
     }
     public static string Plural(byte number, string irregularNoun = "")
     {
@@ -331,6 +334,10 @@ namespace FonctionsUtiles.Fred.Csharp
           return number > 1 ? "joujoux" : "joujou";
         case "pou":
           return number > 1 ? "poux" : "pou";
+
+        // English
+        case "is":
+          return number > 1 ? "are" : "is";
 
         default:
           return number > 1 ? "s" : string.Empty;
@@ -413,6 +420,10 @@ namespace FonctionsUtiles.Fred.Csharp
         case "pou":
           return number > 1 ? "poux" : "pou";
 
+        // English
+        case "is":
+          return number > 1 ? "are" : "is";
+
         default:
           return number > 1 ? "s" : string.Empty;
       }
@@ -493,6 +504,10 @@ namespace FonctionsUtiles.Fred.Csharp
           return number > 1 ? "joujoux" : "joujou";
         case "pou":
           return number > 1 ? "poux" : "pou";
+
+        // English
+        case "is":
+          return number > 1 ? "are" : "is";
 
         default:
           return number > 1 ? "s" : string.Empty;
@@ -575,6 +590,10 @@ namespace FonctionsUtiles.Fred.Csharp
         case "pou":
           return number > 1 ? "poux" : "pou";
 
+        // English
+        case "is":
+          return number > 1 ? "are" : "is";
+
         default:
           return number > 1 ? "s" : string.Empty;
       }
@@ -656,6 +675,10 @@ namespace FonctionsUtiles.Fred.Csharp
         case "pou":
           return number > 1 ? "poux" : "pou";
 
+        // English
+        case "is":
+          return number > 1 ? "are" : "is";
+
         default:
           return number > 1 ? "s" : string.Empty;
       }
@@ -736,6 +759,10 @@ namespace FonctionsUtiles.Fred.Csharp
           return number > 1 ? "joujoux" : "joujou";
         case "pou":
           return number > 1 ? "poux" : "pou";
+
+        // English
+        case "is":
+          return number > 1 ? "are" : "is";
 
         default:
           return number > 1 ? "s" : string.Empty;
