@@ -119,7 +119,7 @@ namespace MethodSpeedBenchmarks
       {
         case "ReverseString":
           string source = "A long long time ago in a galaxy far far away";
-          
+
           for (int i = 0; i < iteration; i++)
           {
             string tmp = StringFunc.ReverseString(source);
@@ -172,12 +172,15 @@ namespace MethodSpeedBenchmarks
     {
       for (int j = 10; j < int.MaxValue; j = j * 10)
       {
-        textBoxBenchIteration.Text = j.ToString();
-        for (int i = 0; i < comboBoxBenchChooseMethod.Items.Count; i++)
+        if (j > 0)
         {
-          comboBoxBenchChooseMethod.SelectedIndex = i;
-          buttonBenchStart_Click(sender, e);
-          Application.DoEvents();
+          textBoxBenchIteration.Text = j.ToString();
+          for (int i = 0; i < comboBoxBenchChooseMethod.Items.Count; i++)
+          {
+            comboBoxBenchChooseMethod.SelectedIndex = i;
+            buttonBenchStart_Click(sender, e);
+            Application.DoEvents();
+          }
         }
       }
 
