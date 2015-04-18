@@ -219,6 +219,7 @@
       this.cutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
       this.cutToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
       this.cutToolStripMenuItem.Text = "&Couper";
+      this.cutToolStripMenuItem.Click += new System.EventHandler(this.cutToolStripMenuItem_Click);
       // 
       // copyToolStripMenuItem
       // 
@@ -227,6 +228,7 @@
       this.copyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
       this.copyToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
       this.copyToolStripMenuItem.Text = "Co&pier";
+      this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
       // 
       // pasteToolStripMenuItem
       // 
@@ -235,6 +237,7 @@
       this.pasteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
       this.pasteToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
       this.pasteToolStripMenuItem.Text = "Co&ller";
+      this.pasteToolStripMenuItem.Click += new System.EventHandler(this.pasteToolStripMenuItem_Click);
       // 
       // toolStripSeparator4
       // 
@@ -246,6 +249,7 @@
       this.selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
       this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
       this.selectAllToolStripMenuItem.Text = "Sélectio&nner tout";
+      this.selectAllToolStripMenuItem.Click += new System.EventHandler(this.selectAllToolStripMenuItem_Click);
       // 
       // toolsToolStripMenuItem
       // 
@@ -349,7 +353,7 @@
       this.comboBoxBenchChooseMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.comboBoxBenchChooseMethod.FormattingEnabled = true;
       this.comboBoxBenchChooseMethod.Location = new System.Drawing.Point(105, 2);
-      this.comboBoxBenchChooseMethod.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.comboBoxBenchChooseMethod.Margin = new System.Windows.Forms.Padding(2);
       this.comboBoxBenchChooseMethod.Name = "comboBoxBenchChooseMethod";
       this.comboBoxBenchChooseMethod.Size = new System.Drawing.Size(124, 25);
       this.comboBoxBenchChooseMethod.TabIndex = 3;
@@ -359,7 +363,7 @@
       this.buttonBenchStart.Dock = System.Windows.Forms.DockStyle.Fill;
       this.buttonBenchStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.buttonBenchStart.Location = new System.Drawing.Point(431, 2);
-      this.buttonBenchStart.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.buttonBenchStart.Margin = new System.Windows.Forms.Padding(2);
       this.buttonBenchStart.Name = "buttonBenchStart";
       this.buttonBenchStart.Size = new System.Drawing.Size(79, 28);
       this.buttonBenchStart.TabIndex = 4;
@@ -372,7 +376,7 @@
       this.tableLayoutPanelBenchmark.SetColumnSpan(this.progressBarBenchmark, 6);
       this.progressBarBenchmark.Dock = System.Windows.Forms.DockStyle.Fill;
       this.progressBarBenchmark.Location = new System.Drawing.Point(2, 388);
-      this.progressBarBenchmark.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.progressBarBenchmark.Margin = new System.Windows.Forms.Padding(2);
       this.progressBarBenchmark.Name = "progressBarBenchmark";
       this.progressBarBenchmark.Size = new System.Drawing.Size(918, 20);
       this.progressBarBenchmark.TabIndex = 6;
@@ -389,7 +393,7 @@
       this.listViewBenchmark.Dock = System.Windows.Forms.DockStyle.Fill;
       this.listViewBenchmark.LabelEdit = true;
       this.listViewBenchmark.Location = new System.Drawing.Point(2, 34);
-      this.listViewBenchmark.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.listViewBenchmark.Margin = new System.Windows.Forms.Padding(2);
       this.listViewBenchmark.MultiSelect = false;
       this.listViewBenchmark.Name = "listViewBenchmark";
       this.listViewBenchmark.Size = new System.Drawing.Size(918, 350);
@@ -433,7 +437,7 @@
       // 
       this.textBoxBenchIteration.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.textBoxBenchIteration.Location = new System.Drawing.Point(345, 2);
-      this.textBoxBenchIteration.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.textBoxBenchIteration.Margin = new System.Windows.Forms.Padding(2);
       this.textBoxBenchIteration.Name = "textBoxBenchIteration";
       this.textBoxBenchIteration.Size = new System.Drawing.Size(82, 23);
       this.textBoxBenchIteration.TabIndex = 9;
@@ -458,7 +462,7 @@
       this.tableLayoutPanelBenchmark.Controls.Add(this.comboBoxBenchChooseMethod, 1, 0);
       this.tableLayoutPanelBenchmark.Dock = System.Windows.Forms.DockStyle.Fill;
       this.tableLayoutPanelBenchmark.Location = new System.Drawing.Point(0, 24);
-      this.tableLayoutPanelBenchmark.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.tableLayoutPanelBenchmark.Margin = new System.Windows.Forms.Padding(2);
       this.tableLayoutPanelBenchmark.Name = "tableLayoutPanelBenchmark";
       this.tableLayoutPanelBenchmark.RowCount = 3;
       this.tableLayoutPanelBenchmark.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
@@ -472,7 +476,7 @@
       this.buttonBenchStartAllmethods.Dock = System.Windows.Forms.DockStyle.Fill;
       this.buttonBenchStartAllmethods.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.buttonBenchStartAllmethods.Location = new System.Drawing.Point(514, 2);
-      this.buttonBenchStartAllmethods.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.buttonBenchStartAllmethods.Margin = new System.Windows.Forms.Padding(2);
       this.buttonBenchStartAllmethods.Name = "buttonBenchStartAllmethods";
       this.buttonBenchStartAllmethods.Size = new System.Drawing.Size(406, 28);
       this.buttonBenchStartAllmethods.TabIndex = 10;
@@ -488,7 +492,7 @@
       this.Controls.Add(this.tableLayoutPanelBenchmark);
       this.Controls.Add(this.menuStrip1);
       this.MainMenuStrip = this.menuStrip1;
-      this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.Margin = new System.Windows.Forms.Padding(2);
       this.Name = "FormMain";
       this.ShowIcon = false;
       this.Text = "Method speed benchmarks";

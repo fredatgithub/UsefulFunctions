@@ -223,7 +223,7 @@ namespace CodeGenerationWinForm
       CopytToClipboard(textBoxCustoResult, "no text");
     }
 
-    private void CopytToClipboard(TextBox tb, string message = "nothing")
+    private void CopytToClipboard(TextBoxBase tb, string message = "nothing")
     {
       if (tb != ActiveControl) return;
       if (tb.Text == string.Empty)
@@ -232,15 +232,29 @@ namespace CodeGenerationWinForm
         return;
       }
 
+
+      if (tb.SelectedText == string.Empty)
+      {
+        DisplayMessageOk("No text has been selected", message, MessageBoxButtons.OK);
+        return;
+      }
+
       Clipboard.SetText(tb.SelectedText);
     }
 
-    private void CutToClipboard(TextBox tb, string errorMessage = "nothing")
+    private void CutToClipboard(TextBoxBase tb, string errorMessage = "nothing")
     {
       if (tb != ActiveControl) return;
       if (tb.Text == string.Empty)
       {
         DisplayMessageOk("There is " + errorMessage + " to cut ", errorMessage, MessageBoxButtons.OK);
+        return;
+      }
+
+
+      if (tb.SelectedText == string.Empty)
+      {
+        DisplayMessageOk("No text has been selected", errorMessage, MessageBoxButtons.OK);
         return;
       }
 
