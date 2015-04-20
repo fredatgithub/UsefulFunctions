@@ -72,6 +72,11 @@ namespace FonctionsUtiles.Fred.Csharp
       result.Append("Method= string ArrayToString(IList array)" + newLine);
       result.Append("Method= string ArrayToString(IList array, string separator)" + newLine);
       result.Append("Method= byte[] HexaStringToByteArray(string hexaString)" + newLine);
+      result.Append("Method= string ArrayToStringWithStringBuilder(IList array)" + newLine);
+      result.Append("Method= string ArrayToStringWithStringBuilder(IList array, string separator)" + newLine);
+      result.Append("Method= " + newLine);
+      result.Append("Method= " + newLine);
+      result.Append("Method= " + newLine);
       result.Append("Method= " + newLine);
       result.Append("Method= " + newLine);
       return result.ToString();
@@ -912,7 +917,8 @@ namespace FonctionsUtiles.Fred.Csharp
     }
     public static string ArrayToString(IList array)
     {
-      //  Returns a string representation of an array. Each element is written on a new line.
+      // Returns a string representation of an array. 
+      // Each element is written on a new line.
       if (array == null || array.Count == 0)
       {
         return string.Empty;
@@ -933,7 +939,8 @@ namespace FonctionsUtiles.Fred.Csharp
     }
     public static string ArrayToString(IList array, string separator)
     {
-      //  Returns a string representation of an array. Each element is written on a new line.
+      // Returns a string representation of an array. 
+      // Each element is written on a new line.
       if (array == null || array.Count == 0)
       {
         return string.Empty;
@@ -955,7 +962,8 @@ namespace FonctionsUtiles.Fred.Csharp
     }
     public static string ArrayToStringWithStringBuilder(IList array)
     {
-      //  Returns a string representation of an array. Each element is written on a new line. Effective for large strings.
+      // Returns a string representation of an array. 
+      // Each element is written on a new line. Effective for large strings.
       if (array == null || array.Count == 0)
       {
         return string.Empty;
@@ -978,7 +986,8 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static string ArrayToStringWithStringBuilder(IList array, string separator)
     {
-      //  Returns a string representation of an array. Each element is separated by the specified string.
+      // Returns a string representation of an array. 
+      // Each element is separated by the specified string.
       if (array == null || array.Count == 0)
       {
         return string.Empty;
