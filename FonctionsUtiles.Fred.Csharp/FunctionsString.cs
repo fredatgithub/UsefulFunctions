@@ -2376,7 +2376,7 @@ namespace FonctionsUtiles.Fred.Csharp
       return words.Trim();
     }
 
-    public static Dictionary<int, string> DicoNumberToWordsFrench(int startNumber, int endNumber)
+    public static Dictionary<int, string> DicoNumberToFrenchWords(int startNumber, int endNumber)
     {
       Dictionary<int, string> result = new Dictionary<int, string>();
       for (int i = startNumber; i < endNumber; i++)
@@ -2400,14 +2400,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static bool IsInside(int number, params int[] array)
     {
-      bool found = false;
-      foreach (var item in array.Where(item => number == item))
-      {
-        found = true;
-        break;
-      }
-
-      return found;
+      return array.Where(item => number == item).Any();
     }
 
     public static string ToTitleCase(string myString)
@@ -2424,6 +2417,7 @@ namespace FonctionsUtiles.Fred.Csharp
         array[0] = char.ToUpper(array[0]);
         return new string(array);
       }
+
       return value;
     }
 
