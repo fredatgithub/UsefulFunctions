@@ -1241,6 +1241,42 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
+    // **********************ArrayToStringWithStringBuilderWithSeparator**************
+    [TestMethod]
+    public void TestMethod_ArrayToStringWithStringBuilderWithSeparator_one_element()
+    {
+      byte[] source = new byte[1];
+      source[0] = 0x01;
+      string separator = "_";
+      const string expected = "1";
+      string result = StringFunc.ArrayToStringWithStringBuilder(source, separator);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ArrayToStringWithStringBuilderWithSeparator_two_elements()
+    {
+      byte[] source = new byte[2];
+      source[0] = 0x01;
+      source[1] = 0x02;
+      string separator = "_";
+      string expected = "1" + separator + "2";
+      string result = StringFunc.ArrayToString(source, separator);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ArrayToStringWithStringBuilderWithSeparator_three_elements()
+    {
+      byte[] source = new byte[3];
+      source[0] = 0x01;
+      source[1] = 0x02;
+      source[2] = 0x03;
+      string separator = "_";
+      string expected = "1" + separator + "2" + separator + "3";
+      string result = StringFunc.ArrayToString(source, separator);
+      Assert.AreEqual(result, expected);
+    }
     // **********************InsertSeparatorForEachCharacter****************
     [TestMethod]
     public void TestMethod_InsertSeparatorForEachCharacter_one_string()
@@ -1252,11 +1288,32 @@ namespace UnitTestUsefullFunctions
     }
 
     [TestMethod]
+    public void TestMethod_InsertSeparatorForEachCharacter_one_string_with_one_separator()
+    {
+      const string source = "azerty";
+      const string separator = "_";
+      const string expected = "a_z_e_r_t_y";
+      string result = StringFunc.InsertSeparatorForEachCharacter(source, separator);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_InsertSeparatorForEachCharacter_one_string_with_several_separators()
+    {
+      const string source = "azerty";
+      const string separator = "_|_";
+      const string expected = "a_|_z_|_e_|_r_|_t_|_y";
+      string result = StringFunc.InsertSeparatorForEachCharacter(source, separator);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
     public void TestMethod_InsertSeparatorForEachCharacter_empty_string()
     {
       const string source = "";
+      const string separator = "_";
       const string expected = "";
-      string result = StringFunc.InsertSeparatorForEachCharacter(source);
+      string result = StringFunc.InsertSeparatorForEachCharacter(source, separator);
       Assert.AreEqual(result, expected);
     }
 
@@ -1267,6 +1324,15 @@ namespace UnitTestUsefullFunctions
       const string source = "azerty";
       const string expected = "az er ty";
       string result = StringFunc.InsertSeparatorAtInterval(source, " ", 2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_InsertSeparatorAtInterval_one_element_without_interval()
+    {
+      const string source = "azerty";
+      const string expected = "a z e r t y";
+      string result = StringFunc.InsertSeparatorAtInterval(source, " ", 1);
       Assert.AreEqual(result, expected);
     }
 
@@ -1351,6 +1417,62 @@ namespace UnitTestUsefullFunctions
       const string source = "TheWonderfulMethodThatDoesALotOfThings";
       const string expected = "ThEwOnDeRfUlMeThOdThAtDoEsAlOtOfThInGs";
       string result = StringFunc.AlternateCases(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    // **********************OppositeCase****************
+    [TestMethod]
+    public void TestMethod_OppositeCase_one_string()
+    {
+      const string source = "TheWonderfulMethodThatDoesALotOfThings";
+      const string expected = "tHEwONDERFULmETHODtHATdOESalOToFtHINGS";
+      string result = StringFunc.OppositeCase(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_OppositeCase_empty_string()
+    {
+      const string source = "";
+      const string expected = "";
+      string result = StringFunc.OppositeCase(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_OppositeCase_one_character_string()
+    {
+      const string source = "a";
+      const string expected = "a";
+      string result = StringFunc.OppositeCase(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    // **********************SwapCases****************
+    [TestMethod]
+    public void TestMethod_SwapCases_one_string()
+    {
+      const string source = "TheWonderfulMethodThatDoesALotOfThings";
+      const string expected = "tHEwONDERFULmETHODtHATdOESalOToFtHINGS";
+      string result = StringFunc.SwapCases(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_SwapCases_empty_string()
+    {
+      const string source = "";
+      const string expected = "";
+      string result = StringFunc.SwapCases(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_SwapCases_one_character_string()
+    {
+      const string source = "a";
+      const string expected = "a";
+      string result = StringFunc.SwapCases(source);
       Assert.AreEqual(result, expected);
     }
 

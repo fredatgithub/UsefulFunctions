@@ -74,7 +74,12 @@ namespace FonctionsUtiles.Fred.Csharp
       result.Append("Method= byte[] HexaStringToByteArray(string hexaString)" + newLine);
       result.Append("Method= string ArrayToStringWithStringBuilder(IList array)" + newLine);
       result.Append("Method= string ArrayToStringWithStringBuilder(IList array, string separator)" + newLine);
-      result.Append("Method= " + newLine);
+      result.Append("Method= string InsertSeparatorForEachCharacter(string input, string separator = \" \")" + newLine);
+      result.Append("Method= string InsertSeparatorAtInterval(string input, string separator, int interval)" + newLine);
+      result.Append("Method= string RemoveVowels(string input)" + newLine);
+      result.Append("Method= string KeepVowels(string input)" + newLine);
+      result.Append("Method= string OppositeCase(string input)" + newLine);
+      result.Append("Method= string SwapCases(string input)" + newLine);
       result.Append("Method= " + newLine);
       result.Append("Method= " + newLine);
       result.Append("Method= " + newLine);
@@ -983,7 +988,6 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return output.ToString();
     }
-
     public static string ArrayToStringWithStringBuilder(IList array, string separator)
     {
       // Returns a string representation of an array. 
@@ -1007,7 +1011,6 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return output.ToString();
     }
-
     public static string InsertSeparatorForEachCharacter(string input, string separator = " ")
     {
       //  Validate string
@@ -1031,7 +1034,6 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return new string(outputChars.ToArray());
     }
-
     public static string InsertSeparatorAtInterval(string input, string separator, int interval)
     {
       // Validate string
@@ -1055,7 +1057,6 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return new string(outputChars.ToArray());
     }
-
     public static string RemoveVowels(string input)
     {
       // Validate input
@@ -1065,7 +1066,7 @@ namespace FonctionsUtiles.Fred.Csharp
       }
 
       List<char> outputChars = new List<char>(input.ToCharArray());
-      // Iterate backwards to avoid problems from removing characters
+      // Iterate backwards to avoid problems when removing characters
       for (int i = outputChars.Count - 1; i >= 0; i--)
       {
         if (outputChars[i] == 'a' || outputChars[i] == 'A' ||
@@ -1080,7 +1081,6 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return new string(outputChars.ToArray());
     }
-
     public static string KeepVowels(string input)
     {
       // Validate input
@@ -1105,7 +1105,6 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return new string(outputChars.ToArray());
     }
-
     public static string AlternateCases(string input)
     {
       if (string.IsNullOrEmpty(input)) return string.Empty;
@@ -1128,7 +1127,25 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return new string(inputChars);
     }
+    public static string OppositeCase(string input)
+    {
+      if (string.IsNullOrEmpty(input)) return string.Empty;
+      if (input.Length == 1) return input; // Nothing to alternate
+      char[] inputChars = new char[input.Length]; // character array representing the string
+      for (int i = 0; i < input.Length; i++) // start with the section character
+      {
+        if (char.IsLower(input[i]))
+        {
+          inputChars[i] = char.ToUpper(input[i]);
+        }
+        else
+        {
+          inputChars[i] = char.ToLower(input[i]);
+        }
+      }
 
+      return new string(inputChars);
+    }
     public static string SwapCases(string input)
     {
       // Returns a string with the opposite letter casing for each character.
@@ -1137,6 +1154,7 @@ namespace FonctionsUtiles.Fred.Csharp
         return string.Empty;
       }
 
+      if (input.Length == 1) return input; // Nothing to alternate
       char[] inputChars = input.ToCharArray();
       for (int i = 0; i < inputChars.Length; i++)
       {
