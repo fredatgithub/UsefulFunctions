@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // l'ensemble d'attributs suivant. Changez les valeurs de ces attributs pour modifier les informations
 // associées à un assembly.
 [assembly: AssemblyTitle("FonctionsUtiles.Fred.Csharp")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Gather all useful methods in one DLL to make life easier :O)")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Freddy Juhel")]
 [assembly: AssemblyProduct("FonctionsUtiles.Fred.Csharp")]
 [assembly: AssemblyCopyright("Copyright © Freddy Juhel 2011")]
 [assembly: AssemblyTrademark("")]

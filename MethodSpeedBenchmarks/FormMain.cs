@@ -21,7 +21,6 @@ using System;
 using System.Diagnostics;
 using System.Reflection;
 using System.Windows.Forms;
-using MethodSpeedBenchmarks.Annotations;
 using MethodSpeedBenchmarks.Properties;
 using MathFunc = FonctionsUtiles.Fred.Csharp.FunctionsMath;
 using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
@@ -33,7 +32,7 @@ namespace MethodSpeedBenchmarks
 {
   public partial class FormMain : Form
   {
-    public object ComboBoxOthersMethodName { get; private set; }
+    public object comboBoxOthersMethodName { get; private set; }
 
     public FormMain()
     {
@@ -120,7 +119,7 @@ namespace MethodSpeedBenchmarks
       {
         case "ReverseString":
           string source = "A long long time ago in a galaxy far far away";
-
+          
           for (int i = 0; i < iteration; i++)
           {
             string tmp = StringFunc.ReverseString(source);
@@ -173,11 +172,6 @@ namespace MethodSpeedBenchmarks
     {
       for (int j = 10; j < int.MaxValue; j = j * 10)
       {
-        if (j < 1)
-        {
-          break;
-        }
-
         textBoxBenchIteration.Text = j.ToString();
         for (int i = 0; i < comboBoxBenchChooseMethod.Items.Count; i++)
         {
@@ -188,74 +182,6 @@ namespace MethodSpeedBenchmarks
       }
 
       DisplayMessageOk("All the iterations and methods have been run.", "Benchmark is over", MessageBoxButtons.OK);
-    }
-
-    private void cutToolStripMenuItem_Click(object sender, EventArgs e)
-    {
-      CutToClipboard(textBoxBenchIteration, "no text");
-    }
-
-    private void copyToolStripMenuItem_Click(object sender, EventArgs e)
-    {
-      CopytToClipboard(textBoxBenchIteration, "no text");
-    }
-
-    private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
-    {
-      PasteFromClipboard(textBoxBenchIteration);
-    }
-
-    private void selectAllToolStripMenuItem_Click(object sender, EventArgs e)
-    {
-      if (textBoxBenchIteration == ActiveControl)
-      {
-        textBoxBenchIteration.SelectAll();
-      }
-    }
-
-    private void CopytToClipboard(TextBoxBase tb, string message = "Nothing")
-    {
-      if (tb != ActiveControl) return;
-      if (tb.Text == string.Empty)
-      {
-        DisplayMessageOk("There is nothing to copy ", message, MessageBoxButtons.OK);
-        return;
-      }
-
-      if (tb.SelectedText == string.Empty)
-      {
-        DisplayMessageOk("No text has been selected", message, MessageBoxButtons.OK);
-        return;
-      }
-
-      Clipboard.SetText(tb.SelectedText);
-    }
-
-    private void CutToClipboard(TextBoxBase tb, string errorMessage = "Nothing")
-    {
-      if (tb != ActiveControl) return;
-      if (tb.Text == string.Empty)
-      {
-        DisplayMessageOk("There is " + errorMessage + " to cut ", errorMessage, MessageBoxButtons.OK);
-        return;
-      }
-
-      if (tb.SelectedText == string.Empty)
-      {
-        DisplayMessageOk("No text has been selected", errorMessage, MessageBoxButtons.OK);
-        return;
-      }
-
-      Clipboard.SetText(tb.SelectedText);
-      tb.SelectedText = string.Empty;
-    }
-
-    private void PasteFromClipboard(TextBoxBase tb)
-    {
-      if (tb != ActiveControl) return;
-      var selectionIndex = tb.SelectionStart;
-      tb.Text = tb.Text.Insert(selectionIndex, Clipboard.GetText());
-      tb.SelectionStart = selectionIndex + Clipboard.GetText().Length;
     }
   }
 }

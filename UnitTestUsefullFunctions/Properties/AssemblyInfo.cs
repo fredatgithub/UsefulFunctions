@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("UnitTestUsefullFunctions")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("UnitTestUsefulFunctions")]
+[assembly: AssemblyDescription("Unit tests for the useful method DLL")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Hewlett-Packard Company")]
-[assembly: AssemblyProduct("UnitTestUsefullFunctions")]
-[assembly: AssemblyCopyright("Copyright © Hewlett-Packard Company 2015")]
+[assembly: AssemblyCompany("Freddy Juhel")]
+[assembly: AssemblyProduct("UnitTestUsefulFunctions")]
+[assembly: AssemblyCopyright("Copyright © Freddy Juhel MIT 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
