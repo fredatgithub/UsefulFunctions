@@ -69,6 +69,8 @@ namespace MethodSpeedBenchmarks
       cb.Items.Clear();
       cb.Items.Add("ReverseString");
       cb.Items.Add("ReverseString2");
+      cb.Items.Add("OppositeCase");
+      cb.Items.Add("SwapCases");
       cb.SelectedIndex = 0;
     }
 
@@ -151,6 +153,39 @@ namespace MethodSpeedBenchmarks
           listViewBenchmark.Items.Add(item2);
           break;
 
+        case "OppositeCase":
+          source = "A long long time ago in a galaxy far far away";
+
+          for (int i = 0; i < iteration; i++)
+          {
+            string tmp = StringFunc.OppositeCase(source);
+            progressBarBenchmark.Value = i;
+          }
+
+          chrono.Stop();
+          item = new ListViewItem(comboBoxBenchChooseMethod.SelectedItem.ToString(), itemCounter++);
+          item.SubItems.Add(iteration.ToString());
+          item.SubItems.Add(StringFunc.NumberToEnglishWords(iteration));
+          item.SubItems.Add(DateFunc.TimeSpanToLongTimeNotNull(chrono.Elapsed));
+          listViewBenchmark.Items.Add(item);
+          break;
+
+        case "SwapCases":
+          source2 = "A long long time ago in a galaxy far far away";
+
+          for (int i = 0; i < iteration; i++)
+          {
+            string tmp2 = StringFunc.SwapCases(source2);
+            progressBarBenchmark.Value = i;
+          }
+
+          chrono.Stop();
+          item2 = new ListViewItem(comboBoxBenchChooseMethod.SelectedItem.ToString(), itemCounter++);
+          item2.SubItems.Add(iteration.ToString());
+          item2.SubItems.Add(StringFunc.NumberToEnglishWords(iteration));
+          item2.SubItems.Add(DateFunc.TimeSpanToLongTimeNotNull(chrono.Elapsed));
+          listViewBenchmark.Items.Add(item2);
+          break;
       }
 
       progressBarBenchmark.Value = progressBarBenchmark.Minimum;
