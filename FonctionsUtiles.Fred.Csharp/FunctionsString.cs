@@ -2479,6 +2479,15 @@ namespace FonctionsUtiles.Fred.Csharp
       return result;
     }
 
+    public static string GenerateRandomLongString(char[] forbiddenCharacters,
+      bool hasForbiddenCharacters = false,
+      RandomCharacters rdnCharacters = RandomCharacters.LowerCase, int length = 8,
+      bool isWindowsFileName = false)
+    {
+      // TODO to be implemented
+      return "";
+    }
+
     public static string GenerateRandomString(char[] forbiddenCharacters,
       bool hasForbiddenCharacters = false,
       RandomCharacters rdnCharacters = RandomCharacters.LowerCase, byte length = 8,
