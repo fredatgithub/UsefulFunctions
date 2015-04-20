@@ -154,8 +154,10 @@ namespace MethodSpeedBenchmarks
           break;
 
         case "OppositeCase":
-          source = "A long long time ago in a galaxy far far away";
-
+          //source = "A long long time ago in a galaxy far far away";
+          char[] noForbiddenCharacter = new char[0];
+          source = StringFunc.GenerateRandomString(noForbiddenCharacter, false, 
+            StringFunc.RandomCharacters.UpperLowerDigitSpecial, 255);
           for (int i = 0; i < iteration; i++)
           {
             string tmp = StringFunc.OppositeCase(source);
@@ -171,7 +173,10 @@ namespace MethodSpeedBenchmarks
           break;
 
         case "SwapCases":
-          source2 = "A long long time ago in a galaxy far far away";
+          //source2 = "A long long time ago in a galaxy far far away";
+          noForbiddenCharacter = new char[0];
+          source2 = StringFunc.GenerateRandomString(noForbiddenCharacter, false,
+            StringFunc.RandomCharacters.UpperLowerDigitSpecial, 255);
 
           for (int i = 0; i < iteration; i++)
           {
