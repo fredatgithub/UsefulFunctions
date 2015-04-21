@@ -2485,7 +2485,8 @@ namespace FonctionsUtiles.Fred.Csharp
       }
 
       string result = string.Empty;
-      for (int i = 1; i < length/254; i++)
+      // TODO could be length/ppcm(length)
+      for (int i = 1; i < length/254; i++) 
       {
         result += GenerateRandomString(forbiddenCharacters, hasForbiddenCharacters, rdnCharacters, (byte)i, isWindowsFileName);
       }

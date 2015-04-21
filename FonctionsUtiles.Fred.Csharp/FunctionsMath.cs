@@ -176,5 +176,8 @@ namespace FonctionsUtiles.Fred.Csharp
       
       return result;
     }
+
+    // TODO Ppcm and Pgcm method to be implemented
+
   }
 }
