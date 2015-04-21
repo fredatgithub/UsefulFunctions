@@ -264,5 +264,17 @@ namespace FonctionsUtiles.Fred.Csharp
     {
       File.Create(filename);
     }
+
+    public static long FileGetSize(string filePath)
+    {
+      try
+      {
+        return File.Exists(filePath) ? new FileInfo(filePath).Length : 0;
+      }
+      catch (Exception)
+      {
+        return -1;
+      }
+    }
   }
 }
