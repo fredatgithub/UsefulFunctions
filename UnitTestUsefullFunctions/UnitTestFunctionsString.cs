@@ -4393,6 +4393,18 @@ namespace UnitTestUsefullFunctions
     }
 
     #endregion GenerateString method Unit tests
+    #region GenerateRandomLongString method Unit tests
+    //**************************GenerateRandomLongString Method****
+    [TestMethod]
+    public void TestMethod_GenerateRandomLongString_true_LowerCase_default_length()
+    {
+      char[] source = { };
+      const byte stringLength = 8;
+      string result = StringFunc.GenerateRandomString(source);
+      Assert.AreEqual(result.Length, stringLength);
+    }
+
+    #endregion GenerateRandomLongString method Unit tests
     #region HasSomeLowerCaseLetters method Unit tests
     //*********************HasSomeLowerCaseLetters*******
     [TestMethod]
