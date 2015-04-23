@@ -1181,12 +1181,22 @@ namespace FonctionsUtiles.Fred.Csharp
       return input[0].ToString(CultureInfo.CurrentCulture).ToUpper() + input.Substring(1);
     }
 
+    /// <summary>
+    /// Returns the initials of each word in a string. Words must be separated with spaces.
+    /// </summary>
+    /// <param name="input"></param>
+    /// <param name="capitalizeInitials">
+    /// True to capitalize each initial in the output string.
+    /// </param>
+    /// <param name="preserveSpaces">
+    /// True to preserver the spaces between initials in the output string.
+    /// </param>
+    /// <param name="includePeriod">
+    /// True to include a '.' after each intialize
+    /// </param>
+    /// <returns></returns>
     public static string GetInitials(string input, bool capitalizeInitials, bool preserveSpaces, bool includePeriod)
     {
-      // Returns the initials of each word in a string. Words must be separated with spaces.
-      //  <param name="capitalizeInitials">True to capitalize each initial in the output string.
-      //  <param name="preserveSpaces">True to preserver the spaces between initials in the output string.
-      //  <param name="includePeriod">True to include a '.' after each intialize
       if (string.IsNullOrEmpty(input))
       {
         return string.Empty;
