@@ -897,7 +897,7 @@ namespace FonctionsUtiles.Fred.Csharp
       {
         return ReverseString(myString, spaceRemoval) == myString.Replace(" ", "");
       }
-      
+
       return ReverseString(myString, spaceRemoval) == myString;
     }
     public static string CompletePrefixWithZero(string numberInString, byte numberOfZero = 0)
@@ -917,7 +917,7 @@ namespace FonctionsUtiles.Fred.Csharp
       {
         numberOfZeroString += "0";
       }
-      
+
       return numberOfZeroString + nombre;
     }
     public static string ArrayToString(IList array)
@@ -1231,15 +1231,32 @@ namespace FonctionsUtiles.Fred.Csharp
       return string.Join(string.Empty, words);
     }
 
+    /// <summary>
+    /// Returns the initials of each word in a string. Words are separated according to the sepecified string sequence.
+    /// </summary>
+    /// <param name="input">
+    /// The original string.
+    /// </param>
+    /// <param name="separator">
+    /// The string sequence that separates words.
+    /// </param>
+    /// <param name="capitalizeInitials">
+    /// True to capitalize each initial in the output string.
+    /// </param>
+    /// <param name="preserveSeparator">
+    /// True to preserver the spaces between initials in the output string.
+    /// </param>
+    /// <param name="includePeriod"></param>
+    /// <returns>
+    /// Returns the initials of each word in a string. Words are separated according to the sepecified string sequence.
+    /// </returns>
     public static string GetInitials(string input, string separator, bool capitalizeInitials, bool preserveSeparator, bool includePeriod)
     {
-      // Returns the initials of each word in a string. Words are separated according to the sepecified string sequence.
-      // //  <param name="input">The original string.</param>
-      // //  <param name="separator">The string sequence that separates words.</param>
-      // //  <param name="capitalizeInitials">True to capitalize each initial in the output string.</param>
-      // //  <param name="preserveSeparator">True to preserver the spaces between initials in the output string.</param>
       if (string.IsNullOrEmpty(input))
+      {
         return string.Empty;
+      }
+
       string[] words = input.Split(separator.ToCharArray());
       for (int i = 0; i < words.Length; i++)
       {
@@ -1257,11 +1274,18 @@ namespace FonctionsUtiles.Fred.Csharp
       return string.Join(preserveSeparator ? separator : string.Empty, words);
     }
 
+    /// <summary>
+    /// Returns a string with each word's first character capitalized. Words must be separated by spaces.
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns></returns>
     public static string GetTitle(string input)
     {
-      // Returns a string with each word's first character capitalized. Words must be separated by spaces.
       if (string.IsNullOrEmpty(input))
+      {
         return string.Empty;
+      }
+
       string[] words = input.Split(' ');
       for (int i = 0; i < words.Length; i++)
       {
@@ -1273,9 +1297,14 @@ namespace FonctionsUtiles.Fred.Csharp
       return string.Join(" ", words);
     }
 
+    /// <summary>
+    /// Returns a string with each word's first character capitalized. Words are separated according to the sepecified string sequence.
+    /// </summary>
+    /// <param name="input"></param>
+    /// <param name="separator"></param>
+    /// <returns></returns>
     public static string GetTitle(string input, string separator)
     {
-      //  Returns a string with each word's first character capitalized. Words are separated according to the sepecified string sequence.
       if (string.IsNullOrEmpty(input))
       {
         return string.Empty;
@@ -1294,9 +1323,15 @@ namespace FonctionsUtiles.Fred.Csharp
       return string.Join(separator, words);
     }
 
+    /// <summary>
+    /// Returns a segment of a string, marked by the start and end index (exclusive).
+    /// </summary>
+    /// <param name="input"></param>
+    /// <param name="start"></param>
+    /// <param name="end"></param>
+    /// <returns></returns>
     public static string SubStringEnd(string input, int start, int end)
     {
-      //  Returns a segment of a string, marked by the start and end index (exclusive).
       if (string.IsNullOrEmpty(input) || start == end) return string.Empty;
       if (start == 0 && end == input.Length) return input; // entire string
       if (start < 0) return string.Empty;
@@ -1400,15 +1435,31 @@ namespace FonctionsUtiles.Fred.Csharp
       return output;
     }
 
+    /// <summary>
+    /// Returns an array of every index where a sequence is found on the specified string. Note: Overlaps will be counted.
+    /// </summary>
+    /// <param name="input">
+    /// The original string.
+    /// </param>
+    /// <param name="sequence">
+    /// The string sequence to seek.
+    /// </param>
+    /// <param name="startIndex">
+    /// Index from which to start seeking.
+    /// </param>
+    /// <param name="ignoreCase">
+    /// True, to ignore the difference in case between the sequence and the original string.
+    /// </param>
+    /// <returns>
+    /// Returns an array of every index where a sequence is found on the specified string. Note: Overlaps will be counted.
+    /// </returns>
     public static int[] IndexOfAll(string input, string sequence, int startIndex, bool ignoreCase)
     {
-      // Returns an array of every index where a sequence is found on the specified string. Note: Overlaps will be counted.
-      // //  <param name="input">The original string.</param>
-      // //  <param name="sequence">The string sequence to seek.</param>
-      // //  <param name="startIndex">Index from which to start seeking.</param>
-      // //  <param name="ignoreCase">True, to ignore the difference in case between the sequence and the original string.</param>
       if (string.IsNullOrEmpty(input))
+      {
         return new int[0]; // empty array
+      }
+
       var indices = new List<int>();
       for (int i = startIndex; i < input.Length; i++)
       {
@@ -1427,9 +1478,15 @@ namespace FonctionsUtiles.Fred.Csharp
       return output;
     }
 
+    /// <summary>
+    /// Returns whether the letter casing in a string is alternating.
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns>
+    /// Returns whether the letter casing in a string is alternating.
+    /// </returns>
     public static bool IsAlternateCases(string input)
     {
-      //  Returns whether the letter casing in a string is alternating.
       if (string.IsNullOrEmpty(input) || input.Length == 1) return false;
       bool isLastUpper = char.IsUpper(input[0]);
       for (int i = 1; i < input.Length; i++)
@@ -1455,22 +1512,36 @@ namespace FonctionsUtiles.Fred.Csharp
       return true;
     }
 
+    /// <summary>
+    /// Returns true if the first character in a string is upper case.
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns>
+    /// Returns true if the first character in a string is upper case.
+    /// </returns>
     public static bool IsCapitalized(string input)
     {
-      //  Returns true if the first character in a string is upper case.
       return !string.IsNullOrEmpty(input) && char.IsUpper(input[0]);
     }
 
+    /// <summary>
+    /// Returns whether a string is in all lower case.
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns>
+    /// Returns whether a string is in all lower case.
+    /// </returns>
     public static bool IsLowerCase(string input)
     {
-      //  Returns whether a string is in all lower case.
       if (string.IsNullOrEmpty(input)) return false;
       for (int i = 0; i < input.Length; i++)
       {
         // A single non-lower case character makes function false,
         // unless it is a chracter other than a letter
         if (!char.IsLower(input[i]) && char.IsLetter(input[i]))
+        {
           return false;
+        }
       }
 
       return true;
@@ -1483,9 +1554,15 @@ namespace FonctionsUtiles.Fred.Csharp
       return input.ToLower() == input;
     }
 
+    /// <summary>
+    /// Returns whether a string is in all upper case.
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns>
+    /// Returns whether a string is in all upper case.
+    /// </returns>
     public static bool IsUpperCase(string input)
     {
-      // Returns whether a string is in all upper case.
       if (string.IsNullOrEmpty(input))
       {
         return false;
@@ -1504,9 +1581,15 @@ namespace FonctionsUtiles.Fred.Csharp
       return true;
     }
 
+    /// <summary>
+    /// Returns whether a string is in all upper case.
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns>
+    /// Returns whether a string is in all upper case.
+    /// </returns>
     public static bool IsUpperCase2(string input)
     {
-      // Returns whether a string is in all upper case.
       if (string.IsNullOrEmpty(input))
       {
         return false;
@@ -1515,9 +1598,15 @@ namespace FonctionsUtiles.Fred.Csharp
       return input.ToUpper() == input;
     }
 
+    /// <summary>
+    /// Returns whether a string contains any vowel letters
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns>
+    /// Returns whether a string contains any vowel letters
+    /// </returns>
     public static bool HasVowels(string input)
     {
-      // Returns whether a string contains any vowel letters
       if (string.IsNullOrEmpty(input))
       {
         return false;
@@ -2496,7 +2585,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       string result = string.Empty;
       // TODO could be length/ppcm(length)
-      for (int i = 1; i < length/254; i++) 
+      for (int i = 1; i < length / 254; i++)
       {
         result += GenerateRandomString(forbiddenCharacters, hasForbiddenCharacters, rdnCharacters, (byte)i, isWindowsFileName);
       }
