@@ -2585,10 +2585,16 @@ namespace FonctionsUtiles.Fred.Csharp
 
       string result = string.Empty;
       // TODO could be length/ppcm(length)
-      decimal test = length / 254;
-      for (int i = 0; i < Math.Floor((decimal)(length / 254)); i++)
+      //decimal test = length / 254;
+      int leftOver = length % 254;
+      for (int i = 1; i <= Math.Floor((decimal)(length / 254)); i++)
       {
-        result += GenerateRandomString(forbiddenCharacters, hasForbiddenCharacters, rdnCharacters, (byte)i, isWindowsFileName);
+        result += GenerateRandomString(forbiddenCharacters, hasForbiddenCharacters, rdnCharacters, 254, isWindowsFileName);
+      }
+
+      if (leftOver != 0)
+      {
+        result += GenerateRandomString(forbiddenCharacters, hasForbiddenCharacters, rdnCharacters, (byte)leftOver, isWindowsFileName);
       }
 
       return result;
