@@ -2577,15 +2577,12 @@ namespace FonctionsUtiles.Fred.Csharp
       RandomCharacters rdnCharacters = RandomCharacters.LowerCase, int length = 8,
       bool isWindowsFileName = false)
     {
-      // TODO to be tested
       if (length < byte.MaxValue)
       {
         return GenerateRandomString(forbiddenCharacters, hasForbiddenCharacters, rdnCharacters, (byte)length, isWindowsFileName);
       }
 
       string result = string.Empty;
-      // TODO could be length/ppcm(length)
-      //decimal test = length / 254;
       int leftOver = length % 254;
       for (int i = 1; i <= Math.Floor((decimal)(length / 254)); i++)
       {

@@ -32,7 +32,7 @@ namespace MethodSpeedBenchmarks
 {
   public partial class FormMain : Form
   {
-    public object comboBoxOthersMethodName { get; private set; }
+    public object ComboBoxOthersMethodName { get; private set; }
 
     public FormMain()
     {
