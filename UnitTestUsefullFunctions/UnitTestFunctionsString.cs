@@ -4400,10 +4400,40 @@ namespace UnitTestUsefullFunctions
     {
       char[] source = { };
       const byte stringLength = 8;
-      string result = StringFunc.GenerateRandomString(source);
+      string result = StringFunc.GenerateRandomLongString(source, false, 
+        StringFunc.RandomCharacters.LowerCase);
       Assert.AreEqual(result.Length, stringLength);
     }
 
+    [TestMethod]
+    public void TestMethod_GenerateRandomLongString_true_LowerCase_length_nine()
+    {
+      char[] source = { };
+      const byte stringLength = 9;
+      string result = StringFunc.GenerateRandomLongString(source, false,
+        StringFunc.RandomCharacters.LowerCase, 9);
+      Assert.AreEqual(result.Length, stringLength);
+    }
+
+    [TestMethod]
+    public void TestMethod_GenerateRandomLongString_true_LowerCase_length_254()
+    {
+      char[] source = { };
+      const byte stringLength = 254;
+      string result = StringFunc.GenerateRandomLongString(source, false,
+        StringFunc.RandomCharacters.LowerCase, 254);
+      Assert.AreEqual(result.Length, stringLength);
+    }
+
+    [TestMethod]
+    public void TestMethod_GenerateRandomLongString_true_LowerCase_length_255()
+    {
+      char[] source = { };
+      const byte stringLength = 255;
+      string result = StringFunc.GenerateRandomLongString(source, false,
+        StringFunc.RandomCharacters.LowerCase, 255);
+      Assert.AreEqual(result.Length, stringLength);
+    }
     #endregion GenerateRandomLongString method Unit tests
     #region HasSomeLowerCaseLetters method Unit tests
     //*********************HasSomeLowerCaseLetters*******

@@ -248,7 +248,7 @@ namespace FonctionsUtiles.Fred.Csharp
         }
         else
         {
-            // delete subdirectories
+            // TODO delete subdirectories
 
         }
         
