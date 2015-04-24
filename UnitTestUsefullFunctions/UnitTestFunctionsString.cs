@@ -4445,6 +4445,26 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result.Length, stringLength);
     }
 
+    [TestMethod]
+    public void TestMethod_GenerateRandomLongString_true_LowerCase_length_999()
+    {
+      char[] source = { };
+      const int stringLength = 999;
+      string result = StringFunc.GenerateRandomLongString(source, false,
+        StringFunc.RandomCharacters.LowerCase, 999);
+      Assert.AreEqual(result.Length, stringLength);
+    }
+
+    [TestMethod]
+    public void TestMethod_GenerateRandomLongString_true_UpperLowerDigitSpecial_length_1950()
+    {
+      char[] source = { };
+      const int stringLength = 1950;
+      string result = StringFunc.GenerateRandomLongString(source, false,
+        StringFunc.RandomCharacters.UpperLowerDigitSpecial, 1950);
+      Assert.AreEqual(result.Length, stringLength);
+    }
+
     #endregion GenerateRandomLongString method Unit tests
     #region HasSomeLowerCaseLetters method Unit tests
     //*********************HasSomeLowerCaseLetters*******
