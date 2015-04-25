@@ -4400,8 +4400,7 @@ namespace UnitTestUsefullFunctions
     {
       char[] source = { };
       const byte stringLength = 8;
-      string result = StringFunc.GenerateRandomLongString(source, false, 
-        StringFunc.RandomCharacters.LowerCase);
+      string result = StringFunc.GenerateRandomLongString(source);
       Assert.AreEqual(result.Length, stringLength);
     }
 

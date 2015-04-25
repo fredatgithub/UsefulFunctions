@@ -80,6 +80,16 @@ namespace FonctionsUtiles.Fred.Csharp
       result.Append("Method= string KeepVowels(string input)" + newLine);
       result.Append("Method= string OppositeCase(string input)" + newLine);
       result.Append("Method= string SwapCases(string input)" + newLine);
+      result.Append("Method= string Capitalize(string input)" + newLine);
+      result.Append("Method= string GetInitials(string input, bool capitalizeInitials, bool preserveSpaces, bool includePeriod)" + newLine);
+      result.Append("Method= string GetInitials(string input, string separator, bool capitalizeInitials, bool preserveSeparator, bool includePeriod)" + newLine);
+      result.Append("Method= string GetTitle(string input)" + newLine);
+      result.Append("Method= string GetTitle(string input, string separator)" + newLine);
+      result.Append("Method= string SubStringEnd(string input, int start, int end)" + newLine);
+      result.Append("Method= char CharRight(string input, int index)" + newLine);
+      result.Append("Method= char CharMid(string input, int startingIndex, int count)" + newLine);
+      result.Append("Method= int CountString(string input, string sequence, bool ignoreCase)" + newLine);
+      result.Append("Method= int[] IndexOfAll(string input, string sequence, bool ignoreCase)" + newLine);
       result.Append("Method= " + newLine);
       result.Append("Method= " + newLine);
       result.Append("Method= " + newLine);
@@ -1171,7 +1181,6 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return new string(inputChars);
     }
-
     public static string Capitalize(string input)
     {
       //  Capitalizes the first character in a string.
@@ -1180,7 +1189,6 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return input[0].ToString(CultureInfo.CurrentCulture).ToUpper() + input.Substring(1);
     }
-
     /// <summary>
     /// Returns the initials of each word in a string. Words must be separated with spaces.
     /// </summary>
@@ -1230,7 +1238,6 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return string.Join(string.Empty, words);
     }
-
     /// <summary>
     /// Returns the initials of each word in a string. Words are separated according to the sepecified string sequence.
     /// </summary>
@@ -1273,7 +1280,6 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return string.Join(preserveSeparator ? separator : string.Empty, words);
     }
-
     /// <summary>
     /// Returns a string with each word's first character capitalized. Words must be separated by spaces.
     /// </summary>
@@ -1296,7 +1302,6 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return string.Join(" ", words);
     }
-
     /// <summary>
     /// Returns a string with each word's first character capitalized. Words are separated according to the sepecified string sequence.
     /// </summary>
@@ -1322,7 +1327,6 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return string.Join(separator, words);
     }
-
     /// <summary>
     /// Returns a segment of a string, marked by the start and end index (exclusive).
     /// </summary>
@@ -1341,7 +1345,6 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return input.Substring(start, end);
     }
-
     /// <summary>
     /// Returns the character in a string at a given index counting from the right.
     /// </summary>
@@ -1357,7 +1360,6 @@ namespace FonctionsUtiles.Fred.Csharp
       if (input.Length - index - 1 < 0) return new char();
       return input[input.Length - index - 1];
     }
-
     /// <summary>
     /// Returns the character at a position given by the startingIndex plus the given count.
     /// </summary>
@@ -1376,7 +1378,6 @@ namespace FonctionsUtiles.Fred.Csharp
       if (startingIndex + count >= input.Length) return new char();
       return input[startingIndex + count];
     }
-
     /// <summary>
     /// Returns the total number of times a given sequence appears in a string.
     /// </summary>
@@ -1408,7 +1409,6 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return count;
     }
-
     /// <summary>
     /// Returns an array of every index where a sequence is found on the specified string. Note: Overlaps will be counted.
     /// </summary>
