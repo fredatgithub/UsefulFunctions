@@ -2800,5 +2800,17 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return returnBytes;
     }
+
+    public static string ReplaceWindowsForbiddenCharacters(string input, char charToBeReplaced = '_')
+    {
+      string result = input;
+      char[] forbiddenWindowsFilenameCharacters = { '\\', '/', ':', '*', '?', '\"', '<', '>', '|' };
+      foreach (char item in forbiddenWindowsFilenameCharacters)
+      {
+        result = result.Replace(item, charToBeReplaced);
+      }
+
+      return result;
+    }
   }
 }
