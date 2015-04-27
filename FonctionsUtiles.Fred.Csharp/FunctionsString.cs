@@ -94,6 +94,9 @@ namespace FonctionsUtiles.Fred.Csharp
       result.Append("Method= " + newLine);
       result.Append("Method= " + newLine);
       result.Append("Method= " + newLine);
+      result.Append("Method= " + newLine);
+      result.Append("Method= " + newLine);
+      result.Append("Method= " + newLine);
       return result.ToString();
     }
 
