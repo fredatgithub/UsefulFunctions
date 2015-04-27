@@ -4697,6 +4697,18 @@ namespace UnitTestUsefullFunctions
     }
 
     #endregion Palindrome
+    #region ReplaceWindowsForbiddenCharacters
+    // **********************ReplaceWindowsForbiddenCharacters****************
+    [TestMethod]
+    public void TestMethod_ReplaceWindowsForbiddenCharacters_true()
+    {
+      const string source = "*:A long long time in a galaxy far far away?<>|";
+      const string expected = "A long long time in a galaxy far far away";
+      string result = StringFunc.ReplaceWindowsForbiddenCharacters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    #endregion ReplaceWindowsForbiddenCharacters
     #endregion
   }
 }

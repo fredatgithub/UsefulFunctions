@@ -2801,11 +2801,11 @@ namespace FonctionsUtiles.Fred.Csharp
       return returnBytes;
     }
 
-    public static string ReplaceWindowsForbiddenCharacters(string input, char charToBeReplaced = '_')
+    public static string ReplaceWindowsForbiddenCharacters(string input, string charToBeReplaced = "")
     {
       string result = input;
-      char[] forbiddenWindowsFilenameCharacters = { '\\', '/', ':', '*', '?', '\"', '<', '>', '|' };
-      foreach (char item in forbiddenWindowsFilenameCharacters)
+      string[] forbiddenWindowsFilenameCharacters = { "\\", "/", ":", "*", "?", "\"", "<", ">", "|" };
+      foreach (var item in forbiddenWindowsFilenameCharacters)
       {
         result = result.Replace(item, charToBeReplaced);
       }
