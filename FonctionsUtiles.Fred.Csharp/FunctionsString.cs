@@ -276,6 +276,8 @@ namespace FonctionsUtiles.Fred.Csharp
         // English
         case "is":
           return number > 1 ? "are" : "is";
+        case " is":
+          return number > 1 ? "s are" : " is";
 
         default:
           return number > 1 ? "s" : string.Empty;
