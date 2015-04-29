@@ -798,6 +798,45 @@ namespace UnitTestUsefullFunctions
     }
 
     // **********************English Plural****************
+    [TestMethod]
+    public void TestMethod_Plural_English_is_singular()
+    {
+      const int source = 1;
+      const string source2 = "is";
+      const string expected = "is";
+      string result = StringFunc.Plural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_English_is_plural()
+    {
+      const int source = 2;
+      const string source2 = "is";
+      const string expected = "are";
+      string result = StringFunc.Plural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_English_plural_plus_is_singular()
+    {
+      const int source = 1;
+      const string source2 = " is";
+      const string expected = " is";
+      string result = StringFunc.Plural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_English_plural_plus_is_plural()
+    {
+      const int source = 2;
+      const string source2 = " is";
+      const string expected = "s are";
+      string result = StringFunc.Plural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
 
 
     #endregion String methods - Plural
