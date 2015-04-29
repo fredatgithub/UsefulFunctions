@@ -47,7 +47,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_HasDuplicate_yes_on_Two_items()
     {
       int[] source = { 1, 1 };
-      bool expected = true;
+      const bool expected = true;
       bool result = StringFunc.HasDuplicate(source);
       Assert.AreEqual(result, expected);
     }
@@ -56,7 +56,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_HasDuplicate_no_on_Two_items()
     {
       int[] source = { 1, 2 };
-      bool expected = false;
+      const bool expected = false;
       bool result = StringFunc.HasDuplicate(source);
       Assert.AreEqual(result, expected);
     }
@@ -65,7 +65,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_HasDuplicate_none()
     {
       int[] source = { 1, 2, 3, 4 };
-      bool expected = false;
+      const bool expected = false;
       bool result = StringFunc.HasDuplicate(source);
       Assert.AreEqual(result, expected);
     }
@@ -74,7 +74,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_HasDuplicate_yes_on_Empty_list_because_all_items_equal_zero()
     {
       int[] source = new int[5];
-      bool expected = true;
+      const bool expected = true;
       bool result = StringFunc.HasDuplicate(source);
       Assert.AreEqual(result, expected);
     }
@@ -83,7 +83,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_HasDuplicate_null_list()
     {
       int[] source = null;
-      bool expected = false;
+      const bool expected = false;
       bool result = StringFunc.HasDuplicate(source);
       Assert.AreEqual(result, expected);
     }
@@ -92,7 +92,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_HasDuplicate_no_on_several_items()
     {
       int[] source = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-      bool expected = false;
+      const bool expected = false;
       bool result = StringFunc.HasDuplicate(source);
       Assert.AreEqual(result, expected);
     }
@@ -250,7 +250,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_zero_with_int()
     {
-      int source = 0;
+      const int source = 0;
       string expected = string.Empty;
       string result = StringFunc.Plural(source);
       Assert.AreEqual(result, expected);
@@ -259,7 +259,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_one_with_int()
     {
-      int source = 1;
+      const int source = 1;
       string expected = string.Empty;
       string result = StringFunc.Plural(source);
       Assert.AreEqual(result, expected);
@@ -268,8 +268,8 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_two_with_int()
     {
-      int source = 2;
-      string expected = "s";
+      const int source = 2;
+      const string expected = "s";
       string result = StringFunc.Plural(source);
       Assert.AreEqual(result, expected);
     }
@@ -277,7 +277,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_zero_with_byte()
     {
-      byte source = 0;
+      const byte source = 0;
       string expected = string.Empty;
       string result = StringFunc.Plural(source);
       Assert.AreEqual(result, expected);
@@ -286,7 +286,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_one_with_byte()
     {
-      byte source = 1;
+      const byte source = 1;
       string expected = string.Empty;
       string result = StringFunc.Plural(source);
       Assert.AreEqual(result, expected);
@@ -295,8 +295,8 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_two_with_byte()
     {
-      byte source = 2;
-      string expected = "s";
+      const byte source = 2;
+      const string expected = "s";
       string result = StringFunc.Plural(source);
       Assert.AreEqual(result, expected);
     }
@@ -304,7 +304,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_zero_with_Int16()
     {
-      Int16 source = 0;
+      const Int16 source = 0;
       string expected = string.Empty;
       string result = StringFunc.Plural(source);
       Assert.AreEqual(result, expected);
@@ -313,7 +313,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_one_with_Int16()
     {
-      Int16 source = 1;
+      const Int16 source = 1;
       string expected = string.Empty;
       string result = StringFunc.Plural(source);
       Assert.AreEqual(result, expected);
@@ -322,8 +322,8 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_two_with_Int16()
     {
-      Int16 source = 2;
-      string expected = "s";
+      const Int16 source = 2;
+      const string expected = "s";
       string result = StringFunc.Plural(source);
       Assert.AreEqual(result, expected);
     }
@@ -331,7 +331,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_zero_with_Int64()
     {
-      Int64 source = 0;
+      const Int64 source = 0;
       string expected = string.Empty;
       string result = StringFunc.Plural(source);
       Assert.AreEqual(result, expected);
@@ -340,7 +340,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_one_with_Int64()
     {
-      Int64 source = 1;
+      const Int64 source = 1;
       string expected = string.Empty;
       string result = StringFunc.Plural(source);
       Assert.AreEqual(result, expected);
@@ -349,8 +349,8 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_two_with_Int64()
     {
-      Int64 source = 2;
-      string expected = "s";
+      const Int64 source = 2;
+      const string expected = "s";
       string result = StringFunc.Plural(source);
       Assert.AreEqual(result, expected);
     }
@@ -358,7 +358,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_zero_with_uint()
     {
-      uint source = 0;
+      const uint source = 0;
       string expected = string.Empty;
       string result = StringFunc.Plural(source);
       Assert.AreEqual(result, expected);
@@ -367,7 +367,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_one_with_uint()
     {
-      uint source = 1;
+      const uint source = 1;
       string expected = string.Empty;
       string result = StringFunc.Plural(source);
       Assert.AreEqual(result, expected);
@@ -376,8 +376,8 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_two_with_uint()
     {
-      uint source = 2;
-      string expected = "s";
+      const uint source = 2;
+      const string expected = "s";
       string result = StringFunc.Plural(source);
       Assert.AreEqual(result, expected);
     }
@@ -385,7 +385,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_zero_with_UInt16()
     {
-      UInt16 source = 0;
+      const UInt16 source = 0;
       string expected = string.Empty;
       string result = StringFunc.Plural(source);
       Assert.AreEqual(result, expected);
@@ -394,7 +394,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_one_with_UInt16()
     {
-      UInt16 source = 1;
+      const UInt16 source = 1;
       string expected = string.Empty;
       string result = StringFunc.Plural(source);
       Assert.AreEqual(result, expected);
@@ -403,8 +403,8 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_two_with_UInt16()
     {
-      UInt16 source = 2;
-      string expected = "s";
+      const UInt16 source = 2;
+      const string expected = "s";
       string result = StringFunc.Plural(source);
       Assert.AreEqual(result, expected);
     }
@@ -412,7 +412,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_zero_with_UInt64()
     {
-      UInt64 source = 0;
+      const UInt64 source = 0;
       string expected = string.Empty;
       string result = StringFunc.Plural(source);
       Assert.AreEqual(result, expected);
@@ -421,7 +421,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_one_with_UInt64()
     {
-      UInt64 source = 1;
+      const UInt64 source = 1;
       string expected = string.Empty;
       string result = StringFunc.Plural(source);
       Assert.AreEqual(result, expected);
@@ -430,8 +430,8 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_two_with_UInt64()
     {
-      UInt64 source = 2;
-      string expected = "s";
+      const UInt64 source = 2;
+      const string expected = "s";
       string result = StringFunc.Plural(source);
       Assert.AreEqual(result, expected);
     }
@@ -440,9 +440,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_al_one_with_int()
     {
-      int source = 1;
-      string source2 = "al";
-      string expected = source2;
+      const int source = 1;
+      const string source2 = "al";
+      const string expected = source2;
       string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -450,9 +450,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_al_two_with_int()
     {
-      int source = 2;
-      string source2 = "al";
-      string expected = "aux";
+      const int source = 2;
+      const string source2 = "al";
+      const string expected = "aux";
       string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -460,9 +460,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_au_two_with_int()
     {
-      int source = 2;
-      string source2 = "au";
-      string expected = "aux";
+      const int source = 2;
+      const string source2 = "au";
+      const string expected = "aux";
       string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -470,9 +470,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_eau_two_with_int()
     {
-      int source = 2;
-      string source2 = "eau";
-      string expected = "eaux";
+      const int source = 2;
+      const string source2 = "eau";
+      const string expected = "eaux";
       string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -480,9 +480,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_eu_two_with_int()
     {
-      int source = 2;
-      string source2 = "eu";
-      string expected = "eux";
+      const int source = 2;
+      const string source2 = "eu";
+      const string expected = "eux";
       string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -490,9 +490,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_landau_two_with_int()
     {
-      int source = 2;
-      string source2 = "landau";
-      string expected = "landaus";
+      const int source = 2;
+      const string source2 = "landau";
+      const string expected = "landaus";
       string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -500,9 +500,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_sarrau_two_with_int()
     {
-      int source = 2;
-      string source2 = "sarrau";
-      string expected = "sarraus";
+      const int source = 2;
+      const string source2 = "sarrau";
+      const string expected = "sarraus";
       string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -510,9 +510,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_bleu_two_with_int()
     {
-      int source = 2;
-      string source2 = "bleu";
-      string expected = "bleus";
+      const int source = 2;
+      const string source2 = "bleu";
+      const string expected = "bleus";
       string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -520,9 +520,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_émeu_two_with_int()
     {
-      int source = 2;
-      string source2 = "émeu";
-      string expected = "émeus";
+      const int source = 2;
+      const string source2 = "émeu";
+      const string expected = "émeus";
       string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -530,9 +530,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_lieu_two_with_int()
     {
-      int source = 2;
-      string source2 = "lieu";
-      string expected = "lieux";
+      const int source = 2;
+      const string source2 = "lieu";
+      const string expected = "lieux";
       string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -540,9 +540,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_pneu_two_with_int()
     {
-      int source = 2;
-      string source2 = "pneu";
-      string expected = "pneus";
+      const int source = 2;
+      const string source2 = "pneu";
+      const string expected = "pneus";
       string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -550,9 +550,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_aval_two_with_int()
     {
-      int source = 2;
-      string source2 = "aval";
-      string expected = "avals";
+      const int source = 2;
+      const string source2 = "aval";
+      const string expected = "avals";
       string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -560,9 +560,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_bal_two_with_int()
     {
-      int source = 2;
-      string source2 = "bal";
-      string expected = "bals";
+      const int source = 2;
+      const string source2 = "bal";
+      const string expected = "bals";
       string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -570,9 +570,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_chacal_two_with_int()
     {
-      int source = 2;
-      string source2 = "chacal";
-      string expected = "chacals";
+      const int source = 2;
+      const string source2 = "chacal";
+      const string expected = "chacals";
       string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -580,9 +580,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_carnaval_two_with_int()
     {
-      int source = 2;
-      string source2 = "carnaval";
-      string expected = "carnavals";
+      const int source = 2;
+      const string source2 = "carnaval";
+      const string expected = "carnavals";
       string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -590,9 +590,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_festival_two_with_int()
     {
-      int source = 2;
-      string source2 = "festival";
-      string expected = "festivals";
+      const int source = 2;
+      const string source2 = "festival";
+      const string expected = "festivals";
       string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -600,9 +600,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_récital_two_with_int()
     {
-      int source = 2;
-      string source2 = "récital";
-      string expected = "récitals";
+      const int source = 2;
+      const string source2 = "récital";
+      const string expected = "récitals";
       string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -610,9 +610,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_régal_two_with_int()
     {
-      int source = 2;
-      string source2 = "régal";
-      string expected = "régals";
+      const int source = 2;
+      const string source2 = "régal";
+      const string expected = "régals";
       string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -620,9 +620,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_cal_two_with_int()
     {
-      int source = 2;
-      string source2 = "cal";
-      string expected = "cals";
+      const int source = 2;
+      const string source2 = "cal";
+      const string expected = "cals";
       string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -630,9 +630,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_serval_two_with_int()
     {
-      int source = 2;
-      string source2 = "serval";
-      string expected = "servals";
+      const int source = 2;
+      const string source2 = "serval";
+      const string expected = "servals";
       string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -640,9 +640,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_choral_two_with_int()
     {
-      int source = 2;
-      string source2 = "choral";
-      string expected = "chorals";
+      const int source = 2;
+      const string source2 = "choral";
+      const string expected = "chorals";
       string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -650,9 +650,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_narval_two_with_int()
     {
-      int source = 2;
-      string source2 = "narval";
-      string expected = "narvals";
+      const int source = 2;
+      const string source2 = "narval";
+      const string expected = "narvals";
       string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -660,9 +660,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_bail_two_with_int()
     {
-      int source = 2;
-      string source2 = "bail";
-      string expected = "baux";
+      const int source = 2;
+      const string source2 = "bail";
+      const string expected = "baux";
       string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -670,9 +670,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_corail_two_with_int()
     {
-      int source = 2;
-      string source2 = "corail";
-      string expected = "coraux";
+      const int source = 2;
+      const string source2 = "corail";
+      const string expected = "coraux";
       string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -680,9 +680,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_émail_two_with_int()
     {
-      int source = 2;
-      string source2 = "émail";
-      string expected = "émaux";
+      const int source = 2;
+      const string source2 = "émail";
+      const string expected = "émaux";
       string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -690,9 +690,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_soupirail_two_with_int()
     {
-      int source = 2;
-      string source2 = "soupirail";
-      string expected = "soupiraux";
+      const int source = 2;
+      const string source2 = "soupirail";
+      const string expected = "soupiraux";
       string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -700,9 +700,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_travail_two_with_int()
     {
-      int source = 2;
-      string source2 = "travail";
-      string expected = "travaux";
+      const int source = 2;
+      const string source2 = "travail";
+      const string expected = "travaux";
       string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -710,9 +710,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_vantail_two_with_int()
     {
-      int source = 2;
-      string source2 = "vantail";
-      string expected = "vantaux";
+      const int source = 2;
+      const string source2 = "vantail";
+      const string expected = "vantaux";
       string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -720,9 +720,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_vitrail_two_with_int()
     {
-      int source = 2;
-      string source2 = "vitrail";
-      string expected = "vitraux";
+      const int source = 2;
+      const string source2 = "vitrail";
+      const string expected = "vitraux";
       string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -730,9 +730,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_bijou_two_with_int()
     {
-      int source = 2;
-      string source2 = "bijou";
-      string expected = "bijoux";
+      const int source = 2;
+      const string source2 = "bijou";
+      const string expected = "bijoux";
       string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -740,9 +740,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_caillou_two_with_int()
     {
-      int source = 2;
-      string source2 = "caillou";
-      string expected = "cailloux";
+      const int source = 2;
+      const string source2 = "caillou";
+      const string expected = "cailloux";
       string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -750,9 +750,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_chou_two_with_int()
     {
-      int source = 2;
-      string source2 = "chou";
-      string expected = "choux";
+      const int source = 2;
+      const string source2 = "chou";
+      const string expected = "choux";
       string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -760,9 +760,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_genou_two_with_int()
     {
-      int source = 2;
-      string source2 = "genou";
-      string expected = "genoux";
+      const int source = 2;
+      const string source2 = "genou";
+      const string expected = "genoux";
       string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -770,9 +770,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_hibou_two_with_int()
     {
-      int source = 2;
-      string source2 = "hibou";
-      string expected = "hiboux";
+      const int source = 2;
+      const string source2 = "hibou";
+      const string expected = "hiboux";
       string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -780,9 +780,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_joujou_two_with_int()
     {
-      int source = 2;
-      string source2 = "joujou";
-      string expected = "joujoux";
+      const int source = 2;
+      const string source2 = "joujou";
+      const string expected = "joujoux";
       string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -790,12 +790,15 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Plural_pou_two_with_int()
     {
-      int source = 2;
-      string source2 = "pou";
-      string expected = "poux";
+      const int source = 2;
+      const string source2 = "pou";
+      const string expected = "poux";
       string result = StringFunc.Plural(source, source2);
       Assert.AreEqual(result, expected);
     }
+
+    // **********************English Plural****************
+
 
     #endregion String methods - Plural
 
@@ -2507,8 +2510,8 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_LoadAlphabetInList_false_empty_source_array_give_sixty_two_length_array()
     {
-      bool source = false;
-      int expected = 26 + 26 + 10;
+      const bool source = false;
+      const int expected = 26 + 26 + 10;
       char[] result = StringFunc.LoadAlphabetInCharArray(source, source);
       Assert.AreEqual(result.Length, expected);
     }
