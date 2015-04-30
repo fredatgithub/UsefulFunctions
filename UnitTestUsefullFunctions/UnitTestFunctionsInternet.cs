@@ -44,5 +44,29 @@ namespace UnitTestUsefullFunctions
     }
 
     #endregion IsInternetConnected
+    #region IsNetworkLikelyAvailable
+
+    //**********************IsNetworkLikelyAvailable***************
+    [TestMethod]
+    public void TestMethod_IsNetworkLikelyAvailable_true()
+    {
+      const bool expected = true;
+      bool result = InternetFunc.IsNetworkLikelyAvailable();
+      Assert.AreEqual(result, expected);
+    }
+
+    #endregion IsNetworkLikelyAvailable
+    #region IsNetworkLikelyAvailable
+
+    //**********************IsOnenNetworkCardAvailable***************
+    [TestMethod]
+    public void TestMethod_IsOnenNetworkCardAvailable_true()
+    {
+      const bool expected = true;
+      bool result = InternetFunc.IsOnenNetworkCardAvailable();
+      Assert.AreEqual(result, expected);
+    }
+
+    #endregion IsOnenNetworkCardAvailable
   }
 }
