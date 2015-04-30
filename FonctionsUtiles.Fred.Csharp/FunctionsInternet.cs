@@ -58,24 +58,24 @@ namespace FonctionsUtiles.Fred.Csharp
         string ret = client.DownloadString(url);
 
         // ret now contains the contents of the webpage
-        Console.WriteLine("First 256 bytes of response: " + ret.Substring(0, 265));
+        //Console.WriteLine("First 256 bytes of response: " + ret.Substring(0, 265));
         result = ret;
       }
       catch (WebException we)
       {
         // WebException.Status holds useful information
-        Console.WriteLine(we.Message + "\n" + we.Status.ToString());
+        //Console.WriteLine(we.Message + "\n" + we.Status.ToString());
       }
       catch (NotSupportedException ne)
       {
         // other errors
-        Console.WriteLine(ne.Message);
+        //Console.WriteLine(ne.Message);
       }
 
       return result;
     }
 
-    public static bool IsOnenNtworkIsAvailable()
+    public static bool IsOnenNetworkCardAvailable()
     {
       NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces();
       bool networkIsAvailable = false;
