@@ -99,7 +99,7 @@ namespace FonctionsUtiles.Fred.Csharp
         .Any(x => x.OperationalStatus == OperationalStatus.Up);
     }
 
-    private bool IsInternetConnected()
+    public bool IsInternetConnected()
     {
       HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://www.google.fr");
       try
