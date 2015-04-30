@@ -92,14 +92,14 @@ namespace FonctionsUtiles.Fred.Csharp
     }
 
 
-    public bool IsNetworkLikelyAvailable()
+    public static bool IsNetworkLikelyAvailable()
     {
       return NetworkInterface
         .GetAllNetworkInterfaces()
         .Any(x => x.OperationalStatus == OperationalStatus.Up);
     }
 
-    public bool IsInternetConnected()
+    public static bool IsInternetConnected()
     {
       HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://www.google.fr");
       try
