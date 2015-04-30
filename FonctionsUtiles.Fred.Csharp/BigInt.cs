@@ -9,6 +9,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Xml;
 using System.Xml.Schema;
@@ -20,8 +21,8 @@ namespace FonctionsUtiles.Fred.Csharp
   /// BigInt is a general-purpose unbounded integer implementation consistent with C# and .NET numeric type conventions
   /// </summary>
   [Serializable] //add [NonSerialized] attribute to any (possible future) fields other than digits and isneg
-  [System.Runtime.InteropServices.ComVisible(false)]
-  [System.Runtime.InteropServices.StructLayout(System.Runtime.InteropServices.LayoutKind.Auto)] //since we don't care about COM interop
+  [ComVisible(false)]
+  [StructLayout(LayoutKind.Auto)] //since we don't care about COM interop
   public struct BigInt : IComparable<BigInt>, IEquatable<BigInt>, IConvertible, IXmlSerializable
   {
     #region Instance Fields
@@ -187,8 +188,9 @@ namespace FonctionsUtiles.Fred.Csharp
     public override int GetHashCode()
     {
       if (digits == null)
+      {
         return 0;
-
+      }
 
       int code, count;
       code = count = digits.Count;
@@ -198,7 +200,9 @@ namespace FonctionsUtiles.Fred.Csharp
         {
           code = code * (b == 0 ? count : b);
           if (code == 0)
+          {
             code = count;
+          }
         }
       }
 
@@ -211,15 +215,21 @@ namespace FonctionsUtiles.Fred.Csharp
     public override string ToString()
     {
       if (digits == null)
+      {
         return "0";
+      }
 
       StringBuilder sb = new StringBuilder();
 
       if (isneg)
+      {
         sb.Append("-");
+      }
 
-      foreach (byte digit in this.digits)
+      foreach (byte digit in digits)
+      {
         sb.Append(digit.ToString());
+      }
 
       return sb.ToString();
     }
@@ -242,36 +252,58 @@ namespace FonctionsUtiles.Fred.Csharp
     public int CompareTo(BigInt rhs) //was less than
     {
       //permutations of this and rhs being zero
-      if (this.digits == null && rhs.digits == null)
+      if (digits == null && rhs.digits == null)
+      {
         return 0; //they are equal (both 0)
-      else if (this.digits == null && rhs.digits != null)
+      }
+
+      if (digits == null && rhs.digits != null)
+      {
         return rhs.isneg ? 1 : -1;
-      else if (this.digits != null && rhs.digits == null)
-        return this.isneg ? -1 : 1;
+      }
+
+      if (digits != null && rhs.digits == null)
+      {
+        return isneg ? -1 : 1;
+      }
 
       //this is negative and rhs is positive
-      if (this.isneg && !rhs.isneg)
+      if (isneg && !rhs.isneg)
+      {
         return -1;
-      else if (!this.isneg && rhs.isneg)
+      }
+
+      if (!isneg && rhs.isneg)
+      {
         return 1;
-      else if (this.isneg && rhs.isneg) //this and rhs are negative
-      {
-        if (this.digits.Count > rhs.digits.Count)
-          return -1;
-        else if (this.digits.Count < rhs.digits.Count)
-          return 1;
-        else //count == count
-          return CompareFirstDiffDigit(rhs.digits, this.digits);
       }
-      else //!this.isneg && !rhs.isneg (this and rhs are positive
+
+      if (isneg && rhs.isneg) //this and rhs are negative
       {
-        if (this.digits.Count > rhs.digits.Count)
-          return 1;
-        else if (this.digits.Count < rhs.digits.Count)
+        if (digits.Count > rhs.digits.Count)
+        {
           return -1;
-        else //count == count
-          return CompareFirstDiffDigit(this.digits, rhs.digits);
+        }
+
+        if (digits.Count < rhs.digits.Count)
+        {
+          return 1;
+        }
+
+        return CompareFirstDiffDigit(rhs.digits, digits);
       }
+
+      if (digits.Count > rhs.digits.Count)
+      {
+        return 1;
+      }
+
+      if (digits.Count < rhs.digits.Count)
+      {
+        return -1;
+      }
+
+      return CompareFirstDiffDigit(digits, rhs.digits);
     }
 
     public static bool operator <(BigInt lhs, BigInt rhs)
@@ -323,8 +355,12 @@ namespace FonctionsUtiles.Fred.Csharp
       LinkedListNode<byte> cur_lhs = lhs.First;
       LinkedListNode<byte> cur_rhs = rhs.First;
       for (int i = 0; i < lhs.Count; i++, cur_lhs = cur_lhs.Next, cur_rhs = cur_rhs.Next)
+      {
         if (cur_lhs.Value != cur_rhs.Value)
+        {
           return cur_lhs.Value < cur_rhs.Value ? -1 : 1;
+        }
+      }
 
       return 0;//all digits equal
     }
@@ -352,13 +388,21 @@ namespace FonctionsUtiles.Fred.Csharp
     public static BigInt Add(BigInt lhs, BigInt rhs)
     {
       if (lhs.digits == null && rhs.digits == null) //0 + 0 = 0
-        return BigInt.Zero;
-      else if (lhs.digits == null && rhs.digits != null) //0 + b = b
+      {
+        return Zero;
+      }
+
+      if (lhs.digits == null && rhs.digits != null) //0 + b = b
+      {
         return rhs;
-      else if (lhs.digits != null && rhs.digits == null) //a + b = 0
+      }
+
+      if (lhs.digits != null && rhs.digits == null) //a + b = 0
+      {
         return lhs;
-      else
-        return AddPhase2(lhs.digits, lhs.isneg, rhs.digits, rhs.isneg);
+      }
+
+      return AddPhase2(lhs.digits, lhs.isneg, rhs.digits, rhs.isneg);
     }
 
     /// <summary>
@@ -375,13 +419,21 @@ namespace FonctionsUtiles.Fred.Csharp
     {
       //use algerbra to make sure a and b are positive
       if (lhs_isneg && rhs_isneg) // (-a) + (-b) = -(a + b)
+      {
         return new BigInt(AddPhase3(lhs_digits, rhs_digits), true);
-      else if (!lhs_isneg && rhs_isneg) // a + (-b) = a - b
+      }
+
+      if (!lhs_isneg && rhs_isneg) // a + (-b) = a - b
+      {
         return SubtractPhase3(lhs_digits, rhs_digits);
-      else if (lhs_isneg && !rhs_isneg) // (-a) + b = b - a
+      }
+
+      if (lhs_isneg && !rhs_isneg) // (-a) + b = b - a
+      {
         return SubtractPhase3(rhs_digits, lhs_digits);
-      else  //now a and b are positive
-        return new BigInt(AddPhase3(lhs_digits, rhs_digits), false);
+      }
+
+      return new BigInt(AddPhase3(lhs_digits, rhs_digits), false);
     }
 
     /// <summary>
@@ -391,25 +443,27 @@ namespace FonctionsUtiles.Fred.Csharp
     {
       //make sure a is greater than b
       if (IsLessThan(lhs_digits, rhs_digits))
+      {
         return AddPhase4(rhs_digits, lhs_digits); // a + b = b + a
-      else //now a and b are positive and a is greater than b
-        return AddPhase4(lhs_digits, rhs_digits);
+      }
+
+      return AddPhase4(lhs_digits, rhs_digits);
     }
 
     /// <summary>
     /// operands are non-zero, positive, and lhs >= rhs
     /// </summary>
-    private static LinkedList<byte> AddPhase4(LinkedList<byte> lhs_digits, LinkedList<byte> rhs_digits)
+    private static LinkedList<byte> AddPhase4(LinkedList<byte> lhsDigits, LinkedList<byte> rhsDigits)
     {
-      LinkedList<byte> sum_digits = new LinkedList<byte>();
-      LinkedListNode<byte> cur_lhs = lhs_digits.Last;
-      LinkedListNode<byte> cur_rhs = rhs_digits.Last;
+      LinkedList<byte> sumDigits = new LinkedList<byte>();
+      LinkedListNode<byte> curLhs = lhsDigits.Last;
+      LinkedListNode<byte> curRhs = rhsDigits.Last;
       int carry = 0;
-      int rhs_topindex = rhs_digits.Count - 1;
+      int rhs_topindex = rhsDigits.Count - 1;
       for (int i = 0; ; )
       {
-        byte val_lhs = cur_lhs.Value;
-        byte val_rhs = i <= rhs_topindex ? cur_rhs.Value : (byte)0;
+        byte val_lhs = curLhs.Value;
+        byte val_rhs = i <= rhs_topindex ? curRhs.Value : (byte)0;
         int sum = (val_lhs + val_rhs + carry);
         carry = 0;
         if (sum > 9)
@@ -417,19 +471,27 @@ namespace FonctionsUtiles.Fred.Csharp
           sum -= 10;
           carry = 1;
         }
-        sum_digits.AddFirst((byte)sum);
 
-        if (cur_lhs == lhs_digits.First)
+        sumDigits.AddFirst((byte)sum);
+
+        if (curLhs == lhsDigits.First)
+        {
           break;
+        }
 
-        cur_lhs = cur_lhs.Previous;
+        curLhs = curLhs.Previous;
         if (++i <= rhs_topindex)
-          cur_rhs = cur_rhs.Previous;
+        {
+          curRhs = curRhs.Previous;
+        }
       }
-      if (carry == 1)
-        sum_digits.AddFirst((byte)carry);
 
-      return sum_digits;
+      if (carry == 1)
+      {
+        sumDigits.AddFirst((byte)carry);
+      }
+
+      return sumDigits;
     }
 
     /// <summary>
@@ -437,18 +499,18 @@ namespace FonctionsUtiles.Fred.Csharp
     /// and b less than a cases, slightly slower than AddPhase4, but when doing accumlative addition (such as Multiply), performance
     /// is much increased by sparing repeated large memory allocation for tempory states.
     /// </summary>
-    private static void AddTo(LinkedList<byte> lhs_digits, LinkedList<byte> rhs_digits)
+    private static void AddTo(LinkedList<byte> lhsDigits, LinkedList<byte> rhsDigits)
     {
-      LinkedListNode<byte> cur_lhs = lhs_digits.Last;
-      LinkedListNode<byte> cur_rhs = rhs_digits.Last;
+      LinkedListNode<byte> curLhs = lhsDigits.Last;
+      LinkedListNode<byte> curRhs = rhsDigits.Last;
       int carry = 0;
-      int rhs_topindex = rhs_digits.Count - 1;
-      int lhs_topindex = lhs_digits.Count - 1;
-      int max_index = Math.Max(rhs_topindex, lhs_topindex);
+      int rhsTopindex = rhsDigits.Count - 1;
+      int lhsTopindex = lhsDigits.Count - 1;
+      int maxIndex = Math.Max(rhsTopindex, lhsTopindex);
       for (int i = 0; ; )
       {
-        byte val_lhs = i <= lhs_topindex ? cur_lhs.Value : (byte)0;
-        byte val_rhs = i <= rhs_topindex ? cur_rhs.Value : (byte)0;
+        byte val_lhs = i <= lhsTopindex ? curLhs.Value : (byte)0;
+        byte val_rhs = i <= rhsTopindex ? curRhs.Value : (byte)0;
         int sum = (val_lhs + val_rhs + carry);
         carry = 0;
         if (sum > 9)
@@ -457,29 +519,37 @@ namespace FonctionsUtiles.Fred.Csharp
           carry = 1;
         }
 
-        if (i > lhs_topindex)
+        if (i > lhsTopindex)
         {
-          lhs_digits.AddFirst((byte)sum);
-          if (i == max_index)
+          lhsDigits.AddFirst((byte)sum);
+          if (i == maxIndex)
+          {
             break;
+          }
 
-          cur_lhs = lhs_digits.First;
+          curLhs = lhsDigits.First;
         }
         else
         {
-          cur_lhs.Value = (byte)sum;
-          if (i == max_index)
+          curLhs.Value = (byte)sum;
+          if (i == maxIndex)
+          {
             break;
+          }
 
-          cur_lhs = cur_lhs.Previous;
+          curLhs = curLhs.Previous;
         }
 
-        if (++i <= rhs_topindex)
-          cur_rhs = cur_rhs.Previous;
+        if (++i <= rhsTopindex)
+        {
+          curRhs = curRhs.Previous;
+        }
       }
 
       if (carry == 1)
-        lhs_digits.AddFirst((byte)carry);
+      {
+        lhsDigits.AddFirst((byte)carry);
+      }
     }
 
     public static BigInt operator -(BigInt lhs, BigInt rhs)
@@ -492,14 +562,23 @@ namespace FonctionsUtiles.Fred.Csharp
     /// </summary>
     public static BigInt Subtract(BigInt lhs, BigInt rhs)
     {
-      if (lhs.digits == null && rhs.digits == null) //0 - 0 = 0,  (may consider value of implementing a - a = 0 [SEE Subtract3])
-        return BigInt.Zero;
-      else if (lhs.digits == null && rhs.digits != null) //0 - (a) = -a, 0 - (-a) = a
+      if (lhs.digits == null && rhs.digits == null)
+      //0 - 0 = 0,  (may consider value of implementing a - a = 0 [SEE Subtract3])
+      {
+        return Zero;
+      }
+
+      if (lhs.digits == null && rhs.digits != null) //0 - (a) = -a, 0 - (-a) = a
+      {
         return new BigInt(rhs.digits, !rhs.isneg);
-      else if (lhs.digits != null && rhs.digits == null) //a - 0 = a
+      }
+
+      if (lhs.digits != null && rhs.digits == null) //a - 0 = a
+      {
         return lhs;
-      else
-        return SubtractPhase2(lhs.digits, lhs.isneg, rhs.digits, rhs.isneg);
+      }
+
+      return SubtractPhase2(lhs.digits, lhs.isneg, rhs.digits, rhs.isneg);
     }
 
     /// <summary>
@@ -516,13 +595,21 @@ namespace FonctionsUtiles.Fred.Csharp
     {
       //use algerbra to make sure a and b are positive
       if (!lhs_isneg && rhs_isneg) // a - (-b) = a + b
+      {
         return new BigInt(AddPhase3(lhs_digits, rhs_digits), false);
-      else if (lhs_isneg && !rhs_isneg) // (-a) - b = (-a) + (-b) = -(a + b)
+      }
+
+      if (lhs_isneg && !rhs_isneg) // (-a) - b = (-a) + (-b) = -(a + b)
+      {
         return new BigInt(AddPhase3(lhs_digits, rhs_digits), true); //also: return (-a + b); works
-      else if (lhs_isneg && rhs_isneg) // (-a) - (-b) = b - a
+      }
+
+      if (lhs_isneg && rhs_isneg) // (-a) - (-b) = b - a
+      {
         return SubtractPhase3(rhs_digits, lhs_digits);
-      else //a and b are positive.
-        return SubtractPhase3(lhs_digits, rhs_digits);
+      }
+
+      return SubtractPhase3(lhs_digits, rhs_digits);
     }
 
     /// <summary>
@@ -535,18 +622,26 @@ namespace FonctionsUtiles.Fred.Csharp
       {
         int diff = CompareFirstDiffDigit(lhs_digits, rhs_digits);
         if (diff == 0) //they are equal
-          return BigInt.Zero;
-        else if (diff == -1) //a < b
-          goto neg_b_minus_a;
-        else //a > b
-          goto pos_a_minus_b;
-      }
-      else if (lhs_digits.Count < rhs_digits.Count)//a < b
-        goto neg_b_minus_a;
-      else //a > b
-        goto pos_a_minus_b;
+        {
+          return Zero;
+        }
 
-        //the following are the only two uses of SubtractPhase4, so we are ok so far in placing equality condition here, in Phase3
+        if (diff == -1) //a < b
+        {
+          goto neg_b_minus_a;
+        }
+
+        goto pos_a_minus_b;
+      }
+
+      if (lhs_digits.Count < rhs_digits.Count) //a < b
+      {
+        goto neg_b_minus_a;
+      }
+
+      goto pos_a_minus_b;
+
+      //the following are the only two uses of SubtractPhase4, so we are ok so far in placing equality condition here, in Phase3
     neg_b_minus_a: return new BigInt(SubtractPhase4(rhs_digits, lhs_digits), true);  //a - b = -(b - a), when a < b
     pos_a_minus_b: return new BigInt(SubtractPhase4(lhs_digits, rhs_digits), false);
     }
@@ -573,17 +668,22 @@ namespace FonctionsUtiles.Fred.Csharp
           diff += 10;
           borrow = 1;
         }
+
         diff_digits.AddFirst((byte)diff);
 
         if (cur_lhs == lhs_digits.First)
+        {
           break;
+        }
 
         cur_lhs = cur_lhs.Previous;
         if (++i <= rhs_topindex)
+        {
           cur_rhs = cur_rhs.Previous;
+        }
       }
 
-      while (diff_digits.First.Value == (byte)0)
+      while (diff_digits.First.Value == 0)
         diff_digits.RemoveFirst();
 
       return diff_digits;
@@ -600,10 +700,14 @@ namespace FonctionsUtiles.Fred.Csharp
 
       string leading_mult_str = leading_mult.ToString();
       for (int i = 0; i < leading_mult_str.Length; i++)
+      {
         llist.AddLast(byte.Parse(leading_mult_str[i].ToString()));
+      }
 
       for (int j = 0; j < zero_count; j++)
-        llist.AddLast((byte)0);
+      {
+        llist.AddLast(0);
+      }
 
       return llist;
     }
@@ -614,7 +718,9 @@ namespace FonctionsUtiles.Fred.Csharp
     public static BigInt Multiply(BigInt lhs, BigInt rhs)
     {
       if (lhs.digits == null || rhs.digits == null) //0 * b = 0 = a * 0
-        return BigInt.Zero;
+      {
+        return Zero;
+      }
 
       LinkedList<byte> result_mult = null;
 
@@ -630,9 +736,13 @@ namespace FonctionsUtiles.Fred.Csharp
           if (leading_mult != 0) //skip adding zero products
           {
             if (result_mult == null) //init result_mult... don't like doing this check after already initialized
+            {
               result_mult = GenMultPart(leading_mult, rzeros + lzeros);
+            }
             else //add to result mult
+            {
               AddTo(result_mult, GenMultPart(leading_mult, rzeros + lzeros)); //mutational addition for better memory management (less allocation of large linkedlists).
+            }
           }
         }
       }
@@ -645,7 +755,7 @@ namespace FonctionsUtiles.Fred.Csharp
     /// </summary>
     public static BigInt operator ++(BigInt bi)
     {
-      return bi + BigInt.One;
+      return bi + One;
     }
 
     /// <summary>
@@ -653,7 +763,7 @@ namespace FonctionsUtiles.Fred.Csharp
     /// </summary>
     public static BigInt operator --(BigInt bi)
     {
-      return bi - BigInt.One;
+      return bi - One;
     }
 
     ///// <summary>
@@ -685,15 +795,18 @@ namespace FonctionsUtiles.Fred.Csharp
     /// <returns></returns>
     public static BigInt Pow(BigInt x, uint n)
     {
-      BigInt result = BigInt.One;
+      BigInt result = One;
       while (n != 0)
       {
-        if ((n & 1) != 0)  /* n is odd, bitwise test */
-          result = BigInt.Multiply(result, x);
+        if ((n & 1) != 0) /* n is odd, bitwise test */
+        {
+          result = Multiply(result, x);
+        }
 
-        x = BigInt.Multiply(x, x); //might consider mutational mult. (would have to remember to reassign x to a deep copy of itself first)
+        x = Multiply(x, x); //might consider mutational mult. (would have to remember to reassign x to a deep copy of itself first)
         n /= 2;     /* integer division, rounds down */
       }
+
       return result;
     }
 
@@ -708,19 +821,21 @@ namespace FonctionsUtiles.Fred.Csharp
     public static BigInt Divide(BigInt a, BigInt d, out BigInt r)
     {
       if (d.digits == null) // a / 0 DNE
+      {
         throw new DivideByZeroException();
+      }
 
       if (a.digits == null) // 0 / d = 0, remainder 0
       {
-        r = BigInt.Zero;
-        return BigInt.Zero;
+        r = Zero;
+        return Zero;
       }
 
       //now we know a.digits and d.digits are both non-null
       if (IsLessThan(a.digits, d.digits)) // a < d -> a / d = 0, remainder = a
       {
         r = a;
-        return BigInt.Zero;
+        return Zero;
       }
 
       LinkedList<byte> q = new LinkedList<byte>(); //we know q isn't zero
@@ -730,7 +845,9 @@ namespace FonctionsUtiles.Fred.Csharp
         if (r_digits != null || curbyte.Value != 0) //skip leading zeros
         {
           if (r_digits == null)
+          {
             r_digits = new LinkedList<byte>();
+          }
 
           r_digits.AddLast(curbyte.Value);
         }
@@ -739,13 +856,17 @@ namespace FonctionsUtiles.Fred.Csharp
         if (r_digits == null || IsLessThan(r_digits, d.digits))
         {
           if (q.Count != 0) //skip leading zeros
-            q.AddLast((byte)0);
+          {
+            q.AddLast(0);
+          }
         }
         else
         {
           byte q_digit = BruteDivide(ref r_digits, d.digits); //r_digits is both input and output parameter
           if (q.Count != 0 || q_digit != 0) //skip leading zeros
+          {
             q.AddLast(q_digit);
+          }
         }
       }
 
@@ -770,7 +891,7 @@ namespace FonctionsUtiles.Fred.Csharp
         r = SubtractPhase3(r.digits, d_digits);
         if (r.isneg)
           break;
-        else if (r.digits == null)
+        if (r.digits == null)
         {
           q++;
           break;
@@ -778,7 +899,9 @@ namespace FonctionsUtiles.Fred.Csharp
       }
 
       if (r.isneg)
+      {
         r = SubtractPhase3(d_digits, r.digits); //d + r = d - abs(r), when r<0
+      }
 
       a_digits = r.digits;
       return (byte)q;
@@ -809,12 +932,17 @@ namespace FonctionsUtiles.Fred.Csharp
       BigInt r;
       BigInt result = Divide(lhs, rhs, out r);
 
-      if (r == BigInt.Zero) //no remainder
+      if (r == Zero) //no remainder
+      {
         return result;
-      else if (lhs.isneg ^ rhs.isneg) //result (with remainder) is negative
+      }
+
+      if (lhs.isneg ^ rhs.isneg) //result (with remainder) is negative
+      {
         return result;
-      else
-        return ++result;
+      }
+
+      return ++result;
     }
 
     /// <summary>
@@ -825,12 +953,17 @@ namespace FonctionsUtiles.Fred.Csharp
       BigInt r;
       BigInt result = Divide(lhs, rhs, out r);
 
-      if (r == BigInt.Zero) //no remainder
+      if (r == Zero) //no remainder
+      {
         return result;
-      else if (lhs.isneg ^ rhs.isneg) //result (with remainder) is negative
+      }
+
+      if (lhs.isneg ^ rhs.isneg) //result (with remainder) is negative
+      {
         return --result;
-      else
-        return result;
+      }
+
+      return result;
     }
 
     /// <summary>
@@ -883,42 +1016,42 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static implicit operator BigInt(Byte value)
     {
-      return BigInt.Parse(value.ToString());
+      return Parse(value.ToString());
     }
 
     public static implicit operator BigInt(SByte value)
     {
-      return BigInt.Parse(value.ToString());
+      return Parse(value.ToString());
     }
 
     public static implicit operator BigInt(UInt16 value)
     {
-      return BigInt.Parse(value.ToString());
+      return Parse(value.ToString());
     }
 
     public static implicit operator BigInt(Int16 value)
     {
-      return BigInt.Parse(value.ToString());
+      return Parse(value.ToString());
     }
 
     public static implicit operator BigInt(UInt32 value)
     {
-      return BigInt.Parse(value.ToString());
+      return Parse(value.ToString());
     }
 
     public static implicit operator BigInt(Int32 value)
     {
-      return BigInt.Parse(value.ToString());
+      return Parse(value.ToString());
     }
 
     public static implicit operator BigInt(UInt64 value)
     {
-      return BigInt.Parse(value.ToString());
+      return Parse(value.ToString());
     }
 
     public static implicit operator BigInt(Int64 value)
     {
-      return BigInt.Parse(value.ToString());
+      return Parse(value.ToString());
     }
 
     //may consider implicit conversion from bool or datetime to since no precision / information loss
@@ -945,7 +1078,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static explicit operator BigInt(Boolean value)
     {
-      return value ? BigInt.One : BigInt.Zero;
+      return value ? One : Zero;
     }
 
     public static explicit operator BigInt(DateTime value)
@@ -957,7 +1090,7 @@ namespace FonctionsUtiles.Fred.Csharp
     //will serve well for purposes of Enumerable<string>.Cast<BigInt>()
     public static explicit operator BigInt(string value)
     {
-      return BigInt.Parse(value);
+      return Parse(value);
     }
 
     #endregion Explicit Operators (from boolean, DateTime, and rational types to BigInt)
@@ -1007,7 +1140,7 @@ namespace FonctionsUtiles.Fred.Csharp
     //though will never throw, unnatural for implicit conversion
     public static explicit operator Boolean(BigInt value)
     {
-      return value.digits == null ? false : true;
+      return value.digits != null;
     }
 
     //though will never throw, unnatural for implicit conversion
@@ -1038,62 +1171,62 @@ namespace FonctionsUtiles.Fred.Csharp
 
     bool IConvertible.ToBoolean(IFormatProvider provider)
     {
-      return this.digits == null ? false : true;
+      return digits != null;
     }
 
     byte IConvertible.ToByte(IFormatProvider provider)
     {
-      return Byte.Parse(this.ToString());
+      return Byte.Parse(ToString());
     }
 
     char IConvertible.ToChar(IFormatProvider provider)
     {
-      return (Char)UInt16.Parse(this.ToString());
+      return (Char)UInt16.Parse(ToString());
     }
 
     DateTime IConvertible.ToDateTime(IFormatProvider provider)
     {
-      return new DateTime(long.Parse(this.ToString()));
+      return new DateTime(long.Parse(ToString()));
     }
 
     decimal IConvertible.ToDecimal(IFormatProvider provider)
     {
-      return Decimal.Parse(this.ToString());
+      return Decimal.Parse(ToString());
     }
 
     double IConvertible.ToDouble(IFormatProvider provider)
     {
-      return Double.Parse(this.ToString());
+      return Double.Parse(ToString());
     }
 
     short IConvertible.ToInt16(IFormatProvider provider)
     {
-      return Int16.Parse(this.ToString());
+      return Int16.Parse(ToString());
     }
 
     int IConvertible.ToInt32(IFormatProvider provider)
     {
-      return Int32.Parse(this.ToString());
+      return Int32.Parse(ToString());
     }
 
     long IConvertible.ToInt64(IFormatProvider provider)
     {
-      return Int64.Parse(this.ToString());
+      return Int64.Parse(ToString());
     }
 
     sbyte IConvertible.ToSByte(IFormatProvider provider)
     {
-      return SByte.Parse(this.ToString());
+      return SByte.Parse(ToString());
     }
 
     float IConvertible.ToSingle(IFormatProvider provider)
     {
-      return Single.Parse(this.ToString());
+      return Single.Parse(ToString());
     }
 
     string IConvertible.ToString(IFormatProvider provider)
     {
-      return this.ToString();
+      return ToString();
     }
 
     object IConvertible.ToType(Type conversionType, IFormatProvider provider)
@@ -1103,17 +1236,17 @@ namespace FonctionsUtiles.Fred.Csharp
 
     ushort IConvertible.ToUInt16(IFormatProvider provider)
     {
-      return UInt16.Parse(this.ToString());
+      return UInt16.Parse(ToString());
     }
 
     uint IConvertible.ToUInt32(IFormatProvider provider)
     {
-      return UInt32.Parse(this.ToString());
+      return UInt32.Parse(ToString());
     }
 
     ulong IConvertible.ToUInt64(IFormatProvider provider)
     {
-      return UInt64.Parse(this.ToString());
+      return UInt64.Parse(ToString());
     }
 
     #endregion IConvertable
@@ -1126,11 +1259,15 @@ namespace FonctionsUtiles.Fred.Csharp
     public static BigInt Parse(string numstr)
     {
       if (numstr == null)
+      {
         throw new ArgumentNullException("numstr");
+      }
 
       BigInt result;
       if (!TryParse(numstr, out result))
+      {
         throw new FormatException("Input string was not in the correct format");
+      }
 
       return result;
     }
@@ -1159,16 +1296,22 @@ namespace FonctionsUtiles.Fred.Csharp
       isneg = false;
 
       if (numstr == null)
+      {
         return false;
+      }
 
       numstr = numstr.Trim();
       if (numstr == string.Empty)
+      {
         return false;
+      }
 
       if (numstr[0] == '-')
       {
         if (numstr.Length == 1) //"-"
+        {
           return false;
+        }
 
         isneg = true;
       }
@@ -1177,17 +1320,23 @@ namespace FonctionsUtiles.Fred.Csharp
       //skip leading zeros, including sole zero
       for (; i < numstr.Length; i++)
         if (numstr[i] != '0')
+        {
           break;
+        }
 
       if (i == numstr.Length) //"-00000" == "0"
+      {
         return true;
+      }
 
       LinkedList<byte> digits_try = new LinkedList<byte>();
       for (; i < numstr.Length; i++)
       {
         byte digit;
         if (!byte.TryParse(numstr[i].ToString(), out digit))
+        {
           return false; //digits is still null
+        }
 
         digits_try.AddLast(digit);
       }
@@ -1200,24 +1349,22 @@ namespace FonctionsUtiles.Fred.Csharp
     #region Eval
     //note that ops of longer length are listed first where using compound symbols (compared to BinaryOpTokens too)
     static readonly string[] UnaryOpTokens =
-        new string[] 
-            { 
-                "gethashcode", "properdivisors", "divisors", 
-                "negate", "abs", "++", "--",
-                "sum", "min", "max", "range",
-                "lcm", "gcd", "sqrt", "pow"
-            };
+    { 
+      "gethashcode", "properdivisors", "divisors", 
+      "negate", "abs", "++", "--",
+      "sum", "min", "max", "range",
+      "lcm", "gcd", "sqrt", "pow"
+    };
 
     //note that ops of longer length are listed first where using compound symbols
     static readonly string[] BinaryOpTokens =
-        new string[] 
-            { 
-                "==", "!=", ">=", "<=", ">=", "<=", ">", "<",
-                "/floor", "/ceiling", "/%", "/", "%", // "/%" is division with remainder
-                "+", "*", "^", "-" //make sure "-" is last
-            };
+    { 
+      "==", "!=", ">=", "<=", ">=", "<=", ">", "<",
+      "/floor", "/ceiling", "/%", "/", "%", // "/%" is division with remainder
+      "+", "*", "^", "-" //make sure "-" is last
+    };
 
-    static readonly string[] AllOpTokens = Enumerable.Union(UnaryOpTokens, BinaryOpTokens).ToArray();
+    static readonly string[] AllOpTokens = UnaryOpTokens.Union(BinaryOpTokens).ToArray();
 
     /// <summary>
     /// Evaluates simple BigInt expressions.
@@ -1225,7 +1372,9 @@ namespace FonctionsUtiles.Fred.Csharp
     public static object Eval(string expression)
     {
       if (expression == null)
+      {
         throw new NullReferenceException("expression cannot be null");
+      }
 
       string[] tokens = null;
 
@@ -1244,10 +1393,10 @@ namespace FonctionsUtiles.Fred.Csharp
 
       if (tokens == null)
         throw new FormatException("no op tokens in expression");
-      else if (tokens.Length == 2)
+      if (tokens.Length == 2)
       {
-        BigInt a = BigInt.Parse(tokens[0]);
-        BigInt b = BigInt.Parse(tokens[1]);
+        BigInt a = Parse(tokens[0]);
+        BigInt b = Parse(tokens[1]);
 
         switch (op)
         {
@@ -1258,7 +1407,7 @@ namespace FonctionsUtiles.Fred.Csharp
           case "*":
             return (a * b);
           case "^":
-            return (BigInt.Pow(a, Convert.ToUInt32(tokens[1])));
+            return (Pow(a, Convert.ToUInt32(tokens[1])));
           case "/%":
             BigInt r;
             BigInt q = Divide(a, b, out r);
@@ -1285,7 +1434,8 @@ namespace FonctionsUtiles.Fred.Csharp
             throw new FormatException("Invalid binary operator");
         }
       }
-      else if (tokens.Length == 1)
+
+      if (tokens.Length == 1)
       {
         string[] strArgs = tokens[0].Split(',');
         BigInt[] args = Parse(strArgs).ToArray();
@@ -1295,9 +1445,9 @@ namespace FonctionsUtiles.Fred.Csharp
           case "gethashcode":
             return a.GetHashCode();
           case "abs":
-            return BigInt.Abs(a);
+            return Abs(a);
           case "negate":
-            return BigInt.Negate(a);
+            return Negate(a);
           case "properdivisors":
             return ToString(a.ProperDivisors);
           case "divisors":
@@ -1305,7 +1455,7 @@ namespace FonctionsUtiles.Fred.Csharp
           case "sum":
             return Sum(args);
           case "range":
-            return ToString(BigInt.Range(args[0], args[1]));
+            return ToString(Range(args[0], args[1]));
           case "min":
             return Min(args);
           case "max":
@@ -1333,7 +1483,9 @@ namespace FonctionsUtiles.Fred.Csharp
     private static IEnumerable<BigInt> Parse(IEnumerable<string> input)
     {
       foreach (string i in input)
-        yield return BigInt.Parse(i);
+      {
+        yield return Parse(i);
+      }
     }
 
     private static string ToString(object obj)
@@ -1344,9 +1496,11 @@ namespace FonctionsUtiles.Fred.Csharp
     private static string ToString<T>(IEnumerable<T> objs)
     {
       if (objs == null)
+      {
         return string.Empty;
+      }
 
-      return string.Join(", ", objs.Select<T, string>((T x) => x.ToString()).ToArray());
+      return string.Join(", ", objs.Select(x => x.ToString()).ToArray());
     }
 
     #endregion Eval
@@ -1441,10 +1595,10 @@ namespace FonctionsUtiles.Fred.Csharp
     public static BigInt Sum(IEnumerable<BigInt> seq)
     {
       bool seeded = false;
-      BigInt sum = BigInt.Zero;
+      BigInt sum = Zero;
       foreach (BigInt bi in seq)
       {
-        if (bi != BigInt.Zero) //don't bother
+        if (bi != Zero) //don't bother
         {
           if (!seeded) //seed sum
           {
@@ -1452,9 +1606,13 @@ namespace FonctionsUtiles.Fred.Csharp
             seeded = true;
           }
           else if (sum.isneg ^ bi.isneg) //can use AddTo if and only if sum and bi are both positive or both negative
+          {
             sum += bi;
+          }
           else //when we can
-            BigInt.AddTo(sum.digits, bi.digits);
+          {
+            AddTo(sum.digits, bi.digits);
+          }
         }
       }
 
@@ -1486,16 +1644,24 @@ namespace FonctionsUtiles.Fred.Csharp
     public static BigInt Gcd(BigInt lhs, BigInt rhs)
     {
       if (lhs.digits == null)
+      {
         throw new ArgumentOutOfRangeException("lhs", "Gcd is not defined for BigInt.Zero");
-      else if (rhs.digits == null)
+      }
+      if (rhs.digits == null)
+      {
         throw new ArgumentOutOfRangeException("rhs", "Gcd is not defined for BigInt.Zero");
+      }
 
       while (rhs.digits != null)
       {
         if (lhs > rhs) //not sure if we can trust digits not to be null
-          lhs = BigInt.Subtract(lhs, rhs);
+        {
+          lhs = Subtract(lhs, rhs);
+        }
         else
-          rhs = BigInt.Subtract(rhs, lhs);
+        {
+          rhs = Subtract(rhs, lhs);
+        }
       }
 
       return lhs;
@@ -1517,7 +1683,9 @@ namespace FonctionsUtiles.Fred.Csharp
     public static BigInt Lcm(BigInt lhs, BigInt rhs)
     {
       if (lhs.digits == null || rhs.digits == null)
-        return BigInt.Zero;
+      {
+        return Zero;
+      }
 
       return (lhs * rhs) / Gcd(lhs, rhs);
     }
@@ -1531,14 +1699,16 @@ namespace FonctionsUtiles.Fred.Csharp
     public static BigInt Sqrt(BigInt value)
     {
       if (value.digits == null)
-        return BigInt.Zero;  // Avoid zero divide
+      {
+        return Zero;  // Avoid zero divide
+      }
 
-      BigInt n = DivideCeiling(value, BigInt.Two);// Initial estimate, never low
-      BigInt n1 = (n + (value / n)) / BigInt.Two;
+      BigInt n = DivideCeiling(value, Two);// Initial estimate, never low
+      BigInt n1 = (n + (value / n)) / Two;
       while (n1 < n)
       {
         n = n1;
-        n1 = (n + (value / n)) / BigInt.Two;
+        n1 = (n + (value / n)) / Two;
       } // end while
 
       return n;
@@ -1552,12 +1722,12 @@ namespace FonctionsUtiles.Fred.Csharp
 
     void IXmlSerializable.WriteXml(XmlWriter writer)
     {
-      writer.WriteString(this.ToString());
+      writer.WriteString(ToString());
     }
 
     void IXmlSerializable.ReadXml(XmlReader reader)
     {
-      TryParse(reader.ReadString(), out this.digits, out this.isneg);
+      TryParse(reader.ReadString(), out digits, out isneg);
     }
 
     XmlSchema IXmlSerializable.GetSchema()
