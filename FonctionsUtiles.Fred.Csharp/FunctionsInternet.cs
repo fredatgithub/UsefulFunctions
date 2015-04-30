@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Linq;
 using System.Net;
+using System.Net.NetworkInformation;
 using System.Text;
 
 namespace FonctionsUtiles.Fred.Csharp
@@ -13,7 +15,7 @@ namespace FonctionsUtiles.Fred.Csharp
       result.Append(newLine + "Name= FonctionsUtiles.Fred.Csharp" + newLine);
       result.Append("Version= 1.0.0.0" + newLine);
       result.Append("Method= bool GetWebClientBinaries(string url = \"http://www.google.com/\", string fileName = \"untitled-file.pdf\")" + newLine);
-      
+
       result.Append("Method= " + newLine);
       result.Append("Method= " + newLine);
       return result.ToString();
@@ -71,6 +73,44 @@ namespace FonctionsUtiles.Fred.Csharp
       }
 
       return result;
+    }
+
+    public static bool IsOnenNtworkIsAvailable()
+    {
+      NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces();
+      bool networkIsAvailable = false;
+      foreach (NetworkInterface nic in nics)
+      {
+        if ((nic.NetworkInterfaceType != NetworkInterfaceType.Loopback && nic.NetworkInterfaceType != NetworkInterfaceType.Tunnel) &&
+            nic.OperationalStatus == OperationalStatus.Up)
+        {
+          networkIsAvailable = true;
+        }
+      }
+
+      return networkIsAvailable;
+    }
+
+
+    public bool IsNetworkLikelyAvailable()
+    {
+      return NetworkInterface
+        .GetAllNetworkInterfaces()
+        .Any(x => x.OperationalStatus == OperationalStatus.Up);
+    }
+
+    private bool IsInternetConnected()
+    {
+      HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://www.google.fr");
+      try
+      {
+        HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+        return true;
+      }
+      catch (Exception)
+      {
+        return false;
+      }
     }
   }
 }
