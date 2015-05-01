@@ -101,7 +101,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static bool IsInternetConnected()
     {
-      HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://www.google.fr");
+      HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://www.google.fr");
       try
       {
         HttpWebResponse response = (HttpWebResponse)request.GetResponse();

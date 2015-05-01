@@ -2803,13 +2803,13 @@ namespace FonctionsUtiles.Fred.Csharp
       return returnBytes;
     }
 
-    public static string ReplaceWindowsForbiddenCharacters(string input, string charToBeReplaced = "")
+    public static string ReplaceWindowsForbiddenCharacters(string input, string charToReplaced = "")
     {
       string result = input;
       string[] forbiddenWindowsFilenameCharacters = { "\\", "/", ":", "*", "?", "\"", "<", ">", "|" };
       foreach (var item in forbiddenWindowsFilenameCharacters)
       {
-        result = result.Replace(item, charToBeReplaced);
+        result = result.Replace(item, charToReplaced);
       }
 
       return result;
