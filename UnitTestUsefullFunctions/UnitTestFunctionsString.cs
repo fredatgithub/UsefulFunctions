@@ -101,7 +101,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_HasDuplicate_yes_on_several_items()
     {
       int[] source = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 9 };
-      bool expected = true;
+      const bool expected = true;
       bool result = StringFunc.HasDuplicate(source);
       Assert.AreEqual(result, expected);
     }
