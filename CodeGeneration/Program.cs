@@ -24,8 +24,8 @@ namespace CodeGeneration
   {
     static void Main()
     {
-      Action<string> Display = s => Console.WriteLine(s);
-      Display("Generating code for Unit tests in a file");
+      Action<string> display = Console.WriteLine;
+      display("Generating code for Unit tests in a file");
       
     
       Console.ReadKey();
