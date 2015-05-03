@@ -7,15 +7,15 @@ namespace FonctionsUtiles.Fred.Csharp
 {
   class RandomStringGenerator
   {
-    public RandomStringGenerator(bool UseUpperCaseCharacters = true,
-    bool UseLowerCaseCharacters = true,
-    bool UseNumericCharacters = true,
-    bool UseSpecialCharacters = true)
+    public RandomStringGenerator(bool useUpperCaseCharacters = true,
+    bool useLowerCaseCharacters = true,
+    bool useNumericCharacters = true,
+    bool useSpecialCharacters = true)
     {
-      m_UseUpperCaseCharacters = UseUpperCaseCharacters;
-      m_UseLowerCaseCharacters = UseLowerCaseCharacters;
-      m_UseNumericCharacters = UseNumericCharacters;
-      m_UseSpecialCharacters = UseSpecialCharacters;
+      m_UseUpperCaseCharacters = useUpperCaseCharacters;
+      m_UseLowerCaseCharacters = useLowerCaseCharacters;
+      m_UseNumericCharacters = useNumericCharacters;
+      m_UseSpecialCharacters = useSpecialCharacters;
       CurrentGeneralCharacters = new char[0]; // avoiding null exceptions
       UpperCaseCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
       LowerCaseCharacters = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
@@ -273,14 +273,7 @@ namespace FonctionsUtiles.Fred.Csharp
       }
       set
       {
-        if (!value.Equals(String.Empty))
-        {
-          PatternDriven = true;
-        }
-        else
-        {
-          PatternDriven = false;
-        }
+        PatternDriven = !value.Equals(String.Empty);
 
         m_pattern = value;
       }
@@ -298,10 +291,10 @@ namespace FonctionsUtiles.Fred.Csharp
     ///
     /// The pattern to follow while generation
     /// A random string which follows the pattern
-    public string Generate(string Pattern)
+    public string Generate(string pattern)
     {
-      this.Pattern = Pattern;
-      string res = GenerateString(Pattern.Length);
+      this.Pattern = pattern;
+      string res = GenerateString(pattern.Length);
       this.Pattern = "";
       return res;
     }
@@ -329,9 +322,9 @@ namespace FonctionsUtiles.Fred.Csharp
     ///
     /// The length of a string
     /// A random string of the desirable length
-    public string Generate(int FixedLength)
+    public string Generate(int fixedLength)
     {
-      return GenerateString(FixedLength);
+      return GenerateString(fixedLength);
     }
     ///
     /// Main generation method which chooses the algorithm to use for the generation.

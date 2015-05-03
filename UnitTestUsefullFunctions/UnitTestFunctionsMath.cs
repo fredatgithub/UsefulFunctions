@@ -434,7 +434,6 @@ namespace UnitTestUsefullFunctions
 
     #endregion Math Methods - BigInt Factorial
     #endregion Math Methods - Factorial
-
     #region Math Methods - Recursive Factorial
     // **********************Recursive Factorial****************
     [TestMethod]
