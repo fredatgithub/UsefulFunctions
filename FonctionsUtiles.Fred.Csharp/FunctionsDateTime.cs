@@ -108,5 +108,19 @@ namespace FonctionsUtiles.Fred.Csharp
       long longDate = BitConverter.ToInt64(bytes, 0);
       return DateTime.FromFileTime(longDate);
     }
+
+    public static double GetHoursMinutes(string hours, string minutes)
+    {
+      double result = 0;
+      double minutesB60 = double.Parse(minutes);
+      double minutesB10 = (minutesB60 / 60);
+      result = double.Parse(hours) + minutesB10;
+      return result;
+    }
+
+    public static double GetHoursMinutes(int hours, int minutes)
+    {
+      return hours + minutes / 60;
+    }
   }
 }
