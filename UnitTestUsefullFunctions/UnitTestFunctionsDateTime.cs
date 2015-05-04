@@ -29,9 +29,89 @@ namespace UnitTestUsefullFunctions
   [TestClass]
   public class UnitTestFunctionsDateTime
   {
+    #region GetHoursMinutes with strings parameters
+    // ******GetHoursMinutes with strings parameters****************
     [TestMethod]
-    public void TestMethod1()
+    public void TestMethod_GetHoursMinutes_true_half_an_hour()
     {
+      const string source = "0";
+      const string source2 = "30";
+      const double expected = 0.5d;
+      double result = DateFunc.GetHoursMinutes(source, source2);
+      Assert.AreEqual(result, expected);
     }
+
+    [TestMethod]
+    public void TestMethod_GetHoursMinutes_true_fifteen_minutes()
+    {
+      const string source = "0";
+      const string source2 = "15";
+      const double expected = 0.25d;
+      double result = DateFunc.GetHoursMinutes(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetHoursMinutes_true_forty_five_minutes()
+    {
+      const string source = "0";
+      const string source2 = "45";
+      const double expected = 0.75d;
+      double result = DateFunc.GetHoursMinutes(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetHoursMinutes_true_ten_hours_and_forty_five_minutes()
+    {
+      const string source = "10";
+      const string source2 = "45";
+      const double expected = 10.75d;
+      double result = DateFunc.GetHoursMinutes(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+    #endregion GetHoursMinutes with strings parameters
+    #region GetHoursMinutes with int parameters
+    // ******GetHoursMinutes with int parameters****************
+    [TestMethod]
+    public void TestMethod_GetHoursMinutes_with_int_true_half_an_hour()
+    {
+      const int source = 0;
+      const int source2 = 30;
+      const double expected = 0.5d;
+      double result = DateFunc.GetHoursMinutes(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetHoursMinutes_int_true_fifteen_minutes()
+    {
+      const int source = 0;
+      const int source2 = 15;
+      const double expected = 0.25d;
+      double result = DateFunc.GetHoursMinutes(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetHoursMinutes_int_true_forty_five_minutes()
+    {
+      const int source = 0;
+      const int source2 = 45;
+      const double expected = 0.75d;
+      double result = DateFunc.GetHoursMinutes(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetHoursMinutes_int_true_ten_hours_and_forty_five_minutes()
+    {
+      const int source = 10;
+      const int source2 = 45;
+      const double expected = 10.75d;
+      double result = DateFunc.GetHoursMinutes(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+    #endregion GetHoursMinutes with strings parameters
   }
 }

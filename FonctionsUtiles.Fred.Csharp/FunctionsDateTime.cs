@@ -120,7 +120,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static double GetHoursMinutes(int hours, int minutes)
     {
-      return hours + minutes / 60;
+      return hours + (double)minutes / 60;
     }
   }
 }
