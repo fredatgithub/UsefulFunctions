@@ -4751,6 +4751,131 @@ namespace UnitTestUsefullFunctions
     }
 
     #endregion ReplaceWindowsForbiddenCharacters
+    #region RemoveAllNonLetterCharacters
+    // **********************RemoveAllNonLetterCharacters****************
+    [TestMethod]
+    public void TestMethod_RemoveAllNonLetterCharacters_true()
+    {
+      const string source = "*:A long long time in a galaxy far far away?<>|";
+      const string expected = "A long long time in a galaxy far far away";
+      string result = StringFunc.RemoveAllNonLetterCharacters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_RemoveAllNonLetterCharacters_true_letters_and_numbers()
+    {
+      const string source = "123456789abcdefghijklmnopqrstuvwxyz";
+      const string expected = "123456789abcdefghijklmnopqrstuvwxyz";
+      string result = StringFunc.RemoveAllNonLetterCharacters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_RemoveAllNonLetterCharacters_true_string_empty()
+    {
+      const string source = "";
+      const string expected = "";
+      string result = StringFunc.RemoveAllNonLetterCharacters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_RemoveAllNonLetterCharacters_true_only_special_characters()
+    {
+      const string source = "*:?<>|";
+      const string expected = "";
+      string result = StringFunc.RemoveAllNonLetterCharacters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    #endregion RemoveAllNonLetterCharacters
+    #region RemoveAllNonLetterCharacters_with_charsToRemove_in_string[]
+    // ******RemoveAllNonLetterCharacters_with_charsToRemove_in_string[]****************
+    [TestMethod]
+    public void TestMethod_RemoveAllNonLetterCharacters_with_charsToRemove_true()
+    {
+      const string source = "*:A long long time in a galaxy far far away?<>|";
+      string[] source2 = new[] {"*", ":", "?", "<", ">", "|" }; 
+      const string expected = "A long long time in a galaxy far far away";
+      string result = StringFunc.RemoveAllNonLetterCharacters(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_RemoveAllNonLetterCharacters_with_charsToRemove_true_letters_and_numbers()
+    {
+      const string source = "123456789abcdefghijklmnopqrstuvwxyz";
+      string[] source2 = new[] { "*", ":", "?", "<", ">", "|" };
+      const string expected = "123456789abcdefghijklmnopqrstuvwxyz";
+      string result = StringFunc.RemoveAllNonLetterCharacters(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_RemoveAllNonLetterCharacters_with_charsToRemove_true_string_empty()
+    {
+      const string source = "";
+      string[] source2 = new[] { "*", ":", "?", "<", ">", "|" };
+      const string expected = "";
+      string result = StringFunc.RemoveAllNonLetterCharacters(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_RemoveAllNonLetterCharacters_with_charsToRemove_true_only_special_characters()
+    {
+      const string source = "*:?<>|";
+      string[] source2 = new[] { "*", ":", "?", "<", ">", "|" };
+      const string expected = "";
+      string result = StringFunc.RemoveAllNonLetterCharacters(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    #endregion RemoveAllNonLetterCharacters_with_charsToRemove_in_string[]
+    #region RemoveAllNonLetterCharacters_with_charsToRemove_in_char[]
+    // ******RemoveAllNonLetterCharacters_with_charsToRemove_in_char[]****************
+    [TestMethod]
+    public void TestMethod_RemoveAllNonLetterCharacters_with_charsToRemove_in_char_array_true()
+    {
+      const string source = "*:A long long time in a galaxy far far away?<>|";
+      char[] source2 = new[] { '*', ':', '?', '<', '>', '|' };
+      const string expected = "A long long time in a galaxy far far away";
+      string result = StringFunc.RemoveAllNonLetterCharacters(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_RemoveAllNonLetterCharacters_with_charsToRemove_in_char_array_true_letters_and_numbers()
+    {
+      const string source = "123456789abcdefghijklmnopqrstuvwxyz";
+      char[] source2 = new[] { '*', ':', '?', '<', '>', '|' };
+      const string expected = "123456789abcdefghijklmnopqrstuvwxyz";
+      string result = StringFunc.RemoveAllNonLetterCharacters(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_RemoveAllNonLetterCharacters_with_charsToRemove_in_char_array_true_string_empty()
+    {
+      const string source = "";
+      char[] source2 = new[] { '*', ':', '?', '<', '>', '|' };
+      const string expected = "";
+      string result = StringFunc.RemoveAllNonLetterCharacters(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_RemoveAllNonLetterCharacters_with_charsToRemove_in_char_array_true_only_special_characters()
+    {
+      const string source = "*:?<>|";
+      char[] source2 = new[] { '*', ':', '?', '<', '>', '|' };
+      const string expected = "";
+      string result = StringFunc.RemoveAllNonLetterCharacters(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    #endregion RemoveAllNonLetterCharacters_with_charsToRemove_in_char_array
     #endregion
   }
 }

@@ -2814,5 +2814,29 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return result;
     }
+
+    public static string RemoveAllNonLetterCharacters(string input, string[] charsToRemove)
+    {
+      // return String.Join("", input.Split('@', ',' ,'.' ,';', '\''));
+      foreach (var c in charsToRemove)
+      {
+        input = input.Replace(c, string.Empty);
+      }
+
+      return input;
+    }
+
+    public static string RemoveAllNonLetterCharacters(string input, char[] charsToRemove)
+    {
+      return string.Join("", input.Split(charsToRemove));
+    }
+
+    public static string RemoveAllNonLetterCharacters(string input)
+    {
+      return new string((from c in input
+                         where char.IsWhiteSpace(c) || char.IsLetterOrDigit(c)
+                         select c
+       ).ToArray());
+    }
   }
 }
