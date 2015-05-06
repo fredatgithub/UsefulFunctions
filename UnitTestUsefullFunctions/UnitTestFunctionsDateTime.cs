@@ -119,12 +119,21 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_BuildUpTime_true()
     {
       const int source = 0;
-      const string expected = "00 hour 00 minute 00 second 00 millisecond";
+      const string expected = "0 hour 0 minute 0 second 0 millisecond";
       string result = DateFunc.BuildUpTime(source);
       Assert.AreEqual(result, expected);
     }
 
-    #endregion GetHoursMinutes
+    [TestMethod]
+    public void TestMethod_BuildUpTime_true_one_hundred_millisecond()
+    {
+      const int source = 100;
+      const string expected = "0 hour 0 minute 0 second 100 millisecond";
+      string result = DateFunc.BuildUpTime(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    #endregion BuildUpTime
     #region HasHours
     // ******HasHours****************
     [TestMethod]

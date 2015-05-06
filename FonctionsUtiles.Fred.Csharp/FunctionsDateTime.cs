@@ -133,7 +133,7 @@ namespace FonctionsUtiles.Fred.Csharp
       }
       else
       {
-        result.Append("00 hour ");
+        result.Append("0 hour ");
       }
 
       if (HasMinutes(time))
@@ -142,7 +142,7 @@ namespace FonctionsUtiles.Fred.Csharp
       }
       else
       {
-        result.Append("00 minute ");
+        result.Append("0 minute ");
       }
 
       if (HasSeconds(time))
@@ -151,7 +151,7 @@ namespace FonctionsUtiles.Fred.Csharp
       }
       else
       {
-        result.Append("00 second ");
+        result.Append("0 second ");
       }
 
       if (HasMilliSeconds(time))
@@ -160,7 +160,7 @@ namespace FonctionsUtiles.Fred.Csharp
       }
       else
       {
-        result.Append("00 millisecond");
+        result.Append("0 millisecond");
       }
 
       return result.ToString();
