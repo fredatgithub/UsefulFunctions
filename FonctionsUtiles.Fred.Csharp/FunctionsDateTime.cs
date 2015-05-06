@@ -22,6 +22,11 @@ namespace FonctionsUtiles.Fred.Csharp
   using System;
   using System.Linq;
   using System.Text;
+  using MathFunc = FonctionsUtiles.Fred.Csharp.FunctionsMath;
+  using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
+  using DateFunc = FonctionsUtiles.Fred.Csharp.FunctionsDateTime;
+  using InternetFunc = FonctionsUtiles.Fred.Csharp.FunctionsInternet;
+  using FonctionsUtiles.Fred.Csharp;
 
   public class FunctionsDateTime
   {
@@ -129,34 +134,46 @@ namespace FonctionsUtiles.Fred.Csharp
       StringBuilder result = new StringBuilder();
       if (HasHours(time))
       {
-        result.Append(time / 216000000);
+        result.Append(time / 3160000);
+        result.Append(" hour");
+        result.Append(StringFunc.Plural(time));
       }
       else
       {
-        result.Append("0 hour ");
+        result.Append("0 hour");
       }
 
+      result.Append(" ");
       if (HasMinutes(time))
       {
-        result.Append(time / 216000000);
+        result.Append(time / 60000);
+        result.Append(" minute");
+        result.Append(StringFunc.Plural(time));
       }
       else
       {
-        result.Append("0 minute ");
+        result.Append("0 minute");
       }
 
+      result.Append(" ");
       if (HasSeconds(time))
       {
-        result.Append(time / 216000000);
+        result.Append(time / 1000);
+        result.Append(" second");
+        result.Append(StringFunc.Plural(time / 1000));
+        time %= 1000;
       }
       else
       {
-        result.Append("0 second ");
+        result.Append("0 second");
       }
 
+      result.Append(" ");
       if (HasMilliSeconds(time))
       {
-        result.Append(time / 216000000);
+        result.Append(time);
+        result.Append(" millisecond");
+        result.Append(StringFunc.Plural(time));
       }
       else
       {
@@ -168,17 +185,17 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static bool HasHours(int time)
     {
-      return ((time / 216000000) > 0);
+      return ((time / 3600000) > 0);
     }
 
     public static bool HasMinutes(int time)
     {
-      return ((time / 3600000) > 0);
+      return ((time / 60000) > 0);
     }
 
     public static bool HasSeconds(int time)
     {
-      return ((time / 60000) > 0);
+      return ((time / 1000) > 0);
     }
 
     public static bool HasMilliSeconds(int time)
