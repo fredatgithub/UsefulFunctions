@@ -160,7 +160,7 @@ namespace FonctionsUtiles.Fred.Csharp
       }
       else
       {
-        result.Append("00 millisecond ");
+        result.Append("00 millisecond");
       }
 
       return result.ToString();
