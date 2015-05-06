@@ -21,6 +21,7 @@ namespace FonctionsUtiles.Fred.Csharp
 {
   using System;
   using System.Linq;
+  using System.Text;
 
   public class FunctionsDateTime
   {
@@ -121,6 +122,68 @@ namespace FonctionsUtiles.Fred.Csharp
     public static double GetHoursMinutes(int hours, int minutes)
     {
       return hours + (double)minutes / 60;
+    }
+
+    public static string BuildUpTime(int time)
+    {
+      StringBuilder result = new StringBuilder();
+      if (HasHours(time))
+      {
+        result.Append(time / 216000000);
+      }
+      else
+      {
+        result.Append("00 hour ");
+      }
+
+      if (HasMinutes(time))
+      {
+        result.Append(time / 216000000);
+      }
+      else
+      {
+        result.Append("00 minute ");
+      }
+
+      if (HasSeconds(time))
+      {
+        result.Append(time / 216000000);
+      }
+      else
+      {
+        result.Append("00 second ");
+      }
+
+      if (HasMilliSeconds(time))
+      {
+        result.Append(time / 216000000);
+      }
+      else
+      {
+        result.Append("00 millisecond ");
+      }
+
+      return result.ToString();
+    }
+
+    public static bool HasHours(int time)
+    {
+      return ((time / 216000000) > 0);
+    }
+
+    public static bool HasMinutes(int time)
+    {
+      return ((time / 3600000) > 0);
+    }
+
+    public static bool HasSeconds(int time)
+    {
+      return ((time / 60000) > 0);
+    }
+
+    public static bool HasMilliSeconds(int time)
+    {
+      return time > 0;
     }
   }
 }
