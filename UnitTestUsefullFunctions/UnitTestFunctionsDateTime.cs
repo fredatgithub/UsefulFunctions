@@ -113,5 +113,100 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
     #endregion GetHoursMinutes with strings parameters
+    #region BuildUpTime
+    // ******BuildUpTime****************
+    [TestMethod]
+    public void TestMethod_BuildUpTime_true()
+    {
+      const int source = 0;
+      const string expected = "00 hour 00 minute 00 second 00 millisecond ";
+      string result = DateFunc.BuildUpTime(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    #endregion GetHoursMinutes
+    #region HasHours
+    // ******HasHours****************
+    [TestMethod]
+    public void TestMethod_HasHours_false()
+    {
+      const int source = 0;
+      const bool expected = false;
+      bool result = DateFunc.HasHours(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_HasHours_true()
+    {
+      const int source = 216000000;
+      const bool expected = true;
+      bool result = DateFunc.HasHours(source);
+      Assert.AreEqual(result, expected);
+    }
+    #endregion HasHours
+
+    #region HasMinutes
+    // ******HasMinutes****************
+    [TestMethod]
+    public void TestMethod_HasMinutes_false()
+    {
+      const int source = 0;
+      const bool expected = false;
+      bool result = DateFunc.HasMinutes(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_HasMinutes_true()
+    {
+      const int source = 3600000;
+      const bool expected = true;
+      bool result = DateFunc.HasMinutes(source);
+      Assert.AreEqual(result, expected);
+    }
+    #endregion HasMinutes
+
+    #region HasSeconds
+    // ******HasSeconds****************
+    [TestMethod]
+    public void TestMethod_HasSeconds_false()
+    {
+      const int source = 0;
+      const bool expected = false;
+      bool result = DateFunc.HasSeconds(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_HasSeconds_true()
+    {
+      const int source = 60000;
+      const bool expected = true;
+      bool result = DateFunc.HasSeconds(source);
+      Assert.AreEqual(result, expected);
+    }
+    #endregion HasSeconds
+
+    #region HasMilliSeconds
+    // ******HasMilliSeconds****************
+    [TestMethod]
+    public void TestMethod_HasMilliSeconds_false()
+    {
+      const int source = 0;
+      const bool expected = false;
+      bool result = DateFunc.HasMilliSeconds(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_HasMilliSeconds_true()
+    {
+      const int source = 1;
+      const bool expected = true;
+      bool result = DateFunc.HasMilliSeconds(source);
+      Assert.AreEqual(result, expected);
+    }
+    #endregion HasMilliSeconds
   }
 }
