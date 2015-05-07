@@ -138,9 +138,10 @@ namespace FonctionsUtiles.Fred.Csharp
         result.Append(" hour");
         result.Append(StringFunc.Plural(time));
       }
-      else
+      else 
       {
-        result.Append("0 hour");
+        if (!removeZeros)
+          result.Append("0 hour");
       }
 
       result.Append(" ");
@@ -150,9 +151,10 @@ namespace FonctionsUtiles.Fred.Csharp
         result.Append(" minute");
         result.Append(StringFunc.Plural(time));
       }
-      else
+      else 
       {
-        result.Append("0 minute");
+        if (!removeZeros)
+          result.Append("0 minute");
       }
 
       result.Append(" ");
@@ -163,9 +165,10 @@ namespace FonctionsUtiles.Fred.Csharp
         result.Append(StringFunc.Plural(time / 1000));
         time %= 1000;
       }
-      else
+      else 
       {
-        result.Append("0 second");
+        if (!removeZeros)
+          result.Append("0 second");
       }
 
       result.Append(" ");
@@ -175,9 +178,10 @@ namespace FonctionsUtiles.Fred.Csharp
         result.Append(" millisecond");
         result.Append(StringFunc.Plural(time));
       }
-      else
+      else 
       {
-        result.Append("0 millisecond");
+        if (!removeZeros)
+          result.Append("0 millisecond");
       }
 
       return result.ToString();

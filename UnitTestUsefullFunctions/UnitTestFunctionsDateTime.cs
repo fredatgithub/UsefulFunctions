@@ -119,8 +119,9 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_BuildUpTime_true_zero()
     {
       const int source = 0;
+      const bool source2 = false;
       const string expected = "0 hour 0 minute 0 second 0 millisecond";
-      string result = DateFunc.BuildUpTime(source);
+      string result = DateFunc.BuildUpTime(source, source2);
       Assert.AreEqual(result, expected);
     }
 
