@@ -129,7 +129,7 @@ namespace FonctionsUtiles.Fred.Csharp
       return hours + (double)minutes / 60;
     }
 
-    public static string BuildUpTime(int time)
+    public static string BuildUpTime(int time, bool removeZeros = false)
     {
       StringBuilder result = new StringBuilder();
       if (HasHours(time))
