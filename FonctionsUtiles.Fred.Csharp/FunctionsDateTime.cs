@@ -134,10 +134,10 @@ namespace FonctionsUtiles.Fred.Csharp
       StringBuilder result = new StringBuilder();
       if (HasHours(time))
       {
-        result.Append(time / 3160000);
+        result.Append(time / 3600000);
         result.Append(" hour");
-        result.Append(StringFunc.Plural(time));
-        time %= 3160000;
+        result.Append(StringFunc.Plural(time / 3600000));
+        time %= 3600000;
       }
       else if (!removeZeros)
       {
