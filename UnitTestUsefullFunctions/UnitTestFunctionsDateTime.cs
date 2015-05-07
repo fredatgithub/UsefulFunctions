@@ -738,6 +738,319 @@ namespace UnitTestUsefullFunctions
       string result = DateFunc.BuildUpTime(source);
       Assert.AreEqual(result, expected);
     }
+    
+    [TestMethod]
+    public void TestMethod_BuildUpTime_true_zero_two_hours()
+    {
+      const int millisecond = 1;
+      const int second = 1000 * millisecond;
+      const int minute = 60 * second;
+      const int hour = 60 * minute;
+      const int source = 2 * hour + 0 * minute + 0 * second + 0 * millisecond;
+      const string expected = "2 hours 0 minute 0 second 0 millisecond";
+      string result = DateFunc.BuildUpTime(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_BuildUpTime_true_two_hours_one_millisecond()
+    {
+      const int millisecond = 1;
+      const int second = 1000 * millisecond;
+      const int minute = 60 * second;
+      const int hour = 60 * minute;
+      const int source = 2 * hour + 0 * minute + 0 * second + 1 * millisecond;
+      const string expected = "2 hours 0 minute 0 second 1 millisecond";
+      string result = DateFunc.BuildUpTime(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_BuildUpTime_true_two_hours_one_hundred_millisecond()
+    {
+      const int millisecond = 1;
+      const int second = 1000 * millisecond;
+      const int minute = 60 * second;
+      const int hour = 60 * minute;
+      const int source = 2 * hour + 0 * minute + 0 * second + 100 * millisecond;
+      const string expected = "2 hours 0 minute 0 second 100 milliseconds";
+      string result = DateFunc.BuildUpTime(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_BuildUpTime_true_two_hours_one_second()
+    {
+      const int millisecond = 1;
+      const int second = 1000 * millisecond;
+      const int minute = 60 * second;
+      const int hour = 60 * minute;
+      const int source = 2 * hour + 0 * minute + 1 * second + 0 * millisecond;
+      const string expected = "2 hours 0 minute 1 second 0 millisecond";
+      string result = DateFunc.BuildUpTime(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_BuildUpTime_true_two_hours_one_second_one_millisecond()
+    {
+      const int millisecond = 1;
+      const int second = 1000 * millisecond;
+      const int minute = 60 * second;
+      const int hour = 60 * minute;
+      const int source = 2 * hour + 0 * minute + 1 * second + 1 * millisecond;
+      const string expected = "2 hours 0 minute 1 second 1 millisecond";
+      string result = DateFunc.BuildUpTime(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_BuildUpTime_true_two_hours_one_second_two_milliseconds()
+    {
+      const int millisecond = 1;
+      const int second = 1000 * millisecond;
+      const int minute = 60 * second;
+      const int hour = 60 * minute;
+      const int source = 2 * hour + 0 * minute + 1 * second + 2 * millisecond;
+      const string expected = "2 hours 0 minute 1 second 2 milliseconds";
+      string result = DateFunc.BuildUpTime(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_BuildUpTime_true_two_hours_two_seconds()
+    {
+      const int millisecond = 1;
+      const int second = 1000 * millisecond;
+      const int minute = 60 * second;
+      const int hour = 60 * minute;
+      const int source = 2 * hour + 0 * minute + 2 * second + 0 * millisecond;
+      const string expected = "2 hours 0 minute 2 seconds 0 millisecond";
+      string result = DateFunc.BuildUpTime(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_BuildUpTime_true_two_hours_two_seconds_one_millisecond()
+    {
+      const int millisecond = 1;
+      const int second = 1000 * millisecond;
+      const int minute = 60 * second;
+      const int hour = 60 * minute;
+      const int source = 2 * hour + 0 * minute + 2 * second + 1 * millisecond;
+      const string expected = "2 hours 0 minute 2 seconds 1 millisecond";
+      string result = DateFunc.BuildUpTime(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_BuildUpTime_true_two_hours_two_seconds_two_milliseconds()
+    {
+      const int millisecond = 1;
+      const int second = 1000 * millisecond;
+      const int minute = 60 * second;
+      const int hour = 60 * minute;
+      const int source = 2 * hour + 0 * minute + 2 * second + 2 * millisecond;
+      const string expected = "2 hours 0 minute 2 seconds 2 milliseconds";
+      string result = DateFunc.BuildUpTime(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_BuildUpTime_true_two_hours_one_minute()
+    {
+      const int millisecond = 1;
+      const int second = 1000 * millisecond;
+      const int minute = 60 * second;
+      const int hour = 60 * minute;
+      const int source = 2 * hour + 1 * minute + 0 * second + 0 * millisecond;
+      const string expected = "2 hours 1 minute 0 second 0 millisecond";
+      string result = DateFunc.BuildUpTime(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_BuildUpTime_true_two_hours_one_minute_zero_second_one_millisecond()
+    {
+      const int millisecond = 1;
+      const int second = 1000 * millisecond;
+      const int minute = 60 * second;
+      const int hour = 60 * minute;
+      const int source = 2 * hour + 1 * minute + 0 * second + 1 * millisecond;
+      const string expected = "2 hours 1 minute 0 second 1 millisecond";
+      string result = DateFunc.BuildUpTime(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_BuildUpTime_true_two_hours_one_minute_one_second_one_millisecond()
+    {
+      const int millisecond = 1;
+      const int second = 1000 * millisecond;
+      const int minute = 60 * second;
+      const int hour = 60 * minute;
+      const int source = 2 * hour + 1 * minute + 1 * second + 1 * millisecond;
+      const string expected = "2 hours 1 minute 1 second 1 millisecond";
+      string result = DateFunc.BuildUpTime(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_BuildUpTime_true_two_hours_one_minute_one_second_two_milliseconds()
+    {
+      const int millisecond = 1;
+      const int second = 1000 * millisecond;
+      const int minute = 60 * second;
+      const int hour = 60 * minute;
+      const int source = 2 * hour + 1 * minute + 1 * second + 2 * millisecond;
+      const string expected = "2 hours 1 minute 1 second 2 milliseconds";
+      string result = DateFunc.BuildUpTime(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_BuildUpTime_true_two_hours_one_minute_two_seconds_one_millisecond()
+    {
+      const int millisecond = 1;
+      const int second = 1000 * millisecond;
+      const int minute = 60 * second;
+      const int hour = 60 * minute;
+      const int source = 2 * hour + 1 * minute + 2 * second + 1 * millisecond;
+      const string expected = "2 hours 1 minute 2 seconds 1 millisecond";
+      string result = DateFunc.BuildUpTime(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_BuildUpTime_true_two_hours_one_minute_two_seconds_two_milliseconds()
+    {
+      const int millisecond = 1;
+      const int second = 1000 * millisecond;
+      const int minute = 60 * second;
+      const int hour = 60 * minute;
+      const int source = 2 * hour + 1 * minute + 2 * second + 2 * millisecond;
+      const string expected = "2 hours 1 minute 2 seconds 2 milliseconds";
+      string result = DateFunc.BuildUpTime(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_BuildUpTime_true_two_hours_two_minutes_zero_second_zero_millisecond()
+    {
+      const int millisecond = 1;
+      const int second = 1000 * millisecond;
+      const int minute = 60 * second;
+      const int hour = 60 * minute;
+      const int source = 2 * hour + 2 * minute + 0 * second + 0 * millisecond;
+      const string expected = "2 hours 2 minutes 0 second 0 millisecond";
+      string result = DateFunc.BuildUpTime(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_BuildUpTime_true_two_hours_two_minutes_zero_second_one_millisecond()
+    {
+      const int millisecond = 1;
+      const int second = 1000 * millisecond;
+      const int minute = 60 * second;
+      const int hour = 60 * minute;
+      const int source = 2 * hour + 2 * minute + 0 * second + 1 * millisecond;
+      const string expected = "2 hours 2 minutes 0 second 1 millisecond";
+      string result = DateFunc.BuildUpTime(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_BuildUpTime_true_two_hours_two_minutes_zero_second_two_milliseconds()
+    {
+      const int millisecond = 1;
+      const int second = 1000 * millisecond;
+      const int minute = 60 * second;
+      const int hour = 60 * minute;
+      const int source = 2 * hour + 2 * minute + 0 * second + 2 * millisecond;
+      const string expected = "2 hours 2 minutes 0 second 2 milliseconds";
+      string result = DateFunc.BuildUpTime(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_BuildUpTime_true_two_hours_two_minutes_one_second_zero_millisecond()
+    {
+      const int millisecond = 1;
+      const int second = 1000 * millisecond;
+      const int minute = 60 * second;
+      const int hour = 60 * minute;
+      const int source = 2 * hour + 2 * minute + 1 * second + 0 * millisecond;
+      const string expected = "2 hours 2 minutes 1 second 0 millisecond";
+      string result = DateFunc.BuildUpTime(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_BuildUpTime_true_two_hours_two_minutes_one_second_one_millisecond()
+    {
+      const int millisecond = 1;
+      const int second = 1000 * millisecond;
+      const int minute = 60 * second;
+      const int hour = 60 * minute;
+      const int source = 2 * hour + 2 * minute + 1 * second + 1 * millisecond;
+      const string expected = "2 hours 2 minutes 1 second 1 millisecond";
+      string result = DateFunc.BuildUpTime(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_BuildUpTime_true_two_hours_two_minutes_one_second_two_milliseconds()
+    {
+      const int millisecond = 1;
+      const int second = 1000 * millisecond;
+      const int minute = 60 * second;
+      const int hour = 60 * minute;
+      const int source = 2 * hour + 2 * minute + 1 * second + 2 * millisecond;
+      const string expected = "2 hours 2 minutes 1 second 2 milliseconds";
+      string result = DateFunc.BuildUpTime(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_BuildUpTime_true_two_hours_two_minutes_two_seconds_zero_millisecond()
+    {
+      const int millisecond = 1;
+      const int second = 1000 * millisecond;
+      const int minute = 60 * second;
+      const int hour = 60 * minute;
+      const int source = 2 * hour + 2 * minute + 2 * second + 0 * millisecond;
+      const string expected = "2 hours 2 minutes 2 seconds 0 millisecond";
+      string result = DateFunc.BuildUpTime(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_BuildUpTime_true_two_hours_two_minutes_two_seconds_one_millisecond()
+    {
+      const int millisecond = 1;
+      const int second = 1000 * millisecond;
+      const int minute = 60 * second;
+      const int hour = 60 * minute;
+      const int source = 2 * hour + 2 * minute + 2 * second + 1 * millisecond;
+      const string expected = "2 hours 2 minutes 2 seconds 1 millisecond";
+      string result = DateFunc.BuildUpTime(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_BuildUpTime_true_two_hours_two_minutes_two_seconds_two_milliseconds()
+    {
+      const int millisecond = 1;
+      const int second = 1000 * millisecond;
+      const int minute = 60 * second;
+      const int hour = 60 * minute;
+      const int source = 2 * hour + 2 * minute + 2 * second + 2 * millisecond;
+      const string expected = "2 hours 2 minutes 2 seconds 2 milliseconds";
+      string result = DateFunc.BuildUpTime(source);
+      Assert.AreEqual(result, expected);
+    }
+
 
     #endregion BuildUpTime
     #region HasHours
