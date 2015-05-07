@@ -71,7 +71,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static string TimeSpanToLongTimeNotNull(TimeSpan timeSpan)
     {
-      return TimeSpanToFriendlyDisplay(timeSpan) == string.Empty ? "1 millisecond" : 
+      return TimeSpanToFriendlyDisplay(timeSpan) == string.Empty ? "1 millisecond" :
         TimeSpanToFriendlyDisplay(timeSpan);
     }
 
@@ -141,7 +141,7 @@ namespace FonctionsUtiles.Fred.Csharp
       }
       else if (!removeZeros)
       {
-          result.Append("0 hour");
+        result.Append("0 hour");
       }
 
       result.Append(" ");
@@ -154,7 +154,7 @@ namespace FonctionsUtiles.Fred.Csharp
       }
       else if (!removeZeros)
       {
-          result.Append("0 minute");
+        result.Append("0 minute");
       }
 
       result.Append(" ");
@@ -167,7 +167,7 @@ namespace FonctionsUtiles.Fred.Csharp
       }
       else if (!removeZeros)
       {
-          result.Append("0 second");
+        result.Append("0 second");
       }
 
       result.Append(" ");
@@ -179,7 +179,7 @@ namespace FonctionsUtiles.Fred.Csharp
       }
       else if (!removeZeros)
       {
-          result.Append("0 millisecond");
+        result.Append("0 millisecond");
       }
 
       return result.ToString();
