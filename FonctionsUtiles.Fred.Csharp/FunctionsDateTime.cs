@@ -143,10 +143,10 @@ namespace FonctionsUtiles.Fred.Csharp
       {
         result.Append("0 hour");
       }
-
-      result.Append(" ");
+      
       if (HasMinutes(time))
       {
+        result.Append(" ");
         result.Append(time / 60000);
         result.Append(" minute");
         result.Append(StringFunc.Plural(time / 60000));
@@ -154,12 +154,12 @@ namespace FonctionsUtiles.Fred.Csharp
       }
       else if (!removeZeros)
       {
-        result.Append("0 minute");
+        result.Append(" 0 minute");
       }
-
-      result.Append(" ");
+      
       if (HasSeconds(time))
       {
+        result.Append(" ");
         result.Append(time / 1000);
         result.Append(" second");
         result.Append(StringFunc.Plural(time / 1000));
@@ -167,22 +167,22 @@ namespace FonctionsUtiles.Fred.Csharp
       }
       else if (!removeZeros)
       {
-        result.Append("0 second");
+        result.Append(" 0 second");
       }
 
-      result.Append(" ");
       if (HasMilliSeconds(time))
       {
+        result.Append(" ");
         result.Append(time);
         result.Append(" millisecond");
         result.Append(StringFunc.Plural(time));
       }
       else if (!removeZeros)
       {
-        result.Append("0 millisecond");
+        result.Append(" 0 millisecond");
       }
 
-      return result.ToString();
+      return result.ToString().Trim();
     }
 
     public static bool HasHours(int time)
