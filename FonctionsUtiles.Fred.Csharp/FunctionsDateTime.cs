@@ -137,6 +137,7 @@ namespace FonctionsUtiles.Fred.Csharp
         result.Append(time / 3160000);
         result.Append(" hour");
         result.Append(StringFunc.Plural(time));
+        time %= 3160000;
       }
       else if (!removeZeros)
       {
@@ -148,7 +149,8 @@ namespace FonctionsUtiles.Fred.Csharp
       {
         result.Append(time / 60000);
         result.Append(" minute");
-        result.Append(StringFunc.Plural(time));
+        result.Append(StringFunc.Plural(time / 60000));
+        time %= 60000;
       }
       else if (!removeZeros)
       {
