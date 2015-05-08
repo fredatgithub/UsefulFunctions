@@ -1987,15 +1987,7 @@ namespace FonctionsUtiles.Fred.Csharp
       return startingList;
     }
 
-    public enum LetterCasingSequence
-    {
-      LowerUpperDigit,
-      UpperLowerDigit,
-      DigitLowerUpper,
-      DigitUpperLower,
-      LowerDigitUpper,
-      UpperDigitLower
-    }
+    
 
     public static string NumberToEnglishWords(int number)
     {
@@ -2739,23 +2731,7 @@ namespace FonctionsUtiles.Fred.Csharp
       return tmpSource.ToArray();
     }
 
-    public enum RandomCharacters
-    {
-      LowerCase = 1,
-      UpperCase = 2,
-      Digit = 3,
-      SpecialCharacter = 4,
-      UpperLower = 5, //LowerCase & UpperCase,
-      LowerDigit = 6, //LowerCase & Digit,
-      UpperDigit = 7, //UpperCase & Digit,
-      UpperLowerDigit = 8, //UpperLower & Digit,
-      LowerSpecialChar = 9, //LowerCase & SpecialCharacter,
-      UpperSpecialChar = 10, //UpperCase & SpecialCharacter,
-      DigitSpecialChar = 11, //Digit & SpecialCharacter
-      UpperLowerSpecial = 12,
-      UpperDigitSpecial = 13,
-      UpperLowerDigitSpecial = 14 // kept numbering because of a possible future change
-    }
+   
 
     public static string GenerateCharactersFromSource(List<string> source, int numberOfCharacters = 1)
     {

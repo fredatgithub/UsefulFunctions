@@ -58,16 +58,7 @@ namespace FonctionsUtiles.Fred.Csharp
     {
       return string.Format("{0}:{1}:{2}:{3}:{4}", ts.Days, ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds);
     }
-
-    public enum TimeSpanElement
-    {
-      Millisecond,
-      Second,
-      Minute,
-      Hour,
-      Day
-    }
-
+    
     public static string TimeSpanToLongTimeNotNull(TimeSpan timeSpan)
     {
       return TimeSpanToFriendlyDisplay(timeSpan) == string.Empty ? "1 millisecond" :
