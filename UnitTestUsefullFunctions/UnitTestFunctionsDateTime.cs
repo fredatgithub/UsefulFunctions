@@ -17,6 +17,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
+
+using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MathFunc = FonctionsUtiles.Fred.Csharp.FunctionsMath;
 using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
@@ -2141,5 +2143,48 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
     #endregion HasMilliSeconds
+
+   #region TimeSpanElement
+    // **********************TimeSpanElement**************
+    [TestMethod]
+    public void TestMethod_TimeSpanElement_true_all_enum_exists_no_deleted_item()
+    {
+      Assert.AreEqual(DateFunc.TimeSpanElement.Millisecond, DateFunc.TimeSpanElement.Millisecond);
+      Assert.AreEqual(DateFunc.TimeSpanElement.Second, DateFunc.TimeSpanElement.Second);
+      Assert.AreEqual(DateFunc.TimeSpanElement.Minute, DateFunc.TimeSpanElement.Minute);
+      Assert.AreEqual(DateFunc.TimeSpanElement.Hour, DateFunc.TimeSpanElement.Hour);
+      Assert.AreEqual(DateFunc.TimeSpanElement.Day, DateFunc.TimeSpanElement.Day);
+    }
+
+    [TestMethod]
+    public void TestMethod_TimeSpanElement_false_no_equality()
+    {
+      Assert.AreNotEqual(DateFunc.TimeSpanElement.Millisecond, DateFunc.TimeSpanElement.Day);
+      Assert.AreNotEqual(DateFunc.TimeSpanElement.Second, DateFunc.TimeSpanElement.Minute);
+      Assert.AreNotEqual(DateFunc.TimeSpanElement.Minute, DateFunc.TimeSpanElement.Second);
+      Assert.AreNotEqual(DateFunc.TimeSpanElement.Hour, DateFunc.TimeSpanElement.Millisecond);
+      Assert.AreNotEqual(DateFunc.TimeSpanElement.Day, DateFunc.TimeSpanElement.Hour);
+    }
+
+    [TestMethod]
+    public void TestMethod_TimeSpanElement_true_all_enum_exist_by_their_value_number()
+    {
+      Assert.IsTrue(Enum.IsDefined(typeof(DateFunc.TimeSpanElement), 0));
+      Assert.IsTrue(Enum.IsDefined(typeof(DateFunc.TimeSpanElement), 1));
+      Assert.IsTrue(Enum.IsDefined(typeof(DateFunc.TimeSpanElement), 2));
+      Assert.IsTrue(Enum.IsDefined(typeof(DateFunc.TimeSpanElement), 3));
+      Assert.IsTrue(Enum.IsDefined(typeof(DateFunc.TimeSpanElement), 4));
+    }
+
+    [TestMethod]
+    public void TestMethod_TimeSpanElement_true_all_enum_exists_with_no_change_in_their_value()
+    {
+      Assert.AreEqual((int)DateFunc.TimeSpanElement.Millisecond, 0);
+      Assert.AreEqual((int)DateFunc.TimeSpanElement.Second, 1);
+      Assert.AreEqual((int)DateFunc.TimeSpanElement.Minute, 2);
+      Assert.AreEqual((int)DateFunc.TimeSpanElement.Hour, 3);
+      Assert.AreEqual((int)DateFunc.TimeSpanElement.Day, 4);
+    }
+    #endregion TimeSpanElement
   }
 }

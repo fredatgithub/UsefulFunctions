@@ -22,11 +22,10 @@ namespace FonctionsUtiles.Fred.Csharp
   using System;
   using System.Linq;
   using System.Text;
-  using MathFunc = FonctionsUtiles.Fred.Csharp.FunctionsMath;
-  using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
-  using DateFunc = FonctionsUtiles.Fred.Csharp.FunctionsDateTime;
-  using InternetFunc = FonctionsUtiles.Fred.Csharp.FunctionsInternet;
-  using FonctionsUtiles.Fred.Csharp;
+  using MathFunc = FunctionsMath;
+  using StringFunc = FunctionsString;
+  using DateFunc = FunctionsDateTime;
+  using InternetFunc = FunctionsInternet;
 
   public class FunctionsDateTime
   {
