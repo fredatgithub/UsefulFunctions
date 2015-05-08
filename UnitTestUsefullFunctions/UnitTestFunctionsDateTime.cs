@@ -24,7 +24,7 @@ using MathFunc = FonctionsUtiles.Fred.Csharp.FunctionsMath;
 using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
 using DateFunc = FonctionsUtiles.Fred.Csharp.FunctionsDateTime;
 using InternetFunc = FonctionsUtiles.Fred.Csharp.FunctionsInternet;
-using FonctionsUtiles.Fred.Csharp;
+using dllFuncs = FonctionsUtiles.Fred.Csharp;
 
 namespace UnitTestUsefullFunctions
 {
@@ -2149,41 +2149,41 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_TimeSpanElement_true_all_enum_exists_no_deleted_item()
     {
-      Assert.AreEqual(DateFunc.TimeSpanElement.Millisecond, DateFunc.TimeSpanElement.Millisecond);
-      Assert.AreEqual(DateFunc.TimeSpanElement.Second, DateFunc.TimeSpanElement.Second);
-      Assert.AreEqual(DateFunc.TimeSpanElement.Minute, DateFunc.TimeSpanElement.Minute);
-      Assert.AreEqual(DateFunc.TimeSpanElement.Hour, DateFunc.TimeSpanElement.Hour);
-      Assert.AreEqual(DateFunc.TimeSpanElement.Day, DateFunc.TimeSpanElement.Day);
+      Assert.AreEqual(dllFuncs.TimeSpanElement.Millisecond, dllFuncs.TimeSpanElement.Millisecond);
+      Assert.AreEqual(dllFuncs.TimeSpanElement.Second, dllFuncs.TimeSpanElement.Second);
+      Assert.AreEqual(dllFuncs.TimeSpanElement.Minute, dllFuncs.TimeSpanElement.Minute);
+      Assert.AreEqual(dllFuncs.TimeSpanElement.Hour, dllFuncs.TimeSpanElement.Hour);
+      Assert.AreEqual(dllFuncs.TimeSpanElement.Day, dllFuncs.TimeSpanElement.Day);
     }
 
     [TestMethod]
     public void TestMethod_TimeSpanElement_false_no_equality()
     {
-      Assert.AreNotEqual(DateFunc.TimeSpanElement.Millisecond, DateFunc.TimeSpanElement.Day);
-      Assert.AreNotEqual(DateFunc.TimeSpanElement.Second, DateFunc.TimeSpanElement.Minute);
-      Assert.AreNotEqual(DateFunc.TimeSpanElement.Minute, DateFunc.TimeSpanElement.Second);
-      Assert.AreNotEqual(DateFunc.TimeSpanElement.Hour, DateFunc.TimeSpanElement.Millisecond);
-      Assert.AreNotEqual(DateFunc.TimeSpanElement.Day, DateFunc.TimeSpanElement.Hour);
+      Assert.AreNotEqual(dllFuncs.TimeSpanElement.Millisecond, dllFuncs.TimeSpanElement.Day);
+      Assert.AreNotEqual(dllFuncs.TimeSpanElement.Second, dllFuncs.TimeSpanElement.Minute);
+      Assert.AreNotEqual(dllFuncs.TimeSpanElement.Minute, dllFuncs.TimeSpanElement.Second);
+      Assert.AreNotEqual(dllFuncs.TimeSpanElement.Hour, dllFuncs.TimeSpanElement.Millisecond);
+      Assert.AreNotEqual(dllFuncs.TimeSpanElement.Day, dllFuncs.TimeSpanElement.Hour);
     }
 
     [TestMethod]
     public void TestMethod_TimeSpanElement_true_all_enum_exist_by_their_value_number()
     {
-      Assert.IsTrue(Enum.IsDefined(typeof(DateFunc.TimeSpanElement), 0));
-      Assert.IsTrue(Enum.IsDefined(typeof(DateFunc.TimeSpanElement), 1));
-      Assert.IsTrue(Enum.IsDefined(typeof(DateFunc.TimeSpanElement), 2));
-      Assert.IsTrue(Enum.IsDefined(typeof(DateFunc.TimeSpanElement), 3));
-      Assert.IsTrue(Enum.IsDefined(typeof(DateFunc.TimeSpanElement), 4));
+      Assert.IsTrue(Enum.IsDefined(typeof(dllFuncs.TimeSpanElement), 0));
+      Assert.IsTrue(Enum.IsDefined(typeof(dllFuncs.TimeSpanElement), 1));
+      Assert.IsTrue(Enum.IsDefined(typeof(dllFuncs.TimeSpanElement), 2));
+      Assert.IsTrue(Enum.IsDefined(typeof(dllFuncs.TimeSpanElement), 3));
+      Assert.IsTrue(Enum.IsDefined(typeof(dllFuncs.TimeSpanElement), 4));
     }
 
     [TestMethod]
     public void TestMethod_TimeSpanElement_true_all_enum_exists_with_no_change_in_their_value()
     {
-      Assert.AreEqual((int)DateFunc.TimeSpanElement.Millisecond, 0);
-      Assert.AreEqual((int)DateFunc.TimeSpanElement.Second, 1);
-      Assert.AreEqual((int)DateFunc.TimeSpanElement.Minute, 2);
-      Assert.AreEqual((int)DateFunc.TimeSpanElement.Hour, 3);
-      Assert.AreEqual((int)DateFunc.TimeSpanElement.Day, 4);
+      Assert.AreEqual((int)dllFuncs.TimeSpanElement.Millisecond, 0);
+      Assert.AreEqual((int)dllFuncs.TimeSpanElement.Second, 1);
+      Assert.AreEqual((int)dllFuncs.TimeSpanElement.Minute, 2);
+      Assert.AreEqual((int)dllFuncs.TimeSpanElement.Hour, 3);
+      Assert.AreEqual((int)dllFuncs.TimeSpanElement.Day, 4);
     }
     #endregion TimeSpanElement
   }

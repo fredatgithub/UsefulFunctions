@@ -21,6 +21,7 @@ using FonctionsUtiles.Fred.Csharp;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.IO;
+using enumRnd = FonctionsUtiles.Fred.Csharp;
 
 namespace UnitTestUsefullFunctions
 {
@@ -34,7 +35,7 @@ namespace UnitTestUsefullFunctions
     {
       string sourceDir = Path.GetTempPath();
       const int expected = 8;
-      string result = FunctionsString.GenerateUniqueFilename(sourceDir, FunctionsString.RandomCharacters.UpperLowerDigitSpecial);
+      string result = FunctionsString.GenerateUniqueFilename(sourceDir, RandomCharacters.UpperLowerDigitSpecial);
       Assert.AreEqual(result.Length, expected);
     }
 
@@ -43,7 +44,7 @@ namespace UnitTestUsefullFunctions
     {
       string sourceDir = Path.GetTempPath();
       const int expected = 12;
-      string result = FunctionsString.GenerateUniqueFilename(sourceDir, FunctionsString.RandomCharacters.UpperLowerDigitSpecial, 8, true, "doc");
+      string result = FunctionsString.GenerateUniqueFilename(sourceDir, RandomCharacters.UpperLowerDigitSpecial, 8, true, "doc");
       Assert.AreEqual(result.Length, expected);
     }
 
@@ -52,7 +53,7 @@ namespace UnitTestUsefullFunctions
     {
       string sourceDir = Path.GetTempPath();
       const int expected = 13;
-      string result = FunctionsString.GenerateUniqueFilename(sourceDir, FunctionsString.RandomCharacters.UpperLowerDigitSpecial, 8, true, "docx");
+      string result = FunctionsString.GenerateUniqueFilename(sourceDir, RandomCharacters.UpperLowerDigitSpecial, 8, true, "docx");
       Assert.AreEqual(result.Length, expected);
     }
 
@@ -61,7 +62,7 @@ namespace UnitTestUsefullFunctions
     {
       string sourceDir = Path.GetTempPath();
       const bool expected = false;
-      string result = FunctionsString.GenerateUniqueFilename(sourceDir, FunctionsString.RandomCharacters.UpperLowerDigitSpecial);
+      string result = FunctionsString.GenerateUniqueFilename(sourceDir, RandomCharacters.UpperLowerDigitSpecial);
       Assert.AreEqual(File.Exists(Path.Combine(sourceDir, result)), expected);
     }
 
@@ -70,10 +71,9 @@ namespace UnitTestUsefullFunctions
     {
       string sourceDir = Environment.SpecialFolder.MyDocuments.ToString();
       const bool expected = false;
-      string result = FunctionsString.GenerateUniqueFilename(sourceDir, FunctionsString.RandomCharacters.UpperLowerDigitSpecial);
+      string result = FunctionsString.GenerateUniqueFilename(sourceDir, RandomCharacters.UpperLowerDigitSpecial);
       Assert.AreEqual(File.Exists(Path.Combine(sourceDir, result)), expected);
     }
-
 
     #endregion Files Methods
 

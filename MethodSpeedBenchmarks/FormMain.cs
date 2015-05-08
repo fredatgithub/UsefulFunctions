@@ -25,7 +25,7 @@ using MethodSpeedBenchmarks.Properties;
 using MathFunc = FonctionsUtiles.Fred.Csharp.FunctionsMath;
 using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
 using DateFunc = FonctionsUtiles.Fred.Csharp.FunctionsDateTime;
-using FonctionsUtiles.Fred.Csharp;
+using dllFunc = FonctionsUtiles.Fred.Csharp;
 
 
 namespace MethodSpeedBenchmarks
@@ -156,8 +156,8 @@ namespace MethodSpeedBenchmarks
         case "OppositeCase":
           //source = "A long long time ago in a galaxy far far away";
           char[] noForbiddenCharacter = new char[0];
-          source = StringFunc.GenerateRandomString(noForbiddenCharacter, false, 
-            StringFunc.RandomCharacters.UpperLowerDigitSpecial, 255);
+          source = StringFunc.GenerateRandomString(noForbiddenCharacter, false,
+            dllFunc.RandomCharacters.UpperLowerDigitSpecial, 255);
           for (int i = 0; i < iteration; i++)
           {
             string tmp = StringFunc.OppositeCase(source);
@@ -176,7 +176,7 @@ namespace MethodSpeedBenchmarks
           //source2 = "A long long time ago in a galaxy far far away";
           noForbiddenCharacter = new char[0];
           source2 = StringFunc.GenerateRandomString(noForbiddenCharacter, false,
-            StringFunc.RandomCharacters.UpperLowerDigitSpecial, 255);
+            dllFunc.RandomCharacters.UpperLowerDigitSpecial, 255);
 
           for (int i = 0; i < iteration; i++)
           {

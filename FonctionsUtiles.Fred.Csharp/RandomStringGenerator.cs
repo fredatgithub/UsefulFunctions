@@ -476,7 +476,7 @@ namespace FonctionsUtiles.Fred.Csharp
     ///
     /// True if it's not possible to create similar strings.
     ///
-    public bool UniqueStrings;
+    //public bool UniqueStrings;
     ///
     /// Adding the string to the history array to support unique string generation.
     ///

@@ -25,7 +25,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MathFunc = FonctionsUtiles.Fred.Csharp.FunctionsMath;
 using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
 using DateFunc = FonctionsUtiles.Fred.Csharp.FunctionsDateTime;
-using FonctionsUtiles.Fred.Csharp;
+using dllFuncs = FonctionsUtiles.Fred.Csharp;
 
 namespace UnitTestUsefullFunctions
 {
@@ -84,6 +84,7 @@ namespace UnitTestUsefullFunctions
     {
       int[] source = null;
       const bool expected = false;
+      // ReSharper disable once ExpressionIsAlwaysNull
       bool result = StringFunc.HasDuplicate(source);
       Assert.AreEqual(result, expected);
     }
@@ -2710,45 +2711,45 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_LetterCasingSequence_true_all_enum_exists_no_deleted_item()
     {
-      Assert.AreEqual(StringFunc.LetterCasingSequence.DigitLowerUpper, StringFunc.LetterCasingSequence.DigitLowerUpper);
-      Assert.AreEqual(StringFunc.LetterCasingSequence.DigitUpperLower, StringFunc.LetterCasingSequence.DigitUpperLower);
-      Assert.AreEqual(StringFunc.LetterCasingSequence.LowerDigitUpper, StringFunc.LetterCasingSequence.LowerDigitUpper);
-      Assert.AreEqual(StringFunc.LetterCasingSequence.LowerUpperDigit, StringFunc.LetterCasingSequence.LowerUpperDigit);
-      Assert.AreEqual(StringFunc.LetterCasingSequence.UpperDigitLower, StringFunc.LetterCasingSequence.UpperDigitLower);
-      Assert.AreEqual(StringFunc.LetterCasingSequence.UpperLowerDigit, StringFunc.LetterCasingSequence.UpperLowerDigit);
+      Assert.AreEqual(dllFuncs.LetterCasingSequence.DigitLowerUpper, dllFuncs.LetterCasingSequence.DigitLowerUpper);
+      Assert.AreEqual(dllFuncs.LetterCasingSequence.DigitUpperLower, dllFuncs.LetterCasingSequence.DigitUpperLower);
+      Assert.AreEqual(dllFuncs.LetterCasingSequence.LowerDigitUpper, dllFuncs.LetterCasingSequence.LowerDigitUpper);
+      Assert.AreEqual(dllFuncs.LetterCasingSequence.LowerUpperDigit, dllFuncs.LetterCasingSequence.LowerUpperDigit);
+      Assert.AreEqual(dllFuncs.LetterCasingSequence.UpperDigitLower, dllFuncs.LetterCasingSequence.UpperDigitLower);
+      Assert.AreEqual(dllFuncs.LetterCasingSequence.UpperLowerDigit, dllFuncs.LetterCasingSequence.UpperLowerDigit);
     }
 
     [TestMethod]
     public void TestMethod_LetterCasingSequence_false_no_equality()
     {
-      Assert.AreNotEqual(StringFunc.LetterCasingSequence.DigitLowerUpper, StringFunc.LetterCasingSequence.DigitUpperLower);
-      Assert.AreNotEqual(StringFunc.LetterCasingSequence.DigitUpperLower, StringFunc.LetterCasingSequence.LowerDigitUpper);
-      Assert.AreNotEqual(StringFunc.LetterCasingSequence.LowerDigitUpper, StringFunc.LetterCasingSequence.LowerUpperDigit);
-      Assert.AreNotEqual(StringFunc.LetterCasingSequence.LowerUpperDigit, StringFunc.LetterCasingSequence.UpperDigitLower);
-      Assert.AreNotEqual(StringFunc.LetterCasingSequence.UpperDigitLower, StringFunc.LetterCasingSequence.UpperLowerDigit);
-      Assert.AreNotEqual(StringFunc.LetterCasingSequence.UpperLowerDigit, StringFunc.LetterCasingSequence.DigitLowerUpper);
+      Assert.AreNotEqual(dllFuncs.LetterCasingSequence.DigitLowerUpper, dllFuncs.LetterCasingSequence.DigitUpperLower);
+      Assert.AreNotEqual(dllFuncs.LetterCasingSequence.DigitUpperLower, dllFuncs.LetterCasingSequence.LowerDigitUpper);
+      Assert.AreNotEqual(dllFuncs.LetterCasingSequence.LowerDigitUpper, dllFuncs.LetterCasingSequence.LowerUpperDigit);
+      Assert.AreNotEqual(dllFuncs.LetterCasingSequence.LowerUpperDigit, dllFuncs.LetterCasingSequence.UpperDigitLower);
+      Assert.AreNotEqual(dllFuncs.LetterCasingSequence.UpperDigitLower, dllFuncs.LetterCasingSequence.UpperLowerDigit);
+      Assert.AreNotEqual(dllFuncs.LetterCasingSequence.UpperLowerDigit, dllFuncs.LetterCasingSequence.DigitLowerUpper);
     }
 
     [TestMethod]
     public void TestMethod_LetterCasingSequence_true_all_enum_exist_by_their_value_number()
     {
-      Assert.IsTrue(Enum.IsDefined(typeof(StringFunc.LetterCasingSequence), 0));
-      Assert.IsTrue(Enum.IsDefined(typeof(StringFunc.LetterCasingSequence), 1));
-      Assert.IsTrue(Enum.IsDefined(typeof(StringFunc.LetterCasingSequence), 2));
-      Assert.IsTrue(Enum.IsDefined(typeof(StringFunc.LetterCasingSequence), 3));
-      Assert.IsTrue(Enum.IsDefined(typeof(StringFunc.LetterCasingSequence), 4));
-      Assert.IsTrue(Enum.IsDefined(typeof(StringFunc.LetterCasingSequence), 5));
+      Assert.IsTrue(Enum.IsDefined(typeof(dllFuncs.LetterCasingSequence), 0));
+      Assert.IsTrue(Enum.IsDefined(typeof(dllFuncs.LetterCasingSequence), 1));
+      Assert.IsTrue(Enum.IsDefined(typeof(dllFuncs.LetterCasingSequence), 2));
+      Assert.IsTrue(Enum.IsDefined(typeof(dllFuncs.LetterCasingSequence), 3));
+      Assert.IsTrue(Enum.IsDefined(typeof(dllFuncs.LetterCasingSequence), 4));
+      Assert.IsTrue(Enum.IsDefined(typeof(dllFuncs.LetterCasingSequence), 5));
     }
 
     [TestMethod]
     public void TestMethod_LetterCasingSequence_true_all_enum_exists_with_no_change_in_their_value()
     {
-      Assert.AreEqual((int)StringFunc.LetterCasingSequence.LowerUpperDigit, 0);
-      Assert.AreEqual((int)StringFunc.LetterCasingSequence.UpperLowerDigit, 1);
-      Assert.AreEqual((int)StringFunc.LetterCasingSequence.DigitLowerUpper, 2);
-      Assert.AreEqual((int)StringFunc.LetterCasingSequence.DigitUpperLower, 3);
-      Assert.AreEqual((int)StringFunc.LetterCasingSequence.LowerDigitUpper, 4);
-      Assert.AreEqual((int)StringFunc.LetterCasingSequence.UpperDigitLower, 5);
+      Assert.AreEqual((int)dllFuncs.LetterCasingSequence.LowerUpperDigit, 0);
+      Assert.AreEqual((int)dllFuncs.LetterCasingSequence.UpperLowerDigit, 1);
+      Assert.AreEqual((int)dllFuncs.LetterCasingSequence.DigitLowerUpper, 2);
+      Assert.AreEqual((int)dllFuncs.LetterCasingSequence.DigitUpperLower, 3);
+      Assert.AreEqual((int)dllFuncs.LetterCasingSequence.LowerDigitUpper, 4);
+      Assert.AreEqual((int)dllFuncs.LetterCasingSequence.UpperDigitLower, 5);
     }
 
     // **********************NumberToWordsEnglish**************
@@ -3900,7 +3901,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const byte stringLength = 20;
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.LowerCase, stringLength);
+        dllFuncs.RandomCharacters.LowerCase, stringLength);
       Assert.AreEqual(result.Length, stringLength);
     }
 
@@ -3910,7 +3911,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const byte stringLength = byte.MaxValue;
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.LowerCase, stringLength);
+        dllFuncs.RandomCharacters.LowerCase, stringLength);
       Assert.AreEqual(result.Length, stringLength);
     }
 
@@ -3929,7 +3930,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const byte stringLength = 254;
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.LowerCase, stringLength);
+        dllFuncs.RandomCharacters.LowerCase, stringLength);
       Assert.AreEqual(StringFunc.HasSymbols(result), expected);
     }
 
@@ -3938,7 +3939,7 @@ namespace UnitTestUsefullFunctions
     {
       char[] source = { };
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.UpperCase);
+        dllFuncs.RandomCharacters.UpperCase);
       Assert.AreEqual(result.ToUpper(), result);
     }
 
@@ -3949,7 +3950,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const byte stringLength = 254;
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.UpperCase, stringLength);
+        dllFuncs.RandomCharacters.UpperCase, stringLength);
       Assert.AreEqual(StringFunc.HasSymbols(result), expected);
     }
 
@@ -3959,7 +3960,7 @@ namespace UnitTestUsefullFunctions
       const bool expected = true;
       char[] source = { };
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.Digit);
+        dllFuncs.RandomCharacters.Digit);
       Assert.AreEqual(StringFunc.IsNumeric2(result), expected);
     }
 
@@ -3970,7 +3971,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const byte stringLength = 254;
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.Digit, stringLength);
+        dllFuncs.RandomCharacters.Digit, stringLength);
       Assert.AreEqual(StringFunc.HasSymbols(result), expected);
     }
 
@@ -3980,7 +3981,7 @@ namespace UnitTestUsefullFunctions
       const bool expected = false;
       char[] source = { };
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.SpecialCharacter);
+        dllFuncs.RandomCharacters.SpecialCharacter);
       Assert.AreEqual(StringFunc.IsNumeric2(result), expected);
     }
 
@@ -3990,7 +3991,7 @@ namespace UnitTestUsefullFunctions
       const bool expected = false;
       char[] source = { };
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.SpecialCharacter);
+        dllFuncs.RandomCharacters.SpecialCharacter);
       Assert.AreEqual(StringFunc.HasVowels(result), expected);
     }
 
@@ -4000,7 +4001,7 @@ namespace UnitTestUsefullFunctions
       const bool expected = false;
       char[] source = { };
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.SpecialCharacter);
+        dllFuncs.RandomCharacters.SpecialCharacter);
       Assert.AreEqual(StringFunc.HasConsonants(result), expected);
     }
 
@@ -4011,7 +4012,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const byte stringLength = 254;
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.SpecialCharacter, stringLength);
+        dllFuncs.RandomCharacters.SpecialCharacter, stringLength);
       Assert.AreEqual(StringFunc.HasSymbols(result), expected);
     }
 
@@ -4021,7 +4022,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const byte stringLength = 250;
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.DigitSpecialChar, stringLength);
+        dllFuncs.RandomCharacters.DigitSpecialChar, stringLength);
       Assert.AreEqual(result.Length, stringLength);
     }
 
@@ -4032,7 +4033,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const byte stringLength = 254;
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.DigitSpecialChar, stringLength);
+        dllFuncs.RandomCharacters.DigitSpecialChar, stringLength);
       Assert.AreEqual(StringFunc.HasNumeric(result), expected);
     }
 
@@ -4043,7 +4044,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const byte stringLength = 254;
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.DigitSpecialChar, stringLength);
+        dllFuncs.RandomCharacters.DigitSpecialChar, stringLength);
       Assert.AreEqual(StringFunc.HasSymbols(result), expected);
     }
 
@@ -4054,7 +4055,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const byte stringLength = 254;
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.DigitSpecialChar, stringLength);
+        dllFuncs.RandomCharacters.DigitSpecialChar, stringLength);
       Assert.AreEqual(StringFunc.HasSymbols(result), expected);
     }
 
@@ -4065,7 +4066,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const byte stringLength = 254;
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.UpperLower, stringLength);
+        dllFuncs.RandomCharacters.UpperLower, stringLength);
       Assert.AreEqual(StringFunc.HasConsonants(result), expected);
     }
 
@@ -4076,7 +4077,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const byte stringLength = 254;
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.UpperLower, stringLength);
+        dllFuncs.RandomCharacters.UpperLower, stringLength);
       Assert.AreEqual(StringFunc.HasVowels(result), expected);
     }
 
@@ -4087,7 +4088,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const byte stringLength = 254;
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.UpperLower, stringLength);
+        dllFuncs.RandomCharacters.UpperLower, stringLength);
       Assert.AreEqual(StringFunc.HasSymbols(result), expected);
     }
 
@@ -4098,7 +4099,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const byte stringLength = 254;
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.LowerDigit, stringLength);
+        dllFuncs.RandomCharacters.LowerDigit, stringLength);
       Assert.AreEqual(StringFunc.HasVowels(result), expected);
     }
 
@@ -4109,7 +4110,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const byte stringLength = 254;
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.LowerDigit, stringLength);
+        dllFuncs.RandomCharacters.LowerDigit, stringLength);
       Assert.AreEqual(StringFunc.HasSomeLetters(result), expected);
     }
 
@@ -4120,7 +4121,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const byte stringLength = 254;
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.LowerDigit, stringLength);
+        dllFuncs.RandomCharacters.LowerDigit, stringLength);
       Assert.AreEqual(StringFunc.HasSomeLowerCaseLetters(result), expected);
     }
 
@@ -4131,7 +4132,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const byte stringLength = 254;
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.LowerDigit, stringLength);
+        dllFuncs.RandomCharacters.LowerDigit, stringLength);
       Assert.AreEqual(StringFunc.HasSymbols(result), expected);
     }
 
@@ -4142,7 +4143,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const byte stringLength = 254;
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.UpperDigit, stringLength);
+        dllFuncs.RandomCharacters.UpperDigit, stringLength);
       Assert.AreEqual(StringFunc.HasVowels(result), expected);
     }
 
@@ -4153,7 +4154,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const byte stringLength = 254;
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.UpperDigit, stringLength);
+        dllFuncs.RandomCharacters.UpperDigit, stringLength);
       Assert.AreEqual(StringFunc.HasSomeLetters(result), expected);
     }
 
@@ -4164,7 +4165,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const byte stringLength = 254;
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.UpperDigit, stringLength);
+        dllFuncs.RandomCharacters.UpperDigit, stringLength);
       Assert.AreEqual(StringFunc.HasSomeUpperCaseLetters(result), expected);
     }
 
@@ -4175,7 +4176,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const byte stringLength = 254;
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.UpperDigit, stringLength);
+        dllFuncs.RandomCharacters.UpperDigit, stringLength);
       Assert.AreEqual(StringFunc.HasSymbols(result), expected);
     }
 
@@ -4186,7 +4187,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const byte stringLength = 254;
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.UpperLowerDigit, stringLength);
+        dllFuncs.RandomCharacters.UpperLowerDigit, stringLength);
       Assert.AreEqual(StringFunc.HasVowels(result), expected);
     }
 
@@ -4197,7 +4198,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const byte stringLength = 254;
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.UpperLowerDigit, stringLength);
+        dllFuncs.RandomCharacters.UpperLowerDigit, stringLength);
       Assert.AreEqual(StringFunc.HasSomeLetters(result), expected);
     }
 
@@ -4208,7 +4209,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const byte stringLength = 254;
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.UpperLowerDigit, stringLength);
+        dllFuncs.RandomCharacters.UpperLowerDigit, stringLength);
       Assert.AreEqual(StringFunc.HasSomeUpperCaseLetters(result), expected);
     }
 
@@ -4219,7 +4220,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const byte stringLength = 254;
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.UpperLowerDigit, stringLength);
+        dllFuncs.RandomCharacters.UpperLowerDigit, stringLength);
       Assert.AreEqual(StringFunc.HasSomeLowerCaseLetters(result), expected);
     }
 
@@ -4230,7 +4231,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const byte stringLength = 254;
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.UpperLowerDigit, stringLength);
+        dllFuncs.RandomCharacters.UpperLowerDigit, stringLength);
       Assert.AreEqual(StringFunc.HasSymbols(result), expected);
     }
 
@@ -4241,7 +4242,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const byte stringLength = 254;
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.UpperLowerDigitSpecial, stringLength);
+        dllFuncs.RandomCharacters.UpperLowerDigitSpecial, stringLength);
       Assert.AreEqual(StringFunc.HasVowels(result), expected);
     }
 
@@ -4252,7 +4253,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const byte stringLength = 254;
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.UpperLowerDigitSpecial, stringLength);
+        dllFuncs.RandomCharacters.UpperLowerDigitSpecial, stringLength);
       Assert.AreEqual(StringFunc.HasSomeLetters(result), expected);
     }
 
@@ -4263,7 +4264,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const byte stringLength = 254;
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.UpperLowerDigitSpecial, stringLength);
+        dllFuncs.RandomCharacters.UpperLowerDigitSpecial, stringLength);
       Assert.AreEqual(StringFunc.HasSomeUpperCaseLetters(result), expected);
     }
 
@@ -4274,7 +4275,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const byte stringLength = 254;
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.UpperLowerDigitSpecial, stringLength);
+        dllFuncs.RandomCharacters.UpperLowerDigitSpecial, stringLength);
       Assert.AreEqual(StringFunc.HasSomeLowerCaseLetters(result), expected);
     }
 
@@ -4285,7 +4286,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const byte stringLength = 254;
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.UpperLowerDigitSpecial, stringLength);
+        dllFuncs.RandomCharacters.UpperLowerDigitSpecial, stringLength);
       Assert.AreEqual(StringFunc.HasSymbols(result), expected);
     }
 
@@ -4296,7 +4297,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
       const byte stringLength = 254;
       string result = StringFunc.GenerateRandomString(source, true,
-        StringFunc.RandomCharacters.UpperLowerDigitSpecial, stringLength);
+        dllFuncs.RandomCharacters.UpperLowerDigitSpecial, stringLength);
       Assert.AreEqual(StringFunc.HasNumeric(result), expected);
     }
 
@@ -4307,7 +4308,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { 'a', 'e', 'i', 'o', 'u', 'y', 'A', 'E', 'I', 'O', 'U', 'Y' };
       const byte stringLength = 254;
       string result = StringFunc.GenerateRandomString(source, true,
-        StringFunc.RandomCharacters.UpperLowerDigitSpecial, stringLength);
+        dllFuncs.RandomCharacters.UpperLowerDigitSpecial, stringLength);
       Assert.AreEqual(StringFunc.HasVowels(result), expected); // failed on I (i uppercase)
     }
 
@@ -4320,7 +4321,7 @@ namespace UnitTestUsefullFunctions
         'B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Z'};
       const byte stringLength = 254;
       string result = StringFunc.GenerateRandomString(source, true,
-        StringFunc.RandomCharacters.UpperLowerDigitSpecial, stringLength);
+        dllFuncs.RandomCharacters.UpperLowerDigitSpecial, stringLength);
       Assert.AreEqual(StringFunc.HasConsonants(result), expected);
     }
 
@@ -4331,7 +4332,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const byte stringLength = 254;
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.UpperLowerDigitSpecial, stringLength, true);
+        dllFuncs.RandomCharacters.UpperLowerDigitSpecial, stringLength, true);
       Assert.AreEqual(StringFunc.HasSomeLetters(result), expected);
     }
 
@@ -4342,7 +4343,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const byte stringLength = 254;
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.UpperLowerDigitSpecial, stringLength, true);
+        dllFuncs.RandomCharacters.UpperLowerDigitSpecial, stringLength, true);
       Assert.AreEqual(StringFunc.HasNumeric(result), expected);
     }
 
@@ -4353,7 +4354,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const byte stringLength = 254;
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.UpperLowerDigit, stringLength, true);
+        dllFuncs.RandomCharacters.UpperLowerDigit, stringLength, true);
       Assert.AreEqual(StringFunc.HasSomeLetters(result), expected);
     }
 
@@ -4364,7 +4365,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const byte stringLength = 254;
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.UpperLowerDigit, stringLength, true);
+        dllFuncs.RandomCharacters.UpperLowerDigit, stringLength, true);
       Assert.AreEqual(StringFunc.HasNumeric(result), expected);
     }
 
@@ -4375,7 +4376,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const byte stringLength = 254;
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.UpperLower, stringLength, true);
+        dllFuncs.RandomCharacters.UpperLower, stringLength, true);
       Assert.AreEqual(StringFunc.HasNumeric(result), expected);
     }
 
@@ -4386,7 +4387,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const byte stringLength = 2;
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.SpecialCharacter, stringLength, true);
+        dllFuncs.RandomCharacters.SpecialCharacter, stringLength, true);
       Assert.AreEqual(StringFunc.HasNumeric(result), expected);
     }
 
@@ -4397,7 +4398,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const byte stringLength = 2;
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.SpecialCharacter, stringLength, true);
+        dllFuncs.RandomCharacters.SpecialCharacter, stringLength, true);
       Assert.AreEqual(StringFunc.HasSomeLetters(result), expected);
     }
 
@@ -4408,7 +4409,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const byte stringLength = 2;
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.SpecialCharacter, stringLength, true);
+        dllFuncs.RandomCharacters.SpecialCharacter, stringLength, true);
       Assert.AreEqual(StringFunc.HasSymbols(result), expected);
     }
 
@@ -4419,7 +4420,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const byte stringLength = 1;
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.SpecialCharacter, stringLength, true);
+        dllFuncs.RandomCharacters.SpecialCharacter, stringLength, true);
       Assert.AreEqual(result.Length, expected);
     }
 
@@ -4430,7 +4431,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const byte stringLength = 254;
       string result = StringFunc.GenerateRandomString(source, false,
-        StringFunc.RandomCharacters.SpecialCharacter, stringLength, true);
+        dllFuncs.RandomCharacters.SpecialCharacter, stringLength, true);
       Assert.AreEqual(result.Length, expected);
     }
 
@@ -4452,7 +4453,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const byte stringLength = 9;
       string result = StringFunc.GenerateRandomLongString(source, false,
-        StringFunc.RandomCharacters.LowerCase, 9);
+        dllFuncs.RandomCharacters.LowerCase, 9);
       Assert.AreEqual(result.Length, stringLength);
     }
 
@@ -4462,7 +4463,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const byte stringLength = 254;
       string result = StringFunc.GenerateRandomLongString(source, false,
-        StringFunc.RandomCharacters.LowerCase, 254);
+        dllFuncs.RandomCharacters.LowerCase, 254);
       Assert.AreEqual(result.Length, stringLength);
     }
 
@@ -4472,7 +4473,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const byte stringLength = 255;
       string result = StringFunc.GenerateRandomLongString(source, false,
-        StringFunc.RandomCharacters.LowerCase, 255);
+        dllFuncs.RandomCharacters.LowerCase, 255);
       Assert.AreEqual(result.Length, stringLength);
     }
 
@@ -4482,7 +4483,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const int stringLength = 300;
       string result = StringFunc.GenerateRandomLongString(source, false,
-        StringFunc.RandomCharacters.LowerCase, 300);
+        dllFuncs.RandomCharacters.LowerCase, 300);
       Assert.AreEqual(result.Length, stringLength);
     }
 
@@ -4492,7 +4493,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const int stringLength = 999;
       string result = StringFunc.GenerateRandomLongString(source, false,
-        StringFunc.RandomCharacters.LowerCase, 999);
+        dllFuncs.RandomCharacters.LowerCase, 999);
       Assert.AreEqual(result.Length, stringLength);
     }
 
@@ -4502,7 +4503,7 @@ namespace UnitTestUsefullFunctions
       char[] source = { };
       const int stringLength = 1950;
       string result = StringFunc.GenerateRandomLongString(source, false,
-        StringFunc.RandomCharacters.UpperLowerDigitSpecial, 1950);
+        dllFuncs.RandomCharacters.UpperLowerDigitSpecial, 1950);
       Assert.AreEqual(result.Length, stringLength);
     }
 
@@ -4796,7 +4797,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_RemoveAllNonLetterCharacters_with_charsToRemove_true()
     {
       const string source = "*:A long long time in a galaxy far far away?<>|";
-      string[] source2 = new[] {"*", ":", "?", "<", ">", "|" }; 
+      string[] source2 = {"*", ":", "?", "<", ">", "|" }; 
       const string expected = "A long long time in a galaxy far far away";
       string result = StringFunc.RemoveAllNonLetterCharacters(source, source2);
       Assert.AreEqual(result, expected);
@@ -4806,7 +4807,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_RemoveAllNonLetterCharacters_with_charsToRemove_true_letters_and_numbers()
     {
       const string source = "123456789abcdefghijklmnopqrstuvwxyz";
-      string[] source2 = new[] { "*", ":", "?", "<", ">", "|" };
+      string[] source2 = { "*", ":", "?", "<", ">", "|" };
       const string expected = "123456789abcdefghijklmnopqrstuvwxyz";
       string result = StringFunc.RemoveAllNonLetterCharacters(source, source2);
       Assert.AreEqual(result, expected);
@@ -4816,7 +4817,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_RemoveAllNonLetterCharacters_with_charsToRemove_true_string_empty()
     {
       const string source = "";
-      string[] source2 = new[] { "*", ":", "?", "<", ">", "|" };
+      string[] source2 = { "*", ":", "?", "<", ">", "|" };
       const string expected = "";
       string result = StringFunc.RemoveAllNonLetterCharacters(source, source2);
       Assert.AreEqual(result, expected);
@@ -4826,7 +4827,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_RemoveAllNonLetterCharacters_with_charsToRemove_true_only_special_characters()
     {
       const string source = "*:?<>|";
-      string[] source2 = new[] { "*", ":", "?", "<", ">", "|" };
+      string[] source2 = { "*", ":", "?", "<", ">", "|" };
       const string expected = "";
       string result = StringFunc.RemoveAllNonLetterCharacters(source, source2);
       Assert.AreEqual(result, expected);
@@ -4839,7 +4840,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_RemoveAllNonLetterCharacters_with_charsToRemove_in_char_array_true()
     {
       const string source = "*:A long long time in a galaxy far far away?<>|";
-      char[] source2 = new[] { '*', ':', '?', '<', '>', '|' };
+      char[] source2 = { '*', ':', '?', '<', '>', '|' };
       const string expected = "A long long time in a galaxy far far away";
       string result = StringFunc.RemoveAllNonLetterCharacters(source, source2);
       Assert.AreEqual(result, expected);
@@ -4849,7 +4850,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_RemoveAllNonLetterCharacters_with_charsToRemove_in_char_array_true_letters_and_numbers()
     {
       const string source = "123456789abcdefghijklmnopqrstuvwxyz";
-      char[] source2 = new[] { '*', ':', '?', '<', '>', '|' };
+      char[] source2 = { '*', ':', '?', '<', '>', '|' };
       const string expected = "123456789abcdefghijklmnopqrstuvwxyz";
       string result = StringFunc.RemoveAllNonLetterCharacters(source, source2);
       Assert.AreEqual(result, expected);
@@ -4859,7 +4860,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_RemoveAllNonLetterCharacters_with_charsToRemove_in_char_array_true_string_empty()
     {
       const string source = "";
-      char[] source2 = new[] { '*', ':', '?', '<', '>', '|' };
+      char[] source2 = { '*', ':', '?', '<', '>', '|' };
       const string expected = "";
       string result = StringFunc.RemoveAllNonLetterCharacters(source, source2);
       Assert.AreEqual(result, expected);
@@ -4869,7 +4870,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_RemoveAllNonLetterCharacters_with_charsToRemove_in_char_array_true_only_special_characters()
     {
       const string source = "*:?<>|";
-      char[] source2 = new[] { '*', ':', '?', '<', '>', '|' };
+      char[] source2 = { '*', ':', '?', '<', '>', '|' };
       const string expected = "";
       string result = StringFunc.RemoveAllNonLetterCharacters(source, source2);
       Assert.AreEqual(result, expected);

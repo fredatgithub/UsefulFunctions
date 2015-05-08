@@ -61,12 +61,12 @@ namespace FonctionsUtiles.Fred.Csharp
         //Console.WriteLine("First 256 bytes of response: " + ret.Substring(0, 265));
         result = ret;
       }
-      catch (WebException we)
+      catch (WebException)
       {
         // WebException.Status holds useful information
         //Console.WriteLine(we.Message + "\n" + we.Status.ToString());
       }
-      catch (NotSupportedException ne)
+      catch (NotSupportedException)
       {
         // other errors
         //Console.WriteLine(ne.Message);

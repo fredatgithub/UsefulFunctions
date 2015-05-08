@@ -20,7 +20,9 @@ SOFTWARE.
 using System;
 using System.IO;
 using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
+using enumRnd = FonctionsUtiles.Fred.Csharp.RandomCharacters;
 using MathFunc = FonctionsUtiles.Fred.Csharp.FunctionsMath;
+using FonctionsUtiles.Fred.Csharp;
 
 namespace ConsoleApplicationUsageDemo
 {
@@ -51,7 +53,7 @@ namespace ConsoleApplicationUsageDemo
       display("Generation of a 10 random filename strings: ");
       for (int i = 0; i < 10; i++)
       {
-        rdnString = StringFunc.GenerateRandomString(new []{' '}, true, StringFunc.RandomCharacters.UpperLowerDigitSpecial, 8, true);
+        rdnString = StringFunc.GenerateRandomString(new []{' '}, true, enumRnd.UpperLowerDigitSpecial, 8, true);
         display("Random filename: " + rdnString);
       }
 
