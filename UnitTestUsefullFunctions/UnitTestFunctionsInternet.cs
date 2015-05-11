@@ -18,11 +18,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MathFunc = FonctionsUtiles.Fred.Csharp.FunctionsMath;
-using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
-using DateFunc = FonctionsUtiles.Fred.Csharp.FunctionsDateTime;
 using InternetFunc = FonctionsUtiles.Fred.Csharp.FunctionsInternet;
-using FonctionsUtiles.Fred.Csharp;
 
 namespace UnitTestUsefullFunctions
 {

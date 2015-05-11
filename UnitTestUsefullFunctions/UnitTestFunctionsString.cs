@@ -22,9 +22,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MathFunc = FonctionsUtiles.Fred.Csharp.FunctionsMath;
 using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
-using DateFunc = FonctionsUtiles.Fred.Csharp.FunctionsDateTime;
 using dllFuncs = FonctionsUtiles.Fred.Csharp;
 
 namespace UnitTestUsefullFunctions

@@ -17,10 +17,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-using FonctionsUtiles.Fred.Csharp;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using MathFunc = FonctionsUtiles.Fred.Csharp.FunctionsMath;
 using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
 using DateFunc = FonctionsUtiles.Fred.Csharp.FunctionsDateTime;
 
@@ -107,8 +105,8 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
     #endregion OutsideWeekEnd Methods
-    //**********************IsWeekEnd Methods*********************
     #region IsWeekEnd Methods
+    //**********************IsWeekEnd Methods*********************
     [TestMethod]
     public void TestMethod_IsWeekEnd_true()
     {
@@ -154,7 +152,6 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
     #endregion IsWeekEnd Methods
-    //**********************DateToByteArray Methods***************
     #region DateToByteArray Methods
     //**********************DateToByteArray Methods***************
     [TestMethod]
@@ -214,7 +211,6 @@ namespace UnitTestUsefullFunctions
     }
 
     #endregion ByteArrayToString Methods
-
     #region HexStringToByteArray Methods
     [TestMethod]
     public void TestMethod_HexStringToByteArray_true()
@@ -257,7 +253,6 @@ namespace UnitTestUsefullFunctions
     }
 
     #endregion HexStringToByteArray Methods
-
     #endregion Useful Methods
   }
 }

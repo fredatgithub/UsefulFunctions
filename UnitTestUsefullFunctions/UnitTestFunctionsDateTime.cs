@@ -20,10 +20,7 @@ SOFTWARE.
 
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MathFunc = FonctionsUtiles.Fred.Csharp.FunctionsMath;
-using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
 using DateFunc = FonctionsUtiles.Fred.Csharp.FunctionsDateTime;
-using InternetFunc = FonctionsUtiles.Fred.Csharp.FunctionsInternet;
 using dllFuncs = FonctionsUtiles.Fred.Csharp;
 
 namespace UnitTestUsefullFunctions
@@ -2143,7 +2140,6 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
     #endregion HasMilliSeconds
-
    #region TimeSpanElement
     // **********************TimeSpanElement**************
     [TestMethod]

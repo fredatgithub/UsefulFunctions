@@ -21,7 +21,6 @@ using FonctionsUtiles.Fred.Csharp;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.IO;
-using enumRnd = FonctionsUtiles.Fred.Csharp;
 
 namespace UnitTestUsefullFunctions
 {
@@ -76,6 +75,5 @@ namespace UnitTestUsefullFunctions
     }
 
     #endregion Files Methods
-
   }
 }
