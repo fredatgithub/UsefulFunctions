@@ -32,8 +32,8 @@ namespace CodeGeneration
       Action<string> display = Console.WriteLine;
       display("Generating code for Unit tests in a file");
       string fileName = "UnitTestFunctionsString2.cs";
-      string carriageReturn = Environment.NewLine;
       Dictionary<string, string> usingRequired = new Dictionary<string, string>();
+      string carriageReturn = Environment.NewLine;
       string usingToken = "using";
       string space = " ";
       string semiColon = ";";
