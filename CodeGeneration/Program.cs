@@ -18,6 +18,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Text;
@@ -32,6 +33,7 @@ namespace CodeGeneration
       display("Generating code for Unit tests in a file");
       string fileName = "UnitTestFunctionsString2.cs";
       string carriageReturn = Environment.NewLine;
+      Dictionary<string, string> usingRequired = new Dictionary<string, string>();
       string usingToken = "using";
       string space = " ";
       string semiColon = ";";
@@ -70,12 +72,20 @@ namespace CodeGeneration
       string ReferenceEqualsToken = "ReferenceEquals";
       string replaceNullCharsToken = "ReplaceNullChars";
       string publicClass = "public class UnitTestMethodsString";
+      usingRequired.Add(assertToken, "Microsoft.VisualStudio.TestTools.UnitTesting");
       StringBuilder code = new StringBuilder();
       code.Append(usingToken);
       code.Append(space);
       code.Append(systemtoken);
       code.Append(semiColon);
       code.Append(carriageReturn);
+
+      code.Append(usingToken);
+      code.Append(space);
+      code.Append(usingRequired[assertToken]);
+      code.Append(semiColon);
+      code.Append(carriageReturn);
+
       code.Append("namespace UnitTestUsefullFunctions" + carriageReturn);
       code.Append(openCurlyBrace + carriageReturn);
       code.Append(tabulation + testClass + carriageReturn);
