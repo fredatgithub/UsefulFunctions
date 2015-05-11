@@ -293,9 +293,9 @@ namespace FonctionsUtiles.Fred.Csharp
     /// A random string which follows the pattern
     public string Generate(string pattern)
     {
-      this.Pattern = pattern;
+      Pattern = pattern;
       string res = GenerateString(pattern.Length);
-      this.Pattern = "";
+      Pattern = string.Empty;
       return res;
     }
     ///
@@ -305,15 +305,15 @@ namespace FonctionsUtiles.Fred.Csharp
     /// Minimal length of a string
     /// Maximal length of a string
     /// A random string from the selected range of length
-    public string Generate(int MinLength, int MaxLength)
+    public string Generate(int minLength, int maxLength)
     {
-      if (MaxLength < MinLength)
+      if (maxLength < minLength)
       {
         //throw new ArgumentException("Maximal length should be greater than minimal");
-        MaxLength = MinLength + 1;
+        maxLength = minLength + 1;
       }
 
-      int length = MinLength + (GetRandomInt() % (MaxLength - MinLength));
+      int length = minLength + (GetRandomInt() % (maxLength - minLength));
       return GenerateString(length);
     }
     ///
@@ -354,38 +354,38 @@ namespace FonctionsUtiles.Fred.Csharp
     ///
     /// Generate a random string following the pattern
     ///
-    private string PatternDrivenAlgo(string Pattern)
+    private string PatternDrivenAlgo(string pattern)
     {
       string result = "";
-      var Characters = new List<string>();
-      foreach (char character in Pattern.ToCharArray())
+      var characters = new List<string>();
+      foreach (char character in pattern.ToCharArray())
       {
         char newChar = ' ';
         switch (character)
         {
           case 'L':
             {
-              newChar = GetRandomCharFromArray(CurrentUpperCaseCharacters, Characters);
+              newChar = GetRandomCharFromArray(CurrentUpperCaseCharacters, characters);
               break;
             }
           case 'l':
             {
-              newChar = GetRandomCharFromArray(CurrentLowerCaseCharacters, Characters);
+              newChar = GetRandomCharFromArray(CurrentLowerCaseCharacters, characters);
               break;
             }
           case 'n':
             {
-              newChar = GetRandomCharFromArray(CurrentNumericCharacters, Characters);
+              newChar = GetRandomCharFromArray(CurrentNumericCharacters, characters);
               break;
             }
           case 's':
             {
-              newChar = GetRandomCharFromArray(CurrentSpecialCharacters, Characters);
+              newChar = GetRandomCharFromArray(CurrentSpecialCharacters, characters);
               break;
             }
           case '*':
             {
-              newChar = GetRandomCharFromArray(CurrentGeneralCharacters, Characters);
+              newChar = GetRandomCharFromArray(CurrentGeneralCharacters, characters);
               break;
             }
           default:
@@ -394,7 +394,7 @@ namespace FonctionsUtiles.Fred.Csharp
             }
         }
 
-        Characters.Add(newChar.ToString());
+        characters.Add(newChar.ToString());
         result += newChar;
       }
       return result;
@@ -442,11 +442,11 @@ namespace FonctionsUtiles.Fred.Csharp
         throw new ArgumentException("Can't generate a string with this number of MinNumericCharacters");
       if (!RepeatCharacters && (MinSpecialCharacters > CurrentSpecialCharacters.Length))
         throw new ArgumentException("Can't generate a string with this number of MinSpecialCharacters");
-      int AllowedNumberOfGeneralChatacters = length - MinUpperCaseCharacters - MinLowerCaseCharacters
+      int allowedNumberOfGeneralChatacters = length - MinUpperCaseCharacters - MinLowerCaseCharacters
       - MinNumericCharacters - MinSpecialCharacters;
       string result = "";
       // generation character set in order to support unique characters
-      var Characters = new List<string>();
+      var characters = new List<string>();
       // adding chars to an array
       //for (int i = 0; i < MinUpperCaseCharacters; i++)
       //  Characters.Add(GetRandomCharFromArray(UpperCaseCharacters, Characters.ToString()));
@@ -461,9 +461,9 @@ namespace FonctionsUtiles.Fred.Csharp
       // generating result
       for (int i = 0; i < length; i++)
       {
-        int position = GetRandomInt() % Characters.Count;
+        int position = GetRandomInt() % characters.Count;
         //char CurrentChar = Characters[position];
-        Characters.RemoveAt(position);
+        characters.RemoveAt(position);
         //result += CurrentChar;
       }
       return result;
@@ -507,13 +507,13 @@ namespace FonctionsUtiles.Fred.Csharp
     /// A random character from the array
     private char GetRandomCharFromArray(char[] array, List<string> existentItems)
     {
-      char Character = ' ';
+      char character = ' ';
       do
       {
-        Character = array[GetRandomInt() % array.Length];
-      } while (!RepeatCharacters && existentItems.Contains(Character.ToString()));
+        character = array[GetRandomInt() % array.Length];
+      } while (!RepeatCharacters && existentItems.Contains(character.ToString()));
 
-      return Character;
+      return character;
     }
     #endregion
     #region internal state
