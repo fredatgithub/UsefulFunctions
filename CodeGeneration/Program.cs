@@ -133,6 +133,48 @@ namespace CodeGeneration
       display("The file has been written in\n" +
         Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\" +
         fileName);
+
+      // with class
+      CodeFile codeFile = new CodeFile("UnitTestFunctionsString3", "UnitTestFunctionsString3.cs");
+      codeFile.AddUsing("using system;");
+      codeFile.AddCarriageReturn();
+      codeFile.AddUsing("using Microsoft.VisualStudio.TestTools.UnitTesting;");
+      codeFile.AddCode("namespace UnitTestUsefullFunctions");
+      codeFile.AddCarriageReturn();
+      codeFile.AddOpenCurlyBrace();
+      codeFile.AddTabulation(2);
+      codeFile.AddTestClassAttribute();
+      codeFile.AddTabulation(2);
+      codeFile.AddCode("public class UnitTestMethodsString");
+      codeFile.AddCarriageReturn();
+      codeFile.AddTabulation(2);
+      codeFile.AddOpenCurlyBrace();
+      codeFile.AddTabulation(4);
+      codeFile.AddTestMethodAttribute();
+      codeFile.AddTabulation(4);
+      codeFile.AddCode("public void TestMethod_method1_true()");
+      codeFile.AddCarriageReturn();
+      codeFile.AddTabulation(4);
+      codeFile.AddOpenCurlyBrace();
+      codeFile.AddTabulation(6);
+      codeFile.AddAssert();
+      codeFile.AddPeriod();
+      codeFile.AddIsTrue();
+      codeFile.AddOpenParenthesis();
+      codeFile.AddTrue();
+      codeFile.AddCloseParenthesis();
+      codeFile.AddSemiColon();
+      codeFile.AddCarriageReturn();
+      codeFile.AddTabulation(4);
+      codeFile.AddCloseCurlyBrace();
+      codeFile.AddTabulation(2);
+      codeFile.AddCloseCurlyBrace();
+      codeFile.AddCloseCurlyBrace();
+      codeFile.Save();
+      display("");
+      display("The file has been written in\n" +
+        Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\" +
+        codeFile.FileName);
       display("Press a key to exit:");
       Console.ReadKey();
     }
