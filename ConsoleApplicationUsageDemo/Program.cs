@@ -22,7 +22,6 @@ using System.IO;
 using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
 using enumRnd = FonctionsUtiles.Fred.Csharp.RandomCharacters;
 using MathFunc = FonctionsUtiles.Fred.Csharp.FunctionsMath;
-using FonctionsUtiles.Fred.Csharp;
 
 namespace ConsoleApplicationUsageDemo
 {

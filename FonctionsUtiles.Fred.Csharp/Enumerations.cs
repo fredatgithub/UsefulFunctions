@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace FonctionsUtiles.Fred.Csharp
+﻿namespace FonctionsUtiles.Fred.Csharp
 {
   public enum TimeSpanElement
   {
