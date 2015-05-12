@@ -236,23 +236,44 @@ namespace FonctionsUtiles.Fred.Csharp
       Directory.CreateDirectory(directory);
     }
 
-    public static void DeleteDirectory(string directory)
+    public static bool DeleteDirectory(string directory)
     {
+      bool result = false;
       if (Directory.Exists(directory))
       {
         // check for subdirectories and files within
         string[] files = Directory.GetFiles(directory);
         if (files.Length == 0)
         {
-          Directory.Delete(directory);
+          try
+          {
+            Directory.Delete(directory);
+            result = true;
+          }
+          catch (Exception)
+          {
+            result = false;
+          }
         }
         else
         {
-            // TODO delete subdirectories
+          // TODO delete subdirectories
+          foreach (var file in files)
+          {
+            try
+            {
+              File.Delete(file);
+            }
+            catch (Exception)
+            {
+              result = false;
+            }
+          }
 
         }
-        
       }
+
+      return result;
     }
 
     public static void CleanDirectory(string tempDirectory)
