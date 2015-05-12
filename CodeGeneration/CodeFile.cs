@@ -64,6 +64,16 @@ namespace CodeGeneration
 
     }
 
+    public void AddUsing(string usingToken)
+    {
+
+    }
+
+    public void VerifyUsingDependance()
+    {
+
+    }
+
     public override string ToString()
     {
       string result = string.Empty;
