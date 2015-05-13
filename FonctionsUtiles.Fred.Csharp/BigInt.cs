@@ -1,6 +1,6 @@
 ﻿/*
  BigInt.cs (v 1.03)
- stephen swensen
+ stephen Swensen
  created march 2009
  updated may 2009
  c# 3.0, .net 3.5

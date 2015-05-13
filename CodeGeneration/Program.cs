@@ -37,10 +37,10 @@ namespace CodeGeneration
       string usingToken = "using";
       string space = " ";
       string semiColon = ";";
-      string systemtoken = "System";
+      string systemToken = "System";
       string openCurlyBrace = "{";
       string closeCurlyBrace = "}";
-      string tabulation = "  ";
+      string tabulation = " ";
       string openSquareBracket = "[";
       string closeSquareBracket = "]";
       string openParenthesis = "(";
@@ -53,30 +53,30 @@ namespace CodeGeneration
       string period = ".";
       string trueToken = "true";
       string falseToken = "false";
-      string publictoken = "public";
+      string publicToken = "public";
       string voidToken = "void";
       string assertToken = "Assert";
-      string areEqualToken = "AreEqual";
-      string areNotEqualToken = "AreNotEqual";
-      string isTrueToken = "IsTrue";
-      string isFalseToken = "IsFalse";
-      string areNotSameToken = "AreNotSame";
-      string areSameToken = "AreSame";
-      string equalsToken = "Equals";
-      string failToken = "Fail";
-      string inconclusiveToken = "Inconclusive";
-      string isInstanceOfTypeToken = "IsInstanceOfType";
-      string isNotInstnaceOfTypeToken = "IsNotInstanceOfType";
-      string isNotNulToken = "IsNotNull";
-      string isNullToken = "IsNull";
-      string ReferenceEqualsToken = "ReferenceEquals";
-      string replaceNullCharsToken = "ReplaceNullChars";
+      string areEqualMethod = "AreEqual";
+      string areNotEqualMethod = "AreNotEqual";
+      string isTrueMethod = "IsTrue";
+      string isFalseMethod = "IsFalse";
+      string areNotSameMethod = "AreNotSame";
+      string areSameMethod = "AreSame";
+      string equalsMethod = "Equals";
+      string failMethod = "Fail";
+      string inconclusiveMethod = "Inconclusive";
+      string isInstanceOfTypeMethod = "IsInstanceOfType";
+      string isNotInstnaceOfTypeMethod = "IsNotInstanceOfType";
+      string isNotNulMethod = "IsNotNull";
+      string isNullMethod = "IsNull";
+      string ReferenceEqualsMethod = "ReferenceEquals";
+      string replaceNullCharsMethod = "ReplaceNullChars";
       string publicClass = "public class UnitTestMethodsString";
       usingRequired.Add(assertToken, "Microsoft.VisualStudio.TestTools.UnitTesting");
       StringBuilder code = new StringBuilder();
       code.Append(usingToken);
       code.Append(space);
-      code.Append(systemtoken);
+      code.Append(systemToken);
       code.Append(semiColon);
       code.Append(carriageReturn);
 
@@ -94,7 +94,7 @@ namespace CodeGeneration
       code.Append(tabulation + tabulation);
       code.Append(testMethod + carriageReturn);
       code.Append(tabulation + tabulation);
-      code.Append(publictoken);
+      code.Append(publicToken);
       code.Append(space);
       code.Append(voidToken);
       code.Append(space);
@@ -111,7 +111,7 @@ namespace CodeGeneration
       code.Append(tabulation + tabulation + tabulation);
       code.Append(assertToken);
       code.Append(period);
-      code.Append(isTrueToken);
+      code.Append(isTrueMethod);
       code.Append(openParenthesis);
       code.Append(trueToken);
       code.Append(closeParenthesis);
@@ -133,6 +133,48 @@ namespace CodeGeneration
       display("The file has been written in\n" +
         Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\" +
         fileName);
+
+      // with class
+      CodeFile codeFile = new CodeFile("UnitTestFunctionsString3", "UnitTestFunctionsString3.cs");
+      codeFile.AddUsing("using system;");
+      codeFile.AddCarriageReturn();
+      codeFile.AddUsing("using Microsoft.VisualStudio.TestTools.UnitTesting;");
+      codeFile.AddCode("namespace UnitTestUsefullFunctions");
+      codeFile.AddCarriageReturn();
+      codeFile.AddOpenCurlyBrace();
+      codeFile.AddTabulation(2);
+      codeFile.AddTestClassAttribute();
+      codeFile.AddTabulation(2);
+      codeFile.AddCode("public class UnitTestMethodsString");
+      codeFile.AddCarriageReturn();
+      codeFile.AddTabulation(2);
+      codeFile.AddOpenCurlyBrace();
+      codeFile.AddTabulation(4);
+      codeFile.AddTestMethodAttribute();
+      codeFile.AddTabulation(4);
+      codeFile.AddCode("public void TestMethod_method1_true()");
+      codeFile.AddCarriageReturn();
+      codeFile.AddTabulation(4);
+      codeFile.AddOpenCurlyBrace();
+      codeFile.AddTabulation(6);
+      codeFile.AddAssert();
+      codeFile.AddPeriod();
+      codeFile.AddIsTrue();
+      codeFile.AddOpenParenthesis();
+      codeFile.AddTrue();
+      codeFile.AddCloseParenthesis();
+      codeFile.AddSemiColon();
+      codeFile.AddCarriageReturn();
+      codeFile.AddTabulation(4);
+      codeFile.AddCloseCurlyBrace();
+      codeFile.AddTabulation(2);
+      codeFile.AddCloseCurlyBrace();
+      codeFile.AddCloseCurlyBrace();
+      codeFile.Save();
+      display("");
+      display("The file has been written in\n" +
+        Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\" +
+        codeFile.FileName);
       display("Press a key to exit:");
       Console.ReadKey();
     }

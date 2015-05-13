@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace CodeGeneration
 {
@@ -46,7 +47,7 @@ namespace CodeGeneration
     private const string ReferenceEqualsToken = "ReferenceEquals";
     private const string replaceNullCharsToken = "ReplaceNullChars";
     private const string publicClass = "public class UnitTestMethodsString";
-
+    private bool usingHaveBeenVerified = false;
     public string Name { get; set; }
     public string FileName { get; set; }
     public string Code { get; set; }
@@ -57,11 +58,102 @@ namespace CodeGeneration
       FileName = fileName;
       ListOfUsing = new List<string>();
       Code = string.Empty;
+      usingHaveBeenVerified = false;
     }
 
-    public void Add(string tag)
+    public void AddCode(string code)
     {
+      Code += code;
+    }
 
+    public void AddSemiColon()
+    {
+      Code += semiColon;
+    }
+
+    public void AddCarriageReturn()
+    {
+      Code += "\n";
+    }
+
+    public void AddOpenCurlyBrace()
+    {
+      Code += "{" + carriageReturn;
+    }
+    
+    public void AddCloseCurlyBrace()
+    {
+      Code += "}" + carriageReturn;
+    }
+
+    public void AddOpenParenthesis()
+    {
+      Code += "(";
+    }
+
+    public void AddCloseParenthesis()
+    {
+      Code += ")";
+    }
+
+    public void AddTabulation(byte tabulationNumber)
+    {
+      Code += CreateTabulation(tabulationNumber);
+    }
+
+    private string CreateTabulation(byte tabulationNumber)
+    {
+      string result = string.Empty;
+      for (byte i = 1; i <= tabulationNumber; i++)
+      {
+        result += " ";
+      }
+
+      return result;
+    }
+
+    public void AddUsing(string usingToken)
+    {
+      if (!ListOfUsing.Contains(usingToken))
+      {
+        ListOfUsing.Add(usingToken);
+      }
+    }
+
+    public void AddTestClassAttribute()
+    {
+      Code += "[TestClass]" + carriageReturn;
+    }
+
+    public void AddTestMethodAttribute()
+    {
+      Code += "[TestMethod]" + carriageReturn;
+    }
+
+    public void AddAssert()
+    {
+      Code += "Assert";
+    }
+
+    public void AddPeriod()
+    {
+      Code += period;
+    }
+
+    public void AddIsTrue()
+    {
+      Code += isTrueToken;
+    }
+
+    public void AddTrue()
+    {
+      Code += trueToken;
+    }
+
+    public void VerifyUsingDependance()
+    {
+      // TODO
+      usingHaveBeenVerified = true;
     }
 
     public override string ToString()
@@ -77,6 +169,24 @@ namespace CodeGeneration
       }
 
       return result + Code;
+    }
+
+    public void Save(string savePath = ".\\")
+    {
+      if (!usingHaveBeenVerified)
+      {
+        VerifyUsingDependance();
+      }
+
+      if (!Directory.Exists(savePath))
+      {
+        savePath = string.Empty;
+      }
+
+      savePath += FileName;
+      var sw = new StreamWriter(savePath);
+      sw.Write(ToString());
+      sw.Close();
     }
   }
 }
