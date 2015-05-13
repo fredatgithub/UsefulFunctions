@@ -112,11 +112,11 @@ namespace CodeGeneration
       return result;
     }
 
-    public void AddUsing(string usingToken)
+    public void AddUsing(string usingToken2)
     {
-      if (!ListOfUsing.Contains(usingToken))
+      if (!ListOfUsing.Contains(usingToken2))
       {
-        ListOfUsing.Add(usingToken);
+        ListOfUsing.Add(usingToken2);
       }
     }
 
