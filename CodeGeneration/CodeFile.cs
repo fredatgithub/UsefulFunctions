@@ -8,45 +8,45 @@ namespace CodeGeneration
   {
     private List<string> ListOfUsing;
     private Dictionary<string, string> usingRequired;
-    private string carriageReturn = Environment.NewLine;
-    private const string usingToken = "using";
-    private const string space = " ";
-    private const string semiColon = ";";
-    private const string systemtoken = "System";
-    private const string openCurlyBrace = "{";
-    private const string closeCurlyBrace = "}";
+    private readonly string carriageReturn = Environment.NewLine;
+    private const string UsingToken = "using";
+    private const string Space = " ";
+    private const string SemiColon = ";";
+    private const string Systemtoken = "System";
+    private const string OpenCurlyBrace = "{";
+    private const string CloseCurlyBrace = "}";
     private byte tabulation = 2;
-    private const string openSquareBracket = "[";
-    private const string closeSquareBracket = "]";
-    private const string openParenthesis = "(";
-    private const string closeParenthesis = ")";
-    private const string openCloseParenthesis = "()";
-    private const string testClass = "[TestClass]";
-    private const string testMethod = "[TestMethod]";
-    private const string testMethodOnly = "TestMethod";
-    private const string underScore = "_";
-    private const string period = ".";
-    private const string trueToken = "true";
-    private const string falseToken = "false";
-    private const string publictoken = "public";
-    private const string voidToken = "void";
-    private const string assertToken = "Assert";
-    private const string areEqualToken = "AreEqual";
-    private const string areNotEqualToken = "AreNotEqual";
-    private const string isTrueToken = "IsTrue";
-    private const string isFalseToken = "IsFalse";
-    private const string areNotSameToken = "AreNotSame";
-    private const string areSameToken = "AreSame";
-    private const string equalsToken = "Equals";
-    private const string failToken = "Fail";
-    private const string inconclusiveToken = "Inconclusive";
-    private const string isInstanceOfTypeToken = "IsInstanceOfType";
-    private const string isNotInstnaceOfTypeToken = "IsNotInstanceOfType";
-    private const string isNotNulToken = "IsNotNull";
-    private const string isNullToken = "IsNull";
+    private const string OpenSquareBracket = "[";
+    private const string CloseSquareBracket = "]";
+    private const string OpenParenthesis = "(";
+    private const string CloseParenthesis = ")";
+    private const string OpenCloseParenthesis = "()";
+    private const string TestClass = "[TestClass]";
+    private const string TestMethod = "[TestMethod]";
+    private const string TestMethodOnly = "TestMethod";
+    private const string UnderScore = "_";
+    private const string Period = ".";
+    private const string TrueToken = "true";
+    private const string FalseToken = "false";
+    private const string Publictoken = "public";
+    private const string VoidToken = "void";
+    private const string AssertToken = "Assert";
+    private const string AreEqualToken = "AreEqual";
+    private const string AreNotEqualToken = "AreNotEqual";
+    private const string IsTrueToken = "IsTrue";
+    private const string IsFalseToken = "IsFalse";
+    private const string AreNotSameToken = "AreNotSame";
+    private const string AreSameToken = "AreSame";
+    private const string EqualsToken = "Equals";
+    private const string FailToken = "Fail";
+    private const string InconclusiveToken = "Inconclusive";
+    private const string IsInstanceOfTypeToken = "IsInstanceOfType";
+    private const string IsNotInstnaceOfTypeToken = "IsNotInstanceOfType";
+    private const string IsNotNulToken = "IsNotNull";
+    private const string IsNullToken = "IsNull";
     private const string ReferenceEqualsToken = "ReferenceEquals";
-    private const string replaceNullCharsToken = "ReplaceNullChars";
-    private const string publicClass = "public class UnitTestMethodsString";
+    private const string ReplaceNullCharsToken = "ReplaceNullChars";
+    private const string PublicClass = "public class UnitTestMethodsString";
     private bool usingHaveBeenVerified = false;
     public string Name { get; set; }
     public string FileName { get; set; }
@@ -68,7 +68,7 @@ namespace CodeGeneration
 
     public void AddSemiColon()
     {
-      Code += semiColon;
+      Code += SemiColon;
     }
 
     public void AddCarriageReturn()
@@ -137,17 +137,17 @@ namespace CodeGeneration
 
     public void AddPeriod()
     {
-      Code += period;
+      Code += Period;
     }
 
     public void AddIsTrue()
     {
-      Code += isTrueToken;
+      Code += IsTrueToken;
     }
 
     public void AddTrue()
     {
-      Code += trueToken;
+      Code += TrueToken;
     }
 
     public void VerifyUsingDependance()
