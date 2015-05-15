@@ -38,7 +38,8 @@ namespace CodeGenerationWinForm
 
     private readonly string carriageReturn = Environment.NewLine;
     private const string Space = " ";
-    private const string Tabulation = "  ";
+    private const string Tabulation = "  "; // used StringFunc.Tabulation method instead TODO
+    private int MostRecentTabUsed = 2;
 
     private void QuitToolStripMenuItem_Click(object sender, EventArgs e)
     {
@@ -71,6 +72,12 @@ namespace CodeGenerationWinForm
       FillComboBoxWithTypes(comboBoxCustoResultReturnedType);
       FillComboBoxWithDllMethods(comboBoxCustoResultFunctionClass);
       FillComboBoxWithAssertMethods(comboBoxCustoAssertMethod);
+      LoadSettingsAtStartup();
+    }
+
+    private void LoadSettingsAtStartup()
+    {
+      tabControlMain.SelectedIndex = 2;
     }
 
     private static void FillComboBoxLanguage(ComboBox cb)
@@ -519,7 +526,7 @@ namespace CodeGenerationWinForm
 
         var method1 = new UnitTestCodeGenerated(
           rndNumber.ToString(),
-          "const string expected = \"\";",
+          "const string source = \"\";",
           "string result = StringFunc.NumberToEnglishWords(" + rndNumber + ");",
           "Assert.AreEqual(expected, result);");
         switch (languageToTranslate)
@@ -527,13 +534,15 @@ namespace CodeGenerationWinForm
           case "English":
             method1.CodeSignatureMethodName = StringFunc.ReplaceCharacters(StringFunc.NumberToEnglishWords(rndNumber), ' ', '_');
             method1.CodeSignatureMethodName = StringFunc.ReplaceCharacters(method1.CodeSignatureMethodName, '-', '_');
-            method1.CodeExpected = "  const string expected = \"" + StringFunc.NumberToEnglishWords(rndNumber) + "\";";
+            method1.CodeExpected = "const string expected = \"" + StringFunc.NumberToEnglishWords(rndNumber) + "\";";
+            method1.CodeSource = "const ulong source = " + rndNumber + ";";
             break;
           case "French":
             method1.CodeSignatureMethodName = StringFunc.ReplaceCharacters(StringFunc.NumberToFrenchWords(rndNumber), ' ', '_');
             method1.CodeSignatureMethodName = StringFunc.ReplaceCharacters(method1.CodeSignatureMethodName, '-', '_');
             method1.CodeExpected = "const string expected = \"" + StringFunc.NumberToFrenchWords(rndNumber) + "\";";
             method1.CodeResult = "string result = StringFunc.NumberToFrenchWords(" + rndNumber + ");";
+            method1.CodeSource = "const ulong source = " + rndNumber + ";";
             break;
           case "Both French and English":
             method1.CodeSignatureMethodName = StringFunc.ReplaceCharacters(StringFunc.NumberToEnglishWords(rndNumber), ' ', '_');
