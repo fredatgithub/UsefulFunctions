@@ -2815,8 +2815,13 @@ namespace FonctionsUtiles.Fred.Csharp
        ).ToArray());
     }
 
-    public string InsertString(string myString, string stringToBeinserted, char characterToSkip = ' ')
+    public static string InsertStringAtBegining(string myString, string stringToBeinserted, char characterToSkip = ' ')
     {
+      if (myString == string.Empty)
+      {
+        return string.Empty;
+      }
+
       string result = myString;
       int firstIndexOf = 0;
       for (int i = 0; i < myString.Length; i++)

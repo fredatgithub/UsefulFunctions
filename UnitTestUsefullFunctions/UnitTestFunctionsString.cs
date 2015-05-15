@@ -4875,6 +4875,68 @@ namespace UnitTestUsefullFunctions
     }
 
     #endregion RemoveAllNonLetterCharacters_with_charsToRemove_in_char_array
+    #region InsertString
+    public void TestMethod_InsertString_with_a_starting_space()
+    {
+      const string source = " A long long time ago in a galaxy far far away";
+      string source2 = "It was ";
+      char source3 = ' ';
+      const string expected = " It was A long long time ago in a galaxy far far away";
+      string result = StringFunc.InsertStringAtBegining(source, source2, source3);
+      Assert.AreEqual(result, expected);
+    }
+
+    public void TestMethod_InsertString_with_no_space()
+    {
+      const string source = "A long long time ago in a galaxy far far away";
+      string source2 = "It was ";
+      char source3 = ' ';
+      const string expected = "It was A long long time ago in a galaxy far far away";
+      string result = StringFunc.InsertStringAtBegining(source, source2, source3);
+      Assert.AreEqual(result, expected);
+    }
+
+    public void TestMethod_InsertString_with_character_no_space()
+    {
+      const string source = "A long long time ago in a galaxy far far away";
+      string source2 = "It was ";
+      char source3 = '>';
+      const string expected = "It was A long long time ago in a galaxy far far away";
+      string result = StringFunc.InsertStringAtBegining(source, source2, source3);
+      Assert.AreEqual(result, expected);
+    }
+
+    public void TestMethod_InsertString_with_empty_string()
+    {
+      const string source = "";
+      string source2 = "It was ";
+      char source3 = '>';
+      const string expected = "";
+      string result = StringFunc.InsertStringAtBegining(source, source2, source3);
+      Assert.AreEqual(result, expected);
+    }
+
+    public void TestMethod_InsertString_with_one_tabulation()
+    {
+      const string source = "\tA long long time ago in a galaxy far far away";
+      string source2 = "It was ";
+      char source3 = ' ';
+      const string expected = "It was A long long time ago in a galaxy far far away";
+      string result = StringFunc.InsertStringAtBegining(source, source2, source3);
+      Assert.AreEqual(result, expected);
+    }
+
+    public void TestMethod_InsertString_with_two_tabulations()
+    {
+      const string source = "\t\tA long long time ago in a galaxy far far away";
+      string source2 = "It was ";
+      char source3 = ' ';
+      const string expected = "It was A long long time ago in a galaxy far far away";
+      string result = StringFunc.InsertStringAtBegining(source, source2, source3);
+      Assert.AreEqual(result, expected);
+    }
+
+    #endregion InsertString
     #endregion
   }
 }
