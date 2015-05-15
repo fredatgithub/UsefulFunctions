@@ -2814,5 +2814,27 @@ namespace FonctionsUtiles.Fred.Csharp
                          select c
        ).ToArray());
     }
+
+    public string InsertString(string myString, string stringToBeinserted, char characterToSkip = ' ')
+    {
+      string result = myString;
+      int firstIndexOf = 0;
+      for (int i = 0; i < myString.Length; i++)
+      {
+        if (myString[i] == characterToSkip || myString[i] == '\t')
+        {
+          firstIndexOf++;
+        }
+        else
+        {
+          break;
+        }
+      }
+
+      string blanks = myString.Substring(0, firstIndexOf);
+      string afterBlanks = myString.Substring(firstIndexOf, myString.Length - blanks.Length);
+      result = blanks + stringToBeinserted + afterBlanks;
+      return result;
+    }
   }
 }
