@@ -2817,6 +2817,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static string InsertStringAtBegining(string myString, string stringToBeinserted, char characterToSkip = ' ')
     {
+      // TODO In PARAMETER char[]
       if (myString == string.Empty)
       {
         return string.Empty;
@@ -2839,6 +2840,22 @@ namespace FonctionsUtiles.Fred.Csharp
       string blanks = myString.Substring(0, firstIndexOf);
       string afterBlanks = myString.Substring(firstIndexOf, myString.Length - blanks.Length);
       result = blanks + stringToBeinserted + afterBlanks;
+      return result;
+    }
+
+    public static string Tabulation(int numberOfTabulationSpace = 1)
+    {
+      if (numberOfTabulationSpace < 0)
+      {
+        numberOfTabulationSpace = 0;
+      }
+
+      string result = string.Empty;
+      for (int i = 0; i < numberOfTabulationSpace; i++)
+      {
+        result += " ";
+      }
+
       return result;
     }
   }

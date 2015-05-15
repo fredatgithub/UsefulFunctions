@@ -3881,6 +3881,8 @@ namespace UnitTestUsefullFunctions
       string result = StringFunc.NumberToFrenchWords(457131328);
       Assert.AreEqual(expected, result);
     }
+
+
     #endregion Random Unit tests generated
     #region GenerateString method Unit tests
     //**************************GenerateRandomString Method****
@@ -4876,6 +4878,7 @@ namespace UnitTestUsefullFunctions
 
     #endregion RemoveAllNonLetterCharacters_with_charsToRemove_in_char_array
     #region InsertStringAtBegining
+    [TestMethod]
     public void TestMethod_InsertString_with_a_starting_space()
     {
       const string source = " A long long time ago in a galaxy far far away";
@@ -4886,6 +4889,7 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
+    [TestMethod]
     public void TestMethod_InsertString_with_no_space()
     {
       const string source = "A long long time ago in a galaxy far far away";
@@ -4896,6 +4900,7 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
+    [TestMethod]
     public void TestMethod_InsertString_with_character_no_space()
     {
       const string source = "A long long time ago in a galaxy far far away";
@@ -4906,6 +4911,7 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
+    [TestMethod]
     public void TestMethod_InsertString_with_empty_string()
     {
       const string source = "";
@@ -4916,27 +4922,84 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
+    [TestMethod]
     public void TestMethod_InsertString_with_one_tabulation()
     {
       const string source = "\tA long long time ago in a galaxy far far away";
       string source2 = "It was ";
       char source3 = ' ';
-      const string expected = "It was A long long time ago in a galaxy far far away";
+      const string expected = "\tIt was A long long time ago in a galaxy far far away";
       string result = StringFunc.InsertStringAtBegining(source, source2, source3);
       Assert.AreEqual(result, expected);
     }
 
+    [TestMethod]
     public void TestMethod_InsertString_with_two_tabulations()
     {
       const string source = "\t\tA long long time ago in a galaxy far far away";
       string source2 = "It was ";
       char source3 = ' ';
-      const string expected = "It was A long long time ago in a galaxy far far away";
+      const string expected = "\t\tIt was A long long time ago in a galaxy far far away";
       string result = StringFunc.InsertStringAtBegining(source, source2, source3);
       Assert.AreEqual(result, expected);
     }
 
     #endregion InsertStringAtBegining
+    #region Tabulation
+
+    [TestMethod]
+    public void TestMethod_Tabulation_by_default()
+    {
+      const string expected = " ";
+      string result = StringFunc.Tabulation();
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Tabulation_zero_tabulation()
+    {
+      const int source = 0;
+      const string expected = "";
+      string result = StringFunc.Tabulation(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Tabulation_one_tabulation()
+    {
+      const int source = 1;
+      const string expected = " ";
+      string result = StringFunc.Tabulation(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Tabulation_two_tabulations()
+    {
+      const int source = 2;
+      const string expected = "  ";
+      string result = StringFunc.Tabulation(source);
+      Assert.AreEqual(result, expected);
+    }
+    
+    [TestMethod]
+    public void TestMethod_Tabulation_three_tabulations()
+    {
+      const int source = 3;
+      const string expected = "   ";
+      string result = StringFunc.Tabulation(source);
+      Assert.AreEqual(result, expected);
+    }
+    
+    [TestMethod]
+    public void TestMethod_Tabulation_four_tabulations()
+    {
+      const int source = 4;
+      const string expected = "    ";
+      string result = StringFunc.Tabulation(source);
+      Assert.AreEqual(result, expected);
+    }
+    #endregion Tabulation
     #endregion
   }
 }
