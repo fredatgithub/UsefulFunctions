@@ -4875,7 +4875,7 @@ namespace UnitTestUsefullFunctions
     }
 
     #endregion RemoveAllNonLetterCharacters_with_charsToRemove_in_char_array
-    #region InsertString
+    #region InsertStringAtBegining
     public void TestMethod_InsertString_with_a_starting_space()
     {
       const string source = " A long long time ago in a galaxy far far away";
@@ -4936,7 +4936,7 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
-    #endregion InsertString
+    #endregion InsertStringAtBegining
     #endregion
   }
 }
