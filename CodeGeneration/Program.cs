@@ -69,7 +69,7 @@ namespace CodeGeneration
       const string isNotInstnaceOfTypeMethod = "IsNotInstanceOfType";
       const string isNotNulMethod = "IsNotNull";
       const string isNullMethod = "IsNull";
-      const string ReferenceEqualsMethod = "ReferenceEquals";
+      const string referenceEqualsMethod = "ReferenceEquals";
       const string replaceNullCharsMethod = "ReplaceNullChars";
       const string publicClass = "public class UnitTestMethodsString";
       usingRequired.Add(assertToken, "Microsoft.VisualStudio.TestTools.UnitTesting");
