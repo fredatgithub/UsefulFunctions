@@ -5126,6 +5126,49 @@ namespace UnitTestUsefullFunctions
       TestDictionaryValuesAreEqualed(expected, result);
     }
 
+    [TestMethod]
+    public void TestMethod_CountLetters_azerty_true()
+    {
+      const string source = "azerty";
+      var expected = StringFunc.CountLetters("");
+      expected['a'] = 1;
+      expected['z'] = 1;
+      expected['e'] = 1;
+      expected['r'] = 1;
+      expected['t'] = 1;
+      expected['y'] = 1;
+      var result = StringFunc.CountLetters(source);
+      Assert.AreEqual(result['a'], expected['a']);
+      Assert.AreEqual(result['z'], expected['z']);
+      Assert.AreEqual(result['e'], expected['e']);
+      Assert.AreEqual(result['r'], expected['r']);
+      Assert.AreEqual(result['t'], expected['t']);
+      Assert.AreEqual(result['y'], expected['y']);
+      TestDictionaryCountIdEqual(expected, result);
+      TestDictionaryValuesAreEqualed(expected, result);
+    }
+
+    [TestMethod]
+    public void TestMethod_CountLetters_qwerty_true()
+    {
+      const string source = "qwerty";
+      var expected = StringFunc.CountLetters("");
+      expected['q'] = 1;
+      expected['w'] = 1;
+      expected['e'] = 1;
+      expected['r'] = 1;
+      expected['t'] = 1;
+      expected['y'] = 1;
+      var result = StringFunc.CountLetters(source);
+      Assert.AreEqual(result['q'], expected['q']);
+      Assert.AreEqual(result['w'], expected['w']);
+      Assert.AreEqual(result['e'], expected['e']);
+      Assert.AreEqual(result['r'], expected['r']);
+      Assert.AreEqual(result['t'], expected['t']);
+      Assert.AreEqual(result['y'], expected['y']);
+      TestDictionaryCountIdEqual(expected, result);
+      TestDictionaryValuesAreEqualed(expected, result);
+    }
     #endregion CountLetters
     #endregion
     #region Help methods
