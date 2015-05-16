@@ -2858,5 +2858,50 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return result;
     }
+
+    public static Dictionary<char, int> CountLetters(string input, bool wholeDictionary = true)
+    {
+      var result = new Dictionary<char, int>();
+      if (wholeDictionary)
+      {
+        for (char i = 'a'; i <= 'z'; i++)
+        {
+          result.Add(i, 0);
+        }
+      }
+
+      for (int i = 0; i < input.Length - 1; i++)
+      {
+        if (result.ContainsKey(input[i]))
+        {
+          result[input[i]]++;
+        }
+        else
+        {
+          if (IsLetter(input[i]))
+          {
+            if (!wholeDictionary)
+            {
+              result.Add(input[i], 1);
+            }
+            else
+            {
+              result[input[i]]++;
+            }
+            
+          }
+        }
+      }
+      
+      return result;
+    }
+
+
+    public static Dictionary<string, int> CountWords(string input)
+    {
+      var result = new Dictionary<string, int>();
+      // TODO write code
+      return result;
+    }
   }
 }
