@@ -95,7 +95,7 @@ namespace UnitTestUsefullFunctions
       bool result = StringFunc.HasDuplicate(source);
       Assert.AreEqual(result, expected);
     }
-    
+
     [TestMethod]
     public void TestMethod_HasDuplicate_yes_on_several_items()
     {
@@ -4797,7 +4797,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_RemoveAllNonLetterCharacters_with_charsToRemove_true()
     {
       const string source = "*:A long long time in a galaxy far far away?<>|";
-      string[] source2 = {"*", ":", "?", "<", ">", "|" }; 
+      string[] source2 = { "*", ":", "?", "<", ">", "|" };
       const string expected = "A long long time in a galaxy far far away";
       string result = StringFunc.RemoveAllNonLetterCharacters(source, source2);
       Assert.AreEqual(result, expected);
@@ -4981,7 +4981,7 @@ namespace UnitTestUsefullFunctions
       string result = StringFunc.Tabulation(source);
       Assert.AreEqual(result, expected);
     }
-    
+
     [TestMethod]
     public void TestMethod_Tabulation_three_tabulations()
     {
@@ -4990,7 +4990,7 @@ namespace UnitTestUsefullFunctions
       string result = StringFunc.Tabulation(source);
       Assert.AreEqual(result, expected);
     }
-    
+
     [TestMethod]
     public void TestMethod_Tabulation_four_tabulations()
     {
@@ -5017,7 +5017,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "a";
       const bool source2 = false;
-      var expected = new Dictionary<char, int> {{'a', 1}};
+      var expected = new Dictionary<char, int> { { 'a', 1 } };
       var result = StringFunc.CountLetters(source, source2);
       Assert.AreEqual(result['a'], expected['a']);
       Assert.AreEqual(result['a'], 1);
@@ -5055,6 +5055,75 @@ namespace UnitTestUsefullFunctions
       var result = StringFunc.CountLetters(source, source2);
       Assert.AreEqual(result['a'], expected['a']);
       Assert.AreEqual(result['b'], expected['b']);
+    }
+
+    // *****************************wholeDictionary = true**************************
+    [TestMethod]
+    public void TestMethod_CountLetters_empty_string_true()
+    {
+      const string source = "";
+      var expected = StringFunc.CountLetters("");
+      var result = StringFunc.CountLetters(source);
+      Assert.AreEqual(result.Count, expected.Count);
+      TestDictionaryCountIdEqual(expected, result);
+      TestDictionaryValuesAreEqualed(expected, result);
+    }
+
+    [TestMethod]
+    public void TestMethod_CountLetters_one_character_true()
+    {
+      const string source = "a";
+      var expected = StringFunc.CountLetters("");
+      expected['a'] = 1;
+      var result = StringFunc.CountLetters(source);
+      Assert.AreEqual(result['a'], expected['a']);
+      Assert.AreEqual(result['a'], 1);
+      TestDictionaryCountIdEqual(expected, result);
+      TestDictionaryValuesAreEqualed(expected, result);
+    }
+
+    [TestMethod]
+    public void TestMethod_CountLetters_two_characters_true()
+    {
+      const string source = "ab";
+      var expected = StringFunc.CountLetters("");
+      expected['a'] = 1;
+      expected['b'] = 1;
+      var result = StringFunc.CountLetters(source);
+      Assert.AreEqual(result['a'], expected['a']);
+      Assert.AreEqual(result['b'], expected['b']);
+      TestDictionaryCountIdEqual(expected, result);
+      TestDictionaryValuesAreEqualed(expected, result);
+    }
+
+    [TestMethod]
+    public void TestMethod_CountLetters_three_characters_true()
+    {
+      const string source = "abc";
+      var expected = StringFunc.CountLetters("");
+      expected['a'] = 1;
+      expected['b'] = 1;
+      expected['c'] = 1;
+      var result = StringFunc.CountLetters(source);
+      Assert.AreEqual(result['a'], expected['a']);
+      Assert.AreEqual(result['b'], expected['b']);
+      Assert.AreEqual(result['c'], expected['c']);
+      TestDictionaryCountIdEqual(expected, result);
+      TestDictionaryValuesAreEqualed(expected, result);
+    }
+
+    [TestMethod]
+    public void TestMethod_CountLetters_double_characters_true()
+    {
+      const string source = "aba";
+      var expected = StringFunc.CountLetters("");
+      expected['a'] = 2;
+      expected['b'] = 1;
+      var result = StringFunc.CountLetters(source);
+      Assert.AreEqual(result['a'], expected['a']);
+      Assert.AreEqual(result['b'], expected['b']);
+      TestDictionaryCountIdEqual(expected, result);
+      TestDictionaryValuesAreEqualed(expected, result);
     }
 
     #endregion CountLetters
