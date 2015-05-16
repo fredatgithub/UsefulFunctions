@@ -5065,7 +5065,7 @@ namespace UnitTestUsefullFunctions
       var expected = StringFunc.CountLetters("");
       var result = StringFunc.CountLetters(source);
       Assert.AreEqual(result.Count, expected.Count);
-      TestDictionaryCountIdEqual(expected, result);
+      TestDictionaryCountIsEqual(expected, result);
       TestDictionaryValuesAreEqualed(expected, result);
     }
 
@@ -5078,7 +5078,7 @@ namespace UnitTestUsefullFunctions
       var result = StringFunc.CountLetters(source);
       Assert.AreEqual(result['a'], expected['a']);
       Assert.AreEqual(result['a'], 1);
-      TestDictionaryCountIdEqual(expected, result);
+      TestDictionaryCountIsEqual(expected, result);
       TestDictionaryValuesAreEqualed(expected, result);
     }
 
@@ -5092,7 +5092,7 @@ namespace UnitTestUsefullFunctions
       var result = StringFunc.CountLetters(source);
       Assert.AreEqual(result['a'], expected['a']);
       Assert.AreEqual(result['b'], expected['b']);
-      TestDictionaryCountIdEqual(expected, result);
+      TestDictionaryCountIsEqual(expected, result);
       TestDictionaryValuesAreEqualed(expected, result);
     }
 
@@ -5108,7 +5108,7 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result['a'], expected['a']);
       Assert.AreEqual(result['b'], expected['b']);
       Assert.AreEqual(result['c'], expected['c']);
-      TestDictionaryCountIdEqual(expected, result);
+      TestDictionaryCountIsEqual(expected, result);
       TestDictionaryValuesAreEqualed(expected, result);
     }
 
@@ -5122,7 +5122,7 @@ namespace UnitTestUsefullFunctions
       var result = StringFunc.CountLetters(source);
       Assert.AreEqual(result['a'], expected['a']);
       Assert.AreEqual(result['b'], expected['b']);
-      TestDictionaryCountIdEqual(expected, result);
+      TestDictionaryCountIsEqual(expected, result);
       TestDictionaryValuesAreEqualed(expected, result);
     }
 
@@ -5144,7 +5144,7 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result['r'], expected['r']);
       Assert.AreEqual(result['t'], expected['t']);
       Assert.AreEqual(result['y'], expected['y']);
-      TestDictionaryCountIdEqual(expected, result);
+      TestDictionaryCountIsEqual(expected, result);
       TestDictionaryValuesAreEqualed(expected, result);
     }
 
@@ -5166,14 +5166,91 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result['r'], expected['r']);
       Assert.AreEqual(result['t'], expected['t']);
       Assert.AreEqual(result['y'], expected['y']);
-      TestDictionaryCountIdEqual(expected, result);
+      TestDictionaryCountIsEqual(expected, result);
       TestDictionaryValuesAreEqualed(expected, result);
     }
+
+    [TestMethod]
+    public void TestMethod_CountLetters_Star_Wars_true()
+    {
+      const string source = "A long long time ago in a galaxy far far away";
+      var expected = StringFunc.CountLetters("");
+      expected['a'] = 9;
+      expected['l'] = 3;
+      expected['o'] = 3;
+      expected['n'] = 3;
+      expected['g'] = 4;
+      expected['t'] = 1;
+      expected['i'] = 2;
+      expected['m'] = 1;
+      expected['e'] = 1;
+      expected['x'] = 1;
+      expected['y'] = 2;
+      expected['f'] = 2;
+      expected['r'] = 2;
+      expected['w'] = 1;
+      var result = StringFunc.CountLetters(source);
+      Assert.AreEqual(result['a'], expected['a']);
+      Assert.AreEqual(result['l'], expected['l']);
+      Assert.AreEqual(result['o'], expected['o']);
+      Assert.AreEqual(result['n'], expected['n']);
+      Assert.AreEqual(result['g'], expected['g']);
+      Assert.AreEqual(result['t'], expected['t']);
+      Assert.AreEqual(result['i'], expected['i']);
+      Assert.AreEqual(result['m'], expected['m']);
+      Assert.AreEqual(result['e'], expected['e']);
+      Assert.AreEqual(result['x'], expected['x']);
+      Assert.AreEqual(result['y'], expected['y']);
+      Assert.AreEqual(result['f'], expected['f']);
+      Assert.AreEqual(result['r'], expected['r']);
+      Assert.AreEqual(result['w'], expected['w']);
+      TestDictionaryCountIsEqual(expected, result);
+      TestDictionaryValuesAreEqualed(expected, result);
+    }
+
+    [TestMethod]
+    public void TestMethod_CountLetters_Star_Wars_true_UpperCase()
+    {
+      const string source = "A LONG LONG TIME AGO IN A GALAXY FAR FAR AWAY";
+      var expected = StringFunc.CountLetters("");
+      expected['a'] = 9;
+      expected['l'] = 3;
+      expected['o'] = 3;
+      expected['n'] = 3;
+      expected['g'] = 4;
+      expected['t'] = 1;
+      expected['i'] = 2;
+      expected['m'] = 1;
+      expected['e'] = 1;
+      expected['x'] = 1;
+      expected['y'] = 2;
+      expected['f'] = 2;
+      expected['r'] = 2;
+      expected['w'] = 1;
+      var result = StringFunc.CountLetters(source);
+      Assert.AreEqual(result['a'], expected['a']);
+      Assert.AreEqual(result['l'], expected['l']);
+      Assert.AreEqual(result['o'], expected['o']);
+      Assert.AreEqual(result['n'], expected['n']);
+      Assert.AreEqual(result['g'], expected['g']);
+      Assert.AreEqual(result['t'], expected['t']);
+      Assert.AreEqual(result['i'], expected['i']);
+      Assert.AreEqual(result['m'], expected['m']);
+      Assert.AreEqual(result['e'], expected['e']);
+      Assert.AreEqual(result['x'], expected['x']);
+      Assert.AreEqual(result['y'], expected['y']);
+      Assert.AreEqual(result['f'], expected['f']);
+      Assert.AreEqual(result['r'], expected['r']);
+      Assert.AreEqual(result['w'], expected['w']);
+      TestDictionaryCountIsEqual(expected, result);
+      TestDictionaryValuesAreEqualed(expected, result);
+    }
+
     #endregion CountLetters
     #endregion
-    #region Help methods
+    #region Helper methods
 
-    internal void TestDictionaryCountIdEqual(Dictionary<char, int> source, Dictionary<char, int> target)
+    internal void TestDictionaryCountIsEqual(Dictionary<char, int> source, Dictionary<char, int> target)
     {
       Assert.AreEqual(source.Count, target.Count);
     }
@@ -5185,6 +5262,6 @@ namespace UnitTestUsefullFunctions
         Assert.AreEqual(source[i], target[i]);
       }
     }
-    #endregion Help methods
+    #endregion Helper methods
   }
 }
