@@ -5000,6 +5000,79 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
     #endregion Tabulation
+    #region CountLetters
+
+    [TestMethod]
+    public void TestMethod_CountLetters_empty_string()
+    {
+      const string source = "";
+      const bool source2 = false;
+      var expected = new Dictionary<char, int> { };
+      var result = StringFunc.CountLetters(source, source2);
+      Assert.AreEqual(result.Count, expected.Count);
+    }
+
+    [TestMethod]
+    public void TestMethod_CountLetters_one_character()
+    {
+      const string source = "a";
+      const bool source2 = false;
+      var expected = new Dictionary<char, int> {{'a', 1}};
+      var result = StringFunc.CountLetters(source, source2);
+      Assert.AreEqual(result['a'], expected['a']);
+      Assert.AreEqual(result['a'], 1);
+    }
+
+    [TestMethod]
+    public void TestMethod_CountLetters_two_characters()
+    {
+      const string source = "ab";
+      const bool source2 = false;
+      var expected = new Dictionary<char, int> { { 'a', 1 }, { 'b', 1 } };
+      var result = StringFunc.CountLetters(source, source2);
+      Assert.AreEqual(result['a'], expected['a']);
+      Assert.AreEqual(result['b'], expected['b']);
+    }
+
+    [TestMethod]
+    public void TestMethod_CountLetters_three_characters()
+    {
+      const string source = "abc";
+      const bool source2 = false;
+      var expected = new Dictionary<char, int> { { 'a', 1 }, { 'b', 1 }, { 'c', 1 } };
+      var result = StringFunc.CountLetters(source, source2);
+      Assert.AreEqual(result['a'], expected['a']);
+      Assert.AreEqual(result['b'], expected['b']);
+      Assert.AreEqual(result['c'], expected['c']);
+    }
+
+    [TestMethod]
+    public void TestMethod_CountLetters_double_characters()
+    {
+      const string source = "aba";
+      const bool source2 = false;
+      var expected = new Dictionary<char, int> { { 'a', 2 }, { 'b', 1 } };
+      var result = StringFunc.CountLetters(source, source2);
+      Assert.AreEqual(result['a'], expected['a']);
+      Assert.AreEqual(result['b'], expected['b']);
+    }
+
+    #endregion CountLetters
     #endregion
+    #region Help methods
+
+    internal void TestDictionaryCountIdEqual(Dictionary<char, int> source, Dictionary<char, int> target)
+    {
+      Assert.AreEqual(source.Count, target.Count);
+    }
+
+    internal void TestDictionaryValuesAreEqualed(Dictionary<char, int> source, Dictionary<char, int> target)
+    {
+      for (char i = 'a'; i <= 'z'; i++)
+      {
+        Assert.AreEqual(source[i], target[i]);
+      }
+    }
+    #endregion Help methods
   }
 }

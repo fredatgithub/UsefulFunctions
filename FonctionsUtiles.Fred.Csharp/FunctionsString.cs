@@ -2859,8 +2859,9 @@ namespace FonctionsUtiles.Fred.Csharp
       return result;
     }
 
-    public static Dictionary<char, int> CountLetters(string input, bool wholeDictionary = true)
+    public static Dictionary<char, int> CountLetters(string myString, bool wholeDictionary = true)
     {
+      var input = myString.ToLower();
       var result = new Dictionary<char, int>();
       if (wholeDictionary)
       {
@@ -2870,7 +2871,7 @@ namespace FonctionsUtiles.Fred.Csharp
         }
       }
 
-      for (int i = 0; i < input.Length - 1; i++)
+      for (int i = 0; i <= input.Length - 1; i++)
       {
         if (result.ContainsKey(input[i]))
         {
