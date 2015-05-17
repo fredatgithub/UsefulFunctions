@@ -2898,11 +2898,17 @@ namespace FonctionsUtiles.Fred.Csharp
     }
 
 
-    public static Dictionary<string, int> CountWords(string input)
+    public static Dictionary<string, int> GetDictionaryWords(string input)
     {
       var result = new Dictionary<string, int>();
       // TODO write code
       return result;
+    }
+
+
+    public static int CountWords(string input)
+    {
+      return input.Split(' ').Count();
     }
   }
 }
