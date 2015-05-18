@@ -5382,9 +5382,131 @@ namespace UnitTestUsefullFunctions
       expected.Add("bridges", 1);
       var result = StringFunc.GetDictionaryWords(source);
       Assert.AreEqual(result["We"], expected["We"]);
-      TestDictionaryCountIsEqual(result, expected);
+      TestDictionariesAreEqualed(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetDictionaryWords_star_wars()
+    {
+      const string source = "A long long time ago in a galaxy far far away";
+      var expected = new Dictionary<string, int>();
+      expected.Add("A", 1);
+      expected.Add("long", 2);
+      expected.Add("time", 1);
+      expected.Add("ago", 1);
+      expected.Add("in", 1);
+      expected.Add("a", 1);
+      expected.Add("galaxy", 1);
+      expected.Add("far", 2);
+      expected.Add("away", 1);
+      var result = StringFunc.GetDictionaryWords(source);
+      TestDictionariesAreEqualed(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetDictionaryWords_English_quote()
+    {
+      const string source = "When you give yourself, you receive more than you give";
+      var expected = new Dictionary<string, int>();
+      expected.Add("when", 1);
+      expected.Add("you", 3);
+      expected.Add("give", 2);
+      expected.Add("yourself", 1);
+      expected.Add("receive", 1);
+      expected.Add("more", 1);
+      expected.Add("than", 1);
+      var result = StringFunc.GetDictionaryWords(source);
+      TestDictionariesAreEqualed(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetDictionaryWords_English_quote_with_upper_and_lower_case()
+    {
+      const string source = "When you give yourself, You receive more than YOU Give";
+      var expected = new Dictionary<string, int>();
+      expected.Add("when", 1);
+      expected.Add("you", 1);
+      expected.Add("give", 1);
+      expected.Add("yourself", 1);
+      expected.Add("You", 1);
+      expected.Add("receive", 1);
+      expected.Add("more", 1);
+      expected.Add("than", 1);
+      expected.Add("YOU", 1);
+      expected.Add("Give", 1);
+      var result = StringFunc.GetDictionaryWords(source);
+      TestDictionariesAreEqualed(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetDictionaryWords_English_quote_with_upper_and_lower_case_case_sensitive_equals_false()
+    {
+      const string source = "When you give yourself, You receive more than YOU Give";
+      const bool source2 = false;
+      var expected = new Dictionary<string, int>();
+      expected.Add("when", 1);
+      expected.Add("you", 3);
+      expected.Add("give", 2);
+      expected.Add("yourself", 1);
+      expected.Add("receive", 1);
+      expected.Add("more", 1);
+      expected.Add("than", 1);
+      var result = StringFunc.GetDictionaryWords(source, source2);
+      TestDictionariesAreEqualed(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetDictionaryWords_upper_and_lower_case_and_case_sensitive_equals_false_and_casing_upper()
+    {
+      const string source = "When you give yourself, You receive more than YOU Give";
+      const bool source2 = false;
+      const dllFuncs.DefaultCasing source3 = dllFuncs.DefaultCasing.defaultUpperCase;
+      var expected = new Dictionary<string, int>();
+      expected.Add("when".ToUpper(), 1);
+      expected.Add("you".ToUpper(), 3);
+      expected.Add("give".ToUpper(), 2);
+      expected.Add("yourself".ToUpper(), 1);
+      expected.Add("receive".ToUpper(), 1);
+      expected.Add("more".ToUpper(), 1);
+      expected.Add("than".ToUpper(), 1);
+      var result = StringFunc.GetDictionaryWords(source, source2, source3);
+      TestDictionariesAreEqualed(result, expected);
     }
     #endregion GetDictionaryWords
+    #region DefaultCasing
+    // **********************DefaultCasing**************
+    [TestMethod]
+    public void TestMethod_DefaultCasing_true_all_enum_exists_no_deleted_item()
+    {
+      Assert.AreEqual(dllFuncs.DefaultCasing.defaultAsIs, dllFuncs.DefaultCasing.defaultAsIs);
+      Assert.AreEqual(dllFuncs.DefaultCasing.defaultLowerCase, dllFuncs.DefaultCasing.defaultLowerCase);
+      Assert.AreEqual(dllFuncs.DefaultCasing.defaultUpperCase, dllFuncs.DefaultCasing.defaultUpperCase);
+    }
+
+    [TestMethod]
+    public void TestMethod_DefaultCasing_false_no_equality()
+    {
+      Assert.AreNotEqual(dllFuncs.DefaultCasing.defaultAsIs, dllFuncs.DefaultCasing.defaultUpperCase);
+      Assert.AreNotEqual(dllFuncs.DefaultCasing.defaultLowerCase, dllFuncs.DefaultCasing.defaultAsIs);
+      Assert.AreNotEqual(dllFuncs.DefaultCasing.defaultUpperCase, dllFuncs.DefaultCasing.defaultLowerCase);
+    }
+
+    [TestMethod]
+    public void TestMethod_DefaultCasing_true_all_enum_exist_by_their_value_number()
+    {
+      Assert.IsTrue(Enum.IsDefined(typeof(dllFuncs.DefaultCasing), 0));
+      Assert.IsTrue(Enum.IsDefined(typeof(dllFuncs.DefaultCasing), 1));
+      Assert.IsTrue(Enum.IsDefined(typeof(dllFuncs.DefaultCasing), 2));
+    }
+
+    [TestMethod]
+    public void TestMethod_DefaultCasing_true_all_enum_exists_with_no_change_in_their_value()
+    {
+      Assert.AreEqual((int)dllFuncs.DefaultCasing.defaultLowerCase, 0);
+      Assert.AreEqual((int)dllFuncs.DefaultCasing.defaultUpperCase, 1);
+      Assert.AreEqual((int)dllFuncs.DefaultCasing.defaultAsIs, 2);
+    }
+    #endregion DefaultCasing
     #region Helper methods
 
 
@@ -5406,8 +5528,9 @@ namespace UnitTestUsefullFunctions
       }
     }
 
-    internal void TestDictionaryValuesAreEqualed(Dictionary<string, int> source, Dictionary<string, int> target)
+    internal void TestDictionariesAreEqualed(Dictionary<string, int> source, Dictionary<string, int> target)
     {
+      Assert.AreEqual(source.Count, target.Count);
       foreach (var i in source)
       {
         foreach (var j in target)
@@ -5416,10 +5539,6 @@ namespace UnitTestUsefullFunctions
           {
             Assert.AreEqual(i.Key, j.Key);
             Assert.AreEqual(i.Value, j.Value);
-          }
-          else
-          {
-            Assert.IsFalse(true); // should not occur
           }
         }
       }

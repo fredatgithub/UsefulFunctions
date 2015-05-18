@@ -42,9 +42,16 @@
     NoTranslation = 0,
     ToFrench = 1,
     ToEnglish = 2,
-    ToBothFrenchAndEnglish = 4,
-    All = ToFrench & ToEnglish
+    ToBothFrenchAndEnglish = ToFrench & ToEnglish,
+    All = ToFrench & ToEnglish, // & any other language if you have any
     //ToBothFrenchAndEnglish = ToFrench & ToEnglish
+  }
+
+  public enum DefaultCasing
+  {
+    defaultLowerCase,
+    defaultUpperCase,
+    defaultAsIs
   }
 
   public enum ImplicitUseKindFlags

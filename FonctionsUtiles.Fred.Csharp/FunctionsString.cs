@@ -2902,7 +2902,8 @@ namespace FonctionsUtiles.Fred.Csharp
       return input.Split(' ').Count();
     }
 
-    public static Dictionary<string, int> GetDictionaryWords(string input)
+    public static Dictionary<string, int> GetDictionaryWords(string input, 
+      bool caseSensitive = true, DefaultCasing defaultLowerCase = DefaultCasing.defaultLowerCase)
     {
       if (input == "")
       {
@@ -2913,13 +2914,52 @@ namespace FonctionsUtiles.Fred.Csharp
       string[] words = input.Split(' ');
       for (int i = 0; i < words.Length; i++)
       {
-        if (result.ContainsKey(words[i]))
+        if (caseSensitive)
         {
-          result[words[i]]++;
+          if (result.ContainsKey(words[i]))
+          {
+            result[words[i]]++;
+          }
+          else
+          {
+            result.Add(words[i], 1);
+          }
         }
         else
         {
-          result.Add(words[i], 1);
+          if (defaultLowerCase == DefaultCasing.defaultLowerCase)
+          {
+            if (result.ContainsKey(words[i]) || result.ContainsKey(words[i].ToLower()))
+            {
+              result[words[i].ToLower()]++;
+            }
+            else
+            {
+              result.Add(words[i].ToLower(), 1);
+            }
+          }
+          else if (defaultLowerCase == DefaultCasing.defaultUpperCase)
+          {
+            if (result.ContainsKey(words[i]) || result.ContainsKey(words[i].ToUpper()))
+            {
+              result[words[i].ToUpper()]++;
+            }
+            else
+            {
+              result.Add(words[i].ToUpper(), 1);
+            }
+          }
+          else if (defaultLowerCase == DefaultCasing.defaultAsIs)
+          {
+            if (result.ContainsKey(words[i]))
+            {
+              result[words[i]]++;
+            }
+            else
+            {
+              result.Add(words[i], 1);
+            }
+          }
         }
       }
 
