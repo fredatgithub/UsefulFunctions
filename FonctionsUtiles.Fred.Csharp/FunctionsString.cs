@@ -2904,6 +2904,11 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static Dictionary<string, int> GetDictionaryWords(string input)
     {
+      if (input == "")
+      {
+        return new Dictionary<string, int>();
+      }
+
       var result = new Dictionary<string, int>();
       string[] words = input.Split(' ');
       for (int i = 0; i < words.Length; i++)

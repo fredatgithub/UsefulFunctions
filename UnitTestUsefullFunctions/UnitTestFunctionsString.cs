@@ -5356,7 +5356,42 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
     #endregion CountWords
+    #region GetDictionaryWords
+    [TestMethod]
+    public void TestMethod_GetDictionaryWords_empty_string()
+    {
+      const string source = "";
+      var expected = new Dictionary<string, int>();
+      var result = StringFunc.GetDictionaryWords(source);
+      Assert.AreEqual(result.Count, expected.Count);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetDictionaryWords()
+    {
+      const string source = "We build too many walls and not enough bridges";
+      var expected = new Dictionary<string, int>();
+      expected.Add("We", 1);
+      expected.Add("build", 1);
+      expected.Add("too", 1);
+      expected.Add("many", 1);
+      expected.Add("walls", 1);
+      expected.Add("and", 1);
+      expected.Add("not", 1);
+      expected.Add("enough", 1);
+      expected.Add("bridges", 1);
+      var result = StringFunc.GetDictionaryWords(source);
+      Assert.AreEqual(result["We"], expected["We"]);
+      TestDictionaryCountIsEqual(result, expected);
+    }
+    #endregion GetDictionaryWords
     #region Helper methods
+
+
+    internal void TestDictionaryCountIsEqual(Dictionary<string, int> source, Dictionary<string, int> target)
+    {
+      Assert.AreEqual(source.Count, target.Count);
+    }
 
     internal void TestDictionaryCountIsEqual(Dictionary<char, int> source, Dictionary<char, int> target)
     {
@@ -5368,6 +5403,25 @@ namespace UnitTestUsefullFunctions
       for (char i = 'a'; i <= 'z'; i++)
       {
         Assert.AreEqual(source[i], target[i]);
+      }
+    }
+
+    internal void TestDictionaryValuesAreEqualed(Dictionary<string, int> source, Dictionary<string, int> target)
+    {
+      foreach (var i in source)
+      {
+        foreach (var j in target)
+        {
+          if (i.Key == j.Key)
+          {
+            Assert.AreEqual(i.Key, j.Key);
+            Assert.AreEqual(i.Value, j.Value);
+          }
+          else
+          {
+            Assert.IsFalse(true); // should not occur
+          }
+        }
       }
     }
     #endregion Helper methods
