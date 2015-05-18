@@ -5292,6 +5292,69 @@ namespace UnitTestUsefullFunctions
       var result = StringFunc.CountWords(source);
       Assert.AreEqual(result, expected);
     }
+
+    [TestMethod]
+    public void TestMethod_CountWords_french_words()
+    {
+      const string source = "il fut dommage qu'il ne pu venir";
+      var expected = 7;
+      var result = StringFunc.CountWords(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_CountWords_french_quote_of_mine()
+    {
+      const string source = "La connaissance est certitude et la certitude ne se confirme pas";
+      var expected = 11;
+      var result = StringFunc.CountWords(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_CountWords_English_quote()
+    {
+      const string source = "It's immposible said pride. It's risky said experience. It's pointless said reason. Give it a try whispered the heart";
+      var expected = 19;
+      var result = StringFunc.CountWords(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_CountWords_English_quote_antoine_de_saint_exupery()
+    {
+      const string source = "When you give yourself, you receive more than you give";
+      var expected = 10;
+      var result = StringFunc.CountWords(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_CountWords_English_quote_Linus_tordvals()
+    {
+      const string source = "If Microsoft ever does applications for Linux, it means I've won";
+      var expected = 11;
+      var result = StringFunc.CountWords(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_CountWords_English_quote_Mark_Twain()
+    {
+      const string source = "Age is an issue of mind over matter. If you don't mind, it doesn't matter";
+      var expected = 15;
+      var result = StringFunc.CountWords(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_CountWords_English_quote_Issac_Newton()
+    {
+      const string source = "We build too many walls and not enough bridges";
+      var expected = 9;
+      var result = StringFunc.CountWords(source);
+      Assert.AreEqual(result, expected);
+    }
     #endregion CountWords
     #region Helper methods
 
