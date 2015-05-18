@@ -2897,17 +2897,28 @@ namespace FonctionsUtiles.Fred.Csharp
       return result;
     }
 
-    public static Dictionary<string, int> GetDictionaryWords(string input)
-    {
-      var result = new Dictionary<string, int>();
-      // TODO write code
-      return result;
-    }
-
-
     public static int CountWords(string input)
     {
       return input.Split(' ').Count();
+    }
+
+    public static Dictionary<string, int> GetDictionaryWords(string input)
+    {
+      var result = new Dictionary<string, int>();
+      string[] words = input.Split(' ');
+      for (int i = 0; i < words.Length; i++)
+      {
+        if (result.ContainsKey(words[i]))
+        {
+          result[words[i]]++;
+        }
+        else
+        {
+          result.Add(words[i], 1);
+        }
+      }
+
+      return result;
     }
   }
 }
