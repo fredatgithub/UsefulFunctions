@@ -2897,7 +2897,6 @@ namespace FonctionsUtiles.Fred.Csharp
       return result;
     }
 
-
     public static Dictionary<string, int> GetDictionaryWords(string input)
     {
       var result = new Dictionary<string, int>();

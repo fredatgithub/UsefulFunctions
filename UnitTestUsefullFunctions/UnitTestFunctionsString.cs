@@ -243,7 +243,7 @@ namespace UnitTestUsefullFunctions
       bool result = StringFunc.IsLetter(' ');
       Assert.IsFalse(result);
     }
-
+    #endregion String methods
     #region String methods - Plural
     // **********************Plural****************
     [TestMethod]
@@ -5247,8 +5247,17 @@ namespace UnitTestUsefullFunctions
     }
 
     #endregion CountLetters
-    #endregion
-    #region Helper methods
+    #region CountWords
+    [TestMethod]
+    public void TestMethod_CountWords_true()
+    {
+      const string source = "A long long time ago in a galaxy far far away";
+      var expected = 11;
+      var result = StringFunc.CountWords(source);
+      Assert.AreEqual(result, expected);
+    }
+    #endregion CountWords
+      #region Helper methods
 
     internal void TestDictionaryCountIsEqual(Dictionary<char, int> source, Dictionary<char, int> target)
     {
