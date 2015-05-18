@@ -5249,15 +5249,51 @@ namespace UnitTestUsefullFunctions
     #endregion CountLetters
     #region CountWords
     [TestMethod]
-    public void TestMethod_CountWords_true()
+    public void TestMethod_CountWords_empty_string()
+    {
+      const string source = "";
+      var expected = 1;
+      var result = StringFunc.CountWords(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_CountWords_star_wars()
     {
       const string source = "A long long time ago in a galaxy far far away";
       var expected = 11;
       var result = StringFunc.CountWords(source);
       Assert.AreEqual(result, expected);
     }
+    
+    [TestMethod]
+    public void TestMethod_CountWords_one_character()
+    {
+      const string source = "A";
+      var expected = 1;
+      var result = StringFunc.CountWords(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_CountWords_two_words()
+    {
+      const string source = "A source";
+      var expected = 2;
+      var result = StringFunc.CountWords(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_CountWords_three_words()
+    {
+      const string source = "A beautiful code";
+      var expected = 3;
+      var result = StringFunc.CountWords(source);
+      Assert.AreEqual(result, expected);
+    }
     #endregion CountWords
-      #region Helper methods
+    #region Helper methods
 
     internal void TestDictionaryCountIsEqual(Dictionary<char, int> source, Dictionary<char, int> target)
     {
