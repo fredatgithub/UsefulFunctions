@@ -438,30 +438,30 @@ namespace CodeGenerationWinForm
 
         var method1 = new UnitTestCodeGenerated(
           i.ToString(),
-          "const string expected = \"\";",
-          "string result = StringFunc.NumberToEnglishWords(" + i + ");",
-          "Assert.AreEqual(expected, result);");
+          " const string expected = \"\";",
+          " string result = StringFunc.NumberToEnglishWords(" + i + ");",
+          " Assert.AreEqual(expected, result);");
         switch (languageToTranslate)
         {
           case "English":
             method1.CodeSignatureMethodName = StringFunc.ReplaceCharacters(StringFunc.NumberToEnglishWords(i), ' ', '_');
             method1.CodeSignatureMethodName = StringFunc.ReplaceCharacters(method1.CodeSignatureMethodName, '-', '_');
-            method1.CodeExpected = "const string expected = \"" + StringFunc.NumberToEnglishWords(i) + "\";";
+            method1.CodeExpected = " const string expected = \"" + StringFunc.NumberToEnglishWords(i) + "\";";
             break;
           case "French":
             method1.CodeSignatureMethodName = StringFunc.ReplaceCharacters(StringFunc.NumberToFrenchWords(i), ' ', '_');
             method1.CodeSignatureMethodName = StringFunc.ReplaceCharacters(method1.CodeSignatureMethodName, '-', '_');
-            method1.CodeExpected = "const string expected = \"" + StringFunc.NumberToFrenchWords(i) + "\";";
-            method1.CodeResult = "string result = StringFunc.NumberToFrenchWords(" + i + ");";
+            method1.CodeExpected = " const string expected = \"" + StringFunc.NumberToFrenchWords(i) + "\";";
+            method1.CodeResult = " string result = StringFunc.NumberToFrenchWords(" + i + ");";
             break;
           case "Both French and English":
             method1.CodeSignatureMethodName = StringFunc.ReplaceCharacters(StringFunc.NumberToEnglishWords(i), ' ', '_');
             method1.CodeSignatureMethodName = StringFunc.ReplaceCharacters(method1.CodeSignatureMethodName, '-', '_');
-            method1.CodeExpected = "const string expected = \"" + StringFunc.NumberToEnglishWords(i) + "\";";
+            method1.CodeExpected = " const string expected = \"" + StringFunc.NumberToEnglishWords(i) + "\";";
             break;
           default:
             method1.CodeSignatureMethodName = StringFunc.ReplaceCharacters(StringFunc.NumberToEnglishWords(i), ' ', '_');
-            method1.CodeExpected = "const string expected = \"" + StringFunc.NumberToEnglishWords(i) + "\";";
+            method1.CodeExpected = " const string expected = \"" + StringFunc.NumberToEnglishWords(i) + "\";";
             break;
         }
 
@@ -470,16 +470,16 @@ namespace CodeGenerationWinForm
           textBoxRangeMethods.Text += method1.ToString();
           var method2 = new UnitTestCodeGenerated(
           StringFunc.NumberToFrenchWords(i),
-          "const string expected = \"" + StringFunc.NumberToFrenchWords(i) + "\";",
-          "string result = StringFunc.NumberToEnglishWords(" + i + ");",
-          "Assert.AreEqual(expected, result);")
+          " const string expected = \"" + StringFunc.NumberToFrenchWords(i) + "\";",
+          " string result = StringFunc.NumberToEnglishWords(" + i + ");",
+          " Assert.AreEqual(expected, result);")
           {
             CodeSignatureMethodName = StringFunc.ReplaceCharacters(StringFunc.NumberToFrenchWords(i), ' ', '_')
           };
 
           method2.CodeSignatureMethodName = StringFunc.ReplaceCharacters(method2.CodeSignatureMethodName, '-', '_');
-          method2.CodeExpected = "const string expected = \"" + StringFunc.NumberToFrenchWords(i) + "\";";
-          method2.CodeResult = "string result = StringFunc.NumberToFrenchWords(" + i + ");";
+          method2.CodeExpected = " const string expected = \"" + StringFunc.NumberToFrenchWords(i) + "\";";
+          method2.CodeResult = " string result = StringFunc.NumberToFrenchWords(" + i + ");";
           textBoxRangeMethods.Text += method2.ToString();
         }
         else
