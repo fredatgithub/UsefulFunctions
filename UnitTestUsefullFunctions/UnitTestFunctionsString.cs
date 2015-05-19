@@ -5472,6 +5472,27 @@ namespace UnitTestUsefullFunctions
       var result = StringFunc.GetDictionaryWords(source, source2, source3);
       TestDictionariesAreEqualed(result, expected);
     }
+
+    [TestMethod]
+    public void TestMethod_GetDictionaryWords_upper_and_lower_case_and_case_sensitive_equals_false_and_casing_AsIs()
+    {
+      const string source = "When you give yourself, You receive more than YOU Give";
+      const bool source2 = false;
+      const dllFuncs.DefaultCasing source3 = dllFuncs.DefaultCasing.defaultAsIs;
+      var expected = new Dictionary<string, int>();
+      expected.Add("when", 1);
+      expected.Add("you", 1);
+      expected.Add("give", 1);
+      expected.Add("yourself", 1);
+      expected.Add("You", 1);
+      expected.Add("receive", 1);
+      expected.Add("more", 1);
+      expected.Add("than", 1);
+      expected.Add("YOU", 1);
+      expected.Add("Give", 1);
+      var result = StringFunc.GetDictionaryWords(source, source2, source3);
+      TestDictionariesAreEqualed(result, expected);
+    }
     #endregion GetDictionaryWords
     #region DefaultCasing
     // **********************DefaultCasing**************
