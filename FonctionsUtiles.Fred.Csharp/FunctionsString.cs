@@ -2843,7 +2843,7 @@ namespace FonctionsUtiles.Fred.Csharp
       return result;
     }
 
-    public static string Tabulation(int numberOfTabulationSpace = 1)
+    public static string AddTabulation(int numberOfTabulationSpace = 1)
     {
       if (numberOfTabulationSpace < 0)
       {

@@ -43,7 +43,7 @@ namespace CodeGenerationWinForm
       string codeSource = "const string source = ",
       string codeExpected = @"const string expected = "";",
       string codeResult = @"string result = "";",
-      string codeAssert = "Assert.AreEqual(result, expected);",
+      string codeAssert = " Assert.AreEqual(result, expected);",
       string tabulation = "  ",
       string codeAttribute = "[TestMethod]")
     {

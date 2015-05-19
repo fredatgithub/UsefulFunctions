@@ -4951,7 +4951,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_Tabulation_by_default()
     {
       const string expected = " ";
-      string result = StringFunc.Tabulation();
+      string result = StringFunc.AddTabulation();
       Assert.AreEqual(result, expected);
     }
 
@@ -4960,7 +4960,7 @@ namespace UnitTestUsefullFunctions
     {
       const int source = 0;
       const string expected = "";
-      string result = StringFunc.Tabulation(source);
+      string result = StringFunc.AddTabulation(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -4969,7 +4969,7 @@ namespace UnitTestUsefullFunctions
     {
       const int source = 1;
       const string expected = " ";
-      string result = StringFunc.Tabulation(source);
+      string result = StringFunc.AddTabulation(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -4978,7 +4978,7 @@ namespace UnitTestUsefullFunctions
     {
       const int source = 2;
       const string expected = "  ";
-      string result = StringFunc.Tabulation(source);
+      string result = StringFunc.AddTabulation(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -4987,7 +4987,7 @@ namespace UnitTestUsefullFunctions
     {
       const int source = 3;
       const string expected = "   ";
-      string result = StringFunc.Tabulation(source);
+      string result = StringFunc.AddTabulation(source);
       Assert.AreEqual(result, expected);
     }
 
@@ -4996,7 +4996,7 @@ namespace UnitTestUsefullFunctions
     {
       const int source = 4;
       const string expected = "    ";
-      string result = StringFunc.Tabulation(source);
+      string result = StringFunc.AddTabulation(source);
       Assert.AreEqual(result, expected);
     }
     #endregion Tabulation
