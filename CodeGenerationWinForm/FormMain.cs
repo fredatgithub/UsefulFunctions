@@ -43,6 +43,7 @@ namespace CodeGenerationWinForm
 
     private void QuitToolStripMenuItem_Click(object sender, EventArgs e)
     {
+      SaveWindowValue();
       Application.Exit();
     }
 
@@ -78,6 +79,7 @@ namespace CodeGenerationWinForm
     private void LoadSettingsAtStartup()
     {
       tabControlMain.SelectedIndex = 2;
+      tabControlMain.SelectedIndex = Settings.Default.MostRecentTabUsed;
     }
 
     private static void FillComboBoxLanguage(ComboBox cb)
@@ -187,6 +189,7 @@ namespace CodeGenerationWinForm
       Settings.Default.WindowWidth = Width;
       Settings.Default.WindowLeft = Left;
       Settings.Default.WindowTop = Top;
+      Settings.Default.MostRecentTabUsed = tabControlMain.SelectedIndex;
       Settings.Default.Save();
     }
 
