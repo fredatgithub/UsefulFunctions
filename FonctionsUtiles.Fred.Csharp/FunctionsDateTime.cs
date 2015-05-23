@@ -26,24 +26,24 @@ namespace FonctionsUtiles.Fred.Csharp
 
   public class FunctionsDateTime
   {
-    public static bool OutsideWeekEnd()
+    public static bool IsOutsideWeekEnd()
     {
       return (DateTime.Now.DayOfWeek != DayOfWeek.Sunday) && (DateTime.Now.DayOfWeek != DayOfWeek.Saturday);
     }
 
-    public static bool OutsideWeekEnd(DateTime dt)
+    public static bool IsOutsideWeekEnd(DateTime dt)
     {
       return (dt.DayOfWeek != DayOfWeek.Sunday) && (dt.DayOfWeek != DayOfWeek.Saturday);
     }
 
     public static bool IsWeekEnd()
     {
-      return !OutsideWeekEnd();
+      return !IsOutsideWeekEnd();
     }
 
     public static bool IsWeekEnd(DateTime dt)
     {
-      return !OutsideWeekEnd(dt);
+      return !IsOutsideWeekEnd(dt);
     }
 
     public static bool IsMorning(DateTime time)
@@ -55,7 +55,7 @@ namespace FonctionsUtiles.Fred.Csharp
     {
       return string.Format("{0}:{1}:{2}:{3}:{4}", ts.Days, ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds);
     }
-    
+
     public static string TimeSpanToLongTimeNotNull(TimeSpan timeSpan)
     {
       return TimeSpanToFriendlyDisplay(timeSpan) == string.Empty ? "1 millisecond" :
@@ -130,7 +130,7 @@ namespace FonctionsUtiles.Fred.Csharp
       {
         result.Append("0 hour");
       }
-      
+
       if (HasMinutes(time))
       {
         result.Append(" ");
@@ -143,7 +143,7 @@ namespace FonctionsUtiles.Fred.Csharp
       {
         result.Append(" 0 minute");
       }
-      
+
       if (HasSeconds(time))
       {
         result.Append(" ");
