@@ -90,13 +90,65 @@ namespace FonctionsUtiles.Fred.Csharp
       result.Append("Method= char CharMid(string input, int startingIndex, int count)" + newLine);
       result.Append("Method= int CountString(string input, string sequence, bool ignoreCase)" + newLine);
       result.Append("Method= int[] IndexOfAll(string input, string sequence, bool ignoreCase)" + newLine);
-      result.Append("Method= " + newLine);
-      result.Append("Method= " + newLine);
-      result.Append("Method= " + newLine);
-      result.Append("Method= " + newLine);
-      result.Append("Method= " + newLine);
-      result.Append("Method= " + newLine);
-      result.Append("Method= " + newLine);
+      result.Append("Method= int[] IndexOfAll(string input, string sequence, int startIndex, bool ignoreCase)" + newLine);
+      result.Append("Method= bool IsAlternateCases" + newLine);
+      result.Append("Method= bool IsCapitalized(string input)" + newLine);
+      result.Append("Method= bool IsLowerCase(string input)" + newLine);
+      result.Append("Method= bool HasConsonants(string input)" + newLine);
+      result.Append("Method= bool IsSpaces(string input)" + newLine);
+      result.Append("Method= bool IsRepeatedChar(string input)" + newLine);
+      result.Append("Method= bool IsNumeric2(string input)" + newLine);
+      result.Append("Method= bool IsNumeric(string valueInNumeric)" + newLine);
+      result.Append("Method= bool IsNumeric3(string val, NumberStyles numberStyle)" + newLine);
+      result.Append("Method= bool HasNumeric(string input)" + newLine);
+      result.Append("Method= bool IsAlphaNumeric(string input)" + newLine);
+      result.Append("Method= bool IsOnlyLetters(string input)" + newLine);
+      result.Append("Method= bool HasSomeLetters(string input)" + newLine);
+      result.Append("Method= bool HasSomeLowerCaseLetters(string input)" + newLine);
+      result.Append("Method= bool HasSomeUpperCaseLetters(string input)" + newLine);
+      result.Append("Method= bool HasLettersOrDigits(string input)" + newLine);
+      result.Append("Method= bool HasSymbols(string input)" + newLine);
+      result.Append("Method= bool IsTitle(string input)" + newLine);
+      result.Append("Method= bool IsTitle(string input, string separator)" + newLine);
+      result.Append("Method= bool IsEmailAddress(string input)" + newLine);
+      result.Append("Method= bool IsEmailAddressValid(string s)" + newLine);
+      result.Append("Method= char[] LoadAlphabetInCharArray(bool addDigit = true, bool addLowerCaseLetters = true, bool addUpperCaseLetters = false)string[] LoadAlphabetInStringArray(string[] list)" + newLine);
+      result.Append("Method= List<string> GetAlphabetToList(bool addLowerCaseLetters = true, bool addUpperCaseLetters = false, bool addDigit = true, LetterCasingSequence letterSequence = LetterCasingSequence.LowerUpperDigit)" + newLine);
+      result.Append("Method= List<string> AddDigits(List<string> startingList)" + newLine);
+      result.Append("Method= List<string> AddLowerCaseLetters(List<string> startingList)" + newLine);
+      result.Append("Method= List<string> AddUpperCaseLetters(List<string> startingList)" + newLine);
+      result.Append("Method= string NumberToEnglishWords(int number)" + newLine);
+      result.Append("Method= string NumberToEnglishWords(long number)" + newLine);
+      result.Append("Method= string NumberToEnglishWords(ulong number)" + newLine);
+      result.Append("Method= string NumberToFrenchWords(int number)" + newLine);
+      result.Append("Method= string NumberToFrenchWords(long number)" + newLine);
+      result.Append("Method= string NumberToFrenchWords(ulong number)" + newLine);
+      result.Append("Method= Dictionary<int, string> DicoNumberToFrenchWords(int startNumber, int endNumber)" + newLine);
+      result.Append("Method= Dictionary<int, string> DicoNumberToEnglishWords(int startNumber, int endNumber)" + newLine);
+      result.Append("Method= bool IsInside(int number, params int[] array)" + newLine);
+      result.Append("Method= string ToTitleCase(string myString)" + newLine);
+      result.Append("Method= string UpperCaseFirstLetter(string value)" + newLine);
+      result.Append("Method= char[] GetAlphabet(bool lowerCase = true)" + newLine);
+      result.Append("Method= string ReplaceCharacters(string originalString, char oldChar = ' ', char newChar = ' ')" + newLine);
+      result.Append("Method= string GenerateGuid()" + newLine);
+      result.Append("Method= string GenerateUniqueFilename(string directoryPath, RandomCharacters rdnCharacters = RandomCharacters.LowerCase, byte length = 8, bool withFileExtension = false, string fileExtension = \"txt\")" + newLine);
+      result.Append("Method= string GenerateRandomLongString(char[] forbiddenCharacters, bool hasForbiddenCharacters = false, RandomCharacters rdnCharacters = RandomCharacters.LowerCase, int length = 8, bool isWindowsFileName = false)" + newLine);
+      result.Append("Method= string GenerateRandomString(char[] forbiddenCharacters, bool hasForbiddenCharacters = false, RandomCharacters rdnCharacters = RandomCharacters.LowerCase, byte length = 8, bool isWindowsFileName = false)" + newLine);
+      result.Append("Method= string FillSearchedCharWithoutForbiddenChar(char[] source, char[] forbiddenCharacters)" + newLine);
+      result.Append("Method= char[] AddCharArray(char[] source, char[] toBeAdded, char[] forbiddenCharacters)" + newLine);
+      result.Append("Method= string GenerateCharactersFromSource(List<string> source, int numberOfCharacters = 1)" + newLine);
+      result.Append("Method= string ByteArrayToString(byte[] bytes)" + newLine);
+      result.Append("Method= byte[] HexStringToByteArray(string hexaString)" + newLine);
+      result.Append("Method= string ReplaceWindowsForbiddenCharacters(string input, string charToReplaced = \"\")" + newLine);
+      result.Append("Method= string RemoveAllNonLetterCharacters(string input, string[] charsToRemove)" + newLine);
+      result.Append("Method= string RemoveAllNonLetterCharacters(string input, char[] charsToRemove)" + newLine);
+      result.Append("Method= string RemoveAllNonLetterCharacters(string input)" + newLine);
+      result.Append("Method= string InsertStringAtBegining(string myString, string stringToBeinserted, char characterToSkip = ' ')" + newLine);
+      result.Append("Method= string AddTabulation(int numberOfTabulationSpace = 1)" + newLine);
+      result.Append("Method= Dictionary<char, int> CountLetters(string myString, bool wholeDictionary = true)" + newLine);
+      result.Append("Method= int CountWords(string input)" + newLine);
+      result.Append("Method= Dictionary<string, int> GetDictionaryWords(string input, bool caseSensitive = true, DefaultCasing defaultLowerCase = DefaultCasing.defaultLowerCase)" + newLine);
+
       return result.ToString();
     }
 
@@ -1987,8 +2039,6 @@ namespace FonctionsUtiles.Fred.Csharp
       return startingList;
     }
 
-    
-
     public static string NumberToEnglishWords(int number)
     {
       if (number == 0)
@@ -2731,8 +2781,6 @@ namespace FonctionsUtiles.Fred.Csharp
       return tmpSource.ToArray();
     }
 
-   
-
     public static string GenerateCharactersFromSource(List<string> source, int numberOfCharacters = 1)
     {
       if (source == null || source.Count == 0)
@@ -2889,11 +2937,11 @@ namespace FonctionsUtiles.Fred.Csharp
             {
               result[input[i]]++;
             }
-            
+
           }
         }
       }
-      
+
       return result;
     }
 
@@ -2902,7 +2950,7 @@ namespace FonctionsUtiles.Fred.Csharp
       return input.Split(' ').Count();
     }
 
-    public static Dictionary<string, int> GetDictionaryWords(string input, 
+    public static Dictionary<string, int> GetDictionaryWords(string input,
       bool caseSensitive = true, DefaultCasing defaultLowerCase = DefaultCasing.defaultLowerCase)
     {
       if (input == "")
