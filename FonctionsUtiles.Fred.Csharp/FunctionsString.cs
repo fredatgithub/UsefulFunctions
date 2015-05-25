@@ -153,7 +153,7 @@ namespace FonctionsUtiles.Fred.Csharp
       result.Append("Files methods:" + newLine);
       result.Append("Internet methods:" + newLine);
       result.Append("Math methods:" + newLine);
-      result.Append("Usaful methods:" + newLine);
+      result.Append("Useful methods:" + newLine);
 
       return result.ToString();
     }
