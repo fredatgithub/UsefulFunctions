@@ -44,6 +44,7 @@ namespace FonctionsUtiles.Fred.Csharp
       StringBuilder result = new StringBuilder();
       result.Append(newLine + "Name= FonctionsUtiles.Fred.Csharp" + newLine);
       result.Append("Version= 1.0.0.0" + newLine);
+      result.Append("String methods:" + newLine);
       result.Append("Method= bool HasDuplicate(params int[] liste)" + newLine);
       result.Append("Method= bool HasNoDuplicate(params int[] liste)" + newLine);
       result.Append("Method= string EndPadding(string chaine, byte blankLength)" + newLine);
@@ -148,6 +149,11 @@ namespace FonctionsUtiles.Fred.Csharp
       result.Append("Method= Dictionary<char, int> CountLetters(string myString, bool wholeDictionary = true)" + newLine);
       result.Append("Method= int CountWords(string input)" + newLine);
       result.Append("Method= Dictionary<string, int> GetDictionaryWords(string input, bool caseSensitive = true, DefaultCasing defaultLowerCase = DefaultCasing.defaultLowerCase)" + newLine);
+      result.Append("DateTime methods:" + newLine);
+      result.Append("Files methods:" + newLine);
+      result.Append("Internet methods:" + newLine);
+      result.Append("Math methods:" + newLine);
+      result.Append("Usaful methods:" + newLine);
 
       return result.ToString();
     }
