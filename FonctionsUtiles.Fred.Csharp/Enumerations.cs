@@ -70,4 +70,12 @@
     Members = 2,
     WithMembers = Itself | Members
   }
+
+  public enum SearchedLanguage
+  {
+    NoLanguageChosen = 0,
+    French = 1,
+    English = 2,
+    FrenchAndEnglish = French & English // = 3
+  }
 }
