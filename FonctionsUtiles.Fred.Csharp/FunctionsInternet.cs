@@ -1,8 +1,10 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace FonctionsUtiles.Fred.Csharp
 {
@@ -112,5 +114,19 @@ namespace FonctionsUtiles.Fred.Csharp
         return false;
       }
     }
+
+    //public static async Task<string> Get(string url)
+    //{
+    //  string responseStr = null;
+    //  //HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest;
+
+    //  //using (var response = await request.GetResponseAsync() as HttpWebResponse)
+    //  //{
+    //  //  var reader = new StreamReader(response.GetResponseStream());
+    //  //  responseStr = reader.ReadToEnd();
+    //  //}
+
+    //  return responseStr;
+    //}
   }
 }
