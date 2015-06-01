@@ -143,6 +143,47 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual((int)dllFuncs.SearchedLanguage.FrenchAndEnglish, 3);
     }
     #endregion SearchedLanguage
+    #region TimeSpanElement
+    // **********************TimeSpanElement**************
+    [TestMethod]
+    public void TestMethod_TimeSpanElement_true_all_enum_exists_no_deleted_item()
+    {
+      Assert.AreEqual(dllFuncs.TimeSpanElement.Millisecond, dllFuncs.TimeSpanElement.Millisecond);
+      Assert.AreEqual(dllFuncs.TimeSpanElement.Second, dllFuncs.TimeSpanElement.Second);
+      Assert.AreEqual(dllFuncs.TimeSpanElement.Minute, dllFuncs.TimeSpanElement.Minute);
+      Assert.AreEqual(dllFuncs.TimeSpanElement.Hour, dllFuncs.TimeSpanElement.Hour);
+      Assert.AreEqual(dllFuncs.TimeSpanElement.Day, dllFuncs.TimeSpanElement.Day);
+    }
 
+    [TestMethod]
+    public void TestMethod_TimeSpanElement_false_no_equality()
+    {
+      Assert.AreNotEqual(dllFuncs.TimeSpanElement.Millisecond, dllFuncs.TimeSpanElement.Day);
+      Assert.AreNotEqual(dllFuncs.TimeSpanElement.Second, dllFuncs.TimeSpanElement.Minute);
+      Assert.AreNotEqual(dllFuncs.TimeSpanElement.Minute, dllFuncs.TimeSpanElement.Second);
+      Assert.AreNotEqual(dllFuncs.TimeSpanElement.Hour, dllFuncs.TimeSpanElement.Millisecond);
+      Assert.AreNotEqual(dllFuncs.TimeSpanElement.Day, dllFuncs.TimeSpanElement.Hour);
+    }
+
+    [TestMethod]
+    public void TestMethod_TimeSpanElement_true_all_enum_exist_by_their_value_number()
+    {
+      Assert.IsTrue(Enum.IsDefined(typeof(dllFuncs.TimeSpanElement), 0));
+      Assert.IsTrue(Enum.IsDefined(typeof(dllFuncs.TimeSpanElement), 1));
+      Assert.IsTrue(Enum.IsDefined(typeof(dllFuncs.TimeSpanElement), 2));
+      Assert.IsTrue(Enum.IsDefined(typeof(dllFuncs.TimeSpanElement), 3));
+      Assert.IsTrue(Enum.IsDefined(typeof(dllFuncs.TimeSpanElement), 4));
+    }
+
+    [TestMethod]
+    public void TestMethod_TimeSpanElement_true_all_enum_exists_with_no_change_in_their_value()
+    {
+      Assert.AreEqual((int)dllFuncs.TimeSpanElement.Millisecond, 0);
+      Assert.AreEqual((int)dllFuncs.TimeSpanElement.Second, 1);
+      Assert.AreEqual((int)dllFuncs.TimeSpanElement.Minute, 2);
+      Assert.AreEqual((int)dllFuncs.TimeSpanElement.Hour, 3);
+      Assert.AreEqual((int)dllFuncs.TimeSpanElement.Day, 4);
+    }
+    #endregion TimeSpanElement
   }
 }
