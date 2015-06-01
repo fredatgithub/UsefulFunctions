@@ -2140,71 +2140,6 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
     #endregion HasMilliSeconds
-
-    #region IsOutsideWeekEnd
-    [TestMethod]
-    public void TestMethod_IsOutsideWeekEnd_true_or_false()
-    {
-      const bool expected = true;
-      bool result = DateFunc.IsOutsideWeekEnd();
-      if (DateTime.Now.DayOfWeek == DayOfWeek.Saturday || DateTime.Now.DayOfWeek == DayOfWeek.Sunday)
-      {
-        Assert.AreNotEqual(result, expected);
-      }
-      else
-      {
-        Assert.AreEqual(result, expected);
-      }
-    }
-
-    [TestMethod]
-    public void TestMethod_IsOutsideWeekEnd_with_a_date_true()
-    {
-      var source = new DateTime(2015, 06, 01); // Monday, the day I wrote this unit test :O)
-      const bool expected = true;
-      bool result = DateFunc.IsOutsideWeekEnd(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsOutsideWeekEnd_with_a_date_false()
-    {
-      var source = new DateTime(2015, 05, 31); // Sunday, the day before I wrote this unit test :o)
-      const bool expected = false;
-      bool result = DateFunc.IsOutsideWeekEnd(source);
-      Assert.AreEqual(result, expected);
-    }
-        
-    #endregion IsOutsideWeekEnd
-    #region IsMorning Methods
-    //**********************IsMorning Methods***************
-    [TestMethod]
-    public void TestMethod_IsMorning_true()
-    {
-      DateTime source = new DateTime(2015, 03, 22, 11, 58, 00);
-      const bool expected = true;
-      bool result = DateFunc.IsMorning(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsMorning_false()
-    {
-      DateTime source = new DateTime(2015, 03, 22, 14, 58, 00);
-      const bool expected = false;
-      bool result = DateFunc.IsMorning(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsMorning_noon_is_false()
-    {
-      DateTime source = new DateTime(2015, 03, 22, 12, 00, 00);
-      const bool expected = false;
-      bool result = DateFunc.IsMorning(source);
-      Assert.AreEqual(result, expected);
-    }
-    #endregion IsMorning Methods
     #region OutsideWeekEnd Methods
     //**********************OutsideWeekEnd Methods***************
 
@@ -2252,7 +2187,70 @@ namespace UnitTestUsefullFunctions
       bool result = DateFunc.IsOutsideWeekEnd(source);
       Assert.AreEqual(result, expected);
     }
+    
+    [TestMethod]
+    public void TestMethod_IsOutsideWeekEnd_true_or_false()
+    {
+      const bool expected = true;
+      bool result = DateFunc.IsOutsideWeekEnd();
+      if (DateTime.Now.DayOfWeek == DayOfWeek.Saturday || DateTime.Now.DayOfWeek == DayOfWeek.Sunday)
+      {
+        Assert.AreNotEqual(result, expected);
+      }
+      else
+      {
+        Assert.AreEqual(result, expected);
+      }
+    }
+
+    [TestMethod]
+    public void TestMethod_IsOutsideWeekEnd_with_a_date_true()
+    {
+      var source = new DateTime(2015, 06, 01); // Monday, the day I wrote this unit test :O)
+      const bool expected = true;
+      bool result = DateFunc.IsOutsideWeekEnd(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsOutsideWeekEnd_with_a_date_false()
+    {
+      var source = new DateTime(2015, 05, 31); // Sunday, the day before I wrote this unit test :o)
+      const bool expected = false;
+      bool result = DateFunc.IsOutsideWeekEnd(source);
+      Assert.AreEqual(result, expected);
+    }
+
     #endregion OutsideWeekEnd Methods
+    #region IsMorning Methods
+    //**********************IsMorning Methods***************
+    [TestMethod]
+    public void TestMethod_IsMorning_true()
+    {
+      DateTime source = new DateTime(2015, 03, 22, 11, 58, 00);
+      const bool expected = true;
+      bool result = DateFunc.IsMorning(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsMorning_false()
+    {
+      DateTime source = new DateTime(2015, 03, 22, 14, 58, 00);
+      const bool expected = false;
+      bool result = DateFunc.IsMorning(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsMorning_noon_is_false()
+    {
+      DateTime source = new DateTime(2015, 03, 22, 12, 00, 00);
+      const bool expected = false;
+      bool result = DateFunc.IsMorning(source);
+      Assert.AreEqual(result, expected);
+    }
+    #endregion IsMorning Methods
     #region IsWeekEnd Methods
     //**********************IsWeekEnd Methods*********************
     [TestMethod]
