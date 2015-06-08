@@ -76,17 +76,17 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_DefaultCasing_true_all_enum_exists_no_deleted_item()
     {
-      Assert.AreEqual(dllFuncs.DefaultCasing.defaultAsIs, dllFuncs.DefaultCasing.defaultAsIs);
-      Assert.AreEqual(dllFuncs.DefaultCasing.defaultLowerCase, dllFuncs.DefaultCasing.defaultLowerCase);
-      Assert.AreEqual(dllFuncs.DefaultCasing.defaultUpperCase, dllFuncs.DefaultCasing.defaultUpperCase);
+      Assert.AreEqual(dllFuncs.DefaultCasing.DefaultAsIs, dllFuncs.DefaultCasing.DefaultAsIs);
+      Assert.AreEqual(dllFuncs.DefaultCasing.DefaultLowerCase, dllFuncs.DefaultCasing.DefaultLowerCase);
+      Assert.AreEqual(dllFuncs.DefaultCasing.DefaultUpperCase, dllFuncs.DefaultCasing.DefaultUpperCase);
     }
 
     [TestMethod]
     public void TestMethod_DefaultCasing_false_no_equality()
     {
-      Assert.AreNotEqual(dllFuncs.DefaultCasing.defaultAsIs, dllFuncs.DefaultCasing.defaultUpperCase);
-      Assert.AreNotEqual(dllFuncs.DefaultCasing.defaultLowerCase, dllFuncs.DefaultCasing.defaultAsIs);
-      Assert.AreNotEqual(dllFuncs.DefaultCasing.defaultUpperCase, dllFuncs.DefaultCasing.defaultLowerCase);
+      Assert.AreNotEqual(dllFuncs.DefaultCasing.DefaultAsIs, dllFuncs.DefaultCasing.DefaultUpperCase);
+      Assert.AreNotEqual(dllFuncs.DefaultCasing.DefaultLowerCase, dllFuncs.DefaultCasing.DefaultAsIs);
+      Assert.AreNotEqual(dllFuncs.DefaultCasing.DefaultUpperCase, dllFuncs.DefaultCasing.DefaultLowerCase);
     }
 
     [TestMethod]
@@ -100,9 +100,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_DefaultCasing_true_all_enum_exists_with_no_change_in_their_value()
     {
-      Assert.AreEqual((int)dllFuncs.DefaultCasing.defaultLowerCase, 0);
-      Assert.AreEqual((int)dllFuncs.DefaultCasing.defaultUpperCase, 1);
-      Assert.AreEqual((int)dllFuncs.DefaultCasing.defaultAsIs, 2);
+      Assert.AreEqual((int)dllFuncs.DefaultCasing.DefaultLowerCase, 0);
+      Assert.AreEqual((int)dllFuncs.DefaultCasing.DefaultUpperCase, 1);
+      Assert.AreEqual((int)dllFuncs.DefaultCasing.DefaultAsIs, 2);
     }
     #endregion DefaultCasing
     #region SearchedLanguage

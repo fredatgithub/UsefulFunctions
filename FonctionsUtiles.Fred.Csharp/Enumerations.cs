@@ -49,9 +49,9 @@
 
   public enum DefaultCasing
   {
-    defaultLowerCase,
-    defaultUpperCase,
-    defaultAsIs
+    DefaultLowerCase,
+    DefaultUpperCase,
+    DefaultAsIs
   }
 
   public enum ImplicitUseKindFlags

@@ -2957,7 +2957,7 @@ namespace FonctionsUtiles.Fred.Csharp
     }
 
     public static Dictionary<string, int> GetDictionaryWords(string input,
-      bool caseSensitive = true, DefaultCasing defaultLowerCase = DefaultCasing.defaultLowerCase)
+      bool caseSensitive = true, DefaultCasing defaultLowerCase = DefaultCasing.DefaultLowerCase)
     {
       if (input == "")
       {
@@ -2981,7 +2981,7 @@ namespace FonctionsUtiles.Fred.Csharp
         }
         else
         {
-          if (defaultLowerCase == DefaultCasing.defaultLowerCase)
+          if (defaultLowerCase == DefaultCasing.DefaultLowerCase)
           {
             if (result.ContainsKey(words[i]) || result.ContainsKey(words[i].ToLower()))
             {
@@ -2992,7 +2992,7 @@ namespace FonctionsUtiles.Fred.Csharp
               result.Add(words[i].ToLower(), 1);
             }
           }
-          else if (defaultLowerCase == DefaultCasing.defaultUpperCase)
+          else if (defaultLowerCase == DefaultCasing.DefaultUpperCase)
           {
             if (result.ContainsKey(words[i]) || result.ContainsKey(words[i].ToUpper()))
             {
@@ -3003,7 +3003,7 @@ namespace FonctionsUtiles.Fred.Csharp
               result.Add(words[i].ToUpper(), 1);
             }
           }
-          else if (defaultLowerCase == DefaultCasing.defaultAsIs)
+          else if (defaultLowerCase == DefaultCasing.DefaultAsIs)
           {
             if (result.ContainsKey(words[i]))
             {
@@ -3017,6 +3017,25 @@ namespace FonctionsUtiles.Fred.Csharp
         }
       }
 
+      return result;
+    }
+
+    public static string[] SeparateQuote(string wholeQuote)
+    {
+      string[] result = new string[2];
+      if (wholeQuote.Length < 4)
+      {
+        return result;
+      }
+
+      if (!wholeQuote.Contains('-'))
+      {
+        return result;
+      }
+
+      var lastIndex = wholeQuote.LastIndexOf('-');
+      result[0] = wholeQuote.Substring(0, lastIndex - 1);
+      result[1] = wholeQuote.Substring(lastIndex + 2);
       return result;
     }
   }

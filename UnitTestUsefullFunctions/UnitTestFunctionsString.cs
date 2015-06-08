@@ -2704,7 +2704,7 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result[26], expected[26]); // '0'
       Assert.AreEqual(result[35], expected[35]); // '9'
     }
-        
+
     // **********************NumberToWordsEnglish**************
     [TestMethod]
     public void TestMethod_NumberToWordsEnglish_zero()
@@ -5220,7 +5220,7 @@ namespace UnitTestUsefullFunctions
       var result = StringFunc.CountWords(source);
       Assert.AreEqual(result, expected);
     }
-    
+
     [TestMethod]
     public void TestMethod_CountWords_one_character()
     {
@@ -5415,7 +5415,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "When you give yourself, You receive more than YOU Give";
       const bool source2 = false;
-      const dllFuncs.DefaultCasing source3 = dllFuncs.DefaultCasing.defaultUpperCase;
+      const dllFuncs.DefaultCasing source3 = dllFuncs.DefaultCasing.DefaultUpperCase;
       var expected = new Dictionary<string, int>();
       expected.Add("when".ToUpper(), 1);
       expected.Add("you".ToUpper(), 3);
@@ -5433,7 +5433,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "When you give yourself, You receive more than YOU Give";
       const bool source2 = false;
-      const dllFuncs.DefaultCasing source3 = dllFuncs.DefaultCasing.defaultAsIs;
+      const dllFuncs.DefaultCasing source3 = dllFuncs.DefaultCasing.DefaultAsIs;
       var expected = new Dictionary<string, int>();
       expected.Add("when", 1);
       expected.Add("you", 1);
@@ -5449,7 +5449,7 @@ namespace UnitTestUsefullFunctions
       TestDictionariesAreEqualed(result, expected);
     }
     #endregion GetDictionaryWords
-   
+
     #region Helper methods
 
 
