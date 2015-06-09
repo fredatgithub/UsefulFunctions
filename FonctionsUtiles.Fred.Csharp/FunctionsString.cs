@@ -3022,6 +3022,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static string[] SeparateQuote(string wholeQuote)
     {
+      // TODO add unit test for this method
       string[] result = new string[2];
       if (wholeQuote.Length < 4)
       {
