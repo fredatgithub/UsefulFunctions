@@ -5449,10 +5449,60 @@ namespace UnitTestUsefullFunctions
       TestDictionariesAreEqualed(result, expected);
     }
     #endregion GetDictionaryWords
+    #region SeparateQuote
+    [TestMethod]
+    public void TestMethod_SeparateQuote_simple_quote()
+    {
+      string source = "A long long time ago in a galaxy far far away - StarWars";
+      string[] expected = { "A long long time ago in a galaxy far far away", "StarWars" };
+      string[] result = StringFunc.SeparateQuote(source);
+      Assert.AreEqual(result[0], expected[0]);
+      Assert.AreEqual(result[1], expected[1]);
+    }
 
+    [TestMethod]
+    public void TestMethod_SeparateQuote_empty_string()
+    {
+      string source = "";
+      string[] expected = new string[2];
+      string[] result = StringFunc.SeparateQuote(source);
+      Assert.AreEqual(result[0], expected[0]);
+      Assert.AreEqual(result[1], expected[1]);
+    }
+
+    [TestMethod]
+    public void TestMethod_SeparateQuote_two_dashes()
+    {
+      string source = "A long-long time ago in a galaxy far far away - StarWars";
+      string[] expected = { "A long-long time ago in a galaxy far far away", "StarWars" };
+      string[] result = StringFunc.SeparateQuote(source);
+      Assert.AreEqual(result[0], expected[0]);
+      Assert.AreEqual(result[1], expected[1]);
+    }
+
+
+    [TestMethod]
+    public void TestMethod_SeparateQuote_three_dashes()
+    {
+      string source = "A long-long time ago in a galaxy far-far away - StarWars";
+      string[] expected = { "A long-long time ago in a galaxy far-far away", "StarWars" };
+      string[] result = StringFunc.SeparateQuote(source);
+      Assert.AreEqual(result[0], expected[0]);
+      Assert.AreEqual(result[1], expected[1]);
+    }
+
+    [TestMethod]
+    public void TestMethod_SeparateQuote_no_dash()
+    {
+      string source = "A long long time ago in a galaxy far far away StarWars";
+      string[] expected = new string[2];
+      string[] result = StringFunc.SeparateQuote(source);
+      Assert.AreEqual(result[0], expected[0]);
+      Assert.AreEqual(result[1], expected[1]);
+    }
+
+    #endregion SeparateQuote
     #region Helper methods
-
-
     internal void TestDictionaryCountIsEqual(Dictionary<string, int> source, Dictionary<string, int> target)
     {
       Assert.AreEqual(source.Count, target.Count);
