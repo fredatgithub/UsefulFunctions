@@ -4922,9 +4922,8 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Tabulation_one_tabulation()
     {
-      const int source = 1;
       const string expected = " ";
-      string result = StringFunc.AddTabulation(source);
+      string result = StringFunc.AddTabulation();
       Assert.AreEqual(result, expected);
     }
 
@@ -5537,5 +5536,358 @@ namespace UnitTestUsefullFunctions
       }
     }
     #endregion Helper methods
+    #region GetCapitalLetters
+    [TestMethod]
+    public void TestMethod_GetCapitalLetters_empty_string()
+    {
+      const string source = "";
+      const string expected = "";
+      string result = StringFunc.GetCapitalLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetCapitalLetters_TextBox()
+    {
+      const string source = "TextBox";
+      const string expected = "TB";
+      string result = StringFunc.GetCapitalLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetCapitalLetters_ComboBox()
+    {
+      const string source = "ComboBox";
+      const string expected = "CB";
+      string result = StringFunc.GetCapitalLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetCapitalLetters_CheckListBox()
+    {
+      const string source = "CheckedListBox";
+      const string expected = "CLB";
+      string result = StringFunc.GetCapitalLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetCapitalLetters_ContextMenuStrip()
+    {
+      const string source = "ContextMenuStrip";
+      const string expected = "CMS";
+      string result = StringFunc.GetCapitalLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetCapitalLetters_DataGridView()
+    {
+      const string source = "DataGridView";
+      const string expected = "DGV";
+      string result = StringFunc.GetCapitalLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetCapitalLetters_Button()
+    {
+      const string source = "Button";
+      const string expected = "B";
+      string result = StringFunc.GetCapitalLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetCapitalLetters_ColorDialog()
+    {
+      const string source = "ColorDialog";
+      const string expected = "CD";
+      string result = StringFunc.GetCapitalLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetCapitalLetters_DataSet()
+    {
+      const string source = "DataSet";
+      const string expected = "DS";
+      string result = StringFunc.GetCapitalLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetCapitalLetters_DataTimPicker()
+    {
+      const string source = "DateTimePicker";
+      const string expected = "DTP";
+      string result = StringFunc.GetCapitalLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetCapitalLetters_DirectoryEntry()
+    {
+      const string source = "DirectoryEntry";
+      const string expected = "DE";
+      string result = StringFunc.GetCapitalLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetCapitalLetters_DirectorySearcher()
+    {
+      const string source = "DirectorySearcher";
+      const string expected = "DS";
+      string result = StringFunc.GetCapitalLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetCapitalLetters_DomainUpDown()
+    {
+      const string source = "DomainUpDown";
+      const string expected = "DUD";
+      string result = StringFunc.GetCapitalLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetCapitalLetters_ErrorProvider()
+    {
+      const string source = "ErrorProvider";
+      const string expected = "EP";
+      string result = StringFunc.GetCapitalLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetCapitalLetters_EventLog()
+    {
+      const string source = "EventLog";
+      const string expected = "EL";
+      string result = StringFunc.GetCapitalLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetCapitalLetters_FileSystemWatcher()
+    {
+      const string source = "FileSystemWatcher";
+      const string expected = "FSW";
+      string result = StringFunc.GetCapitalLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetCapitalLetters_FlowLayoutPanel()
+    {
+      const string source = "FlowLayoutPanel";
+      const string expected = "FLP";
+      string result = StringFunc.GetCapitalLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetCapitalLetters_FolderBrowserDialog()
+    {
+      const string source = "FolderBrowserDialog";
+      const string expected = "FBD";
+      string result = StringFunc.GetCapitalLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetCapitalLetters_FontDialog()
+    {
+      const string source = "FontDialog";
+      const string expected = "FD";
+      string result = StringFunc.GetCapitalLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetCapitalLetters_Groupbox()
+    {
+      const string source = "GroupBox";
+      const string expected = "GB";
+      string result = StringFunc.GetCapitalLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetCapitalLetters_HelpProvider()
+    {
+      const string source = "HelpProvider";
+      const string expected = "HP";
+      string result = StringFunc.GetCapitalLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetCapitalLetters_HScrollBar()
+    {
+      const string source = "HScrollBar";
+      const string expected = "HSB";
+      string result = StringFunc.GetCapitalLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetCapitalLetters_ImageList()
+    {
+      const string source = "ImageList";
+      const string expected = "IL";
+      string result = StringFunc.GetCapitalLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetCapitalLetters_Label()
+    {
+      const string source = "Label";
+      const string expected = "L";
+      string result = StringFunc.GetCapitalLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetCapitalLetters_LinkLabel()
+    {
+      const string source = "LinkLabel";
+      const string expected = "LL";
+      string result = StringFunc.GetCapitalLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetCapitalLetters_ListBox()
+    {
+      const string source = "ListBox";
+      const string expected = "LB";
+      string result = StringFunc.GetCapitalLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetCapitalLetters_ListView()
+    {
+      const string source = "ListView";
+      const string expected = "LV";
+      string result = StringFunc.GetCapitalLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetCapitalLetters_MaskedTextBox()
+    {
+      const string source = "MaskedTextBox";
+      const string expected = "MTB";
+      string result = StringFunc.GetCapitalLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetCapitalLetters_MenuStrip()
+    {
+      const string source = "MenuStrip";
+      const string expected = "MS";
+      string result = StringFunc.GetCapitalLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetCapitalLetters_MessageQueue()
+    {
+      const string source = "MessageQueue";
+      const string expected = "MQ";
+      string result = StringFunc.GetCapitalLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetCapitalLetters_MonthCalendar()
+    {
+      const string source = "MonthCalendar";
+      const string expected = "MC";
+      string result = StringFunc.GetCapitalLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetCapitalLetters_NotifyIcon()
+    {
+      const string source = "NotifyIcon";
+      const string expected = "NI";
+      string result = StringFunc.GetCapitalLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetCapitalLetters_NumericUpDown()
+    {
+      const string source = "NumericUpDown";
+      const string expected = "NUD";
+      string result = StringFunc.GetCapitalLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetCapitalLetters_OpenFileDialog()
+    {
+      const string source = "OpenFileDialog";
+      const string expected = "OFD";
+      string result = StringFunc.GetCapitalLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetCapitalLetters_PageSetupDialog()
+    {
+      const string source = "PageSetupDialog";
+      const string expected = "PSD";
+      string result = StringFunc.GetCapitalLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetCapitalLetters_BackgroundWorker()
+    {
+      const string source = "BackgroundWorker";
+      const string expected = "BW";
+      string result = StringFunc.GetCapitalLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetCapitalLetters_BindingNavigator()
+    {
+      const string source = "BindingNavigator";
+      const string expected = "BN";
+      string result = StringFunc.GetCapitalLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetCapitalLetters_BindingSource()
+    {
+      const string source = "BindingSource";
+      const string expected = "BS";
+      string result = StringFunc.GetCapitalLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetCapitalLetters_StarWars()
+    {
+      const string source = "A Long Long Time Ago In A Galaxy Far Far Away";
+      const string expected = "ALLTAIAGFFA";
+      string result = StringFunc.GetCapitalLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    #endregion GetCapitalLetters
   }
 }

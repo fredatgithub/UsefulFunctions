@@ -3038,5 +3038,20 @@ namespace FonctionsUtiles.Fred.Csharp
       result[1] = wholeQuote.Substring(lastIndex + 2);
       return result;
     }
+
+    public static string GetCapitalLetters(string input)
+    {
+      return input.Where(Char.IsUpper).Aggregate(string.Empty, (current, t) => current + t);
+      //string result = string.Empty;
+      //for (int i = 0; i < input.Length; i++)
+      //{
+      //  if (char.IsUpper(input[i]))
+      //  {
+      //    result += input[i];
+      //  }
+      //}
+
+      //return result;
+    }
   }
 }
