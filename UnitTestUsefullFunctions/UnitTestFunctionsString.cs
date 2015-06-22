@@ -5888,6 +5888,24 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
+    [TestMethod]
+    public void TestMethod_GetCapitalLetters_All_Capital_letters()
+    {
+      const string source = "A LONG LONG TIME AGO";
+      const string expected = "ALONGLONGTIMEAGO";
+      string result = StringFunc.GetCapitalLetters(source);
+      Assert.AreEqual(result, expected);
+    }
+
+
+    [TestMethod]
+    public void TestMethod_GetCapitalLetters_no_Capital_letters()
+    {
+      const string source = "a long long time ago";
+      const string expected = "";
+      string result = StringFunc.GetCapitalLetters(source);
+      Assert.AreEqual(result, expected);
+    }
     #endregion GetCapitalLetters
   }
 }
