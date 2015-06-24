@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="BigInt.cs" />
     <Compile Include="Enumerations.cs" />
+    <Compile Include="FunctionsApplicationFeatures.cs" />
     <Compile Include="functionsControls.cs" />
     <Compile Include="FunctionsFiles.cs" />
     <Compile Include="FunctionsInternet.cs" />

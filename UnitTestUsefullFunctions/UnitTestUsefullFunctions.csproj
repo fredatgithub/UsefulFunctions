@@ -51,6 +51,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="UnitTestFunctionsApplicationFeatures.cs" />
     <Compile Include="UnitTestEnumerations.cs" />
     <Compile Include="UnitTestFunctionsDateTime.cs" />
     <Compile Include="UnitTestFunctionsInternet.cs" />

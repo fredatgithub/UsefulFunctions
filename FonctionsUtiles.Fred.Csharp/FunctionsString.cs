@@ -28,8 +28,7 @@ namespace FonctionsUtiles.Fred.Csharp
   using System.Text;
   using System.Text.RegularExpressions;
   using MathFunc = FunctionsMath;
-
-
+  
   public class FunctionsString
   {
     /// <summary>
