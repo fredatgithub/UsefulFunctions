@@ -28,7 +28,7 @@ namespace FonctionsUtiles.Fred.Csharp
   using System.Text;
   using System.Text.RegularExpressions;
   using MathFunc = FunctionsMath;
-  
+
   public class FunctionsString
   {
     /// <summary>
@@ -3051,6 +3051,90 @@ namespace FonctionsUtiles.Fred.Csharp
       //}
 
       //return result;
+    }
+
+    public static string ToPascalCase(string s)
+    {
+      // TODO write unit tests for this method
+      return s.Substring(0, 1).ToUpper() + s.Substring(1).ToLower();
+    }
+
+    public static string ToTitleCase2(string s)
+    {
+      // TODO write unit tests for this method
+      //          <TestMethod()>
+      //    Public Sub ToTitleCaseTest()
+      //        Debug.Print("USA".ToTitleCase())
+      //        Debug.Print("usa".ToTitleCase())
+      //        Debug.Print("uSa".ToTitleCase())
+      //        Debug.Print("Sleepy Hollow".ToTitleCase())
+      //        Debug.Print("Z Nation".ToTitleCase())
+      //        Debug.Print("Hot In Cleveland".ToTitleCase())
+      //        Debug.Print("HOT IN CLEVELAND".ToTitleCase())
+      //        Debug.Print("once upon a time".ToTitleCase())
+      //        Debug.Print("ONCE UPON A TIME".ToTitleCase())
+      //    End Sub
+
+      //Test Result
+      //Hide   Copy Code
+
+      //USA
+
+      //USA
+
+      //USA
+
+      //Sleepy Hollow
+
+      //Z Nation
+
+      //Hot in Cleveland
+
+      //Hot in Cleveland
+
+      //Once Upon a Time
+
+      //Once Upon a Time
+
+      var upperCase = s.ToUpper();
+      var words = upperCase.Split(' ');
+      var minorWords = new[] {"ON", "IN", "AT", "OFF", "WITH", "TO", "AS", "BY",//prepositions
+                                       "THE", "A", "OTHER", "ANOTHER",//articles
+                                       "AND", "BUT", "ALSO", "ELSE", "FOR", "IF"};//conjunctions
+
+      var acronyms = new[] {"UK", "USA", "US",//countries
+                                       "BBC",//TV stations
+                                       "TV"};//others
+
+      //The first word.
+      //The first letter of the first word is always capital.
+      if (acronyms.Contains(words[0]))
+      {
+        words[0] = words[0].ToUpper();
+      }
+      else
+      {
+        words[0] = ToPascalCase(words[0]);
+      }
+
+      //The rest words.
+      for (int i = 0; i < words.Length; i++)
+      {
+        if (minorWords.Contains(words[i]))
+        {
+          words[i] = words[i].ToLower();
+        }
+        else if (acronyms.Contains(words[i]))
+        {
+          words[i] = words[i].ToUpper();
+        }
+        else
+        {
+          words[i] = ToPascalCase(words[i]);
+        }
+      }
+
+      return string.Join(" ", words);
     }
   }
 }
