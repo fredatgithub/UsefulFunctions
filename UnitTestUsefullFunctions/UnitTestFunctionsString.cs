@@ -4961,7 +4961,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "";
       const bool source2 = false;
-      var expected = new Dictionary<char, int> { };
+      var expected = new Dictionary<char, int>();
       var result = StringFunc.CountLetters(source, source2);
       Assert.AreEqual(result.Count, expected.Count);
     }
@@ -5324,16 +5324,18 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GetDictionaryWords()
     {
       const string source = "We build too many walls and not enough bridges";
-      var expected = new Dictionary<string, int>();
-      expected.Add("We", 1);
-      expected.Add("build", 1);
-      expected.Add("too", 1);
-      expected.Add("many", 1);
-      expected.Add("walls", 1);
-      expected.Add("and", 1);
-      expected.Add("not", 1);
-      expected.Add("enough", 1);
-      expected.Add("bridges", 1);
+      var expected = new Dictionary<string, int>
+      {
+        {"We", 1},
+        {"build", 1},
+        {"too", 1},
+        {"many", 1},
+        {"walls", 1},
+        {"and", 1},
+        {"not", 1},
+        {"enough", 1},
+        {"bridges", 1}
+      };
       var result = StringFunc.GetDictionaryWords(source);
       Assert.AreEqual(result["We"], expected["We"]);
       TestDictionariesAreEqualed(result, expected);
@@ -5343,16 +5345,18 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GetDictionaryWords_star_wars()
     {
       const string source = "A long long time ago in a galaxy far far away";
-      var expected = new Dictionary<string, int>();
-      expected.Add("A", 1);
-      expected.Add("long", 2);
-      expected.Add("time", 1);
-      expected.Add("ago", 1);
-      expected.Add("in", 1);
-      expected.Add("a", 1);
-      expected.Add("galaxy", 1);
-      expected.Add("far", 2);
-      expected.Add("away", 1);
+      var expected = new Dictionary<string, int>
+      {
+        {"A", 1},
+        {"long", 2},
+        {"time", 1},
+        {"ago", 1},
+        {"in", 1},
+        {"a", 1},
+        {"galaxy", 1},
+        {"far", 2},
+        {"away", 1}
+      };
       var result = StringFunc.GetDictionaryWords(source);
       TestDictionariesAreEqualed(result, expected);
     }
@@ -5361,14 +5365,16 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GetDictionaryWords_English_quote()
     {
       const string source = "When you give yourself, you receive more than you give";
-      var expected = new Dictionary<string, int>();
-      expected.Add("when", 1);
-      expected.Add("you", 3);
-      expected.Add("give", 2);
-      expected.Add("yourself", 1);
-      expected.Add("receive", 1);
-      expected.Add("more", 1);
-      expected.Add("than", 1);
+      var expected = new Dictionary<string, int>
+      {
+        {"when", 1},
+        {"you", 3},
+        {"give", 2},
+        {"yourself", 1},
+        {"receive", 1},
+        {"more", 1},
+        {"than", 1}
+      };
       var result = StringFunc.GetDictionaryWords(source);
       TestDictionariesAreEqualed(result, expected);
     }
@@ -5377,17 +5383,19 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GetDictionaryWords_English_quote_with_upper_and_lower_case()
     {
       const string source = "When you give yourself, You receive more than YOU Give";
-      var expected = new Dictionary<string, int>();
-      expected.Add("when", 1);
-      expected.Add("you", 1);
-      expected.Add("give", 1);
-      expected.Add("yourself", 1);
-      expected.Add("You", 1);
-      expected.Add("receive", 1);
-      expected.Add("more", 1);
-      expected.Add("than", 1);
-      expected.Add("YOU", 1);
-      expected.Add("Give", 1);
+      var expected = new Dictionary<string, int>
+      {
+        {"when", 1},
+        {"you", 1},
+        {"give", 1},
+        {"yourself", 1},
+        {"You", 1},
+        {"receive", 1},
+        {"more", 1},
+        {"than", 1},
+        {"YOU", 1},
+        {"Give", 1}
+      };
       var result = StringFunc.GetDictionaryWords(source);
       TestDictionariesAreEqualed(result, expected);
     }
@@ -5397,14 +5405,16 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "When you give yourself, You receive more than YOU Give";
       const bool source2 = false;
-      var expected = new Dictionary<string, int>();
-      expected.Add("when", 1);
-      expected.Add("you", 3);
-      expected.Add("give", 2);
-      expected.Add("yourself", 1);
-      expected.Add("receive", 1);
-      expected.Add("more", 1);
-      expected.Add("than", 1);
+      var expected = new Dictionary<string, int>
+      {
+        {"when", 1},
+        {"you", 3},
+        {"give", 2},
+        {"yourself", 1},
+        {"receive", 1},
+        {"more", 1},
+        {"than", 1}
+      };
       var result = StringFunc.GetDictionaryWords(source, source2);
       TestDictionariesAreEqualed(result, expected);
     }
@@ -5415,14 +5425,16 @@ namespace UnitTestUsefullFunctions
       const string source = "When you give yourself, You receive more than YOU Give";
       const bool source2 = false;
       const dllFuncs.DefaultCasing source3 = dllFuncs.DefaultCasing.DefaultUpperCase;
-      var expected = new Dictionary<string, int>();
-      expected.Add("when".ToUpper(), 1);
-      expected.Add("you".ToUpper(), 3);
-      expected.Add("give".ToUpper(), 2);
-      expected.Add("yourself".ToUpper(), 1);
-      expected.Add("receive".ToUpper(), 1);
-      expected.Add("more".ToUpper(), 1);
-      expected.Add("than".ToUpper(), 1);
+      var expected = new Dictionary<string, int>
+      {
+        {"when".ToUpper(), 1},
+        {"you".ToUpper(), 3},
+        {"give".ToUpper(), 2},
+        {"yourself".ToUpper(), 1},
+        {"receive".ToUpper(), 1},
+        {"more".ToUpper(), 1},
+        {"than".ToUpper(), 1}
+      };
       var result = StringFunc.GetDictionaryWords(source, source2, source3);
       TestDictionariesAreEqualed(result, expected);
     }
@@ -5433,17 +5445,19 @@ namespace UnitTestUsefullFunctions
       const string source = "When you give yourself, You receive more than YOU Give";
       const bool source2 = false;
       const dllFuncs.DefaultCasing source3 = dllFuncs.DefaultCasing.DefaultAsIs;
-      var expected = new Dictionary<string, int>();
-      expected.Add("when", 1);
-      expected.Add("you", 1);
-      expected.Add("give", 1);
-      expected.Add("yourself", 1);
-      expected.Add("You", 1);
-      expected.Add("receive", 1);
-      expected.Add("more", 1);
-      expected.Add("than", 1);
-      expected.Add("YOU", 1);
-      expected.Add("Give", 1);
+      var expected = new Dictionary<string, int>
+      {
+        {"when", 1},
+        {"you", 1},
+        {"give", 1},
+        {"yourself", 1},
+        {"You", 1},
+        {"receive", 1},
+        {"more", 1},
+        {"than", 1},
+        {"YOU", 1},
+        {"Give", 1}
+      };
       var result = StringFunc.GetDictionaryWords(source, source2, source3);
       TestDictionariesAreEqualed(result, expected);
     }
