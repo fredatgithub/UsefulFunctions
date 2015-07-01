@@ -150,7 +150,7 @@ namespace CodeGeneration
       Code += TrueToken;
     }
 
-    public void VerifyUsingDependance()
+    public void VerifyUsingDependence()
     {
       // TODO
       usingHaveBeenVerified = true;
@@ -175,7 +175,7 @@ namespace CodeGeneration
     {
       if (!usingHaveBeenVerified)
       {
-        VerifyUsingDependance();
+        VerifyUsingDependence();
       }
 
       if (!Directory.Exists(savePath))

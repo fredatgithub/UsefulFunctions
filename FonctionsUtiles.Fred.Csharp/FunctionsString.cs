@@ -3044,7 +3044,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static string GetCapitalLetters(string input)
     {
-      return input.Where(Char.IsUpper).Aggregate(string.Empty, (current, t) => current + t);
+      return input.Where(char.IsUpper).Aggregate(string.Empty, (current, t) => current + t);
       //string result = string.Empty;
       //for (int i = 0; i < input.Length; i++)
       //{
