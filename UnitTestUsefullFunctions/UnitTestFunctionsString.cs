@@ -5921,5 +5921,24 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
     #endregion GetCapitalLetters
+    #region ToPascalCase
+    [TestMethod]
+    public void TestMethod_ToPascalCase_empty_string()
+    {
+      const string source = "";
+      const string expected = "";
+      string result = StringFunc.ToPascalCase(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToPascalCase_all_capital()
+    {
+      const string source = "A LONG LONG TIME AGO";
+      const string expected = "A long long time ago";
+      string result = StringFunc.ToPascalCase(source);
+      Assert.AreEqual(result, expected);
+    }
+    #endregion ToPascalCase
   }
 }

@@ -3055,7 +3055,11 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static string ToPascalCase(string s)
     {
-      // TODO write unit tests for this method
+      if (s == string.Empty)
+      {
+        return string.Empty;
+      }
+
       return s.Substring(0, 1).ToUpper() + s.Substring(1).ToLower();
     }
 
