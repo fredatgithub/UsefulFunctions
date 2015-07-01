@@ -148,6 +148,10 @@ namespace FonctionsUtiles.Fred.Csharp
       result.Append("Method= Dictionary<char, int> CountLetters(string myString, bool wholeDictionary = true)" + newLine);
       result.Append("Method= int CountWords(string input)" + newLine);
       result.Append("Method= Dictionary<string, int> GetDictionaryWords(string input, bool caseSensitive = true, DefaultCasing defaultLowerCase = DefaultCasing.defaultLowerCase)" + newLine);
+      result.Append("Method= string[] SeparateQuote(string wholeQuote)" + newLine);
+      result.Append("Method= string GetCapitalLetters(string input)" + newLine);
+      result.Append("Method= string ToPascalCase(string s)" + newLine);
+      result.Append("Method= string ToTitleCase2(string s)" + newLine);
       result.Append("DateTime methods:" + newLine);
       result.Append("Files methods:" + newLine);
       result.Append("Internet methods:" + newLine);
