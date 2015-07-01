@@ -5939,6 +5939,178 @@ namespace UnitTestUsefullFunctions
       string result = StringFunc.ToPascalCase(source);
       Assert.AreEqual(result, expected);
     }
+
+    [TestMethod]
+    public void TestMethod_ToPascalCase_all_lower_case()
+    {
+      const string source = "a long long time ago";
+      const string expected = "A long long time ago";
+      string result = StringFunc.ToPascalCase(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToPascalCase_lower_upper_case_mixed_up()
+    {
+      const string source = "a Long Long Time Ago";
+      const string expected = "A long long time ago";
+      string result = StringFunc.ToPascalCase(source);
+      Assert.AreEqual(result, expected);
+    }
     #endregion ToPascalCase
+    #region ToTitleCase2
+    [TestMethod]
+    public void TestMethod_ToTitleCase2_Empty_String()
+    {
+      const string source = "";
+      const string expected = "";
+      string result = StringFunc.ToTitleCase2(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToTitleCase2()
+    {
+      const string source = "";
+      const string expected = "";
+      string result = StringFunc.ToTitleCase2(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToTitleCase2_USA()
+    {
+      const string source = "USA";
+      const string expected = "USA";
+      string result = StringFunc.ToTitleCase2(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToTitleCase2_usa()
+    {
+      const string source = "usa";
+      const string expected = "USA";
+      string result = StringFunc.ToTitleCase2(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToTitleCase2_uSa()
+    {
+      const string source = "uSa";
+      const string expected = "USA";
+      string result = StringFunc.ToTitleCase2(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToTitleCase2_Sleepy_Hollow()
+    {
+      const string source = "Sleepy Hollow";
+      const string expected = "Sleepy Hollow";
+      string result = StringFunc.ToTitleCase2(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToTitleCase2_Z_Nation()
+    {
+      const string source = "Z Nation";
+      const string expected = "Z Nation";
+      string result = StringFunc.ToTitleCase2(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToTitleCase2_Hot_In_Cleveland()
+    {
+      const string source = "Hot In Cleveland";
+      const string expected = "Hot in Cleveland";
+      string result = StringFunc.ToTitleCase2(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToTitleCase2_HOT_IN_CLEVELAND()
+    {
+      const string source = "HOT IN CLEVELAND";
+      const string expected = "Hot in Cleveland";
+      string result = StringFunc.ToTitleCase2(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToTitleCase2_once_upon_a_time()
+    {
+      const string source = "once upon a time";
+      const string expected = "Once Upon a Time";
+      string result = StringFunc.ToTitleCase2(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToTitleCase2_ONCE_UPON_A_TIME()
+    {
+      const string source = "ONCE UPON A TIME";
+      const string expected = "Once Upon a Time";
+      string result = StringFunc.ToTitleCase2(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToTitleCase2_BBC_TV()
+    {
+      const string source = "BBC is a tv broadcasting company";
+      const string expected = "BBC Is a TV Broadcasting Company";
+      string result = StringFunc.ToTitleCase2(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToTitleCase2_US()
+    {
+      const string source = "US is an abbreviation for USA";
+      const string expected = "US Is An Abbreviation for USA";
+      string result = StringFunc.ToTitleCase2(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToTitleCase2_UK()
+    {
+      const string source = "UK is an abbreviation for United Kingdom";
+      const string expected = "UK Is An Abbreviation for United Kingdom";
+      string result = StringFunc.ToTitleCase2(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToTitleCase2_UN()
+    {
+      const string source = "UN is an abbreviation for United nations";
+      const string expected = "UN Is An Abbreviation for United Nations";
+      string result = StringFunc.ToTitleCase2(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToTitleCase2_TF1()
+    {
+      const string source = "TF1 is another french tv station";
+      const string expected = "TF1 Is another French TV Station";
+      string result = StringFunc.ToTitleCase2(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToTitleCase2_minorWords()
+    {
+      const string source = "here are minor words ON, IN, AT, OFF, WITH, TO, AS, BY, THE, A, OTHER, ANOTHER, AND, BUT, ALSO, ELSE, FOR and IF";
+      const string expected = "Here Are Minor Words On, In, At, Off, With, To, As, By, The, A, Other, Another, And, But, Also, Else, for and if";
+      string result = StringFunc.ToTitleCase2(source);
+      Assert.AreEqual(result, expected);
+    }
+    #endregion ToTitleCase2
   }
 }
