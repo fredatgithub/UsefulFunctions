@@ -5969,15 +5969,6 @@ namespace UnitTestUsefullFunctions
     }
 
     [TestMethod]
-    public void TestMethod_ToTitleCase2()
-    {
-      const string source = "";
-      const string expected = "";
-      string result = StringFunc.ToTitleCase2(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
     public void TestMethod_ToTitleCase2_USA()
     {
       const string source = "USA";
