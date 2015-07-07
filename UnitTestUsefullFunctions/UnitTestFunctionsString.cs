@@ -6103,5 +6103,24 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
     #endregion ToTitleCase2
+    #region Space
+    [TestMethod]
+    public void TestMethod_Space_default_value()
+    {
+      const string expected = " ";
+      string result = StringFunc.Space();
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Space_2()
+    {
+      const byte source = 2;
+      const string expected = "  ";
+      string result = StringFunc.Space(source);
+      Assert.AreEqual(result, expected);
+    }
+    #endregion
+
   }
 }

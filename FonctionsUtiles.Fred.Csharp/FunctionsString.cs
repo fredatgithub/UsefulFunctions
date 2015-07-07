@@ -2916,6 +2916,17 @@ namespace FonctionsUtiles.Fred.Csharp
       return result;
     }
 
+    public static string Space(byte numberOfSpace = 1)
+    {
+      string result = string.Empty;
+      for (int i = 0; i < numberOfSpace; i++)
+      {
+        result += " ";
+      }
+
+      return result;
+    }
+
     public static Dictionary<char, int> CountLetters(string myString, bool wholeDictionary = true)
     {
       var input = myString.ToLower();
