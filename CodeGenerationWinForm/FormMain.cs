@@ -181,6 +181,7 @@ namespace CodeGenerationWinForm
       Height = Settings.Default.WindowHeight;
       Top = Settings.Default.WindowTop < 0 ? 0 : Settings.Default.WindowTop;
       Left = Settings.Default.WindowLeft < 0 ? 0 : Settings.Default.WindowLeft;
+      checkBoxAutoCheckTypes.Checked = Settings.Default.checkBoxAutoCheckTypes;
     }
 
     private void SaveWindowValue()
@@ -190,6 +191,7 @@ namespace CodeGenerationWinForm
       Settings.Default.WindowLeft = Left;
       Settings.Default.WindowTop = Top;
       Settings.Default.MostRecentTabUsed = tabControlMain.SelectedIndex;
+      Settings.Default.checkBoxAutoCheckTypes = checkBoxAutoCheckTypes.Checked;
       Settings.Default.Save();
     }
 
@@ -770,15 +772,26 @@ namespace CodeGenerationWinForm
       return result;
     }
 
-    private void CheckMatchingType(TextBoxBase tb, ComboBox cb, string keyword)
+    private void CheckMatchingType(TextBoxBase tb, ComboBox cb, string keyword, bool askUser = true)
     {
-      if (TypesAreMatching(tb, cb)) return;
-      DialogResult wrongType = DisplayMessage(
+      if (TypesAreMatching(tb, cb))
+      {
+        return;
+      }
+
+      if (askUser)
+      {
+        DialogResult wrongType = DisplayMessage(
         "The type for the " + keyword.ToUpper() + " value doesn't match " +
         cb.SelectedItem
         + "\nWould you like to fix this?",
         "Type mismatched", MessageBoxButtons.YesNo);
-      if (wrongType == DialogResult.Yes)
+        if (wrongType == DialogResult.Yes)
+        {
+          cb.SelectedIndex = MatchingComboBox(tb.Text);
+        }
+      }
+      else
       {
         cb.SelectedIndex = MatchingComboBox(tb.Text);
       }
@@ -787,8 +800,8 @@ namespace CodeGenerationWinForm
     private void buttonCustomizedMethodGenerate_Click(object sender, EventArgs e)
     {
       // Verification of all types used with values
-      CheckMatchingType(textBoxCustoExpectedValue, comboBoxCustoExpectedType, "EXPECTED");
-      CheckMatchingType(textBoxCustoSourceValue, comboBoxCustoSourceType, "SOURCE");
+      CheckMatchingType(textBoxCustoExpectedValue, comboBoxCustoExpectedType, "EXPECTED", !checkBoxAutoCheckTypes.Checked);
+      CheckMatchingType(textBoxCustoSourceValue, comboBoxCustoSourceType, "SOURCE", !checkBoxAutoCheckTypes.Checked);
 
       // Generation of the result
       textBoxCustoResult.Text = string.Empty;
@@ -809,6 +822,21 @@ namespace CodeGenerationWinForm
 
       result.Append(textBoxcustoOpenCurlyBrace.Text);
       result.Append(carriageReturn);
+      
+      // next line SOURCE
+      result.Append(Tabulation);
+      result.Append(textBoxCustoConstantSource.Text);
+      result.Append(Space);
+      result.Append(comboBoxCustoSourceType.SelectedItem);
+      result.Append(Space);
+      result.Append(textBoxCustoSourceWord.Text);
+      result.Append(Space);
+      result.Append(textBoxCustoSourceEqualSign.Text);
+      result.Append(Space);
+      result.Append(textBoxCustoSourceValue.Text);
+      result.Append(Space);
+      result.Append(textBoxCustoSourceSemiColon.Text);
+      result.Append(carriageReturn);
 
       // next line EXPECTED
       result.Append(Tabulation);
@@ -823,21 +851,6 @@ namespace CodeGenerationWinForm
       result.Append(textBoxCustoExpectedValue.Text);
       result.Append(Space);
       result.Append(textBoxCustoExpectedSemiColon.Text);
-      result.Append(carriageReturn);
-
-      // next line SOURCE
-      result.Append(Tabulation);
-      result.Append(textBoxCustoConstantSource.Text);
-      result.Append(Space);
-      result.Append(comboBoxCustoSourceType.SelectedItem);
-      result.Append(Space);
-      result.Append(textBoxCustoSourceWord.Text);
-      result.Append(Space);
-      result.Append(textBoxCustoSourceEqualSign.Text);
-      result.Append(Space);
-      result.Append(textBoxCustoSourceValue.Text);
-      result.Append(Space);
-      result.Append(textBoxCustoSourceSemiColon.Text);
       result.Append(carriageReturn);
 
       // next line RESULT

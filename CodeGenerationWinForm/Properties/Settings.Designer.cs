@@ -82,5 +82,17 @@ namespace CodeGenerationWinForm.Properties {
                 this["MostRecentTabUsed"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool checkBoxAutoCheckTypes {
+            get {
+                return ((bool)(this["checkBoxAutoCheckTypes"]));
+            }
+            set {
+                this["checkBoxAutoCheckTypes"] = value;
+            }
+        }
     }
 }

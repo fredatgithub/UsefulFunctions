@@ -6120,6 +6120,124 @@ namespace UnitTestUsefullFunctions
       string result = StringFunc.Space(source);
       Assert.AreEqual(result, expected);
     }
+
+    [TestMethod]
+    public void TestMethod_Space_3()
+    {
+      const byte source = 3;
+      const string expected = "   ";
+      string result = StringFunc.Space(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Space_4()
+    {
+      const byte source = 4;
+      const string expected = "    ";
+      string result = StringFunc.Space(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Space_5()
+    {
+      const byte source = 5;
+      const string expected = "     ";
+      string result = StringFunc.Space(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Space_6()
+    {
+      const byte source = 6;
+      const string expected = "      ";
+      string result = StringFunc.Space(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Space_7()
+    {
+      const byte source = 7;
+      const string expected = "       ";
+      string result = StringFunc.Space(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Space_8()
+    {
+      const byte source = 8;
+      const string expected = "        ";
+      string result = StringFunc.Space(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Space_9()
+    {
+      const byte source = 9;
+      const string expected = "         ";
+      string result = StringFunc.Space(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Space_10()
+    {
+      const byte source = 10;
+      const string expected = "          ";
+      string result = StringFunc.Space(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Space_11()
+    {
+      const byte source = 11;
+      const string expected = "           ";
+      string result = StringFunc.Space(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Space_12()
+    {
+      const byte source = 12;
+      const string expected = "            ";
+      string result = StringFunc.Space(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Space_13()
+    {
+      const byte source = 13;
+      const string expected = "             ";
+      string result = StringFunc.Space(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Space_14()
+    {
+      const byte source = 14;
+      const string expected = "              ";
+      string result = StringFunc.Space(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Space_15()
+    {
+      const byte source = 15;
+      const string expected = "               ";
+      string result = StringFunc.Space(source);
+      Assert.AreEqual(result, expected);
+    }
+    
     #endregion
 
   }
