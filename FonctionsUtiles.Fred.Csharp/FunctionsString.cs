@@ -3126,12 +3126,12 @@ namespace FonctionsUtiles.Fred.Csharp
       return string.Join(" ", words);
     }
 
-    public static string ToTwoDigits(int number)
+    public static string ToTwoDigits(ushort number)
     {
       return number < 10 ? "0" + number : number.ToString();
     }
 
-    public static string ToNDigits(int number, byte numberOfZeros = 1)
+    public static string ToNDigits(ushort number, byte numberOfZeros = 1)
     {
       string tmpZeros = string.Empty;
       for (int i = 0; i < numberOfZeros; i++)

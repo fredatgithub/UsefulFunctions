@@ -6237,8 +6237,27 @@ namespace UnitTestUsefullFunctions
       string result = StringFunc.Space(source);
       Assert.AreEqual(result, expected);
     }
-    
-    #endregion
 
+    #endregion
+    #region ToTwoDigits
+    [TestMethod]
+    public void TestMethod_ToTwoDigits_value_1()
+    {
+      const byte source = 1;
+      const string expected = "01";
+      string result = StringFunc.ToTwoDigits(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToTwoDigits_value_0()
+    {
+      const byte source = 0;
+      const string expected = "00";
+      string result = StringFunc.ToTwoDigits(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    #endregion ToTwoDigits
   }
 }
