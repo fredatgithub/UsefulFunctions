@@ -263,6 +263,8 @@ namespace FonctionsUtiles.Fred.Csharp
       {
         case "":
           return number > 1 ? "s" : string.Empty;
+        case "est":
+          return number > 1 ? "sont" : "est";
         case "al":
           return number > 1 ? "aux" : "al";
         case "au":
@@ -335,11 +337,14 @@ namespace FonctionsUtiles.Fred.Csharp
           return number > 1 ? "poux" : "pou";
 
         // English
-        case "is":
-          return number > 1 ? "are" : "is";
         case " is":
-          return number > 1 ? "s are" : " is";
-
+          return number > 1 ? "s are" : " is"; // with a space before
+        case "is":
+          return number > 1 ? "are" : "is"; // without a space before
+        case "The":
+          return number > 1 ? "The" : "The"; // CAPITAL
+        case "the":
+          return number > 1 ? "the" : "the"; // lower case
         default:
           return number > 1 ? "s" : string.Empty;
       }
@@ -3119,6 +3124,21 @@ namespace FonctionsUtiles.Fred.Csharp
       }
 
       return string.Join(" ", words);
+    }
+
+    public static string ToTwoDigits(int number)
+    {
+      return number < 10 ? "0" + number : number.ToString();
+    }
+
+    public static string ToNDigits(int number, byte numberOfZeros = 1)
+    {
+      string tmpZeros = string.Empty;
+      for (int i = 0; i < numberOfZeros; i++)
+      {
+        tmpZeros += "0";
+      }
+      return number < 10 ? tmpZeros + number : number.ToString();
     }
   }
 }
