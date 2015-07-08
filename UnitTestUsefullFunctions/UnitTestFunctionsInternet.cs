@@ -61,5 +61,16 @@ namespace UnitTestUsefullFunctions
     }
 
     #endregion IsOnenNetworkCardAvailable
+    #region SubstringHtml
+    [TestMethod]
+    public void TestMethod_SubstringHtml()
+    {
+      const string source1 = "<p>hellooo codeproject<a href='blah'> blah</a><strong> blahblahh</strong> dsafsdf</p>";
+      const int source2 = 30;
+      const string expected = "<p>hellooo codeproject<a href='blah'> blah</a><strong> blahb</strong></p>";
+      string result = InternetFunc.SubstringHtml(source1, source2);
+      Assert.AreEqual(result, expected);
+    }
+    #endregion SubstringHtml
   }
 }
