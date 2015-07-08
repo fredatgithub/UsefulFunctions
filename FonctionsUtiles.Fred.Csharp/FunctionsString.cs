@@ -263,8 +263,6 @@ namespace FonctionsUtiles.Fred.Csharp
       {
         case "":
           return number > 1 ? "s" : string.Empty;
-        case "est":
-          return number > 1 ? "sont" : "est";
         case "al":
           return number > 1 ? "aux" : "al";
         case "au":
@@ -335,6 +333,8 @@ namespace FonctionsUtiles.Fred.Csharp
           return number > 1 ? "joujoux" : "joujou";
         case "pou":
           return number > 1 ? "poux" : "pou";
+        case "est":
+          return number > 1 ? "sont" : "est";
 
         // English
         case " is":
@@ -349,6 +349,7 @@ namespace FonctionsUtiles.Fred.Csharp
           return number > 1 ? "s" : string.Empty;
       }
     }
+
     public static string Plural(byte number, string irregularNoun = "")
     {
       switch (irregularNoun)
@@ -425,16 +426,22 @@ namespace FonctionsUtiles.Fred.Csharp
           return number > 1 ? "joujoux" : "joujou";
         case "pou":
           return number > 1 ? "poux" : "pou";
+        case "est":
+          return number > 1 ? "sont" : "est";
 
         // English
         case "is":
           return number > 1 ? "are" : "is";
+        case "The":
+          return number > 1 ? "The" : "The"; // CAPITAL
+        case "the":
+          return number > 1 ? "the" : "the"; // lower case
 
         default:
           return number > 1 ? "s" : string.Empty;
       }
     }
-    public static string Plural(Int16 number, string irregularNoun = "")
+    public static string Plural(short number, string irregularNoun = "") // int16
     {
       switch (irregularNoun)
       {
@@ -510,16 +517,22 @@ namespace FonctionsUtiles.Fred.Csharp
           return number > 1 ? "joujoux" : "joujou";
         case "pou":
           return number > 1 ? "poux" : "pou";
+        case "est":
+          return number > 1 ? "sont" : "est";
 
         // English
         case "is":
           return number > 1 ? "are" : "is";
+        case "The":
+          return number > 1 ? "The" : "The"; // CAPITAL
+        case "the":
+          return number > 1 ? "the" : "the"; // lower case
 
         default:
           return number > 1 ? "s" : string.Empty;
       }
     }
-    public static string Plural(Int64 number, string irregularNoun = "")
+    public static string Plural(long number, string irregularNoun = "") //Int64
     {
       switch (irregularNoun)
       {
@@ -595,10 +608,16 @@ namespace FonctionsUtiles.Fred.Csharp
           return number > 1 ? "joujoux" : "joujou";
         case "pou":
           return number > 1 ? "poux" : "pou";
+        case "est":
+          return number > 1 ? "sont" : "est";
 
         // English
         case "is":
           return number > 1 ? "are" : "is";
+        case "The":
+          return number > 1 ? "The" : "The"; // CAPITAL
+        case "the":
+          return number > 1 ? "the" : "the"; // lower case
 
         default:
           return number > 1 ? "s" : string.Empty;
@@ -680,16 +699,22 @@ namespace FonctionsUtiles.Fred.Csharp
           return number > 1 ? "joujoux" : "joujou";
         case "pou":
           return number > 1 ? "poux" : "pou";
+        case "est":
+          return number > 1 ? "sont" : "est";
 
         // English
         case "is":
           return number > 1 ? "are" : "is";
+        case "The":
+          return number > 1 ? "The" : "The"; // CAPITAL
+        case "the":
+          return number > 1 ? "the" : "the"; // lower case
 
         default:
           return number > 1 ? "s" : string.Empty;
       }
     }
-    public static string Plural(UInt16 number, string irregularNoun = "")
+    public static string Plural(ushort number, string irregularNoun = "") // UInt16
     {
       switch (irregularNoun)
       {
@@ -765,16 +790,22 @@ namespace FonctionsUtiles.Fred.Csharp
           return number > 1 ? "joujoux" : "joujou";
         case "pou":
           return number > 1 ? "poux" : "pou";
+        case "est":
+          return number > 1 ? "sont" : "est";
 
         // English
         case "is":
           return number > 1 ? "are" : "is";
+        case "The":
+          return number > 1 ? "The" : "The"; // CAPITAL
+        case "the":
+          return number > 1 ? "the" : "the"; // lower case
 
         default:
           return number > 1 ? "s" : string.Empty;
       }
     }
-    public static string Plural(UInt64 number, string irregularNoun = "")
+    public static string Plural(ulong number, string irregularNoun = "") // UInt64
     {
       switch (irregularNoun)
       {
@@ -850,10 +881,16 @@ namespace FonctionsUtiles.Fred.Csharp
           return number > 1 ? "joujoux" : "joujou";
         case "pou":
           return number > 1 ? "poux" : "pou";
+        case "est":
+          return number > 1 ? "sont" : "est";
 
         // English
         case "is":
           return number > 1 ? "are" : "is";
+        case "The":
+          return number > 1 ? "The" : "The"; // CAPITAL
+        case "the":
+          return number > 1 ? "the" : "the"; // lower case
 
         default:
           return number > 1 ? "s" : string.Empty;

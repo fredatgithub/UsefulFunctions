@@ -467,6 +467,26 @@ namespace UnitTestUsefullFunctions
     }
 
     [TestMethod]
+    public void TestMethod_Plural_est_one_with_int()
+    {
+      const int source = 1;
+      const string source2 = "est";
+      const string expected = "est";
+      string result = StringFunc.Plural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_est_two_with_int()
+    {
+      const int source = 2;
+      const string source2 = "est";
+      const string expected = "sont";
+      string result = StringFunc.Plural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
     public void TestMethod_Plural_eau_two_with_int()
     {
       const int source = 2;
@@ -837,6 +857,45 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
+    [TestMethod]
+    public void TestMethod_Plural_English_plural_The_singular()
+    {
+      const int source = 1;
+      const string source2 = "The";
+      const string expected = "The";
+      string result = StringFunc.Plural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_English_plural_The_plural()
+    {
+      const int source = 2;
+      const string source2 = "The";
+      const string expected = "The";
+      string result = StringFunc.Plural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_English_plural_the_singular()
+    {
+      const int source = 1;
+      const string source2 = "the";
+      const string expected = "the";
+      string result = StringFunc.Plural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Plural_English_plural_the_plural()
+    {
+      const int source = 2;
+      const string source2 = "the";
+      const string expected = "the";
+      string result = StringFunc.Plural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
 
     #endregion String methods - Plural
 
