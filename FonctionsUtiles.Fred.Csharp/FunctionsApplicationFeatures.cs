@@ -32,12 +32,8 @@ namespace FonctionsUtiles.Fred.Csharp
     {
       try
       {
-        if (string.IsNullOrEmpty(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)))
-        {
-          return string.Empty;
-        }
-        
-        return Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+        return string.IsNullOrEmpty(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)) ? string.Empty :
+          Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
       }
       catch (Exception)
       {
