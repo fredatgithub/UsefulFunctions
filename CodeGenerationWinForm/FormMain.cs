@@ -183,6 +183,36 @@ namespace CodeGenerationWinForm
       Top = Settings.Default.WindowTop < 0 ? 0 : Settings.Default.WindowTop;
       Left = Settings.Default.WindowLeft < 0 ? 0 : Settings.Default.WindowLeft;
       checkBoxAutoCheckTypes.Checked = Settings.Default.checkBoxAutoCheckTypes;
+      // Customized method tab
+      textBoxCustPublic.Text = Settings.Default.textBoxCustPublic;
+      textBoxCustoVoid.Text = Settings.Default.textBoxCustoVoid;
+      textBoxCustoTestMethod.Text = Settings.Default.textBoxCustoTestMethod;
+      textBoxCustoMethodName.Text = Settings.Default.textBoxCustoMethodName;
+      textBoxCustoExpectedCosntant.Text = Settings.Default.textBoxCustoExpectedCosntant;
+      //comboBoxCustoExpectedType.SelectedItem = Settings.Default.comboBoxCustoExpectedType;
+      textBoxCustoExpectedWord.Text = Settings.Default.textBoxCustoExpectedWord;
+      textBoxCustoExpectedEqualSign.Text = Settings.Default.textBoxCustoExpectedEqualSign;
+      textBoxCustoExpectedValue.Text = Settings.Default.textBoxCustoExpectedValue;
+      textBoxCustoConstantSource.Text = Settings.Default.textBoxCustoConstantSource;
+      //comboBoxCustoSourceType.SelectedItem = Settings.Default.comboBoxCustoSourceType;
+      textBoxCustoSourceWord.Text = Settings.Default.textBoxCustoSourceWord;
+      textBoxCustoSourceEqualSign.Text = Settings.Default.textBoxCustoSourceEqualSign;
+      textBoxCustoSourceValue.Text = Settings.Default.textBoxCustoSourceValue;
+      //comboBoxCustoResultReturnedType.SelectedItem = Settings.Default.comboBoxCustoResultReturnedType;
+      textBoxCustoResultWord.Text = Settings.Default.textBoxCustoResultWord;
+      textBoxCustoResultEqualSign.Text = Settings.Default.textBoxCustoResultEqualSign;
+      //comboBoxCustoResultFunctionClass.SelectedItem = Settings.Default.comboBoxCustoResultFunctionClass;
+      textBoxcustoResultFunctionName.Text = Settings.Default.textBoxcustoResultFunctionName;
+      textBoxCustoResultSourceWord.Text = Settings.Default.textBoxCustoResultSourceWord;
+      textBoxCustoAssertWord.Text = Settings.Default.textBoxCustoAssertWord;
+      //comboBoxCustoAssertMethod.SelectedItem = Settings.Default.comboBoxCustoAssertMethod;
+      textBoxCustoAssertOpenParenthesis.Text = Settings.Default.textBoxCustoAssertOpenParenthesis;
+      textBoxCustoAssertResultWord.Text = Settings.Default.textBoxCustoAssertResultWord;
+      textBoxCustoAssertComma.Text = Settings.Default.textBoxCustoAssertComma;
+      textBoxCustoAssertExpectedWord.Text = Settings.Default.textBoxCustoAssertExpectedWord;
+      textBoxCustoAssertClosingParenthesis.Text = Settings.Default.textBoxCustoAssertClosingParenthesis;
+      textBoxCustomFrom.Text = Settings.Default.textBoxCustomFrom;
+      textBoxCustomTo.Text = Settings.Default.textBoxCustomTo;
     }
 
     private void SaveWindowValue()
@@ -196,7 +226,37 @@ namespace CodeGenerationWinForm
       Settings.Default.checkBoxAutoCheckTypes = checkBoxAutoCheckTypes.Checked;
       Settings.Default.checkBoxCustomRange = checkBoxCustomRange.Checked;
       Settings.Default.textBoxCustoAttribute = textBoxCustoAttribute.Text;
-
+      Settings.Default.textBoxCustomFrom = textBoxCustomFrom.Text;
+      Settings.Default.textBoxCustomTo = textBoxCustomTo.Text;
+      Settings.Default.textBoxCustPublic = textBoxCustPublic.Text;
+      Settings.Default.textBoxCustoVoid = textBoxCustoVoid.Text;
+      Settings.Default.textBoxCustPublic = textBoxCustPublic.Text;
+      Settings.Default.textBoxCustoVoid = textBoxCustoVoid.Text;
+      Settings.Default.textBoxCustoTestMethod = textBoxCustoTestMethod.Text;
+      Settings.Default.textBoxCustoMethodName = textBoxCustoMethodName.Text;
+      Settings.Default.textBoxCustoExpectedCosntant = textBoxCustoExpectedCosntant.Text;
+      Settings.Default.comboBoxCustoExpectedType = comboBoxCustoExpectedType.SelectedItem.ToString();
+      Settings.Default.textBoxCustoExpectedWord = textBoxCustoExpectedWord.Text;
+      Settings.Default.textBoxCustoExpectedEqualSign = textBoxCustoExpectedEqualSign.Text;
+      Settings.Default.textBoxCustoExpectedValue = textBoxCustoExpectedValue.Text;
+      Settings.Default.textBoxCustoConstantSource = textBoxCustoConstantSource.Text;
+      //Settings.Default.comboBoxCustoSourceType = comboBoxCustoSourceType.Text;
+      Settings.Default.textBoxCustoSourceWord = textBoxCustoSourceWord.Text;
+      Settings.Default.textBoxCustoSourceEqualSign = textBoxCustoSourceEqualSign.Text;
+      Settings.Default.textBoxCustoSourceValue = textBoxCustoSourceValue.Text;
+      //Settings.Default.comboBoxCustoResultReturnedType = comboBoxCustoResultReturnedType.Text;
+      Settings.Default.textBoxCustoResultWord = textBoxCustoResultWord.Text;
+      Settings.Default.textBoxCustoResultEqualSign = textBoxCustoResultEqualSign.Text;
+      //Settings.Default.comboBoxCustoResultFunctionClass = comboBoxCustoResultFunctionClass.Text;
+      Settings.Default.textBoxcustoResultFunctionName = textBoxcustoResultFunctionName.Text;
+      Settings.Default.textBoxCustoResultSourceWord = textBoxCustoResultSourceWord.Text;
+      Settings.Default.textBoxCustoAssertWord = textBoxCustoAssertWord.Text;
+      //Settings.Default.comboBoxCustoAssertMethod = comboBoxCustoAssertMethod.Text;
+      Settings.Default.textBoxCustoAssertOpenParenthesis = textBoxCustoAssertOpenParenthesis.Text;
+      Settings.Default.textBoxCustoAssertResultWord = textBoxCustoAssertResultWord.Text;
+      Settings.Default.textBoxCustoAssertComma = textBoxCustoAssertComma.Text;
+      Settings.Default.textBoxCustoAssertExpectedWord = textBoxCustoAssertExpectedWord.Text;
+      Settings.Default.textBoxCustoAssertClosingParenthesis = textBoxCustoAssertClosingParenthesis.Text;
       Settings.Default.Save();
     }
 
@@ -810,7 +870,7 @@ namespace CodeGenerationWinForm
 
       // Generation of the result
       textBoxCustoResult.Text = string.Empty;
-      if (checkBoxCustomRange.Checked)
+      if (!checkBoxCustomRange.Checked)
       {
         StringBuilder result = new StringBuilder();
         // next line ATTRIBUTE
@@ -907,7 +967,7 @@ namespace CodeGenerationWinForm
         // range of multi instances iterator = %
 
       }
-      
+
     }
   }
 }
