@@ -80,6 +80,7 @@ namespace CodeGenerationWinForm
     {
       tabControlMain.SelectedIndex = 2;
       tabControlMain.SelectedIndex = Settings.Default.MostRecentTabUsed;
+      checkBoxCustomRange.Checked = Settings.Default.checkBoxCustomRange;
     }
 
     private static void FillComboBoxLanguage(ComboBox cb)
@@ -191,7 +192,11 @@ namespace CodeGenerationWinForm
       Settings.Default.WindowLeft = Left;
       Settings.Default.WindowTop = Top;
       Settings.Default.MostRecentTabUsed = tabControlMain.SelectedIndex;
+      // Customized method tab
       Settings.Default.checkBoxAutoCheckTypes = checkBoxAutoCheckTypes.Checked;
+      Settings.Default.checkBoxCustomRange = checkBoxCustomRange.Checked;
+      Settings.Default.textBoxCustoAttribute = textBoxCustoAttribute.Text;
+
       Settings.Default.Save();
     }
 
@@ -805,95 +810,104 @@ namespace CodeGenerationWinForm
 
       // Generation of the result
       textBoxCustoResult.Text = string.Empty;
-      StringBuilder result = new StringBuilder();
-      // next line ATTRIBUTE
-      result.Append(textBoxCustoAttribute.Text);
-      result.Append(carriageReturn);
-
-      // next line METHOD SIGNATURE
-      result.Append(textBoxCustPublic.Text);
-      result.Append(Space);
-      result.Append(textBoxCustoVoid.Text);
-      result.Append(Space);
-      result.Append(textBoxCustoTestMethod.Text);
-      result.Append(Space);
-      result.Append(textBoxCustoMethodName.Text);
-      result.Append(carriageReturn);
-
-      result.Append(textBoxcustoOpenCurlyBrace.Text);
-      result.Append(carriageReturn);
-      
-      // next line SOURCE
-      result.Append(Tabulation);
-      result.Append(textBoxCustoConstantSource.Text);
-      result.Append(Space);
-      result.Append(comboBoxCustoSourceType.SelectedItem);
-      result.Append(Space);
-      result.Append(textBoxCustoSourceWord.Text);
-      result.Append(Space);
-      result.Append(textBoxCustoSourceEqualSign.Text);
-      result.Append(Space);
-      result.Append(textBoxCustoSourceValue.Text);
-      result.Append(Space);
-      result.Append(textBoxCustoSourceSemiColon.Text);
-      result.Append(carriageReturn);
-
-      // next line EXPECTED
-      result.Append(Tabulation);
-      result.Append(textBoxCustoExpectedCosntant.Text);
-      result.Append(Space);
-      result.Append(comboBoxCustoExpectedType.SelectedItem);
-      result.Append(Space);
-      result.Append(textBoxCustoExpectedWord.Text);
-      result.Append(Space);
-      result.Append(textBoxCustoExpectedEqualSign.Text);
-      result.Append(Space);
-      result.Append(textBoxCustoExpectedValue.Text);
-      result.Append(Space);
-      result.Append(textBoxCustoExpectedSemiColon.Text);
-      result.Append(carriageReturn);
-
-      // next line RESULT
-      result.Append(Tabulation);
-      result.Append(comboBoxCustoResultReturnedType.SelectedItem);
-      result.Append(Space);
-      result.Append(textBoxCustoResultWord.Text);
-      result.Append(Space);
-      result.Append(textBoxCustoResultEqualSign.Text);
-      result.Append(Space);
-      result.Append(comboBoxCustoResultFunctionClass.SelectedItem);
-      result.Append(Space);
-      result.Append(textBoxcustoResultFunctionName.Text);
-      result.Append(Space);
-      result.Append(textBoxCustoResultSourceWord.Text);
-      result.Append(carriageReturn);
-
-      // next line ASSERT
-      result.Append(Tabulation);
-      result.Append(textBoxCustoAssertWord.Text);
-      result.Append(Space);
-      result.Append(comboBoxCustoAssertMethod.SelectedItem);
-      result.Append(Space);
-      result.Append(textBoxCustoAssertOpenParenthesis.Text);
-      result.Append(Space);
-      result.Append(textBoxCustoAssertResultWord.Text);
-      result.Append(Space);
-      result.Append(textBoxCustoAssertComma.Text);
-      if (!textBoxCustoAssertComma.Text.EndsWith(" "))
+      if (checkBoxCustomRange.Checked)
       {
+        StringBuilder result = new StringBuilder();
+        // next line ATTRIBUTE
+        result.Append(textBoxCustoAttribute.Text);
+        result.Append(carriageReturn);
+
+        // next line METHOD SIGNATURE
+        result.Append(textBoxCustPublic.Text);
         result.Append(Space);
+        result.Append(textBoxCustoVoid.Text);
+        result.Append(Space);
+        result.Append(textBoxCustoTestMethod.Text);
+        result.Append(Space);
+        result.Append(textBoxCustoMethodName.Text);
+        result.Append(carriageReturn);
+
+        result.Append(textBoxcustoOpenCurlyBrace.Text);
+        result.Append(carriageReturn);
+
+        // next line SOURCE
+        result.Append(Tabulation);
+        result.Append(textBoxCustoConstantSource.Text);
+        result.Append(Space);
+        result.Append(comboBoxCustoSourceType.SelectedItem);
+        result.Append(Space);
+        result.Append(textBoxCustoSourceWord.Text);
+        result.Append(Space);
+        result.Append(textBoxCustoSourceEqualSign.Text);
+        result.Append(Space);
+        result.Append(textBoxCustoSourceValue.Text);
+        result.Append(Space);
+        result.Append(textBoxCustoSourceSemiColon.Text);
+        result.Append(carriageReturn);
+
+        // next line EXPECTED
+        result.Append(Tabulation);
+        result.Append(textBoxCustoExpectedCosntant.Text);
+        result.Append(Space);
+        result.Append(comboBoxCustoExpectedType.SelectedItem);
+        result.Append(Space);
+        result.Append(textBoxCustoExpectedWord.Text);
+        result.Append(Space);
+        result.Append(textBoxCustoExpectedEqualSign.Text);
+        result.Append(Space);
+        result.Append(textBoxCustoExpectedValue.Text);
+        result.Append(Space);
+        result.Append(textBoxCustoExpectedSemiColon.Text);
+        result.Append(carriageReturn);
+
+        // next line RESULT
+        result.Append(Tabulation);
+        result.Append(comboBoxCustoResultReturnedType.SelectedItem);
+        result.Append(Space);
+        result.Append(textBoxCustoResultWord.Text);
+        result.Append(Space);
+        result.Append(textBoxCustoResultEqualSign.Text);
+        result.Append(Space);
+        result.Append(comboBoxCustoResultFunctionClass.SelectedItem);
+        result.Append(Space);
+        result.Append(textBoxcustoResultFunctionName.Text);
+        result.Append(Space);
+        result.Append(textBoxCustoResultSourceWord.Text);
+        result.Append(carriageReturn);
+
+        // next line ASSERT
+        result.Append(Tabulation);
+        result.Append(textBoxCustoAssertWord.Text);
+        result.Append(Space);
+        result.Append(comboBoxCustoAssertMethod.SelectedItem);
+        result.Append(Space);
+        result.Append(textBoxCustoAssertOpenParenthesis.Text);
+        result.Append(Space);
+        result.Append(textBoxCustoAssertResultWord.Text);
+        result.Append(Space);
+        result.Append(textBoxCustoAssertComma.Text);
+        if (!textBoxCustoAssertComma.Text.EndsWith(" "))
+        {
+          result.Append(Space);
+        }
+
+        result.Append(textBoxCustoAssertExpectedWord.Text);
+        result.Append(Space);
+        result.Append(textBoxCustoAssertClosingParenthesis.Text);
+        result.Append(carriageReturn);
+
+        // next line closing parenthesis
+        result.Append(textBoxCustoCloseCurlyBrace.Text);
+        result.Append(carriageReturn);
+
+        textBoxCustoResult.Text = result.ToString();
       }
+      else
+      {
+        // range of multi instances iterator = %
 
-      result.Append(textBoxCustoAssertExpectedWord.Text);
-      result.Append(Space);
-      result.Append(textBoxCustoAssertClosingParenthesis.Text);
-      result.Append(carriageReturn);
-
-      // next line closing parenthesis
-      result.Append(textBoxCustoCloseCurlyBrace.Text);
-      result.Append(carriageReturn);
-
-      textBoxCustoResult.Text = result.ToString();
+      }
+      
     }
   }
 }

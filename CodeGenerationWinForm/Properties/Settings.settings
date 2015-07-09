@@ -20,5 +20,98 @@
     <Setting Name="checkBoxAutoCheckTypes" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="checkBoxCustomRange" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="textBoxCustomFrom" Type="System.String" Scope="User">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="textBoxCustomTo" Type="System.String" Scope="User">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="textBoxCustoAttribute" Type="System.String" Scope="User">
+      <Value Profile="(Default)">[TestMethod]</Value>
+    </Setting>
+    <Setting Name="textBoxCustPublic" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Public</Value>
+    </Setting>
+    <Setting Name="textBoxCustoVoid" Type="System.String" Scope="User">
+      <Value Profile="(Default)">void</Value>
+    </Setting>
+    <Setting Name="textBoxCustoTestMethod" Type="System.String" Scope="User">
+      <Value Profile="(Default)">TestMethod_</Value>
+    </Setting>
+    <Setting Name="textBoxCustoMethodName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Method_Name_Returned_True_or_False_on_Condition</Value>
+    </Setting>
+    <Setting Name="textBoxCustoExpectedCosntant" Type="System.String" Scope="User">
+      <Value Profile="(Default)">const</Value>
+    </Setting>
+    <Setting Name="comboBoxCustoExpectedType" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="textBoxCustoExpectedWord" Type="System.String" Scope="User">
+      <Value Profile="(Default)">expected</Value>
+    </Setting>
+    <Setting Name="textBoxCustoExpectedEqualSign" Type="System.String" Scope="User">
+      <Value Profile="(Default)">=</Value>
+    </Setting>
+    <Setting Name="textBoxCustoExpectedValue" Type="System.String" Scope="User">
+      <Value Profile="(Default)">true</Value>
+    </Setting>
+    <Setting Name="textBoxCustoConstantSource" Type="System.String" Scope="User">
+      <Value Profile="(Default)">const</Value>
+    </Setting>
+    <Setting Name="comboBoxCustoSourceType" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="textBoxCustoSourceWord" Type="System.String" Scope="User">
+      <Value Profile="(Default)">source</Value>
+    </Setting>
+    <Setting Name="textBoxCustoSourceEqualSign" Type="System.String" Scope="User">
+      <Value Profile="(Default)">=</Value>
+    </Setting>
+    <Setting Name="textBoxCustoSourceValue" Type="System.String" Scope="User">
+      <Value Profile="(Default)">"laval"</Value>
+    </Setting>
+    <Setting Name="comboBoxCustoResultReturnedType" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="textBoxCustoResultWord" Type="System.String" Scope="User">
+      <Value Profile="(Default)">result</Value>
+    </Setting>
+    <Setting Name="textBoxCustoResultEqualSign" Type="System.String" Scope="User">
+      <Value Profile="(Default)">=</Value>
+    </Setting>
+    <Setting Name="comboBoxCustoResultFunctionClass" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="textBoxcustoResultFunctionName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.IsPalindrome</Value>
+    </Setting>
+    <Setting Name="textBoxCustoResultSourceWord" Type="System.String" Scope="User">
+      <Value Profile="(Default)">(source);</Value>
+    </Setting>
+    <Setting Name="textBoxCustoAssertWord" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Assert.</Value>
+    </Setting>
+    <Setting Name="comboBoxCustoAssertMethod" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="textBoxCustoAssertOpenParenthesis" Type="System.String" Scope="User">
+      <Value Profile="(Default)">(</Value>
+    </Setting>
+    <Setting Name="textBoxCustoAssertResultWord" Type="System.String" Scope="User">
+      <Value Profile="(Default)">result</Value>
+    </Setting>
+    <Setting Name="textBoxCustoAssertComma" Type="System.String" Scope="User">
+      <Value Profile="(Default)">,</Value>
+    </Setting>
+    <Setting Name="textBoxCustoAssertExpectedWord" Type="System.String" Scope="User">
+      <Value Profile="(Default)">expected</Value>
+    </Setting>
+    <Setting Name="textBoxCustoAssertClosingParenthesis" Type="System.String" Scope="User">
+      <Value Profile="(Default)">);</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

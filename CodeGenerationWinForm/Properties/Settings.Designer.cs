@@ -94,5 +94,377 @@ namespace CodeGenerationWinForm.Properties {
                 this["checkBoxAutoCheckTypes"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool checkBoxCustomRange {
+            get {
+                return ((bool)(this["checkBoxCustomRange"]));
+            }
+            set {
+                this["checkBoxCustomRange"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("5")]
+        public string textBoxCustomFrom {
+            get {
+                return ((string)(this["textBoxCustomFrom"]));
+            }
+            set {
+                this["textBoxCustomFrom"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        public string textBoxCustomTo {
+            get {
+                return ((string)(this["textBoxCustomTo"]));
+            }
+            set {
+                this["textBoxCustomTo"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("[TestMethod]")]
+        public string textBoxCustoAttribute {
+            get {
+                return ((string)(this["textBoxCustoAttribute"]));
+            }
+            set {
+                this["textBoxCustoAttribute"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Public")]
+        public string textBoxCustPublic {
+            get {
+                return ((string)(this["textBoxCustPublic"]));
+            }
+            set {
+                this["textBoxCustPublic"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("void")]
+        public string textBoxCustoVoid {
+            get {
+                return ((string)(this["textBoxCustoVoid"]));
+            }
+            set {
+                this["textBoxCustoVoid"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("TestMethod_")]
+        public string textBoxCustoTestMethod {
+            get {
+                return ((string)(this["textBoxCustoTestMethod"]));
+            }
+            set {
+                this["textBoxCustoTestMethod"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Method_Name_Returned_True_or_False_on_Condition")]
+        public string textBoxCustoMethodName {
+            get {
+                return ((string)(this["textBoxCustoMethodName"]));
+            }
+            set {
+                this["textBoxCustoMethodName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("const")]
+        public string textBoxCustoExpectedCosntant {
+            get {
+                return ((string)(this["textBoxCustoExpectedCosntant"]));
+            }
+            set {
+                this["textBoxCustoExpectedCosntant"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string comboBoxCustoExpectedType {
+            get {
+                return ((string)(this["comboBoxCustoExpectedType"]));
+            }
+            set {
+                this["comboBoxCustoExpectedType"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("expected")]
+        public string textBoxCustoExpectedWord {
+            get {
+                return ((string)(this["textBoxCustoExpectedWord"]));
+            }
+            set {
+                this["textBoxCustoExpectedWord"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("=")]
+        public string textBoxCustoExpectedEqualSign {
+            get {
+                return ((string)(this["textBoxCustoExpectedEqualSign"]));
+            }
+            set {
+                this["textBoxCustoExpectedEqualSign"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("true")]
+        public string textBoxCustoExpectedValue {
+            get {
+                return ((string)(this["textBoxCustoExpectedValue"]));
+            }
+            set {
+                this["textBoxCustoExpectedValue"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("const")]
+        public string textBoxCustoConstantSource {
+            get {
+                return ((string)(this["textBoxCustoConstantSource"]));
+            }
+            set {
+                this["textBoxCustoConstantSource"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string comboBoxCustoSourceType {
+            get {
+                return ((string)(this["comboBoxCustoSourceType"]));
+            }
+            set {
+                this["comboBoxCustoSourceType"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("source")]
+        public string textBoxCustoSourceWord {
+            get {
+                return ((string)(this["textBoxCustoSourceWord"]));
+            }
+            set {
+                this["textBoxCustoSourceWord"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("=")]
+        public string textBoxCustoSourceEqualSign {
+            get {
+                return ((string)(this["textBoxCustoSourceEqualSign"]));
+            }
+            set {
+                this["textBoxCustoSourceEqualSign"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("\"laval\"")]
+        public string textBoxCustoSourceValue {
+            get {
+                return ((string)(this["textBoxCustoSourceValue"]));
+            }
+            set {
+                this["textBoxCustoSourceValue"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string comboBoxCustoResultReturnedType {
+            get {
+                return ((string)(this["comboBoxCustoResultReturnedType"]));
+            }
+            set {
+                this["comboBoxCustoResultReturnedType"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("result")]
+        public string textBoxCustoResultWord {
+            get {
+                return ((string)(this["textBoxCustoResultWord"]));
+            }
+            set {
+                this["textBoxCustoResultWord"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("=")]
+        public string textBoxCustoResultEqualSign {
+            get {
+                return ((string)(this["textBoxCustoResultEqualSign"]));
+            }
+            set {
+                this["textBoxCustoResultEqualSign"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string comboBoxCustoResultFunctionClass {
+            get {
+                return ((string)(this["comboBoxCustoResultFunctionClass"]));
+            }
+            set {
+                this["comboBoxCustoResultFunctionClass"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(".IsPalindrome")]
+        public string textBoxcustoResultFunctionName {
+            get {
+                return ((string)(this["textBoxcustoResultFunctionName"]));
+            }
+            set {
+                this["textBoxcustoResultFunctionName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("(source);")]
+        public string textBoxCustoResultSourceWord {
+            get {
+                return ((string)(this["textBoxCustoResultSourceWord"]));
+            }
+            set {
+                this["textBoxCustoResultSourceWord"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Assert.")]
+        public string textBoxCustoAssertWord {
+            get {
+                return ((string)(this["textBoxCustoAssertWord"]));
+            }
+            set {
+                this["textBoxCustoAssertWord"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string comboBoxCustoAssertMethod {
+            get {
+                return ((string)(this["comboBoxCustoAssertMethod"]));
+            }
+            set {
+                this["comboBoxCustoAssertMethod"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("(")]
+        public string textBoxCustoAssertOpenParenthesis {
+            get {
+                return ((string)(this["textBoxCustoAssertOpenParenthesis"]));
+            }
+            set {
+                this["textBoxCustoAssertOpenParenthesis"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("result")]
+        public string textBoxCustoAssertResultWord {
+            get {
+                return ((string)(this["textBoxCustoAssertResultWord"]));
+            }
+            set {
+                this["textBoxCustoAssertResultWord"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(",")]
+        public string textBoxCustoAssertComma {
+            get {
+                return ((string)(this["textBoxCustoAssertComma"]));
+            }
+            set {
+                this["textBoxCustoAssertComma"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("expected")]
+        public string textBoxCustoAssertExpectedWord {
+            get {
+                return ((string)(this["textBoxCustoAssertExpectedWord"]));
+            }
+            set {
+                this["textBoxCustoAssertExpectedWord"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(");")]
+        public string textBoxCustoAssertClosingParenthesis {
+            get {
+                return ((string)(this["textBoxCustoAssertClosingParenthesis"]));
+            }
+            set {
+                this["textBoxCustoAssertClosingParenthesis"] = value;
+            }
+        }
     }
 }
