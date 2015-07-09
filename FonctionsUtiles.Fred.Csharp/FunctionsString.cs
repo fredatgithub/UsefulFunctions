@@ -888,9 +888,9 @@ namespace FonctionsUtiles.Fred.Csharp
         case "is":
           return number > 1 ? "are" : "is";
         case "The":
-          return number > 1 ? "The" : "The"; // CAPITAL
+          return number > 1 ? "The" : "The"; // CAPITAL, useful because of French plural
         case "the":
-          return number > 1 ? "the" : "the"; // lower case
+          return number > 1 ? "the" : "the"; // lower case, useful because of French plural
 
         default:
           return number > 1 ? "s" : string.Empty;

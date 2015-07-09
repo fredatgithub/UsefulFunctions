@@ -6297,22 +6297,50 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
-    #endregion
-    #region ToTwoDigits
     [TestMethod]
-    public void TestMethod_ToTwoDigits_value_1()
+    public void TestMethod_Space_255() // byte.Max = 255
     {
-      const byte source = 1;
-      const string expected = "01";
-      string result = StringFunc.ToTwoDigits(source);
+      const byte source = 255;
+      string expected = string.Empty;
+      for (int expectedLength = 0; expectedLength < source; expectedLength++)
+      {
+        expected += " ";
+      }
+      string result = StringFunc.Space(source);
       Assert.AreEqual(result, expected);
     }
 
+    [TestMethod]
+    public void TestMethod_Space_all_values()
+    {
+      for (byte source = 1; source <= 254; source++)
+      {
+        string expected = string.Empty;
+        for (int expectedLength = 0; expectedLength < source; expectedLength++)
+        {
+          expected += " ";
+        }
+
+        string result = StringFunc.Space(source);
+        Assert.AreEqual(result, expected);
+      }
+    }
+    #endregion
+    #region ToTwoDigits
     [TestMethod]
     public void TestMethod_ToTwoDigits_value_0()
     {
       const byte source = 0;
       const string expected = "00";
+      string result = StringFunc.ToTwoDigits(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToTwoDigits_value_1()
+    {
+      const byte source = 1;
+      const string expected = "01";
       string result = StringFunc.ToTwoDigits(source);
       Assert.AreEqual(result, expected);
     }
