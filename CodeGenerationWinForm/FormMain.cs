@@ -965,7 +965,112 @@ namespace CodeGenerationWinForm
       else
       {
         // range of multi instances iterator = %
+        int start;
+        if (!int.TryParse(textBoxCustomFrom.Text, out start))
+        {
+          DisplayMessageOk("", "", MessageBoxButtons.OK);
+        }
+        
+        int end;
+        if (!int.TryParse(textBoxCustomTo.Text, out end))
+        {
+          DisplayMessageOk("", "", MessageBoxButtons.OK);
+        }
+        
 
+
+        for (int i = start; i <= end; i++)
+        {
+          StringBuilder result = new StringBuilder();
+          // next line ATTRIBUTE
+          result.Append(textBoxCustoAttribute.Text);
+          result.Append(carriageReturn);
+
+          // next line METHOD SIGNATURE
+          result.Append(textBoxCustPublic.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(Space);
+          result.Append(textBoxCustoVoid.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(Space);
+          result.Append(textBoxCustoTestMethod.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(Space);
+          result.Append(textBoxCustoMethodName.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(carriageReturn);
+
+          result.Append(textBoxcustoOpenCurlyBrace.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(carriageReturn);
+
+          // next line SOURCE
+          result.Append(Tabulation);
+          result.Append(textBoxCustoConstantSource.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(Space);
+          result.Append(comboBoxCustoSourceType.SelectedItem);
+          result.Append(Space);
+          result.Append(textBoxCustoSourceWord.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(Space);
+          result.Append(textBoxCustoSourceEqualSign.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(Space);
+          result.Append(textBoxCustoSourceValue.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(Space);
+          result.Append(textBoxCustoSourceSemiColon.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(carriageReturn);
+
+          // next line EXPECTED
+          result.Append(Tabulation);
+          result.Append(textBoxCustoExpectedCosntant.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(Space);
+          result.Append(comboBoxCustoExpectedType.SelectedItem);
+          result.Append(Space);
+          result.Append(textBoxCustoExpectedWord.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(Space);
+          result.Append(textBoxCustoExpectedEqualSign.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(Space);
+          result.Append(textBoxCustoExpectedValue.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(Space);
+          result.Append(textBoxCustoExpectedSemiColon.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(carriageReturn);
+
+          // next line RESULT
+          result.Append(Tabulation);
+          result.Append(comboBoxCustoResultReturnedType.SelectedItem);
+          result.Append(Space);
+          result.Append(textBoxCustoResultWord.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(Space);
+          result.Append(textBoxCustoResultEqualSign.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(Space);
+          result.Append(comboBoxCustoResultFunctionClass.SelectedItem);
+          result.Append(Space);
+          result.Append(textBoxcustoResultFunctionName.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(Space);
+          result.Append(textBoxCustoResultSourceWord.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(carriageReturn);
+
+          // next line ASSERT
+          result.Append(Tabulation);
+          result.Append(textBoxCustoAssertWord.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(Space);
+          result.Append(comboBoxCustoAssertMethod.SelectedItem);
+          result.Append(Space);
+          result.Append(textBoxCustoAssertOpenParenthesis.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(Space);
+          result.Append(textBoxCustoAssertResultWord.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(Space);
+          result.Append(textBoxCustoAssertComma.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          if (!textBoxCustoAssertComma.Text.EndsWith(" "))
+          {
+            result.Append(Space);
+          }
+
+          result.Append(textBoxCustoAssertExpectedWord.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(Space);
+          result.Append(textBoxCustoAssertClosingParenthesis.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(carriageReturn);
+
+          // next line closing parenthesis
+          result.Append(textBoxCustoCloseCurlyBrace.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(carriageReturn);
+
+          textBoxCustoResult.Text += result.ToString();
+        }
       }
 
     }
