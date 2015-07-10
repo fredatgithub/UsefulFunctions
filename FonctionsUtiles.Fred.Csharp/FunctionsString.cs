@@ -3168,10 +3168,10 @@ namespace FonctionsUtiles.Fred.Csharp
       return number < 10 ? "0" + number : number.ToString();
     }
 
-    public static string ToNDigits(ushort number, byte numberOfZeros = 1)
+    public static string ToNDigits(ushort number, byte numberLength = 1)
     {
       string tmpZeros = string.Empty;
-      for (int i = 0; i < numberOfZeros - number.ToString().Length; i++)
+      for (int i = 0; i < numberLength - number.ToString().Length; i++)
       {
         tmpZeros += "0";
       }

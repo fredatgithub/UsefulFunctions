@@ -47,8 +47,8 @@
     <Setting Name="textBoxCustoExpectedCosntant" Type="System.String" Scope="User">
       <Value Profile="(Default)">const</Value>
     </Setting>
-    <Setting Name="comboBoxCustoExpectedType" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="comboBoxCustoExpectedType" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="textBoxCustoExpectedWord" Type="System.String" Scope="User">
       <Value Profile="(Default)">expected</Value>
@@ -62,8 +62,8 @@
     <Setting Name="textBoxCustoConstantSource" Type="System.String" Scope="User">
       <Value Profile="(Default)">const</Value>
     </Setting>
-    <Setting Name="comboBoxCustoSourceType" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="comboBoxCustoSourceType" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="textBoxCustoSourceWord" Type="System.String" Scope="User">
       <Value Profile="(Default)">source</Value>
@@ -74,17 +74,14 @@
     <Setting Name="textBoxCustoSourceValue" Type="System.String" Scope="User">
       <Value Profile="(Default)">"laval"</Value>
     </Setting>
-    <Setting Name="comboBoxCustoResultReturnedType" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="comboBoxCustoResultReturnedType" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="textBoxCustoResultWord" Type="System.String" Scope="User">
       <Value Profile="(Default)">result</Value>
     </Setting>
     <Setting Name="textBoxCustoResultEqualSign" Type="System.String" Scope="User">
       <Value Profile="(Default)">=</Value>
-    </Setting>
-    <Setting Name="comboBoxCustoResultFunctionClass" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="textBoxcustoResultFunctionName" Type="System.String" Scope="User">
       <Value Profile="(Default)">.IsPalindrome</Value>
@@ -95,8 +92,8 @@
     <Setting Name="textBoxCustoAssertWord" Type="System.String" Scope="User">
       <Value Profile="(Default)">Assert.</Value>
     </Setting>
-    <Setting Name="comboBoxCustoAssertMethod" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="comboBoxCustoAssertMethod" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="textBoxCustoAssertOpenParenthesis" Type="System.String" Scope="User">
       <Value Profile="(Default)">(</Value>
@@ -118,6 +115,9 @@
     </Setting>
     <Setting Name="LastLanguageUsed" Type="System.String" Scope="User">
       <Value Profile="(Default)">English</Value>
+    </Setting>
+    <Setting Name="textBoxCustoResultFunctionClass" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

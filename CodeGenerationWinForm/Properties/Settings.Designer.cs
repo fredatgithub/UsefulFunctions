@@ -205,10 +205,10 @@ namespace CodeGenerationWinForm.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string comboBoxCustoExpectedType {
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int comboBoxCustoExpectedType {
             get {
-                return ((string)(this["comboBoxCustoExpectedType"]));
+                return ((int)(this["comboBoxCustoExpectedType"]));
             }
             set {
                 this["comboBoxCustoExpectedType"] = value;
@@ -265,10 +265,10 @@ namespace CodeGenerationWinForm.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string comboBoxCustoSourceType {
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int comboBoxCustoSourceType {
             get {
-                return ((string)(this["comboBoxCustoSourceType"]));
+                return ((int)(this["comboBoxCustoSourceType"]));
             }
             set {
                 this["comboBoxCustoSourceType"] = value;
@@ -313,10 +313,10 @@ namespace CodeGenerationWinForm.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string comboBoxCustoResultReturnedType {
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int comboBoxCustoResultReturnedType {
             get {
-                return ((string)(this["comboBoxCustoResultReturnedType"]));
+                return ((int)(this["comboBoxCustoResultReturnedType"]));
             }
             set {
                 this["comboBoxCustoResultReturnedType"] = value;
@@ -344,18 +344,6 @@ namespace CodeGenerationWinForm.Properties {
             }
             set {
                 this["textBoxCustoResultEqualSign"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string comboBoxCustoResultFunctionClass {
-            get {
-                return ((string)(this["comboBoxCustoResultFunctionClass"]));
-            }
-            set {
-                this["comboBoxCustoResultFunctionClass"] = value;
             }
         }
         
@@ -397,10 +385,10 @@ namespace CodeGenerationWinForm.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string comboBoxCustoAssertMethod {
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int comboBoxCustoAssertMethod {
             get {
-                return ((string)(this["comboBoxCustoAssertMethod"]));
+                return ((int)(this["comboBoxCustoAssertMethod"]));
             }
             set {
                 this["comboBoxCustoAssertMethod"] = value;
@@ -488,6 +476,18 @@ namespace CodeGenerationWinForm.Properties {
             }
             set {
                 this["LastLanguageUsed"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string textBoxCustoResultFunctionClass {
+            get {
+                return ((string)(this["textBoxCustoResultFunctionClass"]));
+            }
+            set {
+                this["textBoxCustoResultFunctionClass"] = value;
             }
         }
     }
