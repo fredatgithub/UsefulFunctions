@@ -69,10 +69,14 @@ namespace CodeGenerationWinForm
 
     private void FormMain_Load(object sender, EventArgs e)
     {
+      LoadSettingsAtStartup();
+    }
+
+    private void LoadSettingsAtStartup()
+    {
       DisplayTitle();
       LoadLanguages();
       SetLanguage(Settings.Default.LastLanguageUsed);
-      GetWindowValue();
       FillComboBoxLanguage(comboBoxLanguage);
       FillComboBoxLanguage(comboBoxRndMethodLanguage);
       FillComboBoxLanguage(comboBoxOneMethodLanguage);
@@ -81,14 +85,9 @@ namespace CodeGenerationWinForm
       FillComboBoxWithTypes(comboBoxCustoSourceType);
       FillComboBoxWithTypes(comboBoxCustoResultReturnedType);
       FillComboBoxWithAssertMethods(comboBoxCustoAssertMethod);
-      LoadSettingsAtStartup();
-    }
-
-    private void LoadSettingsAtStartup()
-    {
-      tabControlMain.SelectedIndex = 2;
       tabControlMain.SelectedIndex = Settings.Default.MostRecentTabUsed;
       checkBoxCustomRange.Checked = Settings.Default.checkBoxCustomRange;
+      GetWindowValue();
     }
 
     private static void FillComboBoxLanguage(ComboBox cb)

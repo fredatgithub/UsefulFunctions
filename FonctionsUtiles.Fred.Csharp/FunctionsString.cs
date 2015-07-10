@@ -3170,13 +3170,13 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static string ToNDigits(ushort number, byte numberLength = 1)
     {
-      string tmpZeros = string.Empty;
+      string zeros = string.Empty;
       for (int i = 0; i < numberLength - number.ToString().Length; i++)
       {
-        tmpZeros += "0";
+        zeros += "0";
       }
 
-      return number < 10 ? tmpZeros + number : number.ToString();
+      return zeros + number;
     }
   }
 }
