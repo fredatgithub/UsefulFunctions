@@ -1035,16 +1035,23 @@ namespace CodeGenerationWinForm
         int start;
         if (!int.TryParse(textBoxCustomFrom.Text, out start))
         {
-          DisplayMessageOk("", "", MessageBoxButtons.OK);
+          DisplayMessageOk(GetTranslatedString("This is not a number"), GetTranslatedString("Not a number"), MessageBoxButtons.OK);
+          return;
         }
 
         int end;
         if (!int.TryParse(textBoxCustomTo.Text, out end))
         {
-          DisplayMessageOk("", "", MessageBoxButtons.OK);
+          DisplayMessageOk(GetTranslatedString("This is not a number"), GetTranslatedString("Not a number"), MessageBoxButtons.OK);
+          return;
         }
 
-
+        if (end < start)
+        {
+          DisplayMessageOk(GetTranslatedString("The end number must be greater than the start number"), 
+            GetTranslatedString("End smaller start"), MessageBoxButtons.OK);
+          return;
+        }
 
         for (int i = start; i <= end; i++)
         {
@@ -1054,86 +1061,86 @@ namespace CodeGenerationWinForm
           result.Append(carriageReturn);
 
           // next line METHOD SIGNATURE
-          result.Append(textBoxCustPublic.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(textBoxCustPublic.Text.Replace("%", i.ToString()));
           result.Append(Space);
-          result.Append(textBoxCustoVoid.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(textBoxCustoVoid.Text.Replace("%", i.ToString()));
           result.Append(Space);
-          result.Append(textBoxCustoTestMethod.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(textBoxCustoTestMethod.Text.Replace("%", i.ToString()));
           result.Append(Space);
-          result.Append(textBoxCustoMethodName.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(textBoxCustoMethodName.Text.Replace("%", i.ToString()));
           result.Append(carriageReturn);
 
-          result.Append(textBoxcustoOpenCurlyBrace.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(textBoxcustoOpenCurlyBrace.Text.Replace("%", i.ToString()));
           result.Append(carriageReturn);
 
           // next line SOURCE
           result.Append(Tabulation);
-          result.Append(textBoxCustoConstantSource.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(textBoxCustoConstantSource.Text.Replace("%", i.ToString()));
           result.Append(Space);
           result.Append(comboBoxCustoSourceType.SelectedItem);
           result.Append(Space);
-          result.Append(textBoxCustoSourceWord.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(textBoxCustoSourceWord.Text.Replace("%", i.ToString()));
           result.Append(Space);
-          result.Append(textBoxCustoSourceEqualSign.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(textBoxCustoSourceEqualSign.Text.Replace("%", i.ToString()));
           result.Append(Space);
-          result.Append(textBoxCustoSourceValue.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(textBoxCustoSourceValue.Text.Replace("%", i.ToString()));
           result.Append(Space);
-          result.Append(textBoxCustoSourceSemiColon.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(textBoxCustoSourceSemiColon.Text.Replace("%", i.ToString()));
           result.Append(carriageReturn);
 
           // next line EXPECTED
           result.Append(Tabulation);
-          result.Append(textBoxCustoExpectedCosntant.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(textBoxCustoExpectedCosntant.Text.Replace("%", i.ToString()));
           result.Append(Space);
           result.Append(comboBoxCustoExpectedType.SelectedItem);
           result.Append(Space);
-          result.Append(textBoxCustoExpectedWord.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(textBoxCustoExpectedWord.Text.Replace("%", i.ToString()));
           result.Append(Space);
-          result.Append(textBoxCustoExpectedEqualSign.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(textBoxCustoExpectedEqualSign.Text.Replace("%", i.ToString()));
           result.Append(Space);
-          result.Append(textBoxCustoExpectedValue.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(textBoxCustoExpectedValue.Text.Replace("%", i.ToString()));
           result.Append(Space);
-          result.Append(textBoxCustoExpectedSemiColon.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(textBoxCustoExpectedSemiColon.Text.Replace("%", i.ToString()));
           result.Append(carriageReturn);
 
           // next line RESULT
           result.Append(Tabulation);
           result.Append(comboBoxCustoResultReturnedType.SelectedItem);
           result.Append(Space);
-          result.Append(textBoxCustoResultWord.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(textBoxCustoResultWord.Text.Replace("%", i.ToString()));
           result.Append(Space);
-          result.Append(textBoxCustoResultEqualSign.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(textBoxCustoResultEqualSign.Text.Replace("%", i.ToString()));
           result.Append(Space);
           result.Append(comboBoxCustoResultFunctionClass.SelectedItem);
           result.Append(Space);
-          result.Append(textBoxcustoResultFunctionName.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(textBoxcustoResultFunctionName.Text.Replace("%", i.ToString()));
           result.Append(Space);
-          result.Append(textBoxCustoResultSourceWord.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(textBoxCustoResultSourceWord.Text.Replace("%", i.ToString()));
           result.Append(carriageReturn);
 
           // next line ASSERT
           result.Append(Tabulation);
-          result.Append(textBoxCustoAssertWord.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(textBoxCustoAssertWord.Text.Replace("%", i.ToString()));
           result.Append(Space);
           result.Append(comboBoxCustoAssertMethod.SelectedItem);
           result.Append(Space);
-          result.Append(textBoxCustoAssertOpenParenthesis.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(textBoxCustoAssertOpenParenthesis.Text.Replace("%", i.ToString()));
           result.Append(Space);
-          result.Append(textBoxCustoAssertResultWord.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(textBoxCustoAssertResultWord.Text.Replace("%", i.ToString()));
           result.Append(Space);
-          result.Append(textBoxCustoAssertComma.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(textBoxCustoAssertComma.Text.Replace("%", i.ToString()));
           if (!textBoxCustoAssertComma.Text.EndsWith(" "))
           {
             result.Append(Space);
           }
 
-          result.Append(textBoxCustoAssertExpectedWord.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(textBoxCustoAssertExpectedWord.Text.Replace("%", i.ToString()));
           result.Append(Space);
-          result.Append(textBoxCustoAssertClosingParenthesis.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(textBoxCustoAssertClosingParenthesis.Text.Replace("%", i.ToString()));
           result.Append(carriageReturn);
 
           // next line closing parenthesis
-          result.Append(textBoxCustoCloseCurlyBrace.Text.Replace('%', i.ToString().ToCharArray()[0]));
+          result.Append(textBoxCustoCloseCurlyBrace.Text.Replace("%", i.ToString()));
           result.Append(carriageReturn);
 
           textBoxCustoResult.Text += result.ToString();
