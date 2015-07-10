@@ -110,7 +110,6 @@
       this.textBoxCustoAssertWord = new System.Windows.Forms.TextBox();
       this.textBoxCustoResultSourceWord = new System.Windows.Forms.TextBox();
       this.textBoxcustoResultFunctionName = new System.Windows.Forms.TextBox();
-      this.comboBoxCustoResultFunctionClass = new System.Windows.Forms.ComboBox();
       this.textBoxCustoResultEqualSign = new System.Windows.Forms.TextBox();
       this.textBoxCustoResultWord = new System.Windows.Forms.TextBox();
       this.comboBoxCustoResultReturnedType = new System.Windows.Forms.ComboBox();
@@ -137,6 +136,7 @@
       this.textBoxCustoExpectedCosntant = new System.Windows.Forms.TextBox();
       this.checkBoxAutoCheckTypes = new System.Windows.Forms.CheckBox();
       this.textBoxCustomFrom = new System.Windows.Forms.TextBox();
+      this.textBoxCustoResultFunctionClass = new System.Windows.Forms.TextBox();
       this.menuStrip1.SuspendLayout();
       this.tabControlMain.SuspendLayout();
       this.tabPageOneMethod.SuspendLayout();
@@ -930,7 +930,6 @@
       this.tableLayoutPanelCustomizedMethod.Controls.Add(this.textBoxCustoAssertWord, 0, 6);
       this.tableLayoutPanelCustomizedMethod.Controls.Add(this.textBoxCustoResultSourceWord, 5, 5);
       this.tableLayoutPanelCustomizedMethod.Controls.Add(this.textBoxcustoResultFunctionName, 4, 5);
-      this.tableLayoutPanelCustomizedMethod.Controls.Add(this.comboBoxCustoResultFunctionClass, 3, 5);
       this.tableLayoutPanelCustomizedMethod.Controls.Add(this.textBoxCustoResultEqualSign, 2, 5);
       this.tableLayoutPanelCustomizedMethod.Controls.Add(this.textBoxCustoResultWord, 1, 5);
       this.tableLayoutPanelCustomizedMethod.Controls.Add(this.comboBoxCustoResultReturnedType, 0, 5);
@@ -957,6 +956,7 @@
       this.tableLayoutPanelCustomizedMethod.Controls.Add(this.textBoxCustoExpectedCosntant, 0, 3);
       this.tableLayoutPanelCustomizedMethod.Controls.Add(this.checkBoxAutoCheckTypes, 2, 8);
       this.tableLayoutPanelCustomizedMethod.Controls.Add(this.textBoxCustomFrom, 5, 8);
+      this.tableLayoutPanelCustomizedMethod.Controls.Add(this.textBoxCustoResultFunctionClass, 3, 5);
       this.tableLayoutPanelCustomizedMethod.Dock = System.Windows.Forms.DockStyle.Fill;
       this.tableLayoutPanelCustomizedMethod.Location = new System.Drawing.Point(0, 0);
       this.tableLayoutPanelCustomizedMethod.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1099,17 +1099,6 @@
       this.textBoxcustoResultFunctionName.Size = new System.Drawing.Size(255, 26);
       this.textBoxcustoResultFunctionName.TabIndex = 25;
       this.textBoxcustoResultFunctionName.Text = ".IsPalindrome";
-      // 
-      // comboBoxCustoResultFunctionClass
-      // 
-      this.comboBoxCustoResultFunctionClass.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.comboBoxCustoResultFunctionClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.comboBoxCustoResultFunctionClass.FormattingEnabled = true;
-      this.comboBoxCustoResultFunctionClass.Location = new System.Drawing.Point(468, 178);
-      this.comboBoxCustoResultFunctionClass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-      this.comboBoxCustoResultFunctionClass.Name = "comboBoxCustoResultFunctionClass";
-      this.comboBoxCustoResultFunctionClass.Size = new System.Drawing.Size(151, 28);
-      this.comboBoxCustoResultFunctionClass.TabIndex = 24;
       // 
       // textBoxCustoResultEqualSign
       // 
@@ -1340,7 +1329,7 @@
       this.textBoxCustPublic.Name = "textBoxCustPublic";
       this.textBoxCustPublic.Size = new System.Drawing.Size(121, 26);
       this.textBoxCustPublic.TabIndex = 1;
-      this.textBoxCustPublic.Text = "Public";
+      this.textBoxCustPublic.Text = "public";
       // 
       // textBoxCustoAttribute
       // 
@@ -1414,6 +1403,16 @@
       this.textBoxCustomFrom.Size = new System.Drawing.Size(135, 30);
       this.textBoxCustomFrom.TabIndex = 37;
       this.textBoxCustomFrom.Text = "5";
+      // 
+      // textBoxCustoResultFunctionClass
+      // 
+      this.textBoxCustoResultFunctionClass.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.textBoxCustoResultFunctionClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.textBoxCustoResultFunctionClass.Location = new System.Drawing.Point(468, 179);
+      this.textBoxCustoResultFunctionClass.Name = "textBoxCustoResultFunctionClass";
+      this.textBoxCustoResultFunctionClass.Size = new System.Drawing.Size(151, 26);
+      this.textBoxCustoResultFunctionClass.TabIndex = 41;
+      this.textBoxCustoResultFunctionClass.Text = "StringFunc";
       // 
       // FormMain
       // 
@@ -1549,7 +1548,6 @@
     private System.Windows.Forms.ComboBox comboBoxCustoResultReturnedType;
     private System.Windows.Forms.TextBox textBoxCustoResultSourceWord;
     private System.Windows.Forms.TextBox textBoxcustoResultFunctionName;
-    private System.Windows.Forms.ComboBox comboBoxCustoResultFunctionClass;
     private System.Windows.Forms.TextBox textBoxCustoAssertClosingParenthesis;
     private System.Windows.Forms.TextBox textBoxCustoAssertExpectedWord;
     private System.Windows.Forms.TextBox textBoxCustoAssertComma;
@@ -1562,5 +1560,6 @@
     private System.Windows.Forms.CheckBox checkBoxCustomRange;
     private System.Windows.Forms.TextBox textBoxCustomTo;
     private System.Windows.Forms.TextBox textBoxCustomFrom;
+    private System.Windows.Forms.TextBox textBoxCustoResultFunctionClass;
   }
 }

@@ -3171,10 +3171,11 @@ namespace FonctionsUtiles.Fred.Csharp
     public static string ToNDigits(ushort number, byte numberOfZeros = 1)
     {
       string tmpZeros = string.Empty;
-      for (int i = 0; i < numberOfZeros; i++)
+      for (int i = 0; i < numberOfZeros - number.ToString().Length; i++)
       {
         tmpZeros += "0";
       }
+
       return number < 10 ? tmpZeros + number : number.ToString();
     }
   }

@@ -80,7 +80,6 @@ namespace CodeGenerationWinForm
       FillComboBoxWithTypes(comboBoxCustoExpectedType);
       FillComboBoxWithTypes(comboBoxCustoSourceType);
       FillComboBoxWithTypes(comboBoxCustoResultReturnedType);
-      FillComboBoxWithDllMethods(comboBoxCustoResultFunctionClass);
       FillComboBoxWithAssertMethods(comboBoxCustoAssertMethod);
       LoadSettingsAtStartup();
     }
@@ -995,8 +994,7 @@ namespace CodeGenerationWinForm
         result.Append(Space);
         result.Append(textBoxCustoResultEqualSign.Text);
         result.Append(Space);
-        result.Append(comboBoxCustoResultFunctionClass.SelectedItem);
-        result.Append(Space);
+        result.Append(textBoxCustoResultFunctionClass.Text);
         result.Append(textBoxcustoResultFunctionName.Text);
         result.Append(Space);
         result.Append(textBoxCustoResultSourceWord.Text);
@@ -1066,8 +1064,8 @@ namespace CodeGenerationWinForm
           result.Append(textBoxCustoVoid.Text.Replace("%", i.ToString()));
           result.Append(Space);
           result.Append(textBoxCustoTestMethod.Text.Replace("%", i.ToString()));
-          result.Append(Space);
-          result.Append(textBoxCustoMethodName.Text.Replace("%", i.ToString()));
+          result.Append(textBoxCustoMethodName.Text.Replace("%", i.ToString()).EndsWith("()") ?
+            textBoxCustoMethodName.Text.Replace("%", i.ToString()) : textBoxCustoMethodName.Text.Replace("%", i.ToString()) + "()");
           result.Append(carriageReturn);
 
           result.Append(textBoxcustoOpenCurlyBrace.Text.Replace("%", i.ToString()));
@@ -1111,8 +1109,7 @@ namespace CodeGenerationWinForm
           result.Append(Space);
           result.Append(textBoxCustoResultEqualSign.Text.Replace("%", i.ToString()));
           result.Append(Space);
-          result.Append(comboBoxCustoResultFunctionClass.SelectedItem);
-          result.Append(Space);
+          result.Append(textBoxCustoResultFunctionClass.Text);
           result.Append(textBoxcustoResultFunctionName.Text.Replace("%", i.ToString()));
           result.Append(Space);
           result.Append(textBoxCustoResultSourceWord.Text.Replace("%", i.ToString()));
@@ -1142,7 +1139,7 @@ namespace CodeGenerationWinForm
           // next line closing parenthesis
           result.Append(textBoxCustoCloseCurlyBrace.Text.Replace("%", i.ToString()));
           result.Append(carriageReturn);
-
+          result.Append(carriageReturn);
           textBoxCustoResult.Text += result.ToString();
         }
       }

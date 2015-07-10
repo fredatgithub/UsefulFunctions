@@ -6354,6 +6354,96 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
+    [TestMethod]
+    public void TestMethod_ToTwoDigits_value_3()
+    {
+      const int source = 3;
+      const string expected = "03";
+      string result = StringFunc.ToTwoDigits(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToTwoDigits_value_4()
+    {
+      const int source = 4;
+      const string expected = "04";
+      string result = StringFunc.ToTwoDigits(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToTwoDigits_value_5()
+    {
+      const int source = 5;
+      const string expected = "05";
+      string result = StringFunc.ToTwoDigits(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToTwoDigits_value_6()
+    {
+      const int source = 6;
+      const string expected = "06";
+      string result = StringFunc.ToTwoDigits(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToTwoDigits_value_7()
+    {
+      const int source = 7;
+      const string expected = "07";
+      string result = StringFunc.ToTwoDigits(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToTwoDigits_value_8()
+    {
+      const int source = 8;
+      const string expected = "08";
+      string result = StringFunc.ToTwoDigits(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToTwoDigits_value_9()
+    {
+      const int source = 9;
+      const string expected = "09";
+      string result = StringFunc.ToTwoDigits(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToTwoDigits_value_10()
+    {
+      const int source = 10;
+      const string expected = "10";
+      string result = StringFunc.ToTwoDigits(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToTwoDigits_value_100()
+    {
+      const int source = 100;
+      const string expected = "100";
+      string result = StringFunc.ToTwoDigits(source);
+      Assert.AreEqual(result, expected);
+    }
     #endregion ToTwoDigits
+    #region ToNDigits
+    [TestMethod]
+    public void TestMethod_ToNDigits_default_value_0()
+    {
+      const int source = 0;
+      const string expected = "0";
+      string result = StringFunc.ToNDigits(source);
+      Assert.AreEqual(result, expected);
+    }
+    #endregion ToNDigits
   }
 }
