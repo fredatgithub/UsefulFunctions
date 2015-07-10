@@ -7093,6 +7093,2238 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_1()
+    {
+      const int source = 1;
+      const string expected = "0001";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_2()
+    {
+      const int source = 2;
+      const string expected = "0002";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_3()
+    {
+      const int source = 3;
+      const string expected = "0003";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_4()
+    {
+      const int source = 4;
+      const string expected = "0004";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_5()
+    {
+      const int source = 5;
+      const string expected = "0005";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_6()
+    {
+      const int source = 6;
+      const string expected = "0006";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_7()
+    {
+      const int source = 7;
+      const string expected = "0007";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_8()
+    {
+      const int source = 8;
+      const string expected = "0008";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_9()
+    {
+      const int source = 9;
+      const string expected = "0009";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_10()
+    {
+      const int source = 10;
+      const string expected = "0010";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_11()
+    {
+      const int source = 11;
+      const string expected = "0011";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_12()
+    {
+      const int source = 12;
+      const string expected = "0012";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_13()
+    {
+      const int source = 13;
+      const string expected = "0013";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_14()
+    {
+      const int source = 14;
+      const string expected = "0014";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_15()
+    {
+      const int source = 15;
+      const string expected = "0015";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_16()
+    {
+      const int source = 16;
+      const string expected = "0016";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_17()
+    {
+      const int source = 17;
+      const string expected = "0017";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_18()
+    {
+      const int source = 18;
+      const string expected = "0018";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_19()
+    {
+      const int source = 19;
+      const string expected = "0019";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_20()
+    {
+      const int source = 20;
+      const string expected = "0020";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_21()
+    {
+      const int source = 21;
+      const string expected = "0021";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_100()
+    {
+      const int source = 100;
+      const string expected = "0100";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_101()
+    {
+      const int source = 101;
+      const string expected = "0101";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_102()
+    {
+      const int source = 102;
+      const string expected = "0102";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_103()
+    {
+      const int source = 103;
+      const string expected = "0103";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_104()
+    {
+      const int source = 104;
+      const string expected = "0104";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_105()
+    {
+      const int source = 105;
+      const string expected = "0105";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_106()
+    {
+      const int source = 106;
+      const string expected = "0106";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_107()
+    {
+      const int source = 107;
+      const string expected = "0107";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_108()
+    {
+      const int source = 108;
+      const string expected = "0108";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_109()
+    {
+      const int source = 109;
+      const string expected = "0109";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_110()
+    {
+      const int source = 110;
+      const string expected = "0110";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_111()
+    {
+      const int source = 111;
+      const string expected = "0111";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_112()
+    {
+      const int source = 112;
+      const string expected = "0112";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_113()
+    {
+      const int source = 113;
+      const string expected = "0113";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_114()
+    {
+      const int source = 114;
+      const string expected = "0114";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_115()
+    {
+      const int source = 115;
+      const string expected = "0115";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_1000()
+    {
+      const int source = 1000;
+      const string expected = "1000";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_1001()
+    {
+      const int source = 1001;
+      const string expected = "1001";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_1002()
+    {
+      const int source = 1002;
+      const string expected = "1002";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_1003()
+    {
+      const int source = 1003;
+      const string expected = "1003";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_1004()
+    {
+      const int source = 1004;
+      const string expected = "1004";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_1005()
+    {
+      const int source = 1005;
+      const string expected = "1005";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_1006()
+    {
+      const int source = 1006;
+      const string expected = "1006";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_1007()
+    {
+      const int source = 1007;
+      const string expected = "1007";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_1008()
+    {
+      const int source = 1008;
+      const string expected = "1008";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_1009()
+    {
+      const int source = 1009;
+      const string expected = "1009";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_1010()
+    {
+      const int source = 1010;
+      const string expected = "1010";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_1011()
+    {
+      const int source = 1011;
+      const string expected = "1011";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_1012()
+    {
+      const int source = 1012;
+      const string expected = "1012";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_1013()
+    {
+      const int source = 1013;
+      const string expected = "1013";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_1014()
+    {
+      const int source = 1014;
+      const string expected = "1014";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_1015()
+    {
+      const int source = 1015;
+      const string expected = "1015";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_1016()
+    {
+      const int source = 1016;
+      const string expected = "1016";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_1017()
+    {
+      const int source = 1017;
+      const string expected = "1017";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_1018()
+    {
+      const int source = 1018;
+      const string expected = "1018";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_1019()
+    {
+      const int source = 1019;
+      const string expected = "1019";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_1020()
+    {
+      const int source = 1020;
+      const string expected = "1020";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_1021()
+    {
+      const int source = 1021;
+      const string expected = "1021";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_1022()
+    {
+      const int source = 1022;
+      const string expected = "1022";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_1023()
+    {
+      const int source = 1023;
+      const string expected = "1023";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_1024()
+    {
+      const int source = 1024;
+      const string expected = "1024";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_1025()
+    {
+      const int source = 1025;
+      const string expected = "1025";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_9990()
+    {
+      const int source = 9990;
+      const string expected = "9990";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_9991()
+    {
+      const int source = 9991;
+      const string expected = "9991";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_9992()
+    {
+      const int source = 9992;
+      const string expected = "9992";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_9993()
+    {
+      const int source = 9993;
+      const string expected = "9993";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_9994()
+    {
+      const int source = 9994;
+      const string expected = "9994";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_9995()
+    {
+      const int source = 9995;
+      const string expected = "9995";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_9996()
+    {
+      const int source = 9996;
+      const string expected = "9996";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_9997()
+    {
+      const int source = 9997;
+      const string expected = "9997";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_9998()
+    {
+      const int source = 9998;
+      const string expected = "9998";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_4_zeros_value_9999()
+    {
+      const int source = 9999;
+      const string expected = "9999";
+      string result = StringFunc.ToNDigits(source, 4);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_1()
+    {
+      const int source = 1;
+      const string expected = "00001";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_2()
+    {
+      const int source = 2;
+      const string expected = "00002";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_3()
+    {
+      const int source = 3;
+      const string expected = "00003";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_4()
+    {
+      const int source = 4;
+      const string expected = "00004";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_5()
+    {
+      const int source = 5;
+      const string expected = "00005";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_6()
+    {
+      const int source = 6;
+      const string expected = "00006";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_7()
+    {
+      const int source = 7;
+      const string expected = "00007";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_8()
+    {
+      const int source = 8;
+      const string expected = "00008";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_9()
+    {
+      const int source = 9;
+      const string expected = "00009";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_10()
+    {
+      const int source = 10;
+      const string expected = "00010";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_11()
+    {
+      const int source = 11;
+      const string expected = "00011";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_12()
+    {
+      const int source = 12;
+      const string expected = "00012";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_13()
+    {
+      const int source = 13;
+      const string expected = "00013";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_14()
+    {
+      const int source = 14;
+      const string expected = "00014";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_15()
+    {
+      const int source = 15;
+      const string expected = "00015";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_16()
+    {
+      const int source = 16;
+      const string expected = "00016";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_17()
+    {
+      const int source = 17;
+      const string expected = "00017";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_18()
+    {
+      const int source = 18;
+      const string expected = "00018";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_19()
+    {
+      const int source = 19;
+      const string expected = "00019";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_20()
+    {
+      const int source = 20;
+      const string expected = "00020";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_21()
+    {
+      const int source = 21;
+      const string expected = "00021";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_22()
+    {
+      const int source = 22;
+      const string expected = "00022";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_23()
+    {
+      const int source = 23;
+      const string expected = "00023";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_24()
+    {
+      const int source = 24;
+      const string expected = "00024";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_25()
+    {
+      const int source = 25;
+      const string expected = "00025";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_100()
+    {
+      const int source = 100;
+      const string expected = "00100";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_101()
+    {
+      const int source = 101;
+      const string expected = "00101";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_102()
+    {
+      const int source = 102;
+      const string expected = "00102";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_103()
+    {
+      const int source = 103;
+      const string expected = "00103";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_104()
+    {
+      const int source = 104;
+      const string expected = "00104";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_105()
+    {
+      const int source = 105;
+      const string expected = "00105";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_106()
+    {
+      const int source = 106;
+      const string expected = "00106";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_107()
+    {
+      const int source = 107;
+      const string expected = "00107";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_108()
+    {
+      const int source = 108;
+      const string expected = "00108";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_109()
+    {
+      const int source = 109;
+      const string expected = "00109";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_110()
+    {
+      const int source = 110;
+      const string expected = "00110";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_111()
+    {
+      const int source = 111;
+      const string expected = "00111";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_112()
+    {
+      const int source = 112;
+      const string expected = "00112";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_113()
+    {
+      const int source = 113;
+      const string expected = "00113";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_114()
+    {
+      const int source = 114;
+      const string expected = "00114";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_115()
+    {
+      const int source = 115;
+      const string expected = "00115";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_116()
+    {
+      const int source = 116;
+      const string expected = "00116";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_117()
+    {
+      const int source = 117;
+      const string expected = "00117";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_118()
+    {
+      const int source = 118;
+      const string expected = "00118";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_119()
+    {
+      const int source = 119;
+      const string expected = "00119";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_120()
+    {
+      const int source = 120;
+      const string expected = "00120";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_121()
+    {
+      const int source = 121;
+      const string expected = "00121";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_122()
+    {
+      const int source = 122;
+      const string expected = "00122";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_123()
+    {
+      const int source = 123;
+      const string expected = "00123";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_124()
+    {
+      const int source = 124;
+      const string expected = "00124";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_125()
+    {
+      const int source = 125;
+      const string expected = "00125";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_1000()
+    {
+      const int source = 1000;
+      const string expected = "01000";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_1001()
+    {
+      const int source = 1001;
+      const string expected = "01001";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_1002()
+    {
+      const int source = 1002;
+      const string expected = "01002";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_1003()
+    {
+      const int source = 1003;
+      const string expected = "01003";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_1004()
+    {
+      const int source = 1004;
+      const string expected = "01004";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_1005()
+    {
+      const int source = 1005;
+      const string expected = "01005";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_1006()
+    {
+      const int source = 1006;
+      const string expected = "01006";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_1007()
+    {
+      const int source = 1007;
+      const string expected = "01007";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_1008()
+    {
+      const int source = 1008;
+      const string expected = "01008";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_1009()
+    {
+      const int source = 1009;
+      const string expected = "01009";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_1010()
+    {
+      const int source = 1010;
+      const string expected = "01010";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_1011()
+    {
+      const int source = 1011;
+      const string expected = "01011";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_1012()
+    {
+      const int source = 1012;
+      const string expected = "01012";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_1013()
+    {
+      const int source = 1013;
+      const string expected = "01013";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_1014()
+    {
+      const int source = 1014;
+      const string expected = "01014";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_1015()
+    {
+      const int source = 1015;
+      const string expected = "01015";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_1016()
+    {
+      const int source = 1016;
+      const string expected = "01016";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_1017()
+    {
+      const int source = 1017;
+      const string expected = "01017";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_1018()
+    {
+      const int source = 1018;
+      const string expected = "01018";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_1019()
+    {
+      const int source = 1019;
+      const string expected = "01019";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_1020()
+    {
+      const int source = 1020;
+      const string expected = "01020";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_1021()
+    {
+      const int source = 1021;
+      const string expected = "01021";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_1022()
+    {
+      const int source = 1022;
+      const string expected = "01022";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_1023()
+    {
+      const int source = 1023;
+      const string expected = "01023";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_1024()
+    {
+      const int source = 1024;
+      const string expected = "01024";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_1025()
+    {
+      const int source = 1025;
+      const string expected = "01025";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_10000()
+    {
+      const int source = 10000;
+      const string expected = "10000";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_10001()
+    {
+      const int source = 10001;
+      const string expected = "10001";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_10002()
+    {
+      const int source = 10002;
+      const string expected = "10002";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_10003()
+    {
+      const int source = 10003;
+      const string expected = "10003";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_10004()
+    {
+      const int source = 10004;
+      const string expected = "10004";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_10005()
+    {
+      const int source = 10005;
+      const string expected = "10005";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_10006()
+    {
+      const int source = 10006;
+      const string expected = "10006";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_10007()
+    {
+      const int source = 10007;
+      const string expected = "10007";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_10008()
+    {
+      const int source = 10008;
+      const string expected = "10008";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_10009()
+    {
+      const int source = 10009;
+      const string expected = "10009";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_10010()
+    {
+      const int source = 10010;
+      const string expected = "10010";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_10011()
+    {
+      const int source = 10011;
+      const string expected = "10011";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_10012()
+    {
+      const int source = 10012;
+      const string expected = "10012";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_10013()
+    {
+      const int source = 10013;
+      const string expected = "10013";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_10014()
+    {
+      const int source = 10014;
+      const string expected = "10014";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_10015()
+    {
+      const int source = 10015;
+      const string expected = "10015";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_10016()
+    {
+      const int source = 10016;
+      const string expected = "10016";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_10017()
+    {
+      const int source = 10017;
+      const string expected = "10017";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_10018()
+    {
+      const int source = 10018;
+      const string expected = "10018";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_10019()
+    {
+      const int source = 10019;
+      const string expected = "10019";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_10020()
+    {
+      const int source = 10020;
+      const string expected = "10020";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_10021()
+    {
+      const int source = 10021;
+      const string expected = "10021";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_10022()
+    {
+      const int source = 10022;
+      const string expected = "10022";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_10023()
+    {
+      const int source = 10023;
+      const string expected = "10023";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_10024()
+    {
+      const int source = 10024;
+      const string expected = "10024";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_10025()
+    {
+      const int source = 10025;
+      const string expected = "10025";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_65500()
+    {
+      const int source = 65500;
+      const string expected = "65500";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_65501()
+    {
+      const int source = 65501;
+      const string expected = "65501";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_65502()
+    {
+      const int source = 65502;
+      const string expected = "65502";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_65503()
+    {
+      const int source = 65503;
+      const string expected = "65503";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_65504()
+    {
+      const int source = 65504;
+      const string expected = "65504";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_65505()
+    {
+      const int source = 65505;
+      const string expected = "65505";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_65506()
+    {
+      const int source = 65506;
+      const string expected = "65506";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_65507()
+    {
+      const int source = 65507;
+      const string expected = "65507";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_65508()
+    {
+      const int source = 65508;
+      const string expected = "65508";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_65509()
+    {
+      const int source = 65509;
+      const string expected = "65509";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_65510()
+    {
+      const int source = 65510;
+      const string expected = "65510";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_65511()
+    {
+      const int source = 65511;
+      const string expected = "65511";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_65512()
+    {
+      const int source = 65512;
+      const string expected = "65512";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_65513()
+    {
+      const int source = 65513;
+      const string expected = "65513";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_65514()
+    {
+      const int source = 65514;
+      const string expected = "65514";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_65515()
+    {
+      const int source = 65515;
+      const string expected = "65515";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_65516()
+    {
+      const int source = 65516;
+      const string expected = "65516";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_65517()
+    {
+      const int source = 65517;
+      const string expected = "65517";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_65518()
+    {
+      const int source = 65518;
+      const string expected = "65518";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_65519()
+    {
+      const int source = 65519;
+      const string expected = "65519";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_65520()
+    {
+      const int source = 65520;
+      const string expected = "65520";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_65521()
+    {
+      const int source = 65521;
+      const string expected = "65521";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_65522()
+    {
+      const int source = 65522;
+      const string expected = "65522";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_65523()
+    {
+      const int source = 65523;
+      const string expected = "65523";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_65524()
+    {
+      const int source = 65524;
+      const string expected = "65524";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_65525()
+    {
+      const int source = 65525;
+      const string expected = "65525";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_65526()
+    {
+      const int source = 65526;
+      const string expected = "65526";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_65527()
+    {
+      const int source = 65527;
+      const string expected = "65527";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_65528()
+    {
+      const int source = 65528;
+      const string expected = "65528";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_65529()
+    {
+      const int source = 65529;
+      const string expected = "65529";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_65530()
+    {
+      const int source = 65530;
+      const string expected = "65530";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_65531()
+    {
+      const int source = 65531;
+      const string expected = "65531";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_65532()
+    {
+      const int source = 65532;
+      const string expected = "65532";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_65533()
+    {
+      const int source = 65533;
+      const string expected = "65533";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_65534()
+    {
+      const int source = 65534;
+      const string expected = "65534";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_5_zeros_value_65535()
+    {
+      const int source = 65535;
+      const string expected = "65535";
+      string result = StringFunc.ToNDigits(source, 5);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_6_zeros_value_65500()
+    {
+      const int source = 65500;
+      const string expected = "065500";
+      string result = StringFunc.ToNDigits(source, 6);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_6_zeros_value_65501()
+    {
+      const int source = 65501;
+      const string expected = "065501";
+      string result = StringFunc.ToNDigits(source, 6);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_6_zeros_value_65502()
+    {
+      const int source = 65502;
+      const string expected = "065502";
+      string result = StringFunc.ToNDigits(source, 6);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_6_zeros_value_65503()
+    {
+      const int source = 65503;
+      const string expected = "065503";
+      string result = StringFunc.ToNDigits(source, 6);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_6_zeros_value_65504()
+    {
+      const int source = 65504;
+      const string expected = "065504";
+      string result = StringFunc.ToNDigits(source, 6);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_6_zeros_value_65505()
+    {
+      const int source = 65505;
+      const string expected = "065505";
+      string result = StringFunc.ToNDigits(source, 6);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_6_zeros_value_65506()
+    {
+      const int source = 65506;
+      const string expected = "065506";
+      string result = StringFunc.ToNDigits(source, 6);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_6_zeros_value_65507()
+    {
+      const int source = 65507;
+      const string expected = "065507";
+      string result = StringFunc.ToNDigits(source, 6);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_6_zeros_value_65508()
+    {
+      const int source = 65508;
+      const string expected = "065508";
+      string result = StringFunc.ToNDigits(source, 6);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_6_zeros_value_65509()
+    {
+      const int source = 65509;
+      const string expected = "065509";
+      string result = StringFunc.ToNDigits(source, 6);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_6_zeros_value_65510()
+    {
+      const int source = 65510;
+      const string expected = "065510";
+      string result = StringFunc.ToNDigits(source, 6);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_6_zeros_value_65511()
+    {
+      const int source = 65511;
+      const string expected = "065511";
+      string result = StringFunc.ToNDigits(source, 6);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_6_zeros_value_65512()
+    {
+      const int source = 65512;
+      const string expected = "065512";
+      string result = StringFunc.ToNDigits(source, 6);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_6_zeros_value_65513()
+    {
+      const int source = 65513;
+      const string expected = "065513";
+      string result = StringFunc.ToNDigits(source, 6);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_6_zeros_value_65514()
+    {
+      const int source = 65514;
+      const string expected = "065514";
+      string result = StringFunc.ToNDigits(source, 6);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_6_zeros_value_65515()
+    {
+      const int source = 65515;
+      const string expected = "065515";
+      string result = StringFunc.ToNDigits(source, 6);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_6_zeros_value_65516()
+    {
+      const int source = 65516;
+      const string expected = "065516";
+      string result = StringFunc.ToNDigits(source, 6);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_6_zeros_value_65517()
+    {
+      const int source = 65517;
+      const string expected = "065517";
+      string result = StringFunc.ToNDigits(source, 6);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_6_zeros_value_65518()
+    {
+      const int source = 65518;
+      const string expected = "065518";
+      string result = StringFunc.ToNDigits(source, 6);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_6_zeros_value_65519()
+    {
+      const int source = 65519;
+      const string expected = "065519";
+      string result = StringFunc.ToNDigits(source, 6);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_6_zeros_value_65520()
+    {
+      const int source = 65520;
+      const string expected = "065520";
+      string result = StringFunc.ToNDigits(source, 6);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_6_zeros_value_65521()
+    {
+      const int source = 65521;
+      const string expected = "065521";
+      string result = StringFunc.ToNDigits(source, 6);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_6_zeros_value_65522()
+    {
+      const int source = 65522;
+      const string expected = "065522";
+      string result = StringFunc.ToNDigits(source, 6);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_6_zeros_value_65523()
+    {
+      const int source = 65523;
+      const string expected = "065523";
+      string result = StringFunc.ToNDigits(source, 6);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_6_zeros_value_65524()
+    {
+      const int source = 65524;
+      const string expected = "065524";
+      string result = StringFunc.ToNDigits(source, 6);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_6_zeros_value_65525()
+    {
+      const int source = 65525;
+      const string expected = "065525";
+      string result = StringFunc.ToNDigits(source, 6);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_6_zeros_value_65526()
+    {
+      const int source = 65526;
+      const string expected = "065526";
+      string result = StringFunc.ToNDigits(source, 6);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_6_zeros_value_65527()
+    {
+      const int source = 65527;
+      const string expected = "065527";
+      string result = StringFunc.ToNDigits(source, 6);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_6_zeros_value_65528()
+    {
+      const int source = 65528;
+      const string expected = "065528";
+      string result = StringFunc.ToNDigits(source, 6);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_6_zeros_value_65529()
+    {
+      const int source = 65529;
+      const string expected = "065529";
+      string result = StringFunc.ToNDigits(source, 6);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_6_zeros_value_65530()
+    {
+      const int source = 65530;
+      const string expected = "065530";
+      string result = StringFunc.ToNDigits(source, 6);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_6_zeros_value_65531()
+    {
+      const int source = 65531;
+      const string expected = "065531";
+      string result = StringFunc.ToNDigits(source, 6);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_6_zeros_value_65532()
+    {
+      const int source = 65532;
+      const string expected = "065532";
+      string result = StringFunc.ToNDigits(source, 6);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_6_zeros_value_65533()
+    {
+      const int source = 65533;
+      const string expected = "065533";
+      string result = StringFunc.ToNDigits(source, 6);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_6_zeros_value_65534()
+    {
+      const int source = 65534;
+      const string expected = "065534";
+      string result = StringFunc.ToNDigits(source, 6);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_6_zeros_value_65535()
+    {
+      const int source = 65535;
+      const string expected = "065535";
+      string result = StringFunc.ToNDigits(source, 6);
+      Assert.AreEqual(result, expected);
+    }
+
 
     #endregion ToNDigits
   }
