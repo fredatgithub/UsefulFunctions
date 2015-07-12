@@ -152,6 +152,8 @@ namespace FonctionsUtiles.Fred.Csharp
       result.Append("Method= string GetCapitalLetters(string input)" + newLine);
       result.Append("Method= string ToPascalCase(string s)" + newLine);
       result.Append("Method= string ToTitleCase2(string s)" + newLine);
+      result.Append("Method= string ToTwoDigits(ushort number)" + newLine);
+      result.Append("Method= string ToNDigits(ushort number, byte numberLength = 1)" + newLine);
       result.Append("DateTime methods:" + newLine);
       result.Append("Files methods:" + newLine);
       result.Append("Internet methods:" + newLine);
