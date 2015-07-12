@@ -46,6 +46,7 @@ namespace CodeGenerationWinForm
     private readonly string carriageReturn = Environment.NewLine;
     private const string Space = " ";
     private const string Tabulation = "  "; // used StringFunc.Tabulation method instead TODO
+    private string currentLanguage = "english";
     private int MostRecentTabUsed = 2;
 
     private void QuitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1144,11 +1145,29 @@ namespace CodeGenerationWinForm
       }
     }
 
-    private string GetTranslatedString(string index)
+    private string GetTranslatedString(string stringToBeTranslated)
     {
       string result = string.Empty;
-      string language = frenchToolStripMenuItem.Checked ? "french" : "english";
+      switch (currentLanguage.ToLower())
+      {
+        case "english":
+          result = languageDicoEn.ContainsKey(stringToBeTranslated) ? languageDicoEn[stringToBeTranslated] :
+           "the term: \"" + stringToBeTranslated + 
+           "\" has not been translated yet.\nPlease tell the developer to translate this term";
+          break;
+        case "french":
+          result = languageDicoFr.ContainsKey(stringToBeTranslated) ? languageDicoFr[stringToBeTranslated] :
+            "the term: \"" + stringToBeTranslated + 
+            "\" has not been translated yet.\nPlease tell the developer to translate this term";
+          break;
+      }
 
+      return result;
+    }
+
+    private string GetTranslatedString(string index, string language = "english")
+    {
+      string result = string.Empty;
       switch (language.ToLower())
       {
         case "english":
@@ -1166,11 +1185,13 @@ namespace CodeGenerationWinForm
 
     private void frenchToolStripMenuItem_Click(object sender, EventArgs e)
     {
+      currentLanguage = Language.French.ToString();
       SetLanguage(Language.French.ToString());
     }
 
     private void englishToolStripMenuItem_Click(object sender, EventArgs e)
     {
+      currentLanguage = Language.English.ToString();
       SetLanguage(Language.English.ToString());
     }
 
