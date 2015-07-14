@@ -9325,6 +9325,88 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
+    [TestMethod]
+    public void TestMethod_ToNDigits_7_zeros_value_1()
+    {
+      const int source = 1;
+      const string expected = "0000001";
+      string result = StringFunc.ToNDigits(source, 7);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_7_zeros_value_2()
+    {
+      const int source = 2;
+      const string expected = "0000002";
+      string result = StringFunc.ToNDigits(source, 7);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_7_zeros_value_3()
+    {
+      const int source = 3;
+      const string expected = "0000003";
+      string result = StringFunc.ToNDigits(source, 7);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_7_zeros_value_4()
+    {
+      const int source = 4;
+      const string expected = "0000004";
+      string result = StringFunc.ToNDigits(source, 7);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_7_zeros_value_5()
+    {
+      const int source = 5;
+      const string expected = "0000005";
+      string result = StringFunc.ToNDigits(source, 7);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_7_zeros_value_6()
+    {
+      const int source = 6;
+      const string expected = "0000006";
+      string result = StringFunc.ToNDigits(source, 7);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_7_zeros_value_7()
+    {
+      const int source = 7;
+      const string expected = "0000007";
+      string result = StringFunc.ToNDigits(source, 7);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_7_zeros_value_8()
+    {
+      const int source = 8;
+      const string expected = "0000008";
+      string result = StringFunc.ToNDigits(source, 7);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToNDigits_7_zeros_value_9()
+    {
+      const int source = 9;
+      const string expected = "0000009";
+      string result = StringFunc.ToNDigits(source, 7);
+      Assert.AreEqual(result, expected);
+    }
+
+
 
     #endregion ToNDigits
   }
