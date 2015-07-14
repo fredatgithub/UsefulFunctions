@@ -1,6 +1,8 @@
 # UsefulFunctions
 Useful functions gathered in one DLL
 
+[![GitHub license](https://img.shields.io/github/license/MarcosMeli/FileHelpers.svg)](https://github.com/fredatgithub/UsefulFunctions#license)
+
 # Build Status
 TeamCity: master:
 Travis: master:
