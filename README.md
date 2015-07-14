@@ -6,5 +6,7 @@ Useful functions gathered in one DLL
 
 # Build Status
 TeamCity: master:
+
 Travis: master:
-AppVeyor: https://ci.appveyor.com/project/fredatgithub/UsefulFunctions/branch/master
+
+AppVeyor [![Build status](https://ci.appveyor.com/api/projects/status/i3378pd0rkx7cfliuenfvsyo/branch/master?svg=true)](https://ci.appveyor.com/project/fredatgithub/usefulfunctions/branch/master) 
