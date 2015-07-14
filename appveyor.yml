@@ -6,6 +6,6 @@ Configuration: Release
   
 #package Web Application project for Web Deploy
 build:
-	verbosity: minimal
-	publish_wap: false
-	
+  verbosity: minimal
+  publish_wap: false
+  
