@@ -4,7 +4,7 @@ install:
   #- echo This is batch
   # to run script as a PowerShell command prepend it with ps:
   #- ps: Write-Host 'This is PowerShell'
-  Set-Culture fr-FR
+  ps: Set-Culture fr-FR
 
 build:
   verbosity: minimal
