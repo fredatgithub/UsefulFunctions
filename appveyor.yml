@@ -9,3 +9,6 @@ install:
 build:
   verbosity: minimal
   parallel: true  
+
+  # MSBuild verbosity level
+  #verbosity: quiet|minimal|normal|detailed
