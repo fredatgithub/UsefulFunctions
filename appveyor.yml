@@ -8,4 +8,4 @@ install:
 
 build:
   verbosity: minimal
-
+  parallel: true  
