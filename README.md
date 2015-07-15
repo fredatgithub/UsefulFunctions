@@ -5,8 +5,8 @@ Useful functions gathered in one DLL
 [![GitHub license](https://img.shields.io/github/license/MarcosMeli/FileHelpers.svg)](https://github.com/fredatgithub/UsefulFunctions#license)
 
 # Build Status
-TeamCity: master:
+TeamCity: 
 
-Travis: master:
+Travis: 
 
 AppVeyor [![Build status](https://ci.appveyor.com/api/projects/status/i3378pd0rkx7cfliuenfvsyo/branch/master?svg=true)](https://ci.appveyor.com/project/fredatgithub/usefulfunctions/branch/master) 
