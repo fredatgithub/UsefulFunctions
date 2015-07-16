@@ -7,7 +7,7 @@ Useful functions gathered in one DLL
 # Build Status
 [![Build status](https://img.shields.io/appveyor/ci/objorke/oxyplot.svg)](https://ci.appveyor.com/project/objorke/oxyplot)
 [![Windows Build status](https://img.shields.io/appveyor/ci/danmar/cppcheck/master.svg?label=Windows%20build)](https://ci.appveyor.com/project/fredatgithub/UsefulFunctions/branch/master)
-[!Release status] (https://img.shields.io/badge/Release-none-red.svg)
+[Release status] (https://img.shields.io/badge/Release-none-red.svg)
 
 Travis: 
 
