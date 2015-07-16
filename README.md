@@ -2,8 +2,7 @@
 Useful functions gathered in one DLL
 
 # License
-[![GitHub license](https://img.shields.io/github/license/MarcosMeli/FileHelpers.svg)](https://github.com/fredatgithub/UsefulFunctions#license)
-[![License status] (https://img.shields.io/badge/License-MIT-blue.svg)] (https://github.com/fredatgithub/UsefulFunctions#License Status)
+[![License status] (https://img.shields.io/badge/License-MIT License-blue.svg)] (https://github.com/fredatgithub/UsefulFunctions#License)
 
 # Build Status
 [![Build status](https://img.shields.io/appveyor/ci/objorke/oxyplot.svg)](https://ci.appveyor.com/project/objorke/oxyplot)
