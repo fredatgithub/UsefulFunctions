@@ -5,7 +5,7 @@ Useful functions gathered in one DLL
 [![GitHub license](https://img.shields.io/github/license/MarcosMeli/FileHelpers.svg)](https://github.com/fredatgithub/UsefulFunctions#license)
 
 # Build Status
-TeamCity: 
+[![Build status](https://img.shields.io/appveyor/ci/objorke/oxyplot.svg)](https://ci.appveyor.com/project/objorke/oxyplot)
 
 Travis: 
 
