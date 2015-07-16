@@ -7,7 +7,6 @@ Useful functions gathered in one DLL
 # Build Statuses
 [![Build] (https://img.shields.io/badge/Build-Passed-brightgreen.svg)] (https://github.com/fredatgithub/UsefulFunctions#build)
 [![Windows build] (https://img.shields.io/badge/Windows build-Passed-brightgreen.svg)] (https://github.com/fredatgithub/UsefulFunctions#windows)
-[![Linux build] (https://img.shields.io/badge/Linux build-none-red.svg)] (https://github.com/fredatgithub/UsefulFunctions#Linux build)
 [![Release status] (https://img.shields.io/badge/Release-none-red.svg)] (https://github.com/fredatgithub/UsefulFunctions#Build Status)
 [![NuGet status] (https://img.shields.io/badge/NuGet-none-red.svg)] (https://github.com/fredatgithub/UsefulFunctions#Build Status)
 
