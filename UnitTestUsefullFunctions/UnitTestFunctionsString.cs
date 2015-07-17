@@ -2218,11 +2218,20 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
-    // unit test disabled while appveyor debugs its bug
     [TestMethod]
-    public void TestMethod_IsNumeric3_true_Allow_decimal_white()
+    public void TestMethod_IsNumeric3_true_Allow_decimal_Point()
     {
       const string source = "1234,56";
+      const NumberStyles numberStyle = NumberStyles.AllowDecimalPoint;
+      const bool expected = true;
+      bool result = StringFunc.IsNumeric3(source, numberStyle);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsNumeric3_true_Allow_3_decimal_Point()
+    {
+      const string source = "1234,567";
       const NumberStyles numberStyle = NumberStyles.AllowDecimalPoint;
       const bool expected = true;
       bool result = StringFunc.IsNumeric3(source, numberStyle);
