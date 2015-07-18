@@ -8,7 +8,7 @@ Useful functions gathered in one DLL
 [![Build] (https://img.shields.io/badge/Build-Passed-brightgreen.svg)] (https://github.com/fredatgithub/UsefulFunctions#Build status)
 [![Windows build] (https://img.shields.io/badge/Windows build-Passed-brightgreen.svg)] (https://github.com/fredatgithub/UsefulFunctions#Build Status)
 [![Linux status] (https://img.shields.io/badge/Linux-none-red.svg)] (https://github.com/fredatgithub/UsefulFunctions#Build Status)
-[![Platform status] (https://img.shields.io/badge/Platform X86-Passed-green.svg)] (https://github.com/fredatgithub/UsefulFunctions#Build Status)
+[![Platform status] (https://img.shields.io/badge/Platform X86-Passed-brightgreen.svg)] (https://github.com/fredatgithub/UsefulFunctions#Build Status)
 [![NuGet status] (https://img.shields.io/badge/NuGet-none-red.svg)] (https://github.com/fredatgithub/UsefulFunctions#Build Status)
 
 Travis: 
