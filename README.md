@@ -11,6 +11,6 @@ Useful functions gathered in one DLL
 [![Platform status] (https://img.shields.io/badge/Platform X86-Passed-brightgreen.svg)] (https://github.com/fredatgithub/UsefulFunctions#Build Status)
 [![NuGet status] (https://img.shields.io/badge/NuGet-none-red.svg)] (https://github.com/fredatgithub/UsefulFunctions#Build Status)
 
-Travis: 
+Travis: https://travis-ci.org/fredatgithub/
 
 AppVeyor [![Build status](https://ci.appveyor.com/api/projects/status/i3378pd0rkx7cfliuenfvsyo/branch/master?svg=true)](https://ci.appveyor.com/project/fredatgithub/usefulfunctions/branch/master) 
