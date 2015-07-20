@@ -40,7 +40,8 @@ build:
   parallel: true  
 
 # scripts to run before build
-#before_build:
+before_build:
+cmd> nuget install Machine.Specifications
  
 # scripts to run after build
 #after_build:
