@@ -38,10 +38,11 @@ build:
   #verbosity: quiet|minimal|normal|detailed
   verbosity: minimal
   parallel: true  
-  nuget restore
+  #nuget restore
 
 # scripts to run before build
-#before_build:
+before_build:
+    - nuget restore
 
  #install Machine.Specifications
  #install Machine.Specifications.Should
