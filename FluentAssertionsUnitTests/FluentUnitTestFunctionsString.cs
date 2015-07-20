@@ -31,5 +31,37 @@ namespace FluentAssertionsUnitTests
       const string actual = "ABCDEFGHI";
       actual.Should().StartWith("AB").And.EndWith("HI").And.Contain("EF").And.HaveLength(9);
     }
+
+    [Test]
+    public void ArrayShouldContainItemExample()
+    {
+      new[] { 1, 2, 3 }.Should().Contain(item => item > 1, "at least {0} item should be larger than 3", 1);
+    }
+
+    [Test]
+    public void CollectionShouldHaveCountExample()
+    {
+      IEnumerable<int> collection = new[] { 1, 2, 3 };
+      collection.Should().HaveCount(3, "because we thought we put three items in the collection");
+    }
+    
+    [Test]
+    public void Some_Object_Should_Be_Of_TypeExample()
+    {
+      var someObject = new object();
+      someObject.Should().BeOfType<object>();
+    }
+
+    [Test]
+    public void xDocument_should_have_element_childExample()
+    {
+      //xDocument.Should().HaveElement("child").Which.Should().BeOfType<XElement>().And.HaveAttribute("attr", "1");
+    }
+
+    [Test]
+    public void String_should_be_Example()
+    {
+      "1234567890".Should().Be("1234567890");
+    }
   }
 }
