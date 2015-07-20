@@ -42,6 +42,7 @@ build:
 # scripts to run before build
 before_build:
 cmd> nuget install Machine.Specifications
+cmd> nuget install Machine.Specifications.Should
  
 # scripts to run after build
 #after_build:
