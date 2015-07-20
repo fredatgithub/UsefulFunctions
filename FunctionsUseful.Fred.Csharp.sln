@@ -1,19 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.22609.0
+VisualStudioVersion = 14.0.22823.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionsUseful.Fred.Csharp", "FonctionsUtiles.Fred.Csharp\FunctionsUseful.Fred.Csharp.csproj", "{DB97A281-2E4E-4C5C-B7B1-24F7167792D4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplicationUsageDemo", "ConsoleApplicationUsageDemo\ConsoleApplicationUsageDemo.csproj", "{0DDF676E-4D88-42ED-8F50-F7262C2B301D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestUsefullFunctions", "UnitTestUsefullFunctions\UnitTestUsefullFunctions.csproj", "{93931811-4989-4C55-8C8D-596A4158979C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSUnitTestUsefullFunctions", "UnitTestUsefullFunctions\MSUnitTestUsefullFunctions.csproj", "{93931811-4989-4C55-8C8D-596A4158979C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeGenerationWinForm", "CodeGenerationWinForm\CodeGenerationWinForm.csproj", "{B492FE99-F506-48C7-8D6D-B35C2CDEF668}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeGenerationConsole", "CodeGeneration\CodeGenerationConsole.csproj", "{44B976DD-98E0-41EE-A1B2-EB60C4476A5C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MethodSpeedBenchmarks", "MethodSpeedBenchmarks\MethodSpeedBenchmarks.csproj", "{9DC698D6-740F-4420-9605-624995701389}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentAssertionsUnitTests", "FluentAssertionsUnitTests\FluentAssertionsUnitTests.csproj", "{CFD4FA8A-CBE2-4F08-B6CE-ED51B93B2DBA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{9DC698D6-740F-4420-9605-624995701389}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9DC698D6-740F-4420-9605-624995701389}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9DC698D6-740F-4420-9605-624995701389}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFD4FA8A-CBE2-4F08-B6CE-ED51B93B2DBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFD4FA8A-CBE2-4F08-B6CE-ED51B93B2DBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFD4FA8A-CBE2-4F08-B6CE-ED51B93B2DBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFD4FA8A-CBE2-4F08-B6CE-ED51B93B2DBA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
