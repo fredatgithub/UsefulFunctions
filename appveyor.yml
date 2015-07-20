@@ -41,8 +41,9 @@ build:
 
 # scripts to run before build
 before_build:
- install Machine.Specifications
- install Machine.Specifications.Should
+nuget restore
+ #install Machine.Specifications
+ #install Machine.Specifications.Should
  
 # scripts to run after build
 #after_build:
