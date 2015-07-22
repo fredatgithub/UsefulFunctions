@@ -40,14 +40,14 @@ namespace CodeGenerationWinForm
       InitializeComponent();
     }
 
-    readonly Dictionary<string, string> languageDicoEn = new Dictionary<string, string>();
-    readonly Dictionary<string, string> languageDicoFr = new Dictionary<string, string>();
+    readonly Dictionary<string, string> _languageDicoEn = new Dictionary<string, string>();
+    readonly Dictionary<string, string> _languageDicoFr = new Dictionary<string, string>();
 
-    private readonly string carriageReturn = Environment.NewLine;
+    private readonly string _carriageReturn = Environment.NewLine;
     private const string Space = " ";
     private const string Tabulation = "  "; // used StringFunc.Tabulation method instead TODO
-    private string currentLanguage = "english";
-    private int MostRecentTabUsed = 2;
+    private string _currentLanguage = "english";
+    //private int _mostRecentTabUsed = 2;
 
     private void QuitToolStripMenuItem_Click(object sender, EventArgs e)
     {
@@ -65,6 +65,7 @@ namespace CodeGenerationWinForm
     {
       Assembly assembly = Assembly.GetExecutingAssembly();
       FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
+      // Text += $" V{fvi.FileMajorPart}.{fvi.FileMinorPart}.{fvi.FileBuildPart}.{fvi.FilePrivatePart}"; // doesn't build in appveyor
       Text += string.Format(" V{0}.{1}.{2}.{3}", fvi.FileMajorPart, fvi.FileMinorPart, fvi.FileBuildPart, fvi.FilePrivatePart);
     }
 
@@ -100,15 +101,15 @@ namespace CodeGenerationWinForm
       cb.SelectedIndex = 0;
     }
 
-    private static void FillComboBoxWithDllMethods(ComboBox cb)
-    {
-      cb.Items.Clear();
-      cb.Items.Add("FunctionsFiles");
-      cb.Items.Add("FunctionsMath");
-      cb.Items.Add("FunctionsString");
-      cb.Items.Add("FunctionsUseful");
-      cb.SelectedIndex = 0;
-    }
+    //private static void FillComboBoxWithDllMethods(ComboBox cb)
+    //{
+    //  cb.Items.Clear();
+    //  cb.Items.Add("FunctionsFiles");
+    //  cb.Items.Add("FunctionsMath");
+    //  cb.Items.Add("FunctionsString");
+    //  cb.Items.Add("FunctionsUseful");
+    //  cb.SelectedIndex = 0;
+    //}
 
     private static void FillComboBoxWithAssertMethods(ComboBox cb)
     {
@@ -299,8 +300,8 @@ namespace CodeGenerationWinForm
                    };
       foreach (var i in result)
       {
-        languageDicoEn.Add(i.name, i.englishValue);
-        languageDicoFr.Add(i.name, i.frenchValue);
+        _languageDicoEn.Add(i.name, i.englishValue);
+        _languageDicoFr.Add(i.name, i.frenchValue);
       }
     }
 
@@ -943,7 +944,7 @@ namespace CodeGenerationWinForm
         StringBuilder result = new StringBuilder();
         // next line ATTRIBUTE
         result.Append(textBoxCustoAttribute.Text);
-        result.Append(carriageReturn);
+        result.Append(_carriageReturn);
 
         // next line METHOD SIGNATURE
         result.Append(textBoxCustPublic.Text);
@@ -953,10 +954,10 @@ namespace CodeGenerationWinForm
         result.Append(textBoxCustoTestMethod.Text);
         result.Append(Space);
         result.Append(textBoxCustoMethodName.Text);
-        result.Append(carriageReturn);
+        result.Append(_carriageReturn);
 
         result.Append(textBoxcustoOpenCurlyBrace.Text);
-        result.Append(carriageReturn);
+        result.Append(_carriageReturn);
 
         // next line SOURCE
         result.Append(Tabulation);
@@ -971,7 +972,7 @@ namespace CodeGenerationWinForm
         result.Append(textBoxCustoSourceValue.Text);
         result.Append(Space);
         result.Append(textBoxCustoSourceSemiColon.Text);
-        result.Append(carriageReturn);
+        result.Append(_carriageReturn);
 
         // next line EXPECTED
         result.Append(Tabulation);
@@ -986,7 +987,7 @@ namespace CodeGenerationWinForm
         result.Append(textBoxCustoExpectedValue.Text);
         result.Append(Space);
         result.Append(textBoxCustoExpectedSemiColon.Text);
-        result.Append(carriageReturn);
+        result.Append(_carriageReturn);
 
         // next line RESULT
         result.Append(Tabulation);
@@ -1000,7 +1001,7 @@ namespace CodeGenerationWinForm
         result.Append(textBoxcustoResultFunctionName.Text);
         result.Append(Space);
         result.Append(textBoxCustoResultSourceWord.Text);
-        result.Append(carriageReturn);
+        result.Append(_carriageReturn);
 
         // next line ASSERT
         result.Append(Tabulation);
@@ -1021,11 +1022,11 @@ namespace CodeGenerationWinForm
         result.Append(textBoxCustoAssertExpectedWord.Text);
         result.Append(Space);
         result.Append(textBoxCustoAssertClosingParenthesis.Text);
-        result.Append(carriageReturn);
+        result.Append(_carriageReturn);
 
         // next line closing parenthesis
         result.Append(textBoxCustoCloseCurlyBrace.Text);
-        result.Append(carriageReturn);
+        result.Append(_carriageReturn);
 
         textBoxCustoResult.Text = result.ToString();
       }
@@ -1058,7 +1059,7 @@ namespace CodeGenerationWinForm
           StringBuilder result = new StringBuilder();
           // next line ATTRIBUTE
           result.Append(textBoxCustoAttribute.Text);
-          result.Append(carriageReturn);
+          result.Append(_carriageReturn);
 
           // next line METHOD SIGNATURE
           result.Append(textBoxCustPublic.Text.Replace("%", i.ToString()));
@@ -1068,10 +1069,10 @@ namespace CodeGenerationWinForm
           result.Append(textBoxCustoTestMethod.Text.Replace("%", i.ToString()));
           result.Append(textBoxCustoMethodName.Text.Replace("%", i.ToString()).EndsWith("()") ?
             textBoxCustoMethodName.Text.Replace("%", i.ToString()) : textBoxCustoMethodName.Text.Replace("%", i.ToString()) + "()");
-          result.Append(carriageReturn);
+          result.Append(_carriageReturn);
 
           result.Append(textBoxcustoOpenCurlyBrace.Text.Replace("%", i.ToString()));
-          result.Append(carriageReturn);
+          result.Append(_carriageReturn);
 
           // next line SOURCE
           result.Append(Tabulation);
@@ -1086,7 +1087,7 @@ namespace CodeGenerationWinForm
           result.Append(textBoxCustoSourceValue.Text.Replace("%", i.ToString()));
           result.Append(Space);
           result.Append(textBoxCustoSourceSemiColon.Text.Replace("%", i.ToString()));
-          result.Append(carriageReturn);
+          result.Append(_carriageReturn);
 
           // next line EXPECTED
           result.Append(Tabulation);
@@ -1101,7 +1102,7 @@ namespace CodeGenerationWinForm
           result.Append(textBoxCustoExpectedValue.Text.Replace("%", i.ToString()));
           result.Append(Space);
           result.Append(textBoxCustoExpectedSemiColon.Text.Replace("%", i.ToString()));
-          result.Append(carriageReturn);
+          result.Append(_carriageReturn);
 
           // next line RESULT
           result.Append(Tabulation);
@@ -1115,7 +1116,7 @@ namespace CodeGenerationWinForm
           result.Append(textBoxcustoResultFunctionName.Text.Replace("%", i.ToString()));
           result.Append(Space);
           result.Append(textBoxCustoResultSourceWord.Text.Replace("%", i.ToString()));
-          result.Append(carriageReturn);
+          result.Append(_carriageReturn);
 
           // next line ASSERT
           result.Append(Tabulation);
@@ -1136,12 +1137,12 @@ namespace CodeGenerationWinForm
           result.Append(textBoxCustoAssertExpectedWord.Text.Replace("%", i.ToString()));
           result.Append(Space);
           result.Append(textBoxCustoAssertClosingParenthesis.Text.Replace("%", i.ToString()));
-          result.Append(carriageReturn);
+          result.Append(_carriageReturn);
 
           // next line closing parenthesis
           result.Append(textBoxCustoCloseCurlyBrace.Text.Replace("%", i.ToString()));
-          result.Append(carriageReturn);
-          result.Append(carriageReturn);
+          result.Append(_carriageReturn);
+          result.Append(_carriageReturn);
           textBoxCustoResult.Text += result.ToString();
         }
       }
@@ -1150,15 +1151,15 @@ namespace CodeGenerationWinForm
     private string GetTranslatedString(string stringToBeTranslated)
     {
       string result = string.Empty;
-      switch (currentLanguage.ToLower())
+      switch (_currentLanguage.ToLower())
       {
         case "english":
-          result = languageDicoEn.ContainsKey(stringToBeTranslated) ? languageDicoEn[stringToBeTranslated] :
+          result = _languageDicoEn.ContainsKey(stringToBeTranslated) ? _languageDicoEn[stringToBeTranslated] :
            "the term: \"" + stringToBeTranslated + 
            "\" has not been translated yet.\nPlease tell the developer to translate this term";
           break;
         case "french":
-          result = languageDicoFr.ContainsKey(stringToBeTranslated) ? languageDicoFr[stringToBeTranslated] :
+          result = _languageDicoFr.ContainsKey(stringToBeTranslated) ? _languageDicoFr[stringToBeTranslated] :
             "the term: \"" + stringToBeTranslated + 
             "\" has not been translated yet.\nPlease tell the developer to translate this term";
           break;
@@ -1167,33 +1168,33 @@ namespace CodeGenerationWinForm
       return result;
     }
 
-    private string GetTranslatedString(string index, string language = "english")
-    {
-      string result = string.Empty;
-      switch (language.ToLower())
-      {
-        case "english":
-          result = languageDicoEn.ContainsKey(index) ? languageDicoEn[index] :
-           "the term: \"" + index + "\" has not been translated yet.\nPlease tell the developer to translate this term";
-          break;
-        case "french":
-          result = languageDicoFr.ContainsKey(index) ? languageDicoFr[index] :
-            "the term: \"" + index + "\" has not been translated yet.\nPlease tell the developer to translate this term";
-          break;
-      }
+    //private string GetTranslatedString(string index, string language)
+    //{
+    //  string result = string.Empty;
+    //  switch (language.ToLower())
+    //  {
+    //    case "english":
+    //      result = _languageDicoEn.ContainsKey(index) ? _languageDicoEn[index] :
+    //       "the term: \"" + index + "\" has not been translated yet.\nPlease tell the developer to translate this term";
+    //      break;
+    //    case "french":
+    //      result = _languageDicoFr.ContainsKey(index) ? _languageDicoFr[index] :
+    //        "the term: \"" + index + "\" has not been translated yet.\nPlease tell the developer to translate this term";
+    //      break;
+    //  }
 
-      return result;
-    }
+    //  return result;
+    //}
 
     private void frenchToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      currentLanguage = Language.French.ToString();
+      _currentLanguage = Language.French.ToString();
       SetLanguage(Language.French.ToString());
     }
 
     private void englishToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      currentLanguage = Language.English.ToString();
+      _currentLanguage = Language.English.ToString();
       SetLanguage(Language.English.ToString());
     }
 
@@ -1204,63 +1205,63 @@ namespace CodeGenerationWinForm
         case "English":
           frenchToolStripMenuItem.Checked = false;
           englishToolStripMenuItem.Checked = true;
-          fileToolStripMenuItem.Text = languageDicoEn["MenuFile"];
-          newToolStripMenuItem.Text = languageDicoEn["MenuFileNew"];
-          openToolStripMenuItem.Text = languageDicoEn["MenuFileOpen"];
-          saveToolStripMenuItem.Text = languageDicoEn["MenuFileSave"];
-          saveasToolStripMenuItem.Text = languageDicoEn["MenuFileSaveAs"];
-          printPreviewToolStripMenuItem.Text = languageDicoEn["MenuFilePrint"];
-          printPreviewToolStripMenuItem.Text = languageDicoEn["MenufilePageSetup"];
-          quitToolStripMenuItem.Text = languageDicoEn["MenufileQuit"];
-          editToolStripMenuItem.Text = languageDicoEn["MenuEdit"];
-          cancelToolStripMenuItem.Text = languageDicoEn["MenuEditCancel"];
-          redoToolStripMenuItem.Text = languageDicoEn["MenuEditRedo"];
-          cutToolStripMenuItem.Text = languageDicoEn["MenuEditCut"];
-          copyToolStripMenuItem.Text = languageDicoEn["MenuEditCopy"];
-          pasteToolStripMenuItem.Text = languageDicoEn["MenuEditPaste"];
-          selectAllToolStripMenuItem.Text = languageDicoEn["MenuEditSelectAll"];
-          toolsToolStripMenuItem.Text = languageDicoEn["MenuTools"];
-          personalizeToolStripMenuItem.Text = languageDicoEn["MenuToolsCustomize"];
-          optionsToolStripMenuItem.Text = languageDicoEn["MenuToolsOptions"];
-          languagetoolStripMenuItem.Text = languageDicoEn["MenuLanguage"];
-          englishToolStripMenuItem.Text = languageDicoEn["MenuLanguageEnglish"];
-          frenchToolStripMenuItem.Text = languageDicoEn["MenuLanguageFrench"];
-          helpToolStripMenuItem.Text = languageDicoEn["MenuHelp"];
-          summaryToolStripMenuItem.Text = languageDicoEn["MenuHelpSummary"];
-          indexToolStripMenuItem.Text = languageDicoEn["MenuHelpIndex"];
-          searchToolStripMenuItem.Text = languageDicoEn["MenuHelpSearch"];
-          aboutToolStripMenuItem.Text = languageDicoEn["MenuHelpAbout"];
+          fileToolStripMenuItem.Text = _languageDicoEn["MenuFile"];
+          newToolStripMenuItem.Text = _languageDicoEn["MenuFileNew"];
+          openToolStripMenuItem.Text = _languageDicoEn["MenuFileOpen"];
+          saveToolStripMenuItem.Text = _languageDicoEn["MenuFileSave"];
+          saveasToolStripMenuItem.Text = _languageDicoEn["MenuFileSaveAs"];
+          printPreviewToolStripMenuItem.Text = _languageDicoEn["MenuFilePrint"];
+          printPreviewToolStripMenuItem.Text = _languageDicoEn["MenufilePageSetup"];
+          quitToolStripMenuItem.Text = _languageDicoEn["MenufileQuit"];
+          editToolStripMenuItem.Text = _languageDicoEn["MenuEdit"];
+          cancelToolStripMenuItem.Text = _languageDicoEn["MenuEditCancel"];
+          redoToolStripMenuItem.Text = _languageDicoEn["MenuEditRedo"];
+          cutToolStripMenuItem.Text = _languageDicoEn["MenuEditCut"];
+          copyToolStripMenuItem.Text = _languageDicoEn["MenuEditCopy"];
+          pasteToolStripMenuItem.Text = _languageDicoEn["MenuEditPaste"];
+          selectAllToolStripMenuItem.Text = _languageDicoEn["MenuEditSelectAll"];
+          toolsToolStripMenuItem.Text = _languageDicoEn["MenuTools"];
+          personalizeToolStripMenuItem.Text = _languageDicoEn["MenuToolsCustomize"];
+          optionsToolStripMenuItem.Text = _languageDicoEn["MenuToolsOptions"];
+          languagetoolStripMenuItem.Text = _languageDicoEn["MenuLanguage"];
+          englishToolStripMenuItem.Text = _languageDicoEn["MenuLanguageEnglish"];
+          frenchToolStripMenuItem.Text = _languageDicoEn["MenuLanguageFrench"];
+          helpToolStripMenuItem.Text = _languageDicoEn["MenuHelp"];
+          summaryToolStripMenuItem.Text = _languageDicoEn["MenuHelpSummary"];
+          indexToolStripMenuItem.Text = _languageDicoEn["MenuHelpIndex"];
+          searchToolStripMenuItem.Text = _languageDicoEn["MenuHelpSearch"];
+          aboutToolStripMenuItem.Text = _languageDicoEn["MenuHelpAbout"];
 
           break;
         case "French":
           frenchToolStripMenuItem.Checked = true;
           englishToolStripMenuItem.Checked = false;
-          fileToolStripMenuItem.Text = languageDicoFr["MenuFile"];
-          newToolStripMenuItem.Text = languageDicoFr["MenuFileNew"];
-          openToolStripMenuItem.Text = languageDicoFr["MenuFileOpen"];
-          saveToolStripMenuItem.Text = languageDicoFr["MenuFileSave"];
-          saveasToolStripMenuItem.Text = languageDicoFr["MenuFileSaveAs"];
-          printPreviewToolStripMenuItem.Text = languageDicoFr["MenuFilePrint"];
-          printPreviewToolStripMenuItem.Text = languageDicoFr["MenufilePageSetup"];
-          quitToolStripMenuItem.Text = languageDicoFr["MenufileQuit"];
-          editToolStripMenuItem.Text = languageDicoFr["MenuEdit"];
-          cancelToolStripMenuItem.Text = languageDicoFr["MenuEditCancel"];
-          redoToolStripMenuItem.Text = languageDicoFr["MenuEditRedo"];
-          cutToolStripMenuItem.Text = languageDicoFr["MenuEditCut"];
-          copyToolStripMenuItem.Text = languageDicoFr["MenuEditCopy"];
-          pasteToolStripMenuItem.Text = languageDicoFr["MenuEditPaste"];
-          selectAllToolStripMenuItem.Text = languageDicoFr["MenuEditSelectAll"];
-          toolsToolStripMenuItem.Text = languageDicoFr["MenuTools"];
-          personalizeToolStripMenuItem.Text = languageDicoFr["MenuToolsCustomize"];
-          optionsToolStripMenuItem.Text = languageDicoFr["MenuToolsOptions"];
-          languagetoolStripMenuItem.Text = languageDicoFr["MenuLanguage"];
-          englishToolStripMenuItem.Text = languageDicoFr["MenuLanguageEnglish"];
-          frenchToolStripMenuItem.Text = languageDicoFr["MenuLanguageFrench"];
-          helpToolStripMenuItem.Text = languageDicoFr["MenuHelp"];
-          summaryToolStripMenuItem.Text = languageDicoFr["MenuHelpSummary"];
-          indexToolStripMenuItem.Text = languageDicoFr["MenuHelpIndex"];
-          searchToolStripMenuItem.Text = languageDicoFr["MenuHelpSearch"];
-          aboutToolStripMenuItem.Text = languageDicoFr["MenuHelpAbout"];
+          fileToolStripMenuItem.Text = _languageDicoFr["MenuFile"];
+          newToolStripMenuItem.Text = _languageDicoFr["MenuFileNew"];
+          openToolStripMenuItem.Text = _languageDicoFr["MenuFileOpen"];
+          saveToolStripMenuItem.Text = _languageDicoFr["MenuFileSave"];
+          saveasToolStripMenuItem.Text = _languageDicoFr["MenuFileSaveAs"];
+          printPreviewToolStripMenuItem.Text = _languageDicoFr["MenuFilePrint"];
+          printPreviewToolStripMenuItem.Text = _languageDicoFr["MenufilePageSetup"];
+          quitToolStripMenuItem.Text = _languageDicoFr["MenufileQuit"];
+          editToolStripMenuItem.Text = _languageDicoFr["MenuEdit"];
+          cancelToolStripMenuItem.Text = _languageDicoFr["MenuEditCancel"];
+          redoToolStripMenuItem.Text = _languageDicoFr["MenuEditRedo"];
+          cutToolStripMenuItem.Text = _languageDicoFr["MenuEditCut"];
+          copyToolStripMenuItem.Text = _languageDicoFr["MenuEditCopy"];
+          pasteToolStripMenuItem.Text = _languageDicoFr["MenuEditPaste"];
+          selectAllToolStripMenuItem.Text = _languageDicoFr["MenuEditSelectAll"];
+          toolsToolStripMenuItem.Text = _languageDicoFr["MenuTools"];
+          personalizeToolStripMenuItem.Text = _languageDicoFr["MenuToolsCustomize"];
+          optionsToolStripMenuItem.Text = _languageDicoFr["MenuToolsOptions"];
+          languagetoolStripMenuItem.Text = _languageDicoFr["MenuLanguage"];
+          englishToolStripMenuItem.Text = _languageDicoFr["MenuLanguageEnglish"];
+          frenchToolStripMenuItem.Text = _languageDicoFr["MenuLanguageFrench"];
+          helpToolStripMenuItem.Text = _languageDicoFr["MenuHelp"];
+          summaryToolStripMenuItem.Text = _languageDicoFr["MenuHelpSummary"];
+          indexToolStripMenuItem.Text = _languageDicoFr["MenuHelpIndex"];
+          searchToolStripMenuItem.Text = _languageDicoFr["MenuHelpSearch"];
+          aboutToolStripMenuItem.Text = _languageDicoFr["MenuHelpAbout"];
 
           break;
 
