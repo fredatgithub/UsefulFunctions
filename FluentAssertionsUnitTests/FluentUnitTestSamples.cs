@@ -23,6 +23,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
+using System.Security.Cryptography.X509Certificates;
+using System.Threading;
+using System.Xml;
+using System.Xml.Linq;
 using FluentAssertions;
 using NUnit.Framework;
 namespace FluentAssertionsUnitTests
@@ -422,7 +426,7 @@ namespace FluentAssertionsUnitTests
 
       collection.Should().HaveCount(c => c > 3).And.OnlyHaveUniqueItems();
       collection.Should().HaveSameCount(new[] { 6, 2, 0, 5 });
-      const int element = 1;
+      int element = 1;
       const int element2 = 8;
       collection.Should().StartWith(element);
       collection.Should().EndWith(element2);
@@ -432,8 +436,8 @@ namespace FluentAssertionsUnitTests
       collection.Should().Contain(1); //ContainSingle();
       collection.Should().OnlyHaveUniqueItems();//ContainSingle(x => x > 3);
       collection.Should().Contain(8).And.HaveElementAt(2, 5).And.NotBeSubsetOf(new[] { 11, 56 });
-      collection.Should().Contain( new [] {1, 2, 3}.Where (x => x > 3));
-      collection.Should().Contain(collection, " ",  5, 6); // It should contain the original items, plus 5 and 6.
+      collection.Should().Contain(new[] { 1, 2, 3, 8 }.Where(x => x > 3));
+      collection.Should().Contain(collection, " ", 5, 6); // It should contain the original items, plus 5 and 6.
 
       collection.Should().OnlyHaveUniqueItems(); //OnlyContain(x => x < 10);
       collection.Should().ContainItemsAssignableTo<int>(); //OnlyContainItemsOfType<int>();
@@ -442,16 +446,18 @@ namespace FluentAssertionsUnitTests
 
       collection.Should().NotContain(82);
       collection.Should().NotContainNulls();
-      collection.Should().NotContain(new[] {100, 200, 300}); // NotContain(x => x > 10);
+      collection.Should().NotContain(new[] { 100, 200, 300 }); // NotContain(x => x > 10);
 
       const int successor = 5;
       const int predecessor = 5;
-
+      element = 2;
       collection.Should().HaveElementPreceding(successor, element);
+      element = 8;
       collection.Should().HaveElementSucceeding(predecessor, element);
 
-      collection.Should().BeEmpty();
-      collection.Should().BeNullOrEmpty();
+      IEnumerable collection2 = new int[] { };
+      collection2.Should().BeEmpty();
+      collection2.Should().BeNullOrEmpty();
       collection.Should().NotBeNullOrEmpty();
 
       IEnumerable otherCollection = new[] { 1, 2, 5, 8, 1 };
@@ -460,7 +466,209 @@ namespace FluentAssertionsUnitTests
       collection.Should().NotIntersectWith(anotherCollection);
 
       collection.Should().BeInAscendingOrder();
-      collection.Should().NotBeAscendingInOrder();
+      anotherCollection.Should().NotBeAscendingInOrder();
+    }
+
+    [Test]
+    public void Collection_should_be_in_ascending_order_with_property_Example()
+    {
+      //IEnumerable collection = new[] { 1, 2, 5, 8 };
+      //collection.Should().BeInAscendingOrder(x => x.SomeProperty);
+      //collection.Should().NotBeInAscendingOrder(x => x.SomeProperty);
+    }
+
+    [Test]
+    public void PersistedCustomers_Should_Equal_c1_Name_equals_c2_Name_Example()
+    {
+      //persistedCustomers.Should().Equal(customers, (c1, c2) => c1.Name == c2.Name);
+    }
+
+    [Test]
+    public void Dictionary_Should_be_empty_Not_null_Example()
+    {
+      Dictionary<int, string> dictionary;
+      //dictionary.Should().BeNull();
+      dictionary = new Dictionary<int, string>();
+      dictionary.Should().NotBeNull();
+      dictionary.Should().BeEmpty();
+      dictionary.Add(1, "first element");
+      dictionary.Should().NotBeEmpty();
+    }
+
+    [Test]
+    public void Dictionary_Should_equal_or_not_equal_Example()
+    {
+      var dictionary1 = new Dictionary<int, string>
+{
+    { 1, "One" },
+    { 2, "Two" }
+};
+
+      var dictionary2 = new Dictionary<int, string>
+{
+    { 1, "One" },
+    { 2, "Two" }
+};
+
+      var dictionary3 = new Dictionary<int, string>
+{
+    { 3, "Three" },
+};
+
+      dictionary1.Should().Equal(dictionary2);
+      dictionary1.Should().NotEqual(dictionary3);
+
+      dictionary1.Should().ContainKey(1);
+      dictionary1.Should().NotContainKey(9);
+      dictionary1.Should().ContainValue("One");
+      dictionary1.Should().NotContainValue("Nine");
+
+      dictionary1.Should().HaveCount(2);
+
+      KeyValuePair<int, string> item = new KeyValuePair<int, string>(1, "One");
+
+      dictionary1.Should().Contain(item);
+      dictionary1.Should().Contain(2, "Two");
+      dictionary1.Should().NotContain(9, "Nine");
+
+      //dictionary.Should().ContainValue(myClass).Which.SomeProperty.Should().BeGreaterThan(0);
+    }
+
+    [Test]
+    public void Guid_should_be_empty_not_empty_example()
+    {
+      Guid theGuid = Guid.NewGuid();
+      Guid sameGuid = theGuid;
+      Guid otherGuid = Guid.NewGuid();
+
+      theGuid.Should().Be(sameGuid);
+      theGuid.Should().NotBe(otherGuid);
+      theGuid.Should().NotBeEmpty();
+
+      Guid.Empty.Should().BeEmpty();
+    }
+
+    public enum WorkingDays
+    {
+      Monday,
+      Tuesday,
+      Wednesday,
+      Thursday,
+      Friday
+    }
+
+    public enum MyWorkingDays
+    {
+      Monday,
+      Tuesday,
+      Wednesday,
+      Thursday,
+      Friday
+    }
+
+    [Test]
+    public void Enum_should_be_empty_not_empty_example()
+    {
+      // TODO to be debugged
+      //WorkingDays.Equals(MyWorkingDays);
+      //MyWorkingDays.Should().Be().NotEmpty();
+    }
+
+    public void Foo(string text)
+    {
+      throw new InvalidOperationException();
+    }
+
+    [Test]
+    public void Exceptions_should_throw_example()
+    {
+      // subject.Invoking(y => y.Foo("Hello"))
+      //.ShouldThrow<InvalidOperationException>()
+      //.WithMessage("Hello is not allowed at this moment");
+    }
+
+    [Test]
+    public void Exceptions2_should_throw_example()
+    {
+      //Action act = () => subject.Foo2("Hello");
+
+      //act.ShouldThrow<InvalidOperationException>()
+      //     .WithInnerException<ArgumentException>()
+      //     .WithInnerMessage("whatever");
+    }
+
+    [Test]
+    public void Exceptions3_should_throw_example()
+    {
+      //Action act = () => subject.Foo(null));
+
+      //act.ShouldThrow<ArgumentNullException>()
+      // .And.ParamName.Should().Equal("message");
+    }
+
+    [Test]
+    public void XML_should_have_example()
+    {
+      XmlDocument doc = new XmlDocument();
+      XmlElement root = doc.CreateElement("configuration");
+      root.SetAttribute("name", "value");
+      XmlElement child = doc.CreateElement("child");
+      child.InnerText = "text node";
+      root.AppendChild(child);
+      doc.AppendChild(root);
+
+      XDocument xDocument = new XDocument(
+    new XElement("configuration",
+                 new XAttribute("age", "36"),
+                 new XElement("settings", "36")));
+
+      XmlDocument xDocument2 = new XmlDocument();
+      //xDocument2.Should().HaveRoot("configuration");
+      //xDocument2.Should().HaveElement("settings");
+
+      //xElement.Should().HaveValue("36");
+      //xElement.Should().HaveAttribute("age", "36");
+      //xElement.Should().HaveElement("address");
+    }
+
+    [Test]
+    public void XML2_should_have_attribute_example()
+    {
+      //XmlElement xElement;
+      //xElement.Should().HaveAttribute(XName.Get("age", "http://www.example.com/2012/test"), "36");
+      //xElement.Should().HaveElement(XName.Get("address", "http://www.example.com/2012/test"));
+
+      //xAttribute.Should().HaveValue("Amsterdam");
+
+      //xDocument.Should().BeEquivalentTo(XDocument.Parse("<configuration><item>value</item></configuration>"));
+      //xElement.Should().BeEquivalentTo(XElement.Parse("<item>value</item>"));
+
+      //xDocument.Should().HaveElement("child").Which.Should().BeOfType<XElement>().And.HaveAttribute("attr", "1");
+    }
+
+    public class SomePotentiallyVerySlowClass
+    {
+      public void ExpensiveMethod()
+      {
+        for (short i = 0; i < short.MaxValue; i++)
+        {
+          string tmp = " ";
+          if (!string.IsNullOrEmpty(tmp))
+          {
+            tmp += " ";
+          }
+        }
+      }
+    }
+
+    [Test]
+    public void Execution_time_should_not_exceed_example()
+    {
+      var subject = new SomePotentiallyVerySlowClass();
+      subject.ExecutionTimeOf(s => s.ExpensiveMethod()).ShouldNotExceed(1000.Milliseconds());
+
+      Action someAction = () => Thread.Sleep(510);
+      someAction.ExecutionTime().ShouldNotExceed(1000.Milliseconds());
     }
   }
 }
