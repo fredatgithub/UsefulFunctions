@@ -19,7 +19,10 @@ SOFTWARE.
 */
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization;
 using FluentAssertions;
 using NUnit.Framework;
 namespace FluentAssertionsUnitTests
@@ -334,7 +337,130 @@ namespace FluentAssertionsUnitTests
     public void Byte_should_be_one_of_the_Example()
     {
       const byte theByte = 3;
-      theByte.Should().BeOneOf(3, 6);
+      theByte.Should().BeOneOf(3, 6, 1, 2, 4, 5, 7, 8, 9);
+    }
+
+    [Test]
+    public void date_should_be_of_several_Examples()
+    {
+      var theDatetime = 1.March(2010).At(22, 15);
+
+      theDatetime.Should().BeAfter(1.February(2010));
+      theDatetime.Should().BeBefore(2.March(2010));
+      theDatetime.Should().BeOnOrAfter(1.March(2010));
+
+      theDatetime.Should().Be(1.March(2010).At(22, 15));
+      theDatetime.Should().NotBe(1.March(2010).At(22, 16));
+
+      theDatetime.Should().HaveDay(1);
+      theDatetime.Should().HaveMonth(3);
+      theDatetime.Should().HaveYear(2010);
+      theDatetime.Should().HaveHour(22);
+      theDatetime.Should().HaveMinute(15);
+      theDatetime.Should().HaveSecond(0);
+    }
+
+    [Test]
+    public void date_should_be_less_of_several_Examples()
+    {
+      var theDatetime = 31.December(1999).At(23, 58);
+      var y2K = 1.January(2000).At(0, 02);
+      var otherDatetime = 1.January(2000).At(1, 15);
+      var anotherDatetime = 1.January(2001).At(1, 15);
+      var appointement = 1.January(2000).At(23, 58);
+      var anotherAppointement = 5.January(2000).At(23, 58);
+
+      theDatetime.Should().BeLessThan(10.Minutes()).Before(y2K);           // Equivalent to <
+      theDatetime.Should().BeWithin(2.Hours()).After(otherDatetime);       // Equivalent to <=
+      theDatetime.Should().BeMoreThan(1.Days()).Before(anotherDatetime);   // Equivalent to >
+      theDatetime.Should().BeAtLeast(2.Days()).Before(anotherAppointement);// Equivalent to >=
+      theDatetime.Should().BeExactly(24.Hours()).Before(appointement);     // Equivalent to ==
+    }
+
+    [Test]
+    public void TimeSpans_should_be_less_of_several_Examples()
+    {
+      var timeSpan = new TimeSpan(12, 59, 59);
+      var timeSpan2 = new TimeSpan(-1, 59, 59);
+      var timeSpan3 = new TimeSpan(12, 0, 0);
+      TimeSpan someOtherTimeSpan = new TimeSpan(13, 0, 0);
+      TimeSpan anotherTimeSpan = new TimeSpan(11, 0, 0);
+
+      timeSpan.Should().BePositive();
+      timeSpan2.Should().BeNegative();
+      timeSpan3.Should().Be(12.Hours());
+      timeSpan.Should().NotBe(1.Days());
+
+      timeSpan.Should().BeLessThan(someOtherTimeSpan);
+      timeSpan.Should().BeLessOrEqualTo(someOtherTimeSpan);
+      timeSpan.Should().BeGreaterThan(anotherTimeSpan);
+      timeSpan.Should().BeGreaterOrEqualTo(anotherTimeSpan);
+    }
+
+    [Test]
+    public void TimeSpan_should_be_close_to_Example()
+    {
+      var timeSpan = new TimeSpan(1, 10, 0);
+      var expectedSpan = new TimeSpan(1, 10, 0);
+      timeSpan.Should().BeCloseTo(expectedSpan, (int)10.Ticks().TotalSeconds, "not within time slot");
+    }
+
+    [Test]
+    public void Collections_should_be_of_several_Examples()
+    {
+      IEnumerable collection = new[] { 1, 2, 5, 8 };
+
+      collection.Should().NotBeEmpty()
+           .And.HaveCount(4)
+           .And.ContainInOrder(new[] { 2, 5 })
+           .And.ContainItemsAssignableTo<int>();
+
+      collection.Should().Equal(new List<int> { 1, 2, 5, 8 });
+      collection.Should().Equal(1, 2, 5, 8);
+      collection.Should().BeEquivalentTo(8, 2, 1, 5);
+      collection.Should().NotBeEquivalentTo(new[] { 8, 2, 3, 5 });
+
+      collection.Should().HaveCount(c => c > 3).And.OnlyHaveUniqueItems();
+      collection.Should().HaveSameCount(new[] { 6, 2, 0, 5 });
+      const int element = 1;
+      const int element2 = 8;
+      collection.Should().StartWith(element);
+      collection.Should().EndWith(element2);
+
+      collection.Should().BeSubsetOf(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, });
+
+      collection.Should().Contain(1); //ContainSingle();
+      collection.Should().OnlyHaveUniqueItems();//ContainSingle(x => x > 3);
+      collection.Should().Contain(8).And.HaveElementAt(2, 5).And.NotBeSubsetOf(new[] { 11, 56 });
+      collection.Should().Contain( new [] {1, 2, 3}.Where (x => x > 3));
+      collection.Should().Contain(collection, " ",  5, 6); // It should contain the original items, plus 5 and 6.
+
+      collection.Should().OnlyHaveUniqueItems(); //OnlyContain(x => x < 10);
+      collection.Should().ContainItemsAssignableTo<int>(); //OnlyContainItemsOfType<int>();
+
+      collection.Should().ContainInOrder(new[] { 1, 5, 8 });
+
+      collection.Should().NotContain(82);
+      collection.Should().NotContainNulls();
+      collection.Should().NotContain(new[] {100, 200, 300}); // NotContain(x => x > 10);
+
+      const int successor = 5;
+      const int predecessor = 5;
+
+      collection.Should().HaveElementPreceding(successor, element);
+      collection.Should().HaveElementSucceeding(predecessor, element);
+
+      collection.Should().BeEmpty();
+      collection.Should().BeNullOrEmpty();
+      collection.Should().NotBeNullOrEmpty();
+
+      IEnumerable otherCollection = new[] { 1, 2, 5, 8, 1 };
+      IEnumerable anotherCollection = new[] { 10, 20, 50, 80, 10 };
+      collection.Should().IntersectWith(otherCollection);
+      collection.Should().NotIntersectWith(anotherCollection);
+
+      collection.Should().BeInAscendingOrder();
+      collection.Should().NotBeAscendingInOrder();
     }
   }
 }
