@@ -22,13 +22,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
-using System.Security.Cryptography.X509Certificates;
 using System.Threading;
 using System.Xml;
 using System.Xml.Linq;
 using FluentAssertions;
 using NUnit.Framework;
+
 namespace FluentAssertionsUnitTests
 {
   [TestFixture]
