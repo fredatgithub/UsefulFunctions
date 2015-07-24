@@ -9559,9 +9559,15 @@ namespace UnitTestUsefullFunctions
       string result = StringFunc.ToNDigits(source, 7);
       Assert.AreEqual(result, expected);
     }
-
-
-
     #endregion ToNDigits
+    #region AddSpaceInNumberWithDecimal
+    //TODO write unit tests
+    #endregion AddSpaceInNumberWithDecimal
+    #region AddSpaceInNumber
+    //TODO write unit tests
+    #endregion AddSpaceInNumber
+    #region AddCommaInNumber
+    //TODO write unit tests
+    #endregion AddCommaInNumber
   }
 }
