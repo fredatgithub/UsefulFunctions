@@ -2773,6 +2773,7 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result[26], expected[26]); // '0'
       Assert.AreEqual(result[35], expected[35]); // '9'
     }
+    #region NumberToWordsEnglish
 
     // **********************NumberToWordsEnglish**************
     [TestMethod]
@@ -3807,7 +3808,7 @@ namespace UnitTestUsefullFunctions
       string result = StringFunc.NumberToFrenchWords(18000000000000000022);
       Assert.AreEqual(result, expected);
     }
-
+    #endregion NumberToWordsEnglish
     #region Random Unit tests generated
     // ********************************Unit tests Random code generated Methods****************************
     [TestMethod]
@@ -9561,7 +9562,59 @@ namespace UnitTestUsefullFunctions
     }
     #endregion ToNDigits
     #region AddSpaceInNumberWithDecimal
-    //TODO write unit tests
+    [TestMethod]
+    public void TestMethod_AddSpaceInNumberWithDecimal()
+    {
+      const decimal source = 0.25m;
+      const string expected = "0,25";
+      string result = StringFunc.AddSpaceInNumberWithDecimal(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_AddSpaceInNumberWithDecimal_value10()
+    {
+      const decimal source = 10.325m;
+      const string expected = "10,33";
+      string result = StringFunc.AddSpaceInNumberWithDecimal(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_AddSpaceInNumberWithDecimal_value100()
+    {
+      const decimal source = 100.325m;
+      const string expected = "100,33";
+      string result = StringFunc.AddSpaceInNumberWithDecimal(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_AddSpaceInNumberWithDecimal_value1000()
+    {
+      const decimal source = 1000.325m;
+      const string expected = "1 000,33";
+      string result = StringFunc.AddSpaceInNumberWithDecimal(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_AddSpaceInNumberWithDecimal_value5000()
+    {
+      const decimal source = 5000.325m;
+      const string expected = "5 000,33";
+      string result = StringFunc.AddSpaceInNumberWithDecimal(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_AddSpaceInNumberWithDecimal_value_1500000()
+    {
+      const decimal source = 1500000.325m;
+      const string expected = "1 500 000,33";
+      string result = StringFunc.AddSpaceInNumberWithDecimal(source);
+      Assert.AreEqual(result, expected);
+    }
     #endregion AddSpaceInNumberWithDecimal
     #region AddSpaceInNumber
     //TODO write unit tests

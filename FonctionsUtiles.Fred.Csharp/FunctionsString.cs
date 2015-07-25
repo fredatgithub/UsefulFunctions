@@ -3181,7 +3181,7 @@ namespace FonctionsUtiles.Fred.Csharp
       return zeros + number;
     }
 
-    public static string AddSpaceInNumberWithDecimal(long number)
+    public static string AddSpaceInNumberWithDecimal(decimal number)
     {
       return String.Format("{0:n}", number);
     }
