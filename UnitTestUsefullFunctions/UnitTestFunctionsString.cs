@@ -2670,9 +2670,9 @@ namespace UnitTestUsefullFunctions
         counter++;
       }
 
-      for (int i = 0; i < upper.Length; i++)
+      foreach (char mychar in upper)
       {
-        expected[counter] = upper[i];
+        expected[counter] = mychar;
         counter++;
       }
 
@@ -2692,15 +2692,15 @@ namespace UnitTestUsefullFunctions
       char[] lower = StringFunc.GetAlphabet();
       char[] upper = StringFunc.GetAlphabet(false);
       int counter = 0;
-      for (int i = 0; i < lower.Length; i++)
+      foreach (char mychar in lower)
       {
-        expected[counter] = lower[i];
+        expected[counter] = mychar;
         counter++;
       }
 
-      for (int i = 0; i < upper.Length; i++)
+      foreach (char myChar in upper)
       {
-        expected[counter] = upper[i];
+        expected[counter] = myChar;
         counter++;
       }
       for (short chiffre = 48; chiffre < 58; chiffre++) // 48 = asc('0')
@@ -2726,9 +2726,9 @@ namespace UnitTestUsefullFunctions
       char[] expected = new char[62];
       char[] lower = StringFunc.GetAlphabet();
       int counter = 0;
-      for (int i = 0; i < lower.Length; i++)
+      foreach (char mychar in lower)
       {
-        expected[counter] = lower[i];
+        expected[counter] = mychar;
         counter++;
       }
 
@@ -2753,9 +2753,9 @@ namespace UnitTestUsefullFunctions
       char[] expected = new char[62];
       char[] upper = StringFunc.GetAlphabet(false);
       int counter = 0;
-      for (int i = 0; i < upper.Length; i++)
+      foreach (char myChar in upper)
       {
-        expected[counter] = upper[i];
+        expected[counter] = myChar;
         counter++;
       }
 
