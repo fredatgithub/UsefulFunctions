@@ -9617,7 +9617,7 @@ namespace UnitTestUsefullFunctions
     }
     #endregion AddSpaceInNumberWithDecimal
     #region AddSpaceInNumber
-    //TODO write unit tests
+
     [TestMethod]
     public void TestMethod_AddSpaceInNumber_value_0()
     {
@@ -9658,7 +9658,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_AddSpaceInNumber_value_1000()
     {
       const long source = 1000;
-      const string expected = "1 000";
+      const string expected = "1 000";
       string result = StringFunc.AddSpaceInNumber(source);
       Assert.AreEqual(result, expected);
     }
@@ -9667,7 +9667,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_AddSpaceInNumber_value_10000()
     {
       const long source = 10000;
-      const string expected = "10 000";
+      const string expected = "10 000";
       string result = StringFunc.AddSpaceInNumber(source);
       Assert.AreEqual(result, expected);
     }
@@ -9676,7 +9676,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_AddSpaceInNumber_value_100000()
     {
       const long source = 100000;
-      const string expected = "100 000";
+      const string expected = "100 000";
       string result = StringFunc.AddSpaceInNumber(source);
       Assert.AreEqual(result, expected);
     }
@@ -9685,7 +9685,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_AddSpaceInNumber_value_1000000()
     {
       const long source = 1000000;
-      const string expected = "1 000 000";
+      const string expected = "1 000 000";
       string result = StringFunc.AddSpaceInNumber(source);
       Assert.AreEqual(result, expected);
     }
@@ -9703,7 +9703,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_AddSpaceInNumber_value_100000000()
     {
       const long source = 100000000;
-      const string expected = "100 000 000";
+      const string expected = "100 000 000";
       string result = StringFunc.AddSpaceInNumber(source);
       Assert.AreEqual(result, expected);
     }
@@ -9712,7 +9712,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_AddSpaceInNumber_value_1000000000()
     {
       const long source = 1000000000;
-      const string expected = "1 000 000 000";
+      const string expected = "1 000 000 000";
       string result = StringFunc.AddSpaceInNumber(source);
       Assert.AreEqual(result, expected);
     }
@@ -9721,7 +9721,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_AddSpaceInNumber_value_10000000000()
     {
       const long source = 10000000000;
-      const string expected = "10 000 000 000";
+      const string expected = "10 000 000 000";
       string result = StringFunc.AddSpaceInNumber(source);
       Assert.AreEqual(result, expected);
     }
@@ -9730,7 +9730,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_AddSpaceInNumber_value_100000000000()
     {
       const long source = 100000000000;
-      const string expected = "100 000 000 000";
+      const string expected = "100 000 000 000";
       string result = StringFunc.AddSpaceInNumber(source);
       Assert.AreEqual(result, expected);
     }
@@ -9739,10 +9739,11 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_AddSpaceInNumber_value_1000000000000()
     {
       const long source = 1000000000000;
-      const string expected = "1 000 000 000 000";
+      const string expected = "1 000 000 000 000";
       string result = StringFunc.AddSpaceInNumber(source);
       Assert.AreEqual(result, expected);
     }
+    // TODO write unit tests up to
     // lon.MaxValue = 9,223,372,036,854,775,807
     #endregion AddSpaceInNumber
     #region AddCommaInNumber
