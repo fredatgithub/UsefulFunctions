@@ -3195,5 +3195,10 @@ namespace FonctionsUtiles.Fred.Csharp
     {
       return string.Format("{0:#,#}", number);
     }
+
+    public static string FrenchPlural(int number, string currentLanguage = "english")
+    {
+      return (number > 1 && currentLanguage.ToLower() == "french") ? "s" : string.Empty;
+    }
   }
 }

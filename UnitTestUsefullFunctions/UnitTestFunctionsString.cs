@@ -9749,5 +9749,44 @@ namespace UnitTestUsefullFunctions
     #region AddCommaInNumber
     //TODO write unit tests
     #endregion AddCommaInNumber
+    #region FrenchPlural
+    [TestMethod]
+    public void TestMethod_FrenchPlural_singular_French()
+    {
+      const int source = 1;
+      const string source2 = "french";
+      const string expected = "";
+      string result = StringFunc.FrenchPlural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_FrenchPlural_default_singular()
+    {
+      const int source = 1;
+      const string expected = "";
+      string result = StringFunc.FrenchPlural(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_FrenchPlural_plural_French()
+    {
+      const int source = 3;
+      const string source2 = "french";
+      const string expected = "s";
+      string result = StringFunc.FrenchPlural(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_FrenchPlural_default_plural()
+    {
+      const int source = 3;
+      const string expected = "";
+      string result = StringFunc.FrenchPlural(source);
+      Assert.AreEqual(result, expected);
+    }
+    #endregion FrenchPlural
   }
 }
