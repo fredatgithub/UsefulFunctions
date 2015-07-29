@@ -17,6 +17,9 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
+
+using System.Windows.Forms;
+
 namespace FonctionsUtiles.Fred.Csharp
 {
   using System;
@@ -296,6 +299,31 @@ namespace FonctionsUtiles.Fred.Csharp
       {
         return -1;
       }
+    }
+
+    public static string ChooseOneFile(string filter = "All files (*.*)|*.*")
+    {
+      string result = string.Empty;
+      FileDialog fd = new OpenFileDialog();
+      fd.Filter = filter;
+      if (fd.ShowDialog() == DialogResult.OK)
+      {
+        result = fd.FileName;
+      }
+
+      return result;
+    }
+
+    public static string ChooseDirectory()
+    {
+      string result = string.Empty;
+      FolderBrowserDialog fbd = new FolderBrowserDialog();
+      if (fbd.ShowDialog() == DialogResult.OK)
+      {
+        result = fbd.SelectedPath;
+      }
+
+      return result;
     }
   }
 }
