@@ -279,8 +279,8 @@ namespace FonctionsUtiles.Fred.Csharp
           return number > 1 ? "sarraus" : "sarrau";
         case "bleu":
           return number > 1 ? "bleus" : "bleu";
-        case "émeu":
-          return number > 1 ? "émeus" : "émeu";
+        case "Ã©meu":
+          return number > 1 ? "Ã©meus" : "Ã©meu";
         case "lieu":
           return number > 1 ? "lieux" : "lieu";
         case "pneu":
@@ -295,10 +295,10 @@ namespace FonctionsUtiles.Fred.Csharp
           return number > 1 ? "carnavals" : "carnaval";
         case "festival":
           return number > 1 ? "festivals" : "festival";
-        case "récital":
-          return number > 1 ? "récitals" : "récital";
-        case "régal":
-          return number > 1 ? "régals" : "régal";
+        case "rÃ©cital":
+          return number > 1 ? "rÃ©citals" : "rÃ©cital";
+        case "rÃ©gal":
+          return number > 1 ? "rÃ©gals" : "rÃ©gal";
         case "cal":
           return number > 1 ? "cals" : "cal";
         case "serval":
@@ -311,8 +311,8 @@ namespace FonctionsUtiles.Fred.Csharp
           return number > 1 ? "baux" : "bail";
         case "corail":
           return number > 1 ? "coraux" : "corail";
-        case "émail":
-          return number > 1 ? "émaux" : "émail";
+        case "Ã©mail":
+          return number > 1 ? "Ã©maux" : "Ã©mail";
         case "soupirail":
           return number > 1 ? "soupiraux" : "soupirail";
         case "travail":
@@ -344,9 +344,9 @@ namespace FonctionsUtiles.Fred.Csharp
         case "is":
           return number > 1 ? "are" : "is"; // without a space before
         case "The":
-          return number > 1 ? "The" : "The"; // CAPITAL
+          return number > 1 ? "The" : "The"; // CAPITAL, useful because of French plural
         case "the":
-          return number > 1 ? "the" : "the"; // lower case
+          return number > 1 ? "the" : "the"; // lower case, useful because of French plural
         default:
           return number > 1 ? "s" : string.Empty;
       }
@@ -372,8 +372,8 @@ namespace FonctionsUtiles.Fred.Csharp
           return number > 1 ? "sarraus" : "sarrau";
         case "bleu":
           return number > 1 ? "bleus" : "bleu";
-        case "émeu":
-          return number > 1 ? "émeus" : "émeu";
+        case "Ã©meu":
+          return number > 1 ? "Ã©meus" : "Ã©meu";
         case "lieu":
           return number > 1 ? "lieux" : "lieu";
         case "pneu":
@@ -388,10 +388,10 @@ namespace FonctionsUtiles.Fred.Csharp
           return number > 1 ? "carnavals" : "carnaval";
         case "festival":
           return number > 1 ? "festivals" : "festival";
-        case "récital":
-          return number > 1 ? "récitals" : "récital";
-        case "régal":
-          return number > 1 ? "régals" : "régal";
+        case "rÃ©cital":
+          return number > 1 ? "rÃ©citals" : "rÃ©cital";
+        case "rÃ©gal":
+          return number > 1 ? "rÃ©gals" : "rÃ©gal";
         case "cal":
           return number > 1 ? "cals" : "cal";
         case "serval":
@@ -404,8 +404,8 @@ namespace FonctionsUtiles.Fred.Csharp
           return number > 1 ? "baux" : "bail";
         case "corail":
           return number > 1 ? "coraux" : "corail";
-        case "émail":
-          return number > 1 ? "émaux" : "émail";
+        case "Ã©mail":
+          return number > 1 ? "Ã©maux" : "Ã©mail";
         case "soupirail":
           return number > 1 ? "soupiraux" : "soupirail";
         case "travail":
@@ -435,9 +435,9 @@ namespace FonctionsUtiles.Fred.Csharp
         case "is":
           return number > 1 ? "are" : "is";
         case "The":
-          return number > 1 ? "The" : "The"; // CAPITAL
+          return number > 1 ? "The" : "The"; // CAPITAL, useful because of French plural
         case "the":
-          return number > 1 ? "the" : "the"; // lower case
+          return number > 1 ? "the" : "the"; // lower case, useful because of French plural
 
         default:
           return number > 1 ? "s" : string.Empty;
@@ -463,8 +463,8 @@ namespace FonctionsUtiles.Fred.Csharp
           return number > 1 ? "sarraus" : "sarrau";
         case "bleu":
           return number > 1 ? "bleus" : "bleu";
-        case "émeu":
-          return number > 1 ? "émeus" : "émeu";
+        case "Ã©meu":
+          return number > 1 ? "Ã©meus" : "Ã©meu";
         case "lieu":
           return number > 1 ? "lieux" : "lieu";
         case "pneu":
@@ -479,10 +479,10 @@ namespace FonctionsUtiles.Fred.Csharp
           return number > 1 ? "carnavals" : "carnaval";
         case "festival":
           return number > 1 ? "festivals" : "festival";
-        case "récital":
-          return number > 1 ? "récitals" : "récital";
-        case "régal":
-          return number > 1 ? "régals" : "régal";
+        case "rÃ©cital":
+          return number > 1 ? "rÃ©citals" : "rÃ©cital";
+        case "rÃ©gal":
+          return number > 1 ? "rÃ©gals" : "rÃ©gal";
         case "cal":
           return number > 1 ? "cals" : "cal";
         case "serval":
@@ -495,8 +495,8 @@ namespace FonctionsUtiles.Fred.Csharp
           return number > 1 ? "baux" : "bail";
         case "corail":
           return number > 1 ? "coraux" : "corail";
-        case "émail":
-          return number > 1 ? "émaux" : "émail";
+        case "Ã©mail":
+          return number > 1 ? "Ã©maux" : "Ã©mail";
         case "soupirail":
           return number > 1 ? "soupiraux" : "soupirail";
         case "travail":
@@ -526,9 +526,9 @@ namespace FonctionsUtiles.Fred.Csharp
         case "is":
           return number > 1 ? "are" : "is";
         case "The":
-          return number > 1 ? "The" : "The"; // CAPITAL
+          return number > 1 ? "The" : "The"; // CAPITAL, useful because of French plural
         case "the":
-          return number > 1 ? "the" : "the"; // lower case
+          return number > 1 ? "the" : "the"; // lower case, useful because of French plural
 
         default:
           return number > 1 ? "s" : string.Empty;
@@ -554,8 +554,8 @@ namespace FonctionsUtiles.Fred.Csharp
           return number > 1 ? "sarraus" : "sarrau";
         case "bleu":
           return number > 1 ? "bleus" : "bleu";
-        case "émeu":
-          return number > 1 ? "émeus" : "émeu";
+        case "Ã©meu":
+          return number > 1 ? "Ã©meus" : "Ã©meu";
         case "lieu":
           return number > 1 ? "lieux" : "lieu";
         case "pneu":
@@ -570,10 +570,10 @@ namespace FonctionsUtiles.Fred.Csharp
           return number > 1 ? "carnavals" : "carnaval";
         case "festival":
           return number > 1 ? "festivals" : "festival";
-        case "récital":
-          return number > 1 ? "récitals" : "récital";
-        case "régal":
-          return number > 1 ? "régals" : "régal";
+        case "rÃ©cital":
+          return number > 1 ? "rÃ©citals" : "rÃ©cital";
+        case "rÃ©gal":
+          return number > 1 ? "rÃ©gals" : "rÃ©gal";
         case "cal":
           return number > 1 ? "cals" : "cal";
         case "serval":
@@ -586,8 +586,8 @@ namespace FonctionsUtiles.Fred.Csharp
           return number > 1 ? "baux" : "bail";
         case "corail":
           return number > 1 ? "coraux" : "corail";
-        case "émail":
-          return number > 1 ? "émaux" : "émail";
+        case "Ã©mail":
+          return number > 1 ? "Ã©maux" : "Ã©mail";
         case "soupirail":
           return number > 1 ? "soupiraux" : "soupirail";
         case "travail":
@@ -617,9 +617,9 @@ namespace FonctionsUtiles.Fred.Csharp
         case "is":
           return number > 1 ? "are" : "is";
         case "The":
-          return number > 1 ? "The" : "The"; // CAPITAL
+          return number > 1 ? "The" : "The"; // CAPITAL, useful because of French plural
         case "the":
-          return number > 1 ? "the" : "the"; // lower case
+          return number > 1 ? "the" : "the"; // lower case, useful because of French plural
 
         default:
           return number > 1 ? "s" : string.Empty;
@@ -645,8 +645,8 @@ namespace FonctionsUtiles.Fred.Csharp
           return number > 1 ? "sarraus" : "sarrau";
         case "bleu":
           return number > 1 ? "bleus" : "bleu";
-        case "émeu":
-          return number > 1 ? "émeus" : "émeu";
+        case "Ã©meu":
+          return number > 1 ? "Ã©meus" : "Ã©meu";
         case "lieu":
           return number > 1 ? "lieux" : "lieu";
         case "pneu":
@@ -661,10 +661,10 @@ namespace FonctionsUtiles.Fred.Csharp
           return number > 1 ? "carnavals" : "carnaval";
         case "festival":
           return number > 1 ? "festivals" : "festival";
-        case "récital":
-          return number > 1 ? "récitals" : "récital";
-        case "régal":
-          return number > 1 ? "régals" : "régal";
+        case "rÃ©cital":
+          return number > 1 ? "rÃ©citals" : "rÃ©cital";
+        case "rÃ©gal":
+          return number > 1 ? "rÃ©gals" : "rÃ©gal";
         case "cal":
           return number > 1 ? "cals" : "cal";
         case "serval":
@@ -677,8 +677,8 @@ namespace FonctionsUtiles.Fred.Csharp
           return number > 1 ? "baux" : "bail";
         case "corail":
           return number > 1 ? "coraux" : "corail";
-        case "émail":
-          return number > 1 ? "émaux" : "émail";
+        case "Ã©mail":
+          return number > 1 ? "Ã©maux" : "Ã©mail";
         case "soupirail":
           return number > 1 ? "soupiraux" : "soupirail";
         case "travail":
@@ -708,9 +708,9 @@ namespace FonctionsUtiles.Fred.Csharp
         case "is":
           return number > 1 ? "are" : "is";
         case "The":
-          return number > 1 ? "The" : "The"; // CAPITAL
+          return number > 1 ? "The" : "The"; // CAPITAL, useful because of French plural
         case "the":
-          return number > 1 ? "the" : "the"; // lower case
+          return number > 1 ? "the" : "the"; // lower case, useful because of French plural
 
         default:
           return number > 1 ? "s" : string.Empty;
@@ -736,8 +736,8 @@ namespace FonctionsUtiles.Fred.Csharp
           return number > 1 ? "sarraus" : "sarrau";
         case "bleu":
           return number > 1 ? "bleus" : "bleu";
-        case "émeu":
-          return number > 1 ? "émeus" : "émeu";
+        case "Ã©meu":
+          return number > 1 ? "Ã©meus" : "Ã©meu";
         case "lieu":
           return number > 1 ? "lieux" : "lieu";
         case "pneu":
@@ -752,10 +752,10 @@ namespace FonctionsUtiles.Fred.Csharp
           return number > 1 ? "carnavals" : "carnaval";
         case "festival":
           return number > 1 ? "festivals" : "festival";
-        case "récital":
-          return number > 1 ? "récitals" : "récital";
-        case "régal":
-          return number > 1 ? "régals" : "régal";
+        case "rÃ©cital":
+          return number > 1 ? "rÃ©citals" : "rÃ©cital";
+        case "rÃ©gal":
+          return number > 1 ? "rÃ©gals" : "rÃ©gal";
         case "cal":
           return number > 1 ? "cals" : "cal";
         case "serval":
@@ -768,8 +768,8 @@ namespace FonctionsUtiles.Fred.Csharp
           return number > 1 ? "baux" : "bail";
         case "corail":
           return number > 1 ? "coraux" : "corail";
-        case "émail":
-          return number > 1 ? "émaux" : "émail";
+        case "Ã©mail":
+          return number > 1 ? "Ã©maux" : "Ã©mail";
         case "soupirail":
           return number > 1 ? "soupiraux" : "soupirail";
         case "travail":
@@ -799,9 +799,9 @@ namespace FonctionsUtiles.Fred.Csharp
         case "is":
           return number > 1 ? "are" : "is";
         case "The":
-          return number > 1 ? "The" : "The"; // CAPITAL
+          return number > 1 ? "The" : "The"; // CAPITAL, useful because of French plural
         case "the":
-          return number > 1 ? "the" : "the"; // lower case
+          return number > 1 ? "the" : "the"; // lower case, useful because of French plural
 
         default:
           return number > 1 ? "s" : string.Empty;
@@ -827,8 +827,8 @@ namespace FonctionsUtiles.Fred.Csharp
           return number > 1 ? "sarraus" : "sarrau";
         case "bleu":
           return number > 1 ? "bleus" : "bleu";
-        case "émeu":
-          return number > 1 ? "émeus" : "émeu";
+        case "Ã©meu":
+          return number > 1 ? "Ã©meus" : "Ã©meu";
         case "lieu":
           return number > 1 ? "lieux" : "lieu";
         case "pneu":
@@ -843,10 +843,10 @@ namespace FonctionsUtiles.Fred.Csharp
           return number > 1 ? "carnavals" : "carnaval";
         case "festival":
           return number > 1 ? "festivals" : "festival";
-        case "récital":
-          return number > 1 ? "récitals" : "récital";
-        case "régal":
-          return number > 1 ? "régals" : "régal";
+        case "rÃ©cital":
+          return number > 1 ? "rÃ©citals" : "rÃ©cital";
+        case "rÃ©gal":
+          return number > 1 ? "rÃ©gals" : "rÃ©gal";
         case "cal":
           return number > 1 ? "cals" : "cal";
         case "serval":
@@ -859,8 +859,8 @@ namespace FonctionsUtiles.Fred.Csharp
           return number > 1 ? "baux" : "bail";
         case "corail":
           return number > 1 ? "coraux" : "corail";
-        case "émail":
-          return number > 1 ? "émaux" : "émail";
+        case "Ã©mail":
+          return number > 1 ? "Ã©maux" : "Ã©mail";
         case "soupirail":
           return number > 1 ? "soupiraux" : "soupirail";
         case "travail":
@@ -2332,7 +2332,7 @@ namespace FonctionsUtiles.Fred.Csharp
     {
       if (number == 0)
       {
-        return "zéro";
+        return "zÃ©ro";
       }
 
       if (number < 0)
@@ -2375,12 +2375,12 @@ namespace FonctionsUtiles.Fred.Csharp
 
         var unitsMap = new[]
           {
-            "zéro", "un", "deux", "trois", "quatre", "cinq", "six", "sept", "huit", "neuf", "dix", "onze", "douze",
+            "zÃ©ro", "un", "deux", "trois", "quatre", "cinq", "six", "sept", "huit", "neuf", "dix", "onze", "douze",
             "treize", "quatorze", "quinze", "seize", "dix-sept", "dix-huit", "dix-neuf"
           };
         var tensMap = new[]
           {
-            "zéro", "dix", "vingt", "trente", "quarante", "cinquante", "soixante", "soixante-dix", "quatre-vingt",
+            "zÃ©ro", "dix", "vingt", "trente", "quarante", "cinquante", "soixante", "soixante-dix", "quatre-vingt",
             "quatre-vingt-dix"
           };
         if (number < 20)
@@ -2404,7 +2404,7 @@ namespace FonctionsUtiles.Fred.Csharp
     {
       if (number == 0)
       {
-        return "zéro";
+        return "zÃ©ro";
       }
 
       if (number < 0)
@@ -2465,12 +2465,12 @@ namespace FonctionsUtiles.Fred.Csharp
 
         var unitsMap = new[]
           {
-            "zéro", "un", "deux", "trois", "quatre", "cinq", "six", "sept", "huit", "neuf", "dix", "onze", "douze",
+            "zÃ©ro", "un", "deux", "trois", "quatre", "cinq", "six", "sept", "huit", "neuf", "dix", "onze", "douze",
             "treize", "quatorze", "quinze", "seize", "dix-sept", "dix-huit", "dix-neuf"
           };
         var tensMap = new[]
           {
-            "zéro", "dix", "vingt", "trente", "quarante", "cinquante", "soixante", "soixante-dix", "quatre-vingt",
+            "zÃ©ro", "dix", "vingt", "trente", "quarante", "cinquante", "soixante", "soixante-dix", "quatre-vingt",
             "quatre-vingt-dix"
           };
         if (number < 20)
@@ -2494,7 +2494,7 @@ namespace FonctionsUtiles.Fred.Csharp
     {
       if (number == 0)
       {
-        return "zéro";
+        return "zÃ©ro";
       }
 
       string words = string.Empty;
@@ -2550,12 +2550,12 @@ namespace FonctionsUtiles.Fred.Csharp
 
         var unitsMap = new[]
           {
-            "zéro", "un", "deux", "trois", "quatre", "cinq", "six", "sept", "huit", "neuf", "dix", "onze", "douze",
+            "zÃ©ro", "un", "deux", "trois", "quatre", "cinq", "six", "sept", "huit", "neuf", "dix", "onze", "douze",
             "treize", "quatorze", "quinze", "seize", "dix-sept", "dix-huit", "dix-neuf"
           };
         var tensMap = new[]
           {
-            "zéro", "dix", "vingt", "trente", "quarante", "cinquante", "soixante", "soixante-dix", "quatre-vingt",
+            "zÃ©ro", "dix", "vingt", "trente", "quarante", "cinquante", "soixante", "soixante-dix", "quatre-vingt",
             "quatre-vingt-dix"
           };
         if (number < 20)
