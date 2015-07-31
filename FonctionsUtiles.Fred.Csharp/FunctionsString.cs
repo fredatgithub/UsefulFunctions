@@ -349,10 +349,12 @@ namespace FonctionsUtiles.Fred.Csharp
           return number > 1 ? "s are" : " is"; // with a space before
         case "is":
           return number > 1 ? "are" : "is"; // without a space before
+        case "has":
+          return number > 1 ? "have" : "has";
         case "The":
-          return number > 1 ? "The" : "The"; // CAPITAL, useful because of French plural
+          return "The"; // CAPITAL, useful because of French plural
         case "the":
-          return number > 1 ? "the" : "the"; // lower case, useful because of French plural
+          return "the"; // lower case, useful because of French plural
         default:
           return number > 1 ? "s" : string.Empty;
       }
@@ -440,10 +442,12 @@ namespace FonctionsUtiles.Fred.Csharp
         // English
         case "is":
           return number > 1 ? "are" : "is";
+        case "has":
+          return number > 1 ? "have" : "has";
         case "The":
-          return number > 1 ? "The" : "The"; // CAPITAL, useful because of French plural
+          return "The"; // CAPITAL, useful because of French plural
         case "the":
-          return number > 1 ? "the" : "the"; // lower case, useful because of French plural
+          return "the"; // lower case, useful because of French plural
 
         default:
           return number > 1 ? "s" : string.Empty;
@@ -531,10 +535,12 @@ namespace FonctionsUtiles.Fred.Csharp
         // English
         case "is":
           return number > 1 ? "are" : "is";
+        case "has":
+          return number > 1 ? "have" : "has";
         case "The":
-          return number > 1 ? "The" : "The"; // CAPITAL, useful because of French plural
+          return "The"; // CAPITAL, useful because of French plural
         case "the":
-          return number > 1 ? "the" : "the"; // lower case, useful because of French plural
+          return "the"; // lower case, useful because of French plural
 
         default:
           return number > 1 ? "s" : string.Empty;
@@ -622,10 +628,12 @@ namespace FonctionsUtiles.Fred.Csharp
         // English
         case "is":
           return number > 1 ? "are" : "is";
+        case "has":
+          return number > 1 ? "have" : "has";
         case "The":
-          return number > 1 ? "The" : "The"; // CAPITAL, useful because of French plural
+          return "The"; // CAPITAL, useful because of French plural
         case "the":
-          return number > 1 ? "the" : "the"; // lower case, useful because of French plural
+          return "the"; // lower case, useful because of French plural
 
         default:
           return number > 1 ? "s" : string.Empty;
@@ -713,10 +721,12 @@ namespace FonctionsUtiles.Fred.Csharp
         // English
         case "is":
           return number > 1 ? "are" : "is";
+        case "has":
+          return number > 1 ? "have" : "has";
         case "The":
-          return number > 1 ? "The" : "The"; // CAPITAL, useful because of French plural
+          return "The"; // CAPITAL, useful because of French plural
         case "the":
-          return number > 1 ? "the" : "the"; // lower case, useful because of French plural
+          return "the"; // lower case, useful because of French plural
 
         default:
           return number > 1 ? "s" : string.Empty;
@@ -804,10 +814,12 @@ namespace FonctionsUtiles.Fred.Csharp
         // English
         case "is":
           return number > 1 ? "are" : "is";
+        case "has":
+          return number > 1 ? "have" : "has";
         case "The":
-          return number > 1 ? "The" : "The"; // CAPITAL, useful because of French plural
+          return "The"; // CAPITAL, useful because of French plural
         case "the":
-          return number > 1 ? "the" : "the"; // lower case, useful because of French plural
+          return "the"; // lower case, useful because of French plural
 
         default:
           return number > 1 ? "s" : string.Empty;
@@ -895,10 +907,12 @@ namespace FonctionsUtiles.Fred.Csharp
         // English
         case "is":
           return number > 1 ? "are" : "is";
+        case "has":
+          return number > 1 ? "have" : "has";
         case "The":
-          return number > 1 ? "The" : "The"; // CAPITAL, useful because of French plural
+          return "The"; // CAPITAL, useful because of French plural
         case "the":
-          return number > 1 ? "the" : "the"; // lower case, useful because of French plural
+          return "the"; // lower case, useful because of French plural
 
         default:
           return number > 1 ? "s" : string.Empty;
