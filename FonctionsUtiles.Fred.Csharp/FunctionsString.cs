@@ -154,6 +154,12 @@ namespace FonctionsUtiles.Fred.Csharp
       result.Append("Method= string ToTitleCase2(string s)" + newLine);
       result.Append("Method= string ToTwoDigits(ushort number)" + newLine);
       result.Append("Method= string ToNDigits(ushort number, byte numberLength = 1)" + newLine);
+      result.Append("Method= string AddSpaceInNumberWithDecimal(decimal number)");
+      result.Append("Method= string AddSpaceInNumber(long number)");
+      result.Append("Method= string AddCommaInNumber(long number)");
+      result.Append("Method= string FrenchPlural(int number, string currentLanguage = \"english\")");
+      result.Append("Method= ");
+      result.Append("Method= ");
       result.Append("DateTime methods:" + newLine);
       result.Append("Files methods:" + newLine);
       result.Append("Internet methods:" + newLine);
@@ -3183,12 +3189,12 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static string AddSpaceInNumberWithDecimal(decimal number)
     {
-      return String.Format("{0:n}", number);
+      return string.Format("{0:n}", number);
     }
 
     public static string AddSpaceInNumber(long number)
     {
-      return String.Format("{0:n0}", number);
+      return string.Format("{0:n0}", number);
     }
 
     public static string AddCommaInNumber(long number)
