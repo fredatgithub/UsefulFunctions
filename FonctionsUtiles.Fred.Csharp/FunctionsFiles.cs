@@ -18,6 +18,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
+using System.Text;
 using System.Windows.Forms;
 
 namespace FonctionsUtiles.Fred.Csharp
@@ -324,6 +325,12 @@ namespace FonctionsUtiles.Fred.Csharp
       }
 
       return result;
+    }
+
+    public static void CreateNewFile(string updateScript)
+    {
+      StreamWriter sw = new StreamWriter(updateScript, false, Encoding.UTF8);
+      sw.Close();
     }
   }
 }
