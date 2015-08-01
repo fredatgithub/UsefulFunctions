@@ -9808,6 +9808,15 @@ namespace UnitTestUsefullFunctions
     }
 
     [TestMethod]
+    public void TestMethod_GetNumbers_VS2013()
+    {
+      const string source = "visual studio 2013 Community";
+      const string expected = "2013";
+      string result = StringFunc.GetNumbers(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
     public void TestMethod_GetNumberempty_string()
     {
       const string source = "";
