@@ -158,6 +158,11 @@ namespace FonctionsUtiles.Fred.Csharp
       result.Append("Method= string AddSpaceInNumber(long number)");
       result.Append("Method= string AddCommaInNumber(long number)");
       result.Append("Method= string FrenchPlural(int number, string currentLanguage = \"english\")");
+      result.Append("Method= string GetNumbers(string myString)");
+      result.Append("Method= ");
+      result.Append("Method= ");
+      result.Append("Method= ");
+      result.Append("Method= ");
       result.Append("Method= ");
       result.Append("Method= ");
       result.Append("DateTime methods:" + newLine);
@@ -3219,6 +3224,11 @@ namespace FonctionsUtiles.Fred.Csharp
     public static string FrenchPlural(int number, string currentLanguage = "english")
     {
       return (number > 1 && currentLanguage.ToLower() == "french") ? "s" : string.Empty;
+    }
+
+    public static string GetNumbers(string myString)
+    {
+      return myString.Where(Char.IsNumber).Aggregate(string.Empty, (current, c) => current + c);
     }
   }
 }

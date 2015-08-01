@@ -9788,5 +9788,51 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
     #endregion FrenchPlural
+    #region GetNumbers
+    [TestMethod]
+    public void TestMethod_GetNumbers_VS2015()
+    {
+      const string source = "visual studio 2015";
+      const string expected = "2015";
+      string result = StringFunc.GetNumbers(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetNumbers_VS2012()
+    {
+      const string source = "visual studio 2012";
+      const string expected = "2012";
+      string result = StringFunc.GetNumbers(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetNumberempty_string()
+    {
+      const string source = "";
+      const string expected = "";
+      string result = StringFunc.GetNumbers(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetNumbers_no_number()
+    {
+      const string source = "visual studio";
+      const string expected = "";
+      string result = StringFunc.GetNumbers(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetNumbers_only_numbers()
+    {
+      const string source = "31012015";
+      const string expected = "31012015";
+      string result = StringFunc.GetNumbers(source);
+      Assert.AreEqual(result, expected);
+    }
+    #endregion GetNumbers
   }
 }
