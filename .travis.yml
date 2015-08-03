@@ -1,10 +1,10 @@
 language: csharp
 solution: FunctionsUseful.Fred.Csharp.sln
-install:
-  - nuget restore FunctionsUseful.Fred.Csharp.sln
-  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
+#install:
+# - nuget restore FunctionsUseful.Fred.Csharp.sln
+#  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
 script:
   - xbuild /p:Configuration=Release FonctionsUtiles.Fred.Csharp/FunctionsUseful.Fred.Csharp.csproj
-  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./MyPoject.Tests/bin/Release/FluentAssertionsUnitTests.dll
+#  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./MyPoject.Tests/bin/Release/FluentAssertionsUnitTests.dll
 notifications:
   email: false
