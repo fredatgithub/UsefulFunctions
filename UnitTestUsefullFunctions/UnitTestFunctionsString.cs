@@ -9843,5 +9843,56 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
     #endregion GetNumbers
+    #region ContainsIgnoreCase
+    [TestMethod]
+    public void TestMethod_ContainsIgnoreCase_true()
+    {
+      const string source = "Once upon a time in a dark forest";
+      const string source2 = "once";
+      const bool expected = true;
+      bool result = StringFunc.ContainsIgnoreCase(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ContainsIgnoreCase_false()
+    {
+      const string source = "Once upon a time in a dark forest";
+      const string source2 = "once2";
+      const bool expected = false;
+      bool result = StringFunc.ContainsIgnoreCase(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ContainsIgnoreCase_true_upper_case()
+    {
+      const string source = "Once upon a time in a dark forest";
+      const string source2 = "TIME";
+      const bool expected = true;
+      bool result = StringFunc.ContainsIgnoreCase(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ContainsIgnoreCase_true_several_instances()
+    {
+      const string source = "Once upon a time in a dark forest";
+      const string source2 = "a";
+      const bool expected = true;
+      bool result = StringFunc.ContainsIgnoreCase(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ContainsIgnoreCase_true_several_instances_upper_case()
+    {
+      const string source = "Once upon a time in a dark forest";
+      const string source2 = "A";
+      const bool expected = true;
+      bool result = StringFunc.ContainsIgnoreCase(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+    #endregion ContainsIgnoreCase
   }
 }

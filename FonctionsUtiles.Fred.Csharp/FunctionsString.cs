@@ -3228,7 +3228,12 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static string GetNumbers(string myString)
     {
-      return myString.Where(Char.IsNumber).Aggregate(string.Empty, (current, c) => current + c);
+      return myString.Where(char.IsNumber).Aggregate(string.Empty, (current, c) => current + c);
+    }
+
+    public static bool ContainsIgnoreCase(string source, string toCheck)
+    {
+      return source.IndexOf(toCheck, StringComparison.InvariantCultureIgnoreCase) >= 0;
     }
   }
 }
