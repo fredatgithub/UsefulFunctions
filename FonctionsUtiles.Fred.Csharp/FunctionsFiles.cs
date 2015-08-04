@@ -24,8 +24,10 @@ using System.Windows.Forms;
 namespace FonctionsUtiles.Fred.Csharp
 {
   using System;
+  using System.Collections.Generic;
   using System.Globalization;
   using System.IO;
+  using System.Linq;
 
   public class FunctionsFiles
   {
@@ -331,6 +333,46 @@ namespace FonctionsUtiles.Fred.Csharp
     {
       StreamWriter sw = new StreamWriter(updateScript, false, Encoding.UTF8);
       sw.Close();
+    }
+
+    public static List<FileInfo> SearchFiles(List<string> pattern)
+    {
+      List<FileInfo> files = new List<FileInfo>();
+
+      foreach (DriveInfo drive in DriveInfo.GetDrives().Where(drive => drive.DriveType != DriveType.CDRom))
+      {
+        var dirs = from dir in drive.RootDirectory.EnumerateDirectories()
+                   select new
+                   {
+                     ProgDir = dir,
+                   };
+
+        foreach (var di in dirs)
+        {
+          try
+          {
+            foreach (string muster in pattern)
+            {
+              foreach (var fi in di.ProgDir.EnumerateFiles(muster, SearchOption.AllDirectories))
+              {
+                try
+                {
+                  files.Add(fi);
+                }
+                catch (UnauthorizedAccessException)
+                {
+
+                }
+              }
+            }
+          }
+          catch (UnauthorizedAccessException)
+          {
+          }
+        }
+      }
+
+      return files;
     }
   }
 }
