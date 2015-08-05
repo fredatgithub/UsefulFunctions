@@ -342,11 +342,7 @@ namespace FonctionsUtiles.Fred.Csharp
       foreach (DriveInfo drive in DriveInfo.GetDrives().Where(drive => drive.DriveType != DriveType.CDRom))
       {
         var dirs = from dir in drive.RootDirectory.EnumerateDirectories()
-                   select new
-                   {
-                     ProgDir = dir,
-                   };
-
+                   select new { ProgDir = dir };
         foreach (var di in dirs)
         {
           try
@@ -359,20 +355,120 @@ namespace FonctionsUtiles.Fred.Csharp
                 {
                   files.Add(fi);
                 }
-                catch (UnauthorizedAccessException)
-                {
-
-                }
+                catch (UnauthorizedAccessException) { } // handle accordingly
+                catch (Exception) { } // handle accordingly
               }
             }
           }
-          catch (UnauthorizedAccessException)
-          {
-          }
+          catch (UnauthorizedAccessException) { } // handle accordingly
+          catch (Exception) { } // handle accordingly
         }
       }
 
       return files;
+    }
+
+    public static List<string> GetSubfoldersAndFiles(DirectoryInfo directoryInfo, int depth)
+    {
+      List<string> result = new List<string>();
+      foreach (FileInfo fileInfo in directoryInfo.GetFiles())
+      {
+        result.Add(fileInfo.FullName);
+      }
+
+      if (depth > 0)
+      {
+        foreach (DirectoryInfo subDi in directoryInfo.GetDirectories())
+        {
+          result.AddRange(GetSubfoldersAndFiles(subDi, depth - 1).ToArray());
+        }
+      }
+
+      return result;
+    }
+
+    public static Tuple<List<string>, List<string>> GetFilesAndFolders(string root, int depth)
+    {
+      var folders = new List<string>();
+      var files = new List<string>();
+      try
+      {
+        foreach (var directory in Directory.EnumerateDirectories(root))
+        {
+          folders.Add(directory);
+          if (depth > 0)
+          {
+            var result = GetFilesAndFolders(directory, depth - 1);
+            folders.AddRange(result.Item1);
+            files.AddRange(result.Item2);
+          }
+        }
+      }
+      catch (Exception) { }
+      files.AddRange(Directory.EnumerateFiles(root));
+
+      return new Tuple<List<string>, List<string>>(folders, files);
+    }
+
+    public static IList<string> GetFilesToDepth(string path, int depth)
+    {
+      var files = Directory.EnumerateFiles(path).ToList();
+
+      if (depth > 0)
+      {
+        var folders = Directory.EnumerateDirectories(path);
+
+        foreach (var folder in folders)
+        {
+          files.AddRange(GetFilesToDepth(folder, depth - 1));
+        }
+      }
+
+      return files;
+    }
+
+    public List<string> listDir(string path)
+    {
+      List<string> dirList = new List<string>();
+      listDir2(path, dirList);
+      return dirList;
+    }
+
+    public void listDir2(string path, List<string> list)
+    {
+      string[] subDirs = Directory.GetDirectories(path);
+      foreach (string subDir in subDirs)
+      {
+        list.Add(subDir);
+        listDir2(subDir, list);
+      }
+    }
+
+    public static List<DriveInfo> GetAllDrives(DriveType[] excludeDriveTypeList)
+    {
+      List<DriveInfo> result = new List<DriveInfo>();
+      try
+      {
+        foreach (DriveInfo drive in DriveInfo.GetDrives())
+        {
+          bool addingDrive = true;
+          foreach (var excludeDriveType in excludeDriveTypeList)
+          {
+            if (excludeDriveType == drive.DriveType)
+            {
+              addingDrive = false;
+              break;
+            }
+          }
+
+          if (addingDrive)
+          {
+            result.Add(drive);
+          }
+        }
+      }
+      catch (Exception) { }
+      return result;
     }
   }
 }

@@ -22,6 +22,8 @@ using System.IO;
 using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
 using enumRnd = FonctionsUtiles.Fred.Csharp.RandomCharacters;
 using MathFunc = FonctionsUtiles.Fred.Csharp.FunctionsMath;
+using FileFunc = FonctionsUtiles.Fred.Csharp.FunctionsFiles;
+using System.Collections.Generic;
 
 namespace ConsoleApplicationUsageDemo
 {
@@ -63,6 +65,22 @@ namespace ConsoleApplicationUsageDemo
       {
         display("Random filename: " + Path.GetRandomFileName());
       }
+
+      display("Listing all drives:");
+      List<DriveInfo> allDir = FileFunc.GetAllDrives(new[] { DriveType.CDRom, DriveType.Network,
+      DriveType.Removable});
+      foreach (var dirName in allDir)
+      {
+        display(dirName.ToString());
+      }
+
+      display("displaying all directories:");
+      Tuple<List<string>, List<string>> allfilesAndFolders = FileFunc.GetFilesAndFolders(@"C:\", 1);
+      foreach (var item in allfilesAndFolders.Item1)
+      {
+        display(item);
+      }
+
       Console.ReadKey();
     }
   }
