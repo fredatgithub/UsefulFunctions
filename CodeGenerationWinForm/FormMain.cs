@@ -416,7 +416,7 @@ namespace CodeGenerationWinForm
 
     private void cutToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      // TODO remove all these useless calls and replace it by an IEnumerable<Control> method
+      // TODO remove all these useless calls and replace it with an IEnumerable<Control> method
 
       // first tab: One Method Number
       CutToClipboard(textBoxCodeGeneratedResult, "no text");

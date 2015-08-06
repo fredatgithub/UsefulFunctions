@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.22823.1
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionsUseful.Fred.Csharp", "FonctionsUtiles.Fred.Csharp\FunctionsUseful.Fred.Csharp.csproj", "{DB97A281-2E4E-4C5C-B7B1-24F7167792D4}"
 EndProject
@@ -16,6 +16,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MethodSpeedBenchmarks", "MethodSpeedBenchmarks\MethodSpeedBenchmarks.csproj", "{9DC698D6-740F-4420-9605-624995701389}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentAssertionsUnitTests", "FluentAssertionsUnitTests\FluentAssertionsUnitTests.csproj", "{CFD4FA8A-CBE2-4F08-B6CE-ED51B93B2DBA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormApplicationUsageDemo", "WinFormApplicationUsageDemo\WinFormApplicationUsageDemo.csproj", "{52356A81-4025-4E07-A0F1-2D9748E1476E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{CFD4FA8A-CBE2-4F08-B6CE-ED51B93B2DBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CFD4FA8A-CBE2-4F08-B6CE-ED51B93B2DBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CFD4FA8A-CBE2-4F08-B6CE-ED51B93B2DBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52356A81-4025-4E07-A0F1-2D9748E1476E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52356A81-4025-4E07-A0F1-2D9748E1476E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52356A81-4025-4E07-A0F1-2D9748E1476E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52356A81-4025-4E07-A0F1-2D9748E1476E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

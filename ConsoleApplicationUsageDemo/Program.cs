@@ -75,12 +75,15 @@ namespace ConsoleApplicationUsageDemo
       }
 
       display("displaying all directories:");
-      Tuple<List<string>, List<string>> allfilesAndFolders = FileFunc.GetFilesAndFolders(@"C:\", 1);
-      foreach (var item in allfilesAndFolders.Item1)
+      var allfilesAndFolders = FileFunc.GetAllDirectories(@"C:\", "*", SearchOption.AllDirectories);
+      var count = 0;
+      foreach (var item in allfilesAndFolders)
       {
         display(item);
+        count++;
       }
-
+      display(count + " directories were found");
+      display("Press anykey to exit:");
       Console.ReadKey();
     }
   }

@@ -427,22 +427,22 @@ namespace FonctionsUtiles.Fred.Csharp
       return files;
     }
 
-    public List<string> listDir(string path)
-    {
-      List<string> dirList = new List<string>();
-      listDir2(path, dirList);
-      return dirList;
-    }
+    //public List<string> listDir(string path)
+    //{
+    //  List<string> dirList = new List<string>();
+    //  listDir2(path, dirList);
+    //  return dirList;
+    //}
 
-    public void listDir2(string path, List<string> list)
-    {
-      string[] subDirs = Directory.GetDirectories(path);
-      foreach (string subDir in subDirs)
-      {
-        list.Add(subDir);
-        listDir2(subDir, list);
-      }
-    }
+    //public void listDir2(string path, List<string> list)
+    //{
+    //  string[] subDirs = Directory.GetDirectories(path);
+    //  foreach (string subDir in subDirs)
+    //  {
+    //    list.Add(subDir);
+    //    listDir2(subDir, list);
+    //  }
+    //}
 
     public static List<DriveInfo> GetAllDrives(DriveType[] excludeDriveTypeList)
     {
@@ -469,6 +469,46 @@ namespace FonctionsUtiles.Fred.Csharp
       }
       catch (Exception) { }
       return result;
+    }
+
+    public static IEnumerable<string> GetAllDirectories(string path, string pattern = "*",
+      SearchOption searchOption = SearchOption.TopDirectoryOnly)
+    {
+      List<string> result = new List<string>();
+      if (!Directory.Exists(path))
+      {
+        return result;
+      }
+
+      bool complete = false;
+      do
+      {
+        try
+        {
+          foreach (var directory in Directory.EnumerateDirectories(path, pattern, searchOption))
+          {
+            result.Add(directory);
+            //yield return directory; // yield not authorized in a try catch
+          }
+          complete = true;
+        }
+        catch (UnauthorizedAccessException) { complete = false; }
+        catch (Exception) { complete = false; }
+      } while (!complete);
+      
+      return result;
+    }
+
+    public static IEnumerable<DirectoryInfo> GetDirs(string rootFolderPath)
+    {
+      DirectoryInfo rootDir = new DirectoryInfo(rootFolderPath);
+      yield return rootDir;
+
+      foreach (DirectoryInfo dir in rootDir.GetDirectories("*", SearchOption.AllDirectories))
+      {
+        yield return dir;
+      }
+      yield break;
     }
   }
 }
