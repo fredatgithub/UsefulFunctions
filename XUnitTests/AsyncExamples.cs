@@ -26,7 +26,7 @@ namespace XUnitTests
       Assert.IsType<NotImplementedException>(ex);
     }
 
-    void ThrowingMethod()
+    static void ThrowingMethod()
     {
       throw new NotImplementedException();
     }

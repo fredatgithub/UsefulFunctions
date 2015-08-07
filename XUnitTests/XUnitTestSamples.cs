@@ -28,8 +28,8 @@ namespace XUnitTests
     [Fact]
     public void EqualStringIgnoreCase()
     {
-      string expected = "TestString";
-      string actual = "teststring";
+      const string expected = "TestString";
+      const string actual = "teststring";
 
       Assert.False(actual == expected);
       Assert.NotEqual(expected, actual);
