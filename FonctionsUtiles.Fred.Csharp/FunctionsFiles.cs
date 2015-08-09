@@ -220,8 +220,8 @@ namespace FonctionsUtiles.Fred.Csharp
 
     private static string AddAtTheEndOfFileName(string fileName, string textToBeAdded)
     {
-      string Backslash = "\\";
-      string result = GetDirectoryFileNameAndExtension(fileName)[0] + Backslash
+      const string backslash = "\\";
+      string result = GetDirectoryFileNameAndExtension(fileName)[0] + backslash
                                  + GetDirectoryFileNameAndExtension(fileName)[1]
                                  + textToBeAdded
                                  + GetDirectoryFileNameAndExtension(fileName)[2];
@@ -426,24 +426,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return files;
     }
-
-    //public List<string> listDir(string path)
-    //{
-    //  List<string> dirList = new List<string>();
-    //  listDir2(path, dirList);
-    //  return dirList;
-    //}
-
-    //public void listDir2(string path, List<string> list)
-    //{
-    //  string[] subDirs = Directory.GetDirectories(path);
-    //  foreach (string subDir in subDirs)
-    //  {
-    //    list.Add(subDir);
-    //    listDir2(subDir, list);
-    //  }
-    //}
-
+    
     public static List<DriveInfo> GetAllDrives(DriveType[] excludeDriveTypeList)
     {
       List<DriveInfo> result = new List<DriveInfo>();
