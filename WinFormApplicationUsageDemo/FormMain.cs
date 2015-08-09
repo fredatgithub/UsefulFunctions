@@ -512,14 +512,14 @@ namespace WinFormApplicationUsageDemo
     private void buttonGetdirectory_Click(object sender, EventArgs e)
     {
       listBoxResult.Items.Clear();
-      var pattern = "*";
-      //var allfilesAndFolders = FileFunc.GetAllDirectories(textBoxInitialPath.Text, pattern, _searchOptionDirectories);
-      //GetDirs
-      var allfilesAndFolders = FileFunc.GetDirs(textBoxInitialPath.Text);
+      var pattern = ".git";
+      var searchOption = SearchOption.AllDirectories;
+      var allfilesAndFolders = FileFunc.GetAllDirectories(textBoxInitialPath.Text, pattern, searchOption);
       var count = 0;
       foreach (var item in allfilesAndFolders)
       {
         listBoxResult.Items.Add(item);
+        Application.DoEvents();
         count++;
       }
 

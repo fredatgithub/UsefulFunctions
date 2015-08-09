@@ -488,7 +488,7 @@ namespace FonctionsUtiles.Fred.Csharp
           foreach (var directory in Directory.EnumerateDirectories(path, pattern, searchOption))
           {
             result.Add(directory);
-            //yield return directory; // yield not authorized in a try catch
+            Application.DoEvents();
           }
           complete = true;
         }
@@ -508,7 +508,6 @@ namespace FonctionsUtiles.Fred.Csharp
       {
         yield return dir;
       }
-      yield break;
     }
   }
 }
