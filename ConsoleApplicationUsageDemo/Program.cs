@@ -82,6 +82,7 @@ namespace ConsoleApplicationUsageDemo
         display(item);
         count++;
       }
+
       display(count + " directories were found");
       display("Press anykey to exit:");
       Console.ReadKey();

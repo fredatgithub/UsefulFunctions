@@ -2298,5 +2298,42 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
     #endregion IsWeekEnd Methods
+    #region DisplayElapseTime
+    [TestMethod]
+    public void TestMethod_DisplayElapseTime()
+    {
+      TimeSpan source = new TimeSpan(0, 3, 2, 1, 58);
+      const string expected = "000:03:02:01.05";
+      string result = DateFunc.DisplayElapseTime(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_DisplayElapseTime_zero_all()
+    {
+      TimeSpan source = new TimeSpan(0, 0, 0, 0, 0);
+      const string expected = "000:00:00:00.00";
+      string result = DateFunc.DisplayElapseTime(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_DisplayElapseTime_value_9999_milliseconds()
+    {
+      TimeSpan source = new TimeSpan(0, 0, 0, 0, 9999);
+      const string expected = "000:00:00:09.99";
+      string result = DateFunc.DisplayElapseTime(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_DisplayElapseTime_value_200_1_2_3_0()
+    {
+      TimeSpan source = new TimeSpan(200, 1, 2, 3, 0);
+      const string expected = "200:01:02:03.00";
+      string result = DateFunc.DisplayElapseTime(source);
+      Assert.AreEqual(result, expected);
+    }
+    #endregion DisplayElapseTime
   }
 }

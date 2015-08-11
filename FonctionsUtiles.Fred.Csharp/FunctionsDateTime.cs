@@ -56,6 +56,12 @@ namespace FonctionsUtiles.Fred.Csharp
       return string.Format("{0}:{1}:{2}:{3}:{4}", ts.Days, ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds);
     }
 
+    public static string DisplayElapseTime(TimeSpan ts)
+    {
+      return string.Format("{0:000}:{1:00}:{2:00}:{3:00}.{4:00}",
+         ts.Days, ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
+    }
+
     public static string TimeSpanToLongTimeNotNull(TimeSpan timeSpan)
     {
       return TimeSpanToFriendlyDisplay(timeSpan) == string.Empty ? "1 millisecond" :
@@ -104,10 +110,9 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static double GetHoursMinutes(string hours, string minutes)
     {
-      double result = 0;
       double minutesB60 = double.Parse(minutes);
       double minutesB10 = (minutesB60 / 60);
-      result = double.Parse(hours) + minutesB10;
+      var result = double.Parse(hours) + minutesB10;
       return result;
     }
 
