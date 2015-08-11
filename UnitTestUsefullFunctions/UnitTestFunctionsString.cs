@@ -5023,6 +5023,15 @@ namespace UnitTestUsefullFunctions
       string result = StringFunc.AddTabulation(source);
       Assert.AreEqual(result, expected);
     }
+
+    [TestMethod]
+    public void TestMethod_Tabulation_five_tabulations()
+    {
+      const int source = 5;
+      const string expected = "     ";
+      string result = StringFunc.AddTabulation(source);
+      Assert.AreEqual(result, expected);
+    }
     #endregion Tabulation
     #region CountLetters
 
@@ -9893,6 +9902,297 @@ namespace UnitTestUsefullFunctions
       bool result = StringFunc.ContainsIgnoreCase(source, source2);
       Assert.AreEqual(result, expected);
     }
+
+    [TestMethod]
+    public void TestMethod_ContainsIgnoreCase_false_several_instances_upper_case()
+    {
+      const string source = "Once upon a time in a dark forest";
+      const string source2 = "TIMES";
+      const bool expected = false;
+      bool result = StringFunc.ContainsIgnoreCase(source, source2);
+      Assert.AreEqual(result, expected);
+    }
     #endregion ContainsIgnoreCase
+    #region Punctuation
+    [TestMethod]
+    public void TestMethod_Punctuation_period()
+    {
+      const string source = dllFuncs.Punctuation.Period;
+      const string expected = ".";
+      Assert.AreEqual(source, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Punctuation_Backslash()
+    {
+      const string source = dllFuncs.Punctuation.Backslash;
+      const string expected = "\\";
+      Assert.AreEqual(source, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Punctuation_colon()
+    {
+      const string source = dllFuncs.Punctuation.Colon;
+      const string expected = ":";
+      Assert.AreEqual(source, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Punctuation_comma()
+    {
+      const string source = dllFuncs.Punctuation.Comma;
+      const string expected = ",";
+      Assert.AreEqual(source, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Punctuation_dash()
+    {
+      const string source = dllFuncs.Punctuation.Dash;
+      const string expected = "-";
+      Assert.AreEqual(source, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Punctuation_false_dash()
+    {
+      const string source = dllFuncs.Punctuation.Dash;
+      const string expected = "_";
+      Assert.AreNotEqual(source, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Punctuation_OneSpace()
+    {
+      const string source = dllFuncs.Punctuation.OneSpace;
+      const string expected = " ";
+      Assert.AreEqual(source, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Punctuation_slash()
+    {
+      const string source = dllFuncs.Punctuation.Slash;
+      const string expected = "/";
+      Assert.AreEqual(source, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Punctuation_CRLF()
+    {
+      string source = dllFuncs.Punctuation.CrLf;
+      string expected = Environment.NewLine;
+      Assert.AreEqual(source, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Punctuation_Ampersand()
+    {
+      const string source = dllFuncs.Punctuation.Ampersand;
+      const string expected = "&";
+      Assert.AreEqual(source, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Punctuation_Chapter()
+    {
+      const string source = dllFuncs.Punctuation.Chapter;
+      const string expected = "§";
+      Assert.AreEqual(source, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Punctuation_open_curly_Brace()
+    {
+      const string source = dllFuncs.Punctuation.OpenCurlyBrace;
+      const string expected = "{";
+      Assert.AreEqual(source, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Punctuation_Close_curly_Brace()
+    {
+      const string source = dllFuncs.Punctuation.CloseCurlyBrace;
+      const string expected = "}";
+      Assert.AreEqual(source, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Punctuation_open_parenthesis()
+    {
+      const string source = dllFuncs.Punctuation.OpenParenthesis;
+      const string expected = "(";
+      Assert.AreEqual(source, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Punctuation_Close_parenthesis()
+    {
+      const string source = dllFuncs.Punctuation.CloseParenthesis;
+      const string expected = ")";
+      Assert.AreEqual(source, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Punctuation_open_square_bracket()
+    {
+      const string source = dllFuncs.Punctuation.OpenSquareBracket;
+      const string expected = "[";
+      Assert.AreEqual(source, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Punctuation_Close_square_bracket()
+    {
+      const string source = dllFuncs.Punctuation.CloseSquareBracket;
+      const string expected = "]";
+      Assert.AreEqual(source, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Punctuation_divide()
+    {
+      const string source = dllFuncs.Punctuation.Divide;
+      const string expected = "/";
+      Assert.AreEqual(source, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Punctuation_plus()
+    {
+      const string source = dllFuncs.Punctuation.Plus;
+      const string expected = "+";
+      Assert.AreEqual(source, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Punctuation_minus()
+    {
+      const string source = dllFuncs.Punctuation.Minus;
+      const string expected = "-";
+      Assert.AreEqual(source, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Punctuation_multiply()
+    {
+      const string source = dllFuncs.Punctuation.Multiply;
+      const string expected = "*";
+      Assert.AreEqual(source, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Punctuation_dollar()
+    {
+      const string source = dllFuncs.Punctuation.Dollar;
+      const string expected = "$";
+      Assert.AreEqual(source, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Punctuation_pound()
+    {
+      const string source = dllFuncs.Punctuation.Pound;
+      const string expected = "£";
+      Assert.AreEqual(source, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Punctuation_pipe()
+    {
+      const string source = dllFuncs.Punctuation.Pipe;
+      const string expected = "|";
+      Assert.AreEqual(source, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Punctuation_percent()
+    {
+      const string source = dllFuncs.Punctuation.Percent;
+      const string expected = "%";
+      Assert.AreEqual(source, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Punctuation_question_mark()
+    {
+      const string source = dllFuncs.Punctuation.QuestionMark;
+      const string expected = "?";
+      Assert.AreEqual(source, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Punctuation_Exclamation_Point()
+    {
+      const string source = dllFuncs.Punctuation.ExclamationPoint;
+      const string expected = "!";
+      Assert.AreEqual(source, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Punctuation_Micro()
+    {
+      const string source = dllFuncs.Punctuation.Micro;
+      const string expected = "µ";
+      Assert.AreEqual(source, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Punctuation_UnderScore()
+    {
+      const string source = dllFuncs.Punctuation.UnderScore;
+      const string expected = "_";
+      Assert.AreEqual(source, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Punctuation_Sign_At()
+    {
+      const string source = dllFuncs.Punctuation.SignAt;
+      const string expected = "@";
+      Assert.AreEqual(source, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Punctuation_Sign_Sharp()
+    {
+      const string source = dllFuncs.Punctuation.SignSharp;
+      const string expected = "#";
+      Assert.AreEqual(source, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Punctuation_Less_than()
+    {
+      const string source = dllFuncs.Punctuation.LessThan;
+      const string expected = "<";
+      Assert.AreEqual(source, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Punctuation_Greater_than()
+    {
+      const string source = dllFuncs.Punctuation.GreaterThan;
+      const string expected = ">";
+      Assert.AreEqual(source, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Punctuation_Simple_Quote()
+    {
+      const string source = dllFuncs.Punctuation.SimpleQuote;
+      const string expected = "'";
+      Assert.AreEqual(source, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Punctuation_Double_Quote()
+    {
+      const string source = dllFuncs.Punctuation.DoubleQuote;
+      const string expected = "\"";
+      Assert.AreEqual(source, expected);
+    }
+    #endregion Punctuation
   }
 }
