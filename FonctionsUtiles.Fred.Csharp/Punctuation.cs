@@ -17,34 +17,19 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Windows.Forms;
 
 namespace FonctionsUtiles.Fred.Csharp
 {
-  public class FunctionsApplicationFeatures
+  public static class Punctuation
   {
-    public static string GetStartupPath()
-    {
-      try
-      {
-        return string.IsNullOrEmpty(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)) ? string.Empty :
-          Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
-      }
-      catch (Exception)
-      {
-        return string.Empty;
-      }
-    }
-
-    private static Control FindFocusedControl(IEnumerable<Control> container)
-    {
-      return container.FirstOrDefault(control => control.Focused);
-    }
+    public const string Comma = ",";
+    public const string Colon = ":";
+    public const string OneSpace = " ";
+    public const string Dash = "-";
+    public const string Period = ".";
+    public const string Backslash = "\\";
+    public const string Slash = "/";
+    public static string CrLf = Environment.NewLine;
   }
 }

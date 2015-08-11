@@ -24,6 +24,7 @@ using enumRnd = FonctionsUtiles.Fred.Csharp.RandomCharacters;
 using MathFunc = FonctionsUtiles.Fred.Csharp.FunctionsMath;
 using FileFunc = FonctionsUtiles.Fred.Csharp.FunctionsFiles;
 using System.Collections.Generic;
+using FonctionsUtiles.Fred.Csharp;
 
 namespace ConsoleApplicationUsageDemo
 {
@@ -44,7 +45,8 @@ namespace ConsoleApplicationUsageDemo
       displayOnOneLine("IsNumeric of '4' ");
       displayOnOneLine(StringFunc.IsNumeric("4").ToString());
 
-      Char[] tmpNull = null;
+      char[] tmpNull = null;
+      // ReSharper disable once ExpressionIsAlwaysNull
       string rdnString = StringFunc.GenerateRandomString(tmpNull);
       display(string.Empty);
       display("Generation of a random string: " + rdnString);
@@ -75,7 +77,7 @@ namespace ConsoleApplicationUsageDemo
       }
 
       display("displaying all directories:");
-      var allfilesAndFolders = FileFunc.GetAllDirectories(@"C:\", "*", SearchOption.AllDirectories);
+      var allfilesAndFolders = FileFunc.GetAllDirectories(@"C:\");
       var count = 0;
       foreach (var item in allfilesAndFolders)
       {
@@ -84,6 +86,12 @@ namespace ConsoleApplicationUsageDemo
       }
 
       display(count + " directories were found");
+      display("");
+      display("Punctuation characters:");
+      display("Period: " + Punctuation.Period);
+      display("Backslash: " + Punctuation.Backslash);
+      display("Colon: " + Punctuation.Colon);
+
       display("Press anykey to exit:");
       Console.ReadKey();
     }
