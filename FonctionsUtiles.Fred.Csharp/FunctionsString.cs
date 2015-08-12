@@ -3237,5 +3237,22 @@ namespace FonctionsUtiles.Fred.Csharp
     {
       return source.IndexOf(toCheck, StringComparison.InvariantCultureIgnoreCase) >= 0;
     }
+
+    public static string InvertModifier(string text, bool correctCasing = true)
+    {
+      if (text == string.Empty)
+      {
+        return string.Empty;
+      }
+
+      if (text.Split(' ').Count() != 2)
+      {
+        return string.Empty;
+      }
+
+      string result = text.Split(' ')[1] + " ";
+      result += correctCasing ? text.Split(' ')[0].ToLower() : text.Split(' ')[0];
+      return result;
+    }
   }
 }

@@ -2636,8 +2636,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_LoadAlphabetInList_true_only_lower_case_letters()
     {
-      char[] expected = new char[62];
-      expected = StringFunc.GetAlphabet();
+      char[] expected = StringFunc.GetAlphabet();
       char[] result = StringFunc.LoadAlphabetInCharArray(false);
       Assert.AreEqual(result[0], expected[0]); // 'a'
       Assert.AreEqual(result[5], expected[5]);
@@ -2648,8 +2647,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_LoadAlphabetInList_true_only_upper_case_letters()
     {
-      char[] expected = new char[62];
-      expected = StringFunc.GetAlphabet(false);
+      char[] expected = StringFunc.GetAlphabet(false);
       char[] result = StringFunc.LoadAlphabetInCharArray(false, false, true);
       Assert.AreEqual(result[0], expected[0]); // 'A'
       Assert.AreEqual(result[5], expected[5]);
@@ -10194,5 +10192,51 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(source, expected);
     }
     #endregion Punctuation
+    #region InvertModifier
+    [TestMethod]
+    public void TestMethod_InvertModifier_true_two_words()
+    {
+      const string source = "blue table";
+      const string expected = "table blue";
+      string result = StringFunc.InvertModifier(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_InvertModifier_string_empty()
+    {
+      const string source = "";
+      const string expected = "";
+      string result = StringFunc.InvertModifier(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_InvertModifier_three_words()
+    {
+      const string source = "a blue table";
+      const string expected = "";
+      string result = StringFunc.InvertModifier(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_InvertModifier_two_words_French()
+    {
+      const string source = "Fichier PDF";
+      const string expected = "PDF fichier";
+      string result = StringFunc.InvertModifier(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_InvertModifier_two_words_English()
+    {
+      const string source = "File PDF";
+      const string expected = "PDF file";
+      string result = StringFunc.InvertModifier(source);
+      Assert.AreEqual(result, expected);
+    }
+    #endregion InvertModifier
   }
 }
