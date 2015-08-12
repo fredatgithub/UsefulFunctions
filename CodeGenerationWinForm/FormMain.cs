@@ -142,14 +142,34 @@ namespace CodeGenerationWinForm
     private static void FillComboBoxWithTypes(ComboBox cb)
     {
       cb.Items.Clear();
+      cb.Items.Add("char");
+      cb.Items.Add("char[]");
+      cb.Items.Add("short");
+      cb.Items.Add("short[]");
+      cb.Items.Add("ushort");
+      cb.Items.Add("ushort[]");
       cb.Items.Add("int");
       cb.Items.Add("int[]");
-      cb.Items.Add("string");
-      cb.Items.Add("string[]");
+      cb.Items.Add("uint");
+      cb.Items.Add("uint[]");
       cb.Items.Add("byte");
       cb.Items.Add("byte[]");
+      cb.Items.Add("sbyte");
+      cb.Items.Add("sbyte[]");
       cb.Items.Add("bool");
       cb.Items.Add("bool[]");
+      cb.Items.Add("long");
+      cb.Items.Add("long[]");
+      cb.Items.Add("ulong");
+      cb.Items.Add("ulong[]");
+      cb.Items.Add("decimal");
+      cb.Items.Add("decimal[]");
+      cb.Items.Add("float");
+      cb.Items.Add("float[]");
+      cb.Items.Add("string");
+      cb.Items.Add("string[]");
+      cb.Items.Add("object");
+      cb.Items.Add("object[]");
       cb.SelectedIndex = 0;
     }
 
