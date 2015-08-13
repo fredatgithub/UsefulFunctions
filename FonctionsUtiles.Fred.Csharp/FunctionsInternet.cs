@@ -151,7 +151,7 @@ namespace FonctionsUtiles.Fred.Csharp
       {
         if (counter.Length < length && counter.Length + item.Length >= length)
         {
-          necessaryCount = stringValue.IndexOf(item, counter.Length) + item.Substring(0, length - counter.Length).Length;
+          necessaryCount = stringValue.IndexOf(item, counter.Length, StringComparison.Ordinal) + item.Substring(0, length - counter.Length).Length;
           break;
         }
         counter += item;
@@ -195,6 +195,68 @@ namespace FonctionsUtiles.Fred.Csharp
       }
 
       return subs;
+    }
+
+
+
+    public static bool IsEmailValid2(string email)
+    {
+      const string MatchEmailPattern = "^ (([w -] +.) +[w -] +| ([a - zA - Z]{ 1}|[w -]{ 2,}))@" +
+ "((([0 - 1]?[0 - 9]{ 1,2}| 25[0 - 5] | 2[0 - 4][0 - 9]).([0 - 1]?[0 - 9]{ 1,2}| 25[0 - 5] | 2[0 - 4][0 - 9])." +
+ "([0 - 1]?[0 - 9]{ 1,2}| 25[0 - 5] | 2[0 - 4][0 - 9]).([0 - 1]?[0 - 9]{ 1,2}| 25[0 - 5] | 2[0 - 4][0 - 9])){ 1}|" +
+ "([a - zA - Z] +[w -] +.) +[a - zA - Z]{ 2,4})$";
+
+      if (email != null)
+      {
+        return Regex.IsMatch(email, MatchEmailPattern);
+      }
+
+      return false;
+    }
+
+    /// <summary>
+    /// This method will check a url to see that it does not return server or protocol errors
+    /// </summary>
+    /// <param name="url">The path to check</param>
+    /// <returns></returns>
+    public bool UrlIsValid(string url)
+    {
+      try
+      {
+        HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest;
+        request.Timeout = 5000; //set the timeout to 5 seconds to keep the user from waiting too long for the page to load
+        request.Method = "HEAD"; //Get only the header information -- no need to download any content
+
+        HttpWebResponse response = request.GetResponse() as HttpWebResponse;
+
+        int statusCode = (int)response.StatusCode;
+        if (statusCode >= 100 && statusCode < 400) //Good requests
+        {
+          return true;
+        }
+
+        if (statusCode >= 500 && statusCode <= 510) //Server Errors
+        {
+          //log.Warn(String.Format("The remote server has thrown an internal error. Url is not valid: {0}", url));
+          return false;
+        }
+      }
+      catch (WebException ex)
+      {
+        if (ex.Status == WebExceptionStatus.ProtocolError) //400 errors
+        {
+          return false;
+        }
+        else
+        {
+          //log.Warn(String.Format("Unhandled status [{0}] returned for url: {1}", ex.Status, url), ex);
+        }
+      }
+      catch (Exception)
+      {
+        //log.Error(String.Format("Could not test url {0}.", url), ex);
+      }
+      return false;
     }
   }
 }
