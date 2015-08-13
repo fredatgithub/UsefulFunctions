@@ -3254,5 +3254,10 @@ namespace FonctionsUtiles.Fred.Csharp
       result += correctCasing ? text.Split(' ')[0].ToLower() : text.Split(' ')[0];
       return result;
     }
+
+    public static string AddSlash(string myString)
+    {
+      return myString.EndsWith("\\") ? myString : myString + "\\";
+    }
   }
 }

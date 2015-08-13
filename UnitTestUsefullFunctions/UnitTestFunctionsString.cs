@@ -10238,5 +10238,24 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
     #endregion InvertModifier
+    #region AddSlash
+    [TestMethod]
+    public void TestMethod_AddSlash_true()
+    {
+      const string source = "C:\\program files\\";
+      const string expected = "C:\\program files\\";
+      string result = StringFunc.AddSlash(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_AddSlash_false()
+    {
+      const string source = "C:\\program files";
+      const string expected = "C:\\program files\\";
+      string result = StringFunc.AddSlash(source);
+      Assert.AreEqual(result, expected);
+    }
+    #endregion AddSlash
   }
 }
