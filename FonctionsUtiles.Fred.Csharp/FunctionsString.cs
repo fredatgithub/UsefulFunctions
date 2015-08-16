@@ -2629,6 +2629,27 @@ namespace FonctionsUtiles.Fred.Csharp
       return array.Where(item => number == item).Any();
     }
 
+    public static bool IsInside(string number, params string[] array)
+    {
+      return array.Any(item => number == item);
+    }
+
+    public static bool IsInList(string word, string[] listOfWords)
+    {
+      bool result = false;
+      // LINQ return listOfWords.Any(wordInList => string.Compare(word, wordInList, StringComparison.InvariantCultureIgnoreCase) == 0);
+      foreach (string wordInList in listOfWords)
+      {
+        if (string.Compare(word, wordInList, StringComparison.InvariantCultureIgnoreCase) == 0)
+        {
+          result = true;
+          break;
+        }
+      }
+
+      return result;
+    }
+
     public static string ToTitleCase(string myString)
     {
       return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(myString.ToLower());

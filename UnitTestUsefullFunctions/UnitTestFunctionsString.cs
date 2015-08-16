@@ -10257,5 +10257,11 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
     #endregion AddSlash
+    #region IsInside
+    // TODO tests int and string
+    #endregion IsInside
+    #region IsInList
+    // TODO tests
+    #endregion IsInList
   }
 }
