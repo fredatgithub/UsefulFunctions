@@ -10258,10 +10258,86 @@ namespace UnitTestUsefullFunctions
     }
     #endregion AddSlash
     #region IsInside
-    // TODO tests int and string
+    [TestMethod]
+    public void TestMethod_IsInside_true()
+    {
+      const int source1 = 12;
+      int[] source2 = { 3, 4, 6, 7, 10, 12, 15 };
+      const bool expected = true;
+      bool result = StringFunc.IsInside(source1, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsInside_false()
+    {
+      const int source1 = 182;
+      int[] source2 = { 3, 4, 6, 7, 10, 12, 15 };
+      const bool expected = false;
+      bool result = StringFunc.IsInside(source1, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsInside_string_true()
+    {
+      const string source1 = "time";
+      string[] source2 = {"A long long time ago in a galaxy far far away", "time", "galaxy"};
+      const bool expected = true;
+      bool result = StringFunc.IsInside(source1, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsInside_string_false()
+    {
+      const string source1 = "times";
+      const string source2 = "A long long time ago in a galaxy far far away";
+      const bool expected = false;
+      bool result = StringFunc.IsInside(source1, source2);
+      Assert.AreEqual(result, expected);
+    }
     #endregion IsInside
     #region IsInList
-    // TODO tests
+    [TestMethod]
+    public void TestMethod_IsInList_true_three_elements()
+    {
+      const string source1 = "time";
+      string[] source2 = { "A long long time ago in a galaxy far far away", "time", "galaxy" };
+      const bool expected = true;
+      bool result = StringFunc.IsInList(source1, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsInList_false_one_element()
+    {
+      const string source1 = "time";
+      string[] source2 = { "A long long time ago in a galaxy far far away" };
+      const bool expected = false;
+      bool result = StringFunc.IsInList(source1, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsInList_false_three_elements()
+    {
+      const string source1 = "times";
+      string[] source2 = { "A long long time ago in a galaxy far far away", "galaxy", "tide"};
+      const bool expected = false;
+      bool result = StringFunc.IsInList(source1, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsInList_true_two_elements()
+    {
+      const string source1 = "times";
+      string[] source2 = { "A long long time ago in a galaxy far far away", "times" };
+      const bool expected = true;
+      bool result = StringFunc.IsInList(source1, source2);
+      Assert.AreEqual(result, expected);
+    }
     #endregion IsInList
   }
 }
