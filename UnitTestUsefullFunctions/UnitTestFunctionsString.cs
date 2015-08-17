@@ -10338,6 +10338,16 @@ namespace UnitTestUsefullFunctions
       bool result = StringFunc.IsInList(source1, source2);
       Assert.AreEqual(result, expected);
     }
+
+    [TestMethod]
+    public void TestMethod_IsInList_true_eight_elements()
+    {
+      const string source1 = "zip";
+      string[] source2 = { "ZIP", "EPUB", "MOBI", "PDF", "DOC", "XPS", "DOCX", "PPTX" };
+      const bool expected = true;
+      bool result = StringFunc.IsInList(source1, source2);
+      Assert.AreEqual(result, expected);
+    }
     #endregion IsInList
   }
 }
