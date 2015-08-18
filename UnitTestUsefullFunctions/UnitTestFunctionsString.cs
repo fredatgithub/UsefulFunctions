@@ -10349,5 +10349,8 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
     #endregion IsInList
+    #region CheckInjection
+    // TODO write unit tests for CheckInjection method
+    #endregion CheckInjection
   }
 }
