@@ -3280,5 +3280,32 @@ namespace FonctionsUtiles.Fred.Csharp
     {
       return myString.EndsWith("\\") ? myString : myString + "\\";
     }
+
+    public static bool CheckInjection(string input)
+    {
+      try
+      {
+        for (int i = 0; i < input.Length; i++)
+        {
+          string oneChar = input[i].ToString();
+          if ((oneChar == "\"") || (oneChar == "'") || (oneChar == "&"))
+          {
+            return false;
+          }
+        }
+
+        int position = input.IndexOf("<script>", StringComparison.InvariantCultureIgnoreCase);
+        if (position > -1)
+        {
+          return false;
+        }
+
+        return true;
+      }
+      catch (Exception)
+      {
+        return false;
+      }
+    }
   }
 }
