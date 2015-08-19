@@ -24,6 +24,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -3281,7 +3282,7 @@ namespace FonctionsUtiles.Fred.Csharp
       return myString.EndsWith("\\") ? myString : myString + "\\";
     }
 
-    public static bool CheckInjection(string input)
+    public static bool CheckInjectionInUserNameAndPassword(string input)
     {
       try
       {
@@ -3306,6 +3307,34 @@ namespace FonctionsUtiles.Fred.Csharp
       {
         return false;
       }
+    }
+
+    public static bool CheckHash(string sourceData, byte[] compareTo)
+    {
+      byte[] tmpSource;
+      byte[] tmpHash;
+      // Create a byte array from the source data
+      tmpSource = Encoding.ASCII.GetBytes(sourceData);
+
+      //Compute hash based on the source data
+      tmpHash = new MD5CryptoServiceProvider().ComputeHash(tmpSource);
+      //return tmpHash == compareTo; // returns false because 2 different objects
+      return CompareByteArray(tmpHash, compareTo);
+    }
+
+    public static bool CompareByteArray(byte[] b1, byte[] b2)
+    {
+      bool result = b1.Length == b2.Length;
+
+      for (int i = 0; i < b1.Length; i++)
+      {
+        if (b1[i] != b2[i])
+        {
+          result = false;
+        }
+      }
+
+      return result;
     }
   }
 }
