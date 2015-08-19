@@ -32,20 +32,20 @@ install:
   # to run script as a PowerShell command prepend it with ps:
   #- ps: Write-Host 'This is PowerShell'
   ps: Set-Culture fr-FR
+# scripts to run before build
 
+before_build:
+  - nuget restore
+
+ #install Machine.Specifications
+ #install Machine.Specifications.Should
+ 
 build:
   # MSBuild verbosity level
   #verbosity: quiet|minimal|normal|detailed
   verbosity: minimal
   parallel: true  
 
-# scripts to run before build
-before_build:
-    - nuget restore
-
- #install Machine.Specifications
- #install Machine.Specifications.Should
- 
 # scripts to run after build
 #after_build:
  
