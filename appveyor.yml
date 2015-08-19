@@ -38,7 +38,7 @@ build:
   #verbosity: quiet|minimal|normal|detailed
   verbosity: minimal
   parallel: true  
-  #nuget restore
+  nuget restore
 
 # scripts to run before build
 before_build:
