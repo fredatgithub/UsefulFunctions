@@ -22,7 +22,7 @@ using System.Windows.Forms;
 
 namespace FonctionsUtiles.Fred.Csharp
 {
-  public class functionsControls
+  public class FunctionsControls
   {
     public TextBoxBase WhatTextBoxHasFocus()
     {
@@ -37,6 +37,15 @@ namespace FonctionsUtiles.Fred.Csharp
       //}
 
       return result;
+    }
+
+    public static void AcceptOnlyNumbers(Control textBox)
+    {
+      int value;
+      if (!int.TryParse(textBox.Text, out value))
+      {
+        textBox.Text = string.Empty;
+      }
     }
   }
 }

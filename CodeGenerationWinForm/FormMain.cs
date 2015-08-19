@@ -1287,5 +1287,50 @@ namespace CodeGenerationWinForm
 
       }
     }
+
+    private void textBoxFromNumber_TextChanged(object sender, EventArgs e)
+    {
+      AcceptOnlyNumbers(textBoxFromNumber);
+    }
+
+    private void textBoxToNumber_TextChanged(object sender, EventArgs e)
+    {
+      AcceptOnlyNumbers(textBoxToNumber);
+    }
+
+    private static void AcceptOnlyNumbers(TextBox textBox)
+    {
+      if (textBox == null) return;
+      int value;
+      if (!int.TryParse(textBox.Text, out value))
+      {
+        textBox.Text = string.Empty;
+      }
+    }
+
+    private void textBoxNumberOfRndMethod_TextChanged(object sender, EventArgs e)
+    {
+      AcceptOnlyNumbers(textBoxNumberOfRndMethod);
+    }
+
+    private void textBoxOthersFrom_TextChanged(object sender, EventArgs e)
+    {
+      AcceptOnlyNumbers(textBoxOthersFrom);
+    }
+
+    private void textBoxOthersTo_TextChanged(object sender, EventArgs e)
+    {
+      AcceptOnlyNumbers(textBoxOthersTo);
+    }
+
+    private void textBoxCustomFrom_TextChanged(object sender, EventArgs e)
+    {
+      AcceptOnlyNumbers(textBoxCustomFrom);
+    }
+
+    private void textBoxCustomTo_TextChanged(object sender, EventArgs e)
+    {
+      AcceptOnlyNumbers(textBoxCustomTo);
+    }
   }
 }
