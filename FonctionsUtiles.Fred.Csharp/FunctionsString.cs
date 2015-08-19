@@ -3326,7 +3326,7 @@ namespace FonctionsUtiles.Fred.Csharp
     {
       bool result = b1.Length == b2.Length;
 
-      for (int i = 0; i < b1.Length; i++)
+      for (int i = 0; i < Math.Min(b1.Length, b2.Length); i++)
       {
         if (b1[i] != b2[i])
         {
