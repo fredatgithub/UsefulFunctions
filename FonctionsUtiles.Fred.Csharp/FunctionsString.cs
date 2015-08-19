@@ -3288,7 +3288,7 @@ namespace FonctionsUtiles.Fred.Csharp
         for (int i = 0; i < input.Length; i++)
         {
           string oneChar = input[i].ToString();
-          if ((oneChar == "\"") || (oneChar == "'") || (oneChar == "&"))
+          if ((oneChar == "'") || (oneChar == "-") || (oneChar == "&"))
           {
             return false;
           }

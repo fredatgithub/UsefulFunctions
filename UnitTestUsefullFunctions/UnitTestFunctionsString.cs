@@ -10350,7 +10350,50 @@ namespace UnitTestUsefullFunctions
     }
     #endregion IsInList
     #region CheckInjection
-    // TODO write unit tests for CheckInjection method
+    [TestMethod]
+    public void TestMethod_CheckInjection_false_single_quote()
+    {
+      const string source = "index.aspx?'bad_idea'";
+      const bool expected = false;
+      bool result = StringFunc.CheckInjection(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_CheckInjection_false_hyphen_dash()
+    {
+      const string source = "index.aspx?'bad-idea'";
+      const bool expected = false;
+      bool result = StringFunc.CheckInjection(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_CheckInjection_false_ampersand()
+    {
+      const string source = "index.aspx?name=bill&true=true";
+      const bool expected = false;
+      bool result = StringFunc.CheckInjection(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_CheckInjection_true()
+    {
+      const string source = "index.aspx?name=bill";
+      const bool expected = true;
+      bool result = StringFunc.CheckInjection(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_CheckInjection_true_long_url()
+    {
+      const string source = "https://xlibrary.skillport.com/courseware/Content/ria/RIA_V2_5_306/index_tablet.html?lang=en&AICC_URL=https%3A%2F%2Fpvsp80apabbe.skillport.com%3A443%2F&AICC_SID=209870-49916091602355884554748-sd_dpcs_a02_it_enus-A0-@0-SPCSF&CBTLAUNCH=sd_dpcs_a02_it_enus_c&COURSEINFO=skins/option3_35bs4ssl_PC&DYNAMIC_SKIN_URL=https://pvsp80.sport.com:443/skillportbe/spc/Cmd.be&tryRIA=true&use508=0";
+      const bool expected = false;
+      bool result = StringFunc.CheckInjection(source);
+      Assert.AreEqual(result, expected);
+    }
     #endregion CheckInjection
   }
 }
