@@ -10419,6 +10419,16 @@ namespace UnitTestUsefullFunctions
     }
 
     [TestMethod]
+    public void TestMethod_CheckHash_true_letter_B()
+    {
+      const string source1 = "B";
+      byte[] source2 = new MD5CryptoServiceProvider().ComputeHash(Encoding.ASCII.GetBytes("B"));
+      const bool expected = true;
+      bool result = StringFunc.CheckHash(source1, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
     public void TestMethod_CheckHash_true_long_sentence()
     {
       const string source1 = "A long long time ago in a galaxy far far away";
