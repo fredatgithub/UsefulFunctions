@@ -47,5 +47,21 @@ namespace FonctionsUtiles.Fred.Csharp
         textBox.Text = string.Empty;
       }
     }
+
+    public static bool IsInlistView(ListView listView, ListViewItem lviItem, int columnNumber = 1)
+    {
+      // return listView.Items.Cast<ListViewItem>().All(item => item.SubItems[columnNumber].Text != lviItem.SubItems[columnNumber].Text);
+      bool result = false;
+      foreach (ListViewItem item in listView.Items)
+      {
+        if (item.SubItems[columnNumber].Text == lviItem.SubItems[columnNumber].Text)
+        {
+          result = true;
+          break;
+        }
+      }
+
+      return result;
+    }
   }
 }
