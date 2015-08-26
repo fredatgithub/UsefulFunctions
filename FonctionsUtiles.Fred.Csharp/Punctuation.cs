@@ -82,5 +82,24 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return result.ToString();
     }
+
+    public static string CreateSentence(params PunctuationChar[] listOfCharacters)
+    {
+      StringBuilder result = new StringBuilder();
+      foreach (var character in listOfCharacters)
+      {
+        result.Append(character);
+      }
+
+      return result.ToString();
+    }
+
+    public enum PunctuationChar
+    {
+      Colon,
+      SemiColon,
+      OneSpace
+
+    }
   }
 }
