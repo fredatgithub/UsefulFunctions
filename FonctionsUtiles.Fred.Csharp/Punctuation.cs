@@ -18,6 +18,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 using System;
+using System.Text;
 
 namespace FonctionsUtiles.Fred.Csharp
 {
@@ -69,6 +70,17 @@ namespace FonctionsUtiles.Fred.Csharp
       }
 
       return result;
+    }
+
+    public static string CreateSentence(params string[] listOfCharacters)
+    {
+      StringBuilder result = new StringBuilder();
+      foreach (string character in listOfCharacters)
+      {
+        result.Append(character);
+      }
+
+      return result.ToString();
     }
   }
 }
