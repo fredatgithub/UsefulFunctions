@@ -25,6 +25,7 @@ namespace FonctionsUtiles.Fred.Csharp
   {
     public const string Comma = ",";
     public const string Colon = ":";
+    public const string SemiColon = ";";
     public const string OneSpace = " ";
     public const string Dash = "-";
     public const string UnderScore = "_";
