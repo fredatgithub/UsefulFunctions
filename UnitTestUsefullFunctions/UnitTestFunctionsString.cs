@@ -10037,7 +10037,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Punctuation_open_square_bracket()
     {
-      const string source = dllFuncs.Punctuation.OpenSquareBracket;
+      const string source = dllFuncs.Punctuation.OpeningBracket;
       const string expected = "[";
       Assert.AreEqual(source, expected);
     }
@@ -10045,7 +10045,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Punctuation_Close_square_bracket()
     {
-      const string source = dllFuncs.Punctuation.CloseSquareBracket;
+      const string source = dllFuncs.Punctuation.ClosingBracket;
       const string expected = "]";
       Assert.AreEqual(source, expected);
     }
