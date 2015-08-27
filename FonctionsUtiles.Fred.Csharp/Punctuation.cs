@@ -28,7 +28,6 @@ namespace FonctionsUtiles.Fred.Csharp
     public const string Colon = ":";
     public const string SemiColon = ";";
     public const string OneSpace = " ";
-    public const string Dash = "-";
     public const string UnderScore = "_";
     public const string SignAt = "@";
     public const string Ampersand = "&";
@@ -40,8 +39,8 @@ namespace FonctionsUtiles.Fred.Csharp
     public const string CloseParenthesis = ")";
     public const string OpenCurlyBrace = "{";
     public const string CloseCurlyBrace = "}";
-    public const string OpenSquareBracket = "[";
-    public const string CloseSquareBracket = "]";
+    public const string OpeningBracket = "[";
+    public const string ClosingBracket = "]";
     public const string LessThan = "<";
     public const string GreaterThan = ">";
     public const string DoubleQuote = "\"";
@@ -50,8 +49,10 @@ namespace FonctionsUtiles.Fred.Csharp
     public const string Pipe = "|";
     public const string Plus = "+";
     public const string Minus = "-";
+    public const string Dash = "-";
     public const string Multiply = "*";
     public const string Divide = "/";
+    public const string Equal = "=";
     public const string Dollar = "$";
     public const string Pound = "£";
     public const string Percent = "%";
@@ -59,6 +60,7 @@ namespace FonctionsUtiles.Fred.Csharp
     public const string ExclamationPoint = "!";
     public const string Chapter = "§";
     public const string Micro = "µ";
+    public const string Copyright = "®";
     public static string CrLf = Environment.NewLine;
 
     public static string Tabulate(ushort numberOfTabulation = 1)
@@ -96,42 +98,63 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public enum PunctuationChar
     {
-      Comma,
-      Colon,
-      SemiColon,
-      OneSpace,
-      Dash,
-      UnderScore,
-      SignAt,
-      Ampersand,
-      SignSharp,
-      Period,
-      Backslash,
-      Slash,
-      OpenParenthesis,
-      CloseParenthesis,
-      OpenCurlyBrace,
-      CloseCurlyBrace,
-      OpenSquareBracket,
-      CloseSquareBracket,
-      LessThan,
-      GreaterThan,
-      DoubleQuote,
-      SimpleQuote,
-      Tilde,
-      Pipe,
-      Plus,
-      Minus,
-      Multiply,
-      Divide,
-      Dollar,
-      Pound,
-      Percent,
-      QuestionMark,
-      ExclamationPoint,
-      Chapter,
-      Micro,
-      CrLf,
+      // values according to ASCII table
+      Comma = 44,
+      Colon = 58,
+      SemiColon = 59,
+      OneSpace = 32,
+      UnderScore = 95,
+      SignAt = 64,
+      Ampersand = 38,
+      SignSharp = 35,
+      SignNumber = Pound,
+      Period = 46,
+      Backslash = 92,
+      OpenParenthesis = 40,
+      CloseParenthesis = 41,
+      OpenCurlyBrace = 123,
+      OpeningBrace = OpenCurlyBrace,
+      CloseCurlyBrace = 125,
+      ClosingBrace = CloseCurlyBrace,
+      OpeningBracket = 91,
+      ClosingBracket = 93,
+      LessThan = 60,
+      GreaterThan = 62,
+      DoubleQuote = 34,
+      SimpleQuote = 39,
+      Tilde = 126,
+      Caret = 94,
+      Circumflex = Caret,
+      Pipe = 124,
+      VerticalBar = Pipe,
+      Plus = 43,
+      Dash = 45,
+      Minus = Dash,
+      Multiply = 42,
+      SignMultiply = 215,
+      Slash = 47,
+      Divide = Slash,
+      SignDivision = 247,
+      Equal = 61,
+      Dollar = 36,
+      Pound = 163,
+      SignYen = 165,
+      Percent = 37,
+      QuestionMark = 63,
+      ExclamationPoint = 33,
+      Chapter = 167,
+      Section = Chapter,
+      Copyright = 169,
+      Micro = 181,
+      LeftDoubleAngleQuotes = 171,
+      RightDoubleAngleQuotes = 187,
+      LeftSingleQuotationMark = 8216,
+      RightSingleQuotationMark = 8217,
+      LeftDoubleQuotationMark = 8220,
+      RightdoubleQuotationMark = 8221,
+      SignTradeMark = 8482,
+      SignEuro = 8364,
+      CrLf = 0,
       NewLine = CrLf
     }
   }
