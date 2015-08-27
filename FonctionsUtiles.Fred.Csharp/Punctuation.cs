@@ -96,10 +96,43 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public enum PunctuationChar
     {
+      Comma,
       Colon,
       SemiColon,
-      OneSpace
-
+      OneSpace,
+      Dash,
+      UnderScore,
+      SignAt,
+      Ampersand,
+      SignSharp,
+      Period,
+      Backslash,
+      Slash,
+      OpenParenthesis,
+      CloseParenthesis,
+      OpenCurlyBrace,
+      CloseCurlyBrace,
+      OpenSquareBracket,
+      CloseSquareBracket,
+      LessThan,
+      GreaterThan,
+      DoubleQuote,
+      SimpleQuote,
+      Tilde,
+      Pipe,
+      Plus,
+      Minus,
+      Multiply,
+      Divide,
+      Dollar,
+      Pound,
+      Percent,
+      QuestionMark,
+      ExclamationPoint,
+      Chapter,
+      Micro,
+      CrLf,
+      NewLine = CrLf
     }
   }
 }
