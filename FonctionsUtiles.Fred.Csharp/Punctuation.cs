@@ -18,6 +18,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 using System;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace FonctionsUtiles.Fred.Csharp
@@ -156,6 +157,11 @@ namespace FonctionsUtiles.Fred.Csharp
       SignEuro = 8364,
       CrLf = 0,
       NewLine = CrLf
+    }
+
+    public static string GetExclamationPoint() // Andrew Hall style
+    {
+      return ExclamationPoint;
     }
   }
 }
