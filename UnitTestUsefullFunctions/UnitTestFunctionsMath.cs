@@ -17,6 +17,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
+
+using System.Collections.Generic;
 using FonctionsUtiles.Fred.Csharp;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -734,7 +736,39 @@ namespace UnitTestUsefullFunctions
       Assert.IsTrue(result == 5050);
     }
     #endregion Math Methods - Sommielle Recursive
+    #region IsPrime
+    [TestMethod]
+    public void TestMethod_IsPrime_0()
+    {
+      const int source = 0;
+      const bool expected = false;
+      bool result = FunctionsMath.IsPrime(source);
+      Assert.AreEqual(result, expected);
+    }
 
+
+    #endregion
+    #region GetListOfPrime
+    [TestMethod]
+    public void TestMethod_GetListOfPrime()
+    {
+      const int source1 = 2;
+      const int source2 = 10;
+      List<int> expected = new List<int> { 2, 3, 5, 7 };
+      List<int> result = FunctionsMath.GetListOfPrime(source1, source2);
+      AssertListsAreEqual(result, expected);
+    }
+
+    private static void AssertListsAreEqual(List<int> result, List<int> expected)
+    {
+      Assert.AreEqual(result.Count, expected.Count);
+      for (int i = 0; i < result.Count; i++)
+      {
+        Assert.AreEqual(result[i], expected[i]);
+      }
+    }
+
+    #endregion
     #endregion Math Methods
   }
 }

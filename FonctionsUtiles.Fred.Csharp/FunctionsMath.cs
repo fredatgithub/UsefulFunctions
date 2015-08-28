@@ -18,6 +18,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using System.Security.Cryptography;
 
 namespace FonctionsUtiles.Fred.Csharp
@@ -176,6 +180,45 @@ namespace FonctionsUtiles.Fred.Csharp
       
       return result;
     }
+
+    public static bool IsPrime(int candidate)
+    {
+      if (candidate <= 1)
+      {
+        return false;
+      }
+
+      if (candidate == 2 || candidate == 3)
+      {
+        return true;
+      }
+
+      for (int i = 3; (i * i) <= candidate; i =+ 2)
+      {
+        if ((candidate % i) == 0)
+        {
+          return false;
+        }
+      }
+
+      return true;
+    }
+
+    public static List<int> GetListOfPrime(int min, int max)
+    {
+      List<int> result = new List<int>();
+      if (min >= max)
+      {
+        return result;
+      }
+
+      var array = Enumerable.Range(min, max);
+      var primes = from number in array.AsParallel()
+        where IsPrime(number)
+        select number;
+      result = primes.ToList();
+      return result;
+    } 
 
     // TODO Ppcm and Pgcm method to be implemented
 

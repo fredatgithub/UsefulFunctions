@@ -1019,6 +1019,24 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return reversedString;
     }
+    public static string ReverseString3(string strValue, bool removeSpace = false)
+    {// TODO write Unit tests for this method
+      if (removeSpace)
+      {
+        strValue = strValue.Replace(" ", "");
+      }
+
+      int length = strValue.Length;
+      if (length > 1)
+      {
+        var first = strValue.Substring(1);
+        var last = strValue.Substring(0, 1);
+        var reverseString = ReverseString3(first) + last;
+        return reverseString;
+      }
+
+      return strValue;
+    }
     public static string ReverseString(string input, bool removeSpace = false)
     {
       //  Validate input
