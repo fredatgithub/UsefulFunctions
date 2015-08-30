@@ -18,8 +18,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
@@ -206,7 +204,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static List<int> GetListOfPrime(int min, int max)
     {
-      List<int> result = new List<int>();
+      var result = new List<int>();
       if (min >= max)
       {
         return result;

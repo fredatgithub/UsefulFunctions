@@ -754,7 +754,7 @@ namespace UnitTestUsefullFunctions
     {
       const int source1 = 2;
       const int source2 = 10;
-      List<int> expected = new List<int> { 2, 3, 5, 7 };
+      var expected = new List<int> { 2, 3, 5, 7 };
       List<int> result = FunctionsMath.GetListOfPrime(source1, source2);
       AssertListsAreEqual(result, expected);
     }

@@ -33,7 +33,7 @@
       <Value Profile="(Default)">[TestMethod]</Value>
     </Setting>
     <Setting Name="textBoxCustPublic" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Public</Value>
+      <Value Profile="(Default)">public</Value>
     </Setting>
     <Setting Name="textBoxCustoVoid" Type="System.String" Scope="User">
       <Value Profile="(Default)">void</Value>
