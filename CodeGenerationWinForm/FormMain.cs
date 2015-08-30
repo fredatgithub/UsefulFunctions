@@ -312,12 +312,18 @@ namespace CodeGenerationWinForm
       XDocument xDoc = XDocument.Load(Settings.Default.LanguageFileName);
       var result = from node in xDoc.Descendants("term")
                    where node.HasElements
+                   let xElemenName = node.Element("name")
+                   where xElemenName != null
+                   let xElementEnglish = node.Element("englishValue")
+                   where xElementEnglish != null
+                   let xElementFrench = node.Element("frenchValue")
+                   where xElementFrench != null
                    select new
-                   {
-                     name = node.Element("name").Value,
-                     englishValue = node.Element("englishValue").Value,
-                     frenchValue = node.Element("frenchValue").Value
-                   };
+                              {
+                                name = xElemenName.Value,
+                                englishValue = xElementEnglish.Value,
+                                frenchValue = xElementFrench.Value
+                              };
       foreach (var i in result)
       {
         _languageDicoEn.Add(i.name, i.englishValue);
@@ -327,7 +333,7 @@ namespace CodeGenerationWinForm
 
     private static void CreateLanguageFile()
     {
-      List<string> minimumVersion = new List<string>
+      var minimumVersion = new List<string>
       {
         "<?xml version=\"1.0\" encoding=\"utf - 8\" ?>",
         "<Document>",
@@ -365,6 +371,7 @@ namespace CodeGenerationWinForm
 
     private void copyToolStripMenuItem_Click(object sender, EventArgs e)
     {
+      // TODO to refactor
       // first tab: One Method Number
       CopytToClipboard(textBoxCodeGeneratedResult, "no text");
       CopytToClipboard(textBoxOneMethodNumber, "no number");
@@ -1069,7 +1076,7 @@ namespace CodeGenerationWinForm
 
         if (end < start)
         {
-          DisplayMessageOk(GetTranslatedString("The end number must be greater than the start number"), 
+          DisplayMessageOk(GetTranslatedString("The end number must be greater than the start number"),
             GetTranslatedString("End smaller start"), MessageBoxButtons.OK);
           return;
         }
@@ -1175,12 +1182,12 @@ namespace CodeGenerationWinForm
       {
         case "english":
           result = _languageDicoEn.ContainsKey(stringToBeTranslated) ? _languageDicoEn[stringToBeTranslated] :
-           "the term: \"" + stringToBeTranslated + 
+           "the term: \"" + stringToBeTranslated +
            "\" has not been translated yet.\nPlease tell the developer to translate this term";
           break;
         case "french":
           result = _languageDicoFr.ContainsKey(stringToBeTranslated) ? _languageDicoFr[stringToBeTranslated] :
-            "the term: \"" + stringToBeTranslated + 
+            "the term: \"" + stringToBeTranslated +
             "\" has not been translated yet.\nPlease tell the developer to translate this term";
           break;
       }
