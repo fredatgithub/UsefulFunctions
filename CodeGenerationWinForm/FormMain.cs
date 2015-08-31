@@ -1464,5 +1464,21 @@ namespace CodeGenerationWinForm
     {
       AcceptOnlyNumbers(textBoxCustomTo);
     }
+
+    private void comboBoxCustoExpectedType_SelectedIndexChanged(object sender, EventArgs e)
+    {
+      if (comboBoxCustoResultReturnedType.Items.Count != 0 && comboBoxCustoExpectedType.Items.Count != 0)
+      {
+        comboBoxCustoResultReturnedType.SelectedIndex = comboBoxCustoExpectedType.SelectedIndex;
+      }
+    }
+
+    private void comboBoxCustoResultReturnedType_SelectedIndexChanged(object sender, EventArgs e)
+    {
+      if (comboBoxCustoResultReturnedType.Items.Count != 0 && comboBoxCustoExpectedType.Items.Count != 0)
+      {
+        comboBoxCustoExpectedType.SelectedIndex = comboBoxCustoResultReturnedType.SelectedIndex;
+      }
+    }
   }
 }
