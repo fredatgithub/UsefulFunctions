@@ -1088,8 +1088,7 @@ namespace CodeGenerationWinForm
     {
       // Verification of all types used with values
       CheckMatchingType(textBoxCustoExpectedValue, comboBoxCustoExpectedType, "EXPECTED", !checkBoxAutoCheckTypes.Checked);
-      CheckMatchingType(textBoxCustoSourceValue, comboBoxCustoSourceType, "SOURCE", !checkBoxAutoCheckTypes.Checked);
-
+      
       // Generation of the result
       textBoxCustoResult.Text = string.Empty;
       if (!checkBoxCustomRange.Checked)

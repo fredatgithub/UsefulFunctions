@@ -191,6 +191,11 @@ namespace FonctionsUtiles.Fred.Csharp
         return true;
       }
 
+      if (candidate % 2 == 0)
+      {
+        return false;
+      }
+
       for (int i = 3; (i * i) <= candidate; i =+ 2)
       {
         if ((candidate % i) == 0)
