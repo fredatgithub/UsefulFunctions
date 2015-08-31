@@ -319,11 +319,11 @@ namespace CodeGenerationWinForm
                    let xElementFrench = node.Element("frenchValue")
                    where xElementFrench != null
                    select new
-                              {
-                                name = xElemenName.Value,
-                                englishValue = xElementEnglish.Value,
-                                frenchValue = xElementFrench.Value
-                              };
+                   {
+                     name = xElemenName.Value,
+                     englishValue = xElementEnglish.Value,
+                     frenchValue = xElementFrench.Value
+                   };
       foreach (var i in result)
       {
         _languageDicoEn.Add(i.name, i.englishValue);
@@ -371,27 +371,52 @@ namespace CodeGenerationWinForm
 
     private void copyToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      // TODO to refactor
-      // first tab: One Method Number
-      CopytToClipboard(textBoxCodeGeneratedResult, "no text");
-      CopytToClipboard(textBoxOneMethodNumber, "no number");
-
-      // second tab: Several Range Methods 
-      CopytToClipboard(textBoxRangeMethods, "no text");
-      CopytToClipboard(textBoxFromNumber, "no number");
-      CopytToClipboard(textBoxToNumber, "no number");
-
-      // third tab: Random Method
-      CopytToClipboard(textBoxRandomMethodResult, "no text");
-      CopytToClipboard(textBoxNumberOfRndMethod, "no number");
-
-      // fourth tab: Other Result
-      CopytToClipboard(textBoxOthersResult, "no text");
-      CopytToClipboard(textBoxOthersFrom, "no number");
-      CopytToClipboard(textBoxOthersTo, "no number");
-
-      // fifth tab: Customized Method
-      CopytToClipboard(textBoxCustoResult, "no text");
+      Control focusedControl = FindFocusedControl(new List<Control>
+      {
+        textBoxCodeGeneratedResult,
+        textBoxOneMethodNumber,
+        textBoxRangeMethods,
+        textBoxFromNumber,
+        textBoxToNumber,
+        textBoxRandomMethodResult,
+        textBoxNumberOfRndMethod,
+        textBoxOthersResult,
+        textBoxOthersFrom,
+        textBoxOthersTo,
+        textBoxCustoResult,
+        // fifth tab customized method
+        textBoxCustPublic,
+        textBoxCustoTestMethod,
+        textBoxCustoMethodName,
+        textBoxCustoExpectedCosntant,
+        textBoxCustoExpectedWord,
+        textBoxCustoExpectedEqualSign,
+        textBoxCustoExpectedValue,
+        textBoxCustoExpectedSemiColon,
+        textBoxCustoConstantSource,
+        textBoxCustoSourceWord,
+        textBoxCustoSourceValue,
+        textBoxCustoSourceSemiColon,
+        textBoxCustoResultWord,
+        textBoxCustoResultEqualSign,
+        textBoxCustoResultFunctionClass,
+        textBoxcustoResultFunctionName,
+        textBoxCustoResultSourceWord,
+        textBoxCustoAssertWord,
+        textBoxCustoAssertOpenParenthesis,
+        textBoxCustoAssertResultWord,
+        textBoxCustoAssertComma,
+        textBoxCustoAssertExpectedWord,
+        textBoxCustoAssertClosingParenthesis,
+        textBoxCustomFrom,
+        textBoxCustomTo,
+        textBoxCustoResult
+      });
+      var tb = focusedControl as TextBox;
+      if (tb != null)
+      {
+        CopytToClipboard(tb);
+      }
     }
 
     private void CopytToClipboard(TextBoxBase tb, string message = "nothing")
@@ -443,52 +468,108 @@ namespace CodeGenerationWinForm
 
     private void cutToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      // TODO remove all these useless calls and replace it with an IEnumerable<Control> method
+      Control focusedControl = FindFocusedControl(new List<Control>
+      {
+        textBoxCodeGeneratedResult,
+        textBoxOneMethodNumber,
+        textBoxRangeMethods,
+        textBoxFromNumber,
+        textBoxToNumber,
+        textBoxRandomMethodResult,
+        textBoxNumberOfRndMethod,
+        textBoxOthersResult,
+        textBoxOthersFrom,
+        textBoxOthersTo,
+        textBoxCustoResult,
+        // fifth tab customized method
+        textBoxCustPublic,
+        textBoxCustoTestMethod,
+        textBoxCustoMethodName,
+        textBoxCustoExpectedCosntant,
+        textBoxCustoExpectedWord,
+        textBoxCustoExpectedEqualSign,
+        textBoxCustoExpectedValue,
+        textBoxCustoExpectedSemiColon,
+        textBoxCustoConstantSource,
+        textBoxCustoSourceWord,
+        textBoxCustoSourceValue,
+        textBoxCustoSourceSemiColon,
+        textBoxCustoResultWord,
+        textBoxCustoResultEqualSign,
+        textBoxCustoResultFunctionClass,
+        textBoxcustoResultFunctionName,
+        textBoxCustoResultSourceWord,
+        textBoxCustoAssertWord,
+        textBoxCustoAssertOpenParenthesis,
+        textBoxCustoAssertResultWord,
+        textBoxCustoAssertComma,
+        textBoxCustoAssertExpectedWord,
+        textBoxCustoAssertClosingParenthesis,
+        textBoxCustomFrom,
+        textBoxCustomTo,
+        textBoxCustoResult
+        });
 
-      // first tab: One Method Number
-      CutToClipboard(textBoxCodeGeneratedResult, "no text");
-      CutToClipboard(textBoxOneMethodNumber, "no number");
+      var tb = focusedControl as TextBox;
+      if (tb != null)
+      {
+        CutToClipboard(tb);
+      }
+    }
 
-      // second tab: Range Methods 
-      CutToClipboard(textBoxRangeMethods, "no text");
-      CutToClipboard(textBoxFromNumber, "no number");
-      CutToClipboard(textBoxToNumber, "no number");
-
-      // third tab: Random Method
-      CutToClipboard(textBoxRandomMethodResult, "no text");
-      CutToClipboard(textBoxNumberOfRndMethod, "no number");
-
-      // fourth tab: Other Results 
-      CutToClipboard(textBoxOthersResult, "no text");
-      CutToClipboard(textBoxOthersFrom, "no number");
-      CutToClipboard(textBoxOthersTo, "no number");
-
-      // fifth tab: Customized Method
-      CutToClipboard(textBoxCustoResult, "no text");
+    private static Control FindFocusedControl(List<Control> container)
+    {
+      return container.FirstOrDefault(control => control.Focused);
     }
 
     private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      // first tab: Code Generated
-      PasteFromClipboard(textBoxCodeGeneratedResult);
-      PasteFromClipboard(textBoxOneMethodNumber);
-
-      // second tab: Range Methods 
-      PasteFromClipboard(textBoxRangeMethods);
-      PasteFromClipboard(textBoxFromNumber);
-      PasteFromClipboard(textBoxToNumber);
-
-      // third tab: Random Method
-      PasteFromClipboard(textBoxRandomMethodResult);
-      PasteFromClipboard(textBoxNumberOfRndMethod);
-
-      // fourth tab: Other Result
-      PasteFromClipboard(textBoxOthersResult);
-      PasteFromClipboard(textBoxOthersFrom);
-      PasteFromClipboard(textBoxOthersTo);
-
-      // fifth tab: Customized Method
-      PasteFromClipboard(textBoxCustoResult);
+      Control focusedControl = FindFocusedControl(new List<Control>
+      {
+        textBoxCodeGeneratedResult,
+        textBoxOneMethodNumber,
+        textBoxRangeMethods,
+        textBoxFromNumber,
+        textBoxToNumber,
+        textBoxRandomMethodResult,
+        textBoxNumberOfRndMethod,
+        textBoxOthersResult,
+        textBoxOthersFrom,
+        textBoxOthersTo,
+        textBoxCustoResult,
+        // fifth tab customized method
+        textBoxCustPublic,
+        textBoxCustoTestMethod,
+        textBoxCustoMethodName,
+        textBoxCustoExpectedCosntant,
+        textBoxCustoExpectedWord,
+        textBoxCustoExpectedEqualSign,
+        textBoxCustoExpectedValue,
+        textBoxCustoExpectedSemiColon,
+        textBoxCustoConstantSource,
+        textBoxCustoSourceWord,
+        textBoxCustoSourceValue,
+        textBoxCustoSourceSemiColon,
+        textBoxCustoResultWord,
+        textBoxCustoResultEqualSign,
+        textBoxCustoResultFunctionClass,
+        textBoxcustoResultFunctionName,
+        textBoxCustoResultSourceWord,
+        textBoxCustoAssertWord,
+        textBoxCustoAssertOpenParenthesis,
+        textBoxCustoAssertResultWord,
+        textBoxCustoAssertComma,
+        textBoxCustoAssertExpectedWord,
+        textBoxCustoAssertClosingParenthesis,
+        textBoxCustomFrom,
+        textBoxCustomTo,
+        textBoxCustoResult
+      });
+      var tb = focusedControl as TextBox;
+      if (tb != null)
+      {
+        PasteFromClipboard(tb);
+      }
     }
 
     private void buttonGenerateCode_Click(object sender, EventArgs e)
@@ -749,74 +830,119 @@ namespace CodeGenerationWinForm
 
     private void selectAllToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      string selectedTab = tabControlMain.SelectedTab.ToString();
-      switch (selectedTab)
+      Control focusedControl = FindFocusedControl(new List<Control>
       {
-        case "TabPage: {One Method}":
-          //detect which TextBox has the focus
-          if (textBoxCodeGeneratedResult == ActiveControl)
-          {
-            textBoxCodeGeneratedResult.SelectAll();
-          }
-
-          if (textBoxOneMethodNumber == ActiveControl)
-          {
-            textBoxOneMethodNumber.SelectAll();
-          }
-
-          break;
-        case "TabPage: {Several Methods by range}":
-          if (textBoxRangeMethods == ActiveControl)
-          {
-            textBoxRangeMethods.SelectAll();
-          }
-
-          if (textBoxFromNumber == ActiveControl)
-          {
-            textBoxFromNumber.SelectAll();
-          }
-
-          if (textBoxToNumber == ActiveControl)
-          {
-            textBoxToNumber.SelectAll();
-          }
-          break;
-        case "TabPage: {Random Methods}":
-          if (textBoxRandomMethodResult == ActiveControl)
-          {
-            textBoxRandomMethodResult.SelectAll();
-          }
-
-          if (textBoxNumberOfRndMethod == ActiveControl)
-          {
-            textBoxNumberOfRndMethod.SelectAll();
-          }
-
-          break;
-        case "TabPage: {Others}":
-          if (textBoxOthersResult == ActiveControl)
-          {
-            textBoxOthersResult.SelectAll();
-          }
-
-          if (textBoxOthersFrom == ActiveControl)
-          {
-            textBoxOthersFrom.SelectAll();
-          }
-
-          if (textBoxOthersTo == ActiveControl)
-          {
-            textBoxOthersTo.SelectAll();
-          }
-          break;
-        case "TabPage: {Customized Method}":
-          if (textBoxCustoResult == ActiveControl)
-          {
-            textBoxCustoResult.SelectAll();
-          }
-
-          break;
+        textBoxCodeGeneratedResult,
+        textBoxOneMethodNumber,
+        textBoxRangeMethods,
+        textBoxFromNumber,
+        textBoxToNumber,
+        textBoxRandomMethodResult,
+        textBoxNumberOfRndMethod,
+        textBoxOthersResult,
+        textBoxOthersFrom,
+        textBoxOthersTo,
+        textBoxCustoResult,
+        // fifth tab customized method
+        textBoxCustPublic,
+        textBoxCustoTestMethod,
+        textBoxCustoMethodName,
+        textBoxCustoExpectedCosntant,
+        textBoxCustoExpectedWord,
+        textBoxCustoExpectedEqualSign,
+        textBoxCustoExpectedValue,
+        textBoxCustoExpectedSemiColon,
+        textBoxCustoConstantSource,
+        textBoxCustoSourceWord,
+        textBoxCustoSourceValue,
+        textBoxCustoSourceSemiColon,
+        textBoxCustoResultWord,
+        textBoxCustoResultEqualSign,
+        textBoxCustoResultFunctionClass,
+        textBoxcustoResultFunctionName,
+        textBoxCustoResultSourceWord,
+        textBoxCustoAssertWord,
+        textBoxCustoAssertOpenParenthesis,
+        textBoxCustoAssertResultWord,
+        textBoxCustoAssertComma,
+        textBoxCustoAssertExpectedWord,
+        textBoxCustoAssertClosingParenthesis,
+        textBoxCustomFrom,
+        textBoxCustomTo,
+        textBoxCustoResult
+      });
+      if (focusedControl is TextBox)
+      {
+        ((TextBox)focusedControl).SelectAll();
       }
+      //string selectedTab = tabControlMain.SelectedTab.ToString();
+      //switch (selectedTab)
+      //{
+      //  case "TabPage: {One Method}":
+      //    //detect which TextBox has the focus
+      //    if (textBoxCodeGeneratedResult == ActiveControl)
+      //    {
+      //      textBoxCodeGeneratedResult.SelectAll();
+      //    }
+
+      //    if (textBoxOneMethodNumber == ActiveControl)
+      //    {
+      //      textBoxOneMethodNumber.SelectAll();
+      //    }
+
+      //    break;
+      //  case "TabPage: {Several Methods by range}":
+      //    if (textBoxRangeMethods == ActiveControl)
+      //    {
+      //      textBoxRangeMethods.SelectAll();
+      //    }
+
+      //    if (textBoxFromNumber == ActiveControl)
+      //    {
+      //      textBoxFromNumber.SelectAll();
+      //    }
+
+      //    if (textBoxToNumber == ActiveControl)
+      //    {
+      //      textBoxToNumber.SelectAll();
+      //    }
+      //    break;
+      //  case "TabPage: {Random Methods}":
+      //    if (textBoxRandomMethodResult == ActiveControl)
+      //    {
+      //      textBoxRandomMethodResult.SelectAll();
+      //    }
+
+      //    if (textBoxNumberOfRndMethod == ActiveControl)
+      //    {
+      //      textBoxNumberOfRndMethod.SelectAll();
+      //    }
+
+      //    break;
+      //  case "TabPage: {Others}":
+      //    if (textBoxOthersResult == ActiveControl)
+      //    {
+      //      textBoxOthersResult.SelectAll();
+      //    }
+
+      //    if (textBoxOthersFrom == ActiveControl)
+      //    {
+      //      textBoxOthersFrom.SelectAll();
+      //    }
+
+      //    if (textBoxOthersTo == ActiveControl)
+      //    {
+      //      textBoxOthersTo.SelectAll();
+      //    }
+      //    break;
+      //  case "TabPage: {Customized Method}":
+      //    if (textBoxCustoResult == ActiveControl)
+      //    {
+      //      textBoxCustoResult.SelectAll();
+      //    }
+
+      //    break;
+      //}
     }
 
     private void buttonClearOneMethodTextBox_Click(object sender, EventArgs e)
