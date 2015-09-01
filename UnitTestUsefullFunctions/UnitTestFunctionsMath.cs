@@ -737,41 +737,41 @@ namespace UnitTestUsefullFunctions
     }
     #endregion Math Methods - Sommielle Recursive
     #region IsPrime
-    //[TestMethod]
-    //public void TestMethod_IsPrime_0()
-    //{
-    //  const int source = 0;
-    //  const bool expected = false;
-    //  bool result = FunctionsMath.IsPrime(source);
-    //  Assert.AreEqual(result, expected);
-    //}
+    [TestMethod]
+    public void TestMethod_IsPrime_0()
+    {
+      const int source = 0;
+      const bool expected = false;
+      bool result = FunctionsMath.IsPrime(source);
+      Assert.AreEqual(result, expected);
+    }
 
-    //[TestMethod]
-    //public void TestMethod_IsPrime_1()
-    //{
-    //  const int source = 1;
-    //  const bool expected = false;
-    //  bool result = FunctionsMath.IsPrime(source);
-    //  Assert.AreEqual(result, expected);
-    //}
+    [TestMethod]
+    public void TestMethod_IsPrime_1()
+    {
+      const int source = 1;
+      const bool expected = false;
+      bool result = FunctionsMath.IsPrime(source);
+      Assert.AreEqual(result, expected);
+    }
 
-    //[TestMethod]
-    //public void TestMethod_IsPrime_2()
-    //{
-    //  const int source = 2;
-    //  const bool expected = true;
-    //  bool result = FunctionsMath.IsPrime(source);
-    //  Assert.AreEqual(result, expected);
-    //}
+    [TestMethod]
+    public void TestMethod_IsPrime_2()
+    {
+      const int source = 2;
+      const bool expected = true;
+      bool result = FunctionsMath.IsPrime(source);
+      Assert.AreEqual(result, expected);
+    }
 
-    //[TestMethod]
-    //public void TestMethod_IsPrime_3()
-    //{
-    //  const int source = 3;
-    //  const bool expected = true;
-    //  bool result = FunctionsMath.IsPrime(source);
-    //  Assert.AreEqual(result, expected);
-    //}
+    [TestMethod]
+    public void TestMethod_IsPrime_3()
+    {
+      const int source = 3;
+      const bool expected = true;
+      bool result = FunctionsMath.IsPrime(source);
+      Assert.AreEqual(result, expected);
+    }
 
     //[TestMethod]
     //public void TestMethod_IsPrime_4()
@@ -1142,14 +1142,14 @@ namespace UnitTestUsefullFunctions
     //  List<int> result = FunctionsMath.GetListOfPrime(source1, source2);
     //  AssertListsAreEqual(result, expected);
     //}
-    //private static void AssertListsAreEqual(List<int> result, List<int> expected)
-    //{
-    //  Assert.AreEqual(result.Count, expected.Count);
-    //  for (int i = 0; i < result.Count; i++)
-    //  {
-    //    Assert.AreEqual(result[i], expected[i]);
-    //  }
-    //}
+    private static void AssertListsAreEqual(List<int> result, List<int> expected)
+    {
+      Assert.AreEqual(result.Count, expected.Count);
+      for (int i = 0; i < result.Count; i++)
+      {
+        Assert.AreEqual(result[i], expected[i]);
+      }
+    }
 
     #endregion
     #endregion Math Methods
