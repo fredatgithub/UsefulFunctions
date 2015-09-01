@@ -773,68 +773,68 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
-    //[TestMethod]
-    //public void TestMethod_IsPrime_4()
-    //{
-    //  const int source = 4;
-    //  const bool expected = false;
-    //  bool result = FunctionsMath.IsPrime(source);
-    //  Assert.AreEqual(result, expected);
-    //}
+    [TestMethod]
+    public void TestMethod_IsPrime_4()
+    {
+      const int source = 4;
+      const bool expected = false;
+      bool result = FunctionsMath.IsPrime(source);
+      Assert.AreEqual(result, expected);
+    }
 
-    //[TestMethod]
-    //public void TestMethod_IsPrime_5()
-    //{
-    //  const int source = 5;
-    //  const bool expected = true;
-    //  bool result = FunctionsMath.IsPrime(source);
-    //  Assert.AreEqual(result, expected);
-    //}
+    [TestMethod]
+    public void TestMethod_IsPrime_5()
+    {
+      const int source = 5;
+      const bool expected = true;
+      bool result = FunctionsMath.IsPrime(source);
+      Assert.AreEqual(result, expected);
+    }
 
-    //[TestMethod]
-    //public void TestMethod_IsPrime_6()
-    //{
-    //  const int source = 6;
-    //  const bool expected = false;
-    //  bool result = FunctionsMath.IsPrime(source);
-    //  Assert.AreEqual(result, expected);
-    //}
+    [TestMethod]
+    public void TestMethod_IsPrime_6()
+    {
+      const int source = 6;
+      const bool expected = false;
+      bool result = FunctionsMath.IsPrime(source);
+      Assert.AreEqual(result, expected);
+    }
 
-    //[TestMethod]
-    //public void TestMethod_IsPrime_7()
-    //{
-    //  const int source = 7;
-    //  const bool expected = true;
-    //  bool result = FunctionsMath.IsPrime(source);
-    //  Assert.AreEqual(result, expected);
-    //}
+    [TestMethod]
+    public void TestMethod_IsPrime_7()
+    {
+      const int source = 7;
+      const bool expected = true;
+      bool result = FunctionsMath.IsPrime(source);
+      Assert.AreEqual(result, expected);
+    }
 
-    //[TestMethod]
-    //public void TestMethod_IsPrime_8()
-    //{
-    //  const int source = 8;
-    //  const bool expected = false;
-    //  bool result = FunctionsMath.IsPrime(source);
-    //  Assert.AreEqual(result, expected);
-    //}
+    [TestMethod]
+    public void TestMethod_IsPrime_8()
+    {
+      const int source = 8;
+      const bool expected = false;
+      bool result = FunctionsMath.IsPrime(source);
+      Assert.AreEqual(result, expected);
+    }
 
-    //[TestMethod]
-    //public void TestMethod_IsPrime_9()
-    //{
-    //  const int source = 9;
-    //  const bool expected = false;
-    //  bool result = FunctionsMath.IsPrime(source);
-    //  Assert.AreEqual(result, expected);
-    //}
+    [TestMethod]
+    public void TestMethod_IsPrime_9()
+    {
+      const int source = 9;
+      const bool expected = false;
+      bool result = FunctionsMath.IsPrime(source);
+      Assert.AreEqual(result, expected);
+    }
 
-    //[TestMethod]
-    //public void TestMethod_IsPrime_10()
-    //{
-    //  const int source = 10;
-    //  const bool expected = false;
-    //  bool result = FunctionsMath.IsPrime(source);
-    //  Assert.AreEqual(result, expected);
-    //}
+    [TestMethod]
+    public void TestMethod_IsPrime_10()
+    {
+      const int source = 10;
+      const bool expected = false;
+      bool result = FunctionsMath.IsPrime(source);
+      Assert.AreEqual(result, expected);
+    }
 
     //[TestMethod]
     //public void TestMethod_IsPrime_11()
