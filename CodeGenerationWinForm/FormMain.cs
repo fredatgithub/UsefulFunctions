@@ -42,12 +42,7 @@ namespace CodeGenerationWinForm
 
     readonly Dictionary<string, string> _languageDicoEn = new Dictionary<string, string>();
     readonly Dictionary<string, string> _languageDicoFr = new Dictionary<string, string>();
-
-    private readonly string _carriageReturn = Environment.NewLine;
-    private const string Space = " ";
-    private const string Tabulation = "  "; // used StringFunc.Tabulation method instead TODO
     private string _currentLanguage = "english";
-    //private int _mostRecentTabUsed = 2;
 
     private void QuitToolStripMenuItem_Click(object sender, EventArgs e)
     {
@@ -1096,89 +1091,89 @@ namespace CodeGenerationWinForm
         StringBuilder result = new StringBuilder();
         // next line ATTRIBUTE
         result.Append(textBoxCustoAttribute.Text);
-        result.Append(_carriageReturn);
+        result.Append(Punctuation.CrLf);
 
         // next line METHOD SIGNATURE
         result.Append(textBoxCustPublic.Text);
-        result.Append(Space);
+        result.Append(Punctuation.OneSpace);
         result.Append(textBoxCustoVoid.Text);
-        result.Append(Space);
+        result.Append(Punctuation.OneSpace);
         result.Append(textBoxCustoTestMethod.Text);
-        result.Append(Space);
+        result.Append(Punctuation.OneSpace);
         result.Append(textBoxCustoMethodName.Text);
-        result.Append(_carriageReturn);
+        result.Append(Punctuation.CrLf);
 
         result.Append(textBoxcustoOpenCurlyBrace.Text);
-        result.Append(_carriageReturn);
+        result.Append(Punctuation.CrLf);
 
         // next line SOURCE
-        result.Append(Tabulation);
+        result.Append(Punctuation.Tabulate(2));
         result.Append(textBoxCustoConstantSource.Text);
-        result.Append(Space);
+        result.Append(Punctuation.OneSpace);
         result.Append(comboBoxCustoSourceType.SelectedItem);
-        result.Append(Space);
+        result.Append(Punctuation.OneSpace);
         result.Append(textBoxCustoSourceWord.Text);
-        result.Append(Space);
+        result.Append(Punctuation.OneSpace);
         result.Append(textBoxCustoSourceEqualSign.Text);
-        result.Append(Space);
+        result.Append(Punctuation.OneSpace);
         result.Append(textBoxCustoSourceValue.Text);
-        result.Append(Space);
+        result.Append(Punctuation.OneSpace);
         result.Append(textBoxCustoSourceSemiColon.Text);
-        result.Append(_carriageReturn);
+        result.Append(Punctuation.CrLf);
 
         // next line EXPECTED
-        result.Append(Tabulation);
+        result.Append(Punctuation.Tabulate(2));
         result.Append(textBoxCustoExpectedCosntant.Text);
-        result.Append(Space);
+        result.Append(Punctuation.OneSpace);
         result.Append(comboBoxCustoExpectedType.SelectedItem);
-        result.Append(Space);
+        result.Append(Punctuation.OneSpace);
         result.Append(textBoxCustoExpectedWord.Text);
-        result.Append(Space);
+        result.Append(Punctuation.OneSpace);
         result.Append(textBoxCustoExpectedEqualSign.Text);
-        result.Append(Space);
+        result.Append(Punctuation.OneSpace);
         result.Append(textBoxCustoExpectedValue.Text);
-        result.Append(Space);
+        result.Append(Punctuation.OneSpace);
         result.Append(textBoxCustoExpectedSemiColon.Text);
-        result.Append(_carriageReturn);
+        result.Append(Punctuation.CrLf);
 
         // next line RESULT
-        result.Append(Tabulation);
+        result.Append(Punctuation.Tabulate(2));
         result.Append(comboBoxCustoResultReturnedType.SelectedItem);
-        result.Append(Space);
+        result.Append(Punctuation.OneSpace);
         result.Append(textBoxCustoResultWord.Text);
-        result.Append(Space);
+        result.Append(Punctuation.OneSpace);
         result.Append(textBoxCustoResultEqualSign.Text);
-        result.Append(Space);
+        result.Append(Punctuation.OneSpace);
         result.Append(textBoxCustoResultFunctionClass.Text);
         result.Append(textBoxcustoResultFunctionName.Text);
-        result.Append(Space);
+        result.Append(Punctuation.OneSpace);
         result.Append(textBoxCustoResultSourceWord.Text);
-        result.Append(_carriageReturn);
+        result.Append(Punctuation.CrLf);
 
         // next line ASSERT
-        result.Append(Tabulation);
+        result.Append(Punctuation.Tabulate(2));
         result.Append(textBoxCustoAssertWord.Text);
-        result.Append(Space);
+        result.Append(Punctuation.OneSpace);
         result.Append(comboBoxCustoAssertMethod.SelectedItem);
-        result.Append(Space);
+        result.Append(Punctuation.OneSpace);
         result.Append(textBoxCustoAssertOpenParenthesis.Text);
-        result.Append(Space);
+        result.Append(Punctuation.OneSpace);
         result.Append(textBoxCustoAssertResultWord.Text);
-        result.Append(Space);
+        result.Append(Punctuation.OneSpace);
         result.Append(textBoxCustoAssertComma.Text);
         if (!textBoxCustoAssertComma.Text.EndsWith(" "))
         {
-          result.Append(Space);
+          result.Append(Punctuation.OneSpace);
         }
 
         result.Append(textBoxCustoAssertExpectedWord.Text);
-        result.Append(Space);
+        result.Append(Punctuation.OneSpace);
         result.Append(textBoxCustoAssertClosingParenthesis.Text);
-        result.Append(_carriageReturn);
+        result.Append(Punctuation.CrLf);
 
         // next line closing parenthesis
         result.Append(textBoxCustoCloseCurlyBrace.Text);
-        result.Append(_carriageReturn);
+        result.Append(Punctuation.CrLf);
 
         textBoxCustoResult.Text = result.ToString();
       }
@@ -1211,90 +1206,90 @@ namespace CodeGenerationWinForm
           StringBuilder result = new StringBuilder();
           // next line ATTRIBUTE
           result.Append(textBoxCustoAttribute.Text);
-          result.Append(_carriageReturn);
+          result.Append(Punctuation.CrLf);
 
           // next line METHOD SIGNATURE
           result.Append(textBoxCustPublic.Text.Replace("%", i.ToString()));
-          result.Append(Space);
+          result.Append(Punctuation.OneSpace);
           result.Append(textBoxCustoVoid.Text.Replace("%", i.ToString()));
-          result.Append(Space);
+          result.Append(Punctuation.OneSpace);
           result.Append(textBoxCustoTestMethod.Text.Replace("%", i.ToString()));
           result.Append(textBoxCustoMethodName.Text.Replace("%", i.ToString()).EndsWith("()") ?
             textBoxCustoMethodName.Text.Replace("%", i.ToString()) : textBoxCustoMethodName.Text.Replace("%", i.ToString()) + "()");
-          result.Append(_carriageReturn);
+          result.Append(Punctuation.CrLf);
 
           result.Append(textBoxcustoOpenCurlyBrace.Text.Replace("%", i.ToString()));
-          result.Append(_carriageReturn);
+          result.Append(Punctuation.CrLf);
 
           // next line SOURCE
-          result.Append(Tabulation);
+          result.Append(Punctuation.Tabulate(2));
           result.Append(textBoxCustoConstantSource.Text.Replace("%", i.ToString()));
-          result.Append(Space);
+          result.Append(Punctuation.OneSpace);
           result.Append(comboBoxCustoSourceType.SelectedItem);
-          result.Append(Space);
+          result.Append(Punctuation.OneSpace);
           result.Append(textBoxCustoSourceWord.Text.Replace("%", i.ToString()));
-          result.Append(Space);
+          result.Append(Punctuation.OneSpace);
           result.Append(textBoxCustoSourceEqualSign.Text.Replace("%", i.ToString()));
-          result.Append(Space);
+          result.Append(Punctuation.OneSpace);
           result.Append(textBoxCustoSourceValue.Text.Replace("%", i.ToString()));
-          result.Append(Space);
+          result.Append(Punctuation.OneSpace);
           result.Append(textBoxCustoSourceSemiColon.Text.Replace("%", i.ToString()));
-          result.Append(_carriageReturn);
+          result.Append(Punctuation.CrLf);
 
           // next line EXPECTED
-          result.Append(Tabulation);
+          result.Append(Punctuation.Tabulate(2));
           result.Append(textBoxCustoExpectedCosntant.Text.Replace("%", i.ToString()));
-          result.Append(Space);
+          result.Append(Punctuation.OneSpace);
           result.Append(comboBoxCustoExpectedType.SelectedItem);
-          result.Append(Space);
+          result.Append(Punctuation.OneSpace);
           result.Append(textBoxCustoExpectedWord.Text.Replace("%", i.ToString()));
-          result.Append(Space);
+          result.Append(Punctuation.OneSpace);
           result.Append(textBoxCustoExpectedEqualSign.Text.Replace("%", i.ToString()));
-          result.Append(Space);
+          result.Append(Punctuation.OneSpace);
           result.Append(textBoxCustoExpectedValue.Text.Replace("%", i.ToString()));
-          result.Append(Space);
+          result.Append(Punctuation.OneSpace);
           result.Append(textBoxCustoExpectedSemiColon.Text.Replace("%", i.ToString()));
-          result.Append(_carriageReturn);
+          result.Append(Punctuation.CrLf);
 
           // next line RESULT
-          result.Append(Tabulation);
+          result.Append(Punctuation.Tabulate(2));
           result.Append(comboBoxCustoResultReturnedType.SelectedItem);
-          result.Append(Space);
+          result.Append(Punctuation.OneSpace);
           result.Append(textBoxCustoResultWord.Text.Replace("%", i.ToString()));
-          result.Append(Space);
+          result.Append(Punctuation.OneSpace);
           result.Append(textBoxCustoResultEqualSign.Text.Replace("%", i.ToString()));
-          result.Append(Space);
+          result.Append(Punctuation.OneSpace);
           result.Append(textBoxCustoResultFunctionClass.Text);
           result.Append(textBoxcustoResultFunctionName.Text.Replace("%", i.ToString()));
-          result.Append(Space);
+          result.Append(Punctuation.OneSpace);
           result.Append(textBoxCustoResultSourceWord.Text.Replace("%", i.ToString()));
-          result.Append(_carriageReturn);
+          result.Append(Punctuation.CrLf);
 
           // next line ASSERT
-          result.Append(Tabulation);
+          result.Append(Punctuation.Tabulate(2));
           result.Append(textBoxCustoAssertWord.Text.Replace("%", i.ToString()));
-          result.Append(Space);
+          result.Append(Punctuation.OneSpace);
           result.Append(comboBoxCustoAssertMethod.SelectedItem);
-          result.Append(Space);
+          result.Append(Punctuation.OneSpace);
           result.Append(textBoxCustoAssertOpenParenthesis.Text.Replace("%", i.ToString()));
-          result.Append(Space);
+          result.Append(Punctuation.OneSpace);
           result.Append(textBoxCustoAssertResultWord.Text.Replace("%", i.ToString()));
-          result.Append(Space);
+          result.Append(Punctuation.OneSpace);
           result.Append(textBoxCustoAssertComma.Text.Replace("%", i.ToString()));
           if (!textBoxCustoAssertComma.Text.EndsWith(" "))
           {
-            result.Append(Space);
+            result.Append(Punctuation.OneSpace);
           }
 
           result.Append(textBoxCustoAssertExpectedWord.Text.Replace("%", i.ToString()));
-          result.Append(Space);
+          result.Append(Punctuation.OneSpace);
           result.Append(textBoxCustoAssertClosingParenthesis.Text.Replace("%", i.ToString()));
-          result.Append(_carriageReturn);
+          result.Append(Punctuation.CrLf);
 
           // next line closing parenthesis
           result.Append(textBoxCustoCloseCurlyBrace.Text.Replace("%", i.ToString()));
-          result.Append(_carriageReturn);
-          result.Append(_carriageReturn);
+          result.Append(Punctuation.CrLf);
+          result.Append(Punctuation.CrLf);
           textBoxCustoResult.Text += result.ToString();
         }
       }
