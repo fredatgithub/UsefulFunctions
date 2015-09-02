@@ -971,59 +971,59 @@ namespace UnitTestUsefullFunctions
     //  Assert.AreEqual(result, expected);
     //}
 
-    //[TestMethod]
-    //public void TestMethod_IsPrime_26()
-    //{
-    //  const int source = 26;
-    //  const bool expected = false;
-    //  bool result = FunctionsMath.IsPrime(source);
-    //  Assert.AreEqual(result, expected);
-    //}
+    [TestMethod]
+    public void TestMethod_IsPrime_26()
+    {
+      const int source = 26;
+      const bool expected = false;
+      bool result = FunctionsMath.IsPrime(source);
+      Assert.AreEqual(result, expected);
+    }
 
-    //[TestMethod]
-    //public void TestMethod_IsPrime_27()
-    //{
-    //  const int source = 27;
-    //  const bool expected = false;
-    //  bool result = FunctionsMath.IsPrime(source);
-    //  Assert.AreEqual(result, expected);
-    //}
+    [TestMethod]
+    public void TestMethod_IsPrime_27()
+    {
+      const int source = 27;
+      const bool expected = false;
+      bool result = FunctionsMath.IsPrime(source);
+      Assert.AreEqual(result, expected);
+    }
 
-    //[TestMethod]
-    //public void TestMethod_IsPrime_28()
-    //{
-    //  const int source = 28;
-    //  const bool expected = false;
-    //  bool result = FunctionsMath.IsPrime(source);
-    //  Assert.AreEqual(result, expected);
-    //}
+    [TestMethod]
+    public void TestMethod_IsPrime_28()
+    {
+      const int source = 28;
+      const bool expected = false;
+      bool result = FunctionsMath.IsPrime(source);
+      Assert.AreEqual(result, expected);
+    }
 
-    //[TestMethod]
-    //public void TestMethod_IsPrime_29()
-    //{
-    //  const int source = 29;
-    //  const bool expected = true;
-    //  bool result = FunctionsMath.IsPrime(source);
-    //  Assert.AreEqual(result, expected);
-    //}
+    [TestMethod]
+    public void TestMethod_IsPrime_29()
+    {
+      const int source = 29;
+      const bool expected = true;
+      bool result = FunctionsMath.IsPrime(source);
+      Assert.AreEqual(result, expected);
+    }
 
-    //[TestMethod]
-    //public void TestMethod_IsPrime_30()
-    //{
-    //  const int source = 30;
-    //  const bool expected = false;
-    //  bool result = FunctionsMath.IsPrime(source);
-    //  Assert.AreEqual(result, expected);
-    //}
+    [TestMethod]
+    public void TestMethod_IsPrime_30()
+    {
+      const int source = 30;
+      const bool expected = false;
+      bool result = FunctionsMath.IsPrime(source);
+      Assert.AreEqual(result, expected);
+    }
 
-    //[TestMethod]
-    //public void TestMethod_IsPrime_31()
-    //{
-    //  const int source = 31;
-    //  const bool expected = true;
-    //  bool result = FunctionsMath.IsPrime(source);
-    //  Assert.AreEqual(result, expected);
-    //}
+    [TestMethod]
+    public void TestMethod_IsPrime_31()
+    {
+      const int source = 31;
+      const bool expected = true;
+      bool result = FunctionsMath.IsPrime(source);
+      Assert.AreEqual(result, expected);
+    }
 
     //[TestMethod]
     //public void TestMethod_IsPrime_Int_MaxValue()
