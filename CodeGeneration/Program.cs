@@ -20,6 +20,7 @@ SOFTWARE.
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 
@@ -175,6 +176,14 @@ namespace CodeGeneration
       display("The file has been written in\n" +
         Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\" +
         codeFile.FileName);
+      display("");
+      display("prime range");
+      var array = Enumerable.Range(2, 10);
+      foreach (int item in array)
+      {
+        display(item.ToString());
+      }
+      
       display("Press a key to exit:");
       Console.ReadKey();
     }

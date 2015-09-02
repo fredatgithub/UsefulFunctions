@@ -18,6 +18,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
@@ -196,7 +197,7 @@ namespace FonctionsUtiles.Fred.Csharp
         return false;
       }
 
-      for (int i = 3; (i * i) <= candidate; i += 2)
+      for (int i = 3; i <= Math.Abs(Math.Sqrt(candidate)); i += 2)
       {
         if ((candidate % i) == 0)
         {
@@ -215,7 +216,7 @@ namespace FonctionsUtiles.Fred.Csharp
         return result;
       }
 
-      var array = Enumerable.Range(min, max);
+      var array = Enumerable.Range(min, max - 1);
       var primes = from number in array.AsParallel()
         where IsPrime(number)
         select number;
@@ -223,7 +224,7 @@ namespace FonctionsUtiles.Fred.Csharp
       return result;
     } 
 
-    // TODO Ppcm and Pgcm method to be implemented
+    // TODO Ppcm and Pgcm methods to be implemented
 
   }
 }
