@@ -208,15 +208,15 @@ namespace FonctionsUtiles.Fred.Csharp
       return true;
     }
 
-    public static List<int> GetListOfPrime(int min, int max)
+    public static List<int> GetListOfPrime(int min, int count)
     {
       var result = new List<int>();
-      if (min >= max)
+      if (min >= count)
       {
         return result;
       }
 
-      var array = Enumerable.Range(min, max - 1);
+      var array = Enumerable.Range(min, count);
       var primes = from number in array.AsParallel()
         where IsPrime(number)
         select number;

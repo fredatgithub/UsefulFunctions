@@ -178,7 +178,11 @@ namespace CodeGeneration
         codeFile.FileName);
       display("");
       display("prime range");
-      var array = Enumerable.Range(2, 10);
+      var list = Enumerable.Range(1, 31).Select(n => n.ToString()).ToList();
+      string digits = string.Join(string.Empty, Enumerable.Range(0, 10));
+      display(digits);
+      int count = 9;
+      var array = Enumerable.Range(2, count);
       foreach (int item in array)
       {
         display(item.ToString());
