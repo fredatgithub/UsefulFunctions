@@ -836,14 +836,14 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
-    //[TestMethod]
-    //public void TestMethod_IsPrime_11()
-    //{
-    //  const int source = 11;
-    //  const bool expected = true;
-    //  bool result = FunctionsMath.IsPrime(source);
-    //  Assert.AreEqual(result, expected);
-    //}
+    [TestMethod]
+    public void TestMethod_IsPrime_11()
+    {
+      const int source = 11;
+      const bool expected = true;
+      bool result = FunctionsMath.IsPrime(source);
+      Assert.AreEqual(result, expected);
+    }
 
     //[TestMethod]
     //public void TestMethod_IsPrime_12()
