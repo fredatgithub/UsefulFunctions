@@ -10503,6 +10503,26 @@ namespace UnitTestUsefullFunctions
     }
 
     [TestMethod]
+    public void TestMethod_ReverseString3_several_palindromes_with_removal_of_spaces()
+    {
+      List<string> sourceWords = new List<string> { "laval", "lol", "ete" };
+      foreach (string source in sourceWords)
+      {
+        string result = StringFunc.ReverseString3(source, true);
+        Assert.IsTrue(result == source);
+      }
+    }
+
+    [TestMethod]
+    public void TestMethod_ReverseString3_lieur_palindrome_with_removal_of_spaces()
+    {
+      const string source = "lieur à rueil";
+      const string expected = "lieuràrueil";
+      string result = StringFunc.ReverseString3(source, true);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
     public void TestMethod_ReverseString3_several_palindromes_with_removal_of_space()
     {
       List<string> sourceWords = new List<string> { "esope reste ici et se repose", "éric notre valet alla te laver ton ciré" };
