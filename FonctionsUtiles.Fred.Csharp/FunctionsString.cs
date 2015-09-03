@@ -1020,7 +1020,7 @@ namespace FonctionsUtiles.Fred.Csharp
       return reversedString;
     }
     public static string ReverseString3(string strValue, bool removeSpace = false)
-    {// TODO write Unit tests for this method
+    {
       if (removeSpace)
       {
         strValue = strValue.Replace(" ", "");
