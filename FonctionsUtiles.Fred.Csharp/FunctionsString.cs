@@ -184,7 +184,7 @@ namespace FonctionsUtiles.Fred.Csharp
         return false;
       }
 
-      return liste.Distinct().Count() != liste.Count();
+      return liste.Distinct().Count() != liste.Length;
     }
     public static bool HasNoDuplicate(params int[] liste)
     {
@@ -193,7 +193,7 @@ namespace FonctionsUtiles.Fred.Csharp
         return true;
       }
 
-      return liste.Distinct().Count() == liste.Count();
+      return liste.Distinct().Count() == liste.Length;
     }
     public static string EndPadding(string chaine, byte blankLength)
     {
@@ -3078,7 +3078,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static int CountWords(string input)
     {
-      return input.Split(' ').Count();
+      return input.Split(' ').Length;
     }
 
     public static Dictionary<string, int> GetDictionaryWords(string input,
@@ -3285,7 +3285,7 @@ namespace FonctionsUtiles.Fred.Csharp
         return string.Empty;
       }
 
-      if (text.Split(' ').Count() != 2)
+      if (text.Split(' ').Length != 2)
       {
         return string.Empty;
       }
