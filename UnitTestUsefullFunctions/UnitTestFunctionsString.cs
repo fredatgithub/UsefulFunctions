@@ -10544,6 +10544,57 @@ namespace UnitTestUsefullFunctions
       int[] result = StringFunc.CountLetters3(source);
       AssertArraysAreEqual(result, expected);
     }
+
+    [TestMethod]
+    public void TestMethod_CountLetters_no_letter()
+    {
+      const string source = "123456789%$£*µ!§/:;.,?";
+      int[] expected = new int[27];
+      int[] result = StringFunc.CountLetters3(source);
+      AssertArraysAreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_CountLetters_letters_with_accent()
+    {
+      const string source = "éèçàùâû";
+      int[] expected = new int[27];
+      int[] result = StringFunc.CountLetters3(source);
+      AssertArraysAreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_CountLetters_one_letter()
+    {
+      const string source = "a";
+      int[] expected = new int[27];
+      expected[1] = 1;
+      int[] result = StringFunc.CountLetters3(source);
+      AssertArraysAreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_CountLetters_lower_case_and_upper_case()
+    {
+      const string source = "aA";
+      int[] expected = new int[27];
+      expected[1] = 2;
+      int[] result = StringFunc.CountLetters3(source);
+      AssertArraysAreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_CountLetters_several_letters()
+    {
+      const string source = "abc";
+      int[] expected = new int[27];
+      expected[1] = 1;
+      expected[2] = 1;
+      expected[3] = 1;
+      int[] result = StringFunc.CountLetters3(source);
+      AssertArraysAreEqual(result, expected);
+    }
+
     #endregion CountLetters
     #region Helper unit test methods
     public static void AssertListsAreEqual(List<int> result, List<int> expected)
