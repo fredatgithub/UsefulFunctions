@@ -10533,7 +10533,46 @@ namespace UnitTestUsefullFunctions
       }
     }
 
-    
+
     #endregion
+    #region CountLetters
+    [TestMethod]
+    public void TestMethod_CountLetters_empty_source()
+    {
+      const string source = "";
+      int[] expected = new int[27] ;
+      int[] result = StringFunc.CountLetters3(source);
+      AssertArraysAreEqual(result, expected);
+    }
+    #endregion CountLetters
+    #region Helper unit test methods
+    public static void AssertListsAreEqual(List<int> result, List<int> expected)
+    {
+      Assert.AreEqual(result.Count, expected.Count);
+      for (int i = 0; i < result.Count; i++)
+      {
+        Assert.AreEqual(result[i], expected[i]);
+      }
+    }
+
+    public static void AssertArraysAreEqual(int[] result, int[] expected)
+    {
+      Assert.AreEqual(result.Length, expected.Length);
+      for (int i = 0; i < result.Length; i++)
+      {
+        Assert.AreEqual(result[i], expected[i]);
+      }
+    }
+
+    public static void AssertListsAreSimilar(List<int> result, List<int> expected)
+    {
+      // similar because of a Parallel loop
+      Assert.AreEqual(result.Count, expected.Count);
+      foreach (int item in result)
+      {
+        Assert.IsTrue(expected.Contains(item));
+      }
+    }
+    #endregion Helper unit test methods
   }
 }

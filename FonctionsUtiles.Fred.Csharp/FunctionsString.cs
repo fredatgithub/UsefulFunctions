@@ -3076,6 +3076,49 @@ namespace FonctionsUtiles.Fred.Csharp
       return result;
     }
 
+    public static int[] CountLetters2(string text)
+    {
+      int[] resultTmp = new int[240];
+      foreach (char letter in text)
+      {
+        if (char.IsLetter(letter))
+        {
+          resultTmp[letter]++;
+        }
+      }
+
+      int[] result = new int[27];
+      for (int i = 1; i < 27; i++)
+      {
+        // ASCII code table
+        // A = 65
+        // Z = 90
+        // a = 97
+        // z = 122
+        result[i] = resultTmp[i + 64] + resultTmp[i + 96];
+      }
+
+      return result;
+    }
+
+    public static int[] CountLetters3(string text)
+    {
+      int[] result = new int[27];
+      foreach (char letter in text)
+      {
+        if (char.IsLetter(letter)) // exclude numerics, special char
+        {
+          char letterTmp = letter.ToString().ToLower().ToCharArray()[0];
+          if ((letterTmp >= 97) && letterTmp <= 122) // exclude accented letters
+          {
+            result[letterTmp - 96]++;
+          }
+        }
+      }
+
+      return result;
+    }
+
     public static int CountWords(string input)
     {
       return input.Split(' ').Length;
