@@ -3058,7 +3058,7 @@ namespace FonctionsUtiles.Fred.Csharp
         }
         else
         {
-          if (IsLetter(input[i]))
+          if (char.IsLetter(input[i]))
           {
             if (!wholeDictionary)
             {
