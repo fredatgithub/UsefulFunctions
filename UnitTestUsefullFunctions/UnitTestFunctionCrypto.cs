@@ -17,11 +17,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Security.Cryptography;
-using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
 using CryptoFunc = FonctionsUtiles.Fred.Csharp.FunctionsCrypto;
@@ -33,10 +28,11 @@ namespace UnitTestUsefullFunctions
   public class UnitTestFunctionCrypto
   {
     #region Crypto
+    #region RSAEncryption
     [TestMethod]
     public void TestMethod_RsaEncryption_source_and_encryption_are_different()
     {
-      const string source = "A long long time ago in a galawy far far away";
+      const string source = "A long long time ago in a galaxy far far away";
       string result = CryptoFunc.RsaEncryption(source);
       Assert.AreNotEqual(result, source);
     }
@@ -44,7 +40,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_RsaEncryption_encryption_not_null()
     {
-      const string source = "A long long time ago in a galawy far far away";
+      const string source = "A long long time ago in a galaxy far far away";
       string result = CryptoFunc.RsaEncryption(source);
       Assert.IsNotNull(result);
     }
@@ -52,11 +48,47 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_RsaEncryption_encryption_not_empty()
     {
-      const string source = "A long long time ago in a galawy far far away";
+      const string source = "A long long time ago in a galaxy far far away";
       string result = CryptoFunc.RsaEncryption(source);
       Assert.IsTrue(result.Length != 0);
       Assert.AreNotEqual(result.Length, 0);
     }
+    #endregion RSAEncryption
+    #region RsaDecryption
+    [TestMethod]
+    public void TestMethod_RsaDecryption_source_is_a_the_same_after_encryption_and_decryption()
+    {
+      const string source = "A long long time ago in a galaxy far far away";
+      string result = CryptoFunc.RsaDecryption(CryptoFunc.RsaEncryption(source));
+      Assert.AreEqual(result, source);
+    }
+
+    [TestMethod]
+    public void TestMethod_RsaDecryption_source_and_encryption_are_different()
+    {
+      const string source = "N06oeaZWoEgD3ktg8lvw2ncecdqE9grb+NRV/QoYpp4VRjQeGiDZYPwFbd4VwhqmAk+7uYeGHc2yd/LCz7j9oN7Z1X6MKxYmiGc7FiL2fobKXcHb1yNpTXgy5jNok6Y02dtJJaUn5GmNMDvk1fYxGgyvCqScxalF16Nl1vAWO7I=";
+      string result = CryptoFunc.RsaDecryption(source);
+      Assert.AreNotEqual(result, source);
+    }
+
+    [TestMethod]
+    public void TestMethod_RsaDecryption_encryption_not_null()
+    {
+      const string source = "N06oeaZWoEgD3ktg8lvw2ncecdqE9grb+NRV/QoYpp4VRjQeGiDZYPwFbd4VwhqmAk+7uYeGHc2yd/LCz7j9oN7Z1X6MKxYmiGc7FiL2fobKXcHb1yNpTXgy5jNok6Y02dtJJaUn5GmNMDvk1fYxGgyvCqScxalF16Nl1vAWO7I=";
+      string result = CryptoFunc.RsaDecryption(source);
+      Assert.IsNotNull(result);
+    }
+
+    [TestMethod]
+    public void TestMethod_RsaDecryption_encryption_not_empty()
+    {
+      const string source = "N06oeaZWoEgD3ktg8lvw2ncecdqE9grb+NRV/QoYpp4VRjQeGiDZYPwFbd4VwhqmAk+7uYeGHc2yd/LCz7j9oN7Z1X6MKxYmiGc7FiL2fobKXcHb1yNpTXgy5jNok6Y02dtJJaUn5GmNMDvk1fYxGgyvCqScxalF16Nl1vAWO7I=";
+      string result = CryptoFunc.RsaDecryption(source);
+      Assert.IsTrue(result.Length != 0);
+      Assert.AreNotEqual(result.Length, 0);
+    }
+
+    #endregion RsaDecryption
     #endregion Crypto
   }
 }
