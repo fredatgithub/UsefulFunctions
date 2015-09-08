@@ -46,6 +46,7 @@
     <Compile Include="Enumerations.cs" />
     <Compile Include="FunctionsApplicationFeatures.cs" />
     <Compile Include="functionsControls.cs" />
+    <Compile Include="FunctionsCrypto.cs" />
     <Compile Include="FunctionsFiles.cs" />
     <Compile Include="FunctionsInternet.cs" />
     <Compile Include="FunctionsMath.cs" />
