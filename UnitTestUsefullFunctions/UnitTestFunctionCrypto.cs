@@ -38,6 +38,15 @@ namespace UnitTestUsefullFunctions
     }
 
     [TestMethod]
+    public void TestMethod_RsaEncryption_one_letter()
+    {
+      const string source = "a";
+      const string expected = "Pk+xT6QpGq0h4hdYdIlLZr2Cg1wOZ3v6qQXkIvqmwwdXPd1MdhoICk4N4jHXqGBfFJzIN/cbeHbVaiEbEIuCe5tEvaS5AFVrF3PATmCVWHtRBJsR5tvihQOxecd52AHRjpZhbX9sawpHpxQ5iKOpyT6gQ6icG+oSaYcwx8xn7ag=";
+      string result = CryptoFunc.RsaEncryption(source);
+      Assert.AreNotEqual(result, expected);
+    }
+
+    [TestMethod]
     public void TestMethod_RsaEncryption_encryption_not_null()
     {
       const string source = "A long long time ago in a galaxy far far away";
