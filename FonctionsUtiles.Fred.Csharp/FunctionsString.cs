@@ -3397,5 +3397,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return result;
     }
+
+
   }
 }
