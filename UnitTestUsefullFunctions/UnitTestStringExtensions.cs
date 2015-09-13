@@ -55,6 +55,15 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
+    [TestMethod]
+    public void TestMethod_ToCamelCase_one_underscaore()
+    {
+      const string source = "a long long time ago_in a galaxy far far away";
+      const string expected = "A long long time agoIn a galaxy far far away";
+      string result = dllFuncs.StringExtensions.ToCamelCase(source);
+      Assert.AreEqual(result, expected);
+    }
+
     #endregion ToCamelCase
     
   }
