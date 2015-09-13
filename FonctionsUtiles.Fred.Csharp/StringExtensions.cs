@@ -40,6 +40,11 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static string Uncapitalize(this string str)
     {
+      if (str == string.Empty)
+      {
+        return string.Empty;
+      }
+
       return str.Substring(0, 1).ToLower() + str.Substring(1);
     }
 

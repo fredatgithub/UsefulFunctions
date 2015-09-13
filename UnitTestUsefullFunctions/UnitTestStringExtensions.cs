@@ -18,6 +18,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
+using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
 using dllFuncs = FonctionsUtiles.Fred.Csharp;
@@ -63,8 +64,38 @@ namespace UnitTestUsefullFunctions
       string result = dllFuncs.StringExtensions.ToCamelCase(source);
       Assert.AreEqual(result, expected);
     }
-
     #endregion ToCamelCase
-    
+    #region Uncapitalize
+    [TestMethod]
+    public void TestMethod_Uncapitalize_Empty_string()
+    {
+      const string source = "";
+      const string expected = "";
+      string result = dllFuncs.StringExtensions.Uncapitalize(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Uncapitalize()
+    {
+      const string source = "A long long time ago in a galaxy far far away";
+      const string expected = "a long long time ago in a galaxy far far away";
+      string result = dllFuncs.StringExtensions.Uncapitalize(source);
+      Assert.AreEqual(result, expected);
+    }
+    #endregion Uncapitalize
+    #region ToCodeSummary
+    [TestMethod]
+    public void TestMethod_ToCodeSummary()
+    {
+      const string source1 = "code1\ncodeline2";
+      const int source2 = 1;
+      string expected = "code1" + Environment.NewLine +  "/// codeline2";
+      string result = dllFuncs.StringExtensions.ToCodeSummary(source1, source2);
+      Assert.AreEqual(result, expected);
+    }
+    #endregion ToCodeSummary
+
+
   }
 }
