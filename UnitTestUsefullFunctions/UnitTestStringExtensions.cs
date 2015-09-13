@@ -36,6 +36,25 @@ namespace UnitTestUsefullFunctions
       string result = dllFuncs.StringExtensions.ToCamelCase(source);
       Assert.AreEqual(result, expected);
     }
+
+    [TestMethod]
+    public void TestMethod_ToCamelCase_Empty_string()
+    {
+      const string source = "";
+      const string expected = "";
+      string result = dllFuncs.StringExtensions.ToCamelCase(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ToCamelCase_underscore()
+    {
+      const string source = "a_long_long_time_ago_in_a_galaxy_far_far_away";
+      const string expected = "ALongLongTimeAgoInAGalaxyFarFarAway";
+      string result = dllFuncs.StringExtensions.ToCamelCase(source);
+      Assert.AreEqual(result, expected);
+    }
+
     #endregion ToCamelCase
     
   }

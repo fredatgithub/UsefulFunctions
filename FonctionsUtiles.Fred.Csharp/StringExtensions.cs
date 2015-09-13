@@ -26,6 +26,11 @@ namespace FonctionsUtiles.Fred.Csharp
   {
     public static string ToCamelCase(this string elasticId)
     {
+      if (elasticId == string.Empty)
+      {
+        return string.Empty;
+      }
+
       var idParts = elasticId
                       .Split('_')
                       .Select(part => part.Substring(0, 1).ToUpper() + part.Substring(1));
