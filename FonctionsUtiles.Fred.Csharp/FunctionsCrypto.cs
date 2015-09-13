@@ -27,8 +27,8 @@ namespace FonctionsUtiles.Fred.Csharp
   {
     public static string RsaEncryption(string clearData)
     {
-      CspParameters param = new CspParameters { KeyContainerName = "MyKeyContainer" };
-      using (RSACryptoServiceProvider rsa = new RSACryptoServiceProvider(param))
+      var param = new CspParameters { KeyContainerName = "MyKeyContainer" };
+      using (var rsa = new RSACryptoServiceProvider(param))
       {
         string plainText = clearData;
         byte[] plainData = Encoding.Default.GetBytes(plainText);
@@ -40,8 +40,8 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static string RsaDecryption(string encryptedData)
     {
-      CspParameters param = new CspParameters { KeyContainerName = "MyKeyContainer" };
-      using (RSACryptoServiceProvider rsa = new RSACryptoServiceProvider(param))
+      var param = new CspParameters { KeyContainerName = "MyKeyContainer" };
+      using (var rsa = new RSACryptoServiceProvider(param))
       {
         byte[] encryptedBytes = Convert.FromBase64String(encryptedData);
         byte[] decryptedData = rsa.Decrypt(encryptedBytes, false);
