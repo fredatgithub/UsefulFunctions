@@ -18,7 +18,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
 using CryptoFunc = FonctionsUtiles.Fred.Csharp.FunctionsCrypto;
 using dllFuncs = FonctionsUtiles.Fred.Csharp;
 
