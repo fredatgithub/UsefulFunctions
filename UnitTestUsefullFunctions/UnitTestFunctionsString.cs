@@ -10625,5 +10625,15 @@ namespace UnitTestUsefullFunctions
       }
     }
     #endregion Helper unit test methods
+    #region GetGitUrl
+    [TestMethod]
+    public void TestMethod_GetGitUrl()
+    {
+      string[] source = { "aA", "qwerty", "azerty", " url = https://github.com/user1/repo.git" };
+      const string expected = "https://github.com/user1/repo.git";
+      string result = StringFunc.GetGitUrl(source);
+      Assert.AreEqual(result, expected);
+    }
+    #endregion
   }
 }

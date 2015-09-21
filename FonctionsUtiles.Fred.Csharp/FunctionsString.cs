@@ -3398,6 +3398,18 @@ namespace FonctionsUtiles.Fred.Csharp
       return result;
     }
 
+    public static string GetGitUrl(string[] lines)
+    {
+      string result = string.Empty;
+      foreach (string line in lines)
+      {
+        if (line.Contains("url = https://github.com/"))
+        {
+          result = line.Split('=')[1].Trim();
+        }
+      }
 
+      return result;
+    }
   }
 }
