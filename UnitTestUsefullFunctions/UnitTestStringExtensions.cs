@@ -85,15 +85,15 @@ namespace UnitTestUsefullFunctions
     }
     #endregion Uncapitalize
     #region ToCodeSummary
-    [TestMethod]
-    public void TestMethod_ToCodeSummary()
-    {
-      const string source1 = "code1\ncodeline2";
-      const int source2 = 1;
-      string expected = "code1" + Environment.NewLine +  "/// codeline2";
-      string result = dllFuncs.StringExtensions.ToCodeSummary(source1, source2);
-      Assert.AreEqual(result, expected);
-    }
+    //[TestMethod]
+    //public void TestMethod_ToCodeSummary()
+    //{
+    //  const string source1 = "code1\ncodeline2";
+    //  const int source2 = 1;
+    //  string expected = "code1" + Environment.NewLine +  "/// codeline2";
+    //  string result = dllFuncs.StringExtensions.ToCodeSummary(source1, source2);
+    //  Assert.AreEqual(result, expected);
+    //}
     #endregion ToCodeSummary
 
 

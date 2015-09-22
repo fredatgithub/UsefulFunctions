@@ -10634,6 +10634,15 @@ namespace UnitTestUsefullFunctions
       string result = StringFunc.GetGitUrl(source);
       Assert.AreEqual(result, expected);
     }
+
+    [TestMethod]
+    public void TestMethod_GetGitUrl_empty_string()
+    {
+      string[] source = { };
+      const string expected = "";
+      string result = StringFunc.GetGitUrl(source);
+      Assert.AreEqual(result, expected);
+    }
     #endregion
   }
 }
