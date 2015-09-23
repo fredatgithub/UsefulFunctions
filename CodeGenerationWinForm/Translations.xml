@@ -135,10 +135,10 @@
       <frenchValue>A propos de ...</frenchValue>
     </term>
     <term>
-    <name>Not a number</name>
-    <englishValue>Not a number</englishValue>
-    <frenchValue>Pas un nombre</frenchValue>
-  </term>
+      <name>Not a number</name>
+      <englishValue>Not a number</englishValue>
+      <frenchValue>Pas un nombre</frenchValue>
+    </term>
     <term>
       <name>This is not a number</name>
       <englishValue>This is not a number</englishValue>
@@ -149,10 +149,70 @@
       <englishValue>The end number must be greater than the start number</englishValue>
       <frenchValue>Le nombre final doit être plus grand que le nombre de départ</frenchValue>
     </term>
-     <term>
+    <term>
       <name>End smaller start</name>
       <englishValue>End smaller start</englishValue>
       <frenchValue>Nombre final plus petit que le nombre de début</frenchValue>
     </term>
+    <term>
+      <name>The first line cannot be empty</name>
+      <englishValue>The first line cannot be empty</englishValue>
+      <frenchValue>La première ligne ne peut pas être vide</frenchValue>
+    </term>
+    <term>
+      <name>First Line Empty</name>
+      <englishValue>First Line Empty</englishValue>
+      <frenchValue>Première ligne vide</frenchValue>
+    </term>
+    <!--<term>
+      <name></name>
+      <englishValue></englishValue>
+      <frenchValue></frenchValue>
+    </term>-->
+    <!--<term>
+      <name></name>
+      <englishValue></englishValue>
+      <frenchValue></frenchValue>
+    </term>-->
+    <!--<term>
+      <name></name>
+      <englishValue></englishValue>
+      <frenchValue></frenchValue>
+    </term>-->
+    <!--<term>
+      <name></name>
+      <englishValue></englishValue>
+      <frenchValue></frenchValue>
+    </term>-->
+    <!--<term>
+      <name></name>
+      <englishValue></englishValue>
+      <frenchValue></frenchValue>
+    </term>-->
+    <!--<term>
+      <name></name>
+      <englishValue></englishValue>
+      <frenchValue></frenchValue>
+    </term>-->
+    <!--<term>
+      <name></name>
+      <englishValue></englishValue>
+      <frenchValue></frenchValue>
+    </term>-->
+    <!--<term>
+      <name></name>
+      <englishValue></englishValue>
+      <frenchValue></frenchValue>
+    </term>-->
+    <!--<term>
+      <name></name>
+      <englishValue></englishValue>
+      <frenchValue></frenchValue>
+    </term>-->
+    <!--<term>
+      <name></name>
+      <englishValue></englishValue>
+      <frenchValue></frenchValue>
+    </term>-->
   </terms>
 </Document>

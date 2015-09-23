@@ -1081,7 +1081,7 @@ namespace CodeGenerationWinForm
 
     private void buttonCustomizedMethodGenerate_Click(object sender, EventArgs e)
     {
-      // Verification of all types used with values
+      // Verification of every types used with values
       CheckMatchingType(textBoxCustoExpectedValue, comboBoxCustoExpectedType, "EXPECTED", !checkBoxAutoCheckTypes.Checked);
       
       // Generation of the result
@@ -1183,21 +1183,21 @@ namespace CodeGenerationWinForm
         int start;
         if (!int.TryParse(textBoxCustomFrom.Text, out start))
         {
-          DisplayMessageOk(GetTranslatedString("This is not a number"), GetTranslatedString("Not a number"), MessageBoxButtons.OK);
+          DisplayMessageOk(Translate("This is not a number"), Translate("Not a number"), MessageBoxButtons.OK);
           return;
         }
 
         int end;
         if (!int.TryParse(textBoxCustomTo.Text, out end))
         {
-          DisplayMessageOk(GetTranslatedString("This is not a number"), GetTranslatedString("Not a number"), MessageBoxButtons.OK);
+          DisplayMessageOk(Translate("This is not a number"), Translate("Not a number"), MessageBoxButtons.OK);
           return;
         }
 
         if (end < start)
         {
-          DisplayMessageOk(GetTranslatedString("The end number must be greater than the start number"),
-            GetTranslatedString("End smaller start"), MessageBoxButtons.OK);
+          DisplayMessageOk(Translate("The end number must be greater than the start number"),
+            Translate("End smaller start"), MessageBoxButtons.OK);
           return;
         }
 
@@ -1295,7 +1295,7 @@ namespace CodeGenerationWinForm
       }
     }
 
-    private string GetTranslatedString(string stringToBeTranslated)
+    private string Translate(string stringToBeTranslated)
     {
       string result = string.Empty;
       switch (_currentLanguage.ToLower())
@@ -1474,6 +1474,65 @@ namespace CodeGenerationWinForm
       {
         comboBoxCustoExpectedType.SelectedIndex = comboBoxCustoResultReturnedType.SelectedIndex;
       }
+    }
+
+    private void radioButtonCodeLineOneLine_CheckedChanged(object sender, EventArgs e)
+    {
+      textBoxCodeLineSentence2.Visible = false;
+      textBoxCodeLineSentence3.Visible = false;
+      textBoxCodeLineSentence4.Visible = false;
+      textBoxCodeLineSentence5.Visible = false;
+    }
+    
+    private void radioButtonCodeLineSeveralLines_CheckedChanged(object sender, EventArgs e)
+    {
+      textBoxCodeLineSentence2.Visible = true;
+      textBoxCodeLineSentence3.Visible = true;
+      textBoxCodeLineSentence4.Visible = true;
+      textBoxCodeLineSentence5.Visible = true;
+    }
+
+    private void buttonCodeLineGenerate_Click(object sender, EventArgs e)
+    {
+      textBoxCodeLineResult.Text = string.Empty;
+      bool oneLine = radioButtonCodeLineOneLine.Checked;
+      bool incrementalCharacterNumber = radioButtonCodeLineIncrementNumber.Checked;
+      string rangeFrom = textBoxCodeLineRangeFrom.Text;
+      string rangeTo = textBoxCodeLineRangeTo.Text;
+      int start;
+      if ((!int.TryParse(textBoxCodeLineRangeFrom.Text, out start)) && incrementalCharacterNumber)
+      {
+        DisplayMessageOk(Translate("This is not a number"), Translate("Not a number"), MessageBoxButtons.OK);
+        return;
+      }
+
+      int end;
+      if ((!int.TryParse(textBoxCodeLineRangeTo.Text, out end)) && incrementalCharacterNumber)
+      {
+        DisplayMessageOk(Translate("This is not a number"), Translate("Not a number"), MessageBoxButtons.OK);
+        return;
+      }
+
+      if (end < start)
+      {
+        DisplayMessageOk(Translate("The end number must be greater than the start number"),
+          Translate("End smaller start"), MessageBoxButtons.OK);
+        return;
+      }
+
+      if (textBoxCodeLineSentence1.Text == string.Empty)
+      {
+        DisplayMessageOk(Translate("The first line cannot be empty"), Translate("First Line Empty"), MessageBoxButtons.OK);
+        return;
+      }
+
+
+
+    }
+
+    private void textBoxCodeLineSentence1_TextChanged(object sender, EventArgs e)
+    {
+      buttonCodeLineGenerate.Enabled = textBoxCodeLineSentence1.Text.Length != 0;
     }
   }
 }
