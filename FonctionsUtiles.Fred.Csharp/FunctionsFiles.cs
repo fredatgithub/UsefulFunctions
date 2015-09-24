@@ -25,6 +25,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace FonctionsUtiles.Fred.Csharp
 {
@@ -425,7 +427,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return files;
     }
-    
+
     public static List<DriveInfo> GetAllDrives(DriveType[] excludeDriveTypeList)
     {
       List<DriveInfo> result = new List<DriveInfo>();
@@ -477,7 +479,7 @@ namespace FonctionsUtiles.Fred.Csharp
         catch (UnauthorizedAccessException) { complete = false; }
         catch (Exception) { complete = false; }
       } while (!complete);
-      
+
       return result;
     }
 
@@ -489,6 +491,51 @@ namespace FonctionsUtiles.Fred.Csharp
       foreach (DirectoryInfo dir in rootDir.GetDirectories("*", SearchOption.AllDirectories))
       {
         yield return dir;
+      }
+    }
+
+    public static string Serialize<T>(T value)
+    {
+      if (value == null)
+      {
+        return null;
+      }
+
+      XmlSerializer serializer = new XmlSerializer(typeof(T));
+      XmlWriterSettings settings = new XmlWriterSettings
+      {
+        Encoding = new UnicodeEncoding(false, false),
+        Indent = false,
+        OmitXmlDeclaration = false
+      };
+
+      using (StringWriter textWriter = new StringWriter())
+      {
+        using (XmlWriter xmlWriter = XmlWriter.Create(textWriter, settings))
+        {
+          serializer.Serialize(xmlWriter, value);
+        }
+
+        return textWriter.ToString();
+      }
+    }
+
+    public static T Deserialize<T>(string xml)
+    {
+      if (string.IsNullOrEmpty(xml))
+      {
+        return default(T);
+      }
+
+      XmlSerializer serializer = new XmlSerializer(typeof(T));
+      XmlReaderSettings settings = new XmlReaderSettings();
+
+      using (StringReader textReader = new StringReader(xml))
+      {
+        using (XmlReader xmlReader = XmlReader.Create(textReader, settings))
+        {
+          return (T)serializer.Deserialize(xmlReader);
+        }
       }
     }
   }
