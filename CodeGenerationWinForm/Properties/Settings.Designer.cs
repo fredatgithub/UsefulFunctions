@@ -469,7 +469,7 @@ namespace CodeGenerationWinForm.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("600")]
+        [global::System.Configuration.DefaultSettingValueAttribute("800")]
         public int WindowHeight {
             get {
                 return ((int)(this["WindowHeight"]));
@@ -481,13 +481,145 @@ namespace CodeGenerationWinForm.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("800")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1024")]
         public int WindowWidth {
             get {
                 return ((int)(this["WindowWidth"]));
             }
             set {
                 this["WindowWidth"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("A")]
+        public string textBoxCodeLineRangeFrom {
+            get {
+                return ((string)(this["textBoxCodeLineRangeFrom"]));
+            }
+            set {
+                this["textBoxCodeLineRangeFrom"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Z")]
+        public string textBoxCodeLineRangeTo {
+            get {
+                return ((string)(this["textBoxCodeLineRangeTo"]));
+            }
+            set {
+                this["textBoxCodeLineRangeTo"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string textBoxCodeLineSentence1 {
+            get {
+                return ((string)(this["textBoxCodeLineSentence1"]));
+            }
+            set {
+                this["textBoxCodeLineSentence1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string textBoxCodeLineSentence2 {
+            get {
+                return ((string)(this["textBoxCodeLineSentence2"]));
+            }
+            set {
+                this["textBoxCodeLineSentence2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string textBoxCodeLineSentence3 {
+            get {
+                return ((string)(this["textBoxCodeLineSentence3"]));
+            }
+            set {
+                this["textBoxCodeLineSentence3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string textBoxCodeLineSentence4 {
+            get {
+                return ((string)(this["textBoxCodeLineSentence4"]));
+            }
+            set {
+                this["textBoxCodeLineSentence4"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string textBoxCodeLineSentence5 {
+            get {
+                return ((string)(this["textBoxCodeLineSentence5"]));
+            }
+            set {
+                this["textBoxCodeLineSentence5"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool radioButtonCodeLineOneLine {
+            get {
+                return ((bool)(this["radioButtonCodeLineOneLine"]));
+            }
+            set {
+                this["radioButtonCodeLineOneLine"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool radioButtonCodeLineIncrementNumber {
+            get {
+                return ((bool)(this["radioButtonCodeLineIncrementNumber"]));
+            }
+            set {
+                this["radioButtonCodeLineIncrementNumber"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("%")]
+        public string textBoxCodeLineIteratorChar {
+            get {
+                return ((string)(this["textBoxCodeLineIteratorChar"]));
+            }
+            set {
+                this["textBoxCodeLineIteratorChar"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool checkBoxCodeLineResultAssembled {
+            get {
+                return ((bool)(this["checkBoxCodeLineResultAssembled"]));
+            }
+            set {
+                this["checkBoxCodeLineResultAssembled"] = value;
             }
         }
     }

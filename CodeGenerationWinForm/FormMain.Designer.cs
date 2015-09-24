@@ -138,6 +138,9 @@
       this.textBoxCustomFrom = new System.Windows.Forms.TextBox();
       this.textBoxCustoResultFunctionClass = new System.Windows.Forms.TextBox();
       this.tabPageCodeLine = new System.Windows.Forms.TabPage();
+      this.checkBoxCodeLineResultAssembled = new System.Windows.Forms.CheckBox();
+      this.groupBoxCodeLineCharacter = new System.Windows.Forms.GroupBox();
+      this.textBoxCodeLineIteratorChar = new System.Windows.Forms.TextBox();
       this.textBoxCodeLineResult = new System.Windows.Forms.TextBox();
       this.buttonCodeLineGenerate = new System.Windows.Forms.Button();
       this.groupBoxCodeLineIncrement = new System.Windows.Forms.GroupBox();
@@ -167,6 +170,7 @@
       this.tabPageCustomized.SuspendLayout();
       this.tableLayoutPanelCustomizedMethod.SuspendLayout();
       this.tabPageCodeLine.SuspendLayout();
+      this.groupBoxCodeLineCharacter.SuspendLayout();
       this.groupBoxCodeLineIncrement.SuspendLayout();
       this.groupBoxCodeLineRange.SuspendLayout();
       this.groupBoxCodeLineNumberOfLines.SuspendLayout();
@@ -563,7 +567,7 @@
       this.tableLayoutPanelSeveralMethods.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 177F));
       this.tableLayoutPanelSeveralMethods.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
       this.tableLayoutPanelSeveralMethods.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 172F));
-      this.tableLayoutPanelSeveralMethods.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 249F));
+      this.tableLayoutPanelSeveralMethods.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 252F));
       this.tableLayoutPanelSeveralMethods.Controls.Add(this.progressBarSeveralMethods, 0, 2);
       this.tableLayoutPanelSeveralMethods.Controls.Add(this.textBoxRangeMethods, 0, 1);
       this.tableLayoutPanelSeveralMethods.Controls.Add(this.buttonGenerateSeveralMethods, 5, 0);
@@ -617,10 +621,10 @@
       // 
       this.buttonGenerateSeveralMethods.Dock = System.Windows.Forms.DockStyle.Fill;
       this.buttonGenerateSeveralMethods.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.buttonGenerateSeveralMethods.Location = new System.Drawing.Point(1016, 2);
+      this.buttonGenerateSeveralMethods.Location = new System.Drawing.Point(1013, 2);
       this.buttonGenerateSeveralMethods.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.buttonGenerateSeveralMethods.Name = "buttonGenerateSeveralMethods";
-      this.buttonGenerateSeveralMethods.Size = new System.Drawing.Size(244, 34);
+      this.buttonGenerateSeveralMethods.Size = new System.Drawing.Size(247, 34);
       this.buttonGenerateSeveralMethods.TabIndex = 6;
       this.buttonGenerateSeveralMethods.Text = "Generate";
       this.buttonGenerateSeveralMethods.UseVisualStyleBackColor = true;
@@ -634,14 +638,14 @@
       this.comboBoxLanguage.Location = new System.Drawing.Point(3, 2);
       this.comboBoxLanguage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.comboBoxLanguage.Name = "comboBoxLanguage";
-      this.comboBoxLanguage.Size = new System.Drawing.Size(441, 28);
+      this.comboBoxLanguage.Size = new System.Drawing.Size(438, 28);
       this.comboBoxLanguage.TabIndex = 0;
       // 
       // textBoxToNumber
       // 
       this.textBoxToNumber.Dock = System.Windows.Forms.DockStyle.Fill;
       this.textBoxToNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.textBoxToNumber.Location = new System.Drawing.Point(844, 2);
+      this.textBoxToNumber.Location = new System.Drawing.Point(841, 2);
       this.textBoxToNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.textBoxToNumber.Name = "textBoxToNumber";
       this.textBoxToNumber.Size = new System.Drawing.Size(166, 30);
@@ -654,7 +658,7 @@
       this.labelFrom.AutoSize = true;
       this.labelFrom.Dock = System.Windows.Forms.DockStyle.Fill;
       this.labelFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.labelFrom.Location = new System.Drawing.Point(450, 0);
+      this.labelFrom.Location = new System.Drawing.Point(447, 0);
       this.labelFrom.Name = "labelFrom";
       this.labelFrom.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
       this.labelFrom.Size = new System.Drawing.Size(167, 38);
@@ -666,7 +670,7 @@
       this.labelTo.AutoSize = true;
       this.labelTo.Dock = System.Windows.Forms.DockStyle.Fill;
       this.labelTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.labelTo.Location = new System.Drawing.Point(800, 0);
+      this.labelTo.Location = new System.Drawing.Point(797, 0);
       this.labelTo.Name = "labelTo";
       this.labelTo.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
       this.labelTo.Size = new System.Drawing.Size(38, 38);
@@ -677,7 +681,7 @@
       // 
       this.textBoxFromNumber.Dock = System.Windows.Forms.DockStyle.Fill;
       this.textBoxFromNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.textBoxFromNumber.Location = new System.Drawing.Point(623, 2);
+      this.textBoxFromNumber.Location = new System.Drawing.Point(620, 2);
       this.textBoxFromNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.textBoxFromNumber.Name = "textBoxFromNumber";
       this.textBoxFromNumber.Size = new System.Drawing.Size(171, 30);
@@ -702,7 +706,7 @@
       this.tableLayoutPanelRandomMethods.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.37475F));
       this.tableLayoutPanelRandomMethods.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.62524F));
       this.tableLayoutPanelRandomMethods.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 127F));
-      this.tableLayoutPanelRandomMethods.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 185F));
+      this.tableLayoutPanelRandomMethods.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 188F));
       this.tableLayoutPanelRandomMethods.Controls.Add(this.textBoxRandomMethodResult, 0, 1);
       this.tableLayoutPanelRandomMethods.Controls.Add(this.buttonGenerateRdnMethod, 3, 0);
       this.tableLayoutPanelRandomMethods.Controls.Add(this.progressBarRandomMethods, 0, 2);
@@ -737,10 +741,10 @@
       // 
       this.buttonGenerateRdnMethod.Dock = System.Windows.Forms.DockStyle.Fill;
       this.buttonGenerateRdnMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.buttonGenerateRdnMethod.Location = new System.Drawing.Point(1086, 2);
+      this.buttonGenerateRdnMethod.Location = new System.Drawing.Point(1083, 2);
       this.buttonGenerateRdnMethod.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.buttonGenerateRdnMethod.Name = "buttonGenerateRdnMethod";
-      this.buttonGenerateRdnMethod.Size = new System.Drawing.Size(180, 29);
+      this.buttonGenerateRdnMethod.Size = new System.Drawing.Size(183, 29);
       this.buttonGenerateRdnMethod.TabIndex = 7;
       this.buttonGenerateRdnMethod.Text = "Generate";
       this.buttonGenerateRdnMethod.UseVisualStyleBackColor = true;
@@ -761,7 +765,7 @@
       // 
       this.textBoxNumberOfRndMethod.Dock = System.Windows.Forms.DockStyle.Fill;
       this.textBoxNumberOfRndMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.textBoxNumberOfRndMethod.Location = new System.Drawing.Point(959, 2);
+      this.textBoxNumberOfRndMethod.Location = new System.Drawing.Point(956, 2);
       this.textBoxNumberOfRndMethod.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.textBoxNumberOfRndMethod.Name = "textBoxNumberOfRndMethod";
       this.textBoxNumberOfRndMethod.Size = new System.Drawing.Size(121, 30);
@@ -777,7 +781,7 @@
       this.comboBoxRndMethodLanguage.Location = new System.Drawing.Point(3, 2);
       this.comboBoxRndMethodLanguage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.comboBoxRndMethodLanguage.Name = "comboBoxRndMethodLanguage";
-      this.comboBoxRndMethodLanguage.Size = new System.Drawing.Size(284, 28);
+      this.comboBoxRndMethodLanguage.Size = new System.Drawing.Size(283, 28);
       this.comboBoxRndMethodLanguage.TabIndex = 3;
       // 
       // labelNumberOfRndMethod
@@ -785,9 +789,9 @@
       this.labelNumberOfRndMethod.AutoSize = true;
       this.labelNumberOfRndMethod.Dock = System.Windows.Forms.DockStyle.Fill;
       this.labelNumberOfRndMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.labelNumberOfRndMethod.Location = new System.Drawing.Point(293, 0);
+      this.labelNumberOfRndMethod.Location = new System.Drawing.Point(292, 0);
       this.labelNumberOfRndMethod.Name = "labelNumberOfRndMethod";
-      this.labelNumberOfRndMethod.Size = new System.Drawing.Size(660, 33);
+      this.labelNumberOfRndMethod.Size = new System.Drawing.Size(658, 33);
       this.labelNumberOfRndMethod.TabIndex = 4;
       this.labelNumberOfRndMethod.Text = "Number of generated random method: ";
       // 
@@ -810,7 +814,7 @@
       this.tableLayoutPanelOthers.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 61F));
       this.tableLayoutPanelOthers.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
       this.tableLayoutPanelOthers.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 153F));
-      this.tableLayoutPanelOthers.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 377F));
+      this.tableLayoutPanelOthers.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 380F));
       this.tableLayoutPanelOthers.Controls.Add(this.textBoxOthersResult, 0, 1);
       this.tableLayoutPanelOthers.Controls.Add(this.buttonOthersGenerate, 5, 0);
       this.tableLayoutPanelOthers.Controls.Add(this.textBoxOthersTo, 4, 0);
@@ -847,10 +851,10 @@
       // 
       this.buttonOthersGenerate.Dock = System.Windows.Forms.DockStyle.Fill;
       this.buttonOthersGenerate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.buttonOthersGenerate.Location = new System.Drawing.Point(894, 2);
+      this.buttonOthersGenerate.Location = new System.Drawing.Point(891, 2);
       this.buttonOthersGenerate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.buttonOthersGenerate.Name = "buttonOthersGenerate";
-      this.buttonOthersGenerate.Size = new System.Drawing.Size(372, 31);
+      this.buttonOthersGenerate.Size = new System.Drawing.Size(375, 31);
       this.buttonOthersGenerate.TabIndex = 8;
       this.buttonOthersGenerate.Text = "Generate";
       this.buttonOthersGenerate.UseVisualStyleBackColor = true;
@@ -860,7 +864,7 @@
       // 
       this.textBoxOthersTo.Dock = System.Windows.Forms.DockStyle.Fill;
       this.textBoxOthersTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.textBoxOthersTo.Location = new System.Drawing.Point(741, 2);
+      this.textBoxOthersTo.Location = new System.Drawing.Point(738, 2);
       this.textBoxOthersTo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.textBoxOthersTo.Name = "textBoxOthersTo";
       this.textBoxOthersTo.Size = new System.Drawing.Size(147, 30);
@@ -873,7 +877,7 @@
       this.labelOthersTo.AutoSize = true;
       this.labelOthersTo.Dock = System.Windows.Forms.DockStyle.Fill;
       this.labelOthersTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.labelOthersTo.Location = new System.Drawing.Point(681, 0);
+      this.labelOthersTo.Location = new System.Drawing.Point(678, 0);
       this.labelOthersTo.Name = "labelOthersTo";
       this.labelOthersTo.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
       this.labelOthersTo.Size = new System.Drawing.Size(54, 35);
@@ -884,7 +888,7 @@
       // 
       this.textBoxOthersFrom.Dock = System.Windows.Forms.DockStyle.Fill;
       this.textBoxOthersFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.textBoxOthersFrom.Location = new System.Drawing.Point(620, 2);
+      this.textBoxOthersFrom.Location = new System.Drawing.Point(617, 2);
       this.textBoxOthersFrom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.textBoxOthersFrom.Name = "textBoxOthersFrom";
       this.textBoxOthersFrom.Size = new System.Drawing.Size(55, 30);
@@ -897,10 +901,10 @@
       this.labelOthersFrom.AutoSize = true;
       this.labelOthersFrom.Dock = System.Windows.Forms.DockStyle.Fill;
       this.labelOthersFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.labelOthersFrom.Location = new System.Drawing.Point(461, 0);
+      this.labelOthersFrom.Location = new System.Drawing.Point(459, 0);
       this.labelOthersFrom.Name = "labelOthersFrom";
       this.labelOthersFrom.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-      this.labelOthersFrom.Size = new System.Drawing.Size(153, 35);
+      this.labelOthersFrom.Size = new System.Drawing.Size(152, 35);
       this.labelOthersFrom.TabIndex = 3;
       this.labelOthersFrom.Text = "From: ";
       // 
@@ -911,7 +915,7 @@
       this.comboBoxOthersMethodName.Location = new System.Drawing.Point(3, 2);
       this.comboBoxOthersMethodName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
       this.comboBoxOthersMethodName.Name = "comboBoxOthersMethodName";
-      this.comboBoxOthersMethodName.Size = new System.Drawing.Size(452, 24);
+      this.comboBoxOthersMethodName.Size = new System.Drawing.Size(450, 24);
       this.comboBoxOthersMethodName.TabIndex = 0;
       // 
       // progressBarOtherMethods
@@ -1452,6 +1456,8 @@
       // 
       // tabPageCodeLine
       // 
+      this.tabPageCodeLine.Controls.Add(this.checkBoxCodeLineResultAssembled);
+      this.tabPageCodeLine.Controls.Add(this.groupBoxCodeLineCharacter);
       this.tabPageCodeLine.Controls.Add(this.textBoxCodeLineResult);
       this.tabPageCodeLine.Controls.Add(this.buttonCodeLineGenerate);
       this.tabPageCodeLine.Controls.Add(this.groupBoxCodeLineIncrement);
@@ -1469,22 +1475,52 @@
       this.tabPageCodeLine.Text = "Code Line";
       this.tabPageCodeLine.UseVisualStyleBackColor = true;
       // 
+      // checkBoxCodeLineResultAssembled
+      // 
+      this.checkBoxCodeLineResultAssembled.AutoSize = true;
+      this.checkBoxCodeLineResultAssembled.Location = new System.Drawing.Point(45, 365);
+      this.checkBoxCodeLineResultAssembled.Name = "checkBoxCodeLineResultAssembled";
+      this.checkBoxCodeLineResultAssembled.Size = new System.Drawing.Size(419, 21);
+      this.checkBoxCodeLineResultAssembled.TabIndex = 10;
+      this.checkBoxCodeLineResultAssembled.Text = "Code Line assembled 123 123 or not assembled 111 222 333";
+      this.checkBoxCodeLineResultAssembled.UseVisualStyleBackColor = true;
+      // 
+      // groupBoxCodeLineCharacter
+      // 
+      this.groupBoxCodeLineCharacter.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+      this.groupBoxCodeLineCharacter.Controls.Add(this.textBoxCodeLineIteratorChar);
+      this.groupBoxCodeLineCharacter.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.groupBoxCodeLineCharacter.Location = new System.Drawing.Point(624, 42);
+      this.groupBoxCodeLineCharacter.Name = "groupBoxCodeLineCharacter";
+      this.groupBoxCodeLineCharacter.Size = new System.Drawing.Size(165, 77);
+      this.groupBoxCodeLineCharacter.TabIndex = 7;
+      this.groupBoxCodeLineCharacter.TabStop = false;
+      this.groupBoxCodeLineCharacter.Text = "Iterator Character";
+      // 
+      // textBoxCodeLineIteratorChar
+      // 
+      this.textBoxCodeLineIteratorChar.Location = new System.Drawing.Point(18, 32);
+      this.textBoxCodeLineIteratorChar.Name = "textBoxCodeLineIteratorChar";
+      this.textBoxCodeLineIteratorChar.Size = new System.Drawing.Size(100, 26);
+      this.textBoxCodeLineIteratorChar.TabIndex = 0;
+      this.textBoxCodeLineIteratorChar.Text = "%";
+      // 
       // textBoxCodeLineResult
       // 
       this.textBoxCodeLineResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
       this.textBoxCodeLineResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.textBoxCodeLineResult.Location = new System.Drawing.Point(40, 379);
+      this.textBoxCodeLineResult.Location = new System.Drawing.Point(40, 403);
       this.textBoxCodeLineResult.Multiline = true;
       this.textBoxCodeLineResult.Name = "textBoxCodeLineResult";
-      this.textBoxCodeLineResult.Size = new System.Drawing.Size(1160, 203);
+      this.textBoxCodeLineResult.Size = new System.Drawing.Size(1160, 179);
       this.textBoxCodeLineResult.TabIndex = 9;
       // 
       // buttonCodeLineGenerate
       // 
       this.buttonCodeLineGenerate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.buttonCodeLineGenerate.Location = new System.Drawing.Point(987, 60);
+      this.buttonCodeLineGenerate.Location = new System.Drawing.Point(1085, 66);
       this.buttonCodeLineGenerate.Name = "buttonCodeLineGenerate";
       this.buttonCodeLineGenerate.Size = new System.Drawing.Size(113, 37);
       this.buttonCodeLineGenerate.TabIndex = 8;
@@ -1498,22 +1534,20 @@
       this.groupBoxCodeLineIncrement.Controls.Add(this.radioButtonCodeLineIncrementLetter);
       this.groupBoxCodeLineIncrement.Controls.Add(this.radioButtonCodeLineIncrementNumber);
       this.groupBoxCodeLineIncrement.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.groupBoxCodeLineIncrement.Location = new System.Drawing.Point(371, 42);
+      this.groupBoxCodeLineIncrement.Location = new System.Drawing.Point(344, 42);
       this.groupBoxCodeLineIncrement.Name = "groupBoxCodeLineIncrement";
       this.groupBoxCodeLineIncrement.Size = new System.Drawing.Size(270, 77);
       this.groupBoxCodeLineIncrement.TabIndex = 7;
       this.groupBoxCodeLineIncrement.TabStop = false;
-      this.groupBoxCodeLineIncrement.Text = "Incremental Character";
+      this.groupBoxCodeLineIncrement.Text = "Iterator Type";
       // 
       // radioButtonCodeLineIncrementLetter
       // 
       this.radioButtonCodeLineIncrementLetter.AutoSize = true;
-      this.radioButtonCodeLineIncrementLetter.Checked = true;
       this.radioButtonCodeLineIncrementLetter.Location = new System.Drawing.Point(159, 32);
       this.radioButtonCodeLineIncrementLetter.Name = "radioButtonCodeLineIncrementLetter";
       this.radioButtonCodeLineIncrementLetter.Size = new System.Drawing.Size(74, 24);
       this.radioButtonCodeLineIncrementLetter.TabIndex = 3;
-      this.radioButtonCodeLineIncrementLetter.TabStop = true;
       this.radioButtonCodeLineIncrementLetter.Text = "Letter";
       this.radioButtonCodeLineIncrementLetter.UseVisualStyleBackColor = true;
       // 
@@ -1535,12 +1569,12 @@
       this.groupBoxCodeLineRange.Controls.Add(this.textBoxCodeLineRangeTo);
       this.groupBoxCodeLineRange.Controls.Add(this.textBoxCodeLineRangeFrom);
       this.groupBoxCodeLineRange.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.groupBoxCodeLineRange.Location = new System.Drawing.Point(681, 42);
+      this.groupBoxCodeLineRange.Location = new System.Drawing.Point(809, 42);
       this.groupBoxCodeLineRange.Name = "groupBoxCodeLineRange";
       this.groupBoxCodeLineRange.Size = new System.Drawing.Size(265, 77);
       this.groupBoxCodeLineRange.TabIndex = 6;
       this.groupBoxCodeLineRange.TabStop = false;
-      this.groupBoxCodeLineRange.Text = "Range (From - To) use %";
+      this.groupBoxCodeLineRange.Text = "Range (From - To)";
       // 
       // textBoxCodeLineRangeTo
       // 
@@ -1626,11 +1660,12 @@
       this.groupBoxCodeLineNumberOfLines.TabIndex = 0;
       this.groupBoxCodeLineNumberOfLines.TabStop = false;
       this.groupBoxCodeLineNumberOfLines.Text = "Number of lines";
+      this.groupBoxCodeLineNumberOfLines.Enter += new System.EventHandler(this.groupBoxCodeLineNumberOfLines_Enter);
       // 
       // radioButtonCodeLineSeveralLines
       // 
       this.radioButtonCodeLineSeveralLines.AutoSize = true;
-      this.radioButtonCodeLineSeveralLines.Location = new System.Drawing.Point(153, 32);
+      this.radioButtonCodeLineSeveralLines.Location = new System.Drawing.Point(137, 32);
       this.radioButtonCodeLineSeveralLines.Name = "radioButtonCodeLineSeveralLines";
       this.radioButtonCodeLineSeveralLines.Size = new System.Drawing.Size(132, 24);
       this.radioButtonCodeLineSeveralLines.TabIndex = 1;
@@ -1684,6 +1719,8 @@
       this.tableLayoutPanelCustomizedMethod.PerformLayout();
       this.tabPageCodeLine.ResumeLayout(false);
       this.tabPageCodeLine.PerformLayout();
+      this.groupBoxCodeLineCharacter.ResumeLayout(false);
+      this.groupBoxCodeLineCharacter.PerformLayout();
       this.groupBoxCodeLineIncrement.ResumeLayout(false);
       this.groupBoxCodeLineIncrement.PerformLayout();
       this.groupBoxCodeLineRange.ResumeLayout(false);
@@ -1823,5 +1860,8 @@
     private System.Windows.Forms.GroupBox groupBoxCodeLineRange;
     private System.Windows.Forms.TextBox textBoxCodeLineRangeTo;
     private System.Windows.Forms.TextBox textBoxCodeLineRangeFrom;
+    private System.Windows.Forms.GroupBox groupBoxCodeLineCharacter;
+    private System.Windows.Forms.TextBox textBoxCodeLineIteratorChar;
+    private System.Windows.Forms.CheckBox checkBoxCodeLineResultAssembled;
   }
 }

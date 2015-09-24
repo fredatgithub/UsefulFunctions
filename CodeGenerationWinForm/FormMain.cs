@@ -96,15 +96,15 @@ namespace CodeGenerationWinForm
       cb.SelectedIndex = 0;
     }
 
-    //private static void FillComboBoxWithDllMethods(ComboBox cb)
-    //{
-    //  cb.Items.Clear();
-    //  cb.Items.Add("FunctionsFiles");
-    //  cb.Items.Add("FunctionsMath");
-    //  cb.Items.Add("FunctionsString");
-    //  cb.Items.Add("FunctionsUseful");
-    //  cb.SelectedIndex = 0;
-    //}
+    private static void FillComboBoxWithDllMethods(ComboBox cb)
+    {
+      cb.Items.Clear();
+      cb.Items.Add("FunctionsFiles");
+      cb.Items.Add("FunctionsMath");
+      cb.Items.Add("FunctionsString");
+      cb.Items.Add("FunctionsUseful");
+      cb.SelectedIndex = 0;
+    }
 
     private static void FillComboBoxWithAssertMethods(ComboBox cb)
     {
@@ -237,6 +237,19 @@ namespace CodeGenerationWinForm
       textBoxCustoAssertClosingParenthesis.Text = Settings.Default.textBoxCustoAssertClosingParenthesis;
       textBoxCustomFrom.Text = Settings.Default.textBoxCustomFrom;
       textBoxCustomTo.Text = Settings.Default.textBoxCustomTo;
+      textBoxCodeLineRangeFrom.Text = Settings.Default.textBoxCodeLineRangeFrom;
+      textBoxCodeLineRangeTo.Text = Settings.Default.textBoxCodeLineRangeTo;
+      textBoxCodeLineSentence1.Text = Settings.Default.textBoxCodeLineSentence1;
+      textBoxCodeLineSentence2.Text = Settings.Default.textBoxCodeLineSentence2;
+      textBoxCodeLineSentence3.Text = Settings.Default.textBoxCodeLineSentence3;
+      textBoxCodeLineSentence4.Text = Settings.Default.textBoxCodeLineSentence4;
+      textBoxCodeLineSentence5.Text = Settings.Default.textBoxCodeLineSentence5;
+      radioButtonCodeLineOneLine.Checked = Settings.Default.radioButtonCodeLineOneLine;
+      radioButtonCodeLineSeveralLines.Checked = !Settings.Default.radioButtonCodeLineOneLine;
+      radioButtonCodeLineIncrementNumber.Checked = Settings.Default.radioButtonCodeLineIncrementNumber;
+      radioButtonCodeLineIncrementLetter.Checked = !Settings.Default.radioButtonCodeLineIncrementNumber;
+      textBoxCodeLineIteratorChar.Text = Settings.Default.textBoxCodeLineIteratorChar;
+      checkBoxCodeLineResultAssembled.Checked = Settings.Default.checkBoxCodeLineResultAssembled;
     }
 
     private void SaveWindowValue()
@@ -282,6 +295,19 @@ namespace CodeGenerationWinForm
       Settings.Default.textBoxCustoAssertExpectedWord = textBoxCustoAssertExpectedWord.Text;
       Settings.Default.textBoxCustoAssertClosingParenthesis = textBoxCustoAssertClosingParenthesis.Text;
       Settings.Default.LastLanguageUsed = frenchToolStripMenuItem.Checked ? "French" : "English";
+      Settings.Default.textBoxCustomFrom = textBoxCustomFrom.Text;
+      Settings.Default.textBoxCustomTo = textBoxCustomTo.Text;
+      Settings.Default.textBoxCodeLineRangeFrom = textBoxCodeLineRangeFrom.Text;
+      Settings.Default.textBoxCodeLineRangeTo = textBoxCodeLineRangeTo.Text;
+      Settings.Default.textBoxCodeLineSentence1 = textBoxCodeLineSentence1.Text;
+      Settings.Default.textBoxCodeLineSentence2 = textBoxCodeLineSentence2.Text;
+      Settings.Default.textBoxCodeLineSentence3 = textBoxCodeLineSentence3.Text;
+      Settings.Default.textBoxCodeLineSentence4 = textBoxCodeLineSentence4.Text;
+      Settings.Default.textBoxCodeLineSentence5 = textBoxCodeLineSentence5.Text;
+      Settings.Default.radioButtonCodeLineOneLine = radioButtonCodeLineOneLine.Checked;
+      Settings.Default.radioButtonCodeLineIncrementNumber = radioButtonCodeLineIncrementNumber.Checked;
+      Settings.Default.textBoxCodeLineIteratorChar = textBoxCodeLineIteratorChar.Text;
+      Settings.Default.checkBoxCodeLineResultAssembled = checkBoxCodeLineResultAssembled.Checked;
       Settings.Default.Save();
     }
 
@@ -1379,6 +1405,17 @@ namespace CodeGenerationWinForm
           searchToolStripMenuItem.Text = _languageDicoEn["MenuHelpSearch"];
           aboutToolStripMenuItem.Text = _languageDicoEn["MenuHelpAbout"];
 
+          groupBoxCodeLineNumberOfLines.Text = _languageDicoEn["Number of lines"];
+          groupBoxCodeLineIncrement.Text = _languageDicoEn["Iterator Type"];
+          groupBoxCodeLineCharacter.Text = _languageDicoEn["Iterator Character"];
+          groupBoxCodeLineRange.Text = _languageDicoEn["Range (From - To)"];
+          radioButtonCodeLineOneLine.Text = _languageDicoEn["One Line"];
+          radioButtonCodeLineSeveralLines.Text = _languageDicoEn["Several Lines"];
+          radioButtonCodeLineIncrementNumber.Text = _languageDicoEn["Number"];
+          radioButtonCodeLineIncrementLetter.Text = _languageDicoEn["Letter"];
+          buttonCodeLineGenerate.Text = _languageDicoEn["Generate"];
+          checkBoxCodeLineResultAssembled.Text = _languageDicoEn["Code Line assembled 123 123 or not assembled 111 222 333"];
+
           break;
         case "French":
           frenchToolStripMenuItem.Checked = true;
@@ -1409,6 +1446,16 @@ namespace CodeGenerationWinForm
           indexToolStripMenuItem.Text = _languageDicoFr["MenuHelpIndex"];
           searchToolStripMenuItem.Text = _languageDicoFr["MenuHelpSearch"];
           aboutToolStripMenuItem.Text = _languageDicoFr["MenuHelpAbout"];
+          groupBoxCodeLineNumberOfLines.Text = _languageDicoFr["Number of lines"];
+          groupBoxCodeLineIncrement.Text = _languageDicoFr["Iterator Type"];
+          groupBoxCodeLineCharacter.Text = _languageDicoFr["Iterator Character"];
+          groupBoxCodeLineRange.Text = _languageDicoFr["Range (From - To)"];
+          radioButtonCodeLineOneLine.Text = _languageDicoFr["One Line"];
+          radioButtonCodeLineSeveralLines.Text = _languageDicoFr["Several Lines"];
+          radioButtonCodeLineIncrementNumber.Text = _languageDicoFr["Number"];
+          radioButtonCodeLineIncrementLetter.Text = _languageDicoFr["Letter"];
+          buttonCodeLineGenerate.Text = _languageDicoFr["Generate"];
+          checkBoxCodeLineResultAssembled.Text = _languageDicoFr["Code Line assembled 123 123 or not assembled 111 222 333"];
 
           break;
 
@@ -1533,6 +1580,11 @@ namespace CodeGenerationWinForm
     private void textBoxCodeLineSentence1_TextChanged(object sender, EventArgs e)
     {
       buttonCodeLineGenerate.Enabled = textBoxCodeLineSentence1.Text.Length != 0;
+    }
+
+    private void groupBoxCodeLineNumberOfLines_Enter(object sender, EventArgs e)
+    {
+
     }
   }
 }

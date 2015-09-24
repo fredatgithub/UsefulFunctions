@@ -114,10 +114,43 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="WindowHeight" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">600</Value>
+      <Value Profile="(Default)">800</Value>
     </Setting>
     <Setting Name="WindowWidth" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">800</Value>
+      <Value Profile="(Default)">1024</Value>
+    </Setting>
+    <Setting Name="textBoxCodeLineRangeFrom" Type="System.String" Scope="User">
+      <Value Profile="(Default)">A</Value>
+    </Setting>
+    <Setting Name="textBoxCodeLineRangeTo" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Z</Value>
+    </Setting>
+    <Setting Name="textBoxCodeLineSentence1" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="textBoxCodeLineSentence2" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="textBoxCodeLineSentence3" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="textBoxCodeLineSentence4" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="textBoxCodeLineSentence5" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="radioButtonCodeLineOneLine" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="radioButtonCodeLineIncrementNumber" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="textBoxCodeLineIteratorChar" Type="System.String" Scope="User">
+      <Value Profile="(Default)">%</Value>
+    </Setting>
+    <Setting Name="checkBoxCodeLineResultAssembled" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>

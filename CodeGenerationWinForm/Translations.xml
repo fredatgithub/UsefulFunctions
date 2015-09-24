@@ -164,6 +164,96 @@
       <englishValue>First Line Empty</englishValue>
       <frenchValue>Première ligne vide</frenchValue>
     </term>
+    <term>
+      <name>Code Line assembled 123 123 or not assembled 111 222 333</name>
+      <englishValue>Code Line assembled 123 123 or not assembled 111 222 333</englishValue>
+      <frenchValue>Lignes de code assemblées 123 123 ou pas assemblées 111 222 333</frenchValue>
+    </term>
+    <term>
+      <name>Number of lines</name>
+      <englishValue>Number of lines</englishValue>
+      <frenchValue>Nombre de lignes</frenchValue>
+    </term>
+    <term>
+      <name>Iterator Type</name>
+      <englishValue>Iterator Type</englishValue>
+      <frenchValue>Type itérateur</frenchValue>
+    </term>
+    <term>
+      <name>Iterator Character</name>
+      <englishValue>Iterator Character</englishValue>
+      <frenchValue>Caractère itérateur</frenchValue>
+    </term>
+    <term>
+      <name>Range (From - To)</name>
+      <englishValue>Range (From - To)</englishValue>
+      <frenchValue>Plage (De - jusqu'à)</frenchValue>
+    </term>
+    <term>
+      <name>Generate</name>
+      <englishValue>Generate</englishValue>
+      <frenchValue>Générer</frenchValue>
+    </term>
+    <term>
+      <name>One Line</name>
+      <englishValue>One Line</englishValue>
+      <frenchValue>Une ligne</frenchValue>
+    </term>
+    <term>
+      <name>Several Lines</name>
+      <englishValue>Several Lines</englishValue>
+      <frenchValue>Plusieurs lignes</frenchValue>
+    </term>
+    <term>
+      <name>Number</name>
+      <englishValue>Number</englishValue>
+      <frenchValue>Nombre</frenchValue>
+    </term>
+    <term>
+      <name>Letter</name>
+      <englishValue>Letter</englishValue>
+      <frenchValue>Lettre</frenchValue>
+    </term>
+    <!--<term>
+      <name></name>
+      <englishValue></englishValue>
+      <frenchValue></frenchValue>
+    </term>-->
+    <!--<term>
+      <name></name>
+      <englishValue></englishValue>
+      <frenchValue></frenchValue>
+    </term>-->
+    <!--<term>
+      <name></name>
+      <englishValue></englishValue>
+      <frenchValue></frenchValue>
+    </term>-->
+    <!--<term>
+      <name></name>
+      <englishValue></englishValue>
+      <frenchValue></frenchValue>
+    </term>-->
+    <!--<term>
+      <name></name>
+      <englishValue></englishValue>
+      <frenchValue></frenchValue>
+    </term>-->
+    <!--<term>
+      <name></name>
+      <englishValue></englishValue>
+      <frenchValue></frenchValue>
+    </term>-->
+    <!--<term>
+      <name></name>
+      <englishValue></englishValue>
+      <frenchValue></frenchValue>
+    </term>-->
+    <!--<term>
+      <name></name>
+      <englishValue></englishValue>
+      <frenchValue></frenchValue>
+    </term>-->
     <!--<term>
       <name></name>
       <englishValue></englishValue>
