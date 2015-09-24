@@ -1573,6 +1573,7 @@ namespace CodeGenerationWinForm
         return;
       }
 
+      var result = new StringBuilder();
 
 
     }
@@ -1582,9 +1583,38 @@ namespace CodeGenerationWinForm
       buttonCodeLineGenerate.Enabled = textBoxCodeLineSentence1.Text.Length != 0;
     }
 
-    private void groupBoxCodeLineNumberOfLines_Enter(object sender, EventArgs e)
+    private void textBoxCodeLineRangeFrom_TextChanged(object sender, EventArgs e)
     {
+      if (radioButtonCodeLineIncrementNumber.Checked)
+      {
+        AcceptOnlyNumbers(textBoxCodeLineRangeFrom);
+      }
+      else
+      {
+        AcceptOnlyLetters(textBoxCodeLineRangeFrom);
+      }
+    }
+    
+    private void textBoxCodeLineRangeTo_TextChanged(object sender, EventArgs e)
+    {
+      if (radioButtonCodeLineIncrementNumber.Checked)
+      {
+        AcceptOnlyNumbers(textBoxCodeLineRangeTo);
+      }
+      else
+      {
+        AcceptOnlyLetters(textBoxCodeLineRangeTo);
+      }
+    }
 
+    private static void AcceptOnlyLetters(TextBox textBox)
+    {
+      if (textBox == null) return;
+      foreach (char c in textBox.Text.Where(c => !char.IsLetter(c)))
+      {
+        textBox.Text = string.Empty;
+        break;
+      }
     }
   }
 }
