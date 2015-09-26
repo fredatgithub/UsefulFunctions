@@ -226,6 +226,11 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static List<int> GetSmallests(List<int> list, int count)
     {
+      if (count >= list.Count)
+      {
+        return list;
+      }
+
       var result = new List<int>();
       while (result.Count < count)
       {
