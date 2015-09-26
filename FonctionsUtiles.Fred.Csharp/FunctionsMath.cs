@@ -222,7 +222,25 @@ namespace FonctionsUtiles.Fred.Csharp
         select number;
       result = primes.ToList();
       return result;
-    } 
+    }
+
+    public static List<int> GetSmallests(List<int> list, int count)
+    {
+      var result = new List<int>();
+      while (result.Count < count)
+      {
+        var min = GetSmallest(list);
+        result.Add(min);
+        list.Remove(min);
+      }
+
+      return result;
+    }
+
+    public static int GetSmallest(List<int> list)
+    {
+      return list.Min();
+    }
 
     // TODO Ppcm and Pgcm methods to be implemented
 

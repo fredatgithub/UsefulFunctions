@@ -17,11 +17,9 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-
 using System.Collections.Generic;
 using FonctionsUtiles.Fred.Csharp;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 namespace UnitTestUsefullFunctions
 {
   [TestClass]
@@ -1157,11 +1155,77 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result.Count, expected.Count);
       foreach (int item in result)
       {
-          Assert.IsTrue(expected.Contains(item));
+        Assert.IsTrue(expected.Contains(item));
       }
     }
 
     #endregion
+    #region GetSmallest
+    [TestMethod]
+    public void TestMethod_GetSmallest_1()
+    {
+      var source = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+      const int expected = 1;
+      int result = FunctionsMath.GetSmallest(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetSmallest_10()
+    {
+      var source = new List<int> { 10, 20, 30, 40, 50, 60, 70, 80, 90 };
+      const int expected = 10;
+      int result = FunctionsMath.GetSmallest(source);
+      Assert.AreEqual(result, expected);
+    }
+    #endregion GetSmallest
+    #region GetSmallests
+    [TestMethod]
+    public void TestMethod_GetSmallests_1_number()
+    {
+      var source1 = new List<int> { 2, 3, 4, 1, 5, 6, 7, 8, 9 };
+      const int source2 = 1;
+      var expected = new List<int> { 1 };
+      var result = FunctionsMath.GetSmallests(source1, source2);
+      AssertListsAreEqual(result, expected);
+    }
+
+    public void TestMethod_GetSmallests_2_numbers_same()
+    {
+      var source1 = new List<int> { 1, 2, 3, 4, 1, 5, 6, 7, 8, 9 };
+      const int source2 = 2;
+      var expected = new List<int> { 1, 1 };
+      var result = FunctionsMath.GetSmallests(source1, source2);
+      AssertListsAreEqual(result, expected);
+    }
+
+    public void TestMethod_GetSmallests_2_numbers_different()
+    {
+      var source1 = new List<int> { 9, 8, 7, 6, 5, 4, 3, 2, 1 };
+      const int source2 = 2;
+      var expected = new List<int> { 1, 2 };
+      var result = FunctionsMath.GetSmallests(source1, source2);
+      AssertListsAreEqual(result, expected);
+    }
+
+    public void TestMethod_GetSmallests_3_numbers()
+    {
+      var source1 = new List<int> { 9, 8, 7, 6, 5, 4, 3, 2, 1 };
+      const int source2 = 3;
+      var expected = new List<int> { 1, 2, 3 };
+      var result = FunctionsMath.GetSmallests(source1, source2);
+      AssertListsAreEqual(result, expected);
+    }
+
+    public void TestMethod_GetSmallests_4_numbers()
+    {
+      var source1 = new List<int> { 9, 8, 7, 6, 5, 4, 3, 2, 1 };
+      const int source2 = 4;
+      var expected = new List<int> { 1, 2, 3, 4 };
+      var result = FunctionsMath.GetSmallests(source1, source2);
+      AssertListsAreEqual(result, expected);
+    }
+    #endregion GetSmallests
     #endregion Math Methods
   }
 }
