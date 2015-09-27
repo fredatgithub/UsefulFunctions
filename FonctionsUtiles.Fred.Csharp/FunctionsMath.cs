@@ -247,6 +247,28 @@ namespace FonctionsUtiles.Fred.Csharp
       return list.Min();
     }
 
+    public static int GetGreatest(List<int> list)
+    {
+      return list.Max();
+    }
+
+    public static List<int> GetGreatests(List<int> list, int count)
+    {
+      if (count >= list.Count)
+      {
+        return list;
+      }
+
+      var result = new List<int>();
+      while (result.Count < count)
+      {
+        var max = GetGreatest(list);
+        result.Add(max);
+        list.Remove(max);
+      }
+
+      return result;
+    }
     // TODO Ppcm and Pgcm methods to be implemented
 
   }

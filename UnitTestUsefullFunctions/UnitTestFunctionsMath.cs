@@ -1179,14 +1179,14 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
     #endregion GetSmallest
-    #region GetSmallests
+    #region GetGreatests
     [TestMethod]
     public void TestMethod_GetSmallests_empty_source()
     {
       var source1 = new List<int>();
       const int source2 = 1;
       var expected = new List<int>();
-      var result = FunctionsMath.GetSmallests(source1, source2);
+      var result = FunctionsMath.GetGreatests(source1, source2);
       AssertListsAreEqual(result, expected);
     }
 
@@ -1270,6 +1270,116 @@ namespace UnitTestUsefullFunctions
       AssertListsAreEqual(result, expected);
     }
     #endregion GetSmallests
+    #region GetGreatest
+    [TestMethod]
+    public void TestMethod_GetGreatest_1()
+    {
+      var source = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+      const int expected = 9;
+      int result = FunctionsMath.GetGreatest(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetGreatest_10()
+    {
+      var source = new List<int> { 10, 20, 30, 40, 50, 60, 70, 80, 90 };
+      const int expected = 90;
+      int result = FunctionsMath.GetGreatest(source);
+      Assert.AreEqual(result, expected);
+    }
+    #endregion GetGreatest
+    #region GetGreatests
+    [TestMethod]
+    public void TestMethod_GetGreatests_empty_source()
+    {
+      var source1 = new List<int>();
+      const int source2 = 1;
+      var expected = new List<int>();
+      var result = FunctionsMath.GetGreatests(source1, source2);
+      AssertListsAreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetGreatests_1_number()
+    {
+      var source1 = new List<int> { 2, 3, 4, 1, 5, 6, 7, 8, 9 };
+      const int source2 = 1;
+      var expected = new List<int> { 9 };
+      var result = FunctionsMath.GetGreatests(source1, source2);
+      AssertListsAreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetGreatests_2_numbers_same()
+    {
+      var source1 = new List<int> { 1, 2, 9, 3, 4, 1, 5, 6, 7, 8, 9 };
+      const int source2 = 2;
+      var expected = new List<int> { 9, 9 };
+      var result = FunctionsMath.GetGreatests(source1, source2);
+      AssertListsAreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetGreatests_2_numbers_different()
+    {
+      var source1 = new List<int> { 9, 8, 7, 6, 5, 4, 3, 2, 1 };
+      const int source2 = 2;
+      var expected = new List<int> { 9, 8 };
+      var result = FunctionsMath.GetGreatests(source1, source2);
+      AssertListsAreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetGreatests_3_numbers()
+    {
+      var source1 = new List<int> { 9, 8, 7, 6, 5, 4, 3, 2, 1 };
+      const int source2 = 3;
+      var expected = new List<int> { 9, 8, 7 };
+      var result = FunctionsMath.GetGreatests(source1, source2);
+      AssertListsAreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetGreatests_4_numbers()
+    {
+      var source1 = new List<int> { 9, 8, 7, 6, 5, 4, 3, 2, 1 };
+      const int source2 = 4;
+      var expected = new List<int> { 9, 8, 7, 6 };
+      var result = FunctionsMath.GetGreatests(source1, source2);
+      AssertListsAreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetGreatests_number_greater_than_list_count()
+    {
+      var source1 = new List<int> { 9, 8, 7, 6, 5, 4, 3, 2, 1 };
+      const int source2 = 54;
+      var expected = new List<int> { 9, 8, 7, 6, 5, 4, 3, 2, 1 };
+      var result = FunctionsMath.GetGreatests(source1, source2);
+      AssertListsAreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetGreatests_negative_number()
+    {
+      var source1 = new List<int> { 9, 8, -7, 6, -5, 4, -3, 2, 1 };
+      const int source2 = 2;
+      var expected = new List<int> { 9, 8 };
+      var result = FunctionsMath.GetGreatests(source1, source2);
+      AssertListsAreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetGreatests_negative_number_mixed_with_positive_numbers()
+    {
+      var source1 = new List<int> { 9, 0, 8, -7, 6, -5, 4, -3, 2, 1 };
+      const int source2 = 6;
+      var expected = new List<int> { 9, 8, 6, 4, 2, 1};
+      var result = FunctionsMath.GetGreatests(source1, source2);
+      AssertListsAreEqual(result, expected);
+    }
+    #endregion GetGreatests
     #endregion Math Methods
   }
 }
