@@ -1249,6 +1249,26 @@ namespace UnitTestUsefullFunctions
       var result = FunctionsMath.GetSmallests(source1, source2);
       AssertListsAreEqual(result, expected);
     }
+
+    [TestMethod]
+    public void TestMethod_GetSmallests_negative_number()
+    {
+      var source1 = new List<int> { 9, 8, -7, 6, -5, 4, -3, 2, 1 };
+      const int source2 = 2;
+      var expected = new List<int> { -7, -5 };
+      var result = FunctionsMath.GetSmallests(source1, source2);
+      AssertListsAreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetSmallests_negative_number_mixed_with_positive_numbers()
+    {
+      var source1 = new List<int> { 9, 0, 8, -7, 6, -5, 4, -3, 2, 1 };
+      const int source2 = 6;
+      var expected = new List<int> { -7, -5, -3, 0, 1, 2 };
+      var result = FunctionsMath.GetSmallests(source1, source2);
+      AssertListsAreEqual(result, expected);
+    }
     #endregion GetSmallests
     #endregion Math Methods
   }
