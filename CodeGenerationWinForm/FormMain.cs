@@ -1109,7 +1109,7 @@ namespace CodeGenerationWinForm
     {
       // Verification of every types used with values
       CheckMatchingType(textBoxCustoExpectedValue, comboBoxCustoExpectedType, "EXPECTED", !checkBoxAutoCheckTypes.Checked);
-      
+
       // Generation of the result
       textBoxCustoResult.Text = string.Empty;
       if (!checkBoxCustomRange.Checked)
@@ -1530,7 +1530,7 @@ namespace CodeGenerationWinForm
       textBoxCodeLineSentence4.Visible = false;
       textBoxCodeLineSentence5.Visible = false;
     }
-    
+
     private void radioButtonCodeLineSeveralLines_CheckedChanged(object sender, EventArgs e)
     {
       textBoxCodeLineSentence2.Visible = true;
@@ -1574,8 +1574,80 @@ namespace CodeGenerationWinForm
       }
 
       var result = new StringBuilder();
+      textBoxCodeLineResult.Text = string.Empty;
+      var iterationNumbers = new List<int>();
+      var iterationLetters = new List<char>();
+      var iterationList = new List<string>();
+      if (radioButtonCodeLineIncrementNumber.Checked)
+      {
+        for (int i = int.Parse(textBoxCodeLineRangeFrom.Text); i <= int.Parse(textBoxCodeLineRangeTo.Text); i++)
+        {
+          iterationNumbers.Add(i);
+          iterationList.Add(i.ToString());
+        }
+      }
+      else
+      {
+        for (char i = char.Parse(textBoxCodeLineRangeFrom.Text); i <= char.Parse(textBoxCodeLineRangeTo.Text); i++)
+        {
+          iterationLetters.Add(i);
+          iterationList.Add(i.ToString());
+        }
+      }
+
+      foreach (string item in iterationList)
+      {
+        result.Append(textBoxCodeLineSentence1.Text.Replace(textBoxCodeLineIteratorChar.Text[0].ToString(), item));
+      }
+
+      if (radioButtonCodeLineSeveralLines.Checked)
+      {
+        if (checkBoxCodeLineResultAssembled.Checked)
+        {
+          foreach (string item in iterationList)
+          {
+            result.Append(CreateSentence(5, AssemblyOrder.Assembled, item, textBoxCodeLineSentence2.Text,
+              textBoxCodeLineSentence3.Text, textBoxCodeLineSentence4.Text,
+              textBoxCodeLineSentence5.Text));
+          }
+        }
+        else
+        {
 
 
+        }
+      }
+
+      textBoxCodeLineResult.Text = result.ToString();
+    }
+
+    public enum AssemblyOrder
+    {
+      Assembled,
+      NotAssembled
+    }
+
+    private static string CreateSentence(int howMany, AssemblyOrder order, string stringAdded, params string[] textList)
+    {
+      // order = "assembled" or "NotAssembled"
+      string result = string.Empty;
+      if (howMany == 1)
+      {
+        return textList[0] + stringAdded;
+      }
+
+      // assembled = 123 123 123 123
+      // NotAssembled = 111 222 333
+      // return textList.Aggregate(result, (current, line) => current + (line + stringAdded + Punctuation.CrLf));
+      foreach (string line in textList)
+      {
+        if (line != string.Empty)
+        {
+          result += line + stringAdded + Punctuation.CrLf;
+        }
+      }
+
+      return result;
     }
 
     private void textBoxCodeLineSentence1_TextChanged(object sender, EventArgs e)
@@ -1594,7 +1666,7 @@ namespace CodeGenerationWinForm
         AcceptOnlyLetters(textBoxCodeLineRangeFrom);
       }
     }
-    
+
     private void textBoxCodeLineRangeTo_TextChanged(object sender, EventArgs e)
     {
       if (radioButtonCodeLineIncrementNumber.Checked)
