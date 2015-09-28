@@ -1371,11 +1371,21 @@ namespace UnitTestUsefullFunctions
     }
 
     [TestMethod]
-    public void TestMethod_GetGreatests_negative_number_mixed_with_positive_numbers()
+    public void TestMethod_GetGreatests_negative_numbers_mixed_with_positive_numbers()
     {
       var source1 = new List<int> { 9, 0, 8, -7, 6, -5, 4, -3, 2, 1 };
       const int source2 = 6;
       var expected = new List<int> { 9, 8, 6, 4, 2, 1};
+      var result = FunctionsMath.GetGreatests(source1, source2);
+      AssertListsAreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetGreatests_negative_and_positive_numbers_with_decimals()
+    {
+      var source1 = new List<int> { 9000, 0, 800, -7, 60, -5, 40, 15, -3, 22, 11 };
+      const int source2 = 6;
+      var expected = new List<int> { 9000, 800, 60, 40, 22, 15 };
       var result = FunctionsMath.GetGreatests(source1, source2);
       AssertListsAreEqual(result, expected);
     }
