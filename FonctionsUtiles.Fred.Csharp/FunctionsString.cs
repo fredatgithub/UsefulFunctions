@@ -3411,5 +3411,24 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return result;
     }
+
+    public static string CreateFilterString(string extension)
+    {
+      //TODO unit tests to be written
+      // sample:
+      //"solution files (*.sln)|*.sln|Projects files (*.csproj)|*.csproj";
+      var result = new StringBuilder();
+      result.Append(Punctuation.OneSpace);
+      result.Append(Punctuation.OpenParenthesis);
+      result.Append(Punctuation.Multiply);
+      result.Append(Punctuation.Period);
+      result.Append(extension);
+      result.Append(Punctuation.CloseParenthesis);
+      result.Append(Punctuation.Pipe);
+      result.Append(Punctuation.Multiply);
+      result.Append(Punctuation.Period);
+      result.Append(extension);
+      return result.ToString();
+    }
   }
 }
