@@ -10644,5 +10644,25 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
     #endregion
+    #region GoBackOneDirectory
+    [TestMethod]
+    public void TestMethod_GoBackOneDirectory_empty_string()
+    {
+      string source = string.Empty;
+      const string expected = "";
+      string result = StringFunc.GoBackOneDirectory(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GoBackOneDirectory_simple_path()
+    {
+      const string source = @"C:\Users\User\Documents\Visual Studio 2015\Projects\CodeGeneration\CodeGeneration";
+      const string expected = @"C:\Users\User\Documents\Visual Studio 2015\Projects\CodeGeneration\";
+      string result = StringFunc.GoBackOneDirectory(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    #endregion GoBackOneDirectory
   }
 }

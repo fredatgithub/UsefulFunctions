@@ -3430,5 +3430,22 @@ namespace FonctionsUtiles.Fred.Csharp
       result.Append(extension);
       return result.ToString();
     }
+
+    public static string GoBackOneDirectory(string rootPath)
+    {
+      if (rootPath == string.Empty)
+      {
+        return string.Empty;
+      }
+
+      string result = string.Empty;
+      var tmpResult = rootPath.Split('\\');
+      for (int i = 0; i < tmpResult.Length - 1; i++)
+      {
+        result += tmpResult[i] + "\\";
+      }
+
+      return result;
+    }
   }
 }
