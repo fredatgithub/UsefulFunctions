@@ -330,25 +330,51 @@ namespace CodeGenerationWinForm
       }
 
       // read the translation file and feed the language
-      XDocument xDoc = XDocument.Load(Settings.Default.LanguageFileName);
+      XDocument xDoc;
+      try
+      {
+        xDoc = XDocument.Load(Settings.Default.LanguageFileName);
+      }
+      catch (Exception exception)
+      {
+        MessageBox.Show("Error while loading xml file " + exception);
+        CreateLanguageFile();
+        return;
+      }
       var result = from node in xDoc.Descendants("term")
                    where node.HasElements
-                   let xElemenName = node.Element("name")
-                   where xElemenName != null
+                   let xElementName = node.Element("name")
+                   where xElementName != null
                    let xElementEnglish = node.Element("englishValue")
                    where xElementEnglish != null
                    let xElementFrench = node.Element("frenchValue")
                    where xElementFrench != null
                    select new
                    {
-                     name = xElemenName.Value,
+                     name = xElementName.Value,
                      englishValue = xElementEnglish.Value,
                      frenchValue = xElementFrench.Value
                    };
       foreach (var i in result)
       {
-        _languageDicoEn.Add(i.name, i.englishValue);
-        _languageDicoFr.Add(i.name, i.frenchValue);
+        //_languageDicoEn.Add(i.name, i.englishValue); // keep to search this line in all my previous projects
+        if (!_languageDicoEn.ContainsKey(i.name))
+        {
+          _languageDicoEn.Add(i.name, i.englishValue);
+        }
+        else
+        {
+          MessageBox.Show("Your xml file has duplicate like: " + i.name);
+        }
+
+        if (!_languageDicoFr.ContainsKey(i.name))
+        {
+          _languageDicoFr.Add(i.name, i.frenchValue);
+        }
+        else
+        {
+          MessageBox.Show("Your xml file has duplicate like: " + i.name);
+        }
       }
     }
 
