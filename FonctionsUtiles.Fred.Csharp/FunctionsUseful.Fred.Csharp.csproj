@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BigInt.cs" />
+    <Compile Include="CommonTypes.cs" />
     <Compile Include="Enumerations.cs" />
     <Compile Include="FunctionsApplicationFeatures.cs" />
     <Compile Include="functionsControls.cs" />
