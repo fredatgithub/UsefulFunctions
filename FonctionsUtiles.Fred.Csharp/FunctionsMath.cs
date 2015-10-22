@@ -269,6 +269,17 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return result;
     }
+
+    public static int PrimeByFormula(ushort number)
+    {
+      if (number > 40 )
+      {
+        return 0;
+      }
+
+      return (number * number) - number + 41;
+    }
+
     // TODO Ppcm and Pgcm methods to be implemented
 
   }
