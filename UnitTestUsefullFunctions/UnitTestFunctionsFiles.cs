@@ -74,6 +74,35 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(File.Exists(Path.Combine(sourceDir, result)), expected);
     }
 
+    #region IsLegalXmlChar
+    [TestMethod]
+    public void TestMethod_IsLegalXmlChar_true_0x9()
+    {
+      const char source = (char)0x9;
+      const bool expected = true;
+      bool result = FunctionsFiles.IsLegalXmlChar(source);
+      Assert.AreEqual(expected, result);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsLegalXmlChar_true_0xA()
+    {
+      const char source = (char)0xA;
+      const bool expected = true;
+      bool result = FunctionsFiles.IsLegalXmlChar(source);
+      Assert.AreEqual(expected, result);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsLegalXmlChar_true_0xD()
+    {
+      const char source = (char)0xD;
+      const bool expected = true;
+      bool result = FunctionsFiles.IsLegalXmlChar(source);
+      Assert.AreEqual(expected, result);
+    }
+    #endregion IsLegalXmlChar
+
     #endregion Files Methods
   }
 }

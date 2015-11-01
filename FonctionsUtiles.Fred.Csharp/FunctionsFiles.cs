@@ -542,7 +542,7 @@ namespace FonctionsUtiles.Fred.Csharp
     /// <summary>
     /// Remove illegal XML characters from a string.
     /// </summary>
-    public string SanitizeXmlString(string xml)
+    public static string SanitizeXmlString(string xml)
     {
       // TODO write unit tests for this method
       if (xml == null)
@@ -566,7 +566,7 @@ namespace FonctionsUtiles.Fred.Csharp
     /// <summary>
     /// Whether a given character is allowed by XML 1.0.
     /// </summary>
-    public bool IsLegalXmlChar(int character)
+    public static bool IsLegalXmlChar(int character)
     {
       return
       (
