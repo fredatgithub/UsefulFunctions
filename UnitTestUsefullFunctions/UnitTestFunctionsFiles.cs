@@ -101,6 +101,15 @@ namespace UnitTestUsefullFunctions
       bool result = FunctionsFiles.IsLegalXmlChar(source);
       Assert.AreEqual(expected, result);
     }
+
+    [TestMethod]
+    public void TestMethod_IsLegalXmlChar_char_a()
+    {
+      const char source = 'a';
+      const bool expected = true;
+      bool result = FunctionsFiles.IsLegalXmlChar(source);
+      Assert.AreEqual(expected, result);
+    }
     #endregion IsLegalXmlChar
 
     #endregion Files Methods
