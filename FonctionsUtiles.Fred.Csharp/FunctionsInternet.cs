@@ -167,7 +167,7 @@ namespace FonctionsUtiles.Fred.Csharp
       var openTags = regexOpen.Matches(subs);
       var closeTags = regexClose.Matches(subs);
 
-      List<string> OpenTags = new List<string>();
+      var openTagList = new List<string>();
       foreach (var item in openTags)
       {
         string trans = regexAttribute.Match(item.ToString()).Value;
@@ -181,34 +181,32 @@ namespace FonctionsUtiles.Fred.Csharp
           trans = "</" + trans.Substring(1, trans.Length - 1) + ">";
         }
 
-        OpenTags.Add(trans);
+        openTagList.Add(trans);
       }
 
       foreach (Match close in closeTags)
       {
-        OpenTags.Remove(close.Value);
+        openTagList.Remove(close.Value);
       }
 
-      for (int i = OpenTags.Count - 1; i >= 0; i--)
+      for (int i = openTagList.Count - 1; i >= 0; i--)
       {
-        subs += OpenTags[i];
+        subs += openTagList[i];
       }
 
       return subs;
     }
 
-
-
     public static bool IsEmailValid2(string email)
     {
-      const string MatchEmailPattern = "^ (([w -] +.) +[w -] +| ([a - zA - Z]{ 1}|[w -]{ 2,}))@" +
+      const string matchEmailPattern = "^ (([w -] +.) +[w -] +| ([a - zA - Z]{ 1}|[w -]{ 2,}))@" +
  "((([0 - 1]?[0 - 9]{ 1,2}| 25[0 - 5] | 2[0 - 4][0 - 9]).([0 - 1]?[0 - 9]{ 1,2}| 25[0 - 5] | 2[0 - 4][0 - 9])." +
  "([0 - 1]?[0 - 9]{ 1,2}| 25[0 - 5] | 2[0 - 4][0 - 9]).([0 - 1]?[0 - 9]{ 1,2}| 25[0 - 5] | 2[0 - 4][0 - 9])){ 1}|" +
  "([a - zA - Z] +[w -] +.) +[a - zA - Z]{ 2,4})$";
 
       if (email != null)
       {
-        return Regex.IsMatch(email, MatchEmailPattern);
+        return Regex.IsMatch(email, matchEmailPattern);
       }
 
       return false;

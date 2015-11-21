@@ -71,6 +71,16 @@ namespace UnitTestUsefullFunctions
       string result = InternetFunc.SubstringHtml(source1, source2);
       Assert.AreEqual(result, expected);
     }
+
+    [TestMethod]
+    public void TestMethod_SubstringHtml2()
+    {
+      const string source1 = "<p>hello codeproject<a href='image1'> image1</a><strong> this is good code</strong> indeed</p>";
+      const int source2 = 30;
+      const string expected = "<p>hello codeproject<a href='image1'> image1</a><strong> this </strong></p>";
+      string result = InternetFunc.SubstringHtml(source1, source2);
+      Assert.AreEqual(result, expected);
+    }
     #endregion SubstringHtml
   }
 }
