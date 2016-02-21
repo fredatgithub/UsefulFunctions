@@ -10664,5 +10664,33 @@ namespace UnitTestUsefullFunctions
     }
 
     #endregion GoBackOneDirectory
+    #region PadLeft
+    [TestMethod]
+    public void TestMethod_PadLeft_empty_string()
+    {
+      string source = string.Empty;
+      const string expected = "00";
+      string result = StringFunc.PadLeft(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_PadLeft_1_character()
+    {
+      string source = "a";
+      const string expected = "0a";
+      string result = StringFunc.PadLeft(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_PadLeft_2_characters()
+    {
+      string source = "aa";
+      const string expected = "aa";
+      string result = StringFunc.PadLeft(source);
+      Assert.AreEqual(result, expected);
+    }
+    #endregion PadLeft
   }
 }

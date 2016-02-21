@@ -3447,5 +3447,23 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return result;
     }
+
+    public static string PadLeft(string inputString, int stringLength = 2)
+    {
+      string result = inputString;
+      // If inputString is less than stringLength characters, pad with leading zeroes.
+      if (result.Length < stringLength)
+      {
+        result = result.PadLeft(stringLength, '0');
+      }
+
+      // If inputString is more than stringLength characters, truncate to 12 characters.
+      if (result.Length > stringLength)
+      {
+        result = result.Substring(0, stringLength);
+      }
+
+      return result;
+    }
   }
 }
