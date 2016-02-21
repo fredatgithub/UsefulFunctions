@@ -10677,7 +10677,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_PadLeft_1_character()
     {
-      string source = "a";
+      const string source = "a";
       const string expected = "0a";
       string result = StringFunc.PadLeft(source);
       Assert.AreEqual(result, expected);
@@ -10686,9 +10686,78 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_PadLeft_2_characters()
     {
-      string source = "aa";
+      const string source = "aa";
       const string expected = "aa";
       string result = StringFunc.PadLeft(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_PadLeft_3_characters_with_default_padding_equal_to_2()
+    {
+      const string source = "aaa";
+      const string expected = "aa";
+      string result = StringFunc.PadLeft(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_PadLeft_4_characters_with_default_padding_equal_to_2()
+    {
+      const string source = "aaaa";
+      const string expected = "aa";
+      string result = StringFunc.PadLeft(source);
+      Assert.AreEqual(result, expected);
+    }
+
+
+    [TestMethod]
+    public void TestMethod_PadLeft_0_character_with_default_padding_equal_to_3()
+    {
+      const string source = "";
+      const int source2 = 3;
+      const string expected = "000";
+      string result = StringFunc.PadLeft(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_PadLeft_1_character_with_default_padding_equal_to_3()
+    {
+      const string source = "a";
+      const int source2 = 3;
+      const string expected = "00a";
+      string result = StringFunc.PadLeft(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_PadLeft_2_characters_with_default_padding_equal_to_3()
+    {
+      const string source = "aa";
+      const int source2 = 3;
+      const string expected = "0aa";
+      string result = StringFunc.PadLeft(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_PadLeft_3_characters_with_default_padding_equal_to_3()
+    {
+      const string source = "aaa";
+      const int source2 = 3;
+      const string expected = "aaa";
+      string result = StringFunc.PadLeft(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_PadLeft_3_characters_with_default_padding_equal_to_4()
+    {
+      const string source = "aaa";
+      const int source2 = 4;
+      const string expected = "0aaa";
+      string result = StringFunc.PadLeft(source, source2);
       Assert.AreEqual(result, expected);
     }
     #endregion PadLeft
