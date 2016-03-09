@@ -1,6 +1,6 @@
 ﻿/*
 The MIT License(MIT)
-Copyright(c) 2015 Freddy Juhel
+Copyright(c) 2016 Freddy Juhel
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
@@ -24,13 +24,15 @@ using enumRnd = FonctionsUtiles.Fred.Csharp.RandomCharacters;
 using MathFunc = FonctionsUtiles.Fred.Csharp.FunctionsMath;
 using FileFunc = FonctionsUtiles.Fred.Csharp.FunctionsFiles;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using FonctionsUtiles.Fred.Csharp;
 
 namespace ConsoleApplicationUsageDemo
 {
-  class Program
+  internal class Program
   {
-    static void Main()
+    private static void Main()
     {
       Action<string> display = Console.WriteLine;
       Action<string> displayOnOneLine = Console.Write;
@@ -56,7 +58,7 @@ namespace ConsoleApplicationUsageDemo
       display("Generation of a 10 random filename strings: ");
       for (int i = 0; i < 10; i++)
       {
-        rdnString = StringFunc.GenerateRandomString(new []{' '}, true, enumRnd.UpperLowerDigitSpecial, 8, true);
+        rdnString = StringFunc.GenerateRandomString(new[] { ' ' }, true, enumRnd.UpperLowerDigitSpecial, 8, true);
         display("Random filename: " + rdnString);
       }
 
@@ -92,8 +94,18 @@ namespace ConsoleApplicationUsageDemo
       display("Backslash: " + Punctuation.Backslash);
       display("Colon: " + Punctuation.Colon);
 
+      Livre dune = new Livre();
+      dune.Auteur = "Frank Herbert";
+
       display("Press anykey to exit:");
       Console.ReadKey();
+    }
+
+    public struct Livre
+    {
+      public decimal Prix;
+      public string Titre;
+      public string Auteur;
     }
   }
 }
