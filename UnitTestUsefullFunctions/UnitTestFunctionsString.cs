@@ -10761,5 +10761,15 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
     #endregion PadLeft
+    #region HelperUsefulFunctions
+    private static void AssertListAreEqualled(List<string> result, List<string> expected)
+    {
+      Assert.AreEqual(result.Count, expected.Count);
+      for (int i = 0; i < result.Count; i++)
+      {
+        Assert.AreEqual(result[i], expected[i]);
+      }
+    }
+    #endregion HelperUsefulFunctions
   }
 }
