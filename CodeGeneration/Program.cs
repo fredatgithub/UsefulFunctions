@@ -26,9 +26,9 @@ using System.Text;
 
 namespace CodeGeneration
 {
-  class Program
+  internal class Program
   {
-    static void Main()
+    private static void Main()
     {
       Action<string> display = Console.WriteLine;
       display("Generating code for Unit tests in a file");

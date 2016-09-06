@@ -357,7 +357,11 @@ namespace FonctionsUtiles.Fred.Csharp
           return number > 1 ? "s are" : " is"; // with a space before
         case "is":
           return number > 1 ? "are" : "is"; // without a space before
+        case "are":
+          return number > 1 ? "are" : "is"; // without a space before
         case "has":
+          return number > 1 ? "have" : "has";
+        case "have":
           return number > 1 ? "have" : "has";
         case "The":
           return "The"; // CAPITAL, useful because of French plural
@@ -450,7 +454,11 @@ namespace FonctionsUtiles.Fred.Csharp
         // English
         case "is":
           return number > 1 ? "are" : "is";
+        case "are":
+          return number > 1 ? "are" : "is";
         case "has":
+          return number > 1 ? "have" : "has";
+        case "have":
           return number > 1 ? "have" : "has";
         case "The":
           return "The"; // CAPITAL, useful because of French plural
@@ -543,7 +551,11 @@ namespace FonctionsUtiles.Fred.Csharp
         // English
         case "is":
           return number > 1 ? "are" : "is";
+        case "are":
+          return number > 1 ? "are" : "is";
         case "has":
+          return number > 1 ? "have" : "has";
+        case "have":
           return number > 1 ? "have" : "has";
         case "The":
           return "The"; // CAPITAL, useful because of French plural
@@ -636,7 +648,11 @@ namespace FonctionsUtiles.Fred.Csharp
         // English
         case "is":
           return number > 1 ? "are" : "is";
+        case "are":
+          return number > 1 ? "are" : "is";
         case "has":
+          return number > 1 ? "have" : "has";
+        case "have":
           return number > 1 ? "have" : "has";
         case "The":
           return "The"; // CAPITAL, useful because of French plural
@@ -729,7 +745,11 @@ namespace FonctionsUtiles.Fred.Csharp
         // English
         case "is":
           return number > 1 ? "are" : "is";
+        case "are":
+          return number > 1 ? "are" : "is";
         case "has":
+          return number > 1 ? "have" : "has";
+        case "have":
           return number > 1 ? "have" : "has";
         case "The":
           return "The"; // CAPITAL, useful because of French plural
@@ -822,7 +842,11 @@ namespace FonctionsUtiles.Fred.Csharp
         // English
         case "is":
           return number > 1 ? "are" : "is";
+        case "are":
+          return number > 1 ? "are" : "is";
         case "has":
+          return number > 1 ? "have" : "has";
+        case "have":
           return number > 1 ? "have" : "has";
         case "The":
           return "The"; // CAPITAL, useful because of French plural
@@ -915,7 +939,11 @@ namespace FonctionsUtiles.Fred.Csharp
         // English
         case "is":
           return number > 1 ? "are" : "is";
+        case "are":
+          return number > 1 ? "are" : "is";
         case "has":
+          return number > 1 ? "have" : "has";
+        case "have":
           return number > 1 ? "have" : "has";
         case "The":
           return "The"; // CAPITAL, useful because of French plural

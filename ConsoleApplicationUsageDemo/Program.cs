@@ -24,8 +24,6 @@ using enumRnd = FonctionsUtiles.Fred.Csharp.RandomCharacters;
 using MathFunc = FonctionsUtiles.Fred.Csharp.FunctionsMath;
 using FileFunc = FonctionsUtiles.Fred.Csharp.FunctionsFiles;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 using FonctionsUtiles.Fred.Csharp;
 
 namespace ConsoleApplicationUsageDemo
