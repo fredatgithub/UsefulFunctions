@@ -47,6 +47,12 @@ namespace FluentAssertionsUnitTests
     }
 
     [Test]
+    public void Array_Should_Contain_Item_Example2()
+    {
+      new[] { 1, 2, 3 }.Should().Contain(item => item > 2, "at least {0} item should be larger than 3", 1);
+    }
+
+    [Test]
     public void Collection_Should_Have_Count_Example()
     {
       IEnumerable<int> collection = new[] { 1, 2, 3 };
