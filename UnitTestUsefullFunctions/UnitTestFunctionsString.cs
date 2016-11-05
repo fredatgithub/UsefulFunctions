@@ -5040,7 +5040,8 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "";
       const bool source2 = false;
-      var expected = new Dictionary<char, int>();
+      Dictionary<char, int> expected;
+      expected = new Dictionary<char, int>();
       var result = StringFunc.CountLetters(source, source2);
       Assert.AreEqual(result.Count, expected.Count);
     }
