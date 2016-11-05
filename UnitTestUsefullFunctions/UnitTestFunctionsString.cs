@@ -5040,8 +5040,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "";
       const bool source2 = false;
-      Dictionary<char, int> expected;
-      expected = new Dictionary<char, int>();
+      var expected = new Dictionary<char, int>();
       var result = StringFunc.CountLetters(source, source2);
       Assert.AreEqual(result.Count, expected.Count);
     }
@@ -10825,7 +10824,7 @@ namespace UnitTestUsefullFunctions
     }
     #endregion PadLeft
     #region HelperUsefulFunctions
-    private static void AssertListAreEqualled(List<string> result, List<string> expected)
+    private static void AssertListAreEqualled(IReadOnlyList<string> result, IReadOnlyList<string> expected)
     {
       Assert.AreEqual(result.Count, expected.Count);
       for (int i = 0; i < result.Count; i++)
