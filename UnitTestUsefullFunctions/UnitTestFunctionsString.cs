@@ -9752,8 +9752,70 @@ namespace UnitTestUsefullFunctions
       string result = StringFunc.AddSpaceInNumber(source);
       Assert.AreEqual(result, expected);
     }
-    // TODO write unit tests up to
-    // lon.MaxValue = 9,223,372,036,854,775,807
+
+    [TestMethod]
+    public void TestMethod_AddSpaceInNumber_value_10000000000000()
+    {
+      const long source = 10000000000000;
+      const string expected = "10 000 000 000 000";
+      string result = StringFunc.AddSpaceInNumber(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_AddSpaceInNumber_value_100000000000000()
+    {
+      const long source = 100000000000000;
+      const string expected = "100 000 000 000 000";
+      string result = StringFunc.AddSpaceInNumber(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_AddSpaceInNumber_value_1000000000000000()
+    {
+      const long source = 1000000000000000;
+      const string expected = "1 000 000 000 000 000";
+      string result = StringFunc.AddSpaceInNumber(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_AddSpaceInNumber_value_10000000000000000()
+    {
+      const long source = 10000000000000000;
+      const string expected = "10 000 000 000 000 000";
+      string result = StringFunc.AddSpaceInNumber(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_AddSpaceInNumber_value_100000000000000000()
+    {
+      const long source = 100000000000000000;
+      const string expected = "100 000 000 000 000 000";
+      string result = StringFunc.AddSpaceInNumber(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_AddSpaceInNumber_value_1000000000000000000()
+    {
+      const long source = 1000000000000000000;
+      const string expected = "1 000 000 000 000 000 000";
+      string result = StringFunc.AddSpaceInNumber(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_AddSpaceInNumber_Max_value_9223372036854775807()
+    {
+      const long source = 9223372036854775807;
+      const string expected = "9 223 372 036 854 775 807";
+      string result = StringFunc.AddSpaceInNumber(source);
+      Assert.AreEqual(result, expected);
+    }
+
     #endregion AddSpaceInNumber
     #region AddCommaInNumber
     //TODO write unit tests
@@ -10284,7 +10346,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_IsInside_string_true()
     {
       const string source1 = "time";
-      string[] source2 = {"A long long time ago in a galaxy far far away", "time", "galaxy"};
+      string[] source2 = { "A long long time ago in a galaxy far far away", "time", "galaxy" };
       const bool expected = true;
       bool result = StringFunc.IsInside(source1, source2);
       Assert.AreEqual(result, expected);
@@ -10325,7 +10387,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_IsInList_false_three_elements()
     {
       const string source1 = "times";
-      string[] source2 = { "A long long time ago in a galaxy far far away", "galaxy", "tide"};
+      string[] source2 = { "A long long time ago in a galaxy far far away", "galaxy", "tide" };
       const bool expected = false;
       bool result = StringFunc.IsInList(source1, source2);
       Assert.AreEqual(result, expected);
@@ -10402,7 +10464,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_CheckHash_false()
     {
       const string source1 = "A long long time ago in a galaxy far far away";
-      byte[] source2  = { 0, 16, 104, 213 };
+      byte[] source2 = { 0, 16, 104, 213 };
       const bool expected = false;
       bool result = StringFunc.CheckHash(source1, source2);
       Assert.AreEqual(result, expected);
@@ -10540,7 +10602,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_CountLetters_empty_source()
     {
       const string source = "";
-      int[] expected = new int[27] ;
+      int[] expected = new int[27];
       int[] result = StringFunc.CountLetters3(source);
       AssertArraysAreEqual(result, expected);
     }
