@@ -7,7 +7,6 @@ namespace CodeGeneration
   internal class CodeFile
   {
     private List<string> ListOfUsing;
-    private Dictionary<string, string> usingRequired;
     private readonly string carriageReturn = Environment.NewLine;
     private const string UsingToken = "using";
     private const string Space = " ";
@@ -15,7 +14,6 @@ namespace CodeGeneration
     private const string Systemtoken = "System";
     private const string OpenCurlyBrace = "{";
     private const string CloseCurlyBrace = "}";
-    private byte tabulation = 2;
     private const string OpenSquareBracket = "[";
     private const string CloseSquareBracket = "]";
     private const string OpenParenthesis = "(";
