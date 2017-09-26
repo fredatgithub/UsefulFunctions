@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 
 namespace FonctionsUtiles.Fred.Csharp
 {
-  class RandomStringGenerator
+  internal class RandomStringGenerator
   {
     public RandomStringGenerator(bool useUpperCaseCharacters = true,
     bool useLowerCaseCharacters = true,
