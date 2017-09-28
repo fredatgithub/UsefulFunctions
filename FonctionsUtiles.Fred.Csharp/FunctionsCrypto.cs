@@ -31,11 +31,16 @@ namespace FonctionsUtiles.Fred.Csharp
       }
     }
 
-    public static int GenerateRandomNumberUsingCrypto(int min, int max)
+    public static int GenerateRndNumberUsingCrypto(int min, int max)
     {
-      if (max >= 255 || min < 0)
+      if (max > 255 || min < 0)
       {
         return 0;
+      }
+
+      if (max == min)
+      {
+        return min;
       }
 
       int result;
@@ -45,16 +50,21 @@ namespace FonctionsUtiles.Fred.Csharp
       {
         crypto.GetBytes(randomNumber);
         result = randomNumber[0];
-      } while (result <= min || result >= max);
+      } while (result < min || result > max);
 
       return result;
     }
 
     public static int GenerateGreatRndNumberUsingCrypto(int min, int max)
     {
-      if (max >= 255 || min < 0)
+      if (max > 255 || min < 0)
       {
         return 0;
+      }
+
+      if (max == min)
+      {
+        return min;
       }
 
       int result;
@@ -64,7 +74,7 @@ namespace FonctionsUtiles.Fred.Csharp
       {
         crypto.GetBytes(randomNumber);
         result = randomNumber[0];
-      } while (result >= min || result <= max);
+      } while (result < min || result > max);
 
       return result;
     }

@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Runtime.InteropServices.ComTypes;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CryptoFunc = FonctionsUtiles.Fred.Csharp.FunctionsCrypto;
 using dllFuncs = FonctionsUtiles.Fred.Csharp;
 
@@ -82,33 +83,74 @@ namespace UnitTestUsefullFunctions
 
     #region GenerateRandomNumbers
     [TestMethod]
-    public void TestMethod_GenerateRandomNumberUsingCrypto_greater_than_1()
+    public void TestMethod_GenerateRndNumberUsingCrypto_greater_than_1()
     {
-      int result = CryptoFunc.GenerateRandomNumberUsingCrypto(1, 254);
+      int result = CryptoFunc.GenerateRndNumberUsingCrypto(1, 254);
       Assert.IsTrue(result >= 1);
-    }
-
-    [TestMethod]
-    public void TestMethod_GenerateRandomNumberUsingCrypto_lesser_than_254()
-    {
-      int result = CryptoFunc.GenerateRandomNumberUsingCrypto(1, 254);
-      Assert.IsTrue(result <= 254);
     }
 
     [TestMethod]
     public void TestMethod_GenerateRndNumberUsingCrypto_lesser_than_254()
     {
+      int result = CryptoFunc.GenerateRndNumberUsingCrypto(1, 254);
+      Assert.IsTrue(result <= 254);
+    }
+
+    [TestMethod]
+    public void TestMethod_GenerateGreatRndNumberUsingCrypto_lesser_than_254()
+    {
       int result = CryptoFunc.GenerateGreatRndNumberUsingCrypto(1, 254);
       Assert.IsTrue(result <= 254);
     }
 
     [TestMethod]
-    public void TestMethod_GenerateRndNumberUsingCrypto_greater_than_1()
+    public void TestMethod_GenerateGreatRndNumberUsingCrypto_greater_than_1()
     {
       int result = CryptoFunc.GenerateGreatRndNumberUsingCrypto(1, 254);
       Assert.IsTrue(result >= 1);
     }
 
+    [TestMethod]
+    public void TestMethod_GenerateGreatRndNumberUsingCrypto_has_1()
+    {
+      int result = CryptoFunc.GenerateGreatRndNumberUsingCrypto(1, 2);
+      Assert.IsTrue(result == 1);
+    }
+
+    [TestMethod]
+    public void TestMethod_GenerateGreatRndNumberUsingCrypto_min_equal_max()
+    {
+      int result = CryptoFunc.GenerateGreatRndNumberUsingCrypto(10, 10);
+      Assert.IsTrue(result == 10);
+    }
+
+    [TestMethod]
+    public void TestMethod_GenerateGreatRndNumberUsingCrypto_has_254()
+    {
+      int result = CryptoFunc.GenerateGreatRndNumberUsingCrypto(254, 254);
+      Assert.IsTrue(result == 254);
+    }
+
+    [TestMethod]
+    public void TestMethod_GenerateGreatRndNumberUsingCrypto_has_255()
+    {
+      int result = CryptoFunc.GenerateGreatRndNumberUsingCrypto(255, 255);
+      Assert.IsTrue(result == 255);
+    }
+
+    [TestMethod]
+    public void TestMethod_GenerateGreatRndNumberUsingCrypto_has_255_at_least_once()
+    {
+      int result = CryptoFunc.GenerateGreatRndNumberUsingCrypto(1, 255);
+      for (int i = 2; i < 100; i++)
+      {
+        result = CryptoFunc.GenerateGreatRndNumberUsingCrypto(1, i);
+        if (result == 255)
+        {
+          Assert.IsTrue(result == 255);
+        }
+      }
+    }
     #endregion GenerateRandomNumbers
 
   }

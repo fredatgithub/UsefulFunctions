@@ -83,8 +83,8 @@ namespace UnitTestUsefullFunctions
       //could be for (int i = 0; i < 10000000; i++) //but way too long
       for (int i = 0; i < 10000; i++)
       {
-        source.Add(CryptoFunc.GenerateRandomNumberUsingCrypto(1, 254));
-        expected.Add(CryptoFunc.GenerateRandomNumberUsingCrypto(1, 254));
+        source.Add(CryptoFunc.GenerateRndNumberUsingCrypto(1, 254));
+        expected.Add(CryptoFunc.GenerateRndNumberUsingCrypto(1, 254));
       }
 
       List<int> result = SortFunc.BubbleSort(source);
