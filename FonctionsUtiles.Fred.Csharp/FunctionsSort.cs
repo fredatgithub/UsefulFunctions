@@ -2,24 +2,25 @@
 
 namespace FonctionsUtiles.Fred.Csharp
 {
-  public class FunctionsSort
+  public static class FunctionsSort
   {
-    public static List<int> bubble_sort(List<int> v)
+    public static List<int> BubbleSort(List<int> myList)
     {
-      List<int> result = v;
+      List<int> result = myList;
       while (true)
       {
         bool swapped = false;
-        for (int i = 0; i < v.Count - 1; ++i)
+        for (int i = 0; i < myList.Count - 1; ++i)
         {
-          if (v[i] > v[i + 1])
+          if (myList[i] > myList[i + 1])
           {
-            int tmp = v[i];
-            v[i] = v[i + 1];
-            v[i + 1] = tmp;
+            int tmp = myList[i];
+            myList[i] = myList[i + 1];
+            myList[i + 1] = tmp;
             swapped = true;
           }
         }
+
         if (!swapped){break;}
       }
 
