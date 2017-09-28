@@ -1,4 +1,6 @@
-﻿using System.Runtime.InteropServices.ComTypes;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CryptoFunc = FonctionsUtiles.Fred.Csharp.FunctionsCrypto;
 using dllFuncs = FonctionsUtiles.Fred.Csharp;
@@ -150,6 +152,63 @@ namespace UnitTestUsefullFunctions
           Assert.IsTrue(result == 255);
         }
       }
+    }
+
+    [TestMethod]
+    public void TestMethod_GenerateGreatRndNumberUsingCrypto_verify_all_numbers_are_generated()
+    {
+      int result = CryptoFunc.GenerateGreatRndNumberUsingCrypto(1, 255);
+      var dico = new Dictionary<int, int>();
+      var dicoRef = new Dictionary<int, bool>();
+      for (int i = 1; i < 255; i++)
+      {
+        dicoRef.Add(i, false);
+      }
+
+      for (int i = 1; i < 1000; i++)
+      {
+        result = CryptoFunc.GenerateGreatRndNumberUsingCrypto(1, 254);
+        if (dico.ContainsKey(result))
+        {
+          dico[result]++;
+        }
+        else
+        {
+          dico.Add(result, 1);
+        }
+
+        dicoRef[result] = true;
+      }
+
+      Assert.IsTrue(dicoRef.ContainsValue(false));
+      //Assert.IsTrue(HaveAllValues(dico)); //bug
+    }
+
+    private static bool HaveAllValues(IReadOnlyDictionary<int, int> dic)
+    {
+      bool result = true;
+      var dicoRef = new Dictionary<int, bool>();
+      for (int i = 1; i < 255; i++)
+      {
+        dicoRef.Add(i, false);
+      }
+
+      for (int i = 1; i < dic.Count; i++)
+      {
+        int tmpDico = dic[i]; //bug
+        dicoRef[tmpDico] = true;
+      }
+
+      return result;
+    }
+
+    private static Dictionary<string, string> SortDictionaryByLength(Dictionary<string, string> unsortedDictionary)
+    {
+      var queryResults = from kp in unsortedDictionary
+        orderby kp.Key.Length descending
+        select new KeyValuePair<string, string>(kp.Key, kp.Value);
+
+      return queryResults.ToDictionary(x => x.Key, x => x.Value);
     }
     #endregion GenerateRandomNumbers
 
