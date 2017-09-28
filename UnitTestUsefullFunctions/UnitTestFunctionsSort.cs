@@ -2,6 +2,7 @@
 using System.Security.Cryptography;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SortFunc = FonctionsUtiles.Fred.Csharp.FunctionsSort;
+using CryptoFunc = FonctionsUtiles.Fred.Csharp.FunctionsCrypto;
 
 namespace UnitTestUsefullFunctions
 {
@@ -79,12 +80,11 @@ namespace UnitTestUsefullFunctions
     {
       List<int> source = new List<int>();
       List<int> expected = new List<int>();
-      RandomNumberGenerator rnd = RandomNumberGenerator.Create();
-      for (int i = 0; i < 10000000; i++)
+      //could be for (int i = 0; i < 10000000; i++) /but way too long
+      for (int i = 0; i < 10; i++)
       {
-        rnd = RandomNumberGenerator.Create();
-        source.Add(int.Parse(rnd));
-        expected.Add(i);
+        source.Add(CryptoFunc.GenerateRandomNumberUsingCrypto(1, 254));
+        expected.Add(CryptoFunc.GenerateRandomNumberUsingCrypto(1, 254));
       }
 
       List<int> result = SortFunc.BubbleSort(source);
