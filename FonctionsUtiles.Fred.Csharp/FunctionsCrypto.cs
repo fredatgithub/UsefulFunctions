@@ -48,5 +48,23 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return result;
     }
+
+    public static int GenerateGreatRndNumberUsingCrypto(int min, int max)
+    {
+      if (max >= 255)
+      {
+        return 0;
+      }
+      int result;
+      RNGCryptoServiceProvider crypto = new RNGCryptoServiceProvider();
+      byte[] randomNumber = new byte[1];
+      do
+      {
+        crypto.GetBytes(randomNumber);
+        result = randomNumber[0];
+      } while (result >= min || result <= max);
+
+      return result;
+    }
   }
 }

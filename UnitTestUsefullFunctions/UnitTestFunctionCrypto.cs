@@ -82,12 +82,32 @@ namespace UnitTestUsefullFunctions
 
     #region GenerateRandomNumbers
     [TestMethod]
-    public void TestMethod_GenerateRandomNumberUsingCrypto_between_1_and_254()
+    public void TestMethod_GenerateRandomNumberUsingCrypto_greater_than_1()
     {
       int result = CryptoFunc.GenerateRandomNumberUsingCrypto(1, 254);
       Assert.IsTrue(result >= 1);
     }
 
+    [TestMethod]
+    public void TestMethod_GenerateRandomNumberUsingCrypto_lesser_than_254()
+    {
+      int result = CryptoFunc.GenerateRandomNumberUsingCrypto(1, 254);
+      Assert.IsTrue(result <= 254);
+    }
+
+    [TestMethod]
+    public void TestMethod_GenerateRndNumberUsingCrypto_lesser_than_254()
+    {
+      int result = CryptoFunc.GenerateGreatRndNumberUsingCrypto(1, 254);
+      Assert.IsTrue(result <= 254);
+    }
+
+    [TestMethod]
+    public void TestMethod_GenerateRndNumberUsingCrypto_greater_than_1()
+    {
+      int result = CryptoFunc.GenerateGreatRndNumberUsingCrypto(1, 254);
+      Assert.IsTrue(result >= 1);
+    }
 
     #endregion GenerateRandomNumbers
 
