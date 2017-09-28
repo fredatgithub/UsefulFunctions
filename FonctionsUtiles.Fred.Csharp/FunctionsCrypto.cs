@@ -33,12 +33,13 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static int GenerateRandomNumberUsingCrypto(int min, int max)
     {
-      if (max >= 255)
+      if (max >= 255 || min < 0)
       {
         return 0;
       }
+
       int result;
-      RNGCryptoServiceProvider crypto = new RNGCryptoServiceProvider();
+      var crypto = new RNGCryptoServiceProvider();
       byte[] randomNumber = new byte[1];
       do
       {
@@ -51,12 +52,13 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static int GenerateGreatRndNumberUsingCrypto(int min, int max)
     {
-      if (max >= 255)
+      if (max >= 255 || min < 0)
       {
         return 0;
       }
+
       int result;
-      RNGCryptoServiceProvider crypto = new RNGCryptoServiceProvider();
+      var crypto = new RNGCryptoServiceProvider();
       byte[] randomNumber = new byte[1];
       do
       {

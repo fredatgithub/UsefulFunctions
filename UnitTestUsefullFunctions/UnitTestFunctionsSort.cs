@@ -80,18 +80,25 @@ namespace UnitTestUsefullFunctions
     {
       List<int> source = new List<int>();
       List<int> expected = new List<int>();
-      //could be for (int i = 0; i < 10000000; i++) /but way too long
-      for (int i = 0; i < 10; i++)
+      //could be for (int i = 0; i < 10000000; i++) //but way too long
+      for (int i = 0; i < 10000; i++)
       {
         source.Add(CryptoFunc.GenerateRandomNumberUsingCrypto(1, 254));
         expected.Add(CryptoFunc.GenerateRandomNumberUsingCrypto(1, 254));
       }
 
       List<int> result = SortFunc.BubbleSort(source);
+      bool isTheSame = true;
       for (int i = 0; i < result.Count; i++)
       {
-        Assert.AreEqual(expected[i], result[i]);
+        if (expected[i] != result[i])
+        {
+          isTheSame = false;
+          break;
+        }
       }
+
+      Assert.IsFalse(isTheSame);
     }
   }
 }
