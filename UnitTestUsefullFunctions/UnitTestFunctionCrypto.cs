@@ -1,9 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices.ComTypes;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CryptoFunc = FonctionsUtiles.Fred.Csharp.FunctionsCrypto;
-using dllFuncs = FonctionsUtiles.Fred.Csharp;
 
 namespace UnitTestUsefullFunctions
 {
@@ -115,7 +113,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_GenerateGreatRndNumberUsingCrypto_has_1()
     {
-      int result = CryptoFunc.GenerateGreatRndNumberUsingCrypto(1, 2);
+      int result = CryptoFunc.GenerateGreatRndNumberUsingCrypto(1, 1);
       Assert.IsTrue(result == 1);
     }
 

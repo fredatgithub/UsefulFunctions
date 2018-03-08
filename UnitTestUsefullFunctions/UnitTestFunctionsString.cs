@@ -1040,7 +1040,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_ReverseString_palindrome()
     {
       const string source = "laval";
-      string result = StringFunc.ReverseString2(source);
+      string result = StringFunc.ReverseString(source);
       Assert.IsTrue(result == source);
     }
 
@@ -1050,7 +1050,7 @@ namespace UnitTestUsefullFunctions
       List<string> sourceWords = new List<string> { "laval", "lol", "ete", "lieur à rueil" };
       foreach (string source in sourceWords)
       {
-        string result = StringFunc.ReverseString2(source);
+        string result = StringFunc.ReverseString(source);
         Assert.IsTrue(result == source);
       }
     }
