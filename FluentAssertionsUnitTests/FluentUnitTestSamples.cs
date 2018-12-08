@@ -1,16 +1,17 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Xml;
-using System.Xml.Linq;
-using FluentAssertions;
-using NUnit.Framework;
-
-namespace FluentAssertionsUnitTests
+﻿namespace FluentAssertionsUnitTests
 {
+  using System;
+  using System.Collections;
+  using System.Collections.Generic;
+  using System.Linq;
+  using System.Threading;
+  using System.Xml;
+  using System.Xml.Linq;
+
+  using FluentAssertions;
   using FluentAssertions.Extensions;
+
+  using NUnit.Framework;
 
   [TestFixture]
   public class FluentUnitTestSamples
