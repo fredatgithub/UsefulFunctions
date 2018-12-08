@@ -1,22 +1,31 @@
-﻿using MethodSpeedBenchmarks.Properties;
-using System;
-using System.Diagnostics;
-using System.Reflection;
-using System.Windows.Forms;
-using DateFunc = FonctionsUtiles.Fred.Csharp.FunctionsDateTime;
-using dllFunc = FonctionsUtiles.Fred.Csharp;
-using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
-
-
-namespace MethodSpeedBenchmarks
+﻿namespace MethodSpeedBenchmarks
 {
+  using System;
+  using System.Diagnostics;
+  using System.Reflection;
+  using System.Windows.Forms;
+
+  using MethodSpeedBenchmarks.Properties;
+
+  using DateFunc = FonctionsUtiles.Fred.Csharp.FunctionsDateTime;
+  using dllFunc = FonctionsUtiles.Fred.Csharp;
+  using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
+
   public partial class FormMain : Form
   {
-   // public object ComboBoxOthersMethodName { get; private set; }
-
     public FormMain()
     {
-      InitializeComponent();
+      this.InitializeComponent();
+    }
+
+    private static void FillComboBoxBenchmarkMethods(ComboBox cb)
+    {
+      cb.Items.Clear();
+      cb.Items.Add("ReverseString");
+      cb.Items.Add("ReverseString2");
+      cb.Items.Add("OppositeCase");
+      cb.Items.Add("SwapCases");
+      cb.SelectedIndex = 0;
     }
 
     private void QuitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -34,70 +43,60 @@ namespace MethodSpeedBenchmarks
     {
       Assembly assembly = Assembly.GetExecutingAssembly();
       FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
-      Text += string.Format(" V{0}.{1}.{2}.{3}", fvi.FileMajorPart, fvi.FileMinorPart, fvi.FileBuildPart, fvi.FilePrivatePart);
+      this.Text += $" V{fvi.FileMajorPart}.{fvi.FileMinorPart}.{fvi.FileBuildPart}.{fvi.FilePrivatePart}";
     }
 
     private void FormMain_Load(object sender, EventArgs e)
     {
-      DisplayTitle();
-      GetWindowValue();
-      FillComboBoxBenchmarkMethods(comboBoxBenchChooseMethod);
+      this.DisplayTitle();
+      this.GetWindowValue();
+      FillComboBoxBenchmarkMethods(this.comboBoxBenchChooseMethod);
     }
-
-    private static void FillComboBoxBenchmarkMethods(ComboBox cb)
-    {
-      cb.Items.Clear();
-      cb.Items.Add("ReverseString");
-      cb.Items.Add("ReverseString2");
-      cb.Items.Add("OppositeCase");
-      cb.Items.Add("SwapCases");
-      cb.SelectedIndex = 0;
-    }
-
+    
     private void GetWindowValue()
     {
-      Width = Settings.Default.WindowWidth;
-      Height = Settings.Default.WindowHeight;
-      Top = Settings.Default.WindowTop < 0 ? 0 : Settings.Default.WindowTop;
-      Left = Settings.Default.WindowLeft < 0 ? 0 : Settings.Default.WindowLeft;
+      this.Width = Settings.Default.WindowWidth;
+      this.Height = Settings.Default.WindowHeight;
+      this.Top = Settings.Default.WindowTop < 0 ? 0 : Settings.Default.WindowTop;
+      this.Left = Settings.Default.WindowLeft < 0 ? 0 : Settings.Default.WindowLeft;
     }
 
     private void SaveWindowValue()
     {
-      Settings.Default.WindowHeight = Height;
-      Settings.Default.WindowWidth = Width;
-      Settings.Default.WindowLeft = Left;
-      Settings.Default.WindowTop = Top;
+      Settings.Default.WindowHeight = this.Height;
+      Settings.Default.WindowWidth = this.Width;
+      Settings.Default.WindowLeft = this.Left;
+      Settings.Default.WindowTop = this.Top;
       Settings.Default.Save();
     }
 
     private void FormMainFormClosing(object sender, FormClosingEventArgs e)
     {
-      SaveWindowValue();
+      this.SaveWindowValue();
     }
 
-    private void buttonBenchStart_Click(object sender, EventArgs e)
+    private void ButtonBenchStart_Click(object sender, EventArgs e)
     {
       int iteration = 1;
-      if (!int.TryParse(textBoxBenchIteration.Text, out iteration))
+      if (!int.TryParse(this.textBoxBenchIteration.Text, out iteration))
       {
-        DisplayMessageOk("The number of iteration must be a number", "not a number", MessageBoxButtons.OK);
-        textBoxBenchIteration.Text = string.Empty;
-        textBoxBenchIteration.Focus();
+        this.DisplayMessageOk("The number of iteration must be a number", "not a number", MessageBoxButtons.OK);
+        this.textBoxBenchIteration.Text = string.Empty;
+        this.textBoxBenchIteration.Focus();
         return;
       }
 
       Stopwatch chrono = new Stopwatch();
       chrono.Start();
-      progressBarBenchmark.Visible = true;
-      progressBarBenchmark.Minimum = 0;
-      progressBarBenchmark.Maximum = iteration;
-      progressBarBenchmark.Value = progressBarBenchmark.Minimum;
-      listViewBenchmark.GridLines = true;
-      listViewBenchmark.AllowColumnReorder = true;
-      listViewBenchmark.View = View.Details;
+      this.progressBarBenchmark.Visible = true;
+      this.progressBarBenchmark.Minimum = 0;
+      this.progressBarBenchmark.Maximum = iteration;
+      this.progressBarBenchmark.Value = this.progressBarBenchmark.Minimum;
+      this.listViewBenchmark.GridLines = true;
+      this.listViewBenchmark.AllowColumnReorder = true;
+      this.listViewBenchmark.View = View.Details;
       int itemCounter = 0;
-      switch (comboBoxBenchChooseMethod.SelectedItem.ToString())
+      switch (this.comboBoxBenchChooseMethod.SelectedItem.ToString())
       {
         case "ReverseString":
           string source = "A long long time ago in a galaxy far far away";
@@ -105,15 +104,15 @@ namespace MethodSpeedBenchmarks
           for (int i = 0; i < iteration; i++)
           {
             string tmp = StringFunc.ReverseString(source);
-            progressBarBenchmark.Value = i;
+            this.progressBarBenchmark.Value = i;
           }
 
           chrono.Stop();
-          ListViewItem item = new ListViewItem(comboBoxBenchChooseMethod.SelectedItem.ToString(), itemCounter++);
+          ListViewItem item = new ListViewItem(this.comboBoxBenchChooseMethod.SelectedItem.ToString(), itemCounter++);
           item.SubItems.Add(iteration.ToString());
           item.SubItems.Add(StringFunc.NumberToEnglishWords(iteration));
           item.SubItems.Add(DateFunc.TimeSpanToLongTimeNotNull(chrono.Elapsed));
-          listViewBenchmark.Items.Add(item);
+          this.listViewBenchmark.Items.Add(item);
           break;
 
         case "ReverseString2":
@@ -122,38 +121,38 @@ namespace MethodSpeedBenchmarks
           for (int i = 0; i < iteration; i++)
           {
             string tmp2 = StringFunc.ReverseString(source2);
-            progressBarBenchmark.Value = i;
+            this.progressBarBenchmark.Value = i;
           }
 
           chrono.Stop();
-          ListViewItem item2 = new ListViewItem(comboBoxBenchChooseMethod.SelectedItem.ToString(), itemCounter++);
+          ListViewItem item2 = new ListViewItem(this.comboBoxBenchChooseMethod.SelectedItem.ToString(), itemCounter++);
           item2.SubItems.Add(iteration.ToString());
           item2.SubItems.Add(StringFunc.NumberToEnglishWords(iteration));
           item2.SubItems.Add(DateFunc.TimeSpanToLongTimeNotNull(chrono.Elapsed));
-          listViewBenchmark.Items.Add(item2);
+          this.listViewBenchmark.Items.Add(item2);
           break;
 
         case "OppositeCase":
-          //source = "A long long time ago in a galaxy far far away";
+          // source = "A long long time ago in a galaxy far far away";
           char[] noForbiddenCharacter = new char[0];
           source = StringFunc.GenerateRandomString(noForbiddenCharacter, false,
             dllFunc.RandomCharacters.UpperLowerDigitSpecial, 255);
           for (int i = 0; i < iteration; i++)
           {
             string tmp = StringFunc.OppositeCase(source);
-            progressBarBenchmark.Value = i;
+            this.progressBarBenchmark.Value = i;
           }
 
           chrono.Stop();
-          item = new ListViewItem(comboBoxBenchChooseMethod.SelectedItem.ToString(), itemCounter++);
+          item = new ListViewItem(this.comboBoxBenchChooseMethod.SelectedItem.ToString(), itemCounter++);
           item.SubItems.Add(iteration.ToString());
           item.SubItems.Add(StringFunc.NumberToEnglishWords(iteration));
           item.SubItems.Add(DateFunc.TimeSpanToLongTimeNotNull(chrono.Elapsed));
-          listViewBenchmark.Items.Add(item);
+          this.listViewBenchmark.Items.Add(item);
           break;
 
         case "SwapCases":
-          //source2 = "A long long time ago in a galaxy far far away";
+          // source2 = "A long long time ago in a galaxy far far away";
           noForbiddenCharacter = new char[0];
           source2 = StringFunc.GenerateRandomString(noForbiddenCharacter, false,
             dllFunc.RandomCharacters.UpperLowerDigitSpecial, 255);
@@ -161,20 +160,20 @@ namespace MethodSpeedBenchmarks
           for (int i = 0; i < iteration; i++)
           {
             string tmp2 = StringFunc.SwapCases(source2);
-            progressBarBenchmark.Value = i;
+            this.progressBarBenchmark.Value = i;
           }
 
           chrono.Stop();
-          item2 = new ListViewItem(comboBoxBenchChooseMethod.SelectedItem.ToString(), itemCounter++);
+          item2 = new ListViewItem(this.comboBoxBenchChooseMethod.SelectedItem.ToString(), itemCounter++);
           item2.SubItems.Add(iteration.ToString());
           item2.SubItems.Add(StringFunc.NumberToEnglishWords(iteration));
           item2.SubItems.Add(DateFunc.TimeSpanToLongTimeNotNull(chrono.Elapsed));
-          listViewBenchmark.Items.Add(item2);
+          this.listViewBenchmark.Items.Add(item2);
           break;
       }
 
-      progressBarBenchmark.Value = progressBarBenchmark.Minimum;
-      progressBarBenchmark.Visible = false;
+      this.progressBarBenchmark.Value = this.progressBarBenchmark.Minimum;
+      this.progressBarBenchmark.Visible = false;
     }
 
     private DialogResult DisplayMessage(string message, string title, MessageBoxButtons buttons)
@@ -188,20 +187,20 @@ namespace MethodSpeedBenchmarks
       MessageBox.Show(this, message, title, buttons);
     }
 
-    private void buttonBenchStartAllmethods_Click(object sender, EventArgs e)
+    private void ButtonBenchStartAllmethods_Click(object sender, EventArgs e)
     {
       for (int j = 10; j < int.MaxValue; j = j * 10)
       {
-        textBoxBenchIteration.Text = j.ToString();
-        for (int i = 0; i < comboBoxBenchChooseMethod.Items.Count; i++)
+        this.textBoxBenchIteration.Text = j.ToString();
+        for (int i = 0; i < this.comboBoxBenchChooseMethod.Items.Count; i++)
         {
-          comboBoxBenchChooseMethod.SelectedIndex = i;
-          buttonBenchStart_Click(sender, e);
+          this.comboBoxBenchChooseMethod.SelectedIndex = i;
+          this.ButtonBenchStart_Click(sender, e);
           Application.DoEvents();
         }
       }
 
-      DisplayMessageOk("All the iterations and methods have been run.", "Benchmark is over", MessageBoxButtons.OK);
+      this.DisplayMessageOk("All the iterations and methods have been run.", "Benchmark is over", MessageBoxButtons.OK);
     }
   }
 }
