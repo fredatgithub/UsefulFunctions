@@ -4,7 +4,7 @@ using Xunit;
 
 namespace XUnitTests
 {
-  class CollectionExamples
+  public class CollectionExamples
   {
     [Fact]
     public void CollectionEquality()

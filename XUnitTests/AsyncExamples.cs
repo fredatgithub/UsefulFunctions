@@ -4,7 +4,7 @@ using Xunit;
 
 namespace XUnitTests
 {
-  class AsyncExamples
+  public class AsyncExamples
   {
     [Fact]
     public async void CodeThrowsAsync()
