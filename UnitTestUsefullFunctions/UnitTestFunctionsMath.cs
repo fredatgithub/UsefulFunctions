@@ -1752,7 +1752,6 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
     #endregion IsAPowerOfTwo
-
     #region Factorization
     [TestMethod]
     public void TestMethod_Factorization_value_6()
