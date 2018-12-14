@@ -267,6 +267,35 @@ namespace FonctionsUtiles.Fred.Csharp
       return  (x != 0) && ((x & x - 1) == 0);
     }
 
+    public static List<int> Factorization(int n)
+    {
+      List<int> result = new List<int>();
+      while (n % 2 == 0)
+      {
+        result.Add(2);
+        n /= 2;
+        int m = 3;
+        while (m * m <= n)
+        {
+          if (n % m == 0)
+          {
+            result.Add(m);
+            n /= m;
+          }
+          else
+          {
+            m += 2;
+          }
+        }
 
+        if (n > 1)
+        {
+          result.Add(n);
+        }
+      }
+
+      return result;
+    }
+    
   }
 }

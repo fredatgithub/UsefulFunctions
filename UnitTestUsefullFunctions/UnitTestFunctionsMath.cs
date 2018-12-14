@@ -1752,6 +1752,30 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
     #endregion IsAPowerOfTwo
+
+    #region Factorization
+    [TestMethod]
+    public void TestMethod_Factorization_value_6()
+    {
+      const int source = 6;
+      List<int> expected = new List<int> {2, 3};
+      List<int> result = FunctionsMath.Factorization(source);
+      AssertAreEqualList(result, expected);
+    }
+
+
+    #endregion Factorization
     #endregion Math Methods
+
+    #region Unit Test Helper methods
+    public static void AssertAreEqualList(List<int> result, List<int> expected)
+    {
+      Assert.AreEqual(result.Count, expected.Count);
+      for (int i = 0; i < expected.Count; i++)
+      {
+        Assert.AreEqual(result[i], expected[i]);
+      }
+    }
+    #endregion Unit Test Helper methods
   }
 }
