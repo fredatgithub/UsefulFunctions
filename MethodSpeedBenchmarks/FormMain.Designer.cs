@@ -89,8 +89,8 @@
             this.helpToolStripMenuItem});
       this.menuStrip1.Location = new System.Drawing.Point(0, 0);
       this.menuStrip1.Name = "menuStrip1";
-      this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 3, 0, 3);
-      this.menuStrip1.Size = new System.Drawing.Size(1382, 35);
+      this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+      this.menuStrip1.Size = new System.Drawing.Size(921, 24);
       this.menuStrip1.TabIndex = 1;
       this.menuStrip1.Text = "menuStrip1";
       // 
@@ -108,7 +108,7 @@
             this.toolStripSeparator2,
             this.quitToolStripMenuItem});
       this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-      this.fileToolStripMenuItem.Size = new System.Drawing.Size(74, 29);
+      this.fileToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
       this.fileToolStripMenuItem.Text = "&Fichier";
       // 
       // newToolStripMenuItem
@@ -116,7 +116,7 @@
       this.newToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.newToolStripMenuItem.Name = "newToolStripMenuItem";
       this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-      this.newToolStripMenuItem.Size = new System.Drawing.Size(292, 30);
+      this.newToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
       this.newToolStripMenuItem.Text = "&Nouveau";
       // 
       // openToolStripMenuItem
@@ -124,57 +124,57 @@
       this.openToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.openToolStripMenuItem.Name = "openToolStripMenuItem";
       this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-      this.openToolStripMenuItem.Size = new System.Drawing.Size(292, 30);
+      this.openToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
       this.openToolStripMenuItem.Text = "&Ouvrir";
       // 
       // toolStripSeparator
       // 
       this.toolStripSeparator.Name = "toolStripSeparator";
-      this.toolStripSeparator.Size = new System.Drawing.Size(289, 6);
+      this.toolStripSeparator.Size = new System.Drawing.Size(202, 6);
       // 
       // saveToolStripMenuItem
       // 
       this.saveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
       this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-      this.saveToolStripMenuItem.Size = new System.Drawing.Size(292, 30);
+      this.saveToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
       this.saveToolStripMenuItem.Text = "&Enregistrer";
       // 
       // saveasToolStripMenuItem
       // 
       this.saveasToolStripMenuItem.Name = "saveasToolStripMenuItem";
-      this.saveasToolStripMenuItem.Size = new System.Drawing.Size(292, 30);
+      this.saveasToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
       this.saveasToolStripMenuItem.Text = "Enregistrer &sous";
       // 
       // toolStripSeparator1
       // 
       this.toolStripSeparator1.Name = "toolStripSeparator1";
-      this.toolStripSeparator1.Size = new System.Drawing.Size(289, 6);
+      this.toolStripSeparator1.Size = new System.Drawing.Size(202, 6);
       // 
       // printToolStripMenuItem
       // 
       this.printToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.printToolStripMenuItem.Name = "printToolStripMenuItem";
       this.printToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-      this.printToolStripMenuItem.Size = new System.Drawing.Size(292, 30);
+      this.printToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
       this.printToolStripMenuItem.Text = "&Imprimer";
       // 
       // printPreviewToolStripMenuItem
       // 
       this.printPreviewToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.printPreviewToolStripMenuItem.Name = "printPreviewToolStripMenuItem";
-      this.printPreviewToolStripMenuItem.Size = new System.Drawing.Size(292, 30);
+      this.printPreviewToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
       this.printPreviewToolStripMenuItem.Text = "Aperçu a&vant impression";
       // 
       // toolStripSeparator2
       // 
       this.toolStripSeparator2.Name = "toolStripSeparator2";
-      this.toolStripSeparator2.Size = new System.Drawing.Size(289, 6);
+      this.toolStripSeparator2.Size = new System.Drawing.Size(202, 6);
       // 
       // quitToolStripMenuItem
       // 
       this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-      this.quitToolStripMenuItem.Size = new System.Drawing.Size(292, 30);
+      this.quitToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
       this.quitToolStripMenuItem.Text = "&Quitter";
       this.quitToolStripMenuItem.Click += new System.EventHandler(this.QuitToolStripMenuItem_Click);
       // 
@@ -190,34 +190,34 @@
             this.toolStripSeparator4,
             this.selectAllToolStripMenuItem});
       this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-      this.editToolStripMenuItem.Size = new System.Drawing.Size(79, 29);
+      this.editToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
       this.editToolStripMenuItem.Text = "&Edition";
       // 
       // cancelToolStripMenuItem
       // 
       this.cancelToolStripMenuItem.Name = "cancelToolStripMenuItem";
       this.cancelToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-      this.cancelToolStripMenuItem.Size = new System.Drawing.Size(230, 30);
+      this.cancelToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
       this.cancelToolStripMenuItem.Text = "&Annuler";
       // 
       // redoToolStripMenuItem
       // 
       this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
       this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-      this.redoToolStripMenuItem.Size = new System.Drawing.Size(230, 30);
+      this.redoToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
       this.redoToolStripMenuItem.Text = "&Rétablir";
       // 
       // toolStripSeparator3
       // 
       this.toolStripSeparator3.Name = "toolStripSeparator3";
-      this.toolStripSeparator3.Size = new System.Drawing.Size(227, 6);
+      this.toolStripSeparator3.Size = new System.Drawing.Size(161, 6);
       // 
       // cutToolStripMenuItem
       // 
       this.cutToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
       this.cutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-      this.cutToolStripMenuItem.Size = new System.Drawing.Size(230, 30);
+      this.cutToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
       this.cutToolStripMenuItem.Text = "&Couper";
       // 
       // copyToolStripMenuItem
@@ -225,7 +225,7 @@
       this.copyToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
       this.copyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-      this.copyToolStripMenuItem.Size = new System.Drawing.Size(230, 30);
+      this.copyToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
       this.copyToolStripMenuItem.Text = "Co&pier";
       // 
       // pasteToolStripMenuItem
@@ -233,18 +233,18 @@
       this.pasteToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
       this.pasteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-      this.pasteToolStripMenuItem.Size = new System.Drawing.Size(230, 30);
+      this.pasteToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
       this.pasteToolStripMenuItem.Text = "Co&ller";
       // 
       // toolStripSeparator4
       // 
       this.toolStripSeparator4.Name = "toolStripSeparator4";
-      this.toolStripSeparator4.Size = new System.Drawing.Size(227, 6);
+      this.toolStripSeparator4.Size = new System.Drawing.Size(161, 6);
       // 
       // selectAllToolStripMenuItem
       // 
       this.selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
-      this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(230, 30);
+      this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
       this.selectAllToolStripMenuItem.Text = "Sélectio&nner tout";
       // 
       // toolsToolStripMenuItem
@@ -253,19 +253,19 @@
             this.personalizeToolStripMenuItem,
             this.optionsToolStripMenuItem});
       this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-      this.toolsToolStripMenuItem.Size = new System.Drawing.Size(70, 29);
+      this.toolsToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
       this.toolsToolStripMenuItem.Text = "&Outils";
       // 
       // personalizeToolStripMenuItem
       // 
       this.personalizeToolStripMenuItem.Name = "personalizeToolStripMenuItem";
-      this.personalizeToolStripMenuItem.Size = new System.Drawing.Size(199, 30);
+      this.personalizeToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
       this.personalizeToolStripMenuItem.Text = "&Personnaliser";
       // 
       // optionsToolStripMenuItem
       // 
       this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-      this.optionsToolStripMenuItem.Size = new System.Drawing.Size(199, 30);
+      this.optionsToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
       this.optionsToolStripMenuItem.Text = "&Options";
       // 
       // toolStripMenuItem1
@@ -274,19 +274,19 @@
             this.frenchToolStripMenuItem,
             this.englishToolStripMenuItem});
       this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-      this.toolStripMenuItem1.Size = new System.Drawing.Size(101, 29);
+      this.toolStripMenuItem1.Size = new System.Drawing.Size(71, 20);
       this.toolStripMenuItem1.Text = "Language";
       // 
       // frenchToolStripMenuItem
       // 
       this.frenchToolStripMenuItem.Name = "frenchToolStripMenuItem";
-      this.frenchToolStripMenuItem.Size = new System.Drawing.Size(159, 30);
+      this.frenchToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
       this.frenchToolStripMenuItem.Text = "Français";
       // 
       // englishToolStripMenuItem
       // 
       this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
-      this.englishToolStripMenuItem.Size = new System.Drawing.Size(159, 30);
+      this.englishToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
       this.englishToolStripMenuItem.Text = "Anglais";
       // 
       // helpToolStripMenuItem
@@ -298,36 +298,36 @@
             this.toolStripSeparator5,
             this.aboutToolStripMenuItem});
       this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-      this.helpToolStripMenuItem.Size = new System.Drawing.Size(60, 29);
+      this.helpToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
       this.helpToolStripMenuItem.Text = "&Aide";
       // 
       // summaryToolStripMenuItem
       // 
       this.summaryToolStripMenuItem.Name = "summaryToolStripMenuItem";
-      this.summaryToolStripMenuItem.Size = new System.Drawing.Size(208, 30);
+      this.summaryToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
       this.summaryToolStripMenuItem.Text = "&Sommaire";
       // 
       // indexToolStripMenuItem
       // 
       this.indexToolStripMenuItem.Name = "indexToolStripMenuItem";
-      this.indexToolStripMenuItem.Size = new System.Drawing.Size(208, 30);
+      this.indexToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
       this.indexToolStripMenuItem.Text = "&Index";
       // 
       // searchToolStripMenuItem
       // 
       this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-      this.searchToolStripMenuItem.Size = new System.Drawing.Size(208, 30);
+      this.searchToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
       this.searchToolStripMenuItem.Text = "&Rechercher";
       // 
       // toolStripSeparator5
       // 
       this.toolStripSeparator5.Name = "toolStripSeparator5";
-      this.toolStripSeparator5.Size = new System.Drawing.Size(205, 6);
+      this.toolStripSeparator5.Size = new System.Drawing.Size(144, 6);
       // 
       // aboutToolStripMenuItem
       // 
       this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-      this.aboutToolStripMenuItem.Size = new System.Drawing.Size(208, 30);
+      this.aboutToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
       this.aboutToolStripMenuItem.Text = "À &propos de...";
       this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
       // 
@@ -335,10 +335,11 @@
       // 
       this.labelBenchChooseMethod.AutoSize = true;
       this.labelBenchChooseMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.labelBenchChooseMethod.Location = new System.Drawing.Point(3, 0);
+      this.labelBenchChooseMethod.Location = new System.Drawing.Point(2, 0);
+      this.labelBenchChooseMethod.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
       this.labelBenchChooseMethod.Name = "labelBenchChooseMethod";
-      this.labelBenchChooseMethod.Padding = new System.Windows.Forms.Padding(0, 12, 0, 0);
-      this.labelBenchChooseMethod.Size = new System.Drawing.Size(92, 49);
+      this.labelBenchChooseMethod.Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
+      this.labelBenchChooseMethod.Size = new System.Drawing.Size(60, 32);
       this.labelBenchChooseMethod.TabIndex = 2;
       this.labelBenchChooseMethod.Text = "Choose Method:";
       // 
@@ -347,18 +348,20 @@
       this.comboBoxBenchChooseMethod.Dock = System.Windows.Forms.DockStyle.Fill;
       this.comboBoxBenchChooseMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.comboBoxBenchChooseMethod.FormattingEnabled = true;
-      this.comboBoxBenchChooseMethod.Location = new System.Drawing.Point(157, 3);
+      this.comboBoxBenchChooseMethod.Location = new System.Drawing.Point(105, 2);
+      this.comboBoxBenchChooseMethod.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.comboBoxBenchChooseMethod.Name = "comboBoxBenchChooseMethod";
-      this.comboBoxBenchChooseMethod.Size = new System.Drawing.Size(186, 33);
+      this.comboBoxBenchChooseMethod.Size = new System.Drawing.Size(124, 25);
       this.comboBoxBenchChooseMethod.TabIndex = 3;
       // 
       // buttonBenchStart
       // 
       this.buttonBenchStart.Dock = System.Windows.Forms.DockStyle.Fill;
       this.buttonBenchStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.buttonBenchStart.Location = new System.Drawing.Point(646, 3);
+      this.buttonBenchStart.Location = new System.Drawing.Point(431, 2);
+      this.buttonBenchStart.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.buttonBenchStart.Name = "buttonBenchStart";
-      this.buttonBenchStart.Size = new System.Drawing.Size(118, 43);
+      this.buttonBenchStart.Size = new System.Drawing.Size(79, 28);
       this.buttonBenchStart.TabIndex = 4;
       this.buttonBenchStart.Text = "Start";
       this.buttonBenchStart.UseVisualStyleBackColor = true;
@@ -368,9 +371,10 @@
       // 
       this.tableLayoutPanelBenchmark.SetColumnSpan(this.progressBarBenchmark, 6);
       this.progressBarBenchmark.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.progressBarBenchmark.Location = new System.Drawing.Point(3, 599);
+      this.progressBarBenchmark.Location = new System.Drawing.Point(2, 388);
+      this.progressBarBenchmark.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.progressBarBenchmark.Name = "progressBarBenchmark";
-      this.progressBarBenchmark.Size = new System.Drawing.Size(1376, 31);
+      this.progressBarBenchmark.Size = new System.Drawing.Size(918, 20);
       this.progressBarBenchmark.TabIndex = 6;
       this.progressBarBenchmark.Visible = false;
       // 
@@ -384,10 +388,11 @@
       this.tableLayoutPanelBenchmark.SetColumnSpan(this.listViewBenchmark, 6);
       this.listViewBenchmark.Dock = System.Windows.Forms.DockStyle.Fill;
       this.listViewBenchmark.LabelEdit = true;
-      this.listViewBenchmark.Location = new System.Drawing.Point(3, 52);
+      this.listViewBenchmark.Location = new System.Drawing.Point(2, 34);
+      this.listViewBenchmark.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.listViewBenchmark.MultiSelect = false;
       this.listViewBenchmark.Name = "listViewBenchmark";
-      this.listViewBenchmark.Size = new System.Drawing.Size(1376, 541);
+      this.listViewBenchmark.Size = new System.Drawing.Size(918, 350);
       this.listViewBenchmark.TabIndex = 7;
       this.listViewBenchmark.UseCompatibleStateImageBehavior = false;
       this.listViewBenchmark.View = System.Windows.Forms.View.List;
@@ -416,31 +421,33 @@
       // 
       this.labelBenchIteration.AutoSize = true;
       this.labelBenchIteration.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.labelBenchIteration.Location = new System.Drawing.Point(349, 0);
+      this.labelBenchIteration.Location = new System.Drawing.Point(233, 0);
+      this.labelBenchIteration.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
       this.labelBenchIteration.Name = "labelBenchIteration";
-      this.labelBenchIteration.Padding = new System.Windows.Forms.Padding(0, 12, 0, 0);
-      this.labelBenchIteration.Size = new System.Drawing.Size(95, 49);
+      this.labelBenchIteration.Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
+      this.labelBenchIteration.Size = new System.Drawing.Size(63, 32);
       this.labelBenchIteration.TabIndex = 8;
       this.labelBenchIteration.Text = "Choose iteration:";
       // 
       // textBoxBenchIteration
       // 
       this.textBoxBenchIteration.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.textBoxBenchIteration.Location = new System.Drawing.Point(517, 3);
+      this.textBoxBenchIteration.Location = new System.Drawing.Point(345, 2);
+      this.textBoxBenchIteration.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.textBoxBenchIteration.Name = "textBoxBenchIteration";
-      this.textBoxBenchIteration.Size = new System.Drawing.Size(121, 31);
+      this.textBoxBenchIteration.Size = new System.Drawing.Size(82, 23);
       this.textBoxBenchIteration.TabIndex = 9;
       this.textBoxBenchIteration.Text = "100";
       // 
       // tableLayoutPanelBenchmark
       // 
       this.tableLayoutPanelBenchmark.ColumnCount = 6;
-      this.tableLayoutPanelBenchmark.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 154F));
-      this.tableLayoutPanelBenchmark.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 192F));
-      this.tableLayoutPanelBenchmark.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 168F));
-      this.tableLayoutPanelBenchmark.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 129F));
-      this.tableLayoutPanelBenchmark.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 124F));
-      this.tableLayoutPanelBenchmark.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 615F));
+      this.tableLayoutPanelBenchmark.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 103F));
+      this.tableLayoutPanelBenchmark.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 128F));
+      this.tableLayoutPanelBenchmark.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 112F));
+      this.tableLayoutPanelBenchmark.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 86F));
+      this.tableLayoutPanelBenchmark.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 83F));
+      this.tableLayoutPanelBenchmark.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 410F));
       this.tableLayoutPanelBenchmark.Controls.Add(this.buttonBenchStartAllmethods, 5, 0);
       this.tableLayoutPanelBenchmark.Controls.Add(this.labelBenchChooseMethod, 0, 0);
       this.tableLayoutPanelBenchmark.Controls.Add(this.progressBarBenchmark, 0, 2);
@@ -450,22 +457,24 @@
       this.tableLayoutPanelBenchmark.Controls.Add(this.labelBenchIteration, 2, 0);
       this.tableLayoutPanelBenchmark.Controls.Add(this.comboBoxBenchChooseMethod, 1, 0);
       this.tableLayoutPanelBenchmark.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.tableLayoutPanelBenchmark.Location = new System.Drawing.Point(0, 35);
+      this.tableLayoutPanelBenchmark.Location = new System.Drawing.Point(0, 24);
+      this.tableLayoutPanelBenchmark.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.tableLayoutPanelBenchmark.Name = "tableLayoutPanelBenchmark";
       this.tableLayoutPanelBenchmark.RowCount = 3;
-      this.tableLayoutPanelBenchmark.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
+      this.tableLayoutPanelBenchmark.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
       this.tableLayoutPanelBenchmark.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-      this.tableLayoutPanelBenchmark.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
-      this.tableLayoutPanelBenchmark.Size = new System.Drawing.Size(1382, 633);
+      this.tableLayoutPanelBenchmark.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+      this.tableLayoutPanelBenchmark.Size = new System.Drawing.Size(921, 410);
       this.tableLayoutPanelBenchmark.TabIndex = 10;
       // 
       // buttonBenchStartAllmethods
       // 
       this.buttonBenchStartAllmethods.Dock = System.Windows.Forms.DockStyle.Fill;
       this.buttonBenchStartAllmethods.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.buttonBenchStartAllmethods.Location = new System.Drawing.Point(770, 3);
+      this.buttonBenchStartAllmethods.Location = new System.Drawing.Point(514, 2);
+      this.buttonBenchStartAllmethods.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.buttonBenchStartAllmethods.Name = "buttonBenchStartAllmethods";
-      this.buttonBenchStartAllmethods.Size = new System.Drawing.Size(609, 43);
+      this.buttonBenchStartAllmethods.Size = new System.Drawing.Size(406, 28);
       this.buttonBenchStartAllmethods.TabIndex = 10;
       this.buttonBenchStartAllmethods.Text = "Start all methods, all iterations";
       this.buttonBenchStartAllmethods.UseVisualStyleBackColor = true;
@@ -473,12 +482,13 @@
       // 
       // FormMain
       // 
-      this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+      this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(1382, 668);
+      this.ClientSize = new System.Drawing.Size(921, 434);
       this.Controls.Add(this.tableLayoutPanelBenchmark);
       this.Controls.Add(this.menuStrip1);
       this.MainMenuStrip = this.menuStrip1;
+      this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.Name = "FormMain";
       this.ShowIcon = false;
       this.Text = "Method speed benchmarks";

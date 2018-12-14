@@ -73,10 +73,12 @@ namespace ConsoleApplicationUsageDemo
       display("Backslash: " + Punctuation.Backslash);
       display("Colon: " + Punctuation.Colon);
 
-      Livre dune = new Livre();
-      dune.Auteur = "Frank Herbert";
-      dune.Prix = 20.00M;
-      dune.Titre = "Les enfants de Dune";
+      Livre dune = new Livre
+      {
+        Auteur = "Frank Herbert",
+        Prix = 20.00M,
+        Titre = "Les enfants de Dune"
+      };
 
       display("Press any key to exit:");
       Console.ReadKey();

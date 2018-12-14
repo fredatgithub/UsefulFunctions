@@ -400,7 +400,7 @@ namespace FonctionsUtiles.Fred.Csharp
       return result;
     }
     ///
-    /// The simpliest algorithm of the random string generation. It doesn't pay attention to
+    /// The simplest algorithm of the random string generation. It doesn't pay attention to
     /// limits and patterns.
     ///
     private string SimpleGenerateAlgo(int length)
