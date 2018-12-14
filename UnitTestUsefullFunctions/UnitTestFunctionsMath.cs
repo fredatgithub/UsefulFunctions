@@ -1763,6 +1763,15 @@ namespace UnitTestUsefullFunctions
       AssertAreEqualList(result, expected);
     }
 
+    [TestMethod]
+    public void TestMethod_Factorization_value_9()
+    {
+      const int source = 9;
+      List<int> expected = new List<int> { 3 };
+      List<int> result = FunctionsMath.Factorization(source);
+      AssertAreEqualList(result, expected);
+    }
+
 
     #endregion Factorization
     #endregion Math Methods
