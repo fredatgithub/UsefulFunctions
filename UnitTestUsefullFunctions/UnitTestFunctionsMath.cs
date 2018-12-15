@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
-using FonctionsUtiles.Fred.Csharp;
+﻿using FonctionsUtiles.Fred.Csharp;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
 namespace UnitTestUsefullFunctions
 {
   [TestClass]
@@ -1747,6 +1747,33 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_IsAPowerOfTwo_value_2()
     {
       const int source = 2;
+      const bool expected = true;
+      bool result = FunctionsMath.IsAPowerOfTwo(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsAPowerOfTwo_value_4()
+    {
+      const int source = 4;
+      const bool expected = true;
+      bool result = FunctionsMath.IsAPowerOfTwo(source);
+      Assert.AreEqual(result, expected);
+    }
+    
+    [TestMethod]
+    public void TestMethod_IsAPowerOfTwo_value_7()
+    {
+      const int source = 7;
+      const bool expected = false;
+      bool result = FunctionsMath.IsAPowerOfTwo(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsAPowerOfTwo_value_8()
+    {
+      const int source = 8;
       const bool expected = true;
       bool result = FunctionsMath.IsAPowerOfTwo(source);
       Assert.AreEqual(result, expected);
