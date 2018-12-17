@@ -1,6 +1,9 @@
-﻿using FonctionsUtiles.Fred.Csharp;
+﻿using System.Collections.Generic;
+
+using FonctionsUtiles.Fred.Csharp;
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
+
 namespace UnitTestUsefullFunctions
 {
   [TestClass]
@@ -1784,7 +1787,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_Factorization_value_6()
     {
       const int source = 6;
-      List<int> expected = new List<int> {2, 3};
+      List<int> expected = new List<int> { 2, 3 };
       List<int> result = FunctionsMath.Factorization(source);
       AssertAreEqualList(result, expected);
     }
@@ -1794,6 +1797,15 @@ namespace UnitTestUsefullFunctions
     {
       const int source = 9;
       List<int> expected = new List<int> { 3 };
+      List<int> result = FunctionsMath.Factorization(source);
+      AssertAreEqualList(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Factorization_value_10()
+    {
+      const int source = 9;
+      List<int> expected = new List<int> { 2, 5 };
       List<int> result = FunctionsMath.Factorization(source);
       AssertAreEqualList(result, expected);
     }
