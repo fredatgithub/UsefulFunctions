@@ -156,7 +156,7 @@ namespace FonctionsUtiles.Fred.Csharp
         ulong quintillions = (ulong)GenerateRandomNumberUsingCrypto(0, 9);
         result = hundreds * 100 + thousands * 1000 + tenOfThousands * 10000 + hundredOfThousands * 100000 + millions * 1000000 + tenOfMillions * 10000000 + hundredOfMillions * 100000000 + billions * 1 + tenOfBillions * 1 + hundredOfBillions * 1 + trillions * 1 + tenOfTrillions * 1 + hundredOfTrillions * 1 + quintillions * 1;
       } while (result >= (ulong)min && result <= (ulong)max);
-      
+
       return result;
     }
 
@@ -198,8 +198,8 @@ namespace FonctionsUtiles.Fred.Csharp
 
       var array = Enumerable.Range(min, count);
       var primes = from number in array.AsParallel()
-        where IsPrime(number)
-        select number;
+                   where IsPrime(number)
+                   select number;
       result = primes.ToList();
       return result;
     }
@@ -252,7 +252,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static int PrimeByFormula(ushort number)
     {
-      if (number > 40 )
+      if (number > 40)
       {
         return 0;
       }
@@ -264,38 +264,38 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static bool IsAPowerOfTwo(int x)
     {
-      return  (x != 0) && ((x & x - 1) == 0);
+      return (x != 0) && ((x & x - 1) == 0);
     }
 
-    public static List<int> Factorization(int n)
+    public static List<int> Factorization(int number)
     {
       List<int> result = new List<int>();
-      while (n % 2 == 0)
+      while (number % 2 == 0)
       {
         result.Add(2);
-        n /= 2;
-        int m = 3;
-        while (m * m <= n)
-        {
-          if (n % m == 0)
-          {
-            result.Add(m);
-            n /= m;
-          }
-          else
-          {
-            m += 2;
-          }
-        }
+        number /= 2;
+      }
 
-        if (n > 1)
+      int divisor = 3;
+      while (divisor * divisor <= number)
+      {
+        if (number % divisor == 0)
         {
-          result.Add(n);
+          result.Add(divisor);
+          number /= divisor;
         }
+        else
+        {
+          divisor += 2;
+        }
+      }
+
+      if (number > 1)
+      {
+        result.Add(number);
       }
 
       return result;
     }
-    
   }
 }

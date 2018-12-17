@@ -1796,7 +1796,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_Factorization_value_9()
     {
       const int source = 9;
-      List<int> expected = new List<int> { 3 };
+      List<int> expected = new List<int> { 3, 3};
       List<int> result = FunctionsMath.Factorization(source);
       AssertAreEqualList(result, expected);
     }
@@ -1804,8 +1804,17 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Factorization_value_10()
     {
-      const int source = 9;
+      const int source = 10;
       List<int> expected = new List<int> { 2, 5 };
+      List<int> result = FunctionsMath.Factorization(source);
+      AssertAreEqualList(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Factorization_value_15()
+    {
+      const int source = 15;
+      List<int> expected = new List<int> { 3, 5 };
       List<int> result = FunctionsMath.Factorization(source);
       AssertAreEqualList(result, expected);
     }
