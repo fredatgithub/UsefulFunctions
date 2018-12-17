@@ -262,9 +262,9 @@ namespace FonctionsUtiles.Fred.Csharp
 
     // TODO Ppcm and Pgcm methods to be implemented
 
-    public static bool IsAPowerOfTwo(int x)
+    public static bool IsAPowerOfTwo(int number)
     {
-      return (x != 0) && ((x & x - 1) == 0);
+      return (number != 0) && ((number & number - 1) == 0);
     }
 
     public static List<int> Factorization(int number)
