@@ -14,7 +14,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Factorial_one()
     {
-      TestFactorial(1, 1);
+      this.TestFactorial(1, 1);
     }
 
     public void TestFactorial(long numberToBeTested, long resultExpected)
@@ -413,8 +413,6 @@ namespace UnitTestUsefullFunctions
       BigInt result = FunctionsMath.Factorial(source);
       Assert.AreEqual(result, expected);
     }
-
-
 
     #endregion Math Methods - BigInt Factorial
     #endregion Math Methods - Factorial
@@ -1016,7 +1014,6 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
-
     #endregion
     #region GetListOfPrime
     [TestMethod]
@@ -1124,7 +1121,8 @@ namespace UnitTestUsefullFunctions
       List<int> result = FunctionsMath.GetListOfPrime(source1, source2);
       AssertListsAreSimilar(result, expected);
     }
-    private static void AssertListsAreEqual(List<int> result, List<int> expected)
+
+    private static void AssertListsAreEqual(IReadOnlyList<int> result, IReadOnlyList<int> expected)
     {
       Assert.AreEqual(result.Count, expected.Count);
       for (int i = 0; i < result.Count; i++)
@@ -1133,7 +1131,7 @@ namespace UnitTestUsefullFunctions
       }
     }
 
-    private static void AssertListsAreSimilar(List<int> result, List<int> expected)
+    private static void AssertListsAreSimilar(IReadOnlyCollection<int> result, ICollection<int> expected)
     {
       // similar because of a Parallel loop
       Assert.AreEqual(result.Count, expected.Count);
@@ -1359,7 +1357,7 @@ namespace UnitTestUsefullFunctions
     {
       var source1 = new List<int> { 9, 0, 8, -7, 6, -5, 4, -3, 2, 1 };
       const int source2 = 6;
-      var expected = new List<int> { 9, 8, 6, 4, 2, 1};
+      var expected = new List<int> { 9, 8, 6, 4, 2, 1 };
       var result = FunctionsMath.GetGreatests(source1, source2);
       AssertListsAreEqual(result, expected);
     }
@@ -1763,7 +1761,16 @@ namespace UnitTestUsefullFunctions
       bool result = FunctionsMath.IsAPowerOfTwo(source);
       Assert.AreEqual(result, expected);
     }
-    
+
+    [TestMethod]
+    public void TestMethod_IsAPowerOfTwo_value_6()
+    {
+      const int source = 6;
+      const bool expected = false;
+      bool result = FunctionsMath.IsAPowerOfTwo(source);
+      Assert.AreEqual(result, expected);
+    }
+
     [TestMethod]
     public void TestMethod_IsAPowerOfTwo_value_7()
     {
@@ -1781,6 +1788,25 @@ namespace UnitTestUsefullFunctions
       bool result = FunctionsMath.IsAPowerOfTwo(source);
       Assert.AreEqual(result, expected);
     }
+
+    [TestMethod]
+    public void TestMethod_IsAPowerOfTwo_value_15()
+    {
+      const int source = 15;
+      const bool expected = false;
+      bool result = FunctionsMath.IsAPowerOfTwo(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsAPowerOfTwo_value_16()
+    {
+      const int source = 16;
+      const bool expected = true;
+      bool result = FunctionsMath.IsAPowerOfTwo(source);
+      Assert.AreEqual(result, expected);
+    }
+
     #endregion IsAPowerOfTwo
     #region Factorization
     [TestMethod]
@@ -1796,7 +1822,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_Factorization_value_9()
     {
       const int source = 9;
-      List<int> expected = new List<int> { 3, 3};
+      List<int> expected = new List<int> { 3, 3 };
       List<int> result = FunctionsMath.Factorization(source);
       AssertAreEqualList(result, expected);
     }
