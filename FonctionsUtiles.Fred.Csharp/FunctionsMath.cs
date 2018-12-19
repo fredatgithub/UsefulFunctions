@@ -302,17 +302,17 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static List<int> GetDivisors(int number)
     {
-      List<int> result = new List<int> { 1, number }; // one is always divisible by 1 and itself
-      for (int i = 2; i < number; i++)
+      List<int> result = new List<int> { 1, number }; // a number is always divisible by 1 and itself
+      for (int potentialDivisor = 2; potentialDivisor < number; potentialDivisor++)
       {
-        if (number % i != 0)
+        if (number % potentialDivisor != 0)
         {
           continue;
         }
 
-        if (!result.Contains(i))
+        if (!result.Contains(potentialDivisor))
         {
-          result.Add(i);
+          result.Add(potentialDivisor);
         }
       }
 
@@ -322,7 +322,7 @@ namespace FonctionsUtiles.Fred.Csharp
     public static List<int> GetDivisorsSorted(int number)
     {
       var result1 = GetDivisors(number);
-      var result2 = result1.OrderBy(i => i).ToList();
+      var result2 = result1.OrderBy(nb => nb).ToList();
       return result2;
     }
   }
