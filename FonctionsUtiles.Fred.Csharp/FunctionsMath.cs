@@ -125,7 +125,8 @@ namespace FonctionsUtiles.Fred.Csharp
       {
         crypto.GetBytes(randomNumber);
         result = randomNumber[0];
-      } while (result <= min || result >= max);
+      }
+      while (result <= min || result >= max);
 
       return result;
     }
@@ -154,8 +155,12 @@ namespace FonctionsUtiles.Fred.Csharp
         ulong tenOfTrillions = (ulong)GenerateRandomNumberUsingCrypto(0, 9);
         ulong hundredOfTrillions = (ulong)GenerateRandomNumberUsingCrypto(0, 9);
         ulong quintillions = (ulong)GenerateRandomNumberUsingCrypto(0, 9);
-        result = hundreds * 100 + thousands * 1000 + tenOfThousands * 10000 + hundredOfThousands * 100000 + millions * 1000000 + tenOfMillions * 10000000 + hundredOfMillions * 100000000 + billions * 1 + tenOfBillions * 1 + hundredOfBillions * 1 + trillions * 1 + tenOfTrillions * 1 + hundredOfTrillions * 1 + quintillions * 1;
-      } while (result >= (ulong)min && result <= (ulong)max);
+        result = hundreds * 100 + thousands * 1000 + tenOfThousands * 10000 + hundredOfThousands * 100000
+                 + millions * 1000000 + tenOfMillions * 10000000 + hundredOfMillions * 100000000 + billions * 1
+                 + tenOfBillions * 1 + hundredOfBillions * 1 + trillions * 1 + tenOfTrillions * 1
+                 + hundredOfTrillions * 1 + quintillions * 1;
+      }
+      while (result >= (ulong)min && result <= (ulong)max);
 
       return result;
     }
@@ -197,9 +202,7 @@ namespace FonctionsUtiles.Fred.Csharp
       }
 
       var array = Enumerable.Range(min, count);
-      var primes = from number in array.AsParallel()
-                   where IsPrime(number)
-                   select number;
+      var primes = from number in array.AsParallel() where IsPrime(number) select number;
       result = primes.ToList();
       return result;
     }
@@ -313,6 +316,14 @@ namespace FonctionsUtiles.Fred.Csharp
         }
       }
 
+      return result;
+    }
+
+    public static List<int> GetDivisorsSorted(int number)
+    {
+      var result = GetDivisors(number);
+
+      // return result.ToList().Sort();
       return result;
     }
   }
