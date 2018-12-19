@@ -1862,10 +1862,31 @@ namespace UnitTestUsefullFunctions
       List<int> result = FunctionsMath.Factorization(source);
       AssertAreEqualList(result, expected);
     }
-    
+
     #endregion Factorization
     #endregion Math Methods
 
+    #region GetDivisors
+    [TestMethod]
+    public void TestMethod_GetDivisors_value_10()
+    {
+      const int source = 10;
+      List<int> expected = new List<int> { 2, 5 };
+      List<int> result = FunctionsMath.Factorization(source);
+      AssertAreEqualList(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetDivisors_value_50()
+    {
+      const int source = 50;
+      List<int> expected = new List<int> { 2, 5, 10};
+      List<int> result = FunctionsMath.Factorization(source);
+      AssertAreEqualList(result, expected);
+    }
+
+
+    #endregion
     #region Unit Test Helper methods
     public static void AssertAreEqualList(List<int> result, List<int> expected)
     {
