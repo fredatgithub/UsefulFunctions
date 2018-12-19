@@ -1893,8 +1893,36 @@ namespace UnitTestUsefullFunctions
       List<int> result = FunctionsMath.GetDivisors(source);
       AssertAreEqualList(result, expected);
     }
+    #endregion
 
+    #region GetDivisorsSorted
+    [TestMethod]
+    public void TestMethod_GetDivisorsSorted_value_10()
+    {
+      const int source = 10;
+      List<int> expected = new List<int> { 1, 2, 5, 10 };
+      List<int> result = FunctionsMath.GetDivisorsSorted(source);
+      AssertAreEqualList(result, expected);
+    }
 
+    [TestMethod]
+    public void TestMethod_GetDivisorsSorted_value_50()
+    {
+      const int source = 50;
+      List<int> expected = new List<int> { 1, 2, 5, 10, 25, 50 };
+      List<int> result = FunctionsMath.GetDivisorsSorted(source);
+      AssertAreEqualList(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetDivisorsSorted_value_100()
+    {
+      const int source = 100;
+      List<int> expected = new List<int> { 1,  2, 4, 5, 10, 20, 25, 50, 100 };
+      List<int> result = FunctionsMath.GetDivisorsSorted(source);
+      AssertAreEqualList(result, expected);
+    }
+    
     #endregion
     #region Unit Test Helper methods
     public static void AssertAreEqualList(List<int> result, List<int> expected)

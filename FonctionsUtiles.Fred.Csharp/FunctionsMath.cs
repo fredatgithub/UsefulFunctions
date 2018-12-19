@@ -321,10 +321,9 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static List<int> GetDivisorsSorted(int number)
     {
-      var result = GetDivisors(number);
-
-      // return result.ToList().Sort();
-      return result;
+      var result1 = GetDivisors(number);
+      var result2 = result1.OrderBy(i => i).ToList();
+      return result2;
     }
   }
 }
