@@ -10818,6 +10818,26 @@ namespace UnitTestUsefullFunctions
         Assert.AreEqual(result[i], expected[i]);
       }
     }
-    #endregion HelperUsefulFunctions
-  }
+        #endregion HelperUsefulFunctions
+
+        #region RemoveAccent
+        [TestMethod]
+        public void TestMethod_RemoveAccent_no_accent_english()
+        {
+            string source = "a long long time ago in a galaxy far far away";
+            string expected = "a long long time ago in a galaxy far far away";
+            string result = StringFunc.RemoveAccent(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_RemoveAccent_vowel()
+        {
+            string source = "aeiou";
+            string expected = "aeiou";
+            string result = StringFunc.RemoveAccent(source);
+            Assert.AreEqual(result, expected);
+        }
+        #endregion
+    }
 }
