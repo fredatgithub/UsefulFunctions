@@ -1942,6 +1942,15 @@ namespace UnitTestUsefullFunctions
     }
 
     [TestMethod]
+    public void TestMethod_GetDivisorsSorted_value_15()
+    {
+      const int source = 15;
+      List<int> expected = new List<int> { 1, 3, 5, 15 };
+      List<int> result = FunctionsMath.GetDivisorsSorted(source);
+      AssertAreEqualList(result, expected);
+    }
+
+    [TestMethod]
     public void TestMethod_GetDivisorsSorted_value_50()
     {
       const int source = 50;
