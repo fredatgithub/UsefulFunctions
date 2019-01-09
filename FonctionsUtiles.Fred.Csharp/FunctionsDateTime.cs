@@ -178,5 +178,21 @@ namespace FonctionsUtiles.Fred.Csharp
     {
       return time > 0;
     }
+
+    public static bool IsBissextile(DateTime theDate)
+    {
+      if (theDate.Year % 4 == 0)
+      {
+        return true;
+      }
+
+      if (theDate.Year % 100 != 0 && theDate.Year % 400 == 0)
+      {
+        return true;
+      }
+
+      return false;
+      
+    }
   }
 }
