@@ -2314,5 +2314,39 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
     #endregion DisplayElapseTime
+
+    #region Bissextile
+    //Les années bissextiles du 21ème siècle
+    //2004 - 2008 - 2012 - 2016 - 2020 - 2024 - 2028 - 2032 - 2036
+    //2040 - 2044 - 2048 - 2052 - 2056 - 2060 - 2064 - 2068 - 2072
+
+    [TestMethod]
+    public void TestMethod_Bissextile_2019()
+    {
+      DateTime source = new DateTime(2019, 1, 1);
+      const bool expected = false;
+      bool result = DateFunc.IsBissextile(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Bissextile_2008()
+    {
+      DateTime source = new DateTime(2004, 1, 1);
+      const bool expected = true;
+      bool result = DateFunc.IsBissextile(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Bissextile_2004()
+    {
+      DateTime source = new DateTime(2004, 1, 1);
+      const bool expected = true;
+      bool result = DateFunc.IsBissextile(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    #endregion
   }
 }
