@@ -2392,6 +2392,15 @@ namespace UnitTestUsefullFunctions
       bool result = DateFunc.IsBissextile(source);
       Assert.AreEqual(result, expected);
     }
+
+    [TestMethod]
+    public void TestMethod_Bissextile_2029()
+    {
+      DateTime source = new DateTime(2029, 1, 1);
+      const bool expected = false;
+      bool result = DateFunc.IsBissextile(source);
+      Assert.AreEqual(result, expected);
+    }
        
     [TestMethod]
     public void TestMethod_Bissextile_2032()
