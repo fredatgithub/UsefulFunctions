@@ -2317,7 +2317,7 @@ namespace UnitTestUsefullFunctions
 
     #region Bissextile
     //Les années bissextiles du 21ème siècle
-    //2024 - 2028 - 2032 - 2036
+    //2036
     //2040 - 2044 - 2048 - 2052 - 2056 - 2060 - 2064 - 2068 - 2072
     //2076 - 2080 - 2084 - 2088 - 2092 - 2096 - 2100
     
@@ -2392,6 +2392,16 @@ namespace UnitTestUsefullFunctions
       bool result = DateFunc.IsBissextile(source);
       Assert.AreEqual(result, expected);
     }
+       
+    [TestMethod]
+    public void TestMethod_Bissextile_2032()
+    {
+      DateTime source = new DateTime(2032, 1, 1);
+      const bool expected = true;
+      bool result = DateFunc.IsBissextile(source);
+      Assert.AreEqual(result, expected);
+    }
+
 
     #endregion
   }
