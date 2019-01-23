@@ -1987,6 +1987,7 @@ namespace UnitTestUsefullFunctions
     }
     
     #endregion
+
     #region Unit Test Helper methods
     public static void AssertAreEqualList(List<int> result, List<int> expected)
     {
