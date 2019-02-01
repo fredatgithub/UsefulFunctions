@@ -1,5 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 using DateFunc = FonctionsUtiles.Fred.Csharp.FunctionsDateTime;
 
 namespace UnitTestUsefullFunctions
@@ -165,7 +167,7 @@ namespace UnitTestUsefullFunctions
       const int second = 1000 * millisecond;
       const int minute = 60 * second;
       const int hour = 60 * minute;
-      const int source = 0 * hour + 0 * minute + 1 * second + 2 * millisecond;
+      const int source = (0 * hour) + (0 * minute) + (1 * second) + (2 * millisecond);
       const string expected = "0 hour 0 minute 1 second 2 milliseconds";
       string result = DateFunc.BuildUpTime(source);
       Assert.AreEqual(result, expected);
@@ -2120,7 +2122,8 @@ namespace UnitTestUsefullFunctions
     }
     #endregion HasMilliSeconds
     #region OutsideWeekEnd Methods
-    //**********************OutsideWeekEnd Methods***************
+
+    // **********************OutsideWeekEnd Methods***************
 
     [TestMethod]
     public void TestMethod_OutsideWeekEnd_false()
@@ -2202,7 +2205,7 @@ namespace UnitTestUsefullFunctions
 
     #endregion OutsideWeekEnd Methods
     #region IsMorning Methods
-    //**********************IsMorning Methods***************
+    // **********************IsMorning Methods***************
     [TestMethod]
     public void TestMethod_IsMorning_true()
     {
@@ -2231,7 +2234,7 @@ namespace UnitTestUsefullFunctions
     }
     #endregion IsMorning Methods
     #region IsWeekEnd Methods
-    //**********************IsWeekEnd Methods*********************
+    // **********************IsWeekEnd Methods*********************
     [TestMethod]
     public void TestMethod_IsWeekEnd_true()
     {
@@ -2316,11 +2319,10 @@ namespace UnitTestUsefullFunctions
     #endregion DisplayElapseTime
 
     #region Bissextile
-    //Les années bissextiles du 21ème siècle
-    //2036
-    //2040 - 2044 - 2048 - 2052 - 2056 - 2060 - 2064 - 2068 - 2072
-    //2076 - 2080 - 2084 - 2088 - 2092 - 2096 - 2100
-
+    // Les années bissextiles du 21ème siècle
+    // 2036
+    // 2040 - 2044 - 2048 - 2052 - 2056 - 2060 - 2064 - 2068 - 2072
+    // 2076 - 2080 - 2084 - 2088 - 2092 - 2096 - 2100
     [TestMethod]
     public void TestMethod_Bissextile_2004()
     {

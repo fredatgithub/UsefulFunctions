@@ -10,12 +10,12 @@ namespace FonctionsUtiles.Fred.Csharp
   {
     public static bool IsOutsideWeekEnd()
     {
-      return (DateTime.Now.DayOfWeek != DayOfWeek.Sunday) && (DateTime.Now.DayOfWeek != DayOfWeek.Saturday);
+      return DateTime.Now.DayOfWeek != DayOfWeek.Sunday && DateTime.Now.DayOfWeek != DayOfWeek.Saturday;
     }
 
     public static bool IsOutsideWeekEnd(DateTime dt)
     {
-      return (dt.DayOfWeek != DayOfWeek.Sunday) && (dt.DayOfWeek != DayOfWeek.Saturday);
+      return dt.DayOfWeek != DayOfWeek.Sunday && dt.DayOfWeek != DayOfWeek.Saturday;
     }
 
     public static bool IsWeekEnd()
@@ -35,13 +35,12 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static string ConvertTimeSpanToString(TimeSpan ts)
     {
-      return string.Format("{0}:{1}:{2}:{3}:{4}", ts.Days, ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds);
+      return $"{ts.Days}:{ts.Hours}:{ts.Minutes}:{ts.Seconds}:{ts.Milliseconds}";
     }
 
     public static string DisplayElapseTime(TimeSpan ts)
     {
-      return string.Format("{0:000}:{1:00}:{2:00}:{3:00}.{4:00}",
-         ts.Days, ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
+      return $"{ts.Days:000}:{ts.Hours:00}:{ts.Minutes:00}:{ts.Seconds:00}.{ts.Milliseconds / 10:00}";
     }
 
     public static string TimeSpanToLongTimeNotNull(TimeSpan timeSpan)
@@ -63,22 +62,37 @@ namespace FonctionsUtiles.Fred.Csharp
         }
       .SkipWhile(i => i.Item2 <= 0).Take(maxNrOfElements);
 
-      return string.Join(", ", parts.Select(p => string.Format(
-        "{0} {1}{2}", p.Item2, p.Item1, p.Item2 > 1 ? "s" : string.Empty)));
+      return string.Join(
+        ", ",
+        parts.Select(p => $"{p.Item2} {p.Item1}{(p.Item2 > 1 ? "s" : string.Empty)}"));
     }
 
+    /// <summary>
+    /// The date to byte array.
+    /// </summary>
     /// Convert a DateTime to the equivalent long (Win32 FileTime) byte array
-    /// <param name="date">DateTime to convert</param>
-    /// <returns>"long" byte array representing the DateTime</returns>
+    /// <param name="date">
+    /// DateTime to convert
+    /// </param>
+    /// <returns>
+    /// "long" byte array representing the DateTime
+    /// </returns>
     public static byte[] DateToByteArray(DateTime date)
     {
       long longDate = date.ToFileTime();
       return BitConverter.GetBytes(longDate);
     }
 
+    /// <summary>
+    /// The byte array to date.
+    /// </summary>
     /// Coverts a long (aka Win32 FileTime) byte array to a DateTime
-    /// <param name="bytes">Bytes to convert</param>
-    /// <returns>DateTime representation of the "long" bytes</returns>
+    /// <param name="bytes">
+    /// Bytes to convert
+    /// </param>
+    /// <returns>
+    /// DateTime representation of the "long" bytes
+    /// </returns>
     public static DateTime ByteArrayToDate(byte[] bytes)
     {
       if (bytes.Length != 8)
@@ -93,14 +107,14 @@ namespace FonctionsUtiles.Fred.Csharp
     public static double GetHoursMinutes(string hours, string minutes)
     {
       double minutesB60 = double.Parse(minutes);
-      double minutesB10 = (minutesB60 / 60);
+      double minutesB10 = minutesB60 / 60;
       var result = double.Parse(hours) + minutesB10;
       return result;
     }
 
     public static double GetHoursMinutes(int hours, int minutes)
     {
-      return hours + (double)minutes / 60;
+      return hours + ((double)minutes / 60);
     }
 
     public static string BuildUpTime(int time, bool removeZeros = false)
@@ -161,17 +175,17 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static bool HasHours(int time)
     {
-      return ((time / 3600000) > 0);
+      return time / 3600000 > 0;
     }
 
     public static bool HasMinutes(int time)
     {
-      return ((time / 60000) > 0);
+      return time / 60000 > 0;
     }
 
     public static bool HasSeconds(int time)
     {
-      return ((time / 1000) > 0);
+      return time / 1000 > 0;
     }
 
     public static bool HasMilliSeconds(int time)
@@ -192,7 +206,6 @@ namespace FonctionsUtiles.Fred.Csharp
       }
 
       return false;
-      
     }
   }
 }
