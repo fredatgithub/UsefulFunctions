@@ -200,6 +200,7 @@ namespace FonctionsUtiles.Fred.Csharp
         return true;
       }
 
+      //return theDate.Year % 100 != 0 && theDate.Year % 400 == 0;
       if (theDate.Year % 100 != 0 && theDate.Year % 400 == 0)
       {
         return true;
