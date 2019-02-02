@@ -1,0 +1,110 @@
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
+
+namespace UnitTestUsefullFunctions
+{
+  [TestClass]
+  public class UnitTestNumberOfOccurrences
+  {
+    [TestMethod]
+    public void TestMethod_NumberOfOccurrences_1()
+    {
+      const string source1 = "One";
+      const string source2 = "OneTwoThreeTwo";
+      const int expected = 1;
+      int result = StringFunc.NumberOfOccurrences(source1, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberOfOccurrences_2()
+    {
+      const string source1 = "One";
+      const string source2 = "OneTwoThreeTwoOne";
+      const int expected = 2;
+      int result = StringFunc.NumberOfOccurrences(source1, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberOfOccurrences_2_different_place()
+    {
+      const string source1 = "One";
+      const string source2 = "OneTwoOneThreeTwo";
+      const int expected = 2;
+      int result = StringFunc.NumberOfOccurrences(source1, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberOfOccurrences_3()
+    {
+      const string source1 = "One";
+      const string source2 = "OneTwoOneThreeTwoOne";
+      const int expected = 3;
+      int result = StringFunc.NumberOfOccurrences(source1, source2);
+      Assert.AreEqual(result, expected);
+    }
+    
+    [TestMethod]
+    public void TestMethod_NumberOfOccurrences_3_with_lower_case()
+    {
+      const string source1 = "One";
+      const string source2 = "oneTwooneThreeTwoone";
+      const int expected = 3;
+      int result = StringFunc.NumberOfOccurrences(source1, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberOfOccurrences_3_with_upper_and_lower_case()
+    {
+      const string source1 = "One";
+      const string source2 = "oneTwoOneThreeTwoone";
+      const int expected = 3;
+      int result = StringFunc.NumberOfOccurrences(source1, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberOfOccurrences_numbers()
+    {
+      const string source1 = "6";
+      const string source2 = "123456789OneTwoThreeFourFive";
+      const int expected = 1;
+      int result = StringFunc.NumberOfOccurrences(source1, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberOfOccurrences_ago_1()
+    {
+      const string source1 = "ago";
+      const string source2 = "a long long time ago in a galaxy far far away";
+      const int expected = 1;
+      int result = StringFunc.NumberOfOccurrences(source1, source2);
+      Assert.AreEqual(result, expected);
+    }
+    
+    [TestMethod]
+    public void TestMethod_NumberOfOccurrences_long_2()
+    {
+      const string source1 = "long";
+      const string source2 = "a long long time ago in a galaxy far far away";
+      const int expected = 2;
+      int result = StringFunc.NumberOfOccurrences(source1, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberOfOccurrences_far_2()
+    {
+      const string source1 = "far";
+      const string source2 = "a long long time ago in a galaxy far far away";
+      const int expected = 2;
+      int result = StringFunc.NumberOfOccurrences(source1, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+  }
+}
