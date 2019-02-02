@@ -106,5 +106,24 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
+    [TestMethod]
+    public void TestMethod_NumberOfOccurrences_ar_2()
+    {
+      const string source1 = "ar";
+      const string source2 = "a long long time ago in a galaxy far far away";
+      const int expected = 2;
+      int result = StringFunc.NumberOfOccurrences(source1, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberOfOccurrences_a_9()
+    {
+      const string source1 = "a";
+      const string source2 = "a long long time ago in a galaxy far far away";
+      const int expected = 9;
+      int result = StringFunc.NumberOfOccurrences(source1, source2);
+      Assert.AreEqual(result, expected);
+    }
   }
 }
