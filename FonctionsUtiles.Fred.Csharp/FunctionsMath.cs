@@ -325,5 +325,17 @@ namespace FonctionsUtiles.Fred.Csharp
       var result2 = result1.OrderBy(nb => nb).ToList();
       return result2;
     }
+
+    public static decimal ConvertDoublewith(string number)
+    {
+      //string number = "1,14535765";
+      decimal d = decimal.Parse(number, CultureInfo.GetCultureInfo("fr-FR"));
+      var clone = (CultureInfo)CultureInfo.InvariantCulture.Clone();
+      clone.NumberFormat.NumberDecimalSeparator = ",";
+      clone.NumberFormat.NumberGroupSeparator = ".";
+      //string s = "1,14535765";
+      decimal result = decimal.Parse(number, clone);
+      return result;
+    }
   }
 }
