@@ -329,13 +329,18 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static decimal ConvertDoublewithCultureInfo(string number)
     {
-      //string number = "1,14535765";
-      //decimal d = decimal.Parse(number, CultureInfo.GetCultureInfo("fr-FR"));
       var clone = (CultureInfo)CultureInfo.InvariantCulture.Clone();
       clone.NumberFormat.NumberDecimalSeparator = ",";
       clone.NumberFormat.NumberGroupSeparator = ".";
       //string s = "1,14535765";
       decimal result = decimal.Parse(number, clone);
+      return result;
+    }
+
+     public static decimal ConvertDoublewithCultureInfo2(string number)
+    {
+      //string number = "1,14535765";
+      decimal result = decimal.Parse(number, CultureInfo.GetCultureInfo("fr-FR"));
       return result;
     }
   }
