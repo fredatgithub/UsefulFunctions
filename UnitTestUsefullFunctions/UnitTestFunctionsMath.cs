@@ -1998,5 +1998,15 @@ namespace UnitTestUsefullFunctions
       }
     }
     #endregion Unit Test Helper methods
+
+    // ConvertDoublewithCultureInfo
+    [TestMethod]
+    public void TestMethod_ConvertDoublewithCultureInfo_1()
+    {
+      const string source = "1,14535765";
+      decimal expected = 1.14535765;
+      decimal result = FunctionsMath.ConvertDoublewithCultureInfo(source);
+      Assert.AreEqual(result, expected);
+    }
   }
 }
