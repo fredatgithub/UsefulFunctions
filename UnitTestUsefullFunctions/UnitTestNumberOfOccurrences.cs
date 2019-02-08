@@ -135,5 +135,15 @@ namespace UnitTestUsefullFunctions
       int result = StringFunc.NumberOfOccurrences(source1, source2);
       Assert.AreEqual(result, expected);
     }
+
+    [TestMethod]
+    public void TestMethod_NumberOfOccurrences_o_3()
+    {
+      const string source1 = "o";
+      const string source2 = "a long long time ago in a galaxy far far away";
+      const int expected = 3;
+      int result = StringFunc.NumberOfOccurrences(source1, source2);
+      Assert.AreEqual(result, expected);
+    }
   }
 }
