@@ -221,7 +221,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source1 = "h";
       const string source2 = "The quick brown fox jumps over the lazy dog";
-      const int expected = 1;
+      const int expected = 2;
       int result = StringFunc.NumberOfOccurrences(source1, source2);
       Assert.AreEqual(result, expected);
     }
