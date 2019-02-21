@@ -2324,6 +2324,15 @@ namespace UnitTestUsefullFunctions
     // 2040 - 2044 - 2048 - 2052 - 2056 - 2060 - 2064 - 2068 - 2072
     // 2076 - 2080 - 2084 - 2088 - 2092 - 2096 - 2100
     [TestMethod]
+    public void TestMethod_Bissextile_2002()
+    {
+      DateTime source = new DateTime(2002, 1, 1);
+      const bool expected = false;
+      bool result = DateFunc.IsBissextile(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
     public void TestMethod_Bissextile_2003()
     {
       DateTime source = new DateTime(2003, 1, 1);
