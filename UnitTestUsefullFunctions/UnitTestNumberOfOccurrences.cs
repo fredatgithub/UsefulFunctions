@@ -287,11 +287,21 @@ namespace UnitTestUsefullFunctions
     }
 
     [TestMethod]
-    public void TestMethod_NumberOfOccurrences_brown_fox_o_1()
+    public void TestMethod_NumberOfOccurrences_brown_fox_o_4()
     {
       const string source1 = "o";
       const string source2 = "The quick brown fox jumps over the lazy dog";
       const int expected = 4;
+      int result = StringFunc.NumberOfOccurrences(source1, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberOfOccurrences_brown_fox_p_1()
+    {
+      const string source1 = "p";
+      const string source2 = "The quick brown fox jumps over the lazy dog";
+      const int expected = 1;
       int result = StringFunc.NumberOfOccurrences(source1, source2);
       Assert.AreEqual(result, expected);
     }
