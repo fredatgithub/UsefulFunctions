@@ -265,6 +265,7 @@ namespace FonctionsUtiles.Fred.Csharp
     }
 
     // TODO Ppcm and Pgcm methods to be implemented
+    // const EstPuissanceDe2 = x => x !== 0 && (x & x-1) === 0;
     public static bool IsAPowerOfTwo(int number)
     {
       return (number != 0) && ((number & number - 1) == 0);
