@@ -556,5 +556,19 @@ namespace FonctionsUtiles.Fred.Csharp
       (character >= 0xE000 && character <= 0xFFFD)   ||
       (character >= 0x10000 && character <= 0x10FFFF);
     }
+    
+     public static List<string> GetFilesFileteredBySize(DirectoryInfo directoryInfo, long sizeGreaterOrEqualTo)
+    {
+      List<string> result = new List<string>();
+      foreach (FileInfo fileInfo in directoryInfo.GetFiles())
+      {
+        if (fileInfo.Length >= sizeGreaterOrEqualTo)
+        {
+          result.Add(fileInfo.FullName);
+        }
+      }
+
+      return result;
+    }
   }
 }
