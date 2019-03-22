@@ -328,9 +328,9 @@ namespace FonctionsUtiles.Fred.Csharp
         {
           try
           {
-            foreach (string muster in pattern)
+            foreach (string file in pattern)
             {
-              foreach (var fi in di.ProgDir.EnumerateFiles(muster, SearchOption.AllDirectories))
+              foreach (var fi in di.ProgDir.EnumerateFiles(file, SearchOption.AllDirectories))
               {
                 try
                 {
