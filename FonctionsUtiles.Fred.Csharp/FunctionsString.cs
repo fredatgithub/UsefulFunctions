@@ -3499,5 +3499,20 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return (inString.Length - inString.ToLower().Replace(searchedString.ToLower(), "").Length) / searchedString.Length;
     }
+
+    public static int GetPositionOfString(string[] oneArray, string stringToSearch)
+    {
+      int result = -1; // -1 for no result
+      for (int i = 0; i < oneArray.Length; i++)
+      {
+        if (oneArray[i] == stringToSearch)
+        {
+          result = i;
+          break;
+        }
+      }
+
+      return result;
+    }
   }
 }

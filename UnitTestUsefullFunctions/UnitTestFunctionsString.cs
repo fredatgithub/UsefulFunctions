@@ -1,11 +1,11 @@
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Security.Cryptography;
 using System.Text;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
 using dllFuncs = FonctionsUtiles.Fred.Csharp;
+using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
 
 namespace UnitTestUsefullFunctions
 {
@@ -10818,26 +10818,106 @@ namespace UnitTestUsefullFunctions
         Assert.AreEqual(result[i], expected[i]);
       }
     }
-        #endregion HelperUsefulFunctions
+    #endregion HelperUsefulFunctions
 
-        #region RemoveAccent
-        [TestMethod]
-        public void TestMethod_RemoveAccent_no_accent_english()
-        {
-            string source = "a long long time ago in a galaxy far far away";
-            string expected = "a long long time ago in a galaxy far far away";
-            string result = StringFunc.RemoveAccent(source);
-            Assert.AreEqual(result, expected);
-        }
-
-        [TestMethod]
-        public void TestMethod_RemoveAccent_vowel()
-        {
-            string source = "aeiou";
-            string expected = "aeiou";
-            string result = StringFunc.RemoveAccent(source);
-            Assert.AreEqual(result, expected);
-        }
-        #endregion
+    #region RemoveAccent
+    [TestMethod]
+    public void TestMethod_RemoveAccent_no_accent_english()
+    {
+      string source = "a long long time ago in a galaxy far far away";
+      string expected = "a long long time ago in a galaxy far far away";
+      string result = StringFunc.RemoveAccent(source);
+      Assert.AreEqual(result, expected);
     }
+
+    [TestMethod]
+    public void TestMethod_RemoveAccent_vowel()
+    {
+      string source = "aeiou";
+      string expected = "aeiou";
+      string result = StringFunc.RemoveAccent(source);
+      Assert.AreEqual(result, expected);
+    }
+    #endregion
+    [TestMethod]
+    public void TestMethod_GetPositionOfString_1()
+    {
+      string[] source = { "a", "long" };
+      string source2 = "long";
+      int expected = 1;
+      int result = StringFunc.GetPositionOfString(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetPositionOfString_0()
+    {
+      string[] source = { "a", "long" };
+      string source2 = "a";
+      int expected = 0;
+      int result = StringFunc.GetPositionOfString(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetPositionOfString_not_found()
+    {
+      string[] source = { "a", "long" };
+      string source2 = "time";
+      int expected = -1;
+      int result = StringFunc.GetPositionOfString(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetPositionOfString_2()
+    {
+      string[] source = { "a", "long", "time" };
+      string source2 = "time";
+      int expected = 2;
+      int result = StringFunc.GetPositionOfString(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetPositionOfString_3()
+    {
+      string[] source = { "a", "long", "time", "ago" };
+      string source2 = "ago";
+      int expected = 3;
+      int result = StringFunc.GetPositionOfString(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetPositionOfString_1_double()
+    {
+      string[] source = { "a", "long", "long", "time", "ago" };
+      string source2 = "long";
+      int expected = 1;
+      int result = StringFunc.GetPositionOfString(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+
+    [TestMethod]
+    public void TestMethod_GetPositionOfString_10()
+    {
+      string[] source = { "a", "long", "long", "time", "ago", "in", "a", "galaxy", "far", "far", "away" };
+      string source2 = "away";
+      int expected = 10;
+      int result = StringFunc.GetPositionOfString(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetPositionOfString_8()
+    {
+      string[] source = { "a", "long", "long", "time", "ago", "in", "a", "galaxy", "far", "far", "away" };
+      string source2 = "far";
+      int expected = 8;
+      int result = StringFunc.GetPositionOfString(source, source2);
+      Assert.AreEqual(result, expected);
+    }
+  }
 }
