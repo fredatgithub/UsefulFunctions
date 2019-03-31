@@ -52,6 +52,7 @@
     <Compile Include="FunctionsFiles.cs" />
     <Compile Include="FunctionsInternet.cs" />
     <Compile Include="FunctionsMath.cs" />
+    <Compile Include="FunctionsPrimes.cs" />
     <Compile Include="FunctionsSort.cs" />
     <Compile Include="FunctionsString.cs" />
     <Compile Include="FunctionsDateTime.cs" />

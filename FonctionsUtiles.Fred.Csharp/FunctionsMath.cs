@@ -6,7 +6,7 @@ using System.Security.Cryptography;
 
 namespace FonctionsUtiles.Fred.Csharp
 {
-  public class FunctionsMath
+  public static class FunctionsMath
   {
     public static long Factorial(long x)
     {
