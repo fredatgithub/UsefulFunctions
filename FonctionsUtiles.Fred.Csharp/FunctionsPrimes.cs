@@ -33,6 +33,28 @@ namespace FonctionsUtiles.Fred.Csharp
       return result;
     }
 
+    public static Dictionary<int, int> NumberOfPrimesByNthHundred(int number, int nth = 100)
+    {
+      Dictionary<int, int> result = new Dictionary<int, int>();
+      for (int i = 2; i <= number; i++)
+      {
+        if (FunctionsMath.IsPrime(i))
+        {
+          int index = (Math.Abs(i / nth) + 1) * nth;
+          if (result.ContainsKey(index))
+          {
+            result[index]++;
+          }
+          else
+          {
+            result.Add(index, 1);
+          }
+        }
+      }
+
+      return result;
+    }
+
     public static Dictionary<int, int> NumberOfPrimesByHundred(int number)
     {
       Dictionary<int, int> result = new Dictionary<int, int>();
