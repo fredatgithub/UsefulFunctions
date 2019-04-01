@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.539
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionsUseful.Fred.Csharp", "FonctionsUtiles.Fred.Csharp\FunctionsUseful.Fred.Csharp.csproj", "{DB97A281-2E4E-4C5C-B7B1-24F7167792D4}"
 EndProject
@@ -20,6 +20,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormApplicationUsageDemo", "WinFormApplicationUsageDemo\WinFormApplicationUsageDemo.csproj", "{52356A81-4025-4E07-A0F1-2D9748E1476E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XUnitTests", "XUnitTests\XUnitTests.csproj", "{92E97B44-5DD3-4CDC-8468-6A2559E5E71B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppPrimesByHundred", "ConsoleAppPrimesByHundred\ConsoleAppPrimesByHundred.csproj", "{EA169A13-ED42-43B8-ADB9-BA1F89070440}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,8 +65,15 @@ Global
 		{92E97B44-5DD3-4CDC-8468-6A2559E5E71B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92E97B44-5DD3-4CDC-8468-6A2559E5E71B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92E97B44-5DD3-4CDC-8468-6A2559E5E71B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA169A13-ED42-43B8-ADB9-BA1F89070440}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA169A13-ED42-43B8-ADB9-BA1F89070440}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA169A13-ED42-43B8-ADB9-BA1F89070440}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA169A13-ED42-43B8-ADB9-BA1F89070440}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0DC96F60-3D64-4CA3-B385-62922C066474}
 	EndGlobalSection
 EndGlobal
