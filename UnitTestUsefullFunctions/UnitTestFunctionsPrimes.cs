@@ -78,7 +78,7 @@ namespace UnitTestUsefullFunctions
         return false;
       }
 
-      foreach (var keyValuePair in source)
+      foreach (KeyValuePair<int, int> keyValuePair in source)
       {
         if (keyValuePair.Value == target[keyValuePair.Key])
         {
