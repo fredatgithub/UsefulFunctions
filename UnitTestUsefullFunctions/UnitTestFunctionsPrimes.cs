@@ -1,6 +1,7 @@
 ﻿using FonctionsUtiles.Fred.Csharp;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace UnitTestUsefullFunctions
 {
@@ -70,7 +71,43 @@ namespace UnitTestUsefullFunctions
       Assert.IsTrue(AssertDictionaryAreEqualed(result, expected));
     }
 
-    public static bool AssertDictionaryAreEqualed(Dictionary<int, int> source, Dictionary<int, int> target)
+    [TestMethod]
+    public void TestMethod_NumberOfPrimesByHundred_200()
+    {
+      const int source = 200;
+      Dictionary<int, int> expected = new Dictionary<int, int> { { 100, 25 }, { 200, 21 } };
+      Dictionary<int, int> result = FunctionsPrimes.NumberOfPrimesByHundred(source);
+      Assert.IsTrue(AssertDictionaryAreEqualed(result, expected));
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberOfPrimesByHundred_300()
+    {
+      const int source = 300;
+      Dictionary<int, int> expected = new Dictionary<int, int> { { 100, 25 }, { 200, 21 }, { 300, 16 } };
+      Dictionary<int, int> result = FunctionsPrimes.NumberOfPrimesByHundred(source);
+      Assert.IsTrue(AssertDictionaryAreEqualed(result, expected));
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberOfPrimesByHundred_400()
+    {
+      const int source = 400;
+      Dictionary<int, int> expected = new Dictionary<int, int> { { 100, 25 }, { 200, 21 }, { 300, 16 }, { 400, 16 } };
+      Dictionary<int, int> result = FunctionsPrimes.NumberOfPrimesByHundred(source);
+      Assert.IsTrue(AssertDictionaryAreEqualed(result, expected));
+    }
+
+    [TestMethod]
+    public void TestMethod_NumberOfPrimesByHundred_500()
+    {
+      const int source = 500;
+      Dictionary<int, int> expected = new Dictionary<int, int> { { 100, 25 }, { 200, 21 }, { 300, 16 }, { 400, 16 }, { 500, 17 } };
+      Dictionary<int, int> result = FunctionsPrimes.NumberOfPrimesByHundred(source);
+      Assert.IsTrue(AssertDictionaryAreEqualed(result, expected));
+    }
+
+    public bool AssertDictionaryAreEqualed(Dictionary<int, int> source, Dictionary<int, int> target)
     {
       bool result = true;
       if (source.Count != target.Count)
@@ -78,16 +115,22 @@ namespace UnitTestUsefullFunctions
         return false;
       }
 
-      foreach (KeyValuePair<int, int> keyValuePair in source)
+      foreach (var key in source.Keys)
       {
-        if (keyValuePair.Value == target[keyValuePair.Key])
+        if (!source[key].Equals(target[key]))
         {
           result = false;
           break;
         }
       }
-      
+
       return result;
+    }
+
+    [TestMethod]
+    public void TestMethod_GetAbsoluteValues()
+    {
+      Dictionary<int, int> source = FunctionsPrimes.GetAbsoluteValues();
     }
 
     public static bool AssertListAreEqualed(List<int> source, List<int> target)

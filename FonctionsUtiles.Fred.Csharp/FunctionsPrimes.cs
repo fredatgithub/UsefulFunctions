@@ -40,7 +40,7 @@ namespace FonctionsUtiles.Fred.Csharp
       {
         if (FunctionsMath.IsPrime(i))
         {
-          int index = Math.Abs(number / 100) * 100;
+          int index = (Math.Abs(i / 100) + 1) * 100;
           if (result.ContainsKey(index))
           {
             result[index]++;
@@ -49,6 +49,25 @@ namespace FonctionsUtiles.Fred.Csharp
           {
             result.Add(index, 1);
           }
+        }
+      }
+
+      return result;
+    }
+
+    public static Dictionary<int, int> GetAbsoluteValues()
+    {
+      Dictionary<int, int> result = new Dictionary<int, int>();
+      for (int i = 0; i < 300; i++)
+      {
+        int index = (Math.Abs(i / 100) + 1) * 100;
+        if (result.ContainsKey(index))
+        {
+          result[index]++;
+        }
+        else
+        {
+          result.Add(index, 1);
         }
       }
 
