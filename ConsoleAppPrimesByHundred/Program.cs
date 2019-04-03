@@ -9,12 +9,12 @@ namespace ConsoleAppPrimesByHundred
     {
       Action<string> display = Console.WriteLine;
       display("Prime numbers by hundred:");
-      foreach (var kvp in FunctionsPrimes.NumberOfPrimesByHundred(int.MaxValue))
+      foreach (var kvp in FunctionsPrimes.NumberOfPrimesByHundred(1000))
       {
         display($"{kvp.Key} - {kvp.Value}");
       }
 
-      foreach (var kvp in FunctionsPrimes.NumberOfPrimesByNthHundred(1000, 1000))
+      foreach (var kvp in FunctionsPrimes.NumberOfPrimesByNthHundred(9000, 1000))
       {
         display($"{kvp.Key} - {kvp.Value}");
       }
