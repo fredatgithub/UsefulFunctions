@@ -14,6 +14,9 @@ namespace ConsoleAppPrimesByHundred
         display($"{kvp.Key} - {kvp.Value}");
       }
 
+      display(string.Empty);
+      display("Prime numbers by thousand:");
+      display(string.Empty);
       foreach (var kvp in FunctionsPrimes.NumberOfPrimesByNthHundred(9000, 1000))
       {
         display($"{kvp.Key} - {kvp.Value}");
