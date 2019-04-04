@@ -116,6 +116,15 @@ namespace UnitTestUsefullFunctions
       Assert.IsTrue(AssertDictionaryAreEqualed(result, expected));
     }
 
+    [TestMethod]
+    public void TestMethod_NumberOfPrimesByHundred_700()
+    {
+      const int source = 700;
+      Dictionary<int, int> expected = new Dictionary<int, int> { { 100, 25 }, { 200, 21 }, { 300, 16 }, { 400, 16 }, { 500, 17 }, { 600, 14 }, { 700, 16 } };
+      Dictionary<int, int> result = FunctionsPrimes.NumberOfPrimesByHundred(source);
+      Assert.IsTrue(AssertDictionaryAreEqualed(result, expected));
+    }
+
     public bool AssertDictionaryAreEqualed(Dictionary<int, int> source, Dictionary<int, int> target)
     {
       bool result = true;
