@@ -342,10 +342,67 @@ namespace FonctionsUtiles.Fred.Csharp
       return result;
     }
 
-     public static decimal ConvertDoublewithCultureInfo2(string number)
+    public static decimal ConvertDoublewithCultureInfo2(string number)
     {
       //string number = "1,14535765";
       decimal result = decimal.Parse(number, CultureInfo.GetCultureInfo("fr-FR"));
+      return result;
+    }
+
+    public static int[] RepartitionDizaineTirage(int[] tirage)
+    {
+      int[] result = new int[tirage.Length];
+      for (int i = 0; i < tirage.Length; i++)
+      {
+        result[i] = 0;
+      }
+
+      foreach (var number in result)
+      {
+        switch (number)
+        {
+          case int _ when number < 10:
+            result[0]++;
+            break;
+          case int _ when number >= 10 && number <= 19:
+            result[1]++;
+            break;
+          case int _ when number >= 20 && number <= 29:
+            result[2]++;
+            break;
+          case int _ when number >= 30 && number <= 39:
+            result[3]++;
+            break;
+          case int _ when number >= 40:
+            result[4]++;
+            break;
+        }
+      }
+
+      return result;
+    }
+
+    public static int Dizaine(int nombre)
+    {
+      int result = 0;
+      result = Math.Abs(nombre / 10);
+      if (nombre == 50)
+      {
+        result = 4;
+      }
+
+      return result;
+    }
+
+    public static int Hundred(int number)
+    {
+      int result = 0;
+      result = Math.Abs(number / 10);
+      if (number == 50)
+      {
+        result = 4;
+      }
+
       return result;
     }
   }
