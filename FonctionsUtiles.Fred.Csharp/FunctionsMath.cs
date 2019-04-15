@@ -112,8 +112,8 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return startNumber + SommielleRecursive(startNumber + 1, endNumber);
     }
-
     public static int GenerateRandomNumberUsingCrypto(int min, int max)
+
     {
       if (max >= 255)
       {

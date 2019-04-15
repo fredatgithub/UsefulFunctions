@@ -95,5 +95,44 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return result;
     }
+
+    public static bool IsItTwinPrime(int number)
+    {
+      return FunctionsMath.IsPrime(number) && FunctionsMath.IsPrime(number + 2);
+    }
+
+    public static List<int> GetTwinPrimeBefore(int number)
+    {
+      List<int> result = new List<int>();
+      if (number <= 2)
+      {
+        return result;
+      }
+
+      result.Add(2);
+      result.Add(3);
+      if (number <= 3)
+      {
+        return result;
+      }
+
+      result.Add(5);
+      result.Add(7);
+      if (number <= 7)
+      {
+        return result;
+      }
+
+      for (int i = 7; i <= number; i++)
+      {
+        if (IsItTwinPrime(number))
+        {
+          result.Add(number);
+          result.Add(number + 2);
+        }
+      }
+
+      return result;
+    }
   }
 }
