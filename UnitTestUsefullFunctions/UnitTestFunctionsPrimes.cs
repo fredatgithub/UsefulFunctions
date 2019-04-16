@@ -1,7 +1,6 @@
 ﻿using FonctionsUtiles.Fred.Csharp;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace UnitTestUsefullFunctions
 {
@@ -11,10 +10,10 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_GetPrimesBefore_18()
     {
-      //const int source = 18;
-      //List<int> expected = new List<int> { 2, 3, 5, 7, 11, 13, 17 };
-      //List<int> result = FunctionsPrimes.GetPrimesBefore(source);
-      //Assert.IsTrue(AssertListAreEqualed(result, expected));
+      const int source = 18;
+      List<int> expected = new List<int> { 2, 3, 5, 7, 11, 13, 17 };
+      List<int> result = FunctionsPrimes.GetPrimesBefore(source);
+      Assert.IsTrue(AssertListAreEqualed(result, expected));
     }
 
     [TestMethod]

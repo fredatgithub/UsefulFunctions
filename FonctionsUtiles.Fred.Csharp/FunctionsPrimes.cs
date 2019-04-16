@@ -24,9 +24,9 @@ namespace FonctionsUtiles.Fred.Csharp
       List<int> result = new List<int>();
       for (int i = 2; i <= number; i++)
       {
-        if (FunctionsMath.IsPrime(number))
+        if (FunctionsMath.IsPrime(i))
         {
-          result.Add(number);
+          result.Add(i);
         }
       }
 
@@ -96,7 +96,7 @@ namespace FonctionsUtiles.Fred.Csharp
       return result;
     }
 
-    public static bool IsItTwinPrime(int number)
+    public static bool IsTwinPrime(int number)
     {
       return FunctionsMath.IsPrime(number) && FunctionsMath.IsPrime(number + 2);
     }
@@ -125,7 +125,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       for (int i = 7; i <= number; i++)
       {
-        if (IsItTwinPrime(number))
+        if (IsTwinPrime(number))
         {
           result.Add(number);
           result.Add(number + 2);
