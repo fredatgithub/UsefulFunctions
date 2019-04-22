@@ -357,51 +357,51 @@ namespace FonctionsUtiles.Fred.Csharp
         result[i] = 0;
       }
 
-      foreach (var number in result)
-      {
-        if (number < 10)
-        {
-          result[0]++;
-        }
-        else if (number >= 10 && number <= 19)
-        {
-          result[1]++;
-        }
-        else if (number >= 20 && number <= 29)
-        {
-          result[2]++;
-        }
-        else if (number >= 30 && number <= 39)
-        {
-          result[3]++;
-        }
-        else
-        {
-          result[4]++;
-        }
-      }
-
       //foreach (var number in result)
       //{
-      //  switch (number)
+      //  if (number < 10)
       //  {
-      //    case int _ when number < 10:
-      //      result[0]++;
-      //      break;
-      //    case int _ when number >= 10 && number <= 19:
-      //      result[1]++;
-      //      break;
-      //    case int _ when number >= 20 && number <= 29:
-      //      result[2]++;
-      //      break;
-      //    case int _ when number >= 30 && number <= 39:
-      //      result[3]++;
-      //      break;
-      //    case int _ when number >= 40:
-      //      result[4]++;
-      //      break;
+      //    result[0]++;
+      //  }
+      //  else if (number >= 10 && number <= 19)
+      //  {
+      //    result[1]++;
+      //  }
+      //  else if (number >= 20 && number <= 29)
+      //  {
+      //    result[2]++;
+      //  }
+      //  else if (number >= 30 && number <= 39)
+      //  {
+      //    result[3]++;
+      //  }
+      //  else
+      //  {
+      //    result[4]++;
       //  }
       //}
+
+      foreach (var number in result)
+      {
+        switch (number)
+        {
+          case int _ when number < 10:
+            result[0]++;
+            break;
+          case int _ when number >= 10 && number <= 19:
+            result[1]++;
+            break;
+          case int _ when number >= 20 && number <= 29:
+            result[2]++;
+            break;
+          case int _ when number >= 30 && number <= 39:
+            result[3]++;
+            break;
+          case int _ when number >= 40:
+            result[4]++;
+            break;
+        }
+      }
 
       return result;
     }
