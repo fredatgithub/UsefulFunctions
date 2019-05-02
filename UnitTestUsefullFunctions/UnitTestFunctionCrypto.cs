@@ -1,6 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using CryptoFunc = FonctionsUtiles.Fred.Csharp.FunctionsCrypto;
 
 namespace UnitTestUsefullFunctions
@@ -209,6 +211,18 @@ namespace UnitTestUsefullFunctions
       return queryResults.ToDictionary(x => x.Key, x => x.Value);
     }
     #endregion GenerateRandomNumbers
+    #region ComputeHash
+    [TestMethod]
+    public void TestMethod_ComputeHashSha1_message_1()
+    {
+
+      const string source2 = "message to be hashed";
+      byte[] source = Encoding.UTF8.GetBytes(source2);
+      string expected = "0LphvbcxA1NOTk55HDb91Mop6tE=";
+      byte[] result = CryptoFunc.ComputeHashSha1(source);
+      Assert.AreEqual(Convert.ToBase64String(result), expected);
+    }
+    #endregion
 
   }
 }
