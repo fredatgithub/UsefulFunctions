@@ -215,13 +215,27 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_ComputeHashSha1_message_1()
     {
-
       const string source2 = "message to be hashed";
       byte[] source = Encoding.UTF8.GetBytes(source2);
       string expected = "0LphvbcxA1NOTk55HDb91Mop6tE=";
       byte[] result = CryptoFunc.ComputeHashSha1(source);
       Assert.AreEqual(Convert.ToBase64String(result), expected);
     }
+    #endregion
+
+    #region HMAC
+    [TestMethod]
+    public void TestMethod_ComputeHmacSha1_message_1()
+    {
+      //const string source2 = "message to be hashed";
+      //byte[] source = Encoding.UTF8.GetBytes(source2);
+      //byte[] key = CryptoFunc.GenerateKey();
+      //string expected = "IzRHG+QzlFxtU2KhlxtdnAH6/c0=";
+      //byte[] result = CryptoFunc.ComputeHmacSha1(source, key);
+      //Assert.AreEqual(Convert.ToBase64String(result), expected);
+    }
+
+
     #endregion
 
   }

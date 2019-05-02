@@ -120,5 +120,47 @@ namespace FonctionsUtiles.Fred.Csharp
         return md5.ComputeHash(toBeHashed);
       }
     }
+
+    public static byte[] ComputeHmacSha256(byte[] toBeHashed, byte[] key)
+    {
+      using (var hmac = new HMACSHA256(key))
+      {
+        return hmac.ComputeHash(toBeHashed);
+      }
+    }
+
+    public static byte[] ComputeHmacSha1(byte[] toBeHashed, byte[] key)
+    {
+      using (var hmac = new HMACSHA1(key))
+      {
+        return hmac.ComputeHash(toBeHashed);
+      }
+    }
+
+    public static byte[] ComputeHmacSha512(byte[] toBeHashed, byte[] key)
+    {
+      using (var hmac = new HMACSHA512(key))
+      {
+        return hmac.ComputeHash(toBeHashed);
+      }
+    }
+
+    public static byte[] ComputeHmacMd5(byte[] toBeHashed, byte[] key)
+    {
+      using (var hmac = new HMACMD5(key))
+      {
+        return hmac.ComputeHash(toBeHashed);
+      }
+    }
+
+    public static byte[] GenerateKey(int keySize = 32)
+    {
+      using (var randomNumberGenerator = new RNGCryptoServiceProvider())
+      {
+        byte[] randomNumber = new byte[keySize];
+        randomNumberGenerator.GetBytes(randomNumber);
+        return randomNumber;
+      }
+    }
   }
 }
