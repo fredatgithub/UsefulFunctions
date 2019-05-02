@@ -221,6 +221,26 @@ namespace UnitTestUsefullFunctions
       byte[] result = CryptoFunc.ComputeHashSha1(source);
       Assert.AreEqual(Convert.ToBase64String(result), expected);
     }
+
+    [TestMethod]
+    public void TestMethod_ComputeHashSha1_message_a()
+    {
+      const string source2 = "a";
+      byte[] source = Encoding.UTF8.GetBytes(source2);
+      string expected = "hvfkN/qlp/zhXR3cuerq6jd2Z7g=";
+      byte[] result = CryptoFunc.ComputeHashSha1(source);
+      Assert.AreEqual(Convert.ToBase64String(result), expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ComputeHashSha1_message_b()
+    {
+      const string source2 = "b";
+      byte[] source = Encoding.UTF8.GetBytes(source2);
+      string expected = "6dcfXufJLW3J6S/9rRe4vUlBj5g=";
+      byte[] result = CryptoFunc.ComputeHashSha1(source);
+      Assert.AreEqual(Convert.ToBase64String(result), expected);
+    }
     #endregion
 
     #region HMAC
