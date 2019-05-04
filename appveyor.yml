@@ -10,7 +10,8 @@
  
 # build platform, i.e. x86, x64, Any CPU. This setting is optional.
 #platform: Any CPU
-#image: Visual studio 2017
+image:
+  Visual studio 2017
 # to add several platforms to build matrix:
 platform:
 #  - x86
@@ -66,3 +67,4 @@ build:
 
 # to disable automatic tests 
 test: off
+
