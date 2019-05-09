@@ -26,13 +26,15 @@
     [Test]
     public void Array_Should_Contain_Item_Example()
     {
-      new[] { 1, 2, 3 }.Should().Contain(item => item > 1, "at least {0} item should be larger than 3", 1);
+      int[] result = new[] { 1, 2, 3 };
+      result.Should().Contain(item => item > 1, "at least {0} item should be larger than 3", 1);
     }
 
     [Test]
     public void Array_Should_Contain_Item_Example2()
     {
-      new[] { 1, 2, 3 }.Should().Contain(item => item > 2, "at least {0} item should be larger than 3", 1);
+      int[] result = new[] { 1, 2, 3 };
+      result.Should().Contain(item => item > 2, "at least {0} item should be larger than 3", 1);
     }
 
     [Test]
