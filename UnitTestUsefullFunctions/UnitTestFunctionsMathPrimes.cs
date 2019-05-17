@@ -1,757 +1,766 @@
-﻿using System.Collections.Generic;
-using FonctionsUtiles.Fred.Csharp;
+﻿using FonctionsUtiles.Fred.Csharp;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
 
 namespace UnitTestUsefullFunctions
 {
-  [TestClass]
-  public class UnitTestFunctionsMathPrimes
-  {
-    #region Math Methods
-    #region IsPrime
-    [TestMethod]
-    public void TestMethod_IsPrime_0()
-    {
-      const int source = 0;
-      const bool expected = false;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_1()
-    {
-      const int source = 1;
-      const bool expected = false;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_2()
-    {
-      const int source = 2;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_3()
-    {
-      const int source = 3;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_4()
-    {
-      const int source = 4;
-      const bool expected = false;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_5()
-    {
-      const int source = 5;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_6()
-    {
-      const int source = 6;
-      const bool expected = false;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_7()
-    {
-      const int source = 7;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_8()
-    {
-      const int source = 8;
-      const bool expected = false;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_9()
-    {
-      const int source = 9;
-      const bool expected = false;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_10()
-    {
-      const int source = 10;
-      const bool expected = false;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_11()
-    {
-      const int source = 11;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_12()
-    {
-      const int source = 12;
-      const bool expected = false;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_13()
-    {
-      const int source = 13;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_14()
-    {
-      const int source = 14;
-      const bool expected = false;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_15()
-    {
-      const int source = 15;
-      const bool expected = false;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_16()
-    {
-      const int source = 16;
-      const bool expected = false;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_17()
-    {
-      const int source = 17;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_18()
-    {
-      const int source = 18;
-      const bool expected = false;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_19()
-    {
-      const int source = 19;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_20()
-    {
-      const int source = 20;
-      const bool expected = false;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_21()
-    {
-      const int source = 21;
-      const bool expected = false;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_22()
-    {
-      const int source = 22;
-      const bool expected = false;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_23()
-    {
-      const int source = 23;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_24()
-    {
-      const int source = 24;
-      const bool expected = false;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_25()
-    {
-      const int source = 25;
-      const bool expected = false;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_26()
-    {
-      const int source = 26;
-      const bool expected = false;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_27()
-    {
-      const int source = 27;
-      const bool expected = false;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_28()
-    {
-      const int source = 28;
-      const bool expected = false;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_29()
-    {
-      const int source = 29;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_30()
-    {
-      const int source = 30;
-      const bool expected = false;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_31()
-    {
-      const int source = 31;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_37()
-    {
-      const int source = 37;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_41()
-    {
-      const int source = 41;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_43()
-    {
-      const int source = 43;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_47()
-    {
-      const int source = 47;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_53()
-    {
-      const int source = 53;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_59()
-    {
-      const int source = 59;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_61()
-    {
-      const int source = 61;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_67()
-    {
-      const int source = 67;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_71()
-    {
-      const int source = 71;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_73()
-    {
-      const int source = 73;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_79()
-    {
-      const int source = 79;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_83()
-    {
-      const int source = 83;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_89()
-    {
-      const int source = 89;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_97()
-    {
-      const int source = 97;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_101()
-    {
-      const int source = 101;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_103()
-    {
-      const int source = 103;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_107()
-    {
-      const int source = 107;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_109()
-    {
-      const int source = 109;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_113()
-    {
-      const int source = 113;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_127()
-    {
-      const int source = 127;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_131()
-    {
-      const int source = 131;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_137()
-    {
-      const int source = 137;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_139()
-    {
-      const int source = 139;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_149()
-    {
-      const int source = 149;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_151()
-    {
-      const int source = 151;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_157()
-    {
-      const int source = 157;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_163()
-    {
-      const int source = 163;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_167()
-    {
-      const int source = 167;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_173()
-    {
-      const int source = 173;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_179()
-    {
-      const int source = 179;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_181()
-    {
-      const int source = 181;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_191()
-    {
-      const int source = 191;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_193()
-    {
-      const int source = 193;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_197()
-    {
-      const int source = 197;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_199()
-    {
-      const int source = 199;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_211()
-    {
-      const int source = 211;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_223()
-    {
-      const int source = 223;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_227()
-    {
-      const int source = 227;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_229()
-    {
-      const int source = 229;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_233()
-    {
-      const int source = 233;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_239()
-    {
-      const int source = 239;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_241()
-    {
-      const int source = 241;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_IsPrime_251()
-    {
-      const int source = 251;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    /*  Add unit test
-    De 101 à 200:
-    101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199
-    De 201 à 300:
-    211, 223, 227, 229, 233, 239, 241, 251, 257, 263, 269, 271, 277, 281, 283, 293
-    De 301 à 400:
-    307, 311, 313, 317, 331, 337, 347, 349, 353, 359, 367, 373, 379, 383, 389, 397
-    De 401 à 500:
-    401, 409, 419, 421, 431, 433, 439, 443, 449, 457, 461, 463, 467, 479, 487, 491, 499
-    De 501 à 600:
-    503, 509, 521, 523, 541, 547, 557, 563, 569, 571, 577, 587, 593, 599
-    De 601 à 700:
-    601, 607, 613, 617, 619, 631, 641, 643, 647, 653, 659, 661, 673, 677, 683, 691
-    De 701 à 800:
-    701, 709, 719, 727, 733, 739, 743, 751, 757, 761, 769, 773, 787, 797
-    De 801 à 900:
-    809, 811, 821, 823, 827, 829, 839, 853, 857, 859, 863, 877, 881, 883, 887
-    De 901 à 1000:
-    907, 911, 919, 929, 937, 941, 947, 953, 967, 971, 977, 983, 991, 997
-    */
-
-    [TestMethod]
-    public void TestMethod_IsPrime_Int_MaxValue()
-    {
-      const int source = 2147483647;
-      const bool expected = true;
-      bool result = FunctionsMath.IsPrime(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    #endregion
-    #region GetListOfPrime
-    [TestMethod]
-    public void TestMethod_GetListOfPrime_4_numbers()
-    {
-      const int source1 = 2;
-      const int source2 = 10;
-      var expected = new List<int> { 2, 3, 5, 7 };
-      List<int> result = FunctionsMath.GetListOfPrime(source1, source2 - source1);
-      AssertListsAreSimilar(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_GetListOfPrime_none()
-    {
-      const int source1 = 32;
-      const int source2 = 5;
-      var expected = new List<int>();
-      List<int> result = FunctionsMath.GetListOfPrime(source1, source2);
-      AssertListsAreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_GetListOfPrime_until_100()
-    {
-      const int source1 = 2;
-      const int source2 = 100;
-      var expected = new List<int> { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97 };
-      List<int> result = FunctionsMath.GetListOfPrime(source1, source2 - source1);
-      AssertListsAreSimilar(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_GetListOfPrime_until_7919()
-    {
-      const int source1 = 2;
-      const int source2 = 7919;
-      var expected = new List<int>
+    [TestClass]
+    public class UnitTestFunctionsMathPrimes
+    {
+        #region Math Methods
+        #region IsPrime
+        [TestMethod]
+        public void TestMethod_IsPrime_0()
+        {
+            const int source = 0;
+            const bool expected = false;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_1()
+        {
+            const int source = 1;
+            const bool expected = false;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_2()
+        {
+            const int source = 2;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_3()
+        {
+            const int source = 3;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_4()
+        {
+            const int source = 4;
+            const bool expected = false;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_5()
+        {
+            const int source = 5;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_6()
+        {
+            const int source = 6;
+            const bool expected = false;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_7()
+        {
+            const int source = 7;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_8()
+        {
+            const int source = 8;
+            const bool expected = false;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_9()
+        {
+            const int source = 9;
+            const bool expected = false;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_10()
+        {
+            const int source = 10;
+            const bool expected = false;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_11()
+        {
+            const int source = 11;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_12()
+        {
+            const int source = 12;
+            const bool expected = false;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_13()
+        {
+            const int source = 13;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_14()
+        {
+            const int source = 14;
+            const bool expected = false;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_15()
+        {
+            const int source = 15;
+            const bool expected = false;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_16()
+        {
+            const int source = 16;
+            const bool expected = false;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_17()
+        {
+            const int source = 17;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_18()
+        {
+            const int source = 18;
+            const bool expected = false;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_19()
+        {
+            const int source = 19;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_20()
+        {
+            const int source = 20;
+            const bool expected = false;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_21()
+        {
+            const int source = 21;
+            const bool expected = false;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_22()
+        {
+            const int source = 22;
+            const bool expected = false;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_23()
+        {
+            const int source = 23;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_24()
+        {
+            const int source = 24;
+            const bool expected = false;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_25()
+        {
+            const int source = 25;
+            const bool expected = false;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_26()
+        {
+            const int source = 26;
+            const bool expected = false;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_27()
+        {
+            const int source = 27;
+            const bool expected = false;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_28()
+        {
+            const int source = 28;
+            const bool expected = false;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_29()
+        {
+            const int source = 29;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_30()
+        {
+            const int source = 30;
+            const bool expected = false;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_31()
+        {
+            const int source = 31;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_37()
+        {
+            const int source = 37;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_41()
+        {
+            const int source = 41;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_43()
+        {
+            const int source = 43;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_47()
+        {
+            const int source = 47;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_53()
+        {
+            const int source = 53;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_59()
+        {
+            const int source = 59;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_61()
+        {
+            const int source = 61;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_67()
+        {
+            const int source = 67;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_71()
+        {
+            const int source = 71;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_73()
+        {
+            const int source = 73;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_79()
+        {
+            const int source = 79;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_83()
+        {
+            const int source = 83;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_89()
+        {
+            const int source = 89;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_97()
+        {
+            const int source = 97;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_101()
+        {
+            const int source = 101;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_103()
+        {
+            const int source = 103;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_107()
+        {
+            const int source = 107;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_109()
+        {
+            const int source = 109;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_113()
+        {
+            const int source = 113;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_127()
+        {
+            const int source = 127;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_131()
+        {
+            const int source = 131;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_137()
+        {
+            const int source = 137;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_139()
+        {
+            const int source = 139;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_149()
+        {
+            const int source = 149;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_151()
+        {
+            const int source = 151;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_157()
+        {
+            const int source = 157;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_163()
+        {
+            const int source = 163;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_167()
+        {
+            const int source = 167;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_173()
+        {
+            const int source = 173;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_179()
+        {
+            const int source = 179;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_181()
+        {
+            const int source = 181;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_191()
+        {
+            const int source = 191;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_193()
+        {
+            const int source = 193;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_197()
+        {
+            const int source = 197;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_199()
+        {
+            const int source = 199;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_211()
+        {
+            const int source = 211;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_223()
+        {
+            const int source = 223;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_227()
+        {
+            const int source = 227;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_229()
+        {
+            const int source = 229;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_233()
+        {
+            const int source = 233;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_239()
+        {
+            const int source = 239;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_241()
+        {
+            const int source = 241;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_251()
+        {
+            const int source = 251;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_IsPrime_257()
+        {
+            const int source = 257;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        /*  Add unit test
+        De 101 à 200:
+        101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199
+        De 201 à 300:
+        211, 223, 227, 229, 233, 239, 241, 251, 257, 263, 269, 271, 277, 281, 283, 293
+        De 301 à 400:
+        307, 311, 313, 317, 331, 337, 347, 349, 353, 359, 367, 373, 379, 383, 389, 397
+        De 401 à 500:
+        401, 409, 419, 421, 431, 433, 439, 443, 449, 457, 461, 463, 467, 479, 487, 491, 499
+        De 501 à 600:
+        503, 509, 521, 523, 541, 547, 557, 563, 569, 571, 577, 587, 593, 599
+        De 601 à 700:
+        601, 607, 613, 617, 619, 631, 641, 643, 647, 653, 659, 661, 673, 677, 683, 691
+        De 701 à 800:
+        701, 709, 719, 727, 733, 739, 743, 751, 757, 761, 769, 773, 787, 797
+        De 801 à 900:
+        809, 811, 821, 823, 827, 829, 839, 853, 857, 859, 863, 877, 881, 883, 887
+        De 901 à 1000:
+        907, 911, 919, 929, 937, 941, 947, 953, 967, 971, 977, 983, 991, 997
+        */
+
+        [TestMethod]
+        public void TestMethod_IsPrime_Int_MaxValue()
+        {
+            const int source = 2147483647;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        #endregion
+        #region GetListOfPrime
+        [TestMethod]
+        public void TestMethod_GetListOfPrime_4_numbers()
+        {
+            const int source1 = 2;
+            const int source2 = 10;
+            var expected = new List<int> { 2, 3, 5, 7 };
+            List<int> result = FunctionsMath.GetListOfPrime(source1, source2 - source1);
+            AssertListsAreSimilar(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_GetListOfPrime_none()
+        {
+            const int source1 = 32;
+            const int source2 = 5;
+            var expected = new List<int>();
+            List<int> result = FunctionsMath.GetListOfPrime(source1, source2);
+            AssertListsAreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_GetListOfPrime_until_100()
+        {
+            const int source1 = 2;
+            const int source2 = 100;
+            var expected = new List<int> { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97 };
+            List<int> result = FunctionsMath.GetListOfPrime(source1, source2 - source1);
+            AssertListsAreSimilar(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_GetListOfPrime_until_7919()
+        {
+            const int source1 = 2;
+            const int source2 = 7919;
+            var expected = new List<int>
       {
         2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97,
         101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193,
@@ -818,413 +827,413 @@ namespace UnitTestUsefullFunctions
         7649, 7669, 7673, 7681, 7687, 7691, 7699, 7703, 7717, 7723, 7727, 7741, 7753, 7757, 7759,
         7789, 7793, 7817, 7823, 7829, 7841, 7853, 7867, 7873, 7877, 7879, 7883, 7901, 7907, 7919
       };
-      List<int> result = FunctionsMath.GetListOfPrime(source1, source2);
-      AssertListsAreSimilar(result, expected);
+            List<int> result = FunctionsMath.GetListOfPrime(source1, source2);
+            AssertListsAreSimilar(result, expected);
+        }
+
+        private static void AssertListsAreEqual(IReadOnlyList<int> result, IReadOnlyList<int> expected)
+        {
+            Assert.AreEqual(result.Count, expected.Count);
+            for (int i = 0; i < result.Count; i++)
+            {
+                Assert.AreEqual(result[i], expected[i]);
+            }
+        }
+
+        private static void AssertListsAreSimilar(IReadOnlyCollection<int> result, ICollection<int> expected)
+        {
+            // similar because of a Parallel loop
+            Assert.AreEqual(result.Count, expected.Count);
+            foreach (int item in result)
+            {
+                Assert.IsTrue(expected.Contains(item));
+            }
+        }
+
+        #endregion
+        #region PrimeByFormula
+        [TestMethod]
+        public void TestMethod_PrimeByFormula_0()
+        {
+            const ushort source = 0;
+            const int expected = 41;
+            int result = FunctionsMath.PrimeByFormula(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_PrimeByFormula_1()
+        {
+            const ushort source = 1;
+            const int expected = 41;
+            int result = FunctionsMath.PrimeByFormula(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_PrimeByFormula_2()
+        {
+            const ushort source = 2;
+            const int expected = 43;
+            int result = FunctionsMath.PrimeByFormula(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_PrimeByFormula_3()
+        {
+            const ushort source = 3;
+            const int expected = 47;
+            int result = FunctionsMath.PrimeByFormula(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_PrimeByFormula_value_4()
+        {
+            const ushort source = 4;
+            const int expected = 53;
+            int result = FunctionsMath.PrimeByFormula(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_PrimeByFormula_value_5()
+        {
+            const ushort source = 5;
+            const int expected = 61;
+            int result = FunctionsMath.PrimeByFormula(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_PrimeByFormula_value_6()
+        {
+            const ushort source = 6;
+            const int expected = 71;
+            int result = FunctionsMath.PrimeByFormula(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_PrimeByFormula_value_7()
+        {
+            const ushort source = 7;
+            const int expected = 83;
+            int result = FunctionsMath.PrimeByFormula(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_PrimeByFormula_value_8()
+        {
+            const ushort source = 8;
+            const int expected = 97;
+            int result = FunctionsMath.PrimeByFormula(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_PrimeByFormula_value_9()
+        {
+            const ushort source = 9;
+            const int expected = 113;
+            int result = FunctionsMath.PrimeByFormula(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_PrimeByFormula_value_10()
+        {
+            const ushort source = 10;
+            const int expected = 131;
+            int result = FunctionsMath.PrimeByFormula(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_PrimeByFormula_value_11()
+        {
+            const ushort source = 11;
+            const int expected = 151;
+            int result = FunctionsMath.PrimeByFormula(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_PrimeByFormula_value_12()
+        {
+            const ushort source = 12;
+            const int expected = 173;
+            int result = FunctionsMath.PrimeByFormula(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_PrimeByFormula_value_13()
+        {
+            const ushort source = 13;
+            const int expected = 197;
+            int result = FunctionsMath.PrimeByFormula(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_PrimeByFormula_value_14()
+        {
+            const ushort source = 14;
+            const int expected = 223;
+            int result = FunctionsMath.PrimeByFormula(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_PrimeByFormula_value_15()
+        {
+            const ushort source = 15;
+            const int expected = 251;
+            int result = FunctionsMath.PrimeByFormula(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_PrimeByFormula_value_16()
+        {
+            const ushort source = 16;
+            const int expected = 281;
+            int result = FunctionsMath.PrimeByFormula(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_PrimeByFormula_value_17()
+        {
+            const ushort source = 17;
+            const int expected = 313;
+            int result = FunctionsMath.PrimeByFormula(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_PrimeByFormula_value_18()
+        {
+            const ushort source = 18;
+            const int expected = 347;
+            int result = FunctionsMath.PrimeByFormula(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_PrimeByFormula_value_19()
+        {
+            const ushort source = 19;
+            const int expected = 383;
+            int result = FunctionsMath.PrimeByFormula(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_PrimeByFormula_value_20()
+        {
+            const ushort source = 20;
+            const int expected = 421;
+            int result = FunctionsMath.PrimeByFormula(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_PrimeByFormula_value_21()
+        {
+            const ushort source = 21;
+            const int expected = 461;
+            int result = FunctionsMath.PrimeByFormula(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_PrimeByFormula_value_22()
+        {
+            const ushort source = 22;
+            const int expected = 503;
+            int result = FunctionsMath.PrimeByFormula(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_PrimeByFormula_value_23()
+        {
+            const ushort source = 23;
+            const int expected = 547;
+            int result = FunctionsMath.PrimeByFormula(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_PrimeByFormula_value_24()
+        {
+            const ushort source = 24;
+            const int expected = 593;
+            int result = FunctionsMath.PrimeByFormula(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_PrimeByFormula_value_25()
+        {
+            const ushort source = 25;
+            const int expected = 641;
+            int result = FunctionsMath.PrimeByFormula(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_PrimeByFormula_value_26()
+        {
+            const ushort source = 26;
+            const int expected = 691;
+            int result = FunctionsMath.PrimeByFormula(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_PrimeByFormula_value_27()
+        {
+            const ushort source = 27;
+            const int expected = 743;
+            int result = FunctionsMath.PrimeByFormula(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_PrimeByFormula_value_28()
+        {
+            const ushort source = 28;
+            const int expected = 797;
+            int result = FunctionsMath.PrimeByFormula(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_PrimeByFormula_value_29()
+        {
+            const ushort source = 29;
+            const int expected = 853;
+            int result = FunctionsMath.PrimeByFormula(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_PrimeByFormula_value_30()
+        {
+            const ushort source = 30;
+            const int expected = 911;
+            int result = FunctionsMath.PrimeByFormula(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_PrimeByFormula_value_31()
+        {
+            const ushort source = 31;
+            const int expected = 971;
+            int result = FunctionsMath.PrimeByFormula(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_PrimeByFormula_value_32()
+        {
+            const ushort source = 32;
+            const int expected = 1033;
+            int result = FunctionsMath.PrimeByFormula(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_PrimeByFormula_value_33()
+        {
+            const ushort source = 33;
+            const int expected = 1097;
+            int result = FunctionsMath.PrimeByFormula(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_PrimeByFormula_value_34()
+        {
+            const ushort source = 34;
+            const int expected = 1163;
+            int result = FunctionsMath.PrimeByFormula(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_PrimeByFormula_value_35()
+        {
+            const ushort source = 35;
+            const int expected = 1231;
+            int result = FunctionsMath.PrimeByFormula(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_PrimeByFormula_value_36()
+        {
+            const ushort source = 36;
+            const int expected = 1301;
+            int result = FunctionsMath.PrimeByFormula(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_PrimeByFormula_value_37()
+        {
+            const ushort source = 37;
+            const int expected = 1373;
+            int result = FunctionsMath.PrimeByFormula(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_PrimeByFormula_value_38()
+        {
+            const ushort source = 38;
+            const int expected = 1447;
+            int result = FunctionsMath.PrimeByFormula(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_PrimeByFormula_value_39()
+        {
+            const ushort source = 39;
+            const int expected = 1523;
+            int result = FunctionsMath.PrimeByFormula(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod]
+        public void TestMethod_PrimeByFormula_value_40()
+        {
+            const ushort source = 40;
+            const int expected = 1601;
+            int result = FunctionsMath.PrimeByFormula(source);
+            Assert.AreEqual(result, expected);
+        }
+
+        #endregion PrimeByFormula
+        #endregion Math Methods
+
+        #region Unit Test Helper methods
+        public static void AssertAreEqualList(List<int> result, List<int> expected)
+        {
+            Assert.AreEqual(result.Count, expected.Count);
+            for (int i = 0; i < expected.Count; i++)
+            {
+                Assert.AreEqual(result[i], expected[i]);
+            }
+        }
+        #endregion Unit Test Helper methods
+
     }
-
-    private static void AssertListsAreEqual(IReadOnlyList<int> result, IReadOnlyList<int> expected)
-    {
-      Assert.AreEqual(result.Count, expected.Count);
-      for (int i = 0; i < result.Count; i++)
-      {
-        Assert.AreEqual(result[i], expected[i]);
-      }
-    }
-
-    private static void AssertListsAreSimilar(IReadOnlyCollection<int> result, ICollection<int> expected)
-    {
-      // similar because of a Parallel loop
-      Assert.AreEqual(result.Count, expected.Count);
-      foreach (int item in result)
-      {
-        Assert.IsTrue(expected.Contains(item));
-      }
-    }
-
-    #endregion
-    #region PrimeByFormula
-    [TestMethod]
-    public void TestMethod_PrimeByFormula_0()
-    {
-      const ushort source = 0;
-      const int expected = 41;
-      int result = FunctionsMath.PrimeByFormula(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_PrimeByFormula_1()
-    {
-      const ushort source = 1;
-      const int expected = 41;
-      int result = FunctionsMath.PrimeByFormula(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_PrimeByFormula_2()
-    {
-      const ushort source = 2;
-      const int expected = 43;
-      int result = FunctionsMath.PrimeByFormula(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_PrimeByFormula_3()
-    {
-      const ushort source = 3;
-      const int expected = 47;
-      int result = FunctionsMath.PrimeByFormula(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_PrimeByFormula_value_4()
-    {
-      const ushort source = 4;
-      const int expected = 53;
-      int result = FunctionsMath.PrimeByFormula(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_PrimeByFormula_value_5()
-    {
-      const ushort source = 5;
-      const int expected = 61;
-      int result = FunctionsMath.PrimeByFormula(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_PrimeByFormula_value_6()
-    {
-      const ushort source = 6;
-      const int expected = 71;
-      int result = FunctionsMath.PrimeByFormula(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_PrimeByFormula_value_7()
-    {
-      const ushort source = 7;
-      const int expected = 83;
-      int result = FunctionsMath.PrimeByFormula(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_PrimeByFormula_value_8()
-    {
-      const ushort source = 8;
-      const int expected = 97;
-      int result = FunctionsMath.PrimeByFormula(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_PrimeByFormula_value_9()
-    {
-      const ushort source = 9;
-      const int expected = 113;
-      int result = FunctionsMath.PrimeByFormula(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_PrimeByFormula_value_10()
-    {
-      const ushort source = 10;
-      const int expected = 131;
-      int result = FunctionsMath.PrimeByFormula(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_PrimeByFormula_value_11()
-    {
-      const ushort source = 11;
-      const int expected = 151;
-      int result = FunctionsMath.PrimeByFormula(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_PrimeByFormula_value_12()
-    {
-      const ushort source = 12;
-      const int expected = 173;
-      int result = FunctionsMath.PrimeByFormula(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_PrimeByFormula_value_13()
-    {
-      const ushort source = 13;
-      const int expected = 197;
-      int result = FunctionsMath.PrimeByFormula(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_PrimeByFormula_value_14()
-    {
-      const ushort source = 14;
-      const int expected = 223;
-      int result = FunctionsMath.PrimeByFormula(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_PrimeByFormula_value_15()
-    {
-      const ushort source = 15;
-      const int expected = 251;
-      int result = FunctionsMath.PrimeByFormula(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_PrimeByFormula_value_16()
-    {
-      const ushort source = 16;
-      const int expected = 281;
-      int result = FunctionsMath.PrimeByFormula(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_PrimeByFormula_value_17()
-    {
-      const ushort source = 17;
-      const int expected = 313;
-      int result = FunctionsMath.PrimeByFormula(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_PrimeByFormula_value_18()
-    {
-      const ushort source = 18;
-      const int expected = 347;
-      int result = FunctionsMath.PrimeByFormula(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_PrimeByFormula_value_19()
-    {
-      const ushort source = 19;
-      const int expected = 383;
-      int result = FunctionsMath.PrimeByFormula(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_PrimeByFormula_value_20()
-    {
-      const ushort source = 20;
-      const int expected = 421;
-      int result = FunctionsMath.PrimeByFormula(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_PrimeByFormula_value_21()
-    {
-      const ushort source = 21;
-      const int expected = 461;
-      int result = FunctionsMath.PrimeByFormula(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_PrimeByFormula_value_22()
-    {
-      const ushort source = 22;
-      const int expected = 503;
-      int result = FunctionsMath.PrimeByFormula(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_PrimeByFormula_value_23()
-    {
-      const ushort source = 23;
-      const int expected = 547;
-      int result = FunctionsMath.PrimeByFormula(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_PrimeByFormula_value_24()
-    {
-      const ushort source = 24;
-      const int expected = 593;
-      int result = FunctionsMath.PrimeByFormula(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_PrimeByFormula_value_25()
-    {
-      const ushort source = 25;
-      const int expected = 641;
-      int result = FunctionsMath.PrimeByFormula(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_PrimeByFormula_value_26()
-    {
-      const ushort source = 26;
-      const int expected = 691;
-      int result = FunctionsMath.PrimeByFormula(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_PrimeByFormula_value_27()
-    {
-      const ushort source = 27;
-      const int expected = 743;
-      int result = FunctionsMath.PrimeByFormula(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_PrimeByFormula_value_28()
-    {
-      const ushort source = 28;
-      const int expected = 797;
-      int result = FunctionsMath.PrimeByFormula(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_PrimeByFormula_value_29()
-    {
-      const ushort source = 29;
-      const int expected = 853;
-      int result = FunctionsMath.PrimeByFormula(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_PrimeByFormula_value_30()
-    {
-      const ushort source = 30;
-      const int expected = 911;
-      int result = FunctionsMath.PrimeByFormula(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_PrimeByFormula_value_31()
-    {
-      const ushort source = 31;
-      const int expected = 971;
-      int result = FunctionsMath.PrimeByFormula(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_PrimeByFormula_value_32()
-    {
-      const ushort source = 32;
-      const int expected = 1033;
-      int result = FunctionsMath.PrimeByFormula(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_PrimeByFormula_value_33()
-    {
-      const ushort source = 33;
-      const int expected = 1097;
-      int result = FunctionsMath.PrimeByFormula(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_PrimeByFormula_value_34()
-    {
-      const ushort source = 34;
-      const int expected = 1163;
-      int result = FunctionsMath.PrimeByFormula(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_PrimeByFormula_value_35()
-    {
-      const ushort source = 35;
-      const int expected = 1231;
-      int result = FunctionsMath.PrimeByFormula(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_PrimeByFormula_value_36()
-    {
-      const ushort source = 36;
-      const int expected = 1301;
-      int result = FunctionsMath.PrimeByFormula(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_PrimeByFormula_value_37()
-    {
-      const ushort source = 37;
-      const int expected = 1373;
-      int result = FunctionsMath.PrimeByFormula(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_PrimeByFormula_value_38()
-    {
-      const ushort source = 38;
-      const int expected = 1447;
-      int result = FunctionsMath.PrimeByFormula(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_PrimeByFormula_value_39()
-    {
-      const ushort source = 39;
-      const int expected = 1523;
-      int result = FunctionsMath.PrimeByFormula(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    [TestMethod]
-    public void TestMethod_PrimeByFormula_value_40()
-    {
-      const ushort source = 40;
-      const int expected = 1601;
-      int result = FunctionsMath.PrimeByFormula(source);
-      Assert.AreEqual(result, expected);
-    }
-
-    #endregion PrimeByFormula
-    #endregion Math Methods
-
-    #region Unit Test Helper methods
-    public static void AssertAreEqualList(List<int> result, List<int> expected)
-    {
-      Assert.AreEqual(result.Count, expected.Count);
-      for (int i = 0; i < expected.Count; i++)
-      {
-        Assert.AreEqual(result[i], expected[i]);
-      }
-    }
-    #endregion Unit Test Helper methods
-
-  }
 }
