@@ -1135,6 +1135,17 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
+
+    [TestMethod]
+    public void TestMethod_IsPrime_571()
+    {
+      const int source = 571;
+      const bool expected = true;
+      bool result = FunctionsMath.IsPrime(source);
+      Assert.AreEqual(result, expected);
+    }
+
+
     /*  Add unit test
     De 501 à 600:
     503, 509, 521, 523, 541, 547, 557, 563, 569, 571, 577, 587, 593, 599
