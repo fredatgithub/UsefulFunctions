@@ -1124,8 +1124,7 @@ namespace UnitTestUsefullFunctions
       bool result = FunctionsMath.IsPrime(source);
       Assert.AreEqual(result, expected);
     }
-
-
+    
     [TestMethod]
     public void TestMethod_IsPrime_569()
     {
@@ -1134,12 +1133,20 @@ namespace UnitTestUsefullFunctions
       bool result = FunctionsMath.IsPrime(source);
       Assert.AreEqual(result, expected);
     }
-
-
+    
     [TestMethod]
     public void TestMethod_IsPrime_571()
     {
       const int source = 571;
+      const bool expected = true;
+      bool result = FunctionsMath.IsPrime(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_IsPrime_577()
+    {
+      const int source = 577;
       const bool expected = true;
       bool result = FunctionsMath.IsPrime(source);
       Assert.AreEqual(result, expected);
