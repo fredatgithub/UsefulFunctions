@@ -1431,6 +1431,15 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
+    [TestMethod]
+    public void TestMethod_IsPrime_787()
+    {
+      const int source = 787;
+      const bool expected = true;
+      bool result = FunctionsMath.IsPrime(source);
+      Assert.AreEqual(result, expected);
+    }
+
     /*  Add unit test
     De 701 à 800:
     701, 709, 719, 727, 733, 739, 743, 751, 757, 761, 769, 773, 787, 797
