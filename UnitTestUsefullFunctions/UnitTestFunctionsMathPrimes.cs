@@ -1574,9 +1574,17 @@ namespace UnitTestUsefullFunctions
       bool result = FunctionsMath.IsPrime(source);
       Assert.AreEqual(result, expected);
     }
+
+    [TestMethod]
+    public void TestMethod_IsPrime_887()
+    {
+      const int source = 887;
+      const bool expected = true;
+      bool result = FunctionsMath.IsPrime(source);
+      Assert.AreEqual(result, expected);
+    }
+
     /*  Add unit test
-    De 801 à 900:
-    809, 811, 821, 823, 827, 829, 839, 853, 857, 859, 863, 877, 881, 883, 887
     De 901 à 1000:
     907, 911, 919, 929, 937, 941, 947, 953, 967, 971, 977, 983, 991, 997
     */
