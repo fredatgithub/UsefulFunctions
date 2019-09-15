@@ -1687,12 +1687,21 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_IsPrime_983()
     {
-      const int source = 993;
+      const int source = 983;
       const bool expected = true;
       bool result = FunctionsMath.IsPrime(source);
       Assert.AreEqual(result, expected);
     }
-         
+
+    [TestMethod]
+    public void TestMethod_IsPrime_991()
+    {
+      const int source = 991;
+      const bool expected = true;
+      bool result = FunctionsMath.IsPrime(source);
+      Assert.AreEqual(result, expected);
+    }
+
 
     /*  Add unit test
     De 901 à 1000:
