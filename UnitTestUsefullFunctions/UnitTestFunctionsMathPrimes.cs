@@ -1702,6 +1702,7 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
+    [TestMethod]
     public void TestMethod_IsPrime_997()
     {
       const int source = 997;
