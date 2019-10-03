@@ -166,26 +166,26 @@ namespace FonctionsUtiles.Fred.Csharp
       return result;
     }
 
-    public static bool IsPrime(int candidate)
+    public static bool IsPrime(int number)
     {
-      if (candidate <= 1)
+      if (number <= 1)
       {
         return false;
       }
 
-      if (candidate == 2 || candidate == 3)
+      if (number == 2 || number == 3 || number == 5)
       {
         return true;
       }
 
-      if (candidate % 2 == 0)
+      if (number % 2 == 0 || number % 3 == 0 || number % 5 == 0)
       {
         return false;
       }
 
-      for (int i = 3; i <= Math.Abs(Math.Sqrt(candidate)); i += 2)
+      for (int i = 7; i <= Math.Abs(Math.Sqrt(number)); i += 2)
       {
-        if ((candidate % i) == 0)
+        if ((number % i) == 0)
         {
           return false;
         }
