@@ -168,7 +168,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static bool IsPrime(int number)
     {
-      if (number <= 1)
+      if (number == 1)
       {
         return false;
       }
