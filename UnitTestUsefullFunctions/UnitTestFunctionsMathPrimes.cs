@@ -1954,6 +1954,14 @@ namespace UnitTestUsefullFunctions
             Assert.AreEqual(result, expected);
         }
 
+        [TestMethod]
+        public void TestMethod_IsPrime_1201()
+        {
+            const int source = 1201;
+            const bool expected = true;
+            bool result = FunctionsMath.IsPrime(source);
+            Assert.AreEqual(result, expected);
+        }
 
         /*  Add unit test
          *  
