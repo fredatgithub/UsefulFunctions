@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Security.Principal;
@@ -71,6 +72,13 @@ namespace FonctionsUtiles.Fred.Csharp
       }
 
       return result;
+    }
+
+    public static IEnumerable<FileInfo> GetAllLargeFilesWithLinq(string path)
+    {
+      var query = new DirectoryInfo(path).GetFiles()
+                      .OrderByDescending(file => file.Length);
+      return query;
     }
   }
 }
