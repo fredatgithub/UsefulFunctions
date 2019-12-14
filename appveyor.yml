@@ -37,6 +37,7 @@ install:
 
 before_build:
   - nuget restore
+  
 
  #install Machine.Specifications
  #install Machine.Specifications.Should
