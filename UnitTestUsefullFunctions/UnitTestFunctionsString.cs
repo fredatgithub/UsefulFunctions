@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading;
 using dllFuncs = FonctionsUtiles.Fred.Csharp;
 using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
 
@@ -2203,7 +2204,8 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_IsNumeric3_true_Allow_decimal_Point()
     {
-      const string source = "1234.56";
+      char decimalSymbol = Convert.ToChar(Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator);
+      string source = $"1234{decimalSymbol}56";
       const NumberStyles numberStyle = NumberStyles.AllowDecimalPoint;
       const bool expected = true;
       bool result = StringFunc.IsNumeric3(source, numberStyle);
@@ -2213,9 +2215,10 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_IsNumeric3_true_Allow_3_decimal_Point()
     {
-      const string source = "1234.567";
+      char decimalSymbol = Convert.ToChar(Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator);
+      string source = $"1234{decimalSymbol}567";
       const NumberStyles numberStyle = NumberStyles.AllowDecimalPoint;
-      const bool expected = true;
+      const bool expected = false;
       bool result = StringFunc.IsNumeric3(source, numberStyle);
       Assert.AreEqual(result, expected);
     }
@@ -9554,8 +9557,10 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_AddSpaceInNumberWithDecimal()
     {
+      // get local decimal point
+      char decimalSymbol = Convert.ToChar(Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator);
       const decimal source = 0.25m;
-      const string expected = "0.25";
+      string expected = $"0{decimalSymbol.ToString()}25";
       string result = StringFunc.AddSpaceInNumberWithDecimal(source);
       Assert.AreEqual(result, expected);
     }
@@ -9563,8 +9568,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_AddSpaceInNumberWithDecimal_value10()
     {
+      char decimalSymbol = Convert.ToChar(Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator);
       const decimal source = 10.325m;
-      const string expected = "10.33";
+      string expected = $"10{decimalSymbol}33";
       string result = StringFunc.AddSpaceInNumberWithDecimal(source);
       Assert.AreEqual(result, expected);
     }
@@ -9572,8 +9578,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_AddSpaceInNumberWithDecimal_value100()
     {
+      char decimalSymbol = Convert.ToChar(Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator);
       const decimal source = 100.325m;
-      const string expected = "100.33";
+      string expected = $"100{decimalSymbol}33";
       string result = StringFunc.AddSpaceInNumberWithDecimal(source);
       Assert.AreEqual(result, expected);
     }
@@ -9581,8 +9588,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_AddSpaceInNumberWithDecimal_value1000()
     {
+      char decimalSymbol = Convert.ToChar(Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator);
       const decimal source = 1000.325m;
-      const string expected = "1 000.33";
+      string expected = $"1 000{decimalSymbol}33";
       string result = StringFunc.AddSpaceInNumberWithDecimal(source);
       Assert.AreEqual(result, expected);
     }
@@ -9590,8 +9598,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_AddSpaceInNumberWithDecimal_value5000()
     {
+      char decimalSymbol = Convert.ToChar(Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator);
       const decimal source = 5000.325m;
-      const string expected = "5 000.33";
+      string expected = $"5 000{decimalSymbol}33";
       string result = StringFunc.AddSpaceInNumberWithDecimal(source);
       Assert.AreEqual(result, expected);
     }
@@ -9599,8 +9608,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_AddSpaceInNumberWithDecimal_value_1500000()
     {
+      char decimalSymbol = Convert.ToChar(Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator);
       const decimal source = 1500000.325m;
-      const string expected = "1 500 000.33";
+      string expected = $"1 500 000{decimalSymbol}33";
       string result = StringFunc.AddSpaceInNumberWithDecimal(source);
       Assert.AreEqual(result, expected);
     }
