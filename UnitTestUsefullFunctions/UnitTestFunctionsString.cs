@@ -2218,7 +2218,7 @@ namespace UnitTestUsefullFunctions
       char decimalSymbol = Convert.ToChar(Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator);
       string source = $"1234{decimalSymbol}567";
       const NumberStyles numberStyle = NumberStyles.AllowDecimalPoint;
-      const bool expected = false;
+      const bool expected = true;
       bool result = StringFunc.IsNumeric3(source, numberStyle);
       Assert.AreEqual(result, expected);
     }
