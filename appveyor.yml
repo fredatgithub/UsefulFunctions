@@ -67,6 +67,6 @@ build:
 #    - asm2.dll
 
 # to disable automatic tests 
-#test: on
-test: off
+#test: on, off
+test: on
 
