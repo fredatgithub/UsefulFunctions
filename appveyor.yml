@@ -68,5 +68,5 @@ build:
 
 # to disable automatic tests 
 #test: on, off
-test: on
+test: off
 
