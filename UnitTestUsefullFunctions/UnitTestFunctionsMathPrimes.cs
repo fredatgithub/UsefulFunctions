@@ -2629,11 +2629,20 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
+    [TestMethod]
+    public void TestMethod_IsPrime_1747()
+    {
+      const int source = 1747;
+      const bool expected = true;
+      bool result = FunctionsMath.IsPrime(source);
+      Assert.AreEqual(result, expected);
+    }
+
 
     /*  Add unit test
      *  
      *  TOUS LES NOMBRES PREMIERS DE 1001 À 2000
-     1 741 1 747 1 753 1 759 1 777 1 783 1 787 1 789 1 801 1 811 1 823 1 831 1 847 1 861 1 867 1 871 1 873 1 877 1 879 1 889 1 901 1 907 1 913 1 931 1 933 1 949 1 951 1 973 1 979 1 987 1 993 1 997 1 999
+     1 747 1 753 1 759 1 777 1 783 1 787 1 789 1 801 1 811 1 823 1 831 1 847 1 861 1 867 1 871 1 873 1 877 1 879 1 889 1 901 1 907 1 913 1 931 1 933 1 949 1 951 1 973 1 979 1 987 1 993 1 997 1 999
 
 
 TOUS LES NOMBRES PREMIERS DE 2001 À 3000
