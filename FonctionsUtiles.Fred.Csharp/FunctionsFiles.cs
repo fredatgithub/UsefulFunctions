@@ -552,12 +552,12 @@ namespace FonctionsUtiles.Fred.Csharp
       character == 0x9 /* == '\t' == 9   */          ||
       character == 0xA /* == '\n' == 10  */          ||
       character == 0xD /* == '\r' == 13  */          ||
-      (character >= 0x20 && character <= 0xD7FF)     ||
-      (character >= 0xE000 && character <= 0xFFFD)   ||
+      (character >= 0x20 && character <= 0xD7FF) ||
+      (character >= 0xE000 && character <= 0xFFFD) ||
       (character >= 0x10000 && character <= 0x10FFFF);
     }
-    
-     public static List<string> GetFilesFileteredBySize(DirectoryInfo directoryInfo, long sizeGreaterOrEqualTo)
+
+    public static List<string> GetFilesFileteredBySize(DirectoryInfo directoryInfo, long sizeGreaterOrEqualTo)
     {
       List<string> result = new List<string>();
       foreach (FileInfo fileInfo in directoryInfo.GetFiles())
@@ -569,6 +569,41 @@ namespace FonctionsUtiles.Fred.Csharp
       }
 
       return result;
+    }
+
+    public static void WriteAllLines(string fileName, IEnumerable<string> lines)
+    {
+      if (fileName == null)
+      {
+        throw new ArgumentNullException(nameof(fileName));
+      }
+
+      if (lines == null)
+      {
+        throw new ArgumentNullException(nameof(lines));
+      }
+
+      if (string.IsNullOrWhiteSpace(fileName))
+      {
+        throw new ArgumentException(@"Value must be filled.", nameof(fileName));
+      }
+
+      File.WriteAllLines(fileName, lines, Encoding.UTF8);
+    }
+
+    public static string[] ReadAllLines(string fileName)
+    {
+      if (fileName == null)
+      {
+        throw new ArgumentNullException(nameof(fileName));
+      }
+
+      if (string.IsNullOrWhiteSpace(fileName))
+      {
+        throw new ArgumentException(@"Value must be filled.", nameof(fileName));
+      }
+
+      return File.ReadAllLines(fileName, Encoding.UTF8);
     }
   }
 }
