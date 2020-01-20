@@ -3486,8 +3486,9 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static string RemoveAccent(string sentence)
     {
-      return sentence.Replace('é', 'e').Replace('è', 'e').Replace('ê', 'e').Replace('ù', 'u').Replace('ç', 'c').Replace('à', 'a').Replace('ô', 'o').Replace('â', 'a');
-
+      //return sentence.Replace('é', 'e').Replace('è', 'e').Replace('ê', 'e').Replace('ù', 'u').Replace('ç', 'c').Replace('à', 'a').Replace('ô', 'o').Replace('â', 'a');
+      byte[] tempBytes = Encoding.GetEncoding("ISO-8859-8").GetBytes(sentence);
+      return Encoding.UTF8.GetString(tempBytes);
     }
 
     public static int NumberOfOccurrences(string searchedString, string inString)

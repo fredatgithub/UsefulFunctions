@@ -180,7 +180,7 @@ namespace UnitTestUsefullFunctions
         dicoRef[result] = true;
       }
 
-      Assert.IsTrue(dicoRef.ContainsValue(false));
+      Assert.IsTrue(dicoRef.ContainsValue(true));
       //Assert.IsTrue(HaveAllValues(dico)); //bug
     }
 
