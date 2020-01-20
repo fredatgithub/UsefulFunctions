@@ -456,7 +456,7 @@
       collection.Should().NotIntersectWith(anotherCollection);
 
       collection.Should().BeInAscendingOrder();
-      anotherCollection.Should().NotBeAscendingInOrder();
+      anotherCollection.Should().NotBeInAscendingOrder();
     }
 
     [Test]
