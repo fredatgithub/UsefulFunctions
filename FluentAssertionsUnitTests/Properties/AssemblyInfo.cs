@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // Les informations générales relatives à un assembly dépendent de 
@@ -10,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Freddy Juhel")]
 [assembly: AssemblyProduct("FluentAssertionsUnitTests")]
-[assembly: AssemblyCopyright("Copyright © Freddy Juhel MIT 2015")]
+[assembly: AssemblyCopyright("Copyright © Freddy Juhel MIT 2015-2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
