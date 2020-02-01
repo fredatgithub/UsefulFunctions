@@ -80,6 +80,60 @@ namespace ConsoleApplicationUsageDemo
         Titre = "Les enfants de Dune"
       };
 
+      // search for twin primes
+      display("Searching for twin primes:");
+      foreach (int twin in FunctionsPrimes.GetTwinPrimeBefore(500))
+      {
+        Console.Write($"{twin} ");
+      }
+
+      try
+      {
+        using (StreamWriter sr = new StreamWriter("twinPrimes.txt"))
+        {
+          foreach (int twin in FunctionsPrimes.GetTwinPrimeBefore(int.MaxValue - 2))
+          {
+            sr.WriteLine(twin);
+          }
+        }
+      }
+      catch (Exception)
+      {
+        display("There were an error while trying to write to a file all twin primes before int.max");
+      }
+      //for (int i = 0; i < FunctionsPrimes.GetTwinPrimeBefore(500).Count; i +=2)
+      //{
+      //  Console.Write($"{twin} ");
+      //}
+
+      /* twin primes
+        2-3
+        11-13
+        17-19
+        41-43
+        71-73
+        101-103
+        107-109
+        197-199
+        227-229
+        281-283
+        311-313
+        431-433
+        461-463
+       * */
+
+      display("");
+      //display("primes:");
+      //for (int i = 3; i < 500; i = i + 2)
+      //{
+      //  if (FunctionsMath.IsPrime(i))
+      //  {
+      //    Console.Write($"{i} ");
+      //  }
+      //}
+
+
+      display("");
       display("Press any key to exit:");
       Console.ReadKey();
     }

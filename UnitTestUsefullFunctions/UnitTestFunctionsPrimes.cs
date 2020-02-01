@@ -142,6 +142,26 @@ namespace UnitTestUsefullFunctions
       Assert.IsTrue(AssertDictionaryAreEqualed(result, expected));
     }
 
+    [TestMethod]
+    public void TestMethod_TwinPrime()
+    {
+      const int source = 500;
+      List<int> expected = new List<int> { 2,
+          11,
+          17,
+          41,
+          71,
+          101,
+          107,
+          197,
+          227,
+          281,
+          311,
+          431,
+          461 };
+      List<int> result = FunctionsPrimes.GetTwinPrimeBefore(source);
+      AssertListAreEqualed(result, expected);
+    }
 
     public bool AssertDictionaryAreEqualed(Dictionary<int, int> source, Dictionary<int, int> target)
     {

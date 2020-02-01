@@ -22,8 +22,12 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static List<int> GetPrimesBefore(int number)
     {
-      List<int> result = new List<int>();
-      for (int i = 2; i <= number; i++)
+      List<int> result = new List<int>
+      {
+        2
+      };
+
+      for (int i = 3; i <= number; i = i +2)
       {
         if (FunctionsMath.IsPrime(i))
         {
@@ -111,25 +115,27 @@ namespace FonctionsUtiles.Fred.Csharp
       }
 
       result.Add(2);
-      result.Add(3);
+      
       if (number <= 3)
       {
+        //result.Add(3);
         return result;
       }
 
       result.Add(5);
-      result.Add(7);
+      
       if (number <= 7)
       {
+        //result.Add(7);
         return result;
       }
 
-      for (int i = 7; i <= number; i++)
+      for (int i = 7; i <= number; i += 2)
       {
-        if (IsTwinPrime(number))
+        if (IsTwinPrime(i))
         {
-          result.Add(number);
-          result.Add(number + 2);
+          result.Add(i);
+          //result.Add(i + 2);
         }
       }
 
