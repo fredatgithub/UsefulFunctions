@@ -6,6 +6,7 @@ using MathFunc = FonctionsUtiles.Fred.Csharp.FunctionsMath;
 using FileFunc = FonctionsUtiles.Fred.Csharp.FunctionsFiles;
 using System.Collections.Generic;
 using FonctionsUtiles.Fred.Csharp;
+using System.Diagnostics;
 
 namespace ConsoleApplicationUsageDemo
 {
@@ -87,13 +88,23 @@ namespace ConsoleApplicationUsageDemo
         Console.Write($"{twin} ");
       }
 
+      Stopwatch chrono2 = new Stopwatch();
+      chrono2.Start();
+      var allTwinPrimes = FunctionsPrimes.GetTwinPrimeBefore(int.MaxValue - 2);
+      chrono2.Stop();
+      TimeSpan ts2 = chrono2.Elapsed;
+      string elapsedTime2 = string.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+          ts2.Hours, ts2.Minutes, ts2.Seconds,
+          ts2.Milliseconds / 10);
       try
       {
-        using (StreamWriter sr = new StreamWriter("twinPrimes.txt"))
+        using (StreamWriter sw2 = new StreamWriter("twinPrimes.txt"))
         {
-          foreach (int twin in FunctionsPrimes.GetTwinPrimeBefore(int.MaxValue - 2))
+          sw2.WriteLine(string.Format("{0:00}:{1:00}:{2:00}.{3:00}", ts2.Hours, ts2.Minutes, ts2.Seconds, ts2.Milliseconds / 10));
+          sw2.WriteLine("RunTime with chrono: " + elapsedTime2);
+          foreach (int twin in allTwinPrimes)
           {
-            sr.WriteLine(twin);
+            sw2.WriteLine(twin);
           }
         }
       }
@@ -101,7 +112,32 @@ namespace ConsoleApplicationUsageDemo
       {
         display("There were an error while trying to write to a file all twin primes before int.max");
       }
-      //for (int i = 0; i < FunctionsPrimes.GetTwinPrimeBefore(500).Count; i +=2)
+
+      // calculating the time necessary to go through all numbers until int.max about billions
+      var startTime = DateTime.Now;
+      Stopwatch chrono = new Stopwatch();
+      chrono.Start();
+      for (int i = 0; i < int.MaxValue; i++)
+      {
+
+      }
+
+      var endTime = DateTime.Now;
+      chrono.Stop();
+      TimeSpan ts = chrono.Elapsed;
+      string elapsedTime = string.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+          ts.Hours, ts.Minutes, ts.Seconds,
+          ts.Milliseconds / 10);
+      Console.WriteLine("RunTime " + elapsedTime);
+      using (StreamWriter sw = new StreamWriter("timeToIntMax.txt"))
+      {
+        sw.WriteLine($"start time is {startTime}");
+        sw.WriteLine($"End time is {endTime}");
+        sw.WriteLine(string.Format("{0:00}:{1:00}:{2:00}.{3:00}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10));
+        sw.WriteLine("RunTime with chrono: " + elapsedTime);
+      }
+
+      //for (int i = 0; i < FunctionsPrimes.GetTwinPrimeBefore(500).Count; i +=2) 
       //{
       //  Console.Write($"{twin} ");
       //}
