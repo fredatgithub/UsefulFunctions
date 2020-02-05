@@ -68,5 +68,16 @@ namespace ConsoleAppCalendar
     {
       return Environment.NewLine;
     }
+
+    public static DateTime GetFirstDayOfMonth(DateTime date)
+    {
+      return new DateTime(date.Year, date.Month, 1);
+    }
+
+    public static DateTime GetLastDayOfMonth(DateTime date)
+    {
+      var firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
+      return firstDayOfMonth.AddMonths(1).AddDays(-1);
+    }
   }
 }
