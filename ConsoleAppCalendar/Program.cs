@@ -16,9 +16,9 @@ namespace ConsoleAppCalendar
       display("Type Show-Calendar -Month February");
       display("Type Show-Calendar -Month February -Highlighdate 2/14,2/22,2/7,2/20");
       display("");
-      var entry = Console.ReadLine();
+      string entry = Console.ReadLine();
       display("");
-      display(GetCalendar("test"));
+      display(GetCalendar(entry));
       display("Press any key to exit:");
       Console.ReadKey();
     }
