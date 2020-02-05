@@ -208,5 +208,34 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return true;
     }
+
+    /// <summary>Calculate the number of primes lesser or equal to a number.</summary>
+    /// <param name="number">The limit to count the number of primes.</param>
+    /// <returns>The number of primes lesser or equal to the number.</returns>
+    public static int Pi(int number)
+    {
+      int result = 0;
+      if (number <= 1)
+      {
+        return 0;
+      }
+
+      if (number == 2)
+      {
+        return 1;
+      }
+
+      result++;
+
+      for (int i = 3; i <= number; i += 2)
+      {
+        if (IsPrime(i))
+        {
+          result++;
+        }
+      }
+
+      return result;
+    }
   }
 }
