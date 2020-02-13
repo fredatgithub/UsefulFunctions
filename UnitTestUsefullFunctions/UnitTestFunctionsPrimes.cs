@@ -354,6 +354,15 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
+    [TestMethod]
+    public void TestMethod_Pi_43()
+    {
+      const int source = 43;
+      const int expected = 14;
+      int result = FunctionsPrimes.Pi(source);
+      Assert.AreEqual(result, expected);
+    }
+
     /*
       2      3      5      7     11     13     17     19     23     29 
      31     37     41     43     47     53     59     61     67     71 
