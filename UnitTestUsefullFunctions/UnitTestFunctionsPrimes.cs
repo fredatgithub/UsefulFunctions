@@ -376,7 +376,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_Pi_53()
     {
       const int source = 53;
-      const int expected = 16;
+      const int expected = 17;
       int result = FunctionsPrimes.Pi(source);
       Assert.AreEqual(result, expected);
     }
@@ -385,7 +385,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_Pi_59()
     {
       const int source = 59;
-      const int expected = 17;
+      const int expected = 18;
       int result = FunctionsPrimes.Pi(source);
       Assert.AreEqual(result, expected);
     }
@@ -394,7 +394,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_Pi_61()
     {
       const int source = 61;
-      const int expected = 18;
+      const int expected = 19;
       int result = FunctionsPrimes.Pi(source);
       Assert.AreEqual(result, expected);
     }
