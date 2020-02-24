@@ -3515,5 +3515,45 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return result;
     }
+
+    /// <summary>
+    /// Vérification du bon format d'une addresse mail.
+    /// </summary>
+    /// <param name="email">Une adresse mail.</param>
+    /// <returns>Retourne un booléen disant si l'adresse mail passée en paramère est bonne ou pas</returns>
+    public static bool VerifyEmailAddress(string email)
+    {
+      //"There is a length limit on email addresses. That limit is a maximum of 64 characters (octets) in the "local part" (before the "@") and a maximum of 255 characters (octets) in the domain part (after the "@") for a total length of 320 characters.
+
+      bool result = false;
+      if (String.IsNullOrEmpty(email))
+      {
+        return false;
+      }
+
+      if (!email.Contains("@"))
+      {
+        return false;
+      }
+
+      if (email.Length > 320)
+      {
+        return false;
+      }
+
+      if (email.Split('@')[0].Length > 64)
+      {
+        return false;
+      }
+
+      if (email.Split('@')[1].Length > 255)
+      {
+        return false;
+      }
+
+      var myRegex = new Regex(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$", RegexOptions.IgnoreCase);
+      result = myRegex.IsMatch(email);
+      return result;
+    }
   }
 }
