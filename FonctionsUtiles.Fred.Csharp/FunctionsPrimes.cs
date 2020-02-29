@@ -237,5 +237,25 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return result;
     }
+
+    /// <summary>
+    /// Check if a number and number + 2 and number + 4 are all prime numbers.
+    /// </summary>
+    /// <param name="number">The number to check.</param>
+    /// <returns>True if number and number + 2 and number + 4 are all prime numbers, false otherwise.</returns>
+    public static bool IsPrimeTriplet(int number)
+    {
+      if (number.ToString().Substring(number.ToString().Length - 1, 1) != "7")
+      {
+        return false;
+      }
+
+      if (IsPrime(number) && IsPrime(number + 2) && IsPrime(number + 4))
+      {
+        return true;
+      }
+
+      return false;
+    }
   }
 }
