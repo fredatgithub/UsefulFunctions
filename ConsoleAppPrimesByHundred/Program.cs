@@ -1,6 +1,7 @@
 ﻿using System;
 using FonctionsUtiles.Fred.Csharp;
 
+
 namespace ConsoleAppPrimesByHundred
 {
   internal class Program
@@ -20,6 +21,17 @@ namespace ConsoleAppPrimesByHundred
       foreach (var kvp in FunctionsPrimes.NumberOfPrimesByNthHundred(9000, 1000))
       {
         display($"{kvp.Key} - {kvp.Value}");
+      }
+
+      int count = 0;
+      for (int i = 3; i <= int.MaxValue - 4; i += 2)
+      {
+        if (FunctionsPrimes.IsPrimeTriplet(i))
+        {
+          count++;
+        }
+
+        display($"Number of prime found: {count} and i: {i}");
       }
 
       display("Press any key to exit");
