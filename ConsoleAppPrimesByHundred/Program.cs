@@ -24,7 +24,7 @@ namespace ConsoleAppPrimesByHundred
       }
 
       int count = 0;
-      for (int i = 3; i <= int.MaxValue - 4; i += 2)
+      for (int i = 1000000001; i <= int.MaxValue - 4; i += 2)
       {
         if (FunctionsPrimes.IsPrimeTriplet(i))
         {
