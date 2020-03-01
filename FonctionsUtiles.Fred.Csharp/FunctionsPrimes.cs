@@ -175,6 +175,34 @@ namespace FonctionsUtiles.Fred.Csharp
       return true;
     }
 
+    public static bool IsPrime(int number)
+    {
+      if (number == 1 || number == 0)
+      {
+        return false;
+      }
+
+      if (number == 2 || number == 3 || number == 5)
+      {
+        return true;
+      }
+
+      if (number % 2 == 0 || number % 3 == 0 || number % 5 == 0)
+      {
+        return false;
+      }
+
+      for (int divisor = 7; divisor < Math.Sqrt(number); divisor += 2)
+      {
+        if (number % divisor == 0)
+        {
+          return false;
+        }
+      }
+
+      return true;
+    }
+
     public static bool IsPrime(BigInteger number)
     {
       if (number.IsEven)
@@ -197,8 +225,48 @@ namespace FonctionsUtiles.Fred.Csharp
         return false;
       }
 
-      var squareRoot = Math.Exp(BigInteger.Log(number) / 2);
-      for (ulong divisor = 7; divisor < squareRoot; divisor += 2)
+      BigInteger squareRoot = BigInteger.Pow(number, (int)BigInteger.Log(number)); //Math.Exp(BigInteger.Log(number) / 2);
+      for (BigInteger divisor = 7; divisor < squareRoot; divisor += 2)
+      {
+        if (number % divisor == 0)
+        {
+          return false;
+        }
+      }
+
+      return true;
+    }
+
+
+    public static bool IsPrime(BigInt number)
+    {
+      BigInt tmpnb = 0;
+      if (BigInt.Divide(number, 2, out tmpnb))
+      {
+
+      }
+      if (number.IsEven)
+      {
+        return false;
+      }
+
+      if (number.Sign == 0 || number.Sign == -1)
+      {
+        return false;
+      }
+
+      if (number == 2 || number == 3 || number == 5)
+      {
+        return true;
+      }
+
+      if (number % 2 == 0 || number % 3 == 0 || number % 5 == 0)
+      {
+        return false;
+      }
+
+      BigInteger squareRoot = BigInteger.Pow(number, (int)BigInteger.Log(number)); //Math.Exp(BigInteger.Log(number) / 2);
+      for (BigInteger divisor = 7; divisor < squareRoot; divisor += 2)
       {
         if (number % divisor == 0)
         {
@@ -244,6 +312,26 @@ namespace FonctionsUtiles.Fred.Csharp
     /// <param name="number">The number to check.</param>
     /// <returns>True if number and number + 2 and number + 4 are all prime numbers, false otherwise.</returns>
     public static bool IsPrimeTriplet(int number)
+    {
+      if (number.ToString().Substring(number.ToString().Length - 1, 1) != "7")
+      {
+        return false;
+      }
+
+      if (IsPrime(number) && IsPrime(number + 2) && IsPrime(number + 4))
+      {
+        return true;
+      }
+
+      return false;
+    }
+
+    /// <summary>
+    /// Check if a number and number + 2 and number + 4 are all prime numbers.
+    /// </summary>
+    /// <param name="number">The number to check.</param>
+    /// <returns>True if number and number + 2 and number + 4 are all prime numbers, false otherwise.</returns>
+    public static bool IsPrimeTriplet(BigInt number)
     {
       if (number.ToString().Substring(number.ToString().Length - 1, 1) != "7")
       {
