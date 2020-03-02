@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Numerics;
 using FonctionsUtiles.Fred.Csharp;
 
 
@@ -34,18 +36,28 @@ namespace ConsoleAppPrimesByHundred
       //  display($"Number of prime found: {count} and i: {i}");
       //}
 
+      display("no triplet prime from 3 to 2147483643");
       int count = 0;
-      for (BigInt i = BigInt.Parse("2147483643"); i <= BigInt.Parse("9147483643"); i += 2)
+      List<string> result = new List<string>();
+      for (BigInteger i = BigInteger.Parse("2147483643"); i <= BigInteger.Parse("9147483643"); i += 2)
       {
         if (FunctionsPrimes.IsPrimeTriplet(i))
         {
           count++;
+          result.Add(i.ToString());
         }
 
         display($"Number of prime found: {count} and i: {i}");
       }
 
-      display("no triplet prime from 3 to 2147483643");
+      if (result.Count > 0)
+      {
+        foreach (string number in result)
+        {
+          display($"Prime triplet found : {number}");
+        }
+      }
+      
 
       display("Press any key to exit");
       Console.ReadKey();

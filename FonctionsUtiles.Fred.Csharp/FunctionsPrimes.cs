@@ -241,20 +241,12 @@ namespace FonctionsUtiles.Fred.Csharp
     public static bool IsPrime(BigInt number)
     {
       BigInt tmpnb = 0;
-      if (BigInt.Divide(number, 2, out tmpnb))
-      {
-
-      }
-      if (number.IsEven)
+      BigInt.Divide(number, 2, out tmpnb);
+      if (tmpnb == 0)
       {
         return false;
       }
-
-      if (number.Sign == 0 || number.Sign == -1)
-      {
-        return false;
-      }
-
+      
       if (number == 2 || number == 3 || number == 5)
       {
         return true;
@@ -265,16 +257,45 @@ namespace FonctionsUtiles.Fred.Csharp
         return false;
       }
 
-      BigInteger squareRoot = BigInteger.Pow(number, (int)BigInteger.Log(number)); //Math.Exp(BigInteger.Log(number) / 2);
-      for (BigInteger divisor = 7; divisor < squareRoot; divisor += 2)
-      {
-        if (number % divisor == 0)
-        {
-          return false;
-        }
-      }
+      //var sqrt = Math.Pow(Math.E, BigInt.Log(number) / 2);
+      //BigInt squareRoot = BigInt.Pow(number, (int)BigInt.Log(number)); //Math.Exp(BigInteger.Log(number) / 2);
+      //for (BigInteger divisor = 7; divisor < squareRoot; divisor += 2)
+      //{
+      //  if (number % divisor == 0)
+      //  {
+      //    return false;
+      //  }
+      //}
 
       return true;
+    }
+
+    public static BigInteger Sqrt(this BigInteger n)
+    {
+      if (n == 0) return 0;
+      if (n > 0)
+      {
+        int bitLength = Convert.ToInt32(Math.Ceiling(BigInteger.Log(n, 2)));
+        BigInteger root = BigInteger.One << (bitLength / 2);
+
+        while (!IsSquartRoot(n, root))
+        {
+          root += n / root;
+          root /= 2;
+        }
+
+        return root;
+      }
+
+      throw new ArithmeticException("NaN");
+    }
+
+    public static bool IsSquartRoot(BigInteger bigIntegerNumber, BigInteger root)
+    {
+      BigInteger lowerBound = root * root;
+      BigInteger upperBound = (root + 1) * (root + 1);
+
+      return bigIntegerNumber >= lowerBound && bigIntegerNumber < upperBound;
     }
 
     /// <summary>Calculate the number of primes lesser or equal to a number.</summary>
@@ -331,7 +352,7 @@ namespace FonctionsUtiles.Fred.Csharp
     /// </summary>
     /// <param name="number">The number to check.</param>
     /// <returns>True if number and number + 2 and number + 4 are all prime numbers, false otherwise.</returns>
-    public static bool IsPrimeTriplet(BigInt number)
+    public static bool IsPrimeTriplet(BigInteger number)
     {
       if (number.ToString().Substring(number.ToString().Length - 1, 1) != "7")
       {
