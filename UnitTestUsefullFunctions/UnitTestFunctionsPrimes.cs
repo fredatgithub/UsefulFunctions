@@ -8,6 +8,16 @@ namespace UnitTestUsefullFunctions
   public class UnitTestFunctionsPrimes
   {
     [TestMethod]
+    public void TestMethod_BigInteger_substring()
+    {
+      //number.ToString().Substring(number.ToString().Length - 1, 1) != "7"
+      string source = "12345678901234567897";
+      string expected = "7";
+      string result = source.Substring(source.Length - 1, 1);
+      Assert.AreEqual(expected, result);
+    }
+
+    [TestMethod]
     public void TestMethod_GetPrimesBefore_18()
     {
       const int source = 18;
