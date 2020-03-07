@@ -192,7 +192,7 @@ namespace FonctionsUtiles.Fred.Csharp
         return false;
       }
 
-      for (int divisor = 7; divisor < Math.Sqrt(number); divisor += 2)
+      for (int divisor = 7; divisor <= Math.Sqrt(number); divisor += 2)
       {
         if (number % divisor == 0)
         {

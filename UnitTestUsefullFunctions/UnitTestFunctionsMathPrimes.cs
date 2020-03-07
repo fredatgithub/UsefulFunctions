@@ -2985,6 +2985,16 @@ TOUS LES NOMBRES PREMIERS DE 40001 À 50000
     }
 
     [TestMethod]
+    public void TestMethod_GetListOfPrime_until_127()
+    {
+      const int source1 = 2;
+      const int source2 = 127;
+      var expected = new List<int> { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127};
+      List<int> result = FunctionsMath.GetListOfPrime(source1, source2);
+      AssertListsAreSimilar(result, expected);
+    }
+
+    [TestMethod]
     public void TestMethod_GetListOfPrime_until_7919()
     {
       const int source1 = 2;
