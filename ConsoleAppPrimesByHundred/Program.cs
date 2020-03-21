@@ -37,6 +37,12 @@ namespace ConsoleAppPrimesByHundred
       //}
 
       display("no triplet prime from 3 to 2147483643");
+      for (BigInteger i = BigInteger.Parse("2147483643"); i <= BigInteger.Parse("2147483699"); i += 2)
+      {
+        BigInteger squareRoot = BigInteger.Pow(i, (int)BigInteger.Log(i)); // wrong square root
+        display($"Big Integer is : {i} and square root is = {squareRoot}");
+      }
+
       int count = 0;
       List<string> result = new List<string>();
       for (BigInteger i = BigInteger.Parse("2147483643"); i <= BigInteger.Parse("4147483643"); i += 2)
@@ -57,8 +63,6 @@ namespace ConsoleAppPrimesByHundred
           display($"Prime triplet found : {number}");
         }
       }
-
-
 
       var timestamp = DateTime.Now.ToFileTime();
       display($"time stamp using ToFileTime : {timestamp.ToString()}");

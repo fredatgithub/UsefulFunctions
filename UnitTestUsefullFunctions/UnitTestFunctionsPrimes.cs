@@ -1,6 +1,7 @@
 ﻿using FonctionsUtiles.Fred.Csharp;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using System.Numerics;
 
 namespace UnitTestUsefullFunctions
 {
@@ -687,6 +688,28 @@ namespace UnitTestUsefullFunctions
       bool result = FunctionsPrimes.IsPrimeTriplet(source);
       Assert.AreEqual(result, expected);
     }
+
+    [TestMethod]
+    public void TestMethod_SquareRoot_Of_big_Integer_197()
+    {
+      const int source = 197;
+      BigInteger squareRoot = BigInteger.Pow(source, (int)BigInteger.Log(source));
+      const bool expected = true;
+      bool result = squareRoot * squareRoot >= source;
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_SquareRoot_Of_big_Integer_int_max_value()
+    {
+      const int source = int.MaxValue;
+      BigInteger squareRoot = BigInteger.Pow(source, (int)BigInteger.Log(source));
+      const bool expected = true;
+      bool result = squareRoot * squareRoot >= source;
+      Assert.AreEqual(result, expected);
+    }
+
+
 
     /* Primes between 2 and 4000
       2      3      5      7     11     13     17     19     23     29 

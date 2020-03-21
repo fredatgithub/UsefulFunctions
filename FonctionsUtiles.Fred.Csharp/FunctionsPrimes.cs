@@ -27,7 +27,7 @@ namespace FonctionsUtiles.Fred.Csharp
         2
       };
 
-      for (int i = 3; i <= number; i = i +2)
+      for (int i = 3; i <= number; i = i + 2)
       {
         if (FunctionsMath.IsPrime(i))
         {
@@ -115,7 +115,7 @@ namespace FonctionsUtiles.Fred.Csharp
       }
 
       result.Add(2);
-      
+
       if (number <= 3)
       {
         //result.Add(3);
@@ -123,7 +123,7 @@ namespace FonctionsUtiles.Fred.Csharp
       }
 
       result.Add(5);
-      
+
       if (number <= 7)
       {
         //result.Add(7);
@@ -212,7 +212,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       if (number.Sign == 0 || number.Sign == -1)
       {
-        return false;
+        return false; // calculate only positive numbers
       }
 
       if (number == 2 || number == 3 || number == 5)
@@ -225,8 +225,8 @@ namespace FonctionsUtiles.Fred.Csharp
         return false;
       }
 
-      BigInteger squareRoot = BigInteger.Pow(number, (int)BigInteger.Log(number)); //Math.Exp(BigInteger.Log(number) / 2);
-      for (BigInteger divisor = 7; divisor < squareRoot; divisor += 2)
+      //BigInteger squareRoot = BigInteger.Pow(number, (int)BigInteger.Log(number)); //Math.Exp(BigInteger.Log(number) / 2);
+      for (BigInteger divisor = 7; divisor < number; divisor += 2)
       {
         if (number % divisor == 0)
         {
@@ -246,7 +246,7 @@ namespace FonctionsUtiles.Fred.Csharp
       {
         return false;
       }
-      
+
       if (number == 2 || number == 3 || number == 5)
       {
         return true;
