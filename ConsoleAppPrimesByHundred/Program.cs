@@ -43,9 +43,10 @@ namespace ConsoleAppPrimesByHundred
         display($"Big Integer is : {i} and square root is = {squareRoot}");
       }
 
+      display("Pas de prime triplet between 2147483643 and 3147483643");
       int count = 0;
       List<string> result = new List<string>();
-      for (BigInteger i = BigInteger.Parse("2147483643"); i <= BigInteger.Parse("3147483643"); i += 2)
+      for (BigInteger i = BigInteger.Parse("3147483643"); i <= BigInteger.Parse("4147483643"); i += 2)
       {
         if (FunctionsPrimes.IsPrimeTriplet(i))
         {
