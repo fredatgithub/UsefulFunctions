@@ -175,6 +175,9 @@ namespace FonctionsUtiles.Fred.Csharp
       return true;
     }
 
+    /// <summary>Calculate if an Integer number is prime.</summary>
+    /// <param name="number">The number to calculate its primality.</param>
+    /// <returns>Returns True if the number is a prime, False otherwise.</returns>
     public static bool IsPrime(int number)
     {
       if (number == 1 || number == 0)
@@ -203,6 +206,9 @@ namespace FonctionsUtiles.Fred.Csharp
       return true;
     }
 
+    /// <summary>Calculate if a big Integer number is prime.</summary>
+    /// <param name="number">The number to calculate its primality.</param>
+    /// <returns>Returns True if the number is a prime, False otherwise.</returns>
     public static bool IsPrime(BigInteger number)
     {
       if (number.IsEven)
@@ -225,8 +231,8 @@ namespace FonctionsUtiles.Fred.Csharp
         return false;
       }
 
-      //BigInteger squareRoot = BigInteger.Pow(number, (int)BigInteger.Log(number)); //Math.Exp(BigInteger.Log(number) / 2);
-      for (BigInteger divisor = 7; divisor < number; divisor += 2)
+      BigInteger squareRoot = (BigInteger)Math.Pow(Math.E, BigInteger.Log(number) / 2);
+      for (BigInteger divisor = 7; divisor < squareRoot; divisor += 2)
       {
         if (number % divisor == 0)
         {
@@ -237,12 +243,14 @@ namespace FonctionsUtiles.Fred.Csharp
       return true;
     }
 
-
+    /// <summary>Calculate if a big Int number is prime.</summary>
+    /// <param name="number">The number to calculate its primality.</param>
+    /// <returns>Returns True if the number is a prime, False otherwise.</returns>
     public static bool IsPrime(BigInt number)
     {
-      BigInt tmpnb = 0;
-      BigInt.Divide(number, 2, out tmpnb);
-      if (tmpnb == 0)
+      BigInt tmpNumber = 0;
+      BigInt.Divide(number, 2, out tmpNumber);
+      if (tmpNumber == 0)
       {
         return false;
       }
@@ -287,7 +295,7 @@ namespace FonctionsUtiles.Fred.Csharp
         return root;
       }
 
-      throw new ArithmeticException("NaN");
+      throw new ArithmeticException("Not a Number");
     }
 
     public static bool IsSquartRoot(BigInteger bigIntegerNumber, BigInteger root)

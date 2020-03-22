@@ -45,7 +45,7 @@ namespace ConsoleAppPrimesByHundred
 
       int count = 0;
       List<string> result = new List<string>();
-      for (BigInteger i = BigInteger.Parse("2147483643"); i <= BigInteger.Parse("4147483643"); i += 2)
+      for (BigInteger i = BigInteger.Parse("2147483643"); i <= BigInteger.Parse("3147483643"); i += 2)
       {
         if (FunctionsPrimes.IsPrimeTriplet(i))
         {
@@ -78,7 +78,5 @@ namespace ConsoleAppPrimesByHundred
     {
       return value.ToString("yyyyMMddHHmmssffff");
     }
-
-
   }
 }

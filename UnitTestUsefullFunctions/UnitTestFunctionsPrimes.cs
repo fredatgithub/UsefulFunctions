@@ -1,5 +1,6 @@
 ﻿using FonctionsUtiles.Fred.Csharp;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
 using System.Numerics;
 
@@ -706,6 +707,16 @@ namespace UnitTestUsefullFunctions
       BigInteger squareRoot = BigInteger.Pow(source, (int)BigInteger.Log(source));
       const bool expected = true;
       bool result = squareRoot * squareRoot >= source;
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_calculation_of_SquareRoot_Of_big_Integer_using_math_exp()
+    {
+      BigInteger source = int.MaxValue;
+      BigInteger squareRoot = (BigInteger)Math.Pow(Math.E, BigInteger.Log(source) / 2);
+      const bool expected = true;
+      bool result = (squareRoot + 1) * (squareRoot + 1) >= source;
       Assert.AreEqual(result, expected);
     }
 
