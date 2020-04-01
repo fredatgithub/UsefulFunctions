@@ -162,5 +162,42 @@ namespace FonctionsUtiles.Fred.Csharp
         return randomNumber;
       }
     }
+
+    public static string EncryptCaesar(string message)
+    {
+      string result = string.Empty;
+      for (int i = 0; i < message.Length; i++)
+      {
+        result += (char)((int)(message[i]) + 1);
+      }
+
+      return result;
+    }
+
+    public static string DecryptCaesar(string message)
+    {
+      string result = string.Empty;
+      for (int i = 0; i < message.Length; i++)
+      {
+        result += (char)((int)(message[i]) - 1);
+      }
+
+      return result;
+    }
+
+    public static string EncryptDecryptUsingXor(string plainText, int encryptionKey)
+    {
+      StringBuilder inputStringBuild = new StringBuilder(plainText);
+      StringBuilder outStringBuild = new StringBuilder(plainText.Length);
+      char character;
+      for (int i = 0; i < plainText.Length; i++)
+      {
+        character = inputStringBuild[i];
+        character = (char)(character ^ encryptionKey);
+        outStringBuild.Append(character);
+      }
+
+      return outStringBuild.ToString();
+    }
   }
 }
