@@ -168,7 +168,7 @@ namespace FonctionsUtiles.Fred.Csharp
       string result = string.Empty;
       for (int i = 0; i < message.Length; i++)
       {
-        result += (char)((int)(message[i]) + 1);
+        result += (char)(message[i] + 1);
       }
 
       return result;
@@ -179,7 +179,7 @@ namespace FonctionsUtiles.Fred.Csharp
       string result = string.Empty;
       for (int i = 0; i < message.Length; i++)
       {
-        result += (char)((int)(message[i]) - 1);
+        result += (char)(message[i] - 1);
       }
 
       return result;
