@@ -801,7 +801,6 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
-
     [TestMethod]
     public void TestMethod_Pi_269()
     {
@@ -811,12 +810,20 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
-
     [TestMethod]
     public void TestMethod_Pi_271()
     {
       const int source = 271;
       const int expected = 58;
+      int result = FunctionsPrimes.Pi(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Pi_277()
+    {
+      const int source = 277;
+      const int expected = 59;
       int result = FunctionsPrimes.Pi(source);
       Assert.AreEqual(result, expected);
     }
