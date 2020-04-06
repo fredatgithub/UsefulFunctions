@@ -1,6 +1,7 @@
 ﻿using FonctionsUtiles.Fred.Csharp;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Numerics;
 
 
@@ -11,6 +12,14 @@ namespace ConsoleAppPrimesByHundred
     private static void Main()
     {
       Action<string> display = Console.WriteLine;
+      var listOfEcart = FunctionsPrimes.GetEcartBetweenPrimes(2, 20000000);
+      foreach (int number in listOfEcart)
+      {
+        Console.Write($"{number} ");
+      }
+
+      display($"the greatest difference between two primes is : {listOfEcart.Max(n => n)}");
+
       display("Prime numbers by hundred:");
       foreach (var kvp in FunctionsPrimes.NumberOfPrimesByHundred(1000))
       {

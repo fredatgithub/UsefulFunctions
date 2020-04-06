@@ -374,5 +374,25 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return false;
     }
+
+    public static List<int> GetEcartBetweenPrimes(int startNumber, int endNumber)
+    {
+      var result = new List<int>();
+      var listOfPrimes = new List<int>();
+      for (int i = startNumber; i <= endNumber; i++)
+      {
+        if (IsPrime(i))
+        {
+          listOfPrimes.Add(i);
+        }
+      }
+
+      for (int i = 0; i < listOfPrimes.Count - 1; i++)
+      {
+        result.Add(listOfPrimes[i + 1] - listOfPrimes[i]);
+      }
+
+      return result;
+    }
   }
 }
