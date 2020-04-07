@@ -12,7 +12,7 @@ namespace ConsoleAppPrimesByHundred
     private static void Main()
     {
       Action<string> display = Console.WriteLine;
-      var listOfEcart = FunctionsPrimes.GetEcartBetweenPrimes(2, 20000000);
+      var listOfEcart = FunctionsPrimes.GetEcartBetweenPrimes(2, 200000);
       foreach (int number in listOfEcart)
       {
         Console.Write($"{number} ");
