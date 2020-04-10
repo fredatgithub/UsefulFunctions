@@ -259,10 +259,37 @@ namespace UnitTestUsefullFunctions
 
     #region NTLM
     [TestMethod]
-    public void TestMethod_NTLM_1()
+    public void TestMethod_NTLM_A_long_time_ago()
     {
-      const string source = "A long long time ago in a galaxy far far away";
-      string expected = "FA";
+      const string source = "A long long time ago";
+      string expected = "0D3FD10549FDEA58641BDA30E4FD20D7";
+      string result = CryptoFunc.Ntlm(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NTLM_hello()
+    {
+      const string source = "hello";
+      string expected = "066DDFD4EF0E9CD7C256FE77191EF43C";
+      string result = CryptoFunc.Ntlm(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NTLM_a()
+    {
+      const string source = "a";
+      string expected = "186CB09181E2C2ECAAC768C47C729904";
+      string result = CryptoFunc.Ntlm(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_NTLM_b()
+    {
+      const string source = "b";
+      string expected = "A047EE4A9DB8BC8B4F3F8A03D72DEB80";
       string result = CryptoFunc.Ntlm(source);
       Assert.AreEqual(result, expected);
     }

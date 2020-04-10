@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppPrimesByHundred",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppCalendar", "ConsoleAppCalendar\ConsoleAppCalendar.csproj", "{048B04E3-258F-4EC2-944B-0B2428A53479}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppNTLM", "ConsoleAppNTLM\ConsoleAppNTLM.csproj", "{6E82E3F2-D99A-408A-B719-09CF906197D6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{048B04E3-258F-4EC2-944B-0B2428A53479}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{048B04E3-258F-4EC2-944B-0B2428A53479}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{048B04E3-258F-4EC2-944B-0B2428A53479}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E82E3F2-D99A-408A-B719-09CF906197D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E82E3F2-D99A-408A-B719-09CF906197D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E82E3F2-D99A-408A-B719-09CF906197D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E82E3F2-D99A-408A-B719-09CF906197D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
