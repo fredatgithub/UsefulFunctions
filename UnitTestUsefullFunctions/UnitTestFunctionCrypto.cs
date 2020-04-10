@@ -205,8 +205,8 @@ namespace UnitTestUsefullFunctions
     private static Dictionary<string, string> SortDictionaryByLength(Dictionary<string, string> unsortedDictionary)
     {
       var queryResults = from kp in unsortedDictionary
-        orderby kp.Key.Length descending
-        select new KeyValuePair<string, string>(kp.Key, kp.Value);
+                         orderby kp.Key.Length descending
+                         select new KeyValuePair<string, string>(kp.Key, kp.Value);
 
       return queryResults.ToDictionary(x => x.Key, x => x.Value);
     }
@@ -255,7 +255,17 @@ namespace UnitTestUsefullFunctions
       //Assert.AreEqual(Convert.ToBase64String(result), expected);
     }
 
+    #endregion
 
+    #region NTLM
+    [TestMethod]
+    public void TestMethod_NTLM_1()
+    {
+      const string source = "A long long time ago in a galaxy far far away";
+      string expected = "FA";
+      string result = CryptoFunc.Ntlm(source);
+      Assert.AreEqual(result, expected);
+    }
     #endregion
 
   }
