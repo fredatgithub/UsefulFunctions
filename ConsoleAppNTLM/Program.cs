@@ -16,10 +16,11 @@ namespace ConsoleAppNTLM
       for (int i = 0; i < alphabet.Length; i++)
       {
         count++;
-        display($"{alphabet[i]} = {FunctionsCrypto.Ntlm(alphabet[i].ToString())}");
+        string ntlm = FunctionsCrypto.Ntlm(alphabet[i].ToString());
+        display($"{alphabet[i]} = {ntlm}");
         if (addToListe)
         {
-          liste.Add($"{alphabet[i]};{FunctionsCrypto.Ntlm(alphabet[i].ToString())}");
+          liste.Add($"{alphabet[i]};{ntlm}");
         }
       }
 
@@ -29,10 +30,11 @@ namespace ConsoleAppNTLM
         for (int j = 0; j < alphabet.Length; j++)
         {
           count++;
-          display($"{alphabet[i]}{alphabet[j]} = {FunctionsCrypto.Ntlm(alphabet[i].ToString() + alphabet[j].ToString())}");
+          string ntlm = FunctionsCrypto.Ntlm(alphabet[i].ToString() + alphabet[j].ToString());
+          display($"{alphabet[i]}{alphabet[j]} = {ntlm}");
           if (addToListe)
           {
-            liste.Add($"{alphabet[i]}{alphabet[j]};{FunctionsCrypto.Ntlm(alphabet[i].ToString() + alphabet[j].ToString())}");
+            liste.Add($"{alphabet[i]}{alphabet[j]};{ntlm}");
           }
         }
       }
@@ -45,10 +47,11 @@ namespace ConsoleAppNTLM
           for (int k = 0; k < alphabet.Length; k++)
           {
             count++;
-            display($"{alphabet[i]}{alphabet[j]}{alphabet[k]} = {FunctionsCrypto.Ntlm(alphabet[i].ToString() + alphabet[j].ToString() + alphabet[k].ToString())}");
+            string ntlm = FunctionsCrypto.Ntlm(alphabet[i].ToString() + alphabet[j].ToString() + alphabet[k].ToString());
+            display($"{alphabet[i]}{alphabet[j]}{alphabet[k]} = {ntlm}");
             if (addToListe)
             {
-              liste.Add($"{alphabet[i]}{alphabet[j]}{alphabet[k]};{FunctionsCrypto.Ntlm(alphabet[i].ToString() + alphabet[j].ToString() + alphabet[k].ToString())}");
+              liste.Add($"{alphabet[i]}{alphabet[j]}{alphabet[k]};{ntlm}");
             }
           }
         }
@@ -64,10 +67,11 @@ namespace ConsoleAppNTLM
             for (int l = 0; l < alphabet.Length; l++)
             {
               count++;
-              display($"{alphabet[i]}{alphabet[j]}{alphabet[k]}{alphabet[l]} = {FunctionsCrypto.Ntlm(alphabet[i].ToString() + alphabet[j].ToString() + alphabet[k].ToString() + alphabet[l].ToString())}");
+              string ntlm = FunctionsCrypto.Ntlm(alphabet[i].ToString() + alphabet[j].ToString() + alphabet[k].ToString() + alphabet[l].ToString());
+              display($"{alphabet[i]}{alphabet[j]}{alphabet[k]}{alphabet[l]} = {ntlm}");
               if (addToListe)
               {
-                liste.Add($"{alphabet[i]}{alphabet[j]}{alphabet[k]}{alphabet[l]} = {FunctionsCrypto.Ntlm(alphabet[i].ToString() + alphabet[j].ToString() + alphabet[k].ToString() + alphabet[l].ToString())}");
+                liste.Add($"{alphabet[i]}{alphabet[j]}{alphabet[k]}{alphabet[l]} = {ntlm}");
               }
             }
           }
@@ -75,6 +79,32 @@ namespace ConsoleAppNTLM
       }
 
       // 105 101 004 NTLM calculated so far with 4 characters //out of memory error at 3.6 GB console app if addToListe = true
+
+      for (int i = 0; i < alphabet.Length; i++)
+      {
+        for (int j = 0; j < alphabet.Length; j++)
+        {
+          for (int k = 0; k < alphabet.Length; k++)
+          {
+            for (int l = 0; l < alphabet.Length; l++)
+            {
+              for (int m = 0; m < alphabet.Length; m++)
+              {
+                count++;
+                string ntlm = FunctionsCrypto.Ntlm(alphabet[i].ToString() + alphabet[j].ToString() + alphabet[k].ToString() + alphabet[l].ToString() + alphabet[m].ToString());
+                display($"{alphabet[i]}{alphabet[j]}{alphabet[k]}{alphabet[l]}{alphabet[m]} = {ntlm}");
+                if (addToListe)
+                {
+                  liste.Add($"{alphabet[i]}{alphabet[j]}{alphabet[k]}{alphabet[l]} = {ntlm}");
+                }
+              }
+            }
+          }
+        }
+      }
+
+      // ? NTLM calculated so far with 4 characters
+
       display(string.Empty);
       display($"There are {count} NTLM hash calculated.");
       display(string.Empty);
