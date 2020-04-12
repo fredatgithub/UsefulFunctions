@@ -11,13 +11,15 @@ namespace ConsoleAppNTLM
     {
       Action<string> display = Console.WriteLine;
       ulong count = 0;
-      bool addToListe = false;
-      bool saveToFile = false;
+      bool addToListe = true;
+      bool saveToFile = true;
       bool saveToDatabase = false;
+      ulong numberOfItem = 1000000;
+      ulong fileCount = 1;
       Dictionary<string, string> dicoResult = new Dictionary<string, string>();
       // IdNtlm	Code	NtlmHash
       // 1      A     C5DD1C2BC8719C01B25B4EB2692C9FEE
-      string alphabet = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ&é'(-è_çà)=$£*%âêîôûù,;:!?./\\§%µä+°€@<>";
+      string alphabet = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ&é'(-è_çà)=$£*%âêîôûù,;:!?./\\§µä+°€@<>";
       for (int i = 0; i < alphabet.Length; i++)
       {
         count++;
@@ -29,20 +31,22 @@ namespace ConsoleAppNTLM
         }
       }
 
-      // 101 NTLM calculated so far with 1 character
+      // 100 NTLM calculated so far with 1 character
       for (int i = 0; i < alphabet.Length; i++)
       {
         for (int j = 0; j < alphabet.Length; j++)
         {
-          if (saveToDatabase && count % 1000 == 0)
+          if (saveToDatabase && count % numberOfItem == 0)
           {
             RecordResultsToDatabase(dicoResult);
           }
 
-          if (saveToFile && count % 1000 == 0)
+          if (saveToFile && count % numberOfItem == 0)
           {
-            RecordResultsToFile(dicoResult);
-            count = 0;
+            ulong fileNumber = fileCount * numberOfItem;
+            RecordResultsToFile(dicoResult, fileNumber);
+            fileCount++;
+            dicoResult.Clear();
           }
 
           count++;
@@ -62,15 +66,17 @@ namespace ConsoleAppNTLM
         {
           for (int k = 0; k < alphabet.Length; k++)
           {
-            if (saveToDatabase && count % 1000 == 0)
+            if (saveToDatabase && count % numberOfItem == 0)
             {
               RecordResultsToDatabase(dicoResult);
             }
 
-            if (saveToFile && count % 1000 == 0)
+            if (saveToFile && count % numberOfItem == 0)
             {
-              RecordResultsToFile(dicoResult);
-              count = 0;
+              ulong fileNumber = fileCount * numberOfItem;
+              RecordResultsToFile(dicoResult, fileNumber);
+              fileCount++;
+              dicoResult.Clear();
             }
 
             count++;
@@ -93,15 +99,17 @@ namespace ConsoleAppNTLM
           {
             for (int l = 0; l < alphabet.Length; l++)
             {
-              if (saveToDatabase && count % 1000 == 0)
+              if (saveToDatabase && count % numberOfItem == 0)
               {
                 RecordResultsToDatabase(dicoResult);
               }
 
-              if (saveToFile && count % 1000 == 0)
+              if (saveToFile && count % numberOfItem == 0)
               {
-                RecordResultsToFile(dicoResult);
-                count = 0;
+                ulong fileNumber = fileCount * numberOfItem;
+                RecordResultsToFile(dicoResult, fileNumber);
+                fileCount++;
+                dicoResult.Clear();
               }
 
               count++;
@@ -128,15 +136,17 @@ namespace ConsoleAppNTLM
             {
               for (int m = 0; m < alphabet.Length; m++)
               {
-                if (saveToDatabase && count % 1000 == 0)
+                if (saveToDatabase && count % numberOfItem == 0)
                 {
                   RecordResultsToDatabase(dicoResult);
                 }
 
-                if (saveToFile && count % 1000 == 0)
+                if (saveToFile && count % numberOfItem == 0)
                 {
-                  RecordResultsToFile(dicoResult);
-                  count = 0;
+                  ulong fileNumber = fileCount * numberOfItem;
+                  RecordResultsToFile(dicoResult, fileNumber);
+                  fileCount++;
+                  dicoResult.Clear();
                 }
 
                 count++;
@@ -144,7 +154,7 @@ namespace ConsoleAppNTLM
                 display($"{alphabet[i]}{alphabet[j]}{alphabet[k]}{alphabet[l]}{alphabet[m]} = {ntlm}");
                 if (addToListe)
                 {
-                  dicoResult.Add($"{alphabet[i]}{alphabet[j]}{alphabet[k]}{alphabet[l]}", ntlm);
+                  dicoResult.Add($"{alphabet[i]}{alphabet[j]}{alphabet[k]}{alphabet[l]}{alphabet[m]}", ntlm);
                 }
               }
             }
@@ -161,11 +171,11 @@ namespace ConsoleAppNTLM
       Console.ReadKey();
     }
 
-    private static void RecordResultsToFile(Dictionary<string, string> dico)
+    private static void RecordResultsToFile(Dictionary<string, string> dico, ulong fileCount)
     {
       try
       {
-        using (StreamWriter sw = new StreamWriter($"NTLM-{dico.Count}.txt"))
+        using (StreamWriter sw = new StreamWriter($"NTLM-{fileCount}.txt"))
         {
           foreach (var item in dico)
           {
