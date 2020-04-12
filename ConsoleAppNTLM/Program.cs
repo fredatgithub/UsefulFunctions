@@ -42,6 +42,7 @@ namespace ConsoleAppNTLM
           if (saveToFile && count % 1000 == 0)
           {
             RecordResultsToFile(dicoResult);
+            count = 0;
           }
 
           count++;
@@ -61,6 +62,17 @@ namespace ConsoleAppNTLM
         {
           for (int k = 0; k < alphabet.Length; k++)
           {
+            if (saveToDatabase && count % 1000 == 0)
+            {
+              RecordResultsToDatabase(dicoResult);
+            }
+
+            if (saveToFile && count % 1000 == 0)
+            {
+              RecordResultsToFile(dicoResult);
+              count = 0;
+            }
+
             count++;
             string ntlm = FunctionsCrypto.Ntlm(alphabet[i].ToString() + alphabet[j].ToString() + alphabet[k].ToString());
             display($"{alphabet[i]}{alphabet[j]}{alphabet[k]} = {ntlm}");
@@ -81,6 +93,17 @@ namespace ConsoleAppNTLM
           {
             for (int l = 0; l < alphabet.Length; l++)
             {
+              if (saveToDatabase && count % 1000 == 0)
+              {
+                RecordResultsToDatabase(dicoResult);
+              }
+
+              if (saveToFile && count % 1000 == 0)
+              {
+                RecordResultsToFile(dicoResult);
+                count = 0;
+              }
+
               count++;
               string ntlm = FunctionsCrypto.Ntlm(alphabet[i].ToString() + alphabet[j].ToString() + alphabet[k].ToString() + alphabet[l].ToString());
               display($"{alphabet[i]}{alphabet[j]}{alphabet[k]}{alphabet[l]} = {ntlm}");
@@ -105,6 +128,17 @@ namespace ConsoleAppNTLM
             {
               for (int m = 0; m < alphabet.Length; m++)
               {
+                if (saveToDatabase && count % 1000 == 0)
+                {
+                  RecordResultsToDatabase(dicoResult);
+                }
+
+                if (saveToFile && count % 1000 == 0)
+                {
+                  RecordResultsToFile(dicoResult);
+                  count = 0;
+                }
+
                 count++;
                 string ntlm = FunctionsCrypto.Ntlm(alphabet[i].ToString() + alphabet[j].ToString() + alphabet[k].ToString() + alphabet[l].ToString() + alphabet[m].ToString());
                 display($"{alphabet[i]}{alphabet[j]}{alphabet[k]}{alphabet[l]}{alphabet[m]} = {ntlm}");
