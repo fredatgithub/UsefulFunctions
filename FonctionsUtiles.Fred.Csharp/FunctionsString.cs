@@ -3536,7 +3536,7 @@ namespace FonctionsUtiles.Fred.Csharp
         return false;
       }
 
-      if (email.Length > 320)
+      if (email.Length > 320) // max length
       {
         return false;
       }
