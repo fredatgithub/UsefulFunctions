@@ -1514,7 +1514,7 @@ namespace UnitTestUsefullFunctions
       const int source = 6;
       List<int> expected = new List<int> { 2, 3 };
       List<int> result = FunctionsMath.Factorization(source);
-      AssertAreEqualList(result, expected);
+      AssertListAreEqualed(result, expected);
     }
 
     [TestMethod]
@@ -1523,7 +1523,7 @@ namespace UnitTestUsefullFunctions
       const int source = 9;
       List<int> expected = new List<int> { 3, 3 };
       List<int> result = FunctionsMath.Factorization(source);
-      AssertAreEqualList(result, expected);
+      AssertListAreEqualed(result, expected);
     }
 
     [TestMethod]
@@ -1532,7 +1532,7 @@ namespace UnitTestUsefullFunctions
       const int source = 10;
       List<int> expected = new List<int> { 2, 5 };
       List<int> result = FunctionsMath.Factorization(source);
-      AssertAreEqualList(result, expected);
+      AssertListAreEqualed(result, expected);
     }
 
     [TestMethod]
@@ -1541,7 +1541,7 @@ namespace UnitTestUsefullFunctions
       const int source = 15;
       List<int> expected = new List<int> { 3, 5 };
       List<int> result = FunctionsMath.Factorization(source);
-      AssertAreEqualList(result, expected);
+      AssertListAreEqualed(result, expected);
     }
 
     [TestMethod]
@@ -1550,7 +1550,7 @@ namespace UnitTestUsefullFunctions
       const int source = 100;
       List<int> expected = new List<int> { 2, 2, 5, 5 };
       List<int> result = FunctionsMath.Factorization(source);
-      AssertAreEqualList(result, expected);
+      AssertListAreEqualed(result, expected);
     }
 
     [TestMethod]
@@ -1559,7 +1559,7 @@ namespace UnitTestUsefullFunctions
       const int source = 200;
       List<int> expected = new List<int> { 2, 2, 2, 5, 5 };
       List<int> result = FunctionsMath.Factorization(source);
-      AssertAreEqualList(result, expected);
+      AssertListAreEqualed(result, expected);
     }
 
     #endregion Factorization
@@ -1572,7 +1572,7 @@ namespace UnitTestUsefullFunctions
       const int source = 10;
       List<int> expected = new List<int> { 1, 10, 2, 5 };
       List<int> result = FunctionsMath.GetDivisors(source);
-      AssertAreEqualList(result, expected);
+      AssertListAreEqualed(result, expected);
     }
 
     [TestMethod]
@@ -1581,7 +1581,7 @@ namespace UnitTestUsefullFunctions
       const int source = 50;
       List<int> expected = new List<int> { 1, 50, 2, 5, 10, 25 };
       List<int> result = FunctionsMath.GetDivisors(source);
-      AssertAreEqualList(result, expected);
+      AssertListAreEqualed(result, expected);
     }
 
     [TestMethod]
@@ -1590,7 +1590,7 @@ namespace UnitTestUsefullFunctions
       const int source = 100;
       List<int> expected = new List<int> { 1, 100, 2, 4, 5, 10, 20, 25, 50 };
       List<int> result = FunctionsMath.GetDivisors(source);
-      AssertAreEqualList(result, expected);
+      AssertListAreEqualed(result, expected);
     }
     #endregion
 
@@ -1601,7 +1601,7 @@ namespace UnitTestUsefullFunctions
       const int source = 10;
       List<int> expected = new List<int> { 1, 2, 5, 10 };
       List<int> result = FunctionsMath.GetDivisorsSorted(source);
-      AssertAreEqualList(result, expected);
+      AssertListAreEqualed(result, expected);
     }
 
     [TestMethod]
@@ -1610,7 +1610,7 @@ namespace UnitTestUsefullFunctions
       const int source = 11;
       List<int> expected = new List<int> { 1, 11 };
       List<int> result = FunctionsMath.GetDivisorsSorted(source);
-      AssertAreEqualList(result, expected);
+      AssertListAreEqualed(result, expected);
     }
 
     [TestMethod]
@@ -1619,7 +1619,7 @@ namespace UnitTestUsefullFunctions
       const int source = 12;
       List<int> expected = new List<int> { 1, 2, 3, 4, 6, 12 };
       List<int> result = FunctionsMath.GetDivisorsSorted(source);
-      AssertAreEqualList(result, expected);
+      AssertListAreEqualed(result, expected);
     }
 
     [TestMethod]
@@ -1628,7 +1628,7 @@ namespace UnitTestUsefullFunctions
       const int source = 13;
       List<int> expected = new List<int> { 1, 13 };
       List<int> result = FunctionsMath.GetDivisorsSorted(source);
-      AssertAreEqualList(result, expected);
+      AssertListAreEqualed(result, expected);
     }
 
     [TestMethod]
@@ -1637,7 +1637,7 @@ namespace UnitTestUsefullFunctions
       const int source = 14;
       List<int> expected = new List<int> { 1, 2, 7, 14 };
       List<int> result = FunctionsMath.GetDivisorsSorted(source);
-      AssertAreEqualList(result, expected);
+      AssertListAreEqualed(result, expected);
     }
 
     [TestMethod]
@@ -1646,7 +1646,7 @@ namespace UnitTestUsefullFunctions
       const int source = 15;
       List<int> expected = new List<int> { 1, 3, 5, 15 };
       List<int> result = FunctionsMath.GetDivisorsSorted(source);
-      AssertAreEqualList(result, expected);
+      AssertListAreEqualed(result, expected);
     }
 
     [TestMethod]
@@ -1655,7 +1655,7 @@ namespace UnitTestUsefullFunctions
       const int source = 16;
       List<int> expected = new List<int> { 1, 2, 4, 8, 16 };
       List<int> result = FunctionsMath.GetDivisorsSorted(source);
-      AssertAreEqualList(result, expected);
+      AssertListAreEqualed(result, expected);
     }
 
     [TestMethod]
@@ -1664,7 +1664,7 @@ namespace UnitTestUsefullFunctions
       const int source = 17;
       List<int> expected = new List<int> { 1, 17 };
       List<int> result = FunctionsMath.GetDivisorsSorted(source);
-      AssertAreEqualList(result, expected);
+      AssertListAreEqualed(result, expected);
     }
 
     [TestMethod]
@@ -1673,7 +1673,7 @@ namespace UnitTestUsefullFunctions
       const int source = 50;
       List<int> expected = new List<int> { 1, 2, 5, 10, 25, 50 };
       List<int> result = FunctionsMath.GetDivisorsSorted(source);
-      AssertAreEqualList(result, expected);
+      AssertListAreEqualed(result, expected);
     }
 
     [TestMethod]
@@ -1682,13 +1682,13 @@ namespace UnitTestUsefullFunctions
       const int source = 100;
       List<int> expected = new List<int> { 1, 2, 4, 5, 10, 20, 25, 50, 100 };
       List<int> result = FunctionsMath.GetDivisorsSorted(source);
-      AssertAreEqualList(result, expected);
+      AssertListAreEqualed(result, expected);
     }
 
     #endregion
 
     #region Unit Test Helper methods
-    public static void AssertAreEqualList(List<int> result, List<int> expected)
+    public static void AssertListAreEqualed(List<int> result, List<int> expected)
     {
       Assert.AreEqual(result.Count, expected.Count);
       for (int i = 0; i < expected.Count; i++)
@@ -1714,7 +1714,7 @@ namespace UnitTestUsefullFunctions
       const int source = 4;
       List<int> expected = new List<int> { 2 };
       List<int> result = FunctionsMath.GetDivisor(source);
-      AssertAreEqualList(result, expected);
+      AssertListAreEqualed(result, expected);
     }
   }
 }
