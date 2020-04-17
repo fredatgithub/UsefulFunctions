@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
-using FonctionsUtiles.Fred.Csharp;
+﻿using FonctionsUtiles.Fred.Csharp;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
 
 namespace UnitTestUsefullFunctions
 {
@@ -1680,11 +1680,11 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GetDivisorsSorted_value_100()
     {
       const int source = 100;
-      List<int> expected = new List<int> { 1,  2, 4, 5, 10, 20, 25, 50, 100 };
+      List<int> expected = new List<int> { 1, 2, 4, 5, 10, 20, 25, 50, 100 };
       List<int> result = FunctionsMath.GetDivisorsSorted(source);
       AssertAreEqualList(result, expected);
     }
-    
+
     #endregion
 
     #region Unit Test Helper methods
@@ -1706,6 +1706,15 @@ namespace UnitTestUsefullFunctions
       const decimal expected = (decimal)1.14535765d;
       decimal result = FunctionsMath.ConvertDoublewithCultureInfo(source);
       Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetDivisor_2()
+    {
+      const int source = 4;
+      List<int> expected = new List<int> { 2 };
+      List<int> result = FunctionsMath.GetDivisor(source);
+      AssertAreEqualList(result, expected);
     }
   }
 }

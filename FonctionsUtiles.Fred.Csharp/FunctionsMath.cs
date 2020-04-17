@@ -429,5 +429,29 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return result;
     }
+
+    public static List<int> GetDivisor(int number)
+    {
+      // to be debugged
+      List<int> result = new List<int>();
+      if (number < 2)
+      {
+        return result;
+      }
+
+      int d = 2;
+      while (number != 1)
+      {
+        while (number % d == 0)
+        {
+          result.Add(d);
+          d = number / d;
+        }
+
+        d++;
+      }
+
+      return result;
+    }
   }
 }
