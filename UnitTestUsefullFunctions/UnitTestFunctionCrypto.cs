@@ -348,6 +348,15 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
+    [TestMethod]
+    public void TestMethod_NTLM_i()
+    {
+      const string source = "i";
+      string expected = "F9E76A20A4AD2E31E26F0F2F3926BD48";
+      string result = CryptoFunc.Ntlm(source);
+      Assert.AreEqual(result, expected);
+    }
+
     #endregion
 
   }
