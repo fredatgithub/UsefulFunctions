@@ -1,6 +1,8 @@
 ﻿using FonctionsUtiles.Fred.Csharp;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 
 namespace ConsoleAppNTLM
@@ -12,8 +14,8 @@ namespace ConsoleAppNTLM
       Action<string> display = Console.WriteLine;
       ulong count = 0;
       bool addToListe = true;
-      bool saveToFile = true;
-      bool saveToDatabase = false;
+      bool saveToFile = false;
+      bool saveToDatabase = true;
       ulong numberOfItem = 1000000;
       ulong fileCount = 1;
       Dictionary<string, string> dicoResult = new Dictionary<string, string>();
@@ -193,6 +195,79 @@ namespace ConsoleAppNTLM
     private static void RecordResultsToDatabase(Dictionary<string, string> dico)
     {
       // save dico to DB to be implemented
+      DataTable table = new DataTable();
+      table = GetTable();
+      foreach (var item in dico)
+      {
+        table.Rows.Add(item.Key, item.Value);
+      }
+
+      Insert(table, "InsertNTLM", "@tbNtlmHashTable");
+    }
+
+    public static void ReadFile(string fileName = "")
+    {
+      try
+      {
+        DataTable table = new DataTable();
+        table = GetTable();
+        //using (StreamReader sr = new StreamReader(Environment.CurrentDirectory + fileName))
+        //{
+        //  string line;
+        //  int i = 1;
+        //  while ((line = sr.ReadLine()) != null)
+        //  {
+        //    table.Rows.Add(i, line);
+        //    Console.WriteLine(line);
+        //    i++;
+        //  }
+        //}
+        //Insert datatable to sql Server
+        Insert(table, "InsertCountries", "@dtCountry");
+      }
+      catch (Exception exception)
+      {
+        // Let the user know what went wrong.
+        Console.WriteLine("The file could not be read:");
+        Console.WriteLine(exception.Message);
+      }
+
+      Console.WriteLine("Press any key to exit:");
+      Console.ReadKey();
+    }
+
+    /// <summary>This example method generates a DataTable.</summary>
+    static DataTable GetTable()
+    {
+      DataTable table = new DataTable();
+      //table.Columns.Add("idNtlm", typeof(int));
+      table.Columns.Add("Code", typeof(string));
+      table.Columns.Add("NtlmHash", typeof(string));
+      return table;
+    }
+
+    static void Insert(DataTable dtData, string storedProcedureName, string dataTableName)
+    {
+      SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-MSI;Initial Catalog=NTLM;Integrated Security=True");
+      SqlCommand cmd = new SqlCommand(storedProcedureName, con);
+      cmd.CommandType = CommandType.StoredProcedure;
+      cmd.Parameters.AddWithValue(dataTableName, dtData);
+      cmd.Connection = con;
+      try
+      {
+        con.Open();
+        cmd.ExecuteNonQuery();
+        Console.WriteLine("Records inserted successfully!");
+      }
+      catch (Exception exception)
+      {
+        Console.WriteLine($"exception : {exception.Message}");
+      }
+      finally
+      {
+        con.Close();
+        con.Dispose();
+      }
     }
   }
 }
