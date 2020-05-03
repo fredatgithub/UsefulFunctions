@@ -1,4 +1,5 @@
-﻿using FonctionsUtiles.Fred.Csharp;
+﻿using ConsoleAppNTLM.Models;
+using FonctionsUtiles.Fred.Csharp;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -41,6 +42,8 @@ namespace ConsoleAppNTLM
           if (saveToDatabase && count % numberOfItem == 0)
           {
             RecordResultsToDatabase(dicoResult);
+            dicoResult.Clear();
+            count = 0;
           }
 
           if (saveToFile && count % numberOfItem == 0)
@@ -52,7 +55,7 @@ namespace ConsoleAppNTLM
           }
 
           count++;
-          string ntlm = FunctionsCrypto.Ntlm(alphabet[i].ToString() + alphabet[j].ToString());
+          string ntlm = FunctionsCrypto.Ntlm($"{alphabet[i]}{alphabet[j]}");
           display($"{alphabet[i]}{alphabet[j]} = {ntlm}");
           if (addToListe)
           {
@@ -71,6 +74,8 @@ namespace ConsoleAppNTLM
             if (saveToDatabase && count % numberOfItem == 0)
             {
               RecordResultsToDatabase(dicoResult);
+              dicoResult.Clear();
+              count = 0;
             }
 
             if (saveToFile && count % numberOfItem == 0)
@@ -104,6 +109,8 @@ namespace ConsoleAppNTLM
               if (saveToDatabase && count % numberOfItem == 0)
               {
                 RecordResultsToDatabase(dicoResult);
+                dicoResult.Clear();
+                count = 0;
               }
 
               if (saveToFile && count % numberOfItem == 0)
@@ -141,6 +148,8 @@ namespace ConsoleAppNTLM
                 if (saveToDatabase && count % numberOfItem == 0)
                 {
                   RecordResultsToDatabase(dicoResult);
+                  dicoResult.Clear();
+                  count = 0;
                 }
 
                 if (saveToFile && count % numberOfItem == 0)
@@ -195,14 +204,30 @@ namespace ConsoleAppNTLM
     private static void RecordResultsToDatabase(Dictionary<string, string> dico)
     {
       // save dico to DB to be implemented
-      DataTable table = new DataTable();
-      table = GetTable();
+      //DataTable table = new DataTable();
+      //table = GetTable();
+      //foreach (var item in dico)
+      //{
+      //  table.Rows.Add(item.Key, item.Value);
+      //}
+
+      //Insert(table, "InsertNTLM", "@tbNtlmHashTable");
+
+      List<ModelNtlm> objectNtlmList = new List<ModelNtlm>();
       foreach (var item in dico)
       {
-        table.Rows.Add(item.Key, item.Value);
+        var oneHash = new ModelNtlm()
+        {
+          Code = item.Key,
+          NtlmHash = item.Value
+        };
+
+        objectNtlmList.Add(oneHash);
       }
 
-      Insert(table, "InsertNTLM", "@tbNtlmHashTable");
+      ModelNtlm ntlmModel = new ModelNtlm();
+      ntlmModel.InsertMassiveData(objectNtlmList);
+
     }
 
     public static void ReadFile(string fileName = "")
