@@ -605,5 +605,38 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return File.ReadAllLines(fileName, Encoding.UTF8);
     }
+
+    /// <summary>
+    /// Supprime s'il existe plus de 20 fichiers de log par rapport au chemin 'path'
+    /// </summary>
+    /// <param name="path"></param>
+    public static void CleanUp(string path)
+    {
+      try
+      {
+        if (File.Exists(path))
+        {
+          FileInfo fileInfo = new FileInfo(path);
+          FileInfo[] logFiles = fileInfo.Directory.GetFiles(fileInfo.Name + "*");
+          DateCompareFileInfo dateCompareFileInfo = new DateCompareFileInfo();
+
+          Array.Sort(logFiles, dateCompareFileInfo);
+
+          while (logFiles.Length > 20)
+          {
+            if (File.Exists(logFiles[logFiles.Length - 1].FullName))
+            {
+              File.Delete(logFiles[logFiles.Length - 1].FullName);
+            }
+
+            logFiles = fileInfo.Directory.GetFiles(fileInfo.Name + "*");
+          }
+        }
+      }
+      catch
+      {
+      }
+    }
+
   }
 }

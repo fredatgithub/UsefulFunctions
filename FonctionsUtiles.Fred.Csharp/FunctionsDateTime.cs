@@ -208,5 +208,59 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return false;
     }
+
+    /// <summary>
+    /// Renvoi le nombre de jour pour le mois de février en verifiant si on est sur une année bissextile ou pas
+    /// </summary>
+    /// <param name="annee"></param>
+    /// <returns>Un entier donnant le nombre de jour en février pour l'année.</returns>
+    public static int GetFebruaryNumberOfDays(int annee)
+    {
+      if ((annee % 4 == 0 && annee % 100 != 0) || (annee % 400 == 0))
+      {
+        return 29;
+      }
+      else
+      {
+        return 28;
+      }
+    }
+
+    /// <summary>It gives the number of days for a given month.</summary>
+    /// <param name="monthNumber">The Number of the month.</param>
+    /// <param name="theYearForFebruary">The year to calculate if it is bissextile for February.</param>
+    /// <returns>The number of days for a given month.</returns>
+    public static int GetNumberOfDays(int monthNumber, int theYearForFebruary)
+    {
+      switch (monthNumber)
+      {
+        case 1:
+          return 31;
+        case 2:
+          return GetFebruaryNumberOfDays(theYearForFebruary);
+        case 3:
+          return 31;
+        case 4:
+          return 30;
+        case 5:
+          return 31;
+        case 6:
+          return 30;
+        case 7:
+          return 31;
+        case 8:
+          return 31;
+        case 9:
+          return 30;
+        case 10:
+          return 31;
+        case 11:
+          return 30;
+        case 12:
+          return 31;
+      }
+
+      return 0;
+    }
   }
 }
