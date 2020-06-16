@@ -610,7 +610,7 @@ namespace FonctionsUtiles.Fred.Csharp
     /// Supprime s'il existe plus de 20 fichiers de log par rapport au chemin 'path'
     /// </summary>
     /// <param name="path"></param>
-    public static void CleanUp(string path)
+    public static void CleanUp(string path, int numberOfFileToKeep = 20)
     {
       try
       {
@@ -622,7 +622,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
           Array.Sort(logFiles, dateCompareFileInfo);
 
-          while (logFiles.Length > 20)
+          while (logFiles.Length > numberOfFileToKeep)
           {
             if (File.Exists(logFiles[logFiles.Length - 1].FullName))
             {
