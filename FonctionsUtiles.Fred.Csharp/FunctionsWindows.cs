@@ -83,20 +83,20 @@ namespace FonctionsUtiles.Fred.Csharp
       return query;
     }
 
-    public static string NomPC()
+    public static string PCName()
     {
-      string nom = string.Empty;
+      string name = string.Empty;
       var searcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT CSName FROM Win32_OperatingSystem");
       foreach (ManagementObject queryObj in searcher.Get())
       {
-        nom = queryObj["CSName"].ToString().Trim();
+        name = queryObj["CSName"].ToString().Trim();
       }
 
       searcher.Dispose();
-      return nom;
+      return name;
     }
 
-    public static string NomSysteme()
+    public static string SystemName()
     {
       string nom = string.Empty;
       var searcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT Caption FROM Win32_OperatingSystem");
@@ -109,7 +109,7 @@ namespace FonctionsUtiles.Fred.Csharp
       return nom;
     }
 
-    public static bool EstXPSP3()
+    public static bool IsWindowsXPSP3()
     {
       try
       {
@@ -133,7 +133,7 @@ namespace FonctionsUtiles.Fred.Csharp
       }
     }
 
-    public static bool EstFramework4()
+    public static bool IsFrameworkV4Installed()
     {
       try
       {
@@ -158,7 +158,7 @@ namespace FonctionsUtiles.Fred.Csharp
       }
     }
 
-    public static bool EstCrystal13()
+    public static bool DoesCrystalVersionIsInV13()
     {
       try
       {
@@ -184,14 +184,14 @@ namespace FonctionsUtiles.Fred.Csharp
     }
 
 
-    public static string AdresseIP(string computername)
+    public static string AdresseIP(string computerName)
     {
       try
       {
-        if (computername != string.Empty)
+        if (computerName != string.Empty)
         {
           string[] saddr = null;
-          IPAddress[] addr = Dns.GetHostEntry(computername).AddressList;
+          IPAddress[] addr = Dns.GetHostEntry(computerName).AddressList;
 
           if (addr.Length > 0)
           {
