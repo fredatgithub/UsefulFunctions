@@ -3555,5 +3555,37 @@ namespace FonctionsUtiles.Fred.Csharp
       result = myRegex.IsMatch(email);
       return result;
     }
+
+    public static bool CheckIfStringFollowOrder(string text, string subString)
+    {
+      int subStringLength = subString.Length;
+
+      if (text.Length < subStringLength)
+      {
+        return false;
+      }
+
+      char x, y;
+      int indexX, indexY;
+
+      for (int i = 0; i < subStringLength - 1; i++)
+      {
+        indexX = -1;
+        indexY = -1;
+
+        x = subString[i];
+        y = subString[i + 1];
+
+        indexX = text.LastIndexOf(x);
+        indexY = text.IndexOf(y);
+
+        if (y < x || indexX == -1 || indexY == -1)
+        {
+          return false;
+        }
+      }
+
+      return true;
+    }
   }
 }

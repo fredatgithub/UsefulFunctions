@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.NetworkInformation;
@@ -254,7 +255,26 @@ namespace FonctionsUtiles.Fred.Csharp
       {
         //log.Error(String.Format("Could not test url {0}.", url), ex);
       }
+
       return false;
+    }
+
+    public static string GetAPIFromUrl(string url)
+    {
+      ServicePointManager.Expect100Continue = true;
+      ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls
+             | SecurityProtocolType.Tls11
+             | SecurityProtocolType.Tls12
+             | SecurityProtocolType.Ssl3;
+
+      WebRequest request = (HttpWebRequest)WebRequest.Create(url);
+      WebResponse response = request.GetResponse();
+      Stream dataStream = response.GetResponseStream();
+      StreamReader reader = new StreamReader(dataStream);
+      string responseFromServer = reader.ReadToEnd();
+      reader.Close();
+      response.Close();
+      return responseFromServer;
     }
   }
 }
