@@ -1,6 +1,4 @@
-using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
 using dllFuncs = FonctionsUtiles.Fred.Csharp;
 
 namespace UnitTestUsefullFunctions
@@ -84,7 +82,6 @@ namespace UnitTestUsefullFunctions
     //  Assert.AreEqual(result, expected);
     //}
     #endregion ToCodeSummary
-
 
   }
 }
