@@ -3,7 +3,8 @@ Useful functions gathered in one DLL
 
 # License
 ![License] (https://img.shields.io/github/license/mashape/apistatus.svg License-blue.svg)
-
+(https://github.com/fredatgithub/UsefulFunctions#License status)
+https://img.shields.io/github/license/mashape/apistatus.svg 
 
 # Build Status
 [![Build] (https://img.shields.io/badge/Build-Passed-brightgreen.svg)] (https://github.com/fredatgithub/UsefulFunctions#Build status)
