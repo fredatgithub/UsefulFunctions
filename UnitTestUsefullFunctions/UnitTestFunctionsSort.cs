@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Security.Cryptography;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SortFunc = FonctionsUtiles.Fred.Csharp.FunctionsSort;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
 using CryptoFunc = FonctionsUtiles.Fred.Csharp.FunctionsCrypto;
+using SortFunc = FonctionsUtiles.Fred.Csharp.FunctionsSort;
 
 namespace UnitTestUsefullFunctions
 {
@@ -12,7 +11,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Buble_Sort_list()
     {
-      List<int> source = new List<int> {9, 8, 7 };
+      List<int> source = new List<int> { 9, 8, 7 };
       List<int> expected = new List<int> { 7, 8, 9 };
       List<int> result = SortFunc.BubbleSort(source);
       for (int i = 0; i < result.Count; i++)
@@ -24,8 +23,8 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Buble_Sort_empty_list()
     {
-      List<int> source = new List<int> ();
-      List<int> expected = new List<int> ();
+      List<int> source = new List<int>();
+      List<int> expected = new List<int>();
       List<int> result = SortFunc.BubbleSort(source);
       for (int i = 0; i < result.Count; i++)
       {
@@ -60,14 +59,14 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Buble_Sort_already_sorted_list()
     {
-      List<int> source = new List<int> ();
-      List<int> expected = new List<int> ();
+      List<int> source = new List<int>();
+      List<int> expected = new List<int>();
       for (int i = 0; i < 10000000; i++)
       {
         source.Add(i);
         expected.Add(i);
       }
-      
+
       List<int> result = SortFunc.BubbleSort(source);
       for (int i = 0; i < result.Count; i++)
       {
