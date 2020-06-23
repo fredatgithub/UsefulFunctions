@@ -336,5 +336,19 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return string.Join(string.Empty, hex_format);
     }
+
+    public static string MD5Encrypt(string password)
+    {
+      byte[] passwordArray = Encoding.UTF8.GetBytes(password);
+      var md5 = new MD5CryptoServiceProvider();
+      string strPassword = BitConverter.ToString(md5.ComputeHash(passwordArray)).Replace("-", "").ToLower();
+
+      return strPassword;
+    }
+
+    public static bool MD5Verification(string password, string fingerprint)
+    {
+      return MD5Encrypt(password) == fingerprint;
+    }
   }
 }
