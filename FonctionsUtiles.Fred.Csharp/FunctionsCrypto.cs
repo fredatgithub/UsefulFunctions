@@ -341,9 +341,9 @@ namespace FonctionsUtiles.Fred.Csharp
     {
       byte[] passwordArray = Encoding.UTF8.GetBytes(password);
       var md5 = new MD5CryptoServiceProvider();
-      string strPassword = BitConverter.ToString(md5.ComputeHash(passwordArray)).Replace("-", "").ToLower();
+      string stringPassword = BitConverter.ToString(md5.ComputeHash(passwordArray)).Replace("-", "").ToLower();
 
-      return strPassword;
+      return stringPassword;
     }
 
     public static bool MD5Verification(string password, string fingerprint)
