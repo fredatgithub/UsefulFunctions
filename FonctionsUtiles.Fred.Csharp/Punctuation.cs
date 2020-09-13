@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text;
 
 namespace FonctionsUtiles.Fred.Csharp
@@ -142,6 +143,18 @@ namespace FonctionsUtiles.Fred.Csharp
     public static string GetExclamationPoint() // Andrew Hall style
     {
       return ExclamationPoint;
+    }
+
+    public static string FrenchBoolean(bool booleanValue)
+    {
+      return booleanValue ? "vrai" : "faux";
+    }
+
+    public static List<T> GetEnumList<T>()
+    {
+      T[] array = (T[])Enum.GetValues(typeof(T));
+      List<T> list = new List<T>(array);
+      return list;
     }
   }
 }
