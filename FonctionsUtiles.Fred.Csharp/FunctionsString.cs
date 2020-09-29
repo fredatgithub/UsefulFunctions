@@ -7,6 +7,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Runtime.CompilerServices;
 
 namespace FonctionsUtiles.Fred.Csharp
 {
@@ -3586,6 +3587,11 @@ namespace FonctionsUtiles.Fred.Csharp
       }
 
       return true;
+    }
+    
+    public static string LocateError([CallerMemberName] string memberName = "", [CallerFilePath] string fileName = "", [CallerLineNumber] int lineNumber = 0)
+    {
+       return $"The file is: {fileName} \r\nThe line number is: {lineNumber} \r\nThe method called is:{memberName}";
     }
   }
 }
