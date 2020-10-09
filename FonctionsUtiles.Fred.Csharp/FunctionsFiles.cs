@@ -638,5 +638,217 @@ namespace FonctionsUtiles.Fred.Csharp
       }
     }
 
+    public static string GetOldestFileName(string[] files, string extension)
+    {
+      // ApplicationName_C_26_backup_2020_04_17_21_02_14_900.full
+      string result = string.Empty;
+      var subList = files.Where(f => f.Contains(".full"));
+      DateTime file1 = GetDateFromFileName(subList.ToArray()[0]);
+      DateTime file2 = GetDateFromFileName(subList.ToArray()[1]);
+      result = subList.ToList().Min(date => date).ToString();
+      return result;
+    }
+
+    public static DateTime GetDateFromFileName(string fileName)
+    {
+      // ApplicationName_C_26_backup_2020_04_17_21_02_14_900.full
+      DateTime result;
+      var dateSplitted = fileName.Split('_');
+      int annee = int.Parse(dateSplitted[4]);
+      int mois = int.Parse(dateSplitted[5]);
+      int jour = int.Parse(dateSplitted[6]);
+      int heure = int.Parse(dateSplitted[7]);
+      int minute = int.Parse(dateSplitted[8]);
+      int seconde = int.Parse(dateSplitted[9]);
+
+      result = new DateTime(annee, mois, jour, heure, minute, seconde);
+      return result;
+    }
+
+    public static List<string> GetListOfOlder(IEnumerable<string> list, DateTime date)
+    {
+      List<string> result = new List<string>();
+      foreach (var item in list)
+      {
+        if (GetDateFromFileName(item) < date)
+        {
+          result.Add(item);
+        }
+      }
+
+      return result;
+    }
+
+    public static string GetOldestFileName(List<string> value)
+    {
+      string result = string.Empty;
+      List<FileName> tmpFileList = new List<FileName>();
+      foreach (var item in value)
+      {
+        FileName tmpFile = new FileName(item);
+        tmpFileList.Add(tmpFile);
+      }
+
+      var oldestDate = tmpFileList.Select(f => f.DateOfFile).Min();
+      foreach (var item in value)
+      {
+        FileName tmpFileName = new FileName(item);
+        if (tmpFileName.DateOfFile == oldestDate)
+        {
+          result = tmpFileName.LongName;
+          break;
+        }
+      }
+
+      return result;
+    }
+
+    public static List<string> GetOldestFileNames(List<string> value)
+    {
+      List<string> result = new List<string>();
+      List<FileName> tmpFileList = new List<FileName>();
+      foreach (var item in value)
+      {
+        FileName tmpFile = new FileName(item);
+        tmpFileList.Add(tmpFile);
+      }
+
+      var newestDate = tmpFileList.Select(f => f.DateOfFile).Max();
+      foreach (var item in value)
+      {
+        FileName tmpFileName = new FileName(item);
+        if (tmpFileName.DateOfFile != newestDate)
+        {
+          result.Add(tmpFileName.LongName);
+        }
+      }
+
+      return result;
+    }
+  }
+
+  public class FileName : IComparable<FileName>
+  {
+    public string LongName { get; set; }
+    public string Extension { get; set; }
+    public DateTime DateOfFile { get; set; }
+    public string DatabaseName { get; set; }
+    public bool IsDiffFile { get; set; }
+    public bool IsFullFile { get; set; }
+
+    public FileName()
+    {
+      LongName = string.Empty;
+      Extension = string.Empty;
+      IsDiffFile = false;
+      IsFullFile = false;
+    }
+
+    public FileName(string name, string extension, DateTime date, string databaseName = "")
+    {
+      LongName = name;
+      Extension = extension;
+      DateOfFile = date;
+      DatabaseName = DatabaseName;
+      IsDiffFile = false;
+      IsFullFile = false;
+    }
+
+    public FileName(string name)
+    {
+      LongName = name;
+      if (name.EndsWith("diff"))
+      {
+        Extension = "diff";
+        IsDiffFile = true;
+        IsFullFile = false;
+      }
+      else if (name.EndsWith("full"))
+      {
+        Extension = "full";
+        IsDiffFile = false;
+        IsFullFile = true;
+      }
+      else
+      {
+        Extension = string.Empty;
+        IsDiffFile = false;
+        IsFullFile = false;
+      }
+
+      DateOfFile = CalculateDate(Path.GetFileName(name));
+      DatabaseName = CalculateDatabaseName(Path.GetFileName(name));
+    }
+
+    private string CalculateDatabaseName(string name)
+    {
+      string result = string.Empty;
+      var longDate = name.Split('_');
+      result = $"{longDate[1]}_{longDate[2]}";
+      return result;
+    }
+
+    private DateTime CalculateDate(string name)
+    {
+      // Gestion_X_2_backup_2020_10_02_20_51_40_320.full
+      var longDate = name.Split('_');
+      DateTime result = new DateTime(int.Parse(longDate[4]), int.Parse(longDate[5]), int.Parse(longDate[6]), int.Parse(longDate[7]), int.Parse(longDate[8]), int.Parse(longDate[9]));
+      return result;
+    }
+
+    public int CompareTo(FileName other)
+    {
+      return DateOfFile.CompareTo(other.DateOfFile);
+    }
+
+    public override int GetHashCode()
+    {
+      throw new NotImplementedException();
+    }
+
+    public static bool operator ==(FileName left, FileName right)
+    {
+      return left.DateOfFile == right.DateOfFile;
+    }
+
+    public static bool operator !=(FileName left, FileName right)
+    {
+      return !(left.DateOfFile == right.DateOfFile);
+    }
+
+    public static bool operator <(FileName left, FileName right)
+    {
+      return ReferenceEquals(left.DateOfFile, null) ? !ReferenceEquals(right.DateOfFile, null) : left.CompareTo(right) < 0;
+    }
+
+    public static bool operator <=(FileName left, FileName right)
+    {
+      return ReferenceEquals(left, null) || left.CompareTo(right) <= 0;
+    }
+
+    public static bool operator >(FileName left, FileName right)
+    {
+      return !ReferenceEquals(left, null) && left.CompareTo(right) > 0;
+    }
+
+    public static bool operator >=(FileName left, FileName right)
+    {
+      return ReferenceEquals(left, null) ? ReferenceEquals(right, null) : left.CompareTo(right) >= 0;
+    }
+
+    public override bool Equals(object obj)
+    {
+      if (ReferenceEquals(this, obj))
+      {
+        return true;
+      }
+
+      if (ReferenceEquals(obj, null))
+      {
+        return false;
+      }
+
+      throw new NotImplementedException();
+    }
   }
 }
