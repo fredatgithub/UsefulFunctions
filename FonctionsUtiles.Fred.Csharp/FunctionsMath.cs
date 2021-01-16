@@ -462,5 +462,15 @@ namespace FonctionsUtiles.Fred.Csharp
                          select number;
       return orderedArray.ToArray();
     }
+
+    public static int[] IntersectionOfArrays(int[] arrayA, int[] arrayB)
+    {
+      return arrayA.Intersect(arrayB).ToArray();
+    }
+
+    public static int[] UnionOfArrays(int[] arrayA, int[] arrayB)
+    {
+      return arrayA.Union(arrayB).ToArray();
+    }
   }
 }
