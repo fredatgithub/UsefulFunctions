@@ -119,6 +119,7 @@ namespace FonctionsUtiles.Fred.Csharp
       {
         return 0;
       }
+
       int result;
       var crypto = new RNGCryptoServiceProvider();
       byte[] randomNumber = new byte[1];
@@ -452,6 +453,14 @@ namespace FonctionsUtiles.Fred.Csharp
       }
 
       return result;
+    }
+
+    public static int[] SortArray(int[] inputArray)
+    {
+      var orderedArray = from number in inputArray
+                         orderby number
+                         select number;
+      return orderedArray.ToArray();
     }
   }
 }

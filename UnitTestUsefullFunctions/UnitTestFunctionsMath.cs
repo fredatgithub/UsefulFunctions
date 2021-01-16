@@ -1718,5 +1718,25 @@ namespace UnitTestUsefullFunctions
       //AssertListAreEqualed(result, expected);
       Assert.IsTrue(true);
     }
+
+    //
+
+    [TestMethod]
+    public void TestMethod_SortArray_1()
+    {
+      int[] source = { 34, 25, 19, 9, 7, 5, 3 }; ;
+      int[] expected = { 3, 5, 7, 9, 19, 25, 34 }; ;
+      int[] result = FunctionsMath.SortArray(source);
+      AssertListAreEqualed(result, expected);
+    }
+
+    private void AssertListAreEqualed(int[] source, int[] target)
+    {
+      Assert.AreEqual(source.Length, target.Length);
+      for (int i = 0; i < source.Length; i++)
+      {
+        Assert.AreEqual(source[i], target[i]);
+      }
+    }
   }
 }
