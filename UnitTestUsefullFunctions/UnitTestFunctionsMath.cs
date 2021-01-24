@@ -1724,8 +1724,8 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_SortArray_1()
     {
-      int[] source = { 34, 25, 19, 9, 7, 5, 3 }; ;
-      int[] expected = { 3, 5, 7, 9, 19, 25, 34 }; ;
+      int[] source = { 34, 25, 19, 9, 7, 5, 3 };
+      int[] expected = { 3, 5, 7, 9, 19, 25, 34 };
       int[] result = FunctionsMath.SortArray(source);
       AssertListAreEqualed(result, expected);
     }
@@ -1733,8 +1733,17 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_SortArray_2()
     {
-      int[] source = { 9, 8, 7, 6, 5, 3 }; ;
-      int[] expected = { 3, 5, 6, 7, 8, 9 }; ;
+      int[] source = { 9, 8, 7, 6, 5, 3 };
+      int[] expected = { 3, 5, 6, 7, 8, 9 };
+      int[] result = FunctionsMath.SortArray(source);
+      AssertListAreEqualed(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_SortArray_already_sorted()
+    {
+      int[] source = { 3, 5, 6, 7, 8, 9 };
+      int[] expected = { 3, 5, 6, 7, 8, 9 };
       int[] result = FunctionsMath.SortArray(source);
       AssertListAreEqualed(result, expected);
     }
