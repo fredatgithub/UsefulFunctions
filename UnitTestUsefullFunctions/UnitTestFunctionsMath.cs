@@ -1748,6 +1748,15 @@ namespace UnitTestUsefullFunctions
       AssertListAreEqualed(result, expected);
     }
 
+    [TestMethod]
+    public void TestMethod_SortArray_one_element()
+    {
+      int[] source = { 3 };
+      int[] expected = { 3 };
+      int[] result = FunctionsMath.SortArray(source);
+      AssertListAreEqualed(result, expected);
+    }
+
     private void AssertListAreEqualed(int[] source, int[] target)
     {
       Assert.AreEqual(source.Length, target.Length);
