@@ -1777,6 +1777,16 @@ namespace UnitTestUsefullFunctions
       AssertListAreEqualed(result, expected);
     }
 
+    [TestMethod]
+    public void TestMethod_IntersectionOfArrays_no_element()
+    {
+      int[] source1 = { 3, 5 };
+      int[] source2 = { 1, 4 };
+      int[] expected = { };
+      int[] result = FunctionsMath.IntersectionOfArrays(source1, source2);
+      AssertListAreEqualed(result, expected);
+    }
+
 
     private void AssertListAreEqualed(int[] source, int[] target)
     {
