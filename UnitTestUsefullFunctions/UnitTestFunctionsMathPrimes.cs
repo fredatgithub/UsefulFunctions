@@ -3142,6 +3142,15 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
+    [TestMethod]
+    public void TestMethod_IsPrime_2207()
+    {
+      const int source = 2207;
+      const bool expected = true;
+      bool result = FunctionsMath.IsPrime(source);
+      Assert.AreEqual(result, expected);
+    }
+
     /*  Add unit test
      *  
       TOUS LES NOMBRES PREMIERS DE 2001 À 3000
