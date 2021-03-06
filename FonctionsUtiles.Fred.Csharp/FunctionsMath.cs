@@ -195,6 +195,12 @@ namespace FonctionsUtiles.Fred.Csharp
       return true;
     }
 
+    /// <summary>
+    /// Returns a list of all prime numbers from a minimum number to a maximum number.
+    /// </summary>
+    /// <param name="min">The first prime number.</param>
+    /// <param name="max">The last prime number.</param>
+    /// <returns>A list of int of all prime numbers between two numbers.</returns>
     public static List<int> GetListOfPrime(int min, int max)
     {
       var result = new List<int>();
@@ -471,6 +477,44 @@ namespace FonctionsUtiles.Fred.Csharp
     public static int[] UnionOfArrays(int[] arrayA, int[] arrayB)
     {
       return arrayA.Union(arrayB).ToArray();
+    }
+
+    public static List<string> GetPrimeDivisor(int number)
+    {
+      var result = new List<string>();
+      var possibleDivisors = GetListOfPrime(3, number);
+      possibleDivisors.Sort();
+      for (int i = 0; i < possibleDivisors.Count; i++)
+      {
+        for (int j = 0; j < possibleDivisors.Count; j++)
+        {
+          if (i == j)
+          {
+            continue;
+          }
+
+          //checked
+          //{
+          int number1 = possibleDivisors[i];
+          int number2 = possibleDivisors[j];
+
+          if (possibleDivisors[i] * possibleDivisors[j] <= int.MaxValue)
+          {
+            int multiplication = number1 * number2;
+            if ((possibleDivisors[i] * possibleDivisors[j]) == number)
+            {
+              if (!result.Contains($"{possibleDivisors[j]}*{possibleDivisors[i]}={number}"))
+              {
+                result.Add($"{possibleDivisors[i]}*{possibleDivisors[j]}={number}");
+              }
+            }
+          }
+          //}
+        }
+      }
+
+      result.Sort();
+      return result;
     }
   }
 }

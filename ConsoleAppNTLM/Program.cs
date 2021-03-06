@@ -274,8 +274,10 @@ namespace ConsoleAppNTLM
     static void Insert(DataTable dtData, string storedProcedureName, string dataTableName)
     {
       SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-MSI;Initial Catalog=NTLM;Integrated Security=True");
-      SqlCommand cmd = new SqlCommand(storedProcedureName, con);
-      cmd.CommandType = CommandType.StoredProcedure;
+      SqlCommand cmd = new SqlCommand(storedProcedureName, con)
+      {
+        CommandType = CommandType.StoredProcedure
+      };
       cmd.Parameters.AddWithValue(dataTableName, dtData);
       cmd.Connection = con;
       try

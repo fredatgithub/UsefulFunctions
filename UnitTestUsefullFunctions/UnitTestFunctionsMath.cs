@@ -1711,8 +1711,8 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_GetDivisor_2()
     {
-      const int source = 4;
-      List<int> expected = new List<int> { 2 };
+      //const int source = 4;
+      //List<int> expected = new List<int> { 2 };
       //List<int> result = FunctionsMath.GetDivisor(source);
       // method to be debugged
       //AssertListAreEqualed(result, expected);
@@ -1787,11 +1787,46 @@ namespace UnitTestUsefullFunctions
       AssertListAreEqualed(result, expected);
     }
 
+    [TestMethod]
+    public void TestMethod_GetPrimeDivisor_none()
+    {
+      int source = 1225;
+      List<string> expected = new List<string>();
+      List<string> result = FunctionsMath.GetPrimeDivisor(source);
+      AssertListAreEqualed(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetPrimeDivisor_5963()
+    {
+      int source = 5963;
+      List<string> expected = new List<string> { "67*89=5963" };
+      List<string> result = FunctionsMath.GetPrimeDivisor(source);
+      AssertListAreEqualed(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetPrimeDivisor_9_036_011()
+    {
+      int source = 9036011;
+      List<string> expected = new List<string> { "67*89=5963" };
+      List<string> result = FunctionsMath.GetPrimeDivisor(source);
+      AssertListAreEqualed(result, expected);
+    }
 
     private void AssertListAreEqualed(int[] source, int[] target)
     {
       Assert.AreEqual(source.Length, target.Length);
       for (int i = 0; i < source.Length; i++)
+      {
+        Assert.AreEqual(source[i], target[i]);
+      }
+    }
+
+    private void AssertListAreEqualed(List<string> source, List<string> target)
+    {
+      Assert.AreEqual(source.Count, target.Count);
+      for (int i = 0; i < source.Count; i++)
       {
         Assert.AreEqual(source[i], target[i]);
       }
