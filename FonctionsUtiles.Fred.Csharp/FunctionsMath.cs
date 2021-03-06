@@ -493,8 +493,6 @@ namespace FonctionsUtiles.Fred.Csharp
             continue;
           }
 
-          //checked
-          //{
           int number1 = possibleDivisors[i];
           int number2 = possibleDivisors[j];
 
@@ -509,7 +507,6 @@ namespace FonctionsUtiles.Fred.Csharp
               }
             }
           }
-          //}
         }
       }
 
