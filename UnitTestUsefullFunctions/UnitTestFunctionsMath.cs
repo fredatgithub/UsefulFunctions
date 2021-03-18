@@ -1806,6 +1806,7 @@ namespace UnitTestUsefullFunctions
     }
 
     [TestMethod]
+    [Ignore]
     public void TestMethod_GetPrimeDivisor_9_036_011()
     {
       int source = 9036011;

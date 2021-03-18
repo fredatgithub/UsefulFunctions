@@ -1,6 +1,7 @@
 ﻿using FonctionsUtiles.Fred.Csharp;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace UnitTestUsefullFunctions
 {
@@ -3341,7 +3342,26 @@ namespace UnitTestUsefullFunctions
       const bool expected = true;
       bool result = FunctionsMath.IsPrime(source);
       Assert.AreEqual(result, expected);
+      StringAssert.Contains(source.ToString(), source.ToString());
+      StringAssert.StartsWith(source.ToString(), source.ToString());
     }
+
+    [TestMethod]
+    public void TestMethod_Regex_only_numbers()
+    {
+      const int source = 2357;
+      Regex onlyNumbersRegex = new Regex(@"^[0-9]+$");
+      StringAssert.Matches(source.ToString(), onlyNumbersRegex);
+    }
+
+    [TestMethod]
+    public void TestMethod_Regex_only_letters_and_space()
+    {
+      string source = "Once upon a time";
+      Regex onlyLettersRegex = new Regex(@"^[a-zA-Z ]+$");
+      StringAssert.Matches(source, onlyLettersRegex);
+    }
+
 
     /*  Add unit test
      *  
