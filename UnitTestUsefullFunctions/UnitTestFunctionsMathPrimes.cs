@@ -3332,6 +3332,9 @@ namespace UnitTestUsefullFunctions
     }
 
     [TestMethod]
+    [Owner("Fred")]
+    [Description("Testing if 2357 is prime")]
+    [TestCategory("Prime tests")]
     public void TestMethod_IsPrime_2357()
     {
       const int source = 2357;
