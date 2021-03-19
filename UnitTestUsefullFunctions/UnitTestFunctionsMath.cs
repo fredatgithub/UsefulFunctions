@@ -1,5 +1,6 @@
 ﻿using FonctionsUtiles.Fred.Csharp;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
 
 namespace UnitTestUsefullFunctions
@@ -1727,7 +1728,7 @@ namespace UnitTestUsefullFunctions
       int[] source = { 34, 25, 19, 9, 7, 5, 3 };
       int[] expected = { 3, 5, 7, 9, 19, 25, 34 };
       int[] result = FunctionsMath.SortArray(source);
-      AssertListAreEqualed(result, expected);
+      AssertArrayAreEqualed(result, expected);
     }
 
     [TestMethod]
@@ -1736,7 +1737,7 @@ namespace UnitTestUsefullFunctions
       int[] source = { 9, 8, 7, 6, 5, 3 };
       int[] expected = { 3, 5, 6, 7, 8, 9 };
       int[] result = FunctionsMath.SortArray(source);
-      AssertListAreEqualed(result, expected);
+      AssertArrayAreEqualed(result, expected);
     }
 
     [TestMethod]
@@ -1745,7 +1746,7 @@ namespace UnitTestUsefullFunctions
       int[] source = { 3, 5, 6, 7, 8, 9 };
       int[] expected = { 3, 5, 6, 7, 8, 9 };
       int[] result = FunctionsMath.SortArray(source);
-      AssertListAreEqualed(result, expected);
+      AssertArrayAreEqualed(result, expected);
     }
 
     [TestMethod]
@@ -1754,7 +1755,7 @@ namespace UnitTestUsefullFunctions
       int[] source = { 3 };
       int[] expected = { 3 };
       int[] result = FunctionsMath.SortArray(source);
-      AssertListAreEqualed(result, expected);
+      AssertArrayAreEqualed(result, expected);
     }
 
     [TestMethod]
@@ -1764,7 +1765,7 @@ namespace UnitTestUsefullFunctions
       int[] source2 = { 3 };
       int[] expected = { 3 };
       int[] result = FunctionsMath.IntersectionOfArrays(source1, source2);
-      AssertListAreEqualed(result, expected);
+      AssertArrayAreEqualed(result, expected);
     }
 
     [TestMethod]
@@ -1774,7 +1775,7 @@ namespace UnitTestUsefullFunctions
       int[] source2 = { 3, 4 };
       int[] expected = { 3 };
       int[] result = FunctionsMath.IntersectionOfArrays(source1, source2);
-      AssertListAreEqualed(result, expected);
+      AssertArrayAreEqualed(result, expected);
     }
 
     [TestMethod]
@@ -1784,7 +1785,7 @@ namespace UnitTestUsefullFunctions
       int[] source2 = { 1, 4 };
       int[] expected = { };
       int[] result = FunctionsMath.IntersectionOfArrays(source1, source2);
-      AssertListAreEqualed(result, expected);
+      AssertArrayAreEqualed(result, expected);
     }
 
     [TestMethod]
@@ -1815,7 +1816,7 @@ namespace UnitTestUsefullFunctions
       AssertListAreEqualed(result, expected);
     }
 
-    private void AssertListAreEqualed(int[] source, int[] target)
+    private void AssertArrayAreEqualed(int[] source, int[] target)
     {
       Assert.AreEqual(source.Length, target.Length);
       for (int i = 0; i < source.Length; i++)
@@ -1830,6 +1831,32 @@ namespace UnitTestUsefullFunctions
       for (int i = 0; i < source.Count; i++)
       {
         Assert.AreEqual(source[i], target[i]);
+      }
+    }
+
+    private void AssertListAreSimilar(List<string> source, List<string> target)
+    {
+      Assert.AreEqual(source.Count, target.Count);
+      var sortedSource = source;
+      sortedSource.Sort();
+      var sortedTarget = target;
+      sortedTarget.Sort();
+      for (int i = 0; i < sortedSource.Count; i++)
+      {
+        Assert.AreEqual(sortedSource[i], sortedTarget[i]);
+      }
+    }
+
+    private void AssertArrayAreSimilar(int[] source, int[] target)
+    {
+      Assert.AreEqual(source.Length, target.Length);
+      var sortedSource = source;
+      Array.Sort(sortedSource);
+      var sortedTarget = target;
+      Array.Sort(sortedTarget);
+      for (int i = 0; i < sortedSource.Length; i++)
+      {
+        Assert.AreEqual(sortedSource[i], sortedTarget[i]);
       }
     }
   }
