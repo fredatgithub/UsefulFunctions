@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System.Threading;
 
 namespace UnitTestUsefullFunctions
 {
@@ -3335,7 +3336,8 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     [Owner("Fred")]
     [Description("Testing if 2357 is prime")]
-    [TestCategory("Prime tests")]
+    [Priority(1)]
+    [TestCategory("Prime test")]
     public void TestMethod_IsPrime_2357()
     {
       const int source = 2357;
@@ -3347,6 +3349,7 @@ namespace UnitTestUsefullFunctions
     }
 
     [TestMethod]
+    [TestCategory("Regex test")]
     public void TestMethod_Regex_only_numbers()
     {
       const int source = 2357;
@@ -3355,6 +3358,7 @@ namespace UnitTestUsefullFunctions
     }
 
     [TestMethod]
+    [TestCategory("Regex test")]
     public void TestMethod_Regex_only_letters_and_space()
     {
       string source = "Once upon a time";
@@ -3363,6 +3367,7 @@ namespace UnitTestUsefullFunctions
     }
 
     [TestMethod]
+    [TestCategory("Prime test")]
     public void TestMethod_IsPrime_2371()
     {
       const int source = 2371;
@@ -3372,6 +3377,7 @@ namespace UnitTestUsefullFunctions
     }
 
     [TestMethod]
+    [TestCategory("Prime test")]
     public void TestMethod_IsPrime_2377()
     {
       const int source = 2377;
@@ -3381,6 +3387,7 @@ namespace UnitTestUsefullFunctions
     }
 
     [TestMethod]
+    [TestCategory("Prime test")]
     public void TestMethod_IsPrime_2381()
     {
       const int source = 2381;
@@ -3390,6 +3397,8 @@ namespace UnitTestUsefullFunctions
     }
 
     [TestMethod]
+    [TestCategory("Prime test")]
+    [Timeout(3000)]
     public void TestMethod_IsPrime_2383()
     {
       const int source = 2383;
@@ -3398,12 +3407,39 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
+    //[DataTestMethod]
+    //[DataRow(-1)]
+    //[DataRow(0)]
+    //[DataRow(1)]
+    [TestMethod]
+    public void IsPrime_ValuesLessThan2_ReturnFalse(int value)
+    {
+      //bool result = FunctionsMath.IsPrime(value);
+      //Assert.IsFalse(result, $"{value} should not be prime");
+    }
 
+    [TestMethod]
+    [Timeout(3500)]
+    [Ignore]
+    public void TestMethod_SimulateTimeOut()
+    {
+      Thread.Sleep(4000);
+    }
+
+    [TestMethod]
+    [TestCategory("Prime test")]
+    public void TestMethod_IsPrime_2389()
+    {
+      const int source = 2389;
+      const bool expected = true;
+      bool result = FunctionsMath.IsPrime(source);
+      Assert.AreEqual(result, expected);
+    }
 
     /*  Add unit test
      *  
       TOUS LES NOMBRES PREMIERS DE 2001 À 3000
-                2 383 2 389 2 393 2 399 2 411 2 417 2 423 2 437 2 441 2 447 2 459 2 467 2 473 2 477 2 503 2 521 2 531 2 539 2 543 2 549 2 551 2 557 2 579 2 591 2 593 2 609 2 617 2 621 2 633 2 647 2 657 2 659 2 663 2 671 2 677 2 683 2 687 2 689 2 693 2 699 2 707 2 711 2 713 2 719 2 729 2 731 2 741 2 749 2 753 2 767 2 777 2 789 2 791 2 797 2 801 2 803 2 819 2 833 2 837 2 843 2 851 2 857 2 861 2 879 2 887 2 897 2 903 2 909 2 917 2 927 2 939 2 953 2 957 2 963 2 969 2 971 2 999
+                2 389 2 393 2 399 2 411 2 417 2 423 2 437 2 441 2 447 2 459 2 467 2 473 2 477 2 503 2 521 2 531 2 539 2 543 2 549 2 551 2 557 2 579 2 591 2 593 2 609 2 617 2 621 2 633 2 647 2 657 2 659 2 663 2 671 2 677 2 683 2 687 2 689 2 693 2 699 2 707 2 711 2 713 2 719 2 729 2 731 2 741 2 749 2 753 2 767 2 777 2 789 2 791 2 797 2 801 2 803 2 819 2 833 2 837 2 843 2 851 2 857 2 861 2 879 2 887 2 897 2 903 2 909 2 917 2 927 2 939 2 953 2 957 2 963 2 969 2 971 2 999
 
 TOUS LES NOMBRES PREMIERS DE 3001 À 4000
 3 001 3 011 3 019 3 023 3 037 3 041 3 049 3 061 3 067 3 079 3 083 3 089 3 109 3 119 3 121 3 137 3 163 3 167 3 169 3 181 3 187 3 191 3 203 3 209 3 217 3 221 3 229 3 251 3 253 3 257 3 259 3 271 3 299 3 301 3 307 3 313 3 319 3 323 3 329 3 331 3 343 3 347 3 359 3 361 3 371 3 373 3 389 3 391 3 407 3 413 3 433 3 449 3 457 3 461 3 463 3 467 3 469 3 491 3 499 3 511 3 517 3 527 3 529 3 533 3 539 3 541 3 547 3 557 3 559 3 571 3 581 3 583 3 593 3 607 3 613 3 617 3 623 3 631 3 637 3 643 3 659 3 671 3 673 3 677 3 691 3 697 3 701 3 709 3 719 3 727 3 733 3 739 3 761 3 767 3 769 3 779 3 793 3 797 3 803 3 821 3 823 3 833 3 847 3 851 3 853 3 863 3 877 3 881 3 889 3 907 3 911 3 917 3 919 3 923 3 929 3 931 3 943 3 947 3 967 3 989
