@@ -1643,12 +1643,11 @@ namespace CodeGenerationWinForm
 
       // assembled = 123 123 123 123
       // NotAssembled = 111 222 333
-      // return textList.Aggregate(result, (current, line) => current + (line + stringAdded + Punctuation.CrLf));
       foreach (string line in textList)
       {
         if (line != string.Empty)
         {
-          result += line.Replace("%", stringAdded) + Environment.NewLine; // Punctuation.CrLf
+          result += line.Replace("%", stringAdded) + Environment.NewLine;
         }
       }
 
