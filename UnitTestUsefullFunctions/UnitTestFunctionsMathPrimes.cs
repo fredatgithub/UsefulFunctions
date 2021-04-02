@@ -3428,6 +3428,7 @@ namespace UnitTestUsefullFunctions
 
     [TestMethod]
     [TestCategory("Prime test")]
+    [WorkItem(1)]
     public void TestMethod_IsPrime_2389()
     {
       const int source = 2389;
@@ -3495,6 +3496,14 @@ TOUS LES NOMBRES PREMIERS DE 40001 À 50000
       var expected = new List<int> { 2, 3, 5, 7 };
       List<int> result = FunctionsMath.GetListOfPrime(source1, source2 - source1);
       AssertListsAreSimilar(result, expected);
+      CollectionAssert.AreNotEqual(result, expected);
+      result.Sort();
+      CollectionAssert.AreEqual(result, expected);
+      CollectionAssert.AreEquivalent(result, expected);
+      CollectionAssert.AllItemsAreNotNull(result);
+      CollectionAssert.AllItemsAreUnique(result);
+      CollectionAssert.AreEquivalent(result, expected);
+      CollectionAssert.AllItemsAreInstancesOfType(result, typeof(int));
     }
 
     [TestMethod]
