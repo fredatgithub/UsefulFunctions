@@ -1,16 +1,16 @@
-﻿using System;
+﻿using CodeGenerationWinForm.Properties;
+using FonctionsUtiles.Fred.Csharp;
+using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
+using System.Linq;
 using System.Reflection;
+using System.Text;
 using System.Windows.Forms;
-using CodeGenerationWinForm.Properties;
+using System.Xml.Linq;
 using MathFunc = FonctionsUtiles.Fred.Csharp.FunctionsMath;
 using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
-using FonctionsUtiles.Fred.Csharp;
-using System.Text;
-using System.Collections.Generic;
-using System.IO;
-using System.Xml.Linq;
-using System.Linq;
 
 namespace CodeGenerationWinForm
 {
@@ -1533,7 +1533,7 @@ namespace CodeGenerationWinForm
       textBoxCodeLineSentence5.Visible = false;
     }
 
-    private void radioButtonCodeLineSeveralLines_CheckedChanged(object sender, EventArgs e)
+    private void RadioButtonCodeLineSeveralLines_CheckedChanged(object sender, EventArgs e)
     {
       textBoxCodeLineSentence2.Visible = true;
       textBoxCodeLineSentence3.Visible = true;
@@ -1541,7 +1541,7 @@ namespace CodeGenerationWinForm
       textBoxCodeLineSentence5.Visible = true;
     }
 
-    private void buttonCodeLineGenerate_Click(object sender, EventArgs e)
+    private void ButtonCodeLineGenerate_Click(object sender, EventArgs e)
     {
       textBoxCodeLineResult.Text = string.Empty;
       bool oneLine = radioButtonCodeLineOneLine.Checked;
@@ -1608,15 +1608,18 @@ namespace CodeGenerationWinForm
         {
           foreach (string item in iterationList)
           {
-            result.Append(CreateSentence(5, AssemblyOrder.Assembled, item, textBoxCodeLineSentence2.Text,
-              textBoxCodeLineSentence3.Text, textBoxCodeLineSentence4.Text,
+            result.Append(CreateSentence(5, AssemblyOrder.Assembled, item, textBoxCodeLineSentence1.Text, textBoxCodeLineSentence2.Text, textBoxCodeLineSentence3.Text, textBoxCodeLineSentence4.Text,
               textBoxCodeLineSentence5.Text));
           }
         }
         else
         {
-
-
+          foreach (string item in iterationList)
+          {
+            result.Append(CreateSentence(5, AssemblyOrder.NotAssembled, item, textBoxCodeLineSentence2.Text,
+              textBoxCodeLineSentence3.Text, textBoxCodeLineSentence4.Text,
+              textBoxCodeLineSentence5.Text));
+          }
         }
       }
 
@@ -1645,7 +1648,7 @@ namespace CodeGenerationWinForm
       {
         if (line != string.Empty)
         {
-          result += line + stringAdded + Punctuation.CrLf;
+          result += line.Replace("%", stringAdded) + Environment.NewLine; // Punctuation.CrLf
         }
       }
 
