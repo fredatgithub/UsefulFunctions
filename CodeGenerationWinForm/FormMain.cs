@@ -1645,7 +1645,7 @@ namespace CodeGenerationWinForm
       // NotAssembled = 111 222 333
       foreach (string line in textList)
       {
-        if (line != string.Empty)
+        if (!string.IsNullOrEmpty(line))
         {
           result += line.Replace("%", stringAdded) + Environment.NewLine;
         }
