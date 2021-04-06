@@ -317,7 +317,7 @@
       this.cutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
       this.cutToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
       this.cutToolStripMenuItem.Text = "&Couper";
-      this.cutToolStripMenuItem.Click += new System.EventHandler(this.cutToolStripMenuItem_Click);
+      this.cutToolStripMenuItem.Click += new System.EventHandler(this.CutToolStripMenuItem_Click);
       // 
       // copyToolStripMenuItem
       // 
@@ -326,7 +326,7 @@
       this.copyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
       this.copyToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
       this.copyToolStripMenuItem.Text = "Co&pier";
-      this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
+      this.copyToolStripMenuItem.Click += new System.EventHandler(this.CopyToolStripMenuItem_Click);
       // 
       // toolStripSeparator4
       // 
@@ -340,7 +340,7 @@
       this.pasteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
       this.pasteToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
       this.pasteToolStripMenuItem.Text = "Co&ller";
-      this.pasteToolStripMenuItem.Click += new System.EventHandler(this.pasteToolStripMenuItem_Click);
+      this.pasteToolStripMenuItem.Click += new System.EventHandler(this.PasteToolStripMenuItem_Click);
       // 
       // selectAllToolStripMenuItem
       // 
@@ -348,7 +348,7 @@
       this.selectAllToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
       this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
       this.selectAllToolStripMenuItem.Text = "Sélectio&nner tout";
-      this.selectAllToolStripMenuItem.Click += new System.EventHandler(this.selectAllToolStripMenuItem_Click);
+      this.selectAllToolStripMenuItem.Click += new System.EventHandler(this.SelectAllToolStripMenuItem_Click);
       // 
       // toolsToolStripMenuItem
       // 
@@ -385,14 +385,14 @@
       this.frenchToolStripMenuItem.Name = "frenchToolStripMenuItem";
       this.frenchToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
       this.frenchToolStripMenuItem.Text = "Français";
-      this.frenchToolStripMenuItem.Click += new System.EventHandler(this.frenchToolStripMenuItem_Click);
+      this.frenchToolStripMenuItem.Click += new System.EventHandler(this.FrenchToolStripMenuItem_Click);
       // 
       // englishToolStripMenuItem
       // 
       this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
       this.englishToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
       this.englishToolStripMenuItem.Text = "Anglais";
-      this.englishToolStripMenuItem.Click += new System.EventHandler(this.englishToolStripMenuItem_Click);
+      this.englishToolStripMenuItem.Click += new System.EventHandler(this.EnglishToolStripMenuItem_Click);
       // 
       // helpToolStripMenuItem
       // 
@@ -460,7 +460,7 @@
       this.buttonGenerateCode.TabIndex = 3;
       this.buttonGenerateCode.Text = "Generate code";
       this.buttonGenerateCode.UseVisualStyleBackColor = true;
-      this.buttonGenerateCode.Click += new System.EventHandler(this.buttonGenerateCode_Click);
+      this.buttonGenerateCode.Click += new System.EventHandler(this.ButtonGenerateCode_Click);
       // 
       // tabControlMain
       // 
@@ -533,7 +533,7 @@
       this.buttonClearOneMethodTextBox.TabIndex = 5;
       this.buttonClearOneMethodTextBox.Text = "Clear text";
       this.buttonClearOneMethodTextBox.UseVisualStyleBackColor = true;
-      this.buttonClearOneMethodTextBox.Click += new System.EventHandler(this.buttonClearOneMethodTextBox_Click);
+      this.buttonClearOneMethodTextBox.Click += new System.EventHandler(this.ButtonClearOneMethodTextBox_Click);
       // 
       // comboBoxOneMethodLanguage
       // 
@@ -626,7 +626,7 @@
       this.buttonGenerateSeveralMethods.TabIndex = 6;
       this.buttonGenerateSeveralMethods.Text = "Generate";
       this.buttonGenerateSeveralMethods.UseVisualStyleBackColor = true;
-      this.buttonGenerateSeveralMethods.Click += new System.EventHandler(this.buttonGenerateSeveralMethods_Click);
+      this.buttonGenerateSeveralMethods.Click += new System.EventHandler(this.ButtonGenerateSeveralMethods_Click);
       // 
       // comboBoxLanguage
       // 
@@ -649,7 +649,7 @@
       this.textBoxToNumber.Size = new System.Drawing.Size(125, 26);
       this.textBoxToNumber.TabIndex = 5;
       this.textBoxToNumber.Text = "25";
-      this.textBoxToNumber.TextChanged += new System.EventHandler(this.textBoxToNumber_TextChanged);
+      this.textBoxToNumber.TextChanged += new System.EventHandler(this.TextBoxToNumber_TextChanged);
       // 
       // labelFrom
       // 
@@ -687,7 +687,7 @@
       this.textBoxFromNumber.Size = new System.Drawing.Size(129, 26);
       this.textBoxFromNumber.TabIndex = 4;
       this.textBoxFromNumber.Text = "21";
-      this.textBoxFromNumber.TextChanged += new System.EventHandler(this.textBoxFromNumber_TextChanged);
+      this.textBoxFromNumber.TextChanged += new System.EventHandler(this.TextBoxFromNumber_TextChanged);
       // 
       // tabPageRandomMethods
       // 
@@ -747,7 +747,7 @@
       this.buttonGenerateRdnMethod.TabIndex = 7;
       this.buttonGenerateRdnMethod.Text = "Generate";
       this.buttonGenerateRdnMethod.UseVisualStyleBackColor = true;
-      this.buttonGenerateRdnMethod.Click += new System.EventHandler(this.buttonGenerateRdnMethod_Click);
+      this.buttonGenerateRdnMethod.Click += new System.EventHandler(this.ButtonGenerateRdnMethod_Click);
       // 
       // progressBarRandomMethods
       // 
@@ -769,7 +769,7 @@
       this.textBoxNumberOfRndMethod.Size = new System.Drawing.Size(91, 26);
       this.textBoxNumberOfRndMethod.TabIndex = 5;
       this.textBoxNumberOfRndMethod.Text = "4";
-      this.textBoxNumberOfRndMethod.TextChanged += new System.EventHandler(this.textBoxNumberOfRndMethod_TextChanged);
+      this.textBoxNumberOfRndMethod.TextChanged += new System.EventHandler(this.TextBoxNumberOfRndMethod_TextChanged);
       // 
       // comboBoxRndMethodLanguage
       // 
@@ -857,7 +857,7 @@
       this.buttonOthersGenerate.TabIndex = 8;
       this.buttonOthersGenerate.Text = "Generate";
       this.buttonOthersGenerate.UseVisualStyleBackColor = true;
-      this.buttonOthersGenerate.Click += new System.EventHandler(this.buttonOthersGenerate_Click);
+      this.buttonOthersGenerate.Click += new System.EventHandler(this.ButtonOthersGenerate_Click);
       // 
       // textBoxOthersTo
       // 
@@ -869,7 +869,7 @@
       this.textBoxOthersTo.Size = new System.Drawing.Size(111, 26);
       this.textBoxOthersTo.TabIndex = 7;
       this.textBoxOthersTo.Text = "10";
-      this.textBoxOthersTo.TextChanged += new System.EventHandler(this.textBoxOthersTo_TextChanged);
+      this.textBoxOthersTo.TextChanged += new System.EventHandler(this.TextBoxOthersTo_TextChanged);
       // 
       // labelOthersTo
       // 
@@ -894,7 +894,7 @@
       this.textBoxOthersFrom.Size = new System.Drawing.Size(42, 26);
       this.textBoxOthersFrom.TabIndex = 5;
       this.textBoxOthersFrom.Text = "5";
-      this.textBoxOthersFrom.TextChanged += new System.EventHandler(this.textBoxOthersFrom_TextChanged);
+      this.textBoxOthersFrom.TextChanged += new System.EventHandler(this.TextBoxOthersFrom_TextChanged);
       // 
       // labelOthersFrom
       // 
@@ -1031,7 +1031,7 @@
       this.textBoxCustomTo.Size = new System.Drawing.Size(180, 26);
       this.textBoxCustomTo.TabIndex = 38;
       this.textBoxCustomTo.Text = "10";
-      this.textBoxCustomTo.TextChanged += new System.EventHandler(this.textBoxCustomTo_TextChanged);
+      this.textBoxCustomTo.TextChanged += new System.EventHandler(this.TextBoxCustomTo_TextChanged);
       // 
       // textBoxCustoAssertClosingParenthesis
       // 
@@ -1167,7 +1167,7 @@
       this.comboBoxCustoResultReturnedType.Size = new System.Drawing.Size(91, 24);
       this.comboBoxCustoResultReturnedType.Sorted = true;
       this.comboBoxCustoResultReturnedType.TabIndex = 21;
-      this.comboBoxCustoResultReturnedType.SelectedIndexChanged += new System.EventHandler(this.comboBoxCustoResultReturnedType_SelectedIndexChanged);
+      this.comboBoxCustoResultReturnedType.SelectedIndexChanged += new System.EventHandler(this.ComboBoxCustoResultReturnedType_SelectedIndexChanged);
       // 
       // textBoxCustoSourceSemiColon
       // 
@@ -1392,7 +1392,7 @@
       this.buttonCustomizedMethodGenerate.TabIndex = 7;
       this.buttonCustomizedMethodGenerate.Text = "Generate";
       this.buttonCustomizedMethodGenerate.UseVisualStyleBackColor = true;
-      this.buttonCustomizedMethodGenerate.Click += new System.EventHandler(this.buttonCustomizedMethodGenerate_Click);
+      this.buttonCustomizedMethodGenerate.Click += new System.EventHandler(this.ButtonCustomizedMethodGenerate_Click);
       // 
       // comboBoxCustoExpectedType
       // 
@@ -1405,7 +1405,7 @@
       this.comboBoxCustoExpectedType.Size = new System.Drawing.Size(145, 24);
       this.comboBoxCustoExpectedType.Sorted = true;
       this.comboBoxCustoExpectedType.TabIndex = 9;
-      this.comboBoxCustoExpectedType.SelectedIndexChanged += new System.EventHandler(this.comboBoxCustoExpectedType_SelectedIndexChanged);
+      this.comboBoxCustoExpectedType.SelectedIndexChanged += new System.EventHandler(this.ComboBoxCustoExpectedType_SelectedIndexChanged);
       // 
       // textBoxCustoExpectedCosntant
       // 
@@ -1442,7 +1442,7 @@
       this.textBoxCustomFrom.Size = new System.Drawing.Size(102, 26);
       this.textBoxCustomFrom.TabIndex = 37;
       this.textBoxCustomFrom.Text = "5";
-      this.textBoxCustomFrom.TextChanged += new System.EventHandler(this.textBoxCustomFrom_TextChanged);
+      this.textBoxCustomFrom.TextChanged += new System.EventHandler(this.TextBoxCustomFrom_TextChanged);
       // 
       // textBoxCustoResultFunctionClass
       // 
@@ -1598,7 +1598,7 @@
       this.textBoxCodeLineRangeTo.Size = new System.Drawing.Size(76, 23);
       this.textBoxCodeLineRangeTo.TabIndex = 1;
       this.textBoxCodeLineRangeTo.Text = "Z";
-      this.textBoxCodeLineRangeTo.TextChanged += new System.EventHandler(this.textBoxCodeLineRangeTo_TextChanged);
+      this.textBoxCodeLineRangeTo.TextChanged += new System.EventHandler(this.TextBoxCodeLineRangeTo_TextChanged);
       // 
       // textBoxCodeLineRangeFrom
       // 
@@ -1608,7 +1608,7 @@
       this.textBoxCodeLineRangeFrom.Size = new System.Drawing.Size(76, 23);
       this.textBoxCodeLineRangeFrom.TabIndex = 0;
       this.textBoxCodeLineRangeFrom.Text = "A";
-      this.textBoxCodeLineRangeFrom.TextChanged += new System.EventHandler(this.textBoxCodeLineRangeFrom_TextChanged);
+      this.textBoxCodeLineRangeFrom.TextChanged += new System.EventHandler(this.TextBoxCodeLineRangeFrom_TextChanged);
       // 
       // textBoxCodeLineSentence5
       // 
@@ -1669,7 +1669,7 @@
       this.textBoxCodeLineSentence1.Size = new System.Drawing.Size(871, 23);
       this.textBoxCodeLineSentence1.TabIndex = 1;
       this.textBoxCodeLineSentence1.Text = "letterFrequencyDictionary[\'A\'] += frequency.LetterA;";
-      this.textBoxCodeLineSentence1.TextChanged += new System.EventHandler(this.textBoxCodeLineSentence1_TextChanged);
+      this.textBoxCodeLineSentence1.TextChanged += new System.EventHandler(this.TextBoxCodeLineSentence1_TextChanged);
       // 
       // groupBoxCodeLineNumberOfLines
       // 
@@ -1710,7 +1710,7 @@
       this.radioButtonCodeLineOneLine.TabStop = true;
       this.radioButtonCodeLineOneLine.Text = "One Line";
       this.radioButtonCodeLineOneLine.UseVisualStyleBackColor = true;
-      this.radioButtonCodeLineOneLine.CheckedChanged += new System.EventHandler(this.radioButtonCodeLineOneLine_CheckedChanged);
+      this.radioButtonCodeLineOneLine.CheckedChanged += new System.EventHandler(this.RadioButtonCodeLineOneLine_CheckedChanged);
       // 
       // FormMain
       // 

@@ -392,7 +392,7 @@ namespace CodeGenerationWinForm
       MessageBox.Show(this, message, title, buttons);
     }
 
-    private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+    private void CopyToolStripMenuItem_Click(object sender, EventArgs e)
     {
       Control focusedControl = FindFocusedControl(new List<Control>
       {
@@ -451,8 +451,7 @@ namespace CodeGenerationWinForm
         return;
       }
 
-
-      if (tb.SelectedText == string.Empty)
+      if (string.IsNullOrEmpty(tb.SelectedText))
       {
         DisplayMessageOk("No text has been selected", message, MessageBoxButtons.OK);
         return;
@@ -489,7 +488,7 @@ namespace CodeGenerationWinForm
       tb.SelectionStart = selectionIndex + Clipboard.GetText().Length;
     }
 
-    private void cutToolStripMenuItem_Click(object sender, EventArgs e)
+    private void CutToolStripMenuItem_Click(object sender, EventArgs e)
     {
       Control focusedControl = FindFocusedControl(new List<Control>
       {
@@ -545,7 +544,7 @@ namespace CodeGenerationWinForm
       return container.FirstOrDefault(control => control.Focused);
     }
 
-    private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
+    private void PasteToolStripMenuItem_Click(object sender, EventArgs e)
     {
       Control focusedControl = FindFocusedControl(new List<Control>
       {
@@ -595,9 +594,9 @@ namespace CodeGenerationWinForm
       }
     }
 
-    private void buttonGenerateCode_Click(object sender, EventArgs e)
+    private void ButtonGenerateCode_Click(object sender, EventArgs e)
     {
-      if (textBoxOneMethodNumber.Text == string.Empty)
+      if (string.IsNullOrEmpty(textBoxOneMethodNumber.Text))
       {
         DisplayMessageOk("The number cannot be empty", "Empty field", MessageBoxButtons.OK);
         return;
@@ -662,9 +661,9 @@ namespace CodeGenerationWinForm
       }
     }
 
-    private void buttonGenerateSeveralMethods_Click(object sender, EventArgs e)
+    private void ButtonGenerateSeveralMethods_Click(object sender, EventArgs e)
     {
-      if (textBoxFromNumber.Text == string.Empty)
+      if (string.IsNullOrEmpty(textBoxFromNumber.Text))
       {
         DisplayMessageOk("The number of method requested cannot be empty", "Empty field", MessageBoxButtons.OK);
         return;
@@ -762,9 +761,9 @@ namespace CodeGenerationWinForm
       progressBarSeveralMethods.Visible = false;
     }
 
-    private void buttonGenerateRdnMethod_Click(object sender, EventArgs e)
+    private void ButtonGenerateRdnMethod_Click(object sender, EventArgs e)
     {
-      if (textBoxNumberOfRndMethod.Text == string.Empty)
+      if (string.IsNullOrEmpty(textBoxNumberOfRndMethod.Text))
       {
         DisplayMessageOk("The number of method requested cannot be empty", "Empty field", MessageBoxButtons.OK);
         return;
@@ -851,7 +850,7 @@ namespace CodeGenerationWinForm
       progressBarRandomMethods.Visible = false;
     }
 
-    private void selectAllToolStripMenuItem_Click(object sender, EventArgs e)
+    private void SelectAllToolStripMenuItem_Click(object sender, EventArgs e)
     {
       Control focusedControl = FindFocusedControl(new List<Control>
       {
@@ -894,88 +893,21 @@ namespace CodeGenerationWinForm
         textBoxCustomTo,
         textBoxCustoResult
       });
+
       if (focusedControl is TextBox)
       {
         ((TextBox)focusedControl).SelectAll();
       }
-      //string selectedTab = tabControlMain.SelectedTab.ToString();
-      //switch (selectedTab)
-      //{
-      //  case "TabPage: {One Method}":
-      //    //detect which TextBox has the focus
-      //    if (textBoxCodeGeneratedResult == ActiveControl)
-      //    {
-      //      textBoxCodeGeneratedResult.SelectAll();
-      //    }
-
-      //    if (textBoxOneMethodNumber == ActiveControl)
-      //    {
-      //      textBoxOneMethodNumber.SelectAll();
-      //    }
-
-      //    break;
-      //  case "TabPage: {Several Methods by range}":
-      //    if (textBoxRangeMethods == ActiveControl)
-      //    {
-      //      textBoxRangeMethods.SelectAll();
-      //    }
-
-      //    if (textBoxFromNumber == ActiveControl)
-      //    {
-      //      textBoxFromNumber.SelectAll();
-      //    }
-
-      //    if (textBoxToNumber == ActiveControl)
-      //    {
-      //      textBoxToNumber.SelectAll();
-      //    }
-      //    break;
-      //  case "TabPage: {Random Methods}":
-      //    if (textBoxRandomMethodResult == ActiveControl)
-      //    {
-      //      textBoxRandomMethodResult.SelectAll();
-      //    }
-
-      //    if (textBoxNumberOfRndMethod == ActiveControl)
-      //    {
-      //      textBoxNumberOfRndMethod.SelectAll();
-      //    }
-
-      //    break;
-      //  case "TabPage: {Others}":
-      //    if (textBoxOthersResult == ActiveControl)
-      //    {
-      //      textBoxOthersResult.SelectAll();
-      //    }
-
-      //    if (textBoxOthersFrom == ActiveControl)
-      //    {
-      //      textBoxOthersFrom.SelectAll();
-      //    }
-
-      //    if (textBoxOthersTo == ActiveControl)
-      //    {
-      //      textBoxOthersTo.SelectAll();
-      //    }
-      //    break;
-      //  case "TabPage: {Customized Method}":
-      //    if (textBoxCustoResult == ActiveControl)
-      //    {
-      //      textBoxCustoResult.SelectAll();
-      //    }
-
-      //    break;
-      //}
     }
 
-    private void buttonClearOneMethodTextBox_Click(object sender, EventArgs e)
+    private void ButtonClearOneMethodTextBox_Click(object sender, EventArgs e)
     {
       textBoxCodeGeneratedResult.Text = string.Empty;
     }
 
-    private void buttonOthersGenerate_Click(object sender, EventArgs e)
+    private void ButtonOthersGenerate_Click(object sender, EventArgs e)
     {
-      if (textBoxOthersFrom.Text == string.Empty)
+      if (string.IsNullOrEmpty(textBoxOthersFrom.Text))
       {
         DisplayMessageOk("The number of method requested cannot be empty", "Empty field", MessageBoxButtons.OK);
         return;
@@ -1107,7 +1039,7 @@ namespace CodeGenerationWinForm
       }
     }
 
-    private void buttonCustomizedMethodGenerate_Click(object sender, EventArgs e)
+    private void ButtonCustomizedMethodGenerate_Click(object sender, EventArgs e)
     {
       // Verification of every types used with values
       CheckMatchingType(textBoxCustoExpectedValue, comboBoxCustoExpectedType, "EXPECTED", !checkBoxAutoCheckTypes.Checked);
@@ -1343,31 +1275,13 @@ namespace CodeGenerationWinForm
       return result;
     }
 
-    //private string GetTranslatedString(string index, string language)
-    //{
-    //  string result = string.Empty;
-    //  switch (language.ToLower())
-    //  {
-    //    case "english":
-    //      result = _languageDicoEn.ContainsKey(index) ? _languageDicoEn[index] :
-    //       "the term: \"" + index + "\" has not been translated yet.\nPlease tell the developer to translate this term";
-    //      break;
-    //    case "french":
-    //      result = _languageDicoFr.ContainsKey(index) ? _languageDicoFr[index] :
-    //        "the term: \"" + index + "\" has not been translated yet.\nPlease tell the developer to translate this term";
-    //      break;
-    //  }
-
-    //  return result;
-    //}
-
-    private void frenchToolStripMenuItem_Click(object sender, EventArgs e)
+    private void FrenchToolStripMenuItem_Click(object sender, EventArgs e)
     {
       _currentLanguage = Language.French.ToString();
       SetLanguage(Language.French.ToString());
     }
 
-    private void englishToolStripMenuItem_Click(object sender, EventArgs e)
+    private void EnglishToolStripMenuItem_Click(object sender, EventArgs e)
     {
       _currentLanguage = Language.English.ToString();
       SetLanguage(Language.English.ToString());
@@ -1464,12 +1378,12 @@ namespace CodeGenerationWinForm
       }
     }
 
-    private void textBoxFromNumber_TextChanged(object sender, EventArgs e)
+    private void TextBoxFromNumber_TextChanged(object sender, EventArgs e)
     {
       AcceptOnlyNumbers(textBoxFromNumber);
     }
 
-    private void textBoxToNumber_TextChanged(object sender, EventArgs e)
+    private void TextBoxToNumber_TextChanged(object sender, EventArgs e)
     {
       AcceptOnlyNumbers(textBoxToNumber);
     }
@@ -1484,32 +1398,32 @@ namespace CodeGenerationWinForm
       }
     }
 
-    private void textBoxNumberOfRndMethod_TextChanged(object sender, EventArgs e)
+    private void TextBoxNumberOfRndMethod_TextChanged(object sender, EventArgs e)
     {
       AcceptOnlyNumbers(textBoxNumberOfRndMethod);
     }
 
-    private void textBoxOthersFrom_TextChanged(object sender, EventArgs e)
+    private void TextBoxOthersFrom_TextChanged(object sender, EventArgs e)
     {
       AcceptOnlyNumbers(textBoxOthersFrom);
     }
 
-    private void textBoxOthersTo_TextChanged(object sender, EventArgs e)
+    private void TextBoxOthersTo_TextChanged(object sender, EventArgs e)
     {
       AcceptOnlyNumbers(textBoxOthersTo);
     }
 
-    private void textBoxCustomFrom_TextChanged(object sender, EventArgs e)
+    private void TextBoxCustomFrom_TextChanged(object sender, EventArgs e)
     {
       AcceptOnlyNumbers(textBoxCustomFrom);
     }
 
-    private void textBoxCustomTo_TextChanged(object sender, EventArgs e)
+    private void TextBoxCustomTo_TextChanged(object sender, EventArgs e)
     {
       AcceptOnlyNumbers(textBoxCustomTo);
     }
 
-    private void comboBoxCustoExpectedType_SelectedIndexChanged(object sender, EventArgs e)
+    private void ComboBoxCustoExpectedType_SelectedIndexChanged(object sender, EventArgs e)
     {
       if (comboBoxCustoResultReturnedType.Items.Count != 0 && comboBoxCustoExpectedType.Items.Count != 0)
       {
@@ -1517,7 +1431,7 @@ namespace CodeGenerationWinForm
       }
     }
 
-    private void comboBoxCustoResultReturnedType_SelectedIndexChanged(object sender, EventArgs e)
+    private void ComboBoxCustoResultReturnedType_SelectedIndexChanged(object sender, EventArgs e)
     {
       if (comboBoxCustoResultReturnedType.Items.Count != 0 && comboBoxCustoExpectedType.Items.Count != 0)
       {
@@ -1525,7 +1439,7 @@ namespace CodeGenerationWinForm
       }
     }
 
-    private void radioButtonCodeLineOneLine_CheckedChanged(object sender, EventArgs e)
+    private void RadioButtonCodeLineOneLine_CheckedChanged(object sender, EventArgs e)
     {
       textBoxCodeLineSentence2.Visible = false;
       textBoxCodeLineSentence3.Visible = false;
@@ -1569,7 +1483,7 @@ namespace CodeGenerationWinForm
         return;
       }
 
-      if (textBoxCodeLineSentence1.Text == string.Empty)
+      if (string.IsNullOrEmpty(textBoxCodeLineSentence1.Text))
       {
         DisplayMessageOk(Translate("The first line cannot be empty"), Translate("First Line Empty"), MessageBoxButtons.OK);
         return;
@@ -1654,12 +1568,12 @@ namespace CodeGenerationWinForm
       return result;
     }
 
-    private void textBoxCodeLineSentence1_TextChanged(object sender, EventArgs e)
+    private void TextBoxCodeLineSentence1_TextChanged(object sender, EventArgs e)
     {
       buttonCodeLineGenerate.Enabled = textBoxCodeLineSentence1.Text.Length != 0;
     }
 
-    private void textBoxCodeLineRangeFrom_TextChanged(object sender, EventArgs e)
+    private void TextBoxCodeLineRangeFrom_TextChanged(object sender, EventArgs e)
     {
       if (radioButtonCodeLineIncrementNumber.Checked)
       {
@@ -1671,7 +1585,7 @@ namespace CodeGenerationWinForm
       }
     }
 
-    private void textBoxCodeLineRangeTo_TextChanged(object sender, EventArgs e)
+    private void TextBoxCodeLineRangeTo_TextChanged(object sender, EventArgs e)
     {
       if (radioButtonCodeLineIncrementNumber.Checked)
       {
