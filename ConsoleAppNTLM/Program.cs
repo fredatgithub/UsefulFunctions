@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 
 namespace ConsoleAppNTLM
@@ -271,6 +272,7 @@ namespace ConsoleAppNTLM
       return table;
     }
 
+    [SuppressMessage("Security", "CA2100:Review SQL queries for security vulnerabilities", Justification = "<En attente>")]
     static void Insert(DataTable dtData, string storedProcedureName, string dataTableName)
     {
       SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-MSI;Initial Catalog=NTLM;Integrated Security=True");
