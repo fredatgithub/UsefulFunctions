@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Runtime.CompilerServices;
 
 namespace FonctionsUtiles.Fred.Csharp
 {
@@ -3588,10 +3588,18 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return true;
     }
-    
+
     public static string LocateError([CallerMemberName] string memberName = "", [CallerFilePath] string fileName = "", [CallerLineNumber] int lineNumber = 0)
     {
-       return $"The file is: {fileName} \r\nThe line number is: {lineNumber} \r\nThe method called is:{memberName}";
+      return $"The file is: {fileName} \r\nThe line number is: {lineNumber} \r\nThe method called is:{memberName}";
+    }
+
+    public static IEnumerable<string> Sequence(params string[] strings)
+    {
+      foreach (var character in strings)
+      {
+        yield return character;
+      }
     }
   }
 }
