@@ -3596,9 +3596,9 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static IEnumerable<string> Sequence(params string[] strings)
     {
-      foreach (var character in strings)
+      foreach (var oneString in strings)
       {
-        yield return character;
+        yield return oneString;
       }
     }
   }
