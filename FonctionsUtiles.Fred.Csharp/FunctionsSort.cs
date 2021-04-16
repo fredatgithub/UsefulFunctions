@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace FonctionsUtiles.Fred.Csharp
 {
@@ -21,10 +22,15 @@ namespace FonctionsUtiles.Fred.Csharp
           }
         }
 
-        if (!swapped){break;}
+        if (!swapped) { break; }
       }
 
       return result;
+    }
+
+    public static IEnumerable<int> Intersection(int[] array1, int[] array2)
+    {
+      return array1.Intersect(array2);
     }
   }
 }

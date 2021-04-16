@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using System.Linq;
 using CryptoFunc = FonctionsUtiles.Fred.Csharp.FunctionsCrypto;
 using SortFunc = FonctionsUtiles.Fred.Csharp.FunctionsSort;
 
@@ -98,6 +99,26 @@ namespace UnitTestUsefullFunctions
       }
 
       Assert.IsFalse(isTheSame);
+    }
+
+    [TestMethod]
+    public void TestMethod_Intersection_using_LINQ()
+    {
+      int[] source1 = { 44, 26, 92, 30, 71, 38 };
+      int[] source2 = { 39, 59, 83, 47, 26, 4, 30 };
+      IEnumerable<int> expected = new int[] { 26, 30 };
+      IEnumerable<int> result = source1.Intersect(source2);
+      Assert.AreEqual(expected.Count(), result.Count());
+    }
+
+    [TestMethod]
+    public void TestMethod_Intersection_using_Intersect_Method()
+    {
+      int[] source1 = { 44, 26, 92, 30, 71, 38 };
+      int[] source2 = { 39, 59, 83, 47, 26, 4, 30 };
+      IEnumerable<int> expected = new int[] { 26, 30 };
+      IEnumerable<int> result = SortFunc.Intersection(source1, source2);
+      Assert.AreEqual(expected.Count(), result.Count());
     }
   }
 }
