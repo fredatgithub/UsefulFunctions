@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -875,6 +876,12 @@ namespace FonctionsUtiles.Fred.Csharp
 
       //file is not locked
       return false;
+    }
+
+    public static bool IsPictureLandscape(string fileName)
+    {
+      Bitmap image = new Bitmap(fileName);
+      return image.Width > image.Height;
     }
   }
 }
