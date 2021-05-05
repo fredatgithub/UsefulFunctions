@@ -878,11 +878,11 @@ namespace FonctionsUtiles.Fred.Csharp
       return false;
     }
 
-    public static bool IsPictureLandscape(string fileName)
+    public static bool IsPictureLandscape(string pictureFileName)
     {
       try
       {
-        Bitmap image = new Bitmap(fileName);
+        Bitmap image = new Bitmap(pictureFileName);
         return image.Width > image.Height;
       }
       catch (Exception)
