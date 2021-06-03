@@ -962,10 +962,19 @@ namespace UnitTestUsefullFunctions
       int result = FunctionsPrimes.Pi(source);
       Assert.AreEqual(result, expected);
     }
+    
+    [TestMethod]
+    public void TestMethod_Pi_379()
+    {
+      const int source = 379;
+      const int expected = 75;
+      int result = FunctionsPrimes.Pi(source);
+      Assert.AreEqual(result, expected);
+    }
 
     /* Primes between 2 and 4000
       
-    373    379    383    389    397    401    409 
+    379    383    389    397    401    409 
     419    421    431    433    439    443    449    457    461    463 
     467    479    487    491    499    503    509    521    523    541 
     547    557    563    569    571    577    587    593    599    601 
