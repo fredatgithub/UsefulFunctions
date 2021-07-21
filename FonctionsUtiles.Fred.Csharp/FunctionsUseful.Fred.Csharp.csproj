@@ -57,6 +57,7 @@
     <Compile Include="FunctionsApplicationFeatures.cs" />
     <Compile Include="functionsControls.cs" />
     <Compile Include="FunctionsCrypto.cs" />
+    <Compile Include="FunctionsExcel.cs" />
     <Compile Include="FunctionsFiles.cs" />
     <Compile Include="FunctionsFinance.cs" />
     <Compile Include="FunctionsInternet.cs" />
