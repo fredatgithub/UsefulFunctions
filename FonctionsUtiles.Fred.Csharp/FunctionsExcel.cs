@@ -4,48 +4,17 @@ namespace FonctionsUtiles.Fred.Csharp
 {
   public static class FunctionsExcel
   {
+    /// <summary>
+    /// Donne toutes les cellules de A jusqu'à la dernière colonne.
+    /// </summary>
+    /// <param name="lastColumnUsed">un entier donnant le numéro de la dernière colonne.</param>
+    /// <returns>Une liste de string donnant tous les noms des colonnes de A jusqu'à la dernière colonne.</returns>
     public static List<string> AllColumnsNameUntil(int lastColumnUsed)
     {
       List<string> result = new List<string>();
-      if (lastColumnUsed < 1)
+      for (int i = 1; i <= lastColumnUsed; i++)
       {
-        return result;
-      }
-
-      if (lastColumnUsed <= 26)
-      {
-        for (int i = 65; i <= 65 + 26; i++)
-        {
-          result.Add(((char)i).ToString());
-          if (i - 64 == lastColumnUsed)
-          {
-            break;
-          }
-        }
-
-        return result;
-      }
-
-      if (lastColumnUsed >= 27 && lastColumnUsed <= 52)
-      {
-        result = new List<string>(AllColumnsNameUntil(26));
-        for (char letter = 'A'; letter <= lastColumnUsed - 26; letter++)
-        {
-          result.Add($"A{letter}");
-        }
-
-        return result;
-      }
-
-      if (lastColumnUsed >= 53 && lastColumnUsed <= 79)
-      {
-        result = new List<string>(AllColumnsNameUntil(52));
-        for (char letter = 'A'; letter < lastColumnUsed - 52; letter++)
-        {
-          result.Add($"B{letter}");
-        }
-
-        return result;
+        result.Add(NumeroColonneVersLettreColonne(i));
       }
 
       return result;
@@ -60,6 +29,21 @@ namespace FonctionsUtiles.Fred.Csharp
       }
 
       return result;
+    }
+
+    /// <summary>
+    /// Gets the column letter(s) corresponding to the given column number.
+    /// </summary>
+    /// <param name="numeroColonne">The one-based column index. Must be greater than zero.</param>
+    /// <returns>The desired column letter, or an empty string if the column number was invalid.</returns>
+    public static string NumeroColonneVersLettreColonne(int numeroColonne)
+    {
+      if (numeroColonne < 1)
+      {
+        return string.Empty;
+      }
+
+      return NumeroColonneVersLettreColonne((numeroColonne - 1) / 26) + (char)('A' + (numeroColonne - 1) % 26);
     }
   }
 }
