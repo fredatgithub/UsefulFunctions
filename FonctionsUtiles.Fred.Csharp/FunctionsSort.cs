@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace FonctionsUtiles.Fred.Csharp
@@ -31,6 +32,33 @@ namespace FonctionsUtiles.Fred.Csharp
     public static IEnumerable<int> Intersection(int[] array1, int[] array2)
     {
       return array1.Intersect(array2);
+    }
+
+    public static IEnumerable<T> InsertionSort<T>(IEnumerable<T> list) where T : IComparable
+    {
+      T[] sortedList = list.ToArray();
+      int listLength = sortedList.Length;
+      for (int i = 1; i < listLength; i++)
+      {
+        for (int previousItemIndex = i - 1; previousItemIndex > -1; previousItemIndex--)
+        {
+          int currentItemIndex = previousItemIndex + 1;
+          T currentItem = sortedList[currentItemIndex];
+          T previousItem = sortedList[previousItemIndex];
+          var comparison = previousItem.CompareTo(currentItem);
+          if (comparison > 0)
+          {
+            sortedList[previousItemIndex] = currentItem;
+            sortedList[currentItemIndex] = previousItem;
+          }
+          else
+          {
+            break;
+          }
+        }
+      }
+
+      return sortedList;
     }
   }
 }
