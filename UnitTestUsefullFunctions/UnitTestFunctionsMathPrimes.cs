@@ -3419,10 +3419,9 @@ namespace UnitTestUsefullFunctions
       Assert.IsFalse(false);
     }
 
-    [TestMethod]
     [Timeout(3500)]
     [Ignore]
-    public void TestMethod_SimulateTimeOut()
+    public static void TestMethod_SimulateTimeOut()
     {
       Thread.Sleep(4000);
     }

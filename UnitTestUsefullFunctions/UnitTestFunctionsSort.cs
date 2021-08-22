@@ -120,5 +120,14 @@ namespace UnitTestUsefullFunctions
       IEnumerable<int> result = SortFunc.Intersection(source1, source2);
       Assert.AreEqual(expected.Count(), result.Count());
     }
+
+    [TestMethod]
+    public void TestMethod_LinearSearchSequence_()
+    {
+      var source = Enumerable.Range(250, 750).ToArray();
+      int expected = 1;
+      int result = SortFunc.LinearSearchSequence(source, new int[] { 251, 252, 253 });
+      Assert.AreEqual(expected, result);
+    }
   }
 }

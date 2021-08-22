@@ -60,5 +60,31 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return sortedList;
     }
+
+    public static int LinearSearchSequence<T>(IEnumerable<T> list, IEnumerable<T> needle) where T : IComparable
+    {
+      var needleArray = needle.ToArray();
+      var needleLength = needleArray.Length;
+      var listLength = list.Count();
+      for (int i = 0; i <= listLength - needleLength; i++)
+      {
+        for (int matchIndex = 0; matchIndex < needleLength; matchIndex++)
+        {
+          var item = list.ElementAt(i + matchIndex);
+          var needleItem = needleArray[matchIndex];
+          if (item.CompareTo(needleItem) != 0)
+          {
+            break;
+          }
+
+          if (matchIndex == needleLength - 1)
+          {
+            return i;
+          }
+        }
+      }
+
+      return -1;
+    }
   }
 }
