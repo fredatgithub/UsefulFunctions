@@ -11,7 +11,7 @@ using System.Xml.Serialization;
 
 namespace FonctionsUtiles.Fred.Csharp
 {
-  public class FunctionsFiles
+  public static class FunctionsFiles
   {
     public static void SetManyAttributes(string cheminFichier, params FileAttributes[] listeAttributs)
     {
@@ -337,13 +337,25 @@ namespace FonctionsUtiles.Fred.Csharp
                 {
                   files.Add(fi);
                 }
-                catch (UnauthorizedAccessException) { } // handle accordingly
-                catch (Exception) { } // handle accordingly
+                catch (UnauthorizedAccessException)
+                {
+                  // handle accordingly
+                }
+                catch (Exception)
+                {
+                  // handle accordingly
+                }
               }
             }
           }
-          catch (UnauthorizedAccessException) { } // handle accordingly
-          catch (Exception) { } // handle accordingly
+          catch (UnauthorizedAccessException)
+          {
+            // handle accordingly
+          }
+          catch (Exception)
+          {
+            // handle accordingly
+          }
         }
       }
 
@@ -386,7 +398,11 @@ namespace FonctionsUtiles.Fred.Csharp
           }
         }
       }
-      catch (Exception) { }
+      catch (Exception)
+      {
+        // handle accordingly
+      }
+
       files.AddRange(Directory.EnumerateFiles(root));
 
       return new Tuple<List<string>, List<string>>(folders, files);
@@ -432,7 +448,11 @@ namespace FonctionsUtiles.Fred.Csharp
           }
         }
       }
-      catch (Exception) { }
+      catch (Exception)
+      {
+        // handle accordingly
+      }
+
       return result;
     }
 
@@ -634,8 +654,9 @@ namespace FonctionsUtiles.Fred.Csharp
           }
         }
       }
-      catch
+      catch (Exception)
       {
+        // handle accordingly
       }
     }
 
@@ -646,7 +667,9 @@ namespace FonctionsUtiles.Fred.Csharp
       var subList = files.Where(f => f.Contains(".full"));
       DateTime file1 = GetDateFromFileName(subList.ToArray()[0]);
       DateTime file2 = GetDateFromFileName(subList.ToArray()[1]);
-      result = subList.ToList().Min(date => date).ToString();
+      result = subList.ToList()
+        .Min(date => date)
+        .ToString();
       return result;
     }
 
@@ -882,8 +905,10 @@ namespace FonctionsUtiles.Fred.Csharp
     {
       try
       {
-        Bitmap image = new Bitmap(pictureFilePathWithName);
-        return image.Width > image.Height;
+        using (Bitmap image = new Bitmap(pictureFilePathWithName))
+        {
+          return image.Width > image.Height;
+        }
       }
       catch (Exception)
       {

@@ -344,14 +344,12 @@ namespace FonctionsUtiles.Fred.Csharp
       var clone = (CultureInfo)CultureInfo.InvariantCulture.Clone();
       clone.NumberFormat.NumberDecimalSeparator = ",";
       clone.NumberFormat.NumberGroupSeparator = ".";
-      //string s = "1,14535765";
       decimal result = decimal.Parse(number, clone);
       return result;
     }
 
     public static decimal ConvertDoublewithCultureInfo2(string number)
     {
-      //string number = "1,14535765";
       decimal result = decimal.Parse(number, CultureInfo.GetCultureInfo("fr-FR"));
       return result;
     }
@@ -363,30 +361,6 @@ namespace FonctionsUtiles.Fred.Csharp
       {
         result[i] = 0;
       }
-
-      //foreach (var number in result)
-      //{
-      //  if (number < 10)
-      //  {
-      //    result[0]++;
-      //  }
-      //  else if (number >= 10 && number <= 19)
-      //  {
-      //    result[1]++;
-      //  }
-      //  else if (number >= 20 && number <= 29)
-      //  {
-      //    result[2]++;
-      //  }
-      //  else if (number >= 30 && number <= 39)
-      //  {
-      //    result[3]++;
-      //  }
-      //  else
-      //  {
-      //    result[4]++;
-      //  }
-      //}
 
       foreach (var number in result)
       {
@@ -493,19 +467,9 @@ namespace FonctionsUtiles.Fred.Csharp
             continue;
           }
 
-          int number1 = possibleDivisors[i];
-          int number2 = possibleDivisors[j];
-
-          if (possibleDivisors[i] * possibleDivisors[j] <= int.MaxValue)
+          if (possibleDivisors[i] * possibleDivisors[j] <= int.MaxValue && (possibleDivisors[i] * possibleDivisors[j]) == number && !result.Contains($"{possibleDivisors[j]}*{possibleDivisors[i]}={number}"))
           {
-            int multiplication = number1 * number2;
-            if ((possibleDivisors[i] * possibleDivisors[j]) == number)
-            {
-              if (!result.Contains($"{possibleDivisors[j]}*{possibleDivisors[i]}={number}"))
-              {
-                result.Add($"{possibleDivisors[i]}*{possibleDivisors[j]}={number}");
-              }
-            }
+            result.Add($"{possibleDivisors[i]}*{possibleDivisors[j]}={number}");
           }
         }
       }
