@@ -1963,12 +1963,9 @@ namespace FonctionsUtiles.Fred.Csharp
       string[] words = input.Split(' ');
       for (int i = 0; i < words.Length; i++)
       {
-        if (words[i].Length > 0)
+        if (words[i].Length > 0 && !char.IsUpper(words[i][0]))
         {
-          if (!char.IsUpper(words[i][0]))
-          {
-            return false;
-          }
+          return false;
         }
       }
 
@@ -1989,12 +1986,9 @@ namespace FonctionsUtiles.Fred.Csharp
       string[] words = input.Split(separator.ToCharArray());
       for (int i = 0; i < words.Length; i++)
       {
-        if (words[i].Length > 0)
+        if (words[i].Length > 0 && !char.IsUpper(words[i][0]))
         {
-          if (!char.IsUpper(words[i][0]))
-          {
-            return false;
-          }
+          return false;
         }
       }
 
@@ -2666,7 +2660,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static bool IsInside(int number, params int[] array)
     {
-      return array.Where(item => number == item).Any();
+      return array.Any(item => number == item);
     }
 
     public static bool IsInside(string number, params string[] array)
@@ -2725,10 +2719,7 @@ namespace FonctionsUtiles.Fred.Csharp
       return originalString.Replace(oldChar, newChar);
     }
 
-    public static string GenerateGuid()
-    {
-      return new Guid().ToString();
-    }
+    public static string GenerateGuid() => Guid.NewGuid().ToString();
 
     public static string GenerateUniqueFilename(string directoryPath,
       RandomCharacters rdnCharacters = RandomCharacters.LowerCase,
@@ -2874,13 +2865,13 @@ namespace FonctionsUtiles.Fred.Csharp
       }
 
       // once we have the SearchedCharacters filled out, we can select random characters from it
-      string result = string.Empty;
+      var result = new StringBuilder();
       for (int i = 0; i < length; i++)
       {
-        result += searchedCharacters[MathFunc.GenerateRandomNumberUsingCrypto(0, searchedCharacters.Length - 1)];
+        result.Append(searchedCharacters[MathFunc.GenerateRandomNumberUsingCrypto(0, searchedCharacters.Length - 1)]);
       }
 
-      return result;
+      return result.ToString();
     }
 
     public static string FillSearchedCharWithoutForbiddenChar(char[] source, char[] forbiddenCharacters)
@@ -2927,13 +2918,13 @@ namespace FonctionsUtiles.Fred.Csharp
         return string.Empty;
       }
 
-      string result = string.Empty;
+      var result = new StringBuilder();
       for (int i = 0; i < numberOfCharacters; i++)
       {
-        result += source[MathFunc.GenerateRandomNumberUsingCrypto(0, source.Count - 1)];
+        result.Append(source[MathFunc.GenerateRandomNumberUsingCrypto(0, source.Count - 1)]);
       }
 
-      return result;
+      return result.ToString();
     }
 
     public static string ByteArrayToString(byte[] bytes)
@@ -3036,24 +3027,24 @@ namespace FonctionsUtiles.Fred.Csharp
         numberOfTabulationSpace = 0;
       }
 
-      string result = string.Empty;
+      var result = new StringBuilder();
       for (int i = 0; i < numberOfTabulationSpace; i++)
       {
-        result += " ";
+        result.Append(" ");
       }
 
-      return result;
+      return result.ToString();
     }
 
     public static string Space(byte numberOfSpace = 1)
     {
-      string result = string.Empty;
+      var result = new StringBuilder();
       for (int i = 0; i < numberOfSpace; i++)
       {
-        result += " ";
+        result.Append(" ");
       }
 
-      return result;
+      return result.ToString();
     }
 
     public static Dictionary<char, int> CountLetters(string myString, bool wholeDictionary = true)
@@ -3444,14 +3435,14 @@ namespace FonctionsUtiles.Fred.Csharp
         return string.Empty;
       }
 
-      string result = string.Empty;
+      var result = new StringBuilder();
       var tmpResult = rootPath.Split('\\');
       for (int i = 0; i < tmpResult.Length - 1; i++)
       {
-        result += tmpResult[i] + "\\";
+        result.Append(tmpResult[i] + "\\");
       }
 
-      return result;
+      return result.ToString();
     }
 
     public static string PadLeft(string inputString, int stringLength = 2)
