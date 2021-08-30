@@ -15,10 +15,7 @@ namespace UnitTestUsefullFunctions
       List<int> source = new List<int> { 9, 8, 7 };
       List<int> expected = new List<int> { 7, 8, 9 };
       List<int> result = SortFunc.BubbleSort(source);
-      for (int i = 0; i < result.Count; i++)
-      {
-        Assert.AreEqual(expected[i], result[i]);
-      }
+      CollectionAssert.AreEquivalent(expected, result);
     }
 
     [TestMethod]
@@ -27,10 +24,7 @@ namespace UnitTestUsefullFunctions
       List<int> source = new List<int>();
       List<int> expected = new List<int>();
       List<int> result = SortFunc.BubbleSort(source);
-      for (int i = 0; i < result.Count; i++)
-      {
-        Assert.AreEqual(expected[i], result[i]);
-      }
+      CollectionAssert.AreEquivalent(expected, result);
     }
 
     [TestMethod]
@@ -39,10 +33,7 @@ namespace UnitTestUsefullFunctions
       List<int> source = new List<int> { 9 };
       List<int> expected = new List<int> { 9 };
       List<int> result = SortFunc.BubbleSort(source);
-      for (int i = 0; i < result.Count; i++)
-      {
-        Assert.AreEqual(expected[i], result[i]);
-      }
+      CollectionAssert.AreEquivalent(expected, result);
     }
 
     [TestMethod]
@@ -51,10 +42,7 @@ namespace UnitTestUsefullFunctions
       List<int> source = new List<int> { 9, 9, 9 };
       List<int> expected = new List<int> { 9, 9, 9 };
       List<int> result = SortFunc.BubbleSort(source);
-      for (int i = 0; i < result.Count; i++)
-      {
-        Assert.AreEqual(expected[i], result[i]);
-      }
+      CollectionAssert.AreEquivalent(expected, result);
     }
 
     [TestMethod]
@@ -69,10 +57,7 @@ namespace UnitTestUsefullFunctions
       }
 
       List<int> result = SortFunc.BubbleSort(source);
-      for (int i = 0; i < result.Count; i++)
-      {
-        Assert.AreEqual(expected[i], result[i]);
-      }
+      CollectionAssert.AreEquivalent(expected, result);
     }
 
     [TestMethod]
@@ -80,7 +65,7 @@ namespace UnitTestUsefullFunctions
     {
       List<int> source = new List<int>();
       List<int> expected = new List<int>();
-      //could be for (int i = 0; i < 10000000; i++) //but way too long
+      // could be for (int i = 0; i < 10000000; i++) //but way too long
       for (int i = 0; i < 10000; i++)
       {
         source.Add(CryptoFunc.GenerateRndNumberUsingCrypto(1, 254));
@@ -88,17 +73,7 @@ namespace UnitTestUsefullFunctions
       }
 
       List<int> result = SortFunc.BubbleSort(source);
-      bool isTheSame = true;
-      for (int i = 0; i < result.Count; i++)
-      {
-        if (expected[i] != result[i])
-        {
-          isTheSame = false;
-          break;
-        }
-      }
-
-      Assert.IsFalse(isTheSame);
+      CollectionAssert.AreNotEquivalent(expected, result);
     }
 
     [TestMethod]
