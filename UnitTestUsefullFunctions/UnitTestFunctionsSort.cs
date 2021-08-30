@@ -65,7 +65,6 @@ namespace UnitTestUsefullFunctions
     {
       List<int> source = new List<int>();
       List<int> expected = new List<int>();
-      // could be for (int i = 0; i < 10000000; i++) //but way too long
       for (int i = 0; i < 10000; i++)
       {
         source.Add(CryptoFunc.GenerateRndNumberUsingCrypto(1, 254));
