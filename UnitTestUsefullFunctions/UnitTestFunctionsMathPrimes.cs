@@ -4058,7 +4058,6 @@ TOUS LES NOMBRES PREMIERS DE 40001 À 50000
       var expected = new List<int> { 2, 3, 5, 7 };
       List<int> result = FunctionsMath.GetListOfPrime(source1, source2 - source1);
       AssertListsAreSimilar(result, expected);
-      //CollectionAssert.AreNotEqual(result, expected);
       result.Sort();
       CollectionAssert.AreEqual(result, expected);
       CollectionAssert.AreEquivalent(result, expected);
@@ -4567,17 +4566,5 @@ TOUS LES NOMBRES PREMIERS DE 40001 À 50000
 
     #endregion PrimeByFormula
     #endregion Math Methods
-
-    #region Unit Test Helper methods
-    public static void AssertAreEqualList(List<int> result, List<int> expected)
-    {
-      Assert.AreEqual(result.Count, expected.Count);
-      for (int i = 0; i < expected.Count; i++)
-      {
-        Assert.AreEqual(result[i], expected[i]);
-      }
-    }
-    #endregion Unit Test Helper methods
-
   }
 }
