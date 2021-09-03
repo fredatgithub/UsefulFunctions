@@ -9,7 +9,7 @@ using System.IO;
 
 namespace ConsoleAppNTLM
 {
-  class Program
+  static class Program
   {
     static void Main()
     {
@@ -237,8 +237,8 @@ namespace ConsoleAppNTLM
       {
         DataTable table = new DataTable();
         table = GetTable();
-        //using (StreamReader sr = new StreamReader(Environment.CurrentDirectory + fileName))
-        //{
+        // using (StreamReader sr = new StreamReader(Environment.CurrentDirectory + fileName))
+        // {
         //  string line;
         //  int i = 1;
         //  while ((line = sr.ReadLine()) != null)
@@ -247,8 +247,8 @@ namespace ConsoleAppNTLM
         //    Console.WriteLine(line);
         //    i++;
         //  }
-        //}
-        //Insert datatable to sql Server
+        // }
+        // Insert datatable to sql Server
         Insert(table, "InsertCountries", "@dtCountry");
       }
       catch (Exception exception)
@@ -266,7 +266,6 @@ namespace ConsoleAppNTLM
     static DataTable GetTable()
     {
       DataTable table = new DataTable();
-      //table.Columns.Add("idNtlm", typeof(int));
       table.Columns.Add("Code", typeof(string));
       table.Columns.Add("NtlmHash", typeof(string));
       return table;
