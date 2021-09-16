@@ -477,5 +477,25 @@ namespace FonctionsUtiles.Fred.Csharp
       result.Sort();
       return result;
     }
+
+    public static bool EstImpair(int value)
+    {
+      return value % 2 != 0;
+    }
+
+    public static bool Estpair(int value)
+    {
+      return value % 2 == 0;
+    }
+
+    public static bool IsOdd(int value)
+    {
+      return value % 2 != 0;
+    }
+
+    public static bool IsEven(int value)
+    {
+      return value % 2 == 0;
+    }
   }
 }
