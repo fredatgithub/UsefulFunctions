@@ -481,5 +481,19 @@ namespace UnitTestUsefullFunctions
       List<string> result = FunctionsExcel.AllColumnsNameUntil(source);
       CollectionAssert.AreEquivalent(result, expected);
     }
+
+    [TestMethod]
+    [TestCategory("Excel")]
+    public void TestMethod_AllColumnsUntil_57()
+    {
+      const int source = 57;
+      List<string> expected = new List<string>
+      {
+        "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "AA", "AB", "AC", "AD", "AE", "AF", "AG", "AH", "AI", "AJ", "AK", "AL", "AM", "AN", "AO", "AP", "AQ", "AR", "AS", "AT", "AU", "AV", "AW", "AX", "AY", "AZ", "BA", "BB", "BC", "BD"
+      };
+
+      List<string> result = FunctionsExcel.AllColumnsNameUntil(source);
+      CollectionAssert.AreEquivalent(result, expected);
+    }
   }
 }
