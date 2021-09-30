@@ -55,6 +55,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="UnitTestFunctionsExcel.cs" />
     <Compile Include="UnitTestFunctionsPrimes.cs" />
     <Compile Include="UnitTestCommonTypes.cs" />
     <Compile Include="UnitTestFunctionCrypto.cs" />

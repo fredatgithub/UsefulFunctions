@@ -1,12 +1,12 @@
-﻿using System;
-using System.IO;
-using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
-using enumRnd = FonctionsUtiles.Fred.Csharp.RandomCharacters;
-using MathFunc = FonctionsUtiles.Fred.Csharp.FunctionsMath;
-using FileFunc = FonctionsUtiles.Fred.Csharp.FunctionsFiles;
+﻿using FonctionsUtiles.Fred.Csharp;
+using System;
 using System.Collections.Generic;
-using FonctionsUtiles.Fred.Csharp;
 using System.Diagnostics;
+using System.IO;
+using enumRnd = FonctionsUtiles.Fred.Csharp.RandomCharacters;
+using FileFunc = FonctionsUtiles.Fred.Csharp.FunctionsFiles;
+using MathFunc = FonctionsUtiles.Fred.Csharp.FunctionsMath;
+using StringFunc = FonctionsUtiles.Fred.Csharp.FunctionsString;
 
 namespace ConsoleApplicationUsageDemo
 {
@@ -179,6 +179,14 @@ namespace ConsoleApplicationUsageDemo
       public decimal Prix;
       public string Titre;
       public string Auteur;
+    }
+
+    public static void PrintList<T>(IEnumerable<T> list)
+    {
+      foreach (var item in list)
+      {
+        Console.WriteLine(item);
+      }
     }
   }
 }

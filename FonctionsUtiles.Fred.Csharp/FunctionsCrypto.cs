@@ -165,24 +165,24 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static string EncryptCaesar(string message)
     {
-      string result = string.Empty;
+      var result = new StringBuilder();
       for (int i = 0; i < message.Length; i++)
       {
-        result += (char)(message[i] + 1);
+        result.Append((char)(message[i] + 1));
       }
 
-      return result;
+      return result.ToString();
     }
 
     public static string DecryptCaesar(string message)
     {
-      string result = string.Empty;
+      var result = new StringBuilder();
       for (int i = 0; i < message.Length; i++)
       {
-        result += (char)(message[i] - 1);
+        result.Append((char)(message[i] - 1));
       }
 
-      return result;
+      return result.ToString();
     }
 
     public static string EncryptDecryptUsingXor(string plainText, int encryptionKey)

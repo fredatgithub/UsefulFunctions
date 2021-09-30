@@ -183,13 +183,13 @@ namespace FonctionsUtiles.Fred.Csharp
         return chaine;
       }
 
-      string blanc = string.Empty;
+      var blanc = new StringBuilder();
       for (int i = 0; i < blankLength - chaine.Length; i++)
       {
-        blanc += " ";
+        blanc.Append(" ");
       }
 
-      return chaine + blanc;
+      return chaine + blanc.ToString();
     }
     public static string GetLastName(string chaine, char dernierCaractereRecherche)
     {
@@ -222,23 +222,23 @@ namespace FonctionsUtiles.Fred.Csharp
     }
     public static string CamelCase(string myString)
     {
-      string result = string.Empty;
+      var result = new StringBuilder();
       bool isPreviousLetter = false;
       foreach (var item in myString)
       {
         if (isPreviousLetter && IsLetter(item))
         {
-          result += item.ToString(CultureInfo.InvariantCulture).ToLower();
+          result.Append(item.ToString(CultureInfo.InvariantCulture).ToLower());
         }
         else
         {
-          result += item.ToString(CultureInfo.InvariantCulture).ToUpper();
+          result.Append(item.ToString(CultureInfo.InvariantCulture).ToUpper());
         }
 
         isPreviousLetter = IsLetter(item);
       }
 
-      return result;
+      return result.ToString();
     }
     public static bool IsNumeric(char letter)
     {
@@ -1014,7 +1014,6 @@ namespace FonctionsUtiles.Fred.Csharp
     }
     public static string ReverseString2(string strValue, bool removeSpace = false)
     {
-      //  LINQ: return strValue.Aggregate(string.Empty, (current, caracter) => caracter + current);
       if (removeSpace)
       {
         strValue = strValue.Replace(" ", "");
@@ -1089,23 +1088,23 @@ namespace FonctionsUtiles.Fred.Csharp
     }
     public static string CompletePrefixWithZero(string numberInString, byte numberOfZero = 0)
     {
-      string numberOfZeroString = "";
+      var numberOfZeroString = new StringBuilder();
       for (byte i = 0; i < numberOfZero; i++)
       {
-        numberOfZeroString += "0";
+        numberOfZeroString.Append("0");
       }
 
-      return numberInString.Length >= 1 ? numberOfZeroString + numberInString : numberInString;
+      return numberInString.Length >= 1 ? numberOfZeroString.ToString() + numberInString : numberInString;
     }
     public static string CompletePrefixWithZeroInt(int nombre, byte numberOfZero = 0)
     {
-      string numberOfZeroString = "";
+      var numberOfZeroString = new StringBuilder();
       for (byte i = 0; i < numberOfZero; i++)
       {
-        numberOfZeroString += "0";
+        numberOfZeroString.Append("0");
       }
 
-      return numberOfZeroString + nombre;
+      return numberOfZeroString.ToString() + nombre;
     }
     public static string ArrayToString(IList array)
     {
@@ -1116,18 +1115,18 @@ namespace FonctionsUtiles.Fred.Csharp
         return string.Empty;
       }
 
-      string output = string.Empty;
+      var output = new StringBuilder();
       for (int i = 0; i < array.Count; i++)
       {
-        output += array[i].ToString();
+        output.Append(array[i].ToString());
         //  don't add separator at the end of the list
         if (i != array.Count - 1)
         {
-          output += Environment.NewLine;
+          output.Append(Environment.NewLine);
         }
       }
 
-      return output;
+      return output.ToString();
     }
     public static string ArrayToString(IList array, string separator)
     {
@@ -1138,19 +1137,19 @@ namespace FonctionsUtiles.Fred.Csharp
         return string.Empty;
       }
 
-      string output = string.Empty;
+      var output = new StringBuilder();
       for (int i = 0; i < array.Count; i++)
       {
-        output += array[i].ToString();
+        output.Append(array[i].ToString());
 
         //  don't add separator at the end of the list
         if (i != array.Count - 1)
         {
-          output += separator;
+          output.Append(separator);
         }
       }
 
-      return output;
+      return output.ToString();
     }
     public static string ArrayToStringWithStringBuilder(IList array)
     {
@@ -1415,6 +1414,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return string.Join(string.Empty, words);
     }
+
     /// <summary>
     /// Returns the initials of each word in a string. Words are separated according to the sepecified string sequence.
     /// </summary>
@@ -1963,12 +1963,9 @@ namespace FonctionsUtiles.Fred.Csharp
       string[] words = input.Split(' ');
       for (int i = 0; i < words.Length; i++)
       {
-        if (words[i].Length > 0)
+        if (words[i].Length > 0 && !char.IsUpper(words[i][0]))
         {
-          if (!char.IsUpper(words[i][0]))
-          {
-            return false;
-          }
+          return false;
         }
       }
 
@@ -1989,12 +1986,9 @@ namespace FonctionsUtiles.Fred.Csharp
       string[] words = input.Split(separator.ToCharArray());
       for (int i = 0; i < words.Length; i++)
       {
-        if (words[i].Length > 0)
+        if (words[i].Length > 0 && !char.IsUpper(words[i][0]))
         {
-          if (!char.IsUpper(words[i][0]))
-          {
-            return false;
-          }
+          return false;
         }
       }
 
@@ -2666,7 +2660,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static bool IsInside(int number, params int[] array)
     {
-      return array.Where(item => number == item).Any();
+      return array.Any(item => number == item);
     }
 
     public static bool IsInside(string number, params string[] array)
@@ -2677,7 +2671,6 @@ namespace FonctionsUtiles.Fred.Csharp
     public static bool IsInList(string word, string[] listOfWords)
     {
       bool result = false;
-      // LINQ return listOfWords.Any(wordInList => string.Compare(word, wordInList, StringComparison.InvariantCultureIgnoreCase) == 0);
       foreach (string wordInList in listOfWords)
       {
         if (string.Compare(word, wordInList, StringComparison.InvariantCultureIgnoreCase) == 0)
@@ -2726,10 +2719,7 @@ namespace FonctionsUtiles.Fred.Csharp
       return originalString.Replace(oldChar, newChar);
     }
 
-    public static string GenerateGuid()
-    {
-      return new Guid().ToString();
-    }
+    public static string GenerateGuid() => Guid.NewGuid().ToString();
 
     public static string GenerateUniqueFilename(string directoryPath,
       RandomCharacters rdnCharacters = RandomCharacters.LowerCase,
@@ -2770,19 +2760,19 @@ namespace FonctionsUtiles.Fred.Csharp
         return GenerateRandomString(forbiddenCharacters, hasForbiddenCharacters, rdnCharacters, (byte)length, isWindowsFileName);
       }
 
-      string result = string.Empty;
+      var result = new StringBuilder();
       int leftOver = length % 254;
       for (int i = 1; i <= Math.Floor((decimal)(length / 254)); i++)
       {
-        result += GenerateRandomString(forbiddenCharacters, hasForbiddenCharacters, rdnCharacters, 254, isWindowsFileName);
+        result.Append(GenerateRandomString(forbiddenCharacters, hasForbiddenCharacters, rdnCharacters, 254, isWindowsFileName));
       }
 
       if (leftOver != 0)
       {
-        result += GenerateRandomString(forbiddenCharacters, hasForbiddenCharacters, rdnCharacters, (byte)leftOver, isWindowsFileName);
+        result.Append(GenerateRandomString(forbiddenCharacters, hasForbiddenCharacters, rdnCharacters, (byte)leftOver, isWindowsFileName));
       }
 
-      return result;
+      return result.ToString();
     }
 
     public static string GenerateRandomString(char[] forbiddenCharacters,
@@ -2802,7 +2792,6 @@ namespace FonctionsUtiles.Fred.Csharp
       char[] specialCharacters = ",.;:?!/@#$%^&()=+*-_{}[]|~".ToCharArray();
       char[] searchedCharacters = new char[26 + 26 + 10 + 26]; // max size
 
-      // int numberOfCharactersToPickFrom = (int)rdnCharacters;
       if (isWindowsFileName)
       {
         forbiddenCharacters = AddCharArray(forbiddenCharacters, forbiddenWindowsFilenameCharacters, new[] { ' ' });
@@ -2876,34 +2865,34 @@ namespace FonctionsUtiles.Fred.Csharp
       }
 
       // once we have the SearchedCharacters filled out, we can select random characters from it
-      string result = string.Empty;
+      var result = new StringBuilder();
       for (int i = 0; i < length; i++)
       {
-        result += searchedCharacters[MathFunc.GenerateRandomNumberUsingCrypto(0, searchedCharacters.Length - 1)];
+        result.Append(searchedCharacters[MathFunc.GenerateRandomNumberUsingCrypto(0, searchedCharacters.Length - 1)]);
       }
 
-      return result;
+      return result.ToString();
     }
 
     public static string FillSearchedCharWithoutForbiddenChar(char[] source, char[] forbiddenCharacters)
     {
-      string result = string.Empty;
+      var result = new StringBuilder();
       foreach (char item in source)
       {
         if (forbiddenCharacters != null)
         {
           if (!forbiddenCharacters.Contains(item))
           {
-            result += item.ToString();
+            result.Append(item.ToString());
           }
         }
         else
         {
-          result += item.ToString();
+          result.Append(item.ToString());
         }
       }
 
-      return result;
+      return result.ToString();
     }
 
     public static char[] AddCharArray(char[] source, char[] toBeAdded, char[] forbiddenCharacters)
@@ -2929,13 +2918,13 @@ namespace FonctionsUtiles.Fred.Csharp
         return string.Empty;
       }
 
-      string result = string.Empty;
+      var result = new StringBuilder();
       for (int i = 0; i < numberOfCharacters; i++)
       {
-        result += source[MathFunc.GenerateRandomNumberUsingCrypto(0, source.Count - 1)];
+        result.Append(source[MathFunc.GenerateRandomNumberUsingCrypto(0, source.Count - 1)]);
       }
 
-      return result;
+      return result.ToString();
     }
 
     public static string ByteArrayToString(byte[] bytes)
@@ -2982,7 +2971,6 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static string RemoveAllNonLetterCharacters(string input, string[] charsToRemove)
     {
-      // return String.Join("", input.Split('@', ',' ,'.' ,';', '\''));
       foreach (var c in charsToRemove)
       {
         input = input.Replace(c, string.Empty);
@@ -3039,24 +3027,24 @@ namespace FonctionsUtiles.Fred.Csharp
         numberOfTabulationSpace = 0;
       }
 
-      string result = string.Empty;
+      var result = new StringBuilder();
       for (int i = 0; i < numberOfTabulationSpace; i++)
       {
-        result += " ";
+        result.Append(" ");
       }
 
-      return result;
+      return result.ToString();
     }
 
     public static string Space(byte numberOfSpace = 1)
     {
-      string result = string.Empty;
+      var result = new StringBuilder();
       for (int i = 0; i < numberOfSpace; i++)
       {
-        result += " ";
+        result.Append(" ");
       }
 
-      return result;
+      return result.ToString();
     }
 
     public static Dictionary<char, int> CountLetters(string myString, bool wholeDictionary = true)
@@ -3231,16 +3219,6 @@ namespace FonctionsUtiles.Fred.Csharp
     public static string GetCapitalLetters(string input)
     {
       return input.Where(char.IsUpper).Aggregate(string.Empty, (current, t) => current + t);
-      //string result = string.Empty;
-      //for (int i = 0; i < input.Length; i++)
-      //{
-      //  if (char.IsUpper(input[i]))
-      //  {
-      //    result += input[i];
-      //  }
-      //}
-
-      //return result;
     }
 
     public static string ToPascalCase(string s)
@@ -3303,13 +3281,13 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static string ToNDigits(ushort number, byte numberLength = 1)
     {
-      string zeros = string.Empty;
+      var zeros = new StringBuilder();
       for (int i = 0; i < numberLength - number.ToString().Length; i++)
       {
-        zeros += "0";
+        zeros.Append("0");
       }
 
-      return zeros + number;
+      return zeros.ToString() + number;
     }
 
     public static string AddSpaceInNumberWithDecimal(decimal number)
@@ -3457,14 +3435,14 @@ namespace FonctionsUtiles.Fred.Csharp
         return string.Empty;
       }
 
-      string result = string.Empty;
+      var result = new StringBuilder();
       var tmpResult = rootPath.Split('\\');
       for (int i = 0; i < tmpResult.Length - 1; i++)
       {
-        result += tmpResult[i] + "\\";
+        result.Append(tmpResult[i] + "\\");
       }
 
-      return result;
+      return result.ToString();
     }
 
     public static string PadLeft(string inputString, int stringLength = 2)
@@ -3494,7 +3472,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static int NumberOfOccurrences(string searchedString, string inString)
     {
-      if (((searchedString + "").Length == 0) | ((inString + "").Length == 0))
+      if (((searchedString + "").Length == 0) || ((inString + "").Length == 0))
       {
         return 0;
       }
