@@ -379,5 +379,44 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return result;
     }
+
+    public static string Sha256(string myString)
+    {
+      var crypt = new SHA256Managed();
+      var hash = new StringBuilder();
+      byte[] crypto = crypt.ComputeHash(Encoding.UTF8.GetBytes(myString));
+      foreach (byte theByte in crypto)
+      {
+        hash.Append(theByte.ToString("x2"));
+      }
+
+      return hash.ToString();
+    }
+
+    public static string Sha384(string myString)
+    {
+      var crypt = new SHA384Managed();
+      var hash = new StringBuilder();
+      byte[] crypto = crypt.ComputeHash(Encoding.UTF8.GetBytes(myString));
+      foreach (byte theByte in crypto)
+      {
+        hash.Append(theByte.ToString("x2"));
+      }
+
+      return hash.ToString();
+    }
+
+    public static string Sha512(string myString)
+    {
+      var crypt = new SHA512Managed();
+      var hash = new StringBuilder();
+      byte[] crypto = crypt.ComputeHash(Encoding.UTF8.GetBytes(myString));
+      foreach (byte theByte in crypto)
+      {
+        hash.Append(theByte.ToString("x2"));
+      }
+
+      return hash.ToString();
+    }
   }
 }
