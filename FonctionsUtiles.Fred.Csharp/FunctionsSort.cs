@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace FonctionsUtiles.Fred.Csharp
 {
@@ -85,6 +86,24 @@ namespace FonctionsUtiles.Fred.Csharp
       }
 
       return -1;
+    }
+
+    public static string SortAnArrayWithIndex(string myString, int[] indexes)
+    {
+      StringBuilder retour = new StringBuilder();
+
+      string[] result = new string[indexes.Length];
+      for (int i = 0; i < result.Length; i++)
+      {
+        result[indexes[i]] = myString[i].ToString();
+      }
+
+      for (int i = 0; i < result.Length; i++)
+      {
+        retour.Append(result[i]);
+      }
+
+      return retour.ToString();
     }
   }
 }
