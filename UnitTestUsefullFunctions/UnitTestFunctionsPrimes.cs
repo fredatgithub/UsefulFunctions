@@ -1026,6 +1026,14 @@ namespace UnitTestUsefullFunctions
       int result = FunctionsPrimes.Pi(source);
       Assert.AreEqual(result, expected);
     }
+
+    public void TestMethod_Pi_421()
+    {
+      const int source = 421;
+      const int expected = 82;
+      int result = FunctionsPrimes.Pi(source);
+      Assert.AreEqual(result, expected);
+    }
     
     /* Primes between 2 and 4000
       
