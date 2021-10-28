@@ -3579,5 +3579,33 @@ namespace FonctionsUtiles.Fred.Csharp
         yield return oneString;
       }
     }
+
+    public static IEnumerable<string> SplitString(string incomingString, int numberToCut)
+    {
+      int numberOfCharacters = incomingString.Length;
+      List<string> result = new List<string>();
+      string temp = string.Empty;
+      int cursor = 0;
+      do
+      {
+        for (int i = 0; i < numberToCut - 1; i++)
+        {
+          temp += incomingString.Substring(i + cursor, 1);
+        }
+
+        result.Add(temp);
+        temp = string.Empty;
+        cursor += numberToCut;
+      } while (numberOfCharacters >= cursor + numberToCut);
+
+      temp = string.Empty;
+      for (int i = cursor; i < numberOfCharacters; i++)
+      {
+        temp += incomingString.Substring(i, 1);
+      }
+
+      result.Add(temp);
+      return result;
+    }
   }
 }
