@@ -18,5 +18,35 @@ namespace TestProjectCoreUseFulFunctions
       List<string> result = (List<string>)FunctionsString.SplitString(source, source2);
       CollectionAssert.AreEquivalent(result, expected);
     }
+
+    [TestMethod]
+    public void TestMethod_GetUniqueFileName()
+    {
+      string source = "filename.xlsx";
+      int source2 = 1;
+      string expected = "filename1.xlsx";
+      string result = FunctionsString.GetUniquefileName(source, source2);
+      Assert.AreEqual(expected, result);
+    }
+
+    [TestMethod]
+    public void TestMethod_InjectNumber_1()
+    {
+      string source = "filename.xlsx";
+      int source2 = 1;
+      string expected = "filename1.xlsx";
+      string result = FunctionsString.InjectNumber(source, source2);
+      Assert.AreEqual(expected, result);
+    }
+
+    [TestMethod]
+    public void TestMethod_InjectNumber_10()
+    {
+      string source = "filename.xlsx";
+      int source2 = 10;
+      string expected = "filename10.xlsx";
+      string result = FunctionsString.InjectNumber(source, source2);
+      Assert.AreEqual(expected, result);
+    }
   }
 }
