@@ -3653,17 +3653,17 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static string GetUniquefileName(string fileName, int fileNumber)
     {
-      string newFileName = InjectNumber(fileName, fileNumber);
+      string newFileName = InjectNumberIntoFileName(fileName, fileNumber);
       while (File.Exists(newFileName))
       {
         fileNumber++;
-        newFileName = InjectNumber(fileName, fileNumber);
+        newFileName = InjectNumberIntoFileName(fileName, fileNumber);
       }
 
       return newFileName;
     }
 
-    public static string InjectNumber(string fileName, int fileNumber)
+    public static string InjectNumberIntoFileName(string fileName, int fileNumber)
     {
       string result = fileName.Split('.')[0] + fileNumber.ToString() + Path.GetExtension(fileName);
       return result;

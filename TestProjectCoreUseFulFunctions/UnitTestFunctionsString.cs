@@ -35,7 +35,7 @@ namespace TestProjectCoreUseFulFunctions
       string source = "filename.xlsx";
       int source2 = 1;
       string expected = "filename1.xlsx";
-      string result = FunctionsString.InjectNumber(source, source2);
+      string result = FunctionsString.InjectNumberIntoFileName(source, source2);
       Assert.AreEqual(expected, result);
     }
 
@@ -45,7 +45,7 @@ namespace TestProjectCoreUseFulFunctions
       string source = "filename.xlsx";
       int source2 = 10;
       string expected = "filename10.xlsx";
-      string result = FunctionsString.InjectNumber(source, source2);
+      string result = FunctionsString.InjectNumberIntoFileName(source, source2);
       Assert.AreEqual(expected, result);
     }
   }
