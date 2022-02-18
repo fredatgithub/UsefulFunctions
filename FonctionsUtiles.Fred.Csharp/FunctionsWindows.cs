@@ -221,5 +221,15 @@ namespace FonctionsUtiles.Fred.Csharp
         return string.Empty;
       }
     }
+
+    public static string GetProfileUserName()
+    {
+      return Environment.UserName;
+    }
+
+    public static string GetHostname()
+    {
+      return Environment.MachineName;
+    }
   }
 }
