@@ -10929,5 +10929,115 @@ namespace UnitTestUsefullFunctions
       int result = StringFunc.GetPositionOfString(source, source2);
       Assert.AreEqual(result, expected);
     }
+
+    
+    [TestMethod]
+    public void TestMethod_ShortNumberFormat_10()
+    {
+      const int source = 10;
+      string expected = "10";
+      string result = StringFunc.ShortNumberFormat(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ShortNumberFormat_999()
+    {
+      const int source = 999;
+      string expected = "999";
+      string result = StringFunc.ShortNumberFormat(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ShortNumberFormat_1000()
+    {
+      const int source = 1000;
+      string expected = "1K";
+      string result = StringFunc.ShortNumberFormat(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ShortNumberFormat_1001()
+    {
+      const int source = 1001;
+      string expected = "1K1";
+      string result = StringFunc.ShortNumberFormat(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ShortNumberFormat_1999()
+    {
+      const int source = 1999;
+      string expected = "1K999";
+      string result = StringFunc.ShortNumberFormat(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ShortNumberFormat_5999()
+    {
+      const int source = 5999;
+      string expected = "5K999";
+      string result = StringFunc.ShortNumberFormat(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ShortNumberFormat_9999()
+    {
+      const int source = 9999;
+      string expected = "9K999";
+      string result = StringFunc.ShortNumberFormat(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ShortNumberFormat_99_999()
+    {
+      const int source = 99_999;
+      string expected = "99K999";
+      string result = StringFunc.ShortNumberFormat(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ShortNumberFormat_999_999()
+    {
+      const int source = 999_999;
+      string expected = "999K999";
+      string result = StringFunc.ShortNumberFormat(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ShortNumberFormat_1_999_999()
+    {
+      const int source = 1_999_999;
+      string expected = "1M";
+      string result = StringFunc.ShortNumberFormat(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ShortNumberFormat_999_999_999()
+    {
+      const int source = 999_999_999;
+      string expected = "999M";
+      string result = StringFunc.ShortNumberFormat(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_ShortNumberFormat_5_999_999_999()
+    {
+      const long source = 5_999_999_999;
+      string expected = "5B";
+      string result = StringFunc.ShortNumberFormat(source);
+      Assert.AreEqual(result, expected);
+    }
+
   }
 }

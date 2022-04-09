@@ -3668,5 +3668,49 @@ namespace FonctionsUtiles.Fred.Csharp
       string result = fileName.Split('.')[0] + fileNumber.ToString() + Path.GetExtension(fileName);
       return result;
     }
+
+    /// <summary>
+    /// Convert a number to a short format indicating K for thousand, M for million.
+    /// </summary>
+    /// <param name="number">The number to be converted.</param>
+    /// <returns>A number converted into a string with K for thousand, M for million, etc..</returns>
+    public static string ShortNumberFormat(int number)
+    {
+      if (number < 1_000)
+      {
+        return number.ToString();
+      }
+
+      if (number < 1_000_000)
+      {
+        int quotient = number / 1_000;
+        var modulo = number - quotient * 1_000;
+        if (modulo == 0)
+        {
+          return $"{quotient}K";
+        }
+        else
+        {
+          return $"{quotient}K{modulo}";
+        }
+      }
+
+      return $"{number / 1_000_000}M";
+    }
+
+    /// <summary>
+    /// Convert a number to a short format indicating K for thousand, M for million.
+    /// </summary>
+    /// <param name="number">The number to be converted.</param>
+    /// <returns>A number converted into a string with K for thousand, M for million, etc..</returns>
+    public static string ShortNumberFormat(long number)
+    {
+      if (number <= int.MaxValue)
+      {
+        return ShortNumberFormat((int)number);
+      }
+
+      return $"{number / 1_000_000_000}B";
+    }
   }
 }
