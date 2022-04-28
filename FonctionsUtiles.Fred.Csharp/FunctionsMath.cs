@@ -497,5 +497,20 @@ namespace FonctionsUtiles.Fred.Csharp
     {
       return value % 2 == 0;
     }
+
+    public static bool CheckLoanApprovalRule(double amount)
+    {
+      switch (amount)
+      {
+        case double n when (n < 10_000):
+          return false;
+        case double n when (n > 10_000 && n < 1_000_000):
+          return true;
+        case double n when (n > 1_000_000):
+          return false;
+        default:
+          return false;
+      }
+    }
   }
 }
