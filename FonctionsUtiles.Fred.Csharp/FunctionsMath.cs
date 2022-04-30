@@ -512,5 +512,22 @@ namespace FonctionsUtiles.Fred.Csharp
           return false;
       }
     }
+
+    public static string Majorite(int age)
+    {
+      switch (age)
+      {
+        case int n when (n < 0):
+          return "pas encore né";
+        case int n when (n < 18):
+          return "mineur";
+        case int n when (n < 62):
+          return "senior";
+        case int n when (n >= 62):
+          return "retraité";
+        default:
+          return "majorité inconnue";
+      }
+    }
   }
 }
