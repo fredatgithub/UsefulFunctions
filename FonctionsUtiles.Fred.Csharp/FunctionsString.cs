@@ -3712,5 +3712,22 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return $"{number / 1_000_000_000}B";
     }
+
+    public static bool IsListOfIntegers(string s)
+    {
+      //without space if needded
+      //var rgx = new Regex(@"^[0-9]+(,[0-9]+)*$");
+      string NumberListRegExp = "[ ]*[0-9]+[ ]*(,[ ]*[0-9]+[ ]*)*";
+      var rgx = new Regex($@"^{NumberListRegExp}$");
+      return rgx.IsMatch(s);
+    }
+
+    public static bool IsListOfIntegersExluded(string aString)
+    {
+      string NumberListRegExp = "[ ]*[0-9]+[ ]*(,[ ]*[0-9]+[ ]*)*";
+      var regexPatern = new Regex($@"^[ ]*All[ ]*\\[ ]*{{{NumberListRegExp}}}[ ]*$");
+      return regexPatern.IsMatch(aString);
+    }
+
   }
 }
