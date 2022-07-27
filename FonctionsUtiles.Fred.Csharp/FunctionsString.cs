@@ -3713,13 +3713,13 @@ namespace FonctionsUtiles.Fred.Csharp
       return $"{number / 1_000_000_000}B";
     }
 
-    public static bool IsListOfIntegers(string s)
+    public static bool IsListOfIntegers(string aString)
     {
       //without space if needded
       //var rgx = new Regex(@"^[0-9]+(,[0-9]+)*$");
       string NumberListRegExp = "[ ]*[0-9]+[ ]*(,[ ]*[0-9]+[ ]*)*";
-      var rgx = new Regex($@"^{NumberListRegExp}$");
-      return rgx.IsMatch(s);
+      var regex = new Regex($@"^{NumberListRegExp}$");
+      return regex.IsMatch(aString);
     }
 
     public static bool IsListOfIntegersExluded(string aString)
