@@ -529,5 +529,10 @@ namespace FonctionsUtiles.Fred.Csharp
           return "majorité inconnue";
       }
     }
+
+    public static IEnumerable<int> GetListOfNumbers(int from, int to)
+    {
+      return Enumerable.Range(from, to);
+    }
   }
 }

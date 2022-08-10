@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Numerics;
 
 namespace FonctionsUtiles.Fred.Csharp
@@ -393,6 +394,14 @@ namespace FonctionsUtiles.Fred.Csharp
       }
 
       return result;
+    }
+
+    public static IEnumerable<int> GetPrimesBetweenTwoNumbers(int from, int to)
+    {
+      var primes =  Enumerable.Range(from, to)
+                       .Select(n => IsPrime(n))
+                       .ToList();
+      return (IEnumerable<int>)primes;
     }
   }
 }

@@ -1,5 +1,6 @@
 ﻿using FonctionsUtiles.Fred.Csharp;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -4008,7 +4009,18 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
+    //GetPrimesBetweenTwoNumbers
 
+    [TestMethod]
+    [TestCategory("Prime test")]
+    public void TestMethod_GetPrimesBetweenTwoNumbers()
+    {
+      const int source1 = 2;
+      const int source2 = 3;
+      IEnumerable<int> expected = new List<int> { 2, 3};
+      var result = FunctionsPrimes.GetPrimesBetweenTwoNumbers(source1, source2);
+      CollectionAssert.AreEquivalent((ICollection)result, (ICollection)expected);
+    }
     /*  Add unit test
      *  
       TOUS LES NOMBRES PREMIERS DE 2001 À 3000
