@@ -55,6 +55,7 @@
     <Compile Include="DateCompareFileInfo.cs" />
     <Compile Include="Enumerations.cs" />
     <Compile Include="Enums\Gender.cs" />
+    <Compile Include="Enums\Majorite.cs" />
     <Compile Include="Enums\Result.cs" />
     <Compile Include="FunctionsApplicationFeatures.cs" />
     <Compile Include="functionsControls.cs" />
