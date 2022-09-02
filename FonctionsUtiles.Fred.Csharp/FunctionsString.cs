@@ -3761,5 +3761,11 @@ namespace FonctionsUtiles.Fred.Csharp
         //this.Logger.LogError(LOGIMPORTMISMATCH);
       }
     }
+    public static List<string> SortListToLengthOfItems(List<string> list)
+    {
+      // valid only to .NET 6
+      //return list.Sort((s1, s2) => s1.Length.CompareTo(s2.Length));
+      return list.OrderBy(x => x.Length).ToList();
+    }
   }
 }
