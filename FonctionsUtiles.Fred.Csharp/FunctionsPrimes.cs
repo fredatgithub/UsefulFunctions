@@ -396,12 +396,28 @@ namespace FonctionsUtiles.Fred.Csharp
       return result;
     }
 
-    public static IEnumerable<int> GetPrimesBetweenTwoNumbers(int from, int to)
+    public static List<int> GetPrimesBetweenTwoNumbers(int from, int to)
     {
-      var primes =  Enumerable.Range(from, to)
-                       .Select(n => IsPrime(n))
+      int count = to - from;
+      var primes = Enumerable.Range(from, count)
+        .Where(n => IsPrime(n))
+                       .Select(n => n)
                        .ToList();
-      return (IEnumerable<int>)primes;
+      return primes;
+    }
+
+    public static List<int> GetPrimesBetweenTwoNumbersWithForLoop(int from, int to)
+    {
+      List<int> result = new List<int>();
+      for (int i = from; i <= to; i++)
+      {
+        if (IsPrime(i))
+        {
+          result.Add(i);
+        }
+      }
+
+      return result;
     }
   }
 }

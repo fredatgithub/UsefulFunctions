@@ -52,6 +52,10 @@
   <ItemGroup>
     <Compile Include="BigInt.cs" />
     <Compile Include="CommonTypes.cs" />
+    <Compile Include="Constants\CommonFieldLength.cs" />
+    <Compile Include="Constants\CustomStringFormat.cs" />
+    <Compile Include="Constants\StructureDepth.cs" />
+    <Compile Include="Constants\UnixTime.cs" />
     <Compile Include="DateCompareFileInfo.cs" />
     <Compile Include="Enumerations.cs" />
     <Compile Include="Enums\Gender.cs" />
@@ -70,6 +74,7 @@
     <Compile Include="FunctionsDateTime.cs" />
     <Compile Include="FunctionsUseful.cs" />
     <Compile Include="FunctionsWindows.cs" />
+    <Compile Include="MemoryManagement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Punctuation.cs" />
     <Compile Include="RandomStringGenerator.cs" />

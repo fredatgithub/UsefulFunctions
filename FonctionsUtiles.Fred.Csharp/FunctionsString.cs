@@ -3729,5 +3729,37 @@ namespace FonctionsUtiles.Fred.Csharp
       return regexPatern.IsMatch(aString);
     }
 
+    /// <summary>
+    /// Compare the value in payload with the value in the context.
+    /// </summary>
+    /// <param name="value1">The value1 in the context.</param>
+    /// <param name="value2">The value2Dto in the payload.</param>
+    public void CompareCostsStatus(int? value1, int? value2, bool forceComparisonFailure = false)
+    {
+      if (value1 == null || value2 == null)
+      {
+        //this.Logger.LogError(LOGCOSTISNULL);
+        throw new Exception("LOG value IS NULL");
+      }
+
+      // Ignore Id because the Id does not exist in the payload
+      bool equality = true;
+      // check all properties if it is not an int but a class
+      //equality &= value1.Property1 == value2.Property1;
+      //equality &= value1.Property2 == value2.Property2;
+      //equality &= value1.Property3.Category == value2.Property3.Category;
+      //equality &= value1.Property4 == value2.Property4;
+
+      // WARNING : For tests purposes.
+      if (forceComparisonFailure)
+      {
+        equality = false;
+      }
+
+      if (!equality)
+      {
+        //this.Logger.LogError(LOGIMPORTMISMATCH);
+      }
+    }
   }
 }

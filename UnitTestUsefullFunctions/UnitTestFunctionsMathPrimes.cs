@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading;
 
@@ -4009,18 +4010,86 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
-    //GetPrimesBetweenTwoNumbers
-
     [TestMethod]
     [TestCategory("Prime test")]
-    public void TestMethod_GetPrimesBetweenTwoNumbers()
+    public void TestMethod_GetPrimesBetweenTwoNumbers_2_and_3()
     {
       const int source1 = 2;
       const int source2 = 3;
       IEnumerable<int> expected = new List<int> { 2, 3};
-      var result = FunctionsPrimes.GetPrimesBetweenTwoNumbers(source1, source2);
+      var result = FunctionsPrimes.GetPrimesBetweenTwoNumbersWithForLoop(source1, source2);
       CollectionAssert.AreEquivalent((ICollection)result, (ICollection)expected);
     }
+
+    [TestMethod]
+    [TestCategory("Prime test")]
+    public void TestMethod_GetPrimesBetweenTwoNumbers_2_and_4()
+    {
+      const int source1 = 2;
+      const int source2 = 4;
+      IEnumerable<int> expected = new List<int> { 2, 3 };
+      var result = FunctionsPrimes.GetPrimesBetweenTwoNumbersWithForLoop(source1, source2);
+      CollectionAssert.AreEquivalent((ICollection)result, (ICollection)expected);
+    }
+
+    [TestMethod]
+    [TestCategory("Prime test")]
+    public void TestMethod_GetPrimesBetweenTwoNumbers_2_and_5()
+    {
+      const int source1 = 2;
+      const int source2 = 5;
+      IEnumerable<int> expected = new List<int> { 2, 3, 5 };
+      var result = FunctionsPrimes.GetPrimesBetweenTwoNumbersWithForLoop(source1, source2);
+      CollectionAssert.AreEquivalent((ICollection)result, (ICollection)expected);
+    }
+
+    [TestMethod]
+    [TestCategory("Prime test")]
+    public void TestMethod_GetPrimesBetweenTwoNumbers_2_and_7()
+    {
+      const int source1 = 2;
+      const int source2 = 7;
+      IEnumerable<int> expected = new List<int> { 2, 3, 5, 7 };
+      var result = FunctionsPrimes.GetPrimesBetweenTwoNumbersWithForLoop(source1, source2);
+      CollectionAssert.AreEquivalent((ICollection)result, (ICollection)expected);
+    }
+
+    [TestMethod]
+    [TestCategory("Prime test")]
+    public void TestMethod_GetPrimesBetweenTwoNumbers_2_and_9()
+    {
+      const int source1 = 2;
+      const int source2 = 9;
+      IEnumerable<int> expected = new List<int> { 2, 3, 5, 7 };
+      var result = FunctionsPrimes.GetPrimesBetweenTwoNumbersWithForLoop(source1, source2);
+      CollectionAssert.AreEquivalent((ICollection)result, (ICollection)expected);
+    }
+
+    [TestMethod]
+    [TestCategory("Prime test")]
+    public void TestMethod_GetPrimesBetweenTwoNumbers_2837_and_2842()
+    {
+      const int source1 = 2837;
+      const int source2 = 2842;
+      IEnumerable<int> expected = new List<int> { 2837 };
+      var result = FunctionsPrimes.GetPrimesBetweenTwoNumbersWithForLoop(source1, source2);
+      CollectionAssert.AreEquivalent((ICollection)result, (ICollection)expected);
+    }
+
+    [TestMethod]
+    [TestCategory("Prime test")]
+    public void TestMethod_IEnumerable_2_to_3()
+    {
+      const int source1 = 2;
+      const int source2 = 3;
+      var expected = new List<int> { 2, 3 };
+      var result = Enumerable.Range(source1, (source2 - source1) + source1);
+      var count = result.Count();
+      CollectionAssert.AreEquivalent((ICollection)result, (ICollection)expected);
+    }
+
+
+
     /*  Add unit test
      *  
       TOUS LES NOMBRES PREMIERS DE 2001 À 3000

@@ -430,5 +430,27 @@ namespace FonctionsUtiles.Fred.Csharp
       var base64EncodedBytes = Convert.FromBase64String(base64EncodedData);
       return Encoding.UTF8.GetString(base64EncodedBytes);
     }
+
+    public static string TripleDesEncrypt(string password, string key)
+    {
+      byte[] inputArray = UTF8Encoding.UTF8.GetBytes(password);
+      TripleDESCryptoServiceProvider tripleDES = new TripleDESCryptoServiceProvider();
+      tripleDES.Key = UTF8Encoding.UTF8.GetBytes(key);
+      tripleDES.Mode = CipherMode.ECB;
+      tripleDES.Padding = PaddingMode.PKCS7;
+      ICryptoTransform cTransform = tripleDES.CreateEncryptor();
+      byte[] resultArray = cTransform.TransformFinalBlock(inputArray, 0, inputArray.Length);
+      tripleDES.Clear();
+      return Convert.ToBase64String(resultArray, 0, resultArray.Length);
+    }
+
+    public static string TripleDesUncrypt(string password, string key)
+    {
+      byte[] inputArray = Convert.FromBase64String(password);
+      TripleDESCryptoServiceProvider tripleDes = new TripleDESCryptoServiceProvider();
+      tripleDes.Key = UTF8Encoding.UTF8.GetBytes(key);
+      // TODO type the rest of the code
+      return "";
+    }
   }
 }

@@ -534,5 +534,51 @@ namespace FonctionsUtiles.Fred.Csharp
     {
       return Enumerable.Range(from, to);
     }
+
+    /// <summary>
+    /// Divides two numbers.
+    /// </summary>
+    /// <param name="dividend">Dividend value.</param>
+    /// <param name="divisor">Divisor value.</param>
+    /// <returns>division result or 0 if divisor is 0.</returns>
+    public static decimal Divide(decimal dividend, decimal divisor)
+    {
+      return (divisor == 0m) ? 0m : decimal.Divide(dividend, divisor);
+    }
+
+    /// <summary>
+    /// Divides two numbers.
+    /// </summary>
+    /// <param name="dividend">Dividend value.</param>
+    /// <param name="divisor">Divisor value.</param>
+    /// <param name="additionalValue">added tp division result.</param>
+    /// <returns>division result or 0 if divisor is 0.</returns>
+    public static decimal Divide(decimal dividend, decimal divisor, decimal additionalValue)
+    {
+      return (divisor == 0m) ? 0m : decimal.Divide(dividend, divisor) + additionalValue;
+    }
+
+    /// <summary>
+    /// Divides two numbers and round result.
+    /// </summary>
+    /// <param name="dividend">Dividend value.</param>
+    /// <param name="divisor">Divisor value.</param>
+    /// <returns>division result or 0 if divisor is 0.</returns>
+    public static decimal RoundedDivide(decimal dividend, decimal divisor, int decimalPrecision = 7)
+    {
+      return (divisor == 0m) ? 0m : Math.Round(Divide(dividend, divisor), decimalPrecision, MidpointRounding.ToEven);
+    }
+
+    /// <summary>
+    /// Divides two numbers and round result.
+    /// </summary>
+    /// <param name="dividend">Dividend value.</param>
+    /// <param name="divisor">Divisor value.</param>
+    /// <param name="additionalValue">added tp division result.</param>
+    /// <returns>division result or 0 if divisor is 0.</returns>
+    public static decimal RoundedDivide(decimal dividend, decimal divisor, decimal additionalValue, int decimalPrecision = 7)
+    {
+      return (divisor == 0m) ? 0m : Math.Round(Divide(dividend, divisor) + additionalValue, decimalPrecision, MidpointRounding.ToEven);
+    }
   }
 }

@@ -47,7 +47,7 @@ namespace FonctionsUtiles.Fred.Csharp
       return ((total % 10) == 0);
     }
 
-    private static bool IsSirenValid(string siren)
+    public static bool IsSirenValid(string siren)
     {
       siren = siren.Replace(" ", "");
       int iResult;
