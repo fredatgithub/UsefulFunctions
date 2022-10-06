@@ -61,6 +61,7 @@
     <Compile Include="Enums\Gender.cs" />
     <Compile Include="Enums\Majorite.cs" />
     <Compile Include="Enums\Result.cs" />
+    <Compile Include="FileName.cs" />
     <Compile Include="FunctionsApplicationFeatures.cs" />
     <Compile Include="functionsControls.cs" />
     <Compile Include="FunctionsCrypto.cs" />

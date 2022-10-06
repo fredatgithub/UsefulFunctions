@@ -136,6 +136,54 @@ namespace UnitTestUsefullFunctions
       var result = source1.CompareTo(source2);
       Assert.AreEqual(expected, result);
     }
+
+    [TestMethod]
+    public void TestMethod_GetTemporaryDirectory()
+    {
+      var result = FunctionsFiles.CreateTemporaryDirectory();
+      Assert.IsNotNull(result);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetRandomFileNames_1()
+    {
+      int source = 1;
+      var result = FunctionsFiles.GetRandomFileNames(source);
+      Assert.IsNotNull(result);
+      Assert.IsTrue(result.Count == source);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetRandomFileNames_10()
+    {
+      int source = 10;
+      var result = FunctionsFiles.GetRandomFileNames(source);
+      Assert.IsNotNull(result);
+      Assert.IsTrue(result.Count == source);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetRandomFileNames_100()
+    {
+      int source = 100;
+      var result = FunctionsFiles.GetRandomFileNames(source);
+      Assert.IsNotNull(result);
+      Assert.IsTrue(result.Count == source);
+    }
+
+    [TestMethod]
+    public void TestMethod_GetRandomFileNames_Test_Randomness()
+    {
+      int source = 100;
+      var result = FunctionsFiles.GetRandomFileNames(source);
+      var result2 = FunctionsFiles.GetRandomFileNames(source);
+      Assert.IsNotNull(result);
+      Assert.IsNotNull(result2);
+      Assert.IsTrue(result.Count == source);
+      Assert.IsTrue(result2.Count == source);
+      CollectionAssert.AreNotEqual(result, result2);
+    }
+
     #endregion Files Methods
   }
 }
