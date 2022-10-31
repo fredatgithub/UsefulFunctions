@@ -2777,10 +2777,10 @@ namespace UnitTestUsefullFunctions
       Assert.IsTrue(list1.Count == source);
       Assert.IsTrue(list1[0] != list1[1]);
       Assert.IsTrue(list1[0] != list1[999]);
-      AssertListHaveNoDuplicate(list2);
+      AssertListHasNoDuplicate(list2);
     }
 
-    private bool AssertListHaveNoDuplicate(SortedList<int, DateTime> list)
+    private bool AssertListHasNoDuplicate(SortedList<int, DateTime> list)
     {
       for (int i = 0; i < list.Count - 1; i++)
       {
