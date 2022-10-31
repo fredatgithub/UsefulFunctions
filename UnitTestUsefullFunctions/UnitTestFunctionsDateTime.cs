@@ -2676,29 +2676,121 @@ namespace UnitTestUsefullFunctions
     #endregion
 
     [TestMethod()]
-    public void TestMethod_GetRandomtime_once()
+    public void TestMethod_GetRandomDate_once()
     {
       DateTime source1 = new DateTime(2022,1, 1);  
       DateTime source2 = new DateTime(2022,2, 1);
-      var result = DateFunc.GetRandomTime(source1, source2);
+      var result = DateFunc.GetRandomDate(source1, source2);
       Assert.IsNotNull(result);
     }
 
     [TestMethod()]
-    public void TestMethod_GetRandomtime_several_dates()
+    public void TestMethod_GetRandomDate_several_dates()
     {
       DateTime source1 = new DateTime(2022, 1, 1);
       DateTime source2 = new DateTime(2023, 2, 1);
       var list = new List<DateTime>();
       for (int i = 0; i < 11; i++)
       {
-        list.Add(DateFunc.GetRandomTime(source1, source2));
+        list.Add(DateFunc.GetRandomDate(source1, source2));
       }
 
       Assert.IsNotNull(list);
       Assert.IsTrue(list.Count == 11);
       // todo debug method because they are all the same
       //Assert.IsTrue(list[0] != list[1]);
+    }
+
+    [TestMethod()]
+    public void TestMethod_GetRandomTime_once()
+    {
+      var result = DateFunc.GetRandomTime();
+      Assert.IsNotNull(result);
+    }
+
+    [TestMethod()]
+    public void TestMethod_GetRandomTime_several_dates_11()
+    {
+      int source = 11;
+      var list1 = new List<DateTime>();
+      for (int i = 0; i < source; i++)
+      {
+        list1.Add(DateFunc.GetRandomTime());
+      }
+
+      Assert.IsNotNull(list1);
+      Assert.IsTrue(list1.Count == source);
+      Assert.IsTrue(list1[0] != list1[1]);
+    }
+
+    [TestMethod()]
+    public void TestMethod_GetRandomTime_several_dates_100()
+    {
+      int source = 100;
+      var list1 = new List<DateTime>();
+      for (int i = 0; i < source; i++)
+      {
+        list1.Add(DateFunc.GetRandomTime());
+      }
+
+      Assert.IsNotNull(list1);
+      Assert.IsTrue(list1.Count == source);
+      Assert.IsTrue(list1[0] != list1[1]);
+    }
+
+    [TestMethod()]
+    public void TestMethod_GetRandomTime_100_dates_inTwoLists()
+    {
+      int source = 100;
+      var list1 = new List<DateTime>();
+      var list2 = new List<DateTime>();
+      for (int i = 0; i < source; i++)
+      {
+        list1.Add(DateFunc.GetRandomTime());
+        list2.Add(DateFunc.GetRandomTime());
+      }
+
+      Assert.IsNotNull(list1);
+      Assert.IsNotNull(list2);
+      Assert.IsTrue(list1.Count == source);
+      Assert.IsTrue(list2.Count == source);
+      Assert.IsTrue(list1[0] != list1[1]);
+      Assert.IsTrue(list2[0] != list2[1]);
+      Assert.IsTrue(list1[0] != list2[0]);
+      CollectionAssert.AreNotEqual(list1, list2);
+      CollectionAssert.AreNotEquivalent(list1, list2);
+    }
+
+    [TestMethod()]
+    public void TestMethod_GetRandomTime_1000_dates_no_duplicate()
+    {
+      int source = 1000;
+      var list1 = new List<DateTime>();
+      var list2 = new SortedList<int, DateTime>();
+      for (int i = 0; i < source; i++)
+      {
+        list1.Add(DateFunc.GetRandomTime());
+        list2.Add(i, DateFunc.GetRandomTime());
+      }
+
+      Assert.IsNotNull(list1);
+      Assert.IsTrue(list1.Count == source);
+      Assert.IsTrue(list1[0] != list1[1]);
+      Assert.IsTrue(list1[0] != list1[999]);
+      AssertListHaveNoDuplicate(list2);
+    }
+
+    private bool AssertListHaveNoDuplicate(SortedList<int, DateTime> list)
+    {
+      for (int i = 0; i < list.Count - 1; i++)
+      {
+        if (list[i] == list[i + 1])
+        {
+          return false;
+        }
+      }
+
+      return true;
     }
   }
 }

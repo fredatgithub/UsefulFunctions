@@ -269,7 +269,7 @@ namespace FonctionsUtiles.Fred.Csharp
     /// <param name="time1">Start date.</param>
     /// <param name="time2">End date.</param>
     /// <returns>Random date between the two dates.</returns>
-    public static DateTime GetRandomTime(DateTime time1, DateTime time2)
+    public static DateTime GetRandomDate(DateTime time1, DateTime time2)
     {
       Random random = new Random();
       DateTime minTime = new DateTime();
@@ -319,6 +319,14 @@ namespace FonctionsUtiles.Fred.Csharp
 
       int i = random.Next(Math.Abs(maxValue));
       return minTime.AddSeconds(i);
+    }
+
+    public static DateTime GetRandomTime()
+    {
+      int hour = FunctionsMath.GenerateRandomNumberUsingCrypto(0, 23);
+      int minute = FunctionsMath.GenerateRandomNumberUsingCrypto(0, 59);
+      int second = FunctionsMath.GenerateRandomNumberUsingCrypto(0, 59);
+      return new DateTime(2022, 1, 1, hour, minute, second);
     }
   }
 }
