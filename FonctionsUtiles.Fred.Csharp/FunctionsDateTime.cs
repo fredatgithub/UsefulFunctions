@@ -262,5 +262,63 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return 0;
     }
+
+    /// <summary>
+    /// Get a random date.
+    /// </summary>
+    /// <param name="time1">Start date.</param>
+    /// <param name="time2">End date.</param>
+    /// <returns>Random date between the two dates.</returns>
+    public static DateTime GetRandomTime(DateTime time1, DateTime time2)
+    {
+      Random random = new Random();
+      DateTime minTime = new DateTime();
+      DateTime maxTime = new DateTime();
+
+      TimeSpan ts = new TimeSpan(time1.Ticks - time2.Ticks);
+
+      // Get number of seconds between two moments
+      double dTotalSecontds = ts.TotalSeconds;
+      int iTotalSecontds = 0;
+
+      if (dTotalSecontds > int.MaxValue)
+      {
+        iTotalSecontds = int.MaxValue;
+      }
+      else if (dTotalSecontds < int.MinValue)
+      {
+        iTotalSecontds = int.MinValue;
+      }
+      else
+      {
+        iTotalSecontds = (int)dTotalSecontds;
+      }
+
+
+      if (iTotalSecontds > 0)
+      {
+        minTime = time2;
+        maxTime = time1;
+      }
+      else if (iTotalSecontds < 0)
+      {
+        minTime = time1;
+        maxTime = time2;
+      }
+      else
+      {
+        return time1;
+      }
+
+      int maxValue = iTotalSecontds;
+
+      if (iTotalSecontds <= int.MinValue)
+      {
+        maxValue = int.MinValue + 1;
+      }
+
+      int i = random.Next(Math.Abs(maxValue));
+      return minTime.AddSeconds(i);
+    }
   }
 }

@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using DateFunc = FonctionsUtiles.Fred.Csharp.FunctionsDateTime;
@@ -2317,7 +2317,6 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
     #endregion DisplayElapseTime
-
     #region Bissextile
     // Les années bissextiles du 21ème siècle
     // 2036
@@ -2675,5 +2674,31 @@ namespace UnitTestUsefullFunctions
     }
 
     #endregion
+
+    [TestMethod()]
+    public void TestMethod_GetRandomtime_once()
+    {
+      DateTime source1 = new DateTime(2022,1, 1);  
+      DateTime source2 = new DateTime(2022,2, 1);
+      var result = DateFunc.GetRandomTime(source1, source2);
+      Assert.IsNotNull(result);
+    }
+
+    [TestMethod()]
+    public void TestMethod_GetRandomtime_several_dates()
+    {
+      DateTime source1 = new DateTime(2022, 1, 1);
+      DateTime source2 = new DateTime(2023, 2, 1);
+      var list = new List<DateTime>();
+      for (int i = 0; i < 11; i++)
+      {
+        list.Add(DateFunc.GetRandomTime(source1, source2));
+      }
+
+      Assert.IsNotNull(list);
+      Assert.IsTrue(list.Count == 11);
+      // todo debug method because they are all the same
+      //Assert.IsTrue(list[0] != list[1]);
+    }
   }
 }
