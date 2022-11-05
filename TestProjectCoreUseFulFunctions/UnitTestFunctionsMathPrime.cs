@@ -8,8 +8,6 @@ namespace TestProjectCoreUseFulFunctions
   {
     /*
   Liste des nombres premiers allant de 1 à 10000
-
-    17, 
     19, 
     23, 
     29, 
@@ -24,6 +22,7 @@ namespace TestProjectCoreUseFulFunctions
     [DataRow(7)]
     [DataRow(11)]
     [DataRow(13)]
+    [DataRow(17)]
     [DataRow(2819)]
     [DataRow(2833)]
     [DataRow(2837)]
