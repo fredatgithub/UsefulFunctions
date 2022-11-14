@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29728.190
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33103.184
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionsUseful.Fred.Csharp", "FonctionsUtiles.Fred.Csharp\FunctionsUseful.Fred.Csharp.csproj", "{DB97A281-2E4E-4C5C-B7B1-24F7167792D4}"
 EndProject
@@ -27,7 +27,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppCalendar", "Conso
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppNTLM", "ConsoleAppNTLM\ConsoleAppNTLM.csproj", "{6E82E3F2-D99A-408A-B719-09CF906197D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProjectCoreUseFulFunctions", "TestProjectCoreUseFulFunctions\TestProjectCoreUseFulFunctions.csproj", "{646FAF0B-F8EF-45D1-9D09-8125F259EACB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProjectCoreUseFulFunctions", "TestProjectCoreUseFulFunctions\TestProjectCoreUseFulFunctions.csproj", "{646FAF0B-F8EF-45D1-9D09-8125F259EACB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppSieveEratosthenes", "ConsoleAppSieveEratosthenes\ConsoleAppSieveEratosthenes.csproj", "{695BC5DA-4CF9-4894-8147-D0343C23E268}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +89,10 @@ Global
 		{646FAF0B-F8EF-45D1-9D09-8125F259EACB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{646FAF0B-F8EF-45D1-9D09-8125F259EACB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{646FAF0B-F8EF-45D1-9D09-8125F259EACB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{695BC5DA-4CF9-4894-8147-D0343C23E268}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{695BC5DA-4CF9-4894-8147-D0343C23E268}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{695BC5DA-4CF9-4894-8147-D0343C23E268}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{695BC5DA-4CF9-4894-8147-D0343C23E268}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
