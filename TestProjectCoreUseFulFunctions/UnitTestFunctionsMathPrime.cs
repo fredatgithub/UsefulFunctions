@@ -23,6 +23,7 @@ namespace TestProjectCoreUseFulFunctions
     [DataRow(13)]
     [DataRow(17)]
     [DataRow(19)]
+    [DataRow(23)]
     [DataRow(2819)]
     [DataRow(2833)]
     [DataRow(2837)]
