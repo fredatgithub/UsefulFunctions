@@ -60,6 +60,9 @@
     <Compile Include="Enumerations.cs" />
     <Compile Include="Enums\Gender.cs" />
     <Compile Include="Enums\Majorite.cs" />
+    <Compile Include="Enums\RelationshipType.cs" />
+    <Compile Include="Enums\SpouseModifier.cs" />
+    <Compile Include="Enums\ParentChildModifier.cs" />
     <Compile Include="Enums\Result.cs" />
     <Compile Include="FileName.cs" />
     <Compile Include="FunctionsApplicationFeatures.cs" />
