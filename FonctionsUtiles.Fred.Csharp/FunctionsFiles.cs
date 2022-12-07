@@ -766,11 +766,11 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return result;
     }
-
+    
     /// <summary>
     /// Return a string that is a safe file name.
     /// </summary>
-    private static string GetSafeFileName(string fileName)
+    public static string GetSafeFileName(string fileName)
     {
       // List of invalid characters.
       char[] invalid = Path.GetInvalidFileNameChars();
