@@ -58,6 +58,7 @@
     <Compile Include="Constants\UnixTime.cs" />
     <Compile Include="DateCompareFileInfo.cs" />
     <Compile Include="Enumerations.cs" />
+    <Compile Include="Enums\ArrivalTime.cs" />
     <Compile Include="Enums\Gender.cs" />
     <Compile Include="Enums\Majorite.cs" />
     <Compile Include="Enums\RelationshipType.cs" />
