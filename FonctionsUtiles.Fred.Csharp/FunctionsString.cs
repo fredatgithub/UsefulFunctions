@@ -3767,5 +3767,22 @@ namespace FonctionsUtiles.Fred.Csharp
       //return list.Sort((s1, s2) => s1.Length.CompareTo(s2.Length));
       return list.OrderBy(x => x.Length).ToList();
     }
+
+    public static int CountAllCharactersInString(string message)
+    {
+      return message.Count(w => Char.IsLetter(w));
+    }
+
+    public static int CountOneCharacterInString(string message, char oneCharacter, bool caseInsensitive = true)
+    {
+      if (caseInsensitive)
+      {
+        return message.Count(w => oneCharacter.ToString().ToUpper() == w.ToString().ToUpper());
+      }
+      else
+      {
+        return message.Count(w => oneCharacter.ToString().ToUpper() == w.ToString());
+      }
+    }
   }
 }
