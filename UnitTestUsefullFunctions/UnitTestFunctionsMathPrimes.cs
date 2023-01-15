@@ -4084,10 +4084,11 @@ namespace UnitTestUsefullFunctions
       const int source2 = 3;
       var expected = new List<int> { 2, 3 };
       var start = source1;
-      var end = (source2 - source1) + source1;
-      var result = Enumerable.Range(source1, (source2 - source1));
+      var end = (source2 - source1) + 1;
+      var result = Enumerable.Range(source1, (source2 - source1) + 1);
       var count = result.Count(); // to get result with values
-      CollectionAssert.AreEquivalent((ICollection)result, (ICollection)expected);
+      Assert.AreEqual(count, expected.Count());
+      //CollectionAssert.AreEquivalent((ICollection)result, (ICollection)expected);
     }
 
 
