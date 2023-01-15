@@ -45,7 +45,7 @@ namespace TestProjectCoreUseFulFunctions
       byte[] source = Encoding.ASCII.GetBytes(source0);
       byte[] expected = new byte[] { 156, 249, 93, 172, 210, 38, 220, 244, 61, 163, 118, 205, 182, 203, 186, 112, 53, 33, 137, 33 };
       byte[] result = FunctionsCrypto.ComputeHashSha1(source);
-      Assert.AreEqual(result, expected);
+      CollectionAssert.AreEqual(expected, result);
     }
   }
 }

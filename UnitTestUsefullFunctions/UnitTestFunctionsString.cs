@@ -1,7 +1,9 @@
+using FonctionsUtiles.Fred.Csharp;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Runtime.Remoting.Messaging;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
@@ -11037,6 +11039,94 @@ namespace UnitTestUsefullFunctions
       string expected = "5B";
       string result = StringFunc.ShortNumberFormat(source);
       Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_Count_character_0()
+    {
+      var source = "1234567890";
+      var expected = 0;
+      var result = StringFunc.CountAllCharactersInString(source);
+      Assert.AreEqual(expected, result);
+    }
+
+    [TestMethod]
+    public void TestMethod_Count_character_1()
+    {
+      var source = "12345A67890";
+      var expected = 1;
+      var result = StringFunc.CountAllCharactersInString(source);
+      Assert.AreEqual(expected, result);
+    }
+
+    [TestMethod]
+    public void TestMethod_Count_character_16()
+    {
+      var source = "a long long time ago";
+      var expected = 16;
+      var result = StringFunc.CountAllCharactersInString(source);
+      Assert.AreEqual(expected, result);
+    }
+
+    [TestMethod]
+    public void TestMethod_Count_one_character_0()
+    {
+      var source = "1234567890";
+      var source2 = 'a';
+      var expected = 0;
+      var result = StringFunc.CountOneCharacterInString(source, source2);
+      Assert.AreEqual(expected, result);
+    }
+
+    [TestMethod]
+    public void TestMethod_Count_one_character_1()
+    {
+      var source = "12345A67890";
+      var source2 = 'a';
+      var expected = 1;
+      var result = StringFunc.CountOneCharacterInString(source, source2);
+      Assert.AreEqual(expected, result);
+    }
+
+    [TestMethod]
+    public void TestMethod_Count_the_character_a()
+    {
+      var source = "a long long time ago";
+      var source2 = 'a';
+      var expected = 2;
+      var result = StringFunc.CountOneCharacterInString(source, source2);
+      Assert.AreEqual(expected, result);
+    }
+
+    [TestMethod]
+    public void TestMethod_Count_the_character_l()
+    {
+      var source = "a long long time ago";
+      var source2 = 'l';
+      var expected = 2;
+      var result = StringFunc.CountOneCharacterInString(source, source2);
+      Assert.AreEqual(expected, result);
+    }
+
+    [TestMethod]
+    public void TestMethod_Count_the_character_L()
+    {
+      var source = "a long Long time ago";
+      var source2 = 'l';
+      var expected = 2;
+      var result = StringFunc.CountOneCharacterInString(source, source2);
+      Assert.AreEqual(expected, result);
+    }
+
+    [TestMethod]
+    public void TestMethod_Count_the_character_L_case_sensitive()
+    {
+      var source = "a long Long time ago";
+      var source2 = 'l';
+      var source3 = false;
+      var expected = 1;
+      var result = StringFunc.CountOneCharacterInString(source, source2, source3);
+      Assert.AreEqual(expected, result);
     }
 
   }
