@@ -194,6 +194,7 @@ namespace UnitTestUsefullFunctions
 
     // **********************IsNumeric****************
     [TestMethod]
+    [TestCategory("IsNumeric")]
     public void TestMethod_IsNumeric_A_character()
     {
       bool result = StringFunc.IsNumeric('a');
@@ -201,10 +202,77 @@ namespace UnitTestUsefullFunctions
     }
 
     [TestMethod]
+    [TestCategory("IsNumeric")]
     public void TestMethod_IsNumeric_a_digit()
     {
       bool result = StringFunc.IsNumeric("4");
       Assert.IsTrue(result);
+    }
+
+    [TestMethod]
+    [TestCategory("IsNumeric")]
+    public void TestMethod_HasOnlyNumeric_1_digit()
+    {
+      bool result = StringFunc.HasOnlyNumeric("4");
+      Assert.IsTrue(result);
+    }
+
+    [TestMethod]
+    [TestCategory("IsNumeric")]
+    public void TestMethod_HasOnlyNumeric_1_space()
+    {
+      bool result = StringFunc.HasOnlyNumeric(" ");
+      Assert.IsFalse(result);
+    }
+
+    [TestMethod]
+    [TestCategory("HasOnlyDigitsAndSpace")]
+    public void TestMethod_HasOnlyDigits_1_digit()
+    {
+      var source = "4";
+      var expected = true;
+      var result = StringFunc.HasOnlyDigitsAndSpace(source);
+      Assert.AreEqual(expected, result);
+    }
+
+    [TestMethod]
+    [TestCategory("HasOnlyDigitsAndSpace")]
+    public void TestMethod_HasOnlyDigits_1_space()
+    {
+      var source = " ";
+      var expected = true;
+      var result = StringFunc.HasOnlyDigitsAndSpace(source);
+      Assert.AreEqual(expected, result);
+    }
+
+    [TestMethod]
+    [TestCategory("HasOnlyDigitsAndSpace")]
+    public void TestMethod_HasOnlyDigits_all_digits()
+    {
+      var source = "0123456789";
+      var expected = true;
+      var result = StringFunc.HasOnlyDigitsAndSpace(source);
+      Assert.AreEqual(expected, result);
+    }
+
+    [TestMethod]
+    [TestCategory("HasOnlyDigitsAndSpace")]
+    public void TestMethod_HasOnlyDigits_letter_A()
+    {
+      var source = "a";
+      var expected = false;
+      var result = StringFunc.HasOnlyDigitsAndSpace(source);
+      Assert.AreEqual(expected, result);
+    }
+
+    [TestMethod]
+    [TestCategory("HasOnlyDigitsAndSpace")]
+    public void TestMethod_HasOnlyDigits_all_digits_with_space()
+    {
+      var source = "0 1 2 3 4 5 6 7 8 9";
+      var expected = true;
+      var result = StringFunc.HasOnlyDigitsAndSpace(source);
+      Assert.AreEqual(expected, result);
     }
 
     // **********************IsLetter****************
