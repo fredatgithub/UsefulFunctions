@@ -11197,5 +11197,22 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(expected, result);
     }
 
+    public static bool CollectionAssert(List<string> list1, List<string> list2 )
+    {
+      if (list1.Count != list2.Count)
+      {
+        return false;
+      }
+
+      for (int i = 0; i < list1.Count - 1; i++)
+      {
+        if (list1[i] != list2[i])
+        {
+          return false;
+        }
+      }
+
+      return true;
+    }
   }
 }
