@@ -240,20 +240,47 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return result.ToString();
     }
-    public static bool IsNumeric(char letter)
+
+    public static bool IsNumeric(char character)
     {
-      var digits = new List<int>();
-      for (short digit = 0; digit < 10; digit++)
+      return char.IsDigit(character);
+    }
+
+    public static bool HasOnlyNumeric(string sentence)
+    {
+      foreach (char character in sentence)
       {
-        digits.Add(digit);
+        if (!char.IsDigit(character))
+        {
+          return false;
+        }
       }
 
-      return digits.Contains(letter);
+      return true;
     }
+
+    public static bool HasOnlyDigitsAndSpace(string text)
+    {
+      foreach (char letter in text)
+      {
+        if (Char.IsDigit(letter) || letter == ' ')
+        {
+          continue;
+        }
+        else
+        {
+          return false;
+        }
+      }
+
+      return true;
+    }
+
     public static bool IsLetter(char myLetter)
     {
       return char.IsLetter(myLetter);
     }
+
     public static string Plural(int number, string irregularNoun = "")
     {
       switch (irregularNoun)
