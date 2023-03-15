@@ -44,7 +44,7 @@ namespace FonctionsUtiles.Fred.Csharp
       var heures = $"{ts.Hours} heure{Plural(ts.Hours)}";
       var minutes = $"{ts.Minutes} minute{Plural(ts.Minutes)}";
       var secondes = $"{ts.Seconds} seconde{Plural(ts.Seconds)}";
-      var milliSecondes = $"{ts.Milliseconds} milliseconde{Plural(ts.Milliseconds)}";
+      var milliSecondes = $"{ts.Milliseconds} milli-seconde{Plural(ts.Milliseconds)}";
 
       return $"{jours} {heures}:{minutes}:{secondes}";
     }
