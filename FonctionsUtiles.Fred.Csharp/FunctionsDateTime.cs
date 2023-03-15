@@ -33,10 +33,38 @@ namespace FonctionsUtiles.Fred.Csharp
       return time.Hour < 12;
     }
 
-    public static string ConvertTimeSpanToString(TimeSpan ts)
+    public static string ConvertTimeSpanToStringWithoutNames(TimeSpan ts)
     {
       return $"{ts.Days}:{ts.Hours}:{ts.Minutes}:{ts.Seconds}:{ts.Milliseconds}";
     }
+
+    public static string ConvertTimeSpanToString(TimeSpan ts)
+    {
+      var jours = $"{ts.Days} jour{Plural(ts.Days)}";
+      var heures = $"{ts.Hours} heure{Plural(ts.Hours)}";
+      var minutes = $"{ts.Minutes} minute{Plural(ts.Minutes)}";
+      var secondes = $"{ts.Seconds} seconde{Plural(ts.Seconds)}";
+      var milliSecondes = $"{ts.Milliseconds} milliseconde{Plural(ts.Milliseconds)}";
+
+      return $"{jours} {heures}:{minutes}:{secondes}";
+    }
+
+    public static string Plural(int number)
+    {
+      return number > 1 ? "s" : string.Empty;
+    }
+
+    public static string ConvertTimeSpanToStringUS(TimeSpan ts)
+    {
+      var days = $"{ts.Days} day{Plural(ts.Days)}";
+      var hours = $"{ts.Hours} hour{Plural(ts.Hours)}";
+      var minutes = $"{ts.Minutes} minute{Plural(ts.Minutes)}";
+      var seconds = $"{ts.Seconds} second{Plural(ts.Seconds)}";
+      var milliSeconds = $"{ts.Milliseconds} milliseconde{Plural(ts.Milliseconds)}";
+
+      return $"{days} {hours}:{minutes}:{seconds}";
+    }
+
 
     public static string DisplayElapseTime(TimeSpan ts)
     {
