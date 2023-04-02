@@ -68,6 +68,7 @@
     <Compile Include="Enums\Result.cs" />
     <Compile Include="FileName.cs" />
     <Compile Include="FunctionsApplicationFeatures.cs" />
+    <Compile Include="FunctionsColor.cs" />
     <Compile Include="functionsControls.cs" />
     <Compile Include="FunctionsCrypto.cs" />
     <Compile Include="FunctionsExcel.cs" />
