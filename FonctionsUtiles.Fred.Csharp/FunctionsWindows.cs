@@ -6,6 +6,7 @@ using System.Linq;
 using System.Management;
 using System.Net;
 using System.Reflection;
+using System.Runtime.Versioning;
 using System.Security.Principal;
 
 namespace FonctionsUtiles.Fred.Csharp
@@ -230,6 +231,13 @@ namespace FonctionsUtiles.Fred.Csharp
     public static string GetHostname()
     {
       return Environment.MachineName;
+    }
+
+    public static string GetFramework()
+    {
+      object[] list = Assembly.GetExecutingAssembly().GetCustomAttributes(true);
+      var attribute = list.OfType<TargetFrameworkAttribute>().First();
+      return attribute.FrameworkDisplayName;
     }
   }
 }
