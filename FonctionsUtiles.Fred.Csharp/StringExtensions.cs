@@ -21,6 +21,11 @@ namespace FonctionsUtiles.Fred.Csharp
       return string.Join(string.Empty, idParts);
     }
 
+    public static IList<string> ToCsvList(this string csv)
+    {
+      return csv.Split(',').Select(p => p.Trim()).ToList();
+    }
+
 
     public static string Uncapitalize(this string str)
     {
