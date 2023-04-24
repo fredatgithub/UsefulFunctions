@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
+using static System.Windows.Forms.LinkLabel;
 
 namespace FonctionsUtiles.Fred.Csharp
 {
@@ -766,7 +768,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return result;
     }
-    
+
     /// <summary>
     /// Return a string that is a safe file name.
     /// </summary>
@@ -783,6 +785,27 @@ namespace FonctionsUtiles.Fred.Csharp
       }
 
       return fileName;
+    }
+
+    public static int CountLinesInFilename(string filename)
+    {
+      int numberOfLines = 0;
+      try
+      {
+        using (StreamReader streamReader = new StreamReader(filename))
+        {
+          while (streamReader.ReadLine() != null)
+          {
+            numberOfLines++;
+          }
+        }
+      }
+      catch (Exception exception)
+      {
+        throw new Exception(exception.Message);
+      }
+
+      return numberOfLines;
     }
   }
 }

@@ -8,14 +8,14 @@ namespace FonctionsUtiles.Fred.Csharp
 {
   public static class StringExtensions
   {
-    public static string ToCamelCase(this string elasticId)
+    public static string ToCamelCase(this string message)
     {
-      if (elasticId == string.Empty)
+      if (message == string.Empty)
       {
         return string.Empty;
       }
 
-      var idParts = elasticId
+      var idParts = message
                       .Split('_')
                       .Select(part => part.Substring(0, 1).ToUpper() + part.Substring(1));
       return string.Join(string.Empty, idParts);
