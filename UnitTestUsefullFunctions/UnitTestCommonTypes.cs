@@ -1,12 +1,16 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using FonctionsUtiles.Fred.Csharp;
+using System.ComponentModel;
+
 namespace UnitTestUsefullFunctions
 {
   [TestClass]
   public class UnitTestCommonTypes
   {
     [TestMethod]
+    [DisplayName("It should be of type boolean")]
+    [TestCategory("Type boolean")]
     public void TestMethodType_of_boolean()
     {
       const bool source = true;
