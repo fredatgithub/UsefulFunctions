@@ -3820,6 +3820,7 @@ namespace FonctionsUtiles.Fred.Csharp
         //this.Logger.LogError(LOGIMPORTMISMATCH);
       }
     }
+
     public static List<string> SortListToLengthOfItems(List<string> list)
     {
       // valid only to .NET 6
