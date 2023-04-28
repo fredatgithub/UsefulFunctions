@@ -167,6 +167,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return liste.Distinct().Count() != liste.Length;
     }
+
     public static bool HasNoDuplicate(params int[] liste)
     {
       if (liste == null)
@@ -176,6 +177,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return liste.Distinct().Count() == liste.Length;
     }
+    
     public static string EndPadding(string chaine, byte blankLength)
     {
       if (chaine.Length == blankLength)
