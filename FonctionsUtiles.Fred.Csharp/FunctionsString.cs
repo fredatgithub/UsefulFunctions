@@ -144,11 +144,6 @@ namespace FonctionsUtiles.Fred.Csharp
       result.Append("Method= string FrenchPlural(int number, string currentLanguage = \"english\")");
       result.Append("Method= string GetNumbers(string myString)");
       result.Append("Method= ");
-      result.Append("Method= ");
-      result.Append("Method= ");
-      result.Append("Method= ");
-      result.Append("Method= ");
-      result.Append("Method= ");
       result.Append("DateTime methods:" + newLine);
       result.Append("Files methods:" + newLine);
       result.Append("Internet methods:" + newLine);
@@ -177,7 +172,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return liste.Distinct().Count() == liste.Length;
     }
-    
+
     public static string EndPadding(string chaine, byte blankLength)
     {
       if (chaine.Length == blankLength)
@@ -193,6 +188,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return chaine + blanc.ToString();
     }
+
     public static string GetLastName(string chaine, char dernierCaractereRecherche)
     {
       int at = 0;
@@ -213,15 +209,18 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return chaine.Substring(at + 1);
     }
+
     public static string GetFileNameAfterLastSlash(string longCheminFichier)
     {
       return Path.GetFileName(longCheminFichier);
     }
+
     public static string RemoveInString(string stringToBeRemoved, string inString, bool trimEnd = false)
     {
       string tmpString = inString.Replace(stringToBeRemoved, string.Empty);
       return trimEnd ? tmpString.TrimEnd() : tmpString;
     }
+
     public static string CamelCase(string myString)
     {
       var result = new StringBuilder();
@@ -576,6 +575,7 @@ namespace FonctionsUtiles.Fred.Csharp
           return number > 1 ? "s" : string.Empty;
       }
     }
+    
     public static string Plural(long number, string irregularNoun = "") //Int64
     {
       switch (irregularNoun)
@@ -673,6 +673,7 @@ namespace FonctionsUtiles.Fred.Csharp
           return number > 1 ? "s" : string.Empty;
       }
     }
+
     public static string Plural(uint number, string irregularNoun = "")
     {
       switch (irregularNoun)
@@ -770,6 +771,7 @@ namespace FonctionsUtiles.Fred.Csharp
           return number > 1 ? "s" : string.Empty;
       }
     }
+
     public static string Plural(ushort number, string irregularNoun = "") // UInt16
     {
       switch (irregularNoun)
@@ -964,6 +966,7 @@ namespace FonctionsUtiles.Fred.Csharp
           return number > 1 ? "s" : string.Empty;
       }
     }
+
     public static int StringOccurrenceWithIndexOf(string wholeString, string searchedString)
     {
       if (wholeString == string.Empty || searchedString == string.Empty)
@@ -982,6 +985,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return occurrence;
     }
+
     public static int StringOccurrenceWithContains(string myString, string searchedString)
     {
       if (searchedString == string.Empty || myString == string.Empty)
@@ -1016,6 +1020,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return occurrence;
     }
+
     public static string ByteArrayToHexaString(byte[] bytes, bool oneDigitOnly = false)
     {
       var sb = new StringBuilder();
@@ -1026,6 +1031,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return sb.ToString();
     }
+
     public static byte[] HexaStringToByteArray(string hexaString)
     {
       if (hexaString == string.Empty)
@@ -1041,6 +1047,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return returnBytes;
     }
+
     public static string ReverseString2(string strValue, bool removeSpace = false)
     {
       if (removeSpace)
@@ -1106,6 +1113,7 @@ namespace FonctionsUtiles.Fred.Csharp
       //  build a string from the processed characters and return it
       return new string(outputChars);
     }
+
     public static bool IsPalindrome(string myString, bool spaceRemoval = false)
     {
       if (spaceRemoval) // can you use ternary twice ?
@@ -1115,6 +1123,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return ReverseString(myString, spaceRemoval) == myString;
     }
+
     public static string CompletePrefixWithZero(string numberInString, byte numberOfZero = 0)
     {
       var numberOfZeroString = new StringBuilder();
@@ -1125,6 +1134,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return numberInString.Length >= 1 ? numberOfZeroString.ToString() + numberInString : numberInString;
     }
+
     public static string CompletePrefixWithZeroInt(int nombre, byte numberOfZero = 0)
     {
       var numberOfZeroString = new StringBuilder();
@@ -1135,6 +1145,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return numberOfZeroString.ToString() + nombre;
     }
+
     public static string ArrayToString(IList array)
     {
       // Returns a string representation of an array. 
@@ -1157,6 +1168,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return output.ToString();
     }
+
     public static string ArrayToString(IList array, string separator)
     {
       // Returns a string representation of an array. 
@@ -1180,6 +1192,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return output.ToString();
     }
+
     public static string ArrayToStringWithStringBuilder(IList array)
     {
       // Returns a string representation of an array. 
@@ -1203,6 +1216,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return output.ToString();
     }
+
     public static string ArrayToStringWithStringBuilder(IList array, string separator)
     {
       // Returns a string representation of an array. 
@@ -1226,6 +1240,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return output.ToString();
     }
+
     public static string InsertSeparatorForEachCharacter(string input, string separator = " ")
     {
       //  Validate string
@@ -1249,6 +1264,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return new string(outputChars.ToArray());
     }
+
     public static string InsertSeparatorAtInterval(string input, string separator, int interval)
     {
       // Validate string
@@ -1272,6 +1288,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return new string(outputChars.ToArray());
     }
+
     public static string RemoveVowels(string input)
     {
       // Validate input
@@ -1296,6 +1313,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return new string(outputChars.ToArray());
     }
+
     public static string KeepVowels(string input)
     {
       // Validate input
@@ -1320,6 +1338,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return new string(outputChars.ToArray());
     }
+
     public static string AlternateCases(string input)
     {
       if (string.IsNullOrEmpty(input)) return string.Empty;
@@ -1342,6 +1361,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return new string(inputChars);
     }
+
     public static string OppositeCase(string input)
     {
       if (string.IsNullOrEmpty(input)) return string.Empty;
@@ -1361,6 +1381,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return new string(inputChars);
     }
+
     public static string SwapCases(string input)
     {
       // Returns a string with the opposite letter casing for each character.
@@ -1386,6 +1407,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return new string(inputChars);
     }
+
     public static string Capitalize(string input)
     {
       //  Capitalizes the first character in a string.
@@ -1394,6 +1416,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return input[0].ToString(CultureInfo.CurrentCulture).ToUpper() + input.Substring(1);
     }
+
     /// <summary>
     /// Returns the initials of each word in a string. Words must be separated with spaces.
     /// </summary>
@@ -1486,6 +1509,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return string.Join(preserveSeparator ? separator : string.Empty, words);
     }
+
     /// <summary>
     /// Returns a string with each word's first character capitalized. Words must be separated by spaces.
     /// </summary>
@@ -1508,6 +1532,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return string.Join(" ", words);
     }
+
     /// <summary>
     /// Returns a string with each word's first character capitalized. Words are separated according to the sepecified string sequence.
     /// </summary>
@@ -1533,6 +1558,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return string.Join(separator, words);
     }
+
     /// <summary>
     /// Returns a segment of a string, marked by the start and end index (exclusive).
     /// </summary>
@@ -1551,6 +1577,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return input.Substring(start, end);
     }
+
     /// <summary>
     /// Returns the character in a string at a given index counting from the right.
     /// </summary>
@@ -1566,6 +1593,7 @@ namespace FonctionsUtiles.Fred.Csharp
       if (input.Length - index - 1 < 0) return new char();
       return input[input.Length - index - 1];
     }
+
     /// <summary>
     /// Returns the character at a position given by the startingIndex plus the given count.
     /// </summary>
@@ -1584,6 +1612,7 @@ namespace FonctionsUtiles.Fred.Csharp
       if (startingIndex + count >= input.Length) return new char();
       return input[startingIndex + count];
     }
+
     /// <summary>
     /// Returns the total number of times a given sequence appears in a string.
     /// </summary>
@@ -1615,6 +1644,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return count;
     }
+    
     /// <summary>
     /// Returns an array of every index where a sequence is found on the specified string. Note: Overlaps will be counted.
     /// </summary>
