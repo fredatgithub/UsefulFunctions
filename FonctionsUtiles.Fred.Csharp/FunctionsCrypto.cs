@@ -453,12 +453,12 @@ namespace FonctionsUtiles.Fred.Csharp
       return "";
     }
 
-    public static byte[] CalculateSHA256(string str)
+    public static byte[] CalculateSHA256(string message)
     {
-      SHA256 sha256 = SHA256Managed.Create();
+      SHA256 sha256 = SHA256.Create();
       byte[] hashValue;
       UTF8Encoding objUtf8 = new UTF8Encoding();
-      hashValue = sha256.ComputeHash(objUtf8.GetBytes(str));
+      hashValue = sha256.ComputeHash(objUtf8.GetBytes(message));
 
       return hashValue;
     }
