@@ -8,8 +8,8 @@ namespace ConsoleAppCreateDataRowAttribute
   {
     static void Main()
     {
-      var start = 4_177;
-      var end = 4_999;
+      var start = 5_000;
+      var end = 6_000;
       var result = new List<string>();
       for (int i = start; i <= end; i++)
       {
@@ -20,9 +20,9 @@ namespace ConsoleAppCreateDataRowAttribute
         }
       }
 
-      foreach (var i in result)
+      foreach (var number in result)
       {
-        Console.WriteLine(i);
+        Console.WriteLine(number);
       }
 
       Console.WriteLine();
