@@ -64,6 +64,7 @@
     <Compile Include="Enums\PhoneType.cs" />
     <Compile Include="Enums\RelationshipType.cs" />
     <Compile Include="Enums\DateFormat.cs" />
+    <Compile Include="Enums\AuthenticationType.cs" />
     <Compile Include="Enums\SpouseModifier.cs" />
     <Compile Include="Enums\ParentChildModifier.cs" />
     <Compile Include="Enums\Result.cs" />
