@@ -3844,5 +3844,12 @@ namespace FonctionsUtiles.Fred.Csharp
         return message.Count(w => oneCharacter.ToString().ToUpper() == w.ToString());
       }
     }
+
+    public static List<string> RemoveElementsFromList(List<string> sourceList, List<string> elementsToRemove)
+    {
+      // Create a new list that includes only the elements not in elementsToRemove
+      List<string> resultList = sourceList.FindAll(element => !elementsToRemove.Contains(element));
+      return resultList;
+    }
   }
 }
