@@ -11197,22 +11197,14 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(expected, result);
     }
 
-    public static bool CollectionAssert(List<string> list1, List<string> list2 )
+    [TestMethod]
+    public void TestMethod_RemoveElementsFromList()
     {
-      if (list1.Count != list2.Count)
-      {
-        return false;
-      }
-
-      for (int i = 0; i < list1.Count - 1; i++)
-      {
-        if (list1[i] != list2[i])
-        {
-          return false;
-        }
-      }
-
-      return true;
+      var source = new List<string> { "grape", "orange", "banana" };
+      var source2 = new List<string> { "banana" };
+      var expected = new List<string> { "grape", "orange" };
+      var result = StringFunc.RemoveElementsFromList(source, source2);
+      CollectionAssert.AreEqual(expected, result);
     }
   }
 }
