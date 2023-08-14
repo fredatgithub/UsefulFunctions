@@ -62,6 +62,7 @@
     <Compile Include="DateCompareFileInfo.cs" />
     <Compile Include="Enumerations.cs" />
     <Compile Include="Enums\ArrivalTime.cs" />
+    <Compile Include="Enums\DuplicateStrategy.cs" />
     <Compile Include="Enums\Gender.cs" />
     <Compile Include="Enums\Majorite.cs" />
     <Compile Include="Enums\PhoneType.cs" />
@@ -71,6 +72,8 @@
     <Compile Include="Enums\SpouseModifier.cs" />
     <Compile Include="Enums\ParentChildModifier.cs" />
     <Compile Include="Enums\Result.cs" />
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="FileName.cs" />
     <Compile Include="FunctionsApplicationFeatures.cs" />
     <Compile Include="FunctionsColor.cs" />
