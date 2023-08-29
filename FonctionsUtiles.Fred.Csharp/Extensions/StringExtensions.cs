@@ -96,5 +96,10 @@ namespace FonctionsUtiles.Fred.Csharp.Extensions
       var words = Regex.Matches(text, "([A-Z][a-z]*)|([0-9]+)") as IEnumerable<Match>;
       return string.Join(" ", words.Select(w => w.Value));
     }
+
+    public static bool ContainsIgnoreCase(this string value, string containsValue)
+    {
+      return value.IndexOf(containsValue, System.StringComparison.OrdinalIgnoreCase) >= 0;
+    }
   }
 }
