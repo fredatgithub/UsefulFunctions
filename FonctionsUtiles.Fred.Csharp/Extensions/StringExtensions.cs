@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
@@ -100,6 +101,11 @@ namespace FonctionsUtiles.Fred.Csharp.Extensions
     public static bool ContainsIgnoreCase(this string value, string containsValue)
     {
       return value.IndexOf(containsValue, System.StringComparison.OrdinalIgnoreCase) >= 0;
+    }
+
+    private static IEnumerable<T> DistinctBy<T, TKey>(this IEnumerable<T> enumerable, Func<T, TKey> keySelector)
+    {
+      return enumerable.GroupBy(keySelector).Select(grp => grp.First());
     }
   }
 }

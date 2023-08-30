@@ -13,7 +13,7 @@ namespace FonctionsUtiles.Fred.Csharp
 {
   using MathFunc = FunctionsMath;
 
-  public class FunctionsString
+  public static class FunctionsString
   {
     /// <summary>
     /// List all the public methods available from this DLL
@@ -575,7 +575,7 @@ namespace FonctionsUtiles.Fred.Csharp
           return number > 1 ? "s" : string.Empty;
       }
     }
-    
+
     public static string Plural(long number, string irregularNoun = "") //Int64
     {
       switch (irregularNoun)
@@ -1082,12 +1082,12 @@ namespace FonctionsUtiles.Fred.Csharp
       return strValue;
     }
 
-    public string ReverseString4(string srtVarable)
+    public static string ReverseString4(string srtVarable)
     {
       return new string(srtVarable.Reverse().ToArray());
     }
 
-    public string Reverse4(string text)
+    public static string Reverse4(string text)
     {
       return Microsoft.VisualBasic.Strings.StrReverse(text);
     }
@@ -1644,7 +1644,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return count;
     }
-    
+
     /// <summary>
     /// Returns an array of every index where a sequence is found on the specified string. Note: Overlaps will be counted.
     /// </summary>
@@ -3793,7 +3793,7 @@ namespace FonctionsUtiles.Fred.Csharp
     /// </summary>
     /// <param name="value1">The value1 in the context.</param>
     /// <param name="value2">The value2Dto in the payload.</param>
-    public void CompareCostsStatus(int? value1, int? value2, bool forceComparisonFailure = false)
+    public static void CompareCostsStatus(int? value1, int? value2, bool forceComparisonFailure = false)
     {
       if (value1 == null || value2 == null)
       {
@@ -3850,6 +3850,73 @@ namespace FonctionsUtiles.Fred.Csharp
       // Create a new list that includes only the elements not in elementsToRemove
       List<string> resultList = sourceList.FindAll(element => !elementsToRemove.Contains(element));
       return resultList;
+    }
+
+    public static string RemoveCarriageReturn(this string content, bool all = false)
+    {
+      if (all)
+      {
+        return content
+            .Replace("\r", "")
+            .Replace("\n", "");
+      }
+
+      return content.Trim().TrimEnd('\r', '\n');
+    }
+
+    /// <summary>
+    /// <para>Gets scheme for provided uri string to overcome different behavior between windows/linux. https://github.com/dotnet/corefx/issues/1745</para>
+    /// Assume http for url starting with //
+    /// <para>Assume file for url starting with /</para>
+    /// Otherwise give what <see cref="Uri.Scheme" /> gives us.
+    /// <para>If non parseable by Uri, return empty string. Will never return null</para>
+    /// </summary>
+    /// <returns></returns>
+    public static string GetScheme(string url)
+    {
+      var isValidUri = Uri.TryCreate(url, UriKind.Absolute, out Uri uri);
+      //IETF RFC 3986
+      if (Regex.IsMatch(url, "^//[^/]"))
+      {
+        return "http";
+      }
+      //Unix style path
+      else if (Regex.IsMatch(url, "^/[^/]"))
+      {
+        return "file";
+      }
+      else if (isValidUri)
+      {
+        return uri.Scheme;
+      }
+      else
+      {
+        return String.Empty;
+      }
+    }
+
+    /// <summary>
+    /// Escape/clean characters which would break the [] section of a markdown []() link
+    /// </summary>
+    public static string EscapeLinkText(string rawText)
+    {
+      return Regex.Replace(rawText, @"\r?\n\s*\r?\n", Environment.NewLine, RegexOptions.Singleline)
+          .Replace("[", @"\[")
+          .Replace("]", @"\]");
+    }
+
+    public static Dictionary<string, string> ParseStyle(string style)
+    {
+      if (string.IsNullOrEmpty(style))
+      {
+        return new Dictionary<string, string>();
+      }
+
+      var styles = style.Split(';');
+      return styles.Select(styleItem => styleItem.Split(':'))
+          .Where(styleParts => styleParts.Length == 2)
+          .DistinctBy(styleParts => styleParts[0])
+          .ToDictionary(styleParts => styleParts[0], styleParts => styleParts[1]);
     }
   }
 }

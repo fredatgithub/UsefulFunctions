@@ -807,5 +807,17 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return numberOfLines;
     }
+
+    public static IEnumerable<string> ReadLines(this string content)
+    {
+      string line;
+      using (var sr = new StringReader(content))
+      {
+        while ((line = sr.ReadLine()) != null)
+        {
+          yield return line;
+        }
+      }
+    }
   }
 }
