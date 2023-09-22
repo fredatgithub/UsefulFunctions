@@ -45,6 +45,7 @@
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.IO.FileSystem, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IO.FileSystem.4.3.0\lib\net46\System.IO.FileSystem.dll</HintPath>
@@ -89,14 +90,17 @@
     <Compile Include="Enumerations.cs" />
     <Compile Include="Enums\Architecture.cs" />
     <Compile Include="Enums\ArrivalTime.cs" />
+    <Compile Include="Enums\Language.cs" />
     <Compile Include="Enums\DuplicateStrategy.cs" />
     <Compile Include="Enums\Gender.cs" />
     <Compile Include="Enums\Majorite.cs" />
+    <Compile Include="Enums\ParameterAttribute.cs" />
     <Compile Include="Enums\PhoneType.cs" />
     <Compile Include="Enums\Platform.cs" />
     <Compile Include="Enums\RelationshipType.cs" />
     <Compile Include="Enums\DateFormat.cs" />
     <Compile Include="Enums\AuthenticationType.cs" />
+    <Compile Include="Enums\CodeLicense.cs" />
     <Compile Include="Enums\SpouseModifier.cs" />
     <Compile Include="Enums\ParentChildModifier.cs" />
     <Compile Include="Enums\Result.cs" />
