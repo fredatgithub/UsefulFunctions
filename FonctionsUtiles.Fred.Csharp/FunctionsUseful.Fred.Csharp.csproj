@@ -90,6 +90,7 @@
     <Compile Include="Enumerations.cs" />
     <Compile Include="Enums\Architecture.cs" />
     <Compile Include="Enums\ArrivalTime.cs" />
+    <Compile Include="Enums\ComputerLanguage.cs" />
     <Compile Include="Enums\Language.cs" />
     <Compile Include="Enums\DuplicateStrategy.cs" />
     <Compile Include="Enums\Gender.cs" />
