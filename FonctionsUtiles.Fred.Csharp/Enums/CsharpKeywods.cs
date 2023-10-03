@@ -12,6 +12,9 @@
     If,
     Break,
     Continue,
-    Switch
+    Switch,
+    publicKeyword,
+    internalKeyword,
+    privateKeyword
   }
 }
