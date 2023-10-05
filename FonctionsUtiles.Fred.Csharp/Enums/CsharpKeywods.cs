@@ -13,8 +13,10 @@
     Break,
     Continue,
     Switch,
-    publicKeyword,
-    internalKeyword,
-    privateKeyword
+    PublicKeyword,
+    InternalKeyword,
+    PrivateKeyword,
+    Enum
+
   }
 }
