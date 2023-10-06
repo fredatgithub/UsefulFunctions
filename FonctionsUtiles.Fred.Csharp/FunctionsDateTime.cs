@@ -356,5 +356,29 @@ namespace FonctionsUtiles.Fred.Csharp
       int second = FunctionsMath.GenerateRandomNumberUsingCrypto(0, 59);
       return new DateTime(2022, 1, 1, hour, minute, second);
     }
+
+    public static string DisplayHourMinuteSecond(TimeSpan time)
+    {
+      var result = string.Empty;
+      if (time.Hours > 0)
+      {
+        result = $"{time.Hours} heure{Plural(time.Hours)}";
+      }
+
+      if (time.Minutes > 0)
+      {
+        result += $" {time.Minutes} minute{Plural(time.Minutes)}";
+        result = result.TrimStart();
+      }
+
+      if (time.Seconds > 0)
+      {
+        result += $" {time.Seconds} seconde{Plural(time.Seconds)}";
+        result = result.TrimStart();
+      }
+
+      return result;
+    }
+
   }
 }
