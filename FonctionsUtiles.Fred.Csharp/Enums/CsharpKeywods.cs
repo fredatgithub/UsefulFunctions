@@ -2,21 +2,20 @@
 {
   public enum CsharpKeywods
   {
-    Internal,
-    Class,
-    Using,
-    For,
-    PrivateVisibility,
-    PublicVisibility,
-    Enumeration,
-    If,
     Break,
+    Class,
     Continue,
-    Switch,
-    PublicKeyword,
+    Enum,
+    Enumeration,
+    For,
+    If,
+    Internal,
     InternalKeyword,
     PrivateKeyword,
-    Enum
-
+    PrivateVisibility,
+    PublicKeyword,
+    PublicVisibility,
+    Switch,
+    Using
   }
 }
