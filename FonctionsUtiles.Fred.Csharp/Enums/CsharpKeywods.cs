@@ -1,21 +1,31 @@
-﻿namespace FonctionsUtiles.Fred.Csharp.Enums
+﻿using Microsoft.VisualBasic;
+using System.Windows.Annotations;
+
+namespace FonctionsUtiles.Fred.Csharp.Enums
 {
   public enum CsharpKeywods
   {
+    Bool,
     Break,
     Class,
     Continue,
     Enum,
     Enumeration,
     For,
+    Foreach,
+    Get,
     If,
     Internal,
+    Is,
+    //[VBFixedString]
     InternalKeyword,
+    Null,
     PrivateKeyword,
-    PrivateVisibility,
     PublicKeyword,
-    PublicVisibility,
+    Seal,
+    Set,
     Switch,
-    Using
+    Using,
+    Var
   }
 }
