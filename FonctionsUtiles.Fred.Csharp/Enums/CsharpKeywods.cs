@@ -1,7 +1,4 @@
-﻿using Microsoft.VisualBasic;
-using System.Windows.Annotations;
-
-namespace FonctionsUtiles.Fred.Csharp.Enums
+﻿namespace FonctionsUtiles.Fred.Csharp.Enums
 {
   public enum CsharpKeywods
   {
@@ -17,8 +14,8 @@ namespace FonctionsUtiles.Fred.Csharp.Enums
     If,
     Internal,
     Is,
-    //[VBFixedString]
     InternalKeyword,
+    Namespace,
     Null,
     PrivateKeyword,
     PublicKeyword,
