@@ -1,11 +1,15 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.NetworkInformation;
+using System.Security.Claims;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace FonctionsUtiles.Fred.Csharp
 {
@@ -275,6 +279,94 @@ namespace FonctionsUtiles.Fred.Csharp
       reader.Close();
       response.Close();
       return responseFromServer;
+    }
+
+    public static bool IsValidEmail(string content)
+    {
+      return Regex.IsMatch(content, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase);
+    }
+
+    /// <summary>
+    /// only contain letters, numbers, and underscores, and be between 3 and 16 characters in length
+    /// </summary>
+    /// <param name="username"></param>
+    /// <returns></returns>
+    public static bool IsValidUsername(string username)
+    {
+      return Regex.IsMatch(username, @"^[a-zA-Z0-9_]{3,16}$");
+    }
+
+    /// <summary>
+    /// <para>(?=.*[a-z]) - at least one lowercase letter</para> 
+    /// <para>(?=.*[A-Z]) - at least one uppercase letter</para> 
+    /// <para>(?=.*\d) - at least one digit</para> 
+    /// <para>(?=.*[^\da-zA-Z]) - at least one special character</para> 
+    /// <para>{8,15} - at least 8 characters and at most 15 characters</para> 
+    /// </summary>
+    /// <param name="password"></param>
+    /// <returns></returns>
+    public static bool IsValidPassword(string password)
+    {
+      return Regex.IsMatch(password, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z0-9]).{8,}$");
+    }
+
+    public static bool IsValidDisplayName(string displayname)
+    {
+      return Regex.IsMatch(displayname, @"^[a-zA-Z0-9_]{3,16}$");
+    }
+
+    //public static async Task<dynamic> GenerateJwtToken(User user, string jwtsecret)
+    //{
+      //  if (string.IsNullOrWhiteSpace(user.Username))
+      //  {
+      //    throw new ArgumentNullException(nameof(user.Username));
+      //  }
+
+      //  var claims = new List<Claim>
+      //{
+      //    new Claim(ClaimTypes.Name, user.Username),
+      //    new Claim(JwtRegisteredClaimNames.Nbf, new DateTimeOffset(DateTime.Now).ToUnixTimeSeconds().ToString()),
+      //    new Claim(JwtRegisteredClaimNames.Exp, new DateTimeOffset(DateTime.Now.AddDays(1)).ToUnixTimeSeconds().ToString()),
+      //};
+
+      //  var token = new JwtSecurityToken(
+      //      new JwtHeader(
+      //          new SigningCredentials(
+      //              new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtsecret)), SecurityAlgorithms.HmacSha256)),
+      //      new JwtPayload(claims));
+
+      //  var output = new
+      //  {
+      //    Access_Token = new JwtSecurityTokenHandler().WriteToken(token),
+      //    user.Username,
+      //  };
+
+      //  return await Task.FromResult(output);
+      //}
+    //}
+
+    public class User
+    {
+      [Key]
+      public Guid Id { get; set; }
+      [Required]
+      public string ConnectionId { get; set; }
+      public string FirstName { get; set; }
+      public string LastName { get; set; }
+      public string DisplayName { get; set; }
+      public string About { get; set; }
+      public string AvatarUrl { get; set; }
+      [Required]
+      public string Username { get; set; }
+      public string Email { get; set; }
+      [Required]
+      public string Password { get; set; }
+      public string Token { get; set; }
+      public string FirebaseToken { get; set; }
+      [Required]
+      public int Permission { get; set; }
+      public bool IsOnline { get; set; }
+      public DateTime? DateCreated { get; set; }
     }
   }
 }
