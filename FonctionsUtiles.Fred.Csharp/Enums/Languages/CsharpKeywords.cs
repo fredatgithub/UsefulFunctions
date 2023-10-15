@@ -1,6 +1,6 @@
 ﻿namespace FonctionsUtiles.Fred.Csharp.Enums
 {
-  public enum CsharpKeywods
+  public enum CsharpKeywords
   {
     Bool,
     Break,

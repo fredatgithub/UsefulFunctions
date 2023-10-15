@@ -93,7 +93,8 @@
     <Compile Include="Enums\Architecture.cs" />
     <Compile Include="Enums\ArrivalTime.cs" />
     <Compile Include="Enums\ComputerLanguage.cs" />
-    <Compile Include="Enums\CsharpKeywods.cs" />
+    <Compile Include="Enums\Languages\CPlusPlusKeywords.cs" />
+    <Compile Include="Enums\Languages\CsharpKeywords.cs" />
     <Compile Include="Enums\DatabaseType.cs" />
     <Compile Include="Enums\Language.cs" />
     <Compile Include="Enums\DuplicateStrategy.cs" />
