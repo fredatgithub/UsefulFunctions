@@ -103,6 +103,7 @@
     <Compile Include="Enums\ParameterAttribute.cs" />
     <Compile Include="Enums\PhoneType.cs" />
     <Compile Include="Enums\Platform.cs" />
+    <Compile Include="Enums\ProductStatus.cs" />
     <Compile Include="Enums\RelationshipType.cs" />
     <Compile Include="Enums\DateFormat.cs" />
     <Compile Include="Enums\AuthenticationType.cs" />
