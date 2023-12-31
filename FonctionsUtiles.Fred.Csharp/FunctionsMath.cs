@@ -169,13 +169,13 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static bool IsPrime(int number)
     {
-      if (number <= 1) return false;
-      if (number == 2)  return true;
-      if (number == 3) return true;
-      if (number % 2 == 0) return false;
-      if (number == 5) return true;
-      if (number % 3 == 0) return false;
-      if (number % 5 == 0) return false;
+      if (number <= 1) return false; // remove negative numbers and 0 and 1
+      if (number == 2)  return true; // 2 is prime
+      if (number == 3) return true; // 3 is prime
+      if (number % 2 == 0) return false; // remove all even numbers
+      if (number == 5) return true; // 5 is prime
+      if (number % 3 == 0) return false; // remove all numbers dividable by 3
+      if (number % 5 == 0) return false; // remove all numbers dividable by 5
 
       for (int i = 7; i <= Math.Abs(Math.Sqrt(number)); i += 2)
       {
