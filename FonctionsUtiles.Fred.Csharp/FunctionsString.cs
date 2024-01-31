@@ -3940,5 +3940,20 @@ namespace FonctionsUtiles.Fred.Csharp
       content = CleanTagBorders(content);
       return content;
     }
+
+    public static List<string> RemoveUselessLines(List<string> list, params string[] allValues)
+    {
+      return list.Where(element => !allValues.Any(substring => element.Contains(substring))).ToList();
+    }
+
+    public static List<string> RemoveFirstLine(List<string> list)
+    {
+      return list.Skip(1).ToList();
+    }
+
+    public static List<string> KeepUsefulLines(List<string> list, params string[] allValues)
+    {
+      return list.Where(element => allValues.Any(substring => element.Contains(substring))).ToList();
+    }
   }
 }

@@ -11015,7 +11015,7 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
-    
+
     [TestMethod]
     public void TestMethod_ShortNumberFormat_10()
     {
@@ -11220,6 +11220,102 @@ namespace UnitTestUsefullFunctions
       var expected = new List<string> { "grape", "orange" };
       var result = StringFunc.RemoveElementsFromList(source, source2);
       CollectionAssert.AreEqual(expected, result);
+    }
+
+    [TestMethod]
+    public void RemoveUselessLines_RemovesLines_WhenAllValuesPresent()
+    {
+      List<string> inputList = new List<string> { "abc", "def", "ghi" };
+      string[] valuesToRemove = { "a", "e", "i" };
+      List<string> result = StringFunc.RemoveUselessLines(inputList, valuesToRemove);
+      CollectionAssert.AreEqual(new List<string> { }, result);
+    }
+
+    [TestMethod]
+    public void RemoveUselessLines_RemovesLines_WhenSomeValuesPresent()
+    {
+      List<string> inputList = new List<string> { "abc", "def", "ghi" };
+      string[] valuesToRemove = { "a", "b", "c" };
+      List<string> result = StringFunc.RemoveUselessLines(inputList, valuesToRemove);
+      CollectionAssert.AreEqual(new List<string> { "def", "ghi" }, result);
+    }
+
+    [TestMethod]
+    public void RemoveUselessLines_DoesNotRemoveAnyLines_WhenNoValuesPresent()
+    {
+      List<string> inputList = new List<string> { "abc", "def", "ghi" };
+      string[] valuesToRemove = { "x", "y", "z" };
+      List<string> result = StringFunc.RemoveUselessLines(inputList, valuesToRemove);
+      CollectionAssert.AreEqual(inputList, result);
+    }
+
+    [TestMethod]
+    public void RemoveUselessLines_RemovesAllLines_WhenAllValuesPresentInEachLine()
+    {
+      List<string> inputList = new List<string> { "abcx", "defy", "ghiz" };
+      string[] valuesToRemove = { "x", "y", "z" };
+      List<string> result = StringFunc.RemoveUselessLines(inputList, valuesToRemove);
+      CollectionAssert.AreEqual(new List<string>(), result);
+    }
+
+    [TestMethod]
+    public void RemoveUselessLines_RemovesAllLines_Keep_only_two_lines()
+    {
+      List<string> inputList = new List<string> { "abc", "def", "ghi", "jkl", "mno" };
+      string[] valuesToRemove = { "i", "o" };
+      List<string> result = StringFunc.RemoveUselessLines(inputList, valuesToRemove);
+      CollectionAssert.AreEqual(new List<string> { "abc", "def", "jkl" }, result);
+    }
+
+    [TestMethod]
+    public void RemoveFirstLine_RemovesFirstLineFromList()
+    {
+      List<string> inputList = new List<string> { "First", "Second", "Third" };
+      List<string> result = StringFunc.RemoveFirstLine(inputList);
+      CollectionAssert.AreEqual(new List<string> { "Second", "Third" }, result);
+    }
+
+    [TestMethod]
+    public void RemoveFirstLine_EmptyList_ReturnsEmptyList()
+    {
+      List<string> inputList = new List<string>();
+      List<string> result = StringFunc.RemoveFirstLine(inputList);
+      CollectionAssert.AreEqual(new List<string>(), result);
+    }
+
+    [TestMethod]
+    public void RemoveFirstLine_SingleItemList_ReturnsEmptyList()
+    {
+      List<string> inputList = new List<string> { "OnlyItem" };
+      List<string> result = StringFunc.RemoveFirstLine(inputList);
+      CollectionAssert.AreEqual(new List<string>(), result);
+    }
+
+    [TestMethod]
+    public void KeepUsefulLines_AucunElementCommun_ListeInchangee()
+    {
+      List<string> liste1 = new List<string> { "apple", "banana", "cherry" };
+      string[] liste2 = { "orange", "grape" };
+      List<string> resultat = StringFunc.KeepUsefulLines(liste1, liste2);
+      CollectionAssert.AreEqual(new List<string> { }, resultat);
+    }
+
+    [TestMethod]
+    public void KeepUsefulLines_ElementsCommuns_SupprimeLesElementsCommuns()
+    {
+      List<string> liste1 = new List<string> { "apple", "banana", "cherry", "date", "fig" };
+      string[] liste2 = { "an", "rr", "te" };
+      List<string> resultat = StringFunc.KeepUsefulLines(liste1, liste2);
+      CollectionAssert.AreEqual(new List<string> { "banana", "cherry", "date" }, resultat);
+    }
+
+    [TestMethod]
+    public void KeepUsefulLines_Liste2Vide_Liste1Inchangee()
+    {
+      List<string> liste1 = new List<string> { "apple", "banana", "cherry" };
+      string[] liste2 = { };
+      List<string> resultat = StringFunc.KeepUsefulLines(liste1, liste2);
+      CollectionAssert.AreEqual(liste2, resultat);
     }
   }
 }
