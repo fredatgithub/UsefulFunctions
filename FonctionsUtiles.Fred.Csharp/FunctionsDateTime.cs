@@ -380,5 +380,11 @@ namespace FonctionsUtiles.Fred.Csharp
       return result;
     }
 
+    public static bool EstBissextile(int annee)
+    {
+      // Une année est bissextile si elle est divisible par 4.
+      // Cependant, les années divisibles par 100 ne sont bissextiles que si elles sont également divisibles par 400.
+      return annee % 4 == 0 && (annee % 100 != 0 || annee % 400 == 0);
+    }
   }
 }
