@@ -108,6 +108,7 @@
     <Compile Include="Enums\DateFormat.cs" />
     <Compile Include="Enums\AuthenticationType.cs" />
     <Compile Include="Enums\CodeLicense.cs" />
+    <Compile Include="Enums\AESKeySize.cs" />
     <Compile Include="Enums\SpouseModifier.cs" />
     <Compile Include="Enums\ParentChildModifier.cs" />
     <Compile Include="Enums\Result.cs" />
