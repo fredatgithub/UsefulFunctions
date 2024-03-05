@@ -1,3 +1,4 @@
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -3954,6 +3955,22 @@ namespace FonctionsUtiles.Fred.Csharp
     public static List<string> KeepUsefulLines(List<string> list, params string[] allValues)
     {
       return list.Where(element => allValues.Any(substring => element.Contains(substring))).ToList();
+    }
+
+    public static bool HasAccents(string message)
+    {
+      if (message == null) return false;
+
+      var normalize = message.Normalize(NormalizationForm.FormD);
+
+      var sb = new StringBuilder();
+
+      foreach (var t in normalize.Where(t => CharUnicodeInfo.GetUnicodeCategory(t) != UnicodeCategory.NonSpacingMark))
+      {
+        sb.Append(t);
+      }
+
+      return (sb.ToString() != message);
     }
   }
 }

@@ -48,5 +48,21 @@ namespace TestProjectCoreUseFulFunctions
       string result = FunctionsString.InjectNumberIntoFileName(source, source2);
       Assert.AreEqual(expected, result);
     }
+
+    [TestMethod]
+    [DataRow("azerty", false)]
+    [DataRow("là", true)]
+    [DataRow("bâiller", true)]
+    [DataRow("haïe", true)]
+    [DataRow("hébreu", true)]
+    [DataRow("à la maison", true)]
+    [DataRow("préciser", true)]
+    [DataRow("où", true)]
+    [DataRow("hôpital", true)]
+    public void TestMethod_HasAccents(string source, bool expected)
+    {
+      var result = FunctionsString.HasAccents(source);
+      Assert.AreEqual(expected, result);
+    }
   }
 }
