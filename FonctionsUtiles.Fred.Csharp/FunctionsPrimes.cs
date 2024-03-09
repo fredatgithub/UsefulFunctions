@@ -419,5 +419,23 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return result;
     }
+
+    public static bool EstPremier(int nombre)
+    {
+      if (nombre < 2)
+      {
+        return false;
+      }
+
+      // Calcul du (n - 1)!
+      int factorielle = 1;
+      for (int i = 2; i < nombre; i++)
+      {
+        factorielle *= i;
+      }
+
+      // Vérification du théorème de Wilson
+      return (factorielle + 1) % nombre == 0;
+    }
   }
 }
