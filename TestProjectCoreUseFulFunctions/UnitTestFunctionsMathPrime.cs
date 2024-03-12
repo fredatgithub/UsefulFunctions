@@ -762,6 +762,7 @@ namespace TestProjectCoreUseFulFunctions
     [DataRow(5711)]
     [DataRow(5717)]
     [DataRow(5737)]
+    [DataRow(5741)]
     public void TestMethod_IsPrime_All(int source)
     {
       const bool expected = true;
