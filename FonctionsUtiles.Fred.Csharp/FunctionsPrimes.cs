@@ -420,7 +420,7 @@ namespace FonctionsUtiles.Fred.Csharp
       return result;
     }
 
-    public static bool EstPremier(int nombre)
+    public static bool EstPremierSelonLeTheoremeDeWilson(int nombre)
     {
       if (nombre < 2)
       {
@@ -436,6 +436,17 @@ namespace FonctionsUtiles.Fred.Csharp
 
       // Vérification du théorème de Wilson
       return (factorielle + 1) % nombre == 0;
+    }
+
+    public static int Factorielle(int nombre)
+    {
+      var factorielle = 1;
+      for (int i = 2; i < nombre; i++)
+      {
+        factorielle *= i;
+      }
+
+      return factorielle;
     }
   }
 }
