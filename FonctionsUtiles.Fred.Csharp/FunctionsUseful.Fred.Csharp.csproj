@@ -115,6 +115,7 @@
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="FileName.cs" />
+    <Compile Include="FunctionDatabase.cs" />
     <Compile Include="FunctionsApplicationFeatures.cs" />
     <Compile Include="FunctionsColor.cs" />
     <Compile Include="functionsControls.cs" />
