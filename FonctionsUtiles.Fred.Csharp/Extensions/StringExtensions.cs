@@ -107,5 +107,15 @@ namespace FonctionsUtiles.Fred.Csharp.Extensions
     {
       return enumerable.GroupBy(keySelector).Select(grp => grp.First());
     }
+
+    public static string Mask(this string value, int length)
+    {
+      if (value.HasValue())
+      {
+        return value.Substring(0, length) + new String('*', value.Length - length);
+      }
+
+      return value;
+    }
   }
 }
