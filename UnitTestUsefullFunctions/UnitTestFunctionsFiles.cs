@@ -184,6 +184,25 @@ namespace UnitTestUsefullFunctions
       CollectionAssert.AreNotEqual(result, result2);
     }
 
+    [TestMethod]
+    public void Test_ChangeExtension()
+    {
+      var source = "d:\\toto\\log1.log";
+      var source2 = "dump";
+      var expected = "d:\\toto\\log1.dump";
+      var result = FunctionsFiles.ChangeExtension(source, source2);
+      Assert.AreEqual(expected, result);
+    }
+
+    [TestMethod]
+    public void Test_ChangeExtension_2_directories()
+    {
+      var source = "d:\\rep1\\rep2\\log_application_name.log";
+      var source2 = "dump";
+      var expected = "d:\\rep1\\rep2\\log_application_name.dump";
+      var result = FunctionsFiles.ChangeExtension(source, source2);
+      Assert.AreEqual(expected, result);
+    }
     #endregion Files Methods
   }
 }

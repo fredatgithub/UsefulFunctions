@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
-using static System.Windows.Forms.LinkLabel;
 
 namespace FonctionsUtiles.Fred.Csharp
 {
@@ -818,6 +816,21 @@ namespace FonctionsUtiles.Fred.Csharp
           yield return line;
         }
       }
+    }
+
+    /// <summary>
+    /// Change the extension of a filename.
+    /// </summary>
+    /// <param name="filename">The name of the file with its extension.</param>
+    /// <param name="newExtension">The new extension to be changed.</param>
+    /// <returns>A string with the full path of the file with the new extension.</returns>
+    public static string ChangeExtension(string filename, string newExtension)
+    {
+      var filenameWithoutExtension = Path.GetFileNameWithoutExtension(filename);
+      var directory = Path.GetDirectoryName(filename);
+      var fullName = Path.Combine(directory, filenameWithoutExtension);
+      var result = $"{fullName}.{newExtension}";
+      return result;
     }
   }
 }
