@@ -117,5 +117,10 @@ namespace FonctionsUtiles.Fred.Csharp.Extensions
 
       return value;
     }
+
+    public static string ToString<T>(this IList<T> list)
+    {
+      return string.Join(",", list);
+    }
   }
 }
