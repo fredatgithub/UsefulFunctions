@@ -2,19 +2,17 @@
 Useful functions gathered in one DLL
 
 # License
-License [![License] (https://img.shields.io/github/license/mashape/apistatus.svg License-blue.svg)]
-(https://github.com/fredatgithub/UsefulFunctions#License status)
-https://img.shields.io/github/license/mashape/apistatus.svg 
+[![License](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/fredatgithub/UsefulFunctions#License)
 
 # Build Status
-[![Build] (https://img.shields.io/badge/Build-Passed-brightgreen.svg)] (https://github.com/fredatgithub/UsefulFunctions#Build status)
-[![Windows build] (https://img.shields.io/badge/Windows build-Passed-brightgreen.svg)] (https://github.com/fredatgithub/UsefulFunctions#Build Status)
-[![Tests status] (https://img.shields.io/badge/Unit Tests-Passed-brightgreen.svg)] (https://github.com/fredatgithub//UsefulFunctions#Build status)
-[![Platform status] (https://img.shields.io/badge/Platform X86-Passed-brightgreen.svg)] (https://github.com/fredatgithub/UsefulFunctions#Build Status)
+[![Build](https://img.shields.io/badge/Build-Passed-brightgreen.svg)](https://github.com/fredatgithub/UsefulFunctions#Build)
+[![Windows build](https://img.shields.io/badge/Windows%20build-Passed-brightgreen.svg)](https://github.com/fredatgithub/UsefulFunctions#Build)
+[![Tests status](https://img.shields.io/badge/Unit%20Tests-Passed-brightgreen.svg)](https://github.com/fredatgithub/UsefulFunctions#Build)
+[![Platform status](https://img.shields.io/badge/Platform%20X86-Passed-brightgreen.svg)](https://github.com/fredatgithub/UsefulFunctions#Build)
+[![Linux status](https://img.shields.io/badge/Linux-none-red.svg)](https://github.com/fredatgithub/UsefulFunctions#Build)
+[![NuGet status](https://img.shields.io/badge/NuGet-none-red.svg)](https://github.com/fredatgithub/UsefulFunctions#Build)
 
-[![Linux status] (https://img.shields.io/badge/Linux-none-red.svg)] (https://github.com/fredatgithub/UsefulFunctions#Build Status)
-[![NuGet status] (https://img.shields.io/badge/NuGet-none-red.svg)] (https://github.com/fredatgithub/UsefulFunctions#Build Status)
+Travis: [Travis CI](https://travis-ci.org/fredatgithub/)
 
-Travis: https://travis-ci.org/fredatgithub/
+AppVeyor: [![Build status](https://ci.appveyor.com/api/projects/status/i3378pd0rkx7cfliuenfvsyo/branch/master?svg=true)](https://ci.appveyor.com/project/fredatgithub/usefulfunctions/branch/master)
 
-AppVeyor [![Build status](https://ci.appveyor.com/api/projects/status/i3378pd0rkx7cfliuenfvsyo/branch/master?svg=true)](https://ci.appveyor.com/project/fredatgithub/usefulfunctions/branch/master) 
