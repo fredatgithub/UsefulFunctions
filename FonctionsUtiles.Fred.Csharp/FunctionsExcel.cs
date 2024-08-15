@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace FonctionsUtiles.Fred.Csharp
 {
@@ -44,6 +46,57 @@ namespace FonctionsUtiles.Fred.Csharp
       }
 
       return NumeroColonneVersLettreColonne((numeroColonne - 1) / 26) + (char)('A' + (numeroColonne - 1) % 26);
+    }
+
+    //http://stackoverflow.com/questions/181596/how-to-convert-a-column-number-eg-127-into-an-excel-column-eg-aa
+    /// <summary>
+    /// Convert Column Number into Column Name - Character(s) eg 1-A, 2-B
+    /// </summary>
+    /// <param name="columnNumber">Column Number</param>
+    /// <returns>Column Name - Character(s)</returns>
+    public static string GetExcelColumnName(int columnNumber)
+    {
+      int dividend = columnNumber;
+      string columnName = string.Empty;
+      int modulo;
+
+      while (dividend > 0)
+      {
+        modulo = (dividend - 1) % 26;
+        columnName = string.Concat(Convert.ToChar(65 + modulo), columnName);
+        dividend = (int)((dividend - modulo) / 26);
+      }
+
+      return columnName;
+    }
+
+    //http://stackoverflow.com/questions/181596/how-to-convert-a-column-number-eg-127-into-an-excel-column-eg-aa
+    /// <summary>
+    /// Covert Column Name - Character(s) into a Column Number eg A-1, B-2, A1 - 1, B9 - 2
+    /// </summary>
+    /// <param name="columnName">Column Name - Character(s) optinally with the Row Number</param>
+    /// <param name="includesRowNumber">Specify if the row number is included</param>
+    /// <returns>Column Number</returns>
+    public static int GetExcelColumnNumber(string columnName, bool includesRowNumber = true)
+    {
+      if (includesRowNumber)
+      {
+        columnName = Regex.Replace(columnName, @"\d", "");
+      }
+
+      int[] digits = new int[columnName.Length];
+      for (int i = 0; i < columnName.Length; ++i)
+      {
+        digits[i] = Convert.ToInt32(columnName[i]) - 64;
+      }
+      int mul = 1; int res = 0;
+      for (int pos = digits.Length - 1; pos >= 0; --pos)
+      {
+        res += digits[pos] * mul;
+        mul *= 26;
+      }
+
+      return res;
     }
   }
 }
