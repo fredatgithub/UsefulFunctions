@@ -832,5 +832,32 @@ namespace FonctionsUtiles.Fred.Csharp
       var result = $"{fullName}.{newExtension}";
       return result;
     }
+
+    /// <summary>
+    /// Get the list of files which have been modified today.
+    /// </summary>
+    /// <param name="directoryPath">The directory path to start searching from.</param>
+    /// <param name="pattern">The pattern for file search. The default is all files (*).</param>
+    /// <param name="searchOption">The search option which can be TopDirectoryOnly or AllDirectories. The default is TopDirectoryOnly.</param>
+    /// <returns>A list of strings with all files that have been modified today.</returns>
+    public static List<string> GetTodayModifiedListOfFiles(string directoryPath, string pattern = "*", SearchOption searchOption = SearchOption.TopDirectoryOnly)
+    {
+      var result = new List<string>();
+      if (!Directory.Exists(directoryPath))
+      {
+        return result;
+      }
+
+      foreach (string file in Directory.GetFiles(directoryPath, pattern, searchOption))
+      {
+        var modifiedDate = new FileInfo(file).LastWriteTime;
+        if (modifiedDate.Year == DateTime.Now.Year && modifiedDate.Month == DateTime.Now.Month && modifiedDate.Day == DateTime.Now.Day)
+        {
+          result.Add(file);
+        }
+      }
+
+      return result;
+    }
   }
 }
