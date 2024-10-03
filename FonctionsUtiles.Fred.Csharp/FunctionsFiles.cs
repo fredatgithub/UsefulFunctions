@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml;
@@ -858,6 +859,58 @@ namespace FonctionsUtiles.Fred.Csharp
       }
 
       return result;
+    }
+
+    //Paramètres d'attribut de chemin de fichier sérialisé
+    public static string FileName { get; set; }
+
+    /// <summary>
+    /// Les enregistrements de collecte de données sont sérialisés et enregistrés dans des fichiers
+    /// </summary>
+    /// <param name="list"></param>
+    public static void SaveBinary(List<object> list)
+    {
+      try
+      {
+        if (!Directory.Exists(Path.GetDirectoryName(FileName)))
+        {
+          Directory.CreateDirectory(Path.GetDirectoryName(FileName));
+        }
+
+        FileStream fileStream = new FileStream(FileName, FileMode.OpenOrCreate);
+        BinaryFormatter binaryFormatter = new BinaryFormatter();
+        binaryFormatter.Serialize(fileStream, list);
+        fileStream.Close();
+      }
+      catch
+      {
+        return;
+      }
+    }
+
+    /// <summary>
+    /// Lire le fichier et désérialiser le résultat
+    /// </summary>
+    /// <returns></returns>
+    public static List<object> ReadBinary()
+    {
+      List<object> list = new List<object>();
+      if (File.Exists(FileName))
+      {
+        try
+        {
+          FileStream fileStream = new FileStream(FileName, FileMode.OpenOrCreate);
+          BinaryFormatter binaryFormatter = new BinaryFormatter();
+          list = binaryFormatter.Deserialize(fileStream) as List<object>;
+          fileStream.Close();
+        }
+        catch
+        {
+          return list;
+        }
+      }
+
+      return list;
     }
   }
 }
