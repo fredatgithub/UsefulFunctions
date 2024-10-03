@@ -865,41 +865,47 @@ namespace FonctionsUtiles.Fred.Csharp
     public static string FileName { get; set; }
 
     /// <summary>
-    /// Les enregistrements de collecte de données sont sérialisés et enregistrés dans des fichiers
+    /// Save a list of objects to a file.
     /// </summary>
-    /// <param name="list"></param>
-    public static void SaveBinary(List<object> list)
+    /// <param name="list">The list of objects.</param>
+    /// <param name="filename">The name of the file.</param>
+    /// <returns>A boolean to state if saving the file was ok or not.</returns>
+    public static bool SaveBinary(List<object> list, string filename)
     {
+      bool result = true;
       try
       {
-        if (!Directory.Exists(Path.GetDirectoryName(FileName)))
+        if (!Directory.Exists(Path.GetDirectoryName(filename)))
         {
-          Directory.CreateDirectory(Path.GetDirectoryName(FileName));
+          Directory.CreateDirectory(Path.GetDirectoryName(filename));
         }
 
-        FileStream fileStream = new FileStream(FileName, FileMode.OpenOrCreate);
+        FileStream fileStream = new FileStream(filename, FileMode.OpenOrCreate);
         BinaryFormatter binaryFormatter = new BinaryFormatter();
         binaryFormatter.Serialize(fileStream, list);
         fileStream.Close();
       }
       catch
       {
-        return;
+        result = false;
       }
+
+      return result;
     }
 
     /// <summary>
-    /// Lire le fichier et désérialiser le résultat
+    /// Read the file and deserialize the result.
     /// </summary>
-    /// <returns></returns>
-    public static List<object> ReadBinary()
+    /// <param name="filename">The name of the file.</param>
+    /// <returns>A list of objects.</returns>
+    public static List<object> ReadBinary(string filename)
     {
-      List<object> list = new List<object>();
-      if (File.Exists(FileName))
+      var list = new List<object>();
+      if (File.Exists(filename))
       {
         try
         {
-          FileStream fileStream = new FileStream(FileName, FileMode.OpenOrCreate);
+          FileStream fileStream = new FileStream(filename, FileMode.OpenOrCreate);
           BinaryFormatter binaryFormatter = new BinaryFormatter();
           list = binaryFormatter.Deserialize(fileStream) as List<object>;
           fileStream.Close();
