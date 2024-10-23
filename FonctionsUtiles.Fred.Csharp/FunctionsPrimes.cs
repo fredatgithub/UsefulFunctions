@@ -181,7 +181,7 @@ namespace FonctionsUtiles.Fred.Csharp
     /// <returns>Returns True if the number is a prime, False otherwise.</returns>
     public static bool IsPrime(int number)
     {
-      if (number == 1 || number == 0)
+      if (number <= 1 )
       {
         return false;
       }
