@@ -92,6 +92,7 @@
     <Compile Include="Enumerations.cs" />
     <Compile Include="Enums\Architecture.cs" />
     <Compile Include="Enums\ArrivalTime.cs" />
+    <Compile Include="Enums\ChangeInitiatedBy.cs" />
     <Compile Include="Enums\ComputerLanguage.cs" />
     <Compile Include="Enums\Currency.cs" />
     <Compile Include="Enums\Languages\CPlusPlusKeywords.cs" />
@@ -113,7 +114,9 @@
     <Compile Include="Enums\SpouseModifier.cs" />
     <Compile Include="Enums\ParentChildModifier.cs" />
     <Compile Include="Enums\Result.cs" />
+    <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Extensions\ENumExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="FileName.cs" />
     <Compile Include="FunctionDatabase.cs" />
