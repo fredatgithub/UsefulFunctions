@@ -35,7 +35,7 @@ namespace ConsoleAppBigIntegerPrimeSearch
         currentNumber = startNumber + i;
         if (FunctionsPrimes.IsPrime(currentNumber))
         {
-          Display($"{currentNumber} is prime");
+          Display($"{currentNumber.ToString("N0", formatInfo)} is prime");
           counter++;
           primes.Add(currentNumber);
         }
