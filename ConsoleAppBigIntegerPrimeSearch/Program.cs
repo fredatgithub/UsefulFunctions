@@ -25,9 +25,14 @@ namespace ConsoleAppBigIntegerPrimeSearch
 
       var source = new BigInteger(ulong.MaxValue);
       var startNumber = source;
+      Display(string.Empty);
+      Display($"Starting searching from ulong.MaxValue which is: {startNumber.ToString("N0", formatInfo)}");
+      Display(string.Empty);
       var currentNumber = source;
       var counter = 0;
-      var increment = 1000;
+      var increment = 1_000;
+      Display($"Searching for {increment} numbers after {startNumber.ToString("N0", formatInfo)}");
+      Display(string.Empty);
       var endNumber = startNumber + increment;
       var primes = new List<BigInteger>();
       for (int i = 0; i < increment; i += 2)
