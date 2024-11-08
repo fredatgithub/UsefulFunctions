@@ -1027,6 +1027,7 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
+    [TestMethod]
     public void TestMethod_Pi_421()
     {
       const int source = 421;
@@ -1035,6 +1036,7 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
+    [TestMethod]
     public void TestMethod_Pi_431()
     {
       const int source = 431;
@@ -1043,6 +1045,7 @@ namespace UnitTestUsefullFunctions
       Assert.AreEqual(result, expected);
     }
 
+    [TestMethod]
     public void TestMethod_Pi_433()
     {
       const int source = 433;
@@ -1050,7 +1053,39 @@ namespace UnitTestUsefullFunctions
       int result = FunctionsPrimes.Pi(source);
       Assert.AreEqual(result, expected);
     }
-    
+
+    [TestMethod]
+    public void TestMethod_BigIntegerPrime_ulong_MaxValue()
+    {
+      // ulong MaxValue = 18446744073709551615uL
+      var source = new BigInteger(ulong.MaxValue);
+      var expected = false;
+      var result = FunctionsPrimes.IsPrime(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_BigIntegerPrime_ulong_MaxValue_plus_one()
+    {
+      // ulong MaxValue + 1 = 18446744073709551616uL
+      var source = new BigInteger(ulong.MaxValue);
+      source++;
+      var expected = false;
+      var result = FunctionsPrimes.IsPrime(source);
+      Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_BigIntegerPrime_ulong_MaxValue_plus_2()
+    {
+      // ulong MaxValue + 2 = 18446744073709551617uL
+      var source = new BigInteger(ulong.MaxValue);
+      source += 2;
+      var expected = false;
+      var result = FunctionsPrimes.IsPrime(source);
+      Assert.AreEqual(result, expected);
+    }
+
     /* Primes between 2 and 4000
       
     433    439    443    449    457    461    463 
