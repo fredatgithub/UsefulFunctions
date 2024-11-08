@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // l'ensemble d'attributs suivant. Changez les valeurs de ces attributs pour modifier les informations
 // associées à un assembly.
 [assembly: AssemblyTitle("ConsoleAppBigIntegerPrimeSearch")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("calcul des nombres premiers avec Big Integer")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("ConsoleAppBigIntegerPrimeSearch")]
-[assembly: AssemblyCopyright("Copyright ©  2024")]
+[assembly: AssemblyCopyright("Copyright ©  2024 MIT Freddy Juhel")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

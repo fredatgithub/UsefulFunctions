@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Numerics;
+using ConsoleAppBigIntegerPrimeSearch.Properties;
 using FonctionsUtiles.Fred.Csharp;
 
 namespace ConsoleAppBigIntegerPrimeSearch
@@ -28,18 +31,20 @@ namespace ConsoleAppBigIntegerPrimeSearch
 
       //var source = new BigInteger(ulong.MaxValue);
       // continuing search from the last prime number found
-      var source = BigInteger.Parse("18446744073709552613");
+      var source = BigInteger.Parse(Settings.Default.StartingNumber);
       var startNumber = source;
       Display(string.Empty);
       Display($"Starting searching from ulong.MaxValue which is: {startNumber.ToString("N0", formatInfo)}");
       Display(string.Empty);
       var currentNumber = source;
       var counter = 0;
-      var increment = 1_000;
+      var increment = Settings.Default.IncrementNumber;
       Display($"Searching for {increment} numbers after {startNumber.ToString("N0", formatInfo)}");
       Display(string.Empty);
       var endNumber = startNumber + increment;
       var primes = new List<BigInteger>();
+      var chrono = new Stopwatch();
+      chrono.Start();
       for (int i = 0; i < increment; i += 2)
       {
         currentNumber = startNumber + i;
@@ -49,12 +54,9 @@ namespace ConsoleAppBigIntegerPrimeSearch
           counter++;
           primes.Add(currentNumber);
         }
-        else
-        {
-          //Display(currentNumber.ToString("N0", formatInfo));
-        }
       }
 
+      chrono.Stop();
       if (counter == 0)
       {
         Display($"No prime found between:");
@@ -68,19 +70,57 @@ namespace ConsoleAppBigIntegerPrimeSearch
         Display($"{endNumber.ToString("N0", formatInfo)}");
       }
 
-      WriteToFile(primes);
+      Display(string.Empty);
+      Display($"To search for prime numbers within {increment} numbers, it took : {FormatElapseTime(chrono.Elapsed)}");
+      WriteToFile("TimeTaken", $"To search for prime numbers within {increment} numbers, it took : {FormatElapseTime(chrono.Elapsed)} starting at {startNumber}");
+      WriteToFile("BigIntegerPrimes", primes);
       Display("The result were written to a file on a disk: BigIntegerPrimes.txt");
+
       Display("Press any key to exit:");
       Console.ReadKey();
     }
 
-    private static void WriteToFile(List<BigInteger> primes)
+    private static void WriteToFile(string filename, string message)
     {
       try
       {
         var today = DateTime.Now;
         string todayFormatted = today.ToString().Replace('/', '-').Replace(' ', '_').Replace(':', '-');
-        using (StreamWriter sw = new StreamWriter($"BigIntegerPrimes-{todayFormatted}.txt"))
+        using (StreamWriter sw = new StreamWriter($"{filename}-{todayFormatted}.txt"))
+        {
+          sw.WriteLine(message);
+        }
+      }
+      catch (Exception)
+      {
+        throw;
+      }
+    }
+
+    private static string FormatElapseTime(TimeSpan timeSpan)
+    {
+      var result = string.Empty;
+      if (timeSpan.Hours > 0)
+      {
+        result += $"{timeSpan.Hours} heure{Plural(timeSpan.Hours)} ";
+      }
+
+      if (timeSpan.Minutes > 0 || timeSpan.Hours > 0)
+      {
+        result += $"{timeSpan.Minutes} minute{Plural(timeSpan.Minutes)} ";
+      }
+
+      result += $"{timeSpan.Seconds} seconde{Plural(timeSpan.Seconds)}";
+      return result;
+    }
+
+    private static void WriteToFile(string filename, List<BigInteger> primes)
+    {
+      try
+      {
+        var today = DateTime.Now;
+        string todayFormatted = today.ToString().Replace('/', '-').Replace(' ', '_').Replace(':', '-');
+        using (StreamWriter sw = new StreamWriter($"{filename}-{todayFormatted}.txt"))
         {
           sw.WriteLine("Prime numbers");
           foreach (var number in primes)
