@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -175,7 +175,7 @@ namespace FonctionsUtiles.Fred.Csharp
     public static bool IsPrime(int number)
     {
       if (number <= 1) return false; // remove negative numbers and 0 and 1
-      if (number == 2)  return true; // 2 is prime
+      if (number == 2) return true; // 2 is prime
       if (number == 3) return true; // 3 is prime
       if (number % 2 == 0) return false; // remove all even numbers
       if (number == 5) return true; // 5 is prime
@@ -516,15 +516,15 @@ namespace FonctionsUtiles.Fred.Csharp
       switch (age)
       {
         case int n when (n < 0):
-          return "pas encore n�";
+          return "pas encore né";
         case int n when (n < 18):
           return "mineur";
         case int n when (n < 62):
           return "senior";
         case int n when (n >= 62):
-          return "retrait�";
+          return "retraité";
         default:
-          return "majorit� inconnue";
+          return "majorité inconnue";
       }
     }
 
@@ -577,6 +577,49 @@ namespace FonctionsUtiles.Fred.Csharp
     public static decimal RoundedDivide(decimal dividend, decimal divisor, decimal additionalValue, int decimalPrecision = 7)
     {
       return (divisor == 0m) ? 0m : Math.Round(Divide(dividend, divisor) + additionalValue, decimalPrecision, MidpointRounding.ToEven);
+    }
+
+    public static int EuclideFunctionPgcd(int a, int b)
+    {
+      /*
+       * https://fr.wikipedia.org/wiki/Algorithme_d%27Euclide
+       * fonction euclide(a, b)
+        tant que a ≠ b
+        si a > b alors
+            a := a − b;
+        sinon
+            b := b − a;
+        renvoyer a;
+       * */
+      while (a != b)
+      {
+        if (a > b)
+        {
+          a -= b;
+        }
+        else
+        {
+          b -= a;
+        }
+      }
+
+      return a;
+    }
+
+    public static int EuclideFunctionPgcdRecursive(int a, int b)
+    {
+      /*
+       * https://fr.wikipedia.org/wiki/Algorithme_d%27Euclide
+       * fonction euclide(a, b)
+          si b = 0 alors renvoyer a;
+          sinon renvoyer euclide(b, a modulo b);
+       * */
+      if (b == 0)
+      {
+        return a;
+      }
+
+      return EuclideFunctionPgcdRecursive(b, a % b);
     }
   }
 }
