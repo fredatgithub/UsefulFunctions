@@ -13,6 +13,9 @@ namespace ConsoleAppBigIntegerPrimeSearch
     {
       Action<string> Display = Console.WriteLine;
       Display("Searching for big integer prime numbers");
+      var today = DateTime.Now;
+      string todayFormatted = today.ToString().Replace('/', '-').Replace(' ', '_').Replace(':', '-');
+      Display($"Search started on {todayFormatted}");
       //var number = BigInteger.Parse("123456789012345678901234567890");
       // ulong MaxValue = 18446744073709551615uL
       // ulong MaxValue + 1 = 18446744073709551616uL
@@ -73,8 +76,11 @@ namespace ConsoleAppBigIntegerPrimeSearch
     {
       try
       {
-        using (StreamWriter sw = new StreamWriter("BigIntegerPrimes.txt"))
+        var today = DateTime.Now;
+        string todayFormatted = today.ToString().Replace('/', '-').Replace(' ', '_').Replace(':', '-');
+        using (StreamWriter sw = new StreamWriter($"BigIntegerPrimes-{todayFormatted}.txt"))
         {
+          sw.WriteLine("Prime numbers");
           foreach (var number in primes)
           {
             sw.WriteLine(number);
