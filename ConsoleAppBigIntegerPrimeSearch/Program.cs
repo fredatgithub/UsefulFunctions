@@ -26,7 +26,9 @@ namespace ConsoleAppBigIntegerPrimeSearch
         NumberGroupSizes = new[] { 3 } // Groupes de 3 chiffres
       };
 
-      var source = new BigInteger(ulong.MaxValue);
+      //var source = new BigInteger(ulong.MaxValue);
+      // continuing search from the last prime number found
+      var source = BigInteger.Parse("18446744073709552613");
       var startNumber = source;
       Display(string.Empty);
       Display($"Starting searching from ulong.MaxValue which is: {startNumber.ToString("N0", formatInfo)}");
