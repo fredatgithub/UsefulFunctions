@@ -59,6 +59,7 @@ namespace ConsoleAppBigIntegerPrimeSearch
       }
 
       WriteToFile(primes);
+      Display("The result were written to a file on a disk: BigIntegerPrimes.txt");
       Display("Press any key to exit:");
       Console.ReadKey();
     }
