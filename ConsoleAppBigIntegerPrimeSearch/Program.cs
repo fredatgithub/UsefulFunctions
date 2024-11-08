@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Numerics;
 using FonctionsUtiles.Fred.Csharp;
 
@@ -27,6 +29,7 @@ namespace ConsoleAppBigIntegerPrimeSearch
       var counter = 0;
       var increment = 1000;
       var endNumber = startNumber + increment;
+      var primes = new List<BigInteger>();
       for (int i = 0; i < increment; i += 2)
       {
         currentNumber = startNumber + i;
@@ -34,10 +37,11 @@ namespace ConsoleAppBigIntegerPrimeSearch
         {
           Display($"{currentNumber} is prime");
           counter++;
+          primes.Add(currentNumber);
         }
         else
         {
-          Display(currentNumber.ToString("N0", formatInfo));
+          //Display(currentNumber.ToString("N0", formatInfo));
         }
       }
 
@@ -54,8 +58,27 @@ namespace ConsoleAppBigIntegerPrimeSearch
         Display($"{endNumber.ToString("N0", formatInfo)}");
       }
 
+      WriteToFile(primes);
       Display("Press any key to exit:");
       Console.ReadKey();
+    }
+
+    private static void WriteToFile(List<BigInteger> primes)
+    {
+      try
+      {
+        using (StreamWriter sw = new StreamWriter("BigIntegerPrimes.txt"))
+        {
+          foreach (var number in primes)
+          {
+            sw.WriteLine(number);
+          }
+        }
+      }
+      catch (Exception)
+      {
+        throw;
+      }
     }
 
     private static string Plural(int counter)
