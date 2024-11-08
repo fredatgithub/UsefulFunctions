@@ -105,7 +105,7 @@ namespace ConsoleAppBigIntegerPrimeSearch
         result += $"{timeSpan.Hours} heure{Plural(timeSpan.Hours)} ";
       }
 
-      if (timeSpan.Minutes > 0 || timeSpan.Hours > 0)
+      if (timeSpan.Minutes > 0)
       {
         result += $"{timeSpan.Minutes} minute{Plural(timeSpan.Minutes)} ";
       }
