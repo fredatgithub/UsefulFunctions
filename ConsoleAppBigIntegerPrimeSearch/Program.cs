@@ -34,7 +34,7 @@ namespace ConsoleAppBigIntegerPrimeSearch
       var source = BigInteger.Parse(Settings.Default.StartingNumber);
       var startNumber = source;
       Display(string.Empty);
-      Display($"Starting searching from ulong.MaxValue which is: {startNumber.ToString("N0", formatInfo)}");
+      Display($"Starting searching from: {startNumber.ToString("N0", formatInfo)}");
       Display(string.Empty);
       var currentNumber = source;
       var counter = 0;
