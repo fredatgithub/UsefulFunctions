@@ -1515,7 +1515,7 @@ namespace UnitTestUsefullFunctions
       const int source = 6;
       List<int> expected = new List<int> { 2, 3 };
       List<int> result = FunctionsMath.Factorization(source);
-      AssertListAreEqualed(result, expected);
+      CollectionAssert.AreEquivalent(result, expected);
     }
 
     [TestMethod]
@@ -1524,7 +1524,7 @@ namespace UnitTestUsefullFunctions
       const int source = 9;
       List<int> expected = new List<int> { 3, 3 };
       List<int> result = FunctionsMath.Factorization(source);
-      AssertListAreEqualed(result, expected);
+      CollectionAssert.AreEquivalent(result, expected);
     }
 
     [TestMethod]
@@ -1533,7 +1533,7 @@ namespace UnitTestUsefullFunctions
       const int source = 10;
       List<int> expected = new List<int> { 2, 5 };
       List<int> result = FunctionsMath.Factorization(source);
-      AssertListAreEqualed(result, expected);
+      CollectionAssert.AreEquivalent(result, expected);
     }
 
     [TestMethod]
@@ -1542,7 +1542,7 @@ namespace UnitTestUsefullFunctions
       const int source = 15;
       List<int> expected = new List<int> { 3, 5 };
       List<int> result = FunctionsMath.Factorization(source);
-      AssertListAreEqualed(result, expected);
+      CollectionAssert.AreEquivalent(result, expected);
     }
 
     [TestMethod]
@@ -1551,7 +1551,7 @@ namespace UnitTestUsefullFunctions
       const int source = 100;
       List<int> expected = new List<int> { 2, 2, 5, 5 };
       List<int> result = FunctionsMath.Factorization(source);
-      AssertListAreEqualed(result, expected);
+      CollectionAssert.AreEquivalent(result, expected);
     }
 
     [TestMethod]
@@ -1560,7 +1560,7 @@ namespace UnitTestUsefullFunctions
       const int source = 200;
       List<int> expected = new List<int> { 2, 2, 2, 5, 5 };
       List<int> result = FunctionsMath.Factorization(source);
-      AssertListAreEqualed(result, expected);
+      CollectionAssert.AreEquivalent(result, expected);
     }
 
     #endregion Factorization
@@ -1573,7 +1573,7 @@ namespace UnitTestUsefullFunctions
       const int source = 10;
       List<int> expected = new List<int> { 1, 10, 2, 5 };
       List<int> result = FunctionsMath.GetDivisors(source);
-      AssertListAreEqualed(result, expected);
+      CollectionAssert.AreEquivalent(result, expected);
     }
 
     [TestMethod]
@@ -1582,7 +1582,7 @@ namespace UnitTestUsefullFunctions
       const int source = 50;
       List<int> expected = new List<int> { 1, 50, 2, 5, 10, 25 };
       List<int> result = FunctionsMath.GetDivisors(source);
-      AssertListAreEqualed(result, expected);
+      CollectionAssert.AreEquivalent(result, expected);
     }
 
     [TestMethod]
@@ -1591,7 +1591,7 @@ namespace UnitTestUsefullFunctions
       const int source = 100;
       List<int> expected = new List<int> { 1, 100, 2, 4, 5, 10, 20, 25, 50 };
       List<int> result = FunctionsMath.GetDivisors(source);
-      AssertListAreEqualed(result, expected);
+      CollectionAssert.AreEquivalent(result, expected);
     }
     #endregion
 
@@ -1794,7 +1794,7 @@ namespace UnitTestUsefullFunctions
       int source = 1225;
       List<string> expected = new List<string>();
       List<string> result = FunctionsMath.GetPrimeDivisor(source);
-      AssertListAreEqualed(result, expected);
+      CollectionAssert.AreEquivalent(result, expected);
     }
 
     [TestMethod]
@@ -1803,7 +1803,7 @@ namespace UnitTestUsefullFunctions
       int source = 5963;
       List<string> expected = new List<string> { "67*89=5963" };
       List<string> result = FunctionsMath.GetPrimeDivisor(source);
-      AssertListAreEqualed(result, expected);
+      CollectionAssert.AreEquivalent(result, expected);
     }
 
     [TestMethod]
@@ -1814,7 +1814,7 @@ namespace UnitTestUsefullFunctions
       int source = 9036011;
       List<string> expected = new List<string> { "67*89=5963" };
       List<string> result = FunctionsMath.GetPrimeDivisor(source);
-      AssertListAreEqualed(result, expected);
+      CollectionAssert.AreEquivalent(result, expected);
     }
 
     private void AssertArrayAreEqualed(int[] source, int[] target)
@@ -1826,39 +1826,24 @@ namespace UnitTestUsefullFunctions
       }
     }
 
-    private void AssertListAreEqualed(List<string> source, List<string> target)
+    [TestMethod]
+    public void TestMethod_PgcdBinaireAlgorithme_value_2_2()
     {
-      Assert.AreEqual(source.Count, target.Count);
-      for (int i = 0; i < source.Count; i++)
-      {
-        Assert.AreEqual(source[i], target[i]);
-      }
+      const int source1 = 2;
+      const int source2 = 2;
+      int expected = 2;
+      int result = FunctionsMath.PgcdBinaireAlgorithme(source1, source2);
+      Assert.AreEqual(result, expected);
     }
 
-    private void AssertListAreSimilar(List<string> source, List<string> target)
+    [TestMethod]
+    public void TestMethod_PgcdBinaireAlgorithme_value_30_24()
     {
-      Assert.AreEqual(source.Count, target.Count);
-      var sortedSource = source;
-      sortedSource.Sort();
-      var sortedTarget = target;
-      sortedTarget.Sort();
-      for (int i = 0; i < sortedSource.Count; i++)
-      {
-        Assert.AreEqual(sortedSource[i], sortedTarget[i]);
-      }
-    }
-
-    private void AssertArrayAreSimilar(int[] source, int[] target)
-    {
-      Assert.AreEqual(source.Length, target.Length);
-      var sortedSource = source;
-      Array.Sort(sortedSource);
-      var sortedTarget = target;
-      Array.Sort(sortedTarget);
-      for (int i = 0; i < sortedSource.Length; i++)
-      {
-        Assert.AreEqual(sortedSource[i], sortedTarget[i]);
-      }
+      const int source1 = 30;
+      const int source2 = 24;
+      int expected = 6;
+      int result = FunctionsMath.PgcdBinaireAlgorithme(source1, source2);
+      Assert.AreEqual(result, expected);
     }
   }
 }

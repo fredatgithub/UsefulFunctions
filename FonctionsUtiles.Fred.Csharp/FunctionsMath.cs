@@ -621,5 +621,49 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return EuclideFunctionPgcdRecursive(b, a % b);
     }
+
+    public static int PgcdBinaireAlgorithme(int a, int b)
+    {
+      /*
+       * https://fr.wikipedia.org/wiki/Algorithme_binaire_de_calcul_du_PGCD
+       * Si 	                  alors
+         a = 0 	                pgcd(0, b) = b
+         a et b sont pairs 	    pgcd(a, b) = 2 × pgcd(a/2, b/2)
+         a est impair, b pair 	pgcd(a, b) = pgcd(a, b/2)
+         a est pair, b impair 	pgcd(a, b) = pgcd(a/2, b)
+         a et b impairs 	      pgcd(a, b) = pgcd( (a - b)/2, b) 
+       * */
+      // si a = 0 	            alors pgcd(0, b) = b
+      if (a == 0)
+      {
+        return b;
+      }
+
+      // si a et b sont pairs 	    alors pgcd(a, b) = 2 × pgcd(a/2, b/2)
+      if ((a % 2 == 0) && (b % 2 == 0))
+      {
+        return 2 * PgcdBinaireAlgorithme(a / 2, b / 2);
+      }
+
+      // si a est impair, b pair 	alors pgcd(a, b) = pgcd(a, b/2)
+      if ((a % 2 != 0) && (b % 2 == 0))
+      {
+        return PgcdBinaireAlgorithme(a, b / 2);
+      }
+
+      // si a est pair, b impair 	alors pgcd(a, b) = pgcd(a/2, b)
+      if ((a % 2 == 0) && (b % 2 != 0))
+      {
+        return PgcdBinaireAlgorithme(a / 2, b);
+      }
+
+      // si a et b impairs 	      alors pgcd(a, b) = pgcd( (a - b)/2, b) 
+      if ((a % 2 != 0) && (b % 2 != 0))
+      {
+        return PgcdBinaireAlgorithme((a - b) / 2, b);
+      }
+
+      return 0;
+    }
   }
 }
