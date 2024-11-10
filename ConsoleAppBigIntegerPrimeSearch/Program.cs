@@ -75,7 +75,8 @@ namespace ConsoleAppBigIntegerPrimeSearch
       WriteToFile("TimeTaken", $"To search for prime numbers within {increment} numbers, it took : {FormatElapseTime(chrono.Elapsed)} starting at {startNumber}");
       WriteToFile("BigIntegerPrimes", primes);
       Display("The result were written to a file on a disk: BigIntegerPrimes.txt");
-
+      Display(string.Empty);
+      Display($"End of processing on {DateTime.Now}");  
       Display("Press any key to exit:");
       Console.ReadKey();
     }
