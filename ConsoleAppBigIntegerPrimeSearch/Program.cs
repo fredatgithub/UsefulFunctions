@@ -36,10 +36,11 @@ namespace ConsoleAppBigIntegerPrimeSearch
       Display(string.Empty);
       Display($"Starting searching from: {startNumber.ToString("N0", formatInfo)}");
       Display(string.Empty);
-      var currentNumber = source;
+      //var currentNumber = source;
       var counter = 0;
       var increment = Settings.Default.IncrementNumber;
       Display($"Searching for {increment} numbers after {startNumber.ToString("N0", formatInfo)}");
+      Display($"Processing numbers until {(startNumber + increment).ToString("N0", formatInfo)}");
       Display(string.Empty);
       var endNumber = startNumber + increment;
       var primes = new List<BigInteger>();
@@ -47,7 +48,7 @@ namespace ConsoleAppBigIntegerPrimeSearch
       chrono.Start();
       for (int i = 0; i < increment; i += 2)
       {
-        currentNumber = startNumber + i;
+        var currentNumber = startNumber + i;
         if (FunctionsPrimes.IsPrime(currentNumber))
         {
           Display($"{currentNumber.ToString("N0", formatInfo)} is prime");
