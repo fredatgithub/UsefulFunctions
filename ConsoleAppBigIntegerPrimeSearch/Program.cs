@@ -32,6 +32,11 @@ namespace ConsoleAppBigIntegerPrimeSearch
       //var source = new BigInteger(ulong.MaxValue);
       // continuing search from the last prime number found
       var source = BigInteger.Parse(Settings.Default.StartingNumber);
+      if (source % 2 == 0 )
+      {
+        source++;
+      }
+
       var startNumber = source;
       Display(string.Empty);
       Display($"Starting searching from: {startNumber.ToString("N0", formatInfo)}");
