@@ -45,7 +45,7 @@ namespace ConsoleAppBigIntegerPrimeSearch
       var counter = 0;
       var increment = Settings.Default.IncrementNumber;
       Display($"Searching for {increment} numbers after {startNumber.ToString("N0", formatInfo)}");
-      Display($"Processing numbers until {(startNumber + increment).ToString("N0", formatInfo)}");
+      Display($"Processing numbers until         {(startNumber + increment).ToString("N0", formatInfo)}");
       Display(string.Empty);
       var endNumber = startNumber + increment;
       var primes = new List<BigInteger>();
