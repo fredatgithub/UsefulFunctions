@@ -25,7 +25,7 @@ namespace ConsoleAppBigIntegerPrimeSearch.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1000")]
+        [global::System.Configuration.DefaultSettingValueAttribute("5000")]
         public int IncrementNumber {
             get {
                 return ((int)(this["IncrementNumber"]));
