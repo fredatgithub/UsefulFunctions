@@ -79,7 +79,7 @@ namespace ConsoleAppBigIntegerPrimeSearch
       var filename = $"TimeTaken-{todayFormatted}.txt";
       WriteToFile(filename, $"To search for prime numbers within {increment} numbers, it took : {FormatElapseTime(chrono.Elapsed)} starting at {startNumber} and ending at {endNumber}");
       filename = $"BigIntegerPrimes-{todayFormatted}.txt";
-      WriteToFile(filename, primes);
+      WriteToFile(AddTimetoFilename(filename), primes);
       WriteToFile("lastNumber.txt", endNumber.ToString());
       Display("The result were written to a file on a disk: BigIntegerPrimes.txt");
       Display(string.Empty);
@@ -105,13 +105,17 @@ namespace ConsoleAppBigIntegerPrimeSearch
       return result;
     }
 
+    private static string AddTimetoFilename(string filename)
+    {
+      var today = DateTime.Now;
+      string todayFormatted = today.ToString().Replace('/', '-').Replace(' ', '_').Replace(':', '-');
+      return $"{filename}-{todayFormatted}.txt";
+    }
     private static void WriteToFile(string filename, string message, bool append = false)
     {
       try
       {
-        var today = DateTime.Now;
-        string todayFormatted = today.ToString().Replace('/', '-').Replace(' ', '_').Replace(':', '-');
-        using (StreamWriter sw = new StreamWriter($"{filename}-{todayFormatted}.txt", append))
+        using (StreamWriter sw = new StreamWriter(filename, append))
         {
           sw.WriteLine(message);
         }
@@ -143,9 +147,7 @@ namespace ConsoleAppBigIntegerPrimeSearch
     {
       try
       {
-        var today = DateTime.Now;
-        string todayFormatted = today.ToString().Replace('/', '-').Replace(' ', '_').Replace(':', '-');
-        using (StreamWriter sw = new StreamWriter($"{filename}-{todayFormatted}.txt"))
+        using (StreamWriter sw = new StreamWriter(filename))
         {
           sw.WriteLine("Prime numbers");
           foreach (var number in primes)

@@ -25,18 +25,6 @@ namespace ConsoleAppBigIntegerPrimeSearch.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("18446744073709553597")]
-        public string StartingNumber {
-            get {
-                return ((string)(this["StartingNumber"]));
-            }
-            set {
-                this["StartingNumber"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("1000")]
         public int IncrementNumber {
             get {
