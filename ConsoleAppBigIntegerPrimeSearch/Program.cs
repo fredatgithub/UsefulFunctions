@@ -78,7 +78,7 @@ namespace ConsoleAppBigIntegerPrimeSearch
       todayFormatted = today.ToString().Replace('/', '-').Replace(' ', '_').Replace(':', '-');
       var filename = $"TimeTaken-{todayFormatted}.txt";
       WriteToFile(filename, $"To search for prime numbers within {increment} numbers, it took : {FormatElapseTime(chrono.Elapsed)} starting at {startNumber} and ending at {endNumber}");
-      filename = $"BigIntegerPrimes-{todayFormatted}.txt";
+      filename = $"BigIntegerPrimes";
       WriteToFile(AddTimetoFilename(filename), primes);
       WriteToFile("lastNumber.txt", endNumber.ToString());
       Display("The result were written to a file on a disk: BigIntegerPrimes.txt");
@@ -149,7 +149,7 @@ namespace ConsoleAppBigIntegerPrimeSearch
       {
         using (StreamWriter sw = new StreamWriter(filename))
         {
-          sw.WriteLine("Prime numbers");
+          sw.WriteLine($"Prime numbers between {primes[0]} and {primes[primes.Count - 1]}");
           foreach (var number in primes)
           {
             sw.WriteLine(number);
