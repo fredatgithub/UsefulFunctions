@@ -145,6 +145,11 @@ namespace ConsoleAppBigIntegerPrimeSearch
 
     private static void WriteToFile(string filename, List<BigInteger> primes)
     {
+      if (primes.Count == 0)
+      {
+        return; 
+      }
+      
       try
       {
         using (StreamWriter sw = new StreamWriter(filename))
