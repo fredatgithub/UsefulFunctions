@@ -90,7 +90,7 @@ namespace ConsoleAppBigIntegerPrimeSearch
 
     private static string Tabulation(int numberOfSpace, int increment)
     {
-      int finalNumberOfSpace =  increment.ToString().Length - numberOfSpace;
+      int finalNumberOfSpace = numberOfSpace - increment.ToString().Length;
       return new string(' ', finalNumberOfSpace);
     }
 
