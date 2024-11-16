@@ -11319,55 +11319,55 @@ namespace UnitTestUsefullFunctions
     }
 
     [TestMethod]
-    public void Tabulation_1_Should_give_5_spaces()
+    public void Tabulation_1_Should_give_6_spaces()
     {
       var source = 1;
-      var expected = new string(' ', 5);
-      var result = StringFunc.Tabulation(source);
-      Assert.AreEqual(expected, result);
-    }
-
-    [TestMethod]
-    public void Tabulation_2_Should_give_6_spaces()
-    {
-      var source = 2;
       var expected = new string(' ', 6);
       var result = StringFunc.Tabulation(source);
       Assert.AreEqual(expected, result);
     }
 
     [TestMethod]
-    public void Tabulation_3_Should_give_7_spaces()
+    public void Tabulation_2_Should_give_7_spaces()
     {
-      var source = 3;
+      var source = 2;
       var expected = new string(' ', 7);
       var result = StringFunc.Tabulation(source);
       Assert.AreEqual(expected, result);
     }
 
     [TestMethod]
-    public void Tabulation_4_Should_give_8_spaces()
+    public void Tabulation_3_Should_give_8_spaces()
     {
-      var source = 4;
+      var source = 3;
       var expected = new string(' ', 8);
       var result = StringFunc.Tabulation(source);
       Assert.AreEqual(expected, result);
     }
 
     [TestMethod]
-    public void Tabulation_5_Should_give_9_spaces()
+    public void Tabulation_4_Should_give_9_spaces()
     {
-      var source = 5;
+      var source = 4;
       var expected = new string(' ', 9);
       var result = StringFunc.Tabulation(source);
       Assert.AreEqual(expected, result);
     }
 
     [TestMethod]
-    public void Tabulation_6_Should_give_10_spaces()
+    public void Tabulation_5_Should_give_10_spaces()
+    {
+      var source = 5;
+      var expected = new string(' ', 10);
+      var result = StringFunc.Tabulation(source);
+      Assert.AreEqual(expected, result);
+    }
+
+    [TestMethod]
+    public void Tabulation_6_Should_give_11_spaces()
     {
       var source = 6;
-      var expected = new string(' ', 10);
+      var expected = new string(' ', 11);
       var result = StringFunc.Tabulation(source);
       Assert.AreEqual(expected, result);
     }

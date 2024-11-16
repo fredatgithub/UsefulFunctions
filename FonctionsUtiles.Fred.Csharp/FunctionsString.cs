@@ -3974,7 +3974,7 @@ namespace FonctionsUtiles.Fred.Csharp
 
     public static string Tabulation(int number)
     {
-      int finalNumberOfSpace = 4 + number;
+      int finalNumberOfSpace = 5 + number;
       return Xspaces(finalNumberOfSpace);
     }
 
