@@ -41,7 +41,7 @@ namespace ConsoleAppBigIntegerPrimeSearch
       var counter = 0;
       var increment = Settings.Default.IncrementNumber;
       Display($"Searching for {increment} numbers after {startNumber.ToString("N0", formatInfo)}");
-      Display($"Processing numbers until         {(startNumber + increment).ToString("N0", formatInfo)}");
+      Display($"Processing numbers until{Tabulation(9, increment)}{(startNumber + increment).ToString("N0", formatInfo)}");
       Display(string.Empty);
       var endNumber = startNumber + increment;
       var primes = new List<BigInteger>();
@@ -86,6 +86,12 @@ namespace ConsoleAppBigIntegerPrimeSearch
       Display($"End of processing on {DateTime.Now}");
       Display("Press any key to exit:");
       Console.ReadKey();
+    }
+
+    private static string Tabulation(int numberOfSpace, int increment)
+    {
+      int finalNumberOfSpace =  increment.ToString().Length - numberOfSpace;
+      return new string(' ', finalNumberOfSpace);
     }
 
     private static string ReadFile(string filename)
