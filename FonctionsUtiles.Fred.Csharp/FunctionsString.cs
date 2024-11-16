@@ -1,4 +1,3 @@
-using Newtonsoft.Json.Linq;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -3971,6 +3970,17 @@ namespace FonctionsUtiles.Fred.Csharp
       }
 
       return (sb.ToString() != message);
+    }
+
+    public static string Tabulation(int number)
+    {
+      int finalNumberOfSpace = 4 + number;
+      return Xspaces(finalNumberOfSpace);
+    }
+
+    public static string Xspaces(int number)
+    {
+      return new string(' ', number);
     }
   }
 }

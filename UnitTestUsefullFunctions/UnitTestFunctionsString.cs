@@ -11317,5 +11317,59 @@ namespace UnitTestUsefullFunctions
       List<string> resultat = StringFunc.KeepUsefulLines(liste1, liste2);
       CollectionAssert.AreEqual(liste2, resultat);
     }
+
+    [TestMethod]
+    public void Tabulation_1_Should_give_5_spaces()
+    {
+      var source = 1;
+      var expected = new string(' ', 5);
+      var result = StringFunc.Tabulation(source);
+      Assert.AreEqual(expected, result);
+    }
+
+    [TestMethod]
+    public void Tabulation_2_Should_give_6_spaces()
+    {
+      var source = 2;
+      var expected = new string(' ', 6);
+      var result = StringFunc.Tabulation(source);
+      Assert.AreEqual(expected, result);
+    }
+
+    [TestMethod]
+    public void Tabulation_3_Should_give_7_spaces()
+    {
+      var source = 3;
+      var expected = new string(' ', 7);
+      var result = StringFunc.Tabulation(source);
+      Assert.AreEqual(expected, result);
+    }
+
+    [TestMethod]
+    public void Tabulation_4_Should_give_8_spaces()
+    {
+      var source = 4;
+      var expected = new string(' ', 8);
+      var result = StringFunc.Tabulation(source);
+      Assert.AreEqual(expected, result);
+    }
+
+    [TestMethod]
+    public void Tabulation_5_Should_give_9_spaces()
+    {
+      var source = 5;
+      var expected = new string(' ', 9);
+      var result = StringFunc.Tabulation(source);
+      Assert.AreEqual(expected, result);
+    }
+
+    [TestMethod]
+    public void Tabulation_6_Should_give_10_spaces()
+    {
+      var source = 6;
+      var expected = new string(' ', 10);
+      var result = StringFunc.Tabulation(source);
+      Assert.AreEqual(expected, result);
+    }
   }
 }
