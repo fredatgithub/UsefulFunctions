@@ -59,20 +59,20 @@ namespace ConsoleAppBigIntegerPrimeSearch
       }
 
       chrono.Stop();
+      var numberOfPrimefound = string.Empty;
       if (counter == 0)
       {
-        Display($"No prime found between:");
-        Display($"{startNumber.ToString("N0", formatInfo)} and");
-        Display($"{endNumber.ToString("N0", formatInfo)}");
+        numberOfPrimefound = "No prime found between: " + $"{startNumber.ToString("N0", formatInfo)} and " + $"{endNumber.ToString("N0", formatInfo)}";
+        Display(numberOfPrimefound);
       }
       else
       {
-        Display($"{counter} prime{Plural(counter)} found between:");
-        Display($"{startNumber.ToString("N0", formatInfo)} and");
-        Display($"{endNumber.ToString("N0", formatInfo)}");
+        numberOfPrimefound = $"{counter} prime{Plural(counter)} found between: " + $"{startNumber.ToString("N0", formatInfo)} and " + $"{endNumber.ToString("N0", formatInfo)}";
+        Display(numberOfPrimefound);
       }
 
       Display(string.Empty);
+      WriteToFile("PrimeCounter.txt", numberOfPrimefound, true);
       Display($"To search for prime numbers within {increment} numbers, it took : {FormatElapseTime(chrono.Elapsed)}");
       today = DateTime.Now;
       todayFormatted = today.ToString().Replace('/', '-').Replace(' ', '_').Replace(':', '-');
