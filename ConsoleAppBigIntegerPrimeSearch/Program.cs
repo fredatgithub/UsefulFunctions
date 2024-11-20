@@ -6,7 +6,6 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Numerics;
-using FonctionsUtiles.Fred.Csharp;
 
 namespace ConsoleAppBigIntegerPrimeSearch
 {
@@ -59,7 +58,7 @@ namespace ConsoleAppBigIntegerPrimeSearch
       }
 
       chrono.Stop();
-      var numberOfPrimefound = string.Empty;
+      string numberOfPrimefound;
       if (counter == 0)
       {
         numberOfPrimefound = "No prime found between: " + $"{startNumber.ToString("N0", formatInfo)} and " + $"{endNumber.ToString("N0", formatInfo)}";
