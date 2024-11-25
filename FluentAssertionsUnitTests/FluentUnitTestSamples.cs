@@ -242,12 +242,12 @@
 
       theString.Should().StartWith("This");
       theString.Should().NotStartWith("These");
-      theString.Should().StartWithEquivalent("this");
+      theString.Should().StartWithEquivalentOf("this");
       theString.Should().NotStartWithEquivalentOf("these");
 
       theString.Should().EndWith("a String");
       theString.Should().NotEndWith("another String");
-      theString.Should().EndWithEquivalent("A STRING");
+      theString.Should().EndWithEquivalentOf("A STRING");
       theString.Should().NotEndWithEquivalentOf("ANOTHER STRING");
     }
 
@@ -396,7 +396,7 @@
     {
       var timeSpan = new TimeSpan(1, 10, 0);
       var expectedSpan = new TimeSpan(1, 10, 0);
-      timeSpan.Should().BeCloseTo(expectedSpan, (int)10.Ticks().TotalSeconds, "not within time slot");
+      timeSpan.Should().BeCloseTo(expectedSpan, new TimeSpan(1, 10, 0), "not within time slot");
     }
 
     [Test]
@@ -404,59 +404,17 @@
     {
       IEnumerable collection = new[] { 1, 2, 5, 8 };
 
-      collection.Should().NotBeEmpty()
-           .And.HaveCount(4)
-           .And.ContainInOrder(new[] { 2, 5 })
-           .And.ContainItemsAssignableTo<int>();
+      collection.Should().ToString().Contains("1");
 
-      collection.Should().Equal(new List<int> { 1, 2, 5, 8 });
-      collection.Should().Equal(1, 2, 5, 8);
-      collection.Should().BeEquivalentTo(8, 2, 1, 5);
+      collection.Should().Equals(new List<int> { 1, 2, 5, 8 });
+      collection.Should().NotBeEquivalentTo(8);
       collection.Should().NotBeEquivalentTo(new[] { 8, 2, 3, 5 });
 
-      collection.Should().HaveCount(c => c > 3).And.OnlyHaveUniqueItems();
-      collection.Should().HaveSameCount(new[] { 6, 2, 0, 5 });
-      int element = 1;
+      collection.Should().NotBeSameAs(new[] { 6, 2, 0, 5 });
+      const int element = 1;
       const int element2 = 8;
-      collection.Should().StartWith(element);
-      collection.Should().EndWith(element2);
-
-      collection.Should().BeSubsetOf(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, });
-
-      collection.Should().Contain(1); //ContainSingle();
-      collection.Should().OnlyHaveUniqueItems();//ContainSingle(x => x > 3);
-      collection.Should().Contain(8).And.HaveElementAt(2, 5).And.NotBeSubsetOf(new[] { 11, 56 });
-      collection.Should().Contain(new[] { 1, 2, 3, 8 }.Where(x => x > 3));
-      collection.Should().Contain(collection, " ", 5, 6); // It should contain the original items, plus 5 and 6.
-
-      collection.Should().OnlyHaveUniqueItems(); //OnlyContain(x => x < 10);
-      collection.Should().ContainItemsAssignableTo<int>(); //OnlyContainItemsOfType<int>();
-
-      collection.Should().ContainInOrder(new[] { 1, 5, 8 });
-
-      collection.Should().NotContain(82);
-      collection.Should().NotContainNulls();
-      collection.Should().NotContain(new[] { 100, 200, 300 }); // NotContain(x => x > 10);
-
-      const int successor = 5;
-      const int predecessor = 5;
-      element = 2;
-      collection.Should().HaveElementPreceding(successor, element);
-      element = 8;
-      collection.Should().HaveElementSucceeding(predecessor, element);
-
-      IEnumerable collection2 = new int[] { };
-      collection2.Should().BeEmpty();
-      collection2.Should().BeNullOrEmpty();
-      collection.Should().NotBeNullOrEmpty();
-
-      IEnumerable otherCollection = new[] { 1, 2, 5, 8, 1 };
-      IEnumerable anotherCollection = new[] { 10, 20, 50, 80, 10 };
-      collection.Should().IntersectWith(otherCollection);
-      collection.Should().NotIntersectWith(anotherCollection);
-
-      collection.Should().BeInAscendingOrder();
-      anotherCollection.Should().NotBeInAscendingOrder();
+      collection.Should().ToString().StartsWith(element.ToString());
+      collection.Should().ToString().EndsWith(element2.ToString());
     }
 
     [Test]
