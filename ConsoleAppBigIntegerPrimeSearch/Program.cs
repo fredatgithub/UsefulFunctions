@@ -45,6 +45,7 @@ namespace ConsoleAppBigIntegerPrimeSearch
       var endNumber = startNumber + increment;
       var primes = new List<BigInteger>();
       var chrono = new Stopwatch();
+
       chrono.Start();
       for (int i = 0; i < increment; i += 2)
       {
