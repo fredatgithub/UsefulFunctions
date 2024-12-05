@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace FonctionsUtiles.Fred.Csharp
 {
@@ -589,6 +590,21 @@ namespace FonctionsUtiles.Fred.Csharp
           .Where(x => x % 2 == 0)
           .Select(x => Convert.ToByte(hex.Substring(x, 2), 16))
           .ToArray());
+    }
+
+    public static string MaskSensitiveData(string data)
+    {
+      if (data.Length < 4)
+      {
+        return new string('*', data.Length); // If data is too short, mask the entire thing
+      }
+
+      return new string('*', data.Length - 4) + data.Substring(data.Length - 4);
+    }
+
+    public static string MaskEmail(string email)
+    {
+      return Regex.Replace(email, @"(?<=.).(?=.*@)", "*");
     }
   }
 }
