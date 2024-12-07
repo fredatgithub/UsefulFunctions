@@ -56,6 +56,10 @@ namespace ConsoleAppBigIntegerPrimeSearch
           counter++;
           primes.Add(currentNumber);
         }
+        else
+        {
+          Display($"{currentNumber.ToString("N0", formatInfo)} is not a prime number");
+        }
       }
 
       chrono.Stop();
