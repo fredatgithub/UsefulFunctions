@@ -45,7 +45,7 @@ namespace ConsoleAppBigIntegerPrimeSearch
       var endNumber = startNumber + increment;
       var primes = new List<BigInteger>();
       var chrono = new Stopwatch();
-
+      //var finalSearchedNumber = startNumber + increment;
       chrono.Start();
       for (int i = 0; i < increment; i += 2)
       {
@@ -58,7 +58,7 @@ namespace ConsoleAppBigIntegerPrimeSearch
         }
         else
         {
-          Display($"{currentNumber.ToString("N0", formatInfo)} is not a prime number");
+          //Display($"{currentNumber.ToString("N0", formatInfo)} is not a prime number");
         }
       }
 
