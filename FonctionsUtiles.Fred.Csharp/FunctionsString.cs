@@ -3982,5 +3982,10 @@ namespace FonctionsUtiles.Fred.Csharp
     {
       return new string(' ', number);
     }
+
+    public static List<string> RemoveFirstNthCharacters(List<string> list, int nbCharacters = 0)
+    {
+      return list.Select(ligne => ligne.Length > nbCharacters ? ligne.Substring(nbCharacters) : string.Empty).ToList();
+    }
   }
 }

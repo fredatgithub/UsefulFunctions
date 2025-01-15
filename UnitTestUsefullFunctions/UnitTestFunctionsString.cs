@@ -11371,5 +11371,14 @@ namespace UnitTestUsefullFunctions
       var result = StringFunc.Tabulation(source);
       Assert.AreEqual(expected, result);
     }
+
+    [TestMethod]
+    public void RemoveFirstNthCharacters_Should_give_source_list()
+    {
+      var source = new List<string> { "123", "456", "789"};
+      var expected = source;
+      var result = StringFunc.RemoveFirstNthCharacters(source);
+      CollectionAssert.AreEquivalent(expected, result);
+    }
   }
 }
