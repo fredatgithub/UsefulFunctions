@@ -448,5 +448,87 @@ namespace FonctionsUtiles.Fred.Csharp
 
       return factorielle;
     }
+
+    public static List<BigInteger> ListOfPrimesUpTo(BigInteger limit)
+    {
+      var primes = new List<BigInteger>();
+      if (limit < 2) return primes;
+
+      bool[] isPrime = new bool[(int)limit + 1];
+      for (int i = 2; i <= limit; i++)
+      {
+        isPrime[i] = true;
+      }
+
+      for (int i = 2; i * i <= (int)limit; i++)
+      {
+        if (isPrime[i])
+        {
+          for (int j = i * i; j <= (int)limit; j += i)
+          {
+            isPrime[j] = false;
+          }
+        }
+      }
+
+      for (int i = 2; i <= (int)limit; i++)
+      {
+        if (isPrime[i]) primes.Add(i);
+      }
+
+      return primes;
+    }
+
+    // Test de primalité basé sur la division par les nombres premiers
+    public static bool IsPrimeWithPrimeNumbersOnly(BigInteger number, bool printDivisor = true)
+    {
+      if (number < 2) return false;
+
+      BigInteger limit = SquaredRoot(number) + 1;
+      var primes = ListOfPrimesUpTo(limit);
+
+      foreach (var divisor in primes)
+      {
+        if (number % divisor == 0)
+        {
+          if (printDivisor)
+          {
+            Console.WriteLine($"{number} est divisible par {divisor}.");
+          }
+
+          return false;
+        }
+      }
+
+      return true;
+    }
+
+    // Fonction pour calculer la racine carrée entière d’un BigInteger
+    public static BigInteger SquaredRoot(BigInteger number)
+    {
+      if (number == 0) return 0;
+      if (number > 0)
+      {
+        int bitLength = (int)Math.Ceiling(BigInteger.Log(number, 2));
+        BigInteger root = BigInteger.One << (bitLength / 2);
+
+        while (!IsSqrt(number, root))
+        {
+          root += number / root;
+          root /= 2;
+        }
+
+        return root;
+      }
+
+      throw new ArithmeticException("NaN");
+    }
+
+    private static bool IsSqrt(BigInteger n, BigInteger root)
+    {
+      BigInteger lowerBound = root * root;
+      BigInteger upperBound = (root + 1) * (root + 1);
+      return (n >= lowerBound && n < upperBound);
+    }
   }
 }
