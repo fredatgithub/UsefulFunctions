@@ -65,7 +65,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_HasDuplicate_null_list()
     {
-      int[] source = null;
+      const int[] source = null;
       const bool expected = false;
       // ReSharper disable once ExpressionIsAlwaysNull
       bool result = StringFunc.HasDuplicate(source);
@@ -229,8 +229,8 @@ namespace UnitTestUsefullFunctions
     [TestCategory("HasOnlyDigitsAndSpace")]
     public void TestMethod_HasOnlyDigits_1_digit()
     {
-      var source = "4";
-      var expected = true;
+      const string source = "4";
+      const bool expected = true;
       var result = StringFunc.HasOnlyDigitsAndSpace(source);
       Assert.AreEqual(expected, result);
     }
@@ -239,8 +239,8 @@ namespace UnitTestUsefullFunctions
     [TestCategory("HasOnlyDigitsAndSpace")]
     public void TestMethod_HasOnlyDigits_1_space()
     {
-      var source = " ";
-      var expected = true;
+      const string source = " ";
+      const bool expected = true;
       var result = StringFunc.HasOnlyDigitsAndSpace(source);
       Assert.AreEqual(expected, result);
     }
@@ -249,8 +249,8 @@ namespace UnitTestUsefullFunctions
     [TestCategory("HasOnlyDigitsAndSpace")]
     public void TestMethod_HasOnlyDigits_all_digits()
     {
-      var source = "0123456789";
-      var expected = true;
+      const string source = "0123456789";
+      const bool expected = true;
       var result = StringFunc.HasOnlyDigitsAndSpace(source);
       Assert.AreEqual(expected, result);
     }
@@ -259,8 +259,8 @@ namespace UnitTestUsefullFunctions
     [TestCategory("HasOnlyDigitsAndSpace")]
     public void TestMethod_HasOnlyDigits_letter_A()
     {
-      var source = "a";
-      var expected = false;
+      const string source = "a";
+      const bool expected = false;
       var result = StringFunc.HasOnlyDigitsAndSpace(source);
       Assert.AreEqual(expected, result);
     }
@@ -269,8 +269,8 @@ namespace UnitTestUsefullFunctions
     [TestCategory("HasOnlyDigitsAndSpace")]
     public void TestMethod_HasOnlyDigits_all_digits_with_space()
     {
-      var source = "0 1 2 3 4 5 6 7 8 9";
-      var expected = true;
+      const string source = "0 1 2 3 4 5 6 7 8 9";
+      const bool expected = true;
       var result = StringFunc.HasOnlyDigitsAndSpace(source);
       Assert.AreEqual(expected, result);
     }
@@ -1246,7 +1246,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "1";
       const byte source2 = 2;
-      string expected = "001";
+      const string expected = "001";
       string result = StringFunc.CompletePrefixWithZero(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -1256,7 +1256,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "9";
       const byte source2 = 2;
-      string expected = "009";
+      const string expected = "009";
       string result = StringFunc.CompletePrefixWithZero(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -1266,7 +1266,7 @@ namespace UnitTestUsefullFunctions
     {
       const string source = "12";
       const byte source2 = 2;
-      string expected = "0012";
+      const string expected = "0012";
       string result = StringFunc.CompletePrefixWithZero(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -1276,7 +1276,7 @@ namespace UnitTestUsefullFunctions
     {
       const int source = 1;
       const byte source2 = 2;
-      string expected = "001";
+      const string expected = "001";
       string result = StringFunc.CompletePrefixWithZeroInt(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -1286,7 +1286,7 @@ namespace UnitTestUsefullFunctions
     {
       const int source = 9;
       const byte source2 = 2;
-      string expected = "009";
+      const string expected = "009";
       string result = StringFunc.CompletePrefixWithZeroInt(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -1296,7 +1296,7 @@ namespace UnitTestUsefullFunctions
     {
       const int source = 12;
       const byte source2 = 3;
-      string expected = "00012";
+      const string expected = "00012";
       string result = StringFunc.CompletePrefixWithZeroInt(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -1341,7 +1341,7 @@ namespace UnitTestUsefullFunctions
       byte[] source = new byte[2];
       source[0] = 0x01;
       source[1] = 0x02;
-      string separator = "-";
+      const string separator = "-";
       string expected = "1" + separator + "2";
       string result = StringFunc.ArrayToString(source, separator);
       Assert.AreEqual(result, expected);
@@ -1354,7 +1354,7 @@ namespace UnitTestUsefullFunctions
       source[0] = 0x01;
       source[1] = 0x02;
       source[2] = 0x03;
-      string separator = "-";
+      const string separator = "-";
       string expected = "1" + separator + "2" + separator + "3";
       string result = StringFunc.ArrayToString(source, separator);
       Assert.AreEqual(result, expected);
@@ -1400,7 +1400,7 @@ namespace UnitTestUsefullFunctions
     {
       byte[] source = new byte[1];
       source[0] = 0x01;
-      string separator = "_";
+      const string separator = "_";
       const string expected = "1";
       string result = StringFunc.ArrayToStringWithStringBuilder(source, separator);
       Assert.AreEqual(result, expected);
@@ -1412,7 +1412,7 @@ namespace UnitTestUsefullFunctions
       byte[] source = new byte[2];
       source[0] = 0x01;
       source[1] = 0x02;
-      string separator = "_";
+      const string separator = "_";
       string expected = "1" + separator + "2";
       string result = StringFunc.ArrayToString(source, separator);
       Assert.AreEqual(result, expected);
@@ -1425,7 +1425,7 @@ namespace UnitTestUsefullFunctions
       source[0] = 0x01;
       source[1] = 0x02;
       source[2] = 0x03;
-      string separator = "_";
+      const string separator = "_";
       string expected = "1" + separator + "2" + separator + "3";
       string result = StringFunc.ArrayToString(source, separator);
       Assert.AreEqual(result, expected);
@@ -4591,7 +4591,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_HasSomeLowerCaseLetters_true()
     {
-      string source = "azerty and qwerty";
+      const string source = "azerty and qwerty";
       const bool expected = true;
       bool result = StringFunc.HasSomeLowerCaseLetters(source);
       Assert.AreEqual(result, expected);
@@ -4600,7 +4600,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_HasSomeLowerCaseLetters_false()
     {
-      string source = "AZERTY AND QWERTY";
+      const string source = "AZERTY AND QWERTY";
       const bool expected = false;
       bool result = StringFunc.HasSomeLowerCaseLetters(source);
       Assert.AreEqual(result, expected);
@@ -4609,7 +4609,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_HasSomeLowerCaseLetters_true_one_letter()
     {
-      string source = "AZERTY AND QWERTy";
+      const string source = "AZERTY AND QWERTy";
       const bool expected = true;
       bool result = StringFunc.HasSomeLowerCaseLetters(source);
       Assert.AreEqual(result, expected);
@@ -4620,7 +4620,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_HasSomeUpperCaseLetters_false()
     {
-      string source = "azerty and qwerty";
+      const string source = "azerty and qwerty";
       const bool expected = false;
       bool result = StringFunc.HasSomeUpperCaseLetters(source);
       Assert.AreEqual(result, expected);
@@ -4629,7 +4629,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_HasSomeUpperCaseLetters_true()
     {
-      string source = "AZERTY AND QWERTY";
+      const string source = "AZERTY AND QWERTY";
       const bool expected = true;
       bool result = StringFunc.HasSomeUpperCaseLetters(source);
       Assert.AreEqual(result, expected);
@@ -4638,7 +4638,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_HasSomeUpperCaseLetters_true_one_letter()
     {
-      string source = "azerty and qwertY";
+      const string source = "azerty and qwertY";
       const bool expected = true;
       bool result = StringFunc.HasSomeUpperCaseLetters(source);
       Assert.AreEqual(result, expected);
@@ -4650,8 +4650,8 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_StringOccurrenceWithIndexOf_true_occurence_8()
     {
       const int expected = 8;
-      string source = "A long long time ago in a galaxy far far away";
-      string source2 = "a";
+      const string source = "A long long time ago in a galaxy far far away";
+      const string source2 = "a";
       int result = StringFunc.StringOccurrenceWithIndexOf(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -4660,8 +4660,8 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_StringOccurrenceWithIndexOf_true_long_occurence_2()
     {
       const int expected = 2;
-      string source = "A long long time ago in a galaxy far far away";
-      string source2 = "long";
+      const string source = "A long long time ago in a galaxy far far away";
+      const string source2 = "long";
       int result = StringFunc.StringOccurrenceWithIndexOf(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -4671,8 +4671,8 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_StringOccurrenceWithIndexOf_true_far_occurence_2()
     {
       const int expected = 2;
-      string source = "A long long time ago in a galaxy far far away";
-      string source2 = "far";
+      const string source = "A long long time ago in a galaxy far far away";
+      const string source2 = "far";
       int result = StringFunc.StringOccurrenceWithIndexOf(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -4682,8 +4682,8 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_StringOccurrenceWithIndexOf_true_source_string_is_empty()
     {
       const int expected = 0;
-      string source = "A long long time ago in a galaxy far far away";
-      string source2 = "";
+      const string source = "A long long time ago in a galaxy far far away";
+      const string source2 = "";
       int result = StringFunc.StringOccurrenceWithIndexOf(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -4694,7 +4694,7 @@ namespace UnitTestUsefullFunctions
     {
       const int expected = 0;
       string source = string.Empty;
-      string source2 = "long";
+      const string source2 = "long";
       int result = StringFunc.StringOccurrenceWithIndexOf(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -4705,8 +4705,8 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_StringOccurrenceWithContains_true_occurence_8()
     {
       const int expected = 8;
-      string source = "A long long time ago in a galaxy far far away";
-      string source2 = "a";
+      const string source = "A long long time ago in a galaxy far far away";
+      const string source2 = "a";
       int result = StringFunc.StringOccurrenceWithContains(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -4715,8 +4715,8 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_StringOccurrenceWithContains_true_long_occurence_2()
     {
       const int expected = 2;
-      string source = "A long long time ago in a galaxy far far away";
-      string source2 = "long";
+      const string source = "A long long time ago in a galaxy far far away";
+      const string source2 = "long";
       int result = StringFunc.StringOccurrenceWithContains(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -4726,8 +4726,8 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_StringOccurrenceWithContains_true_far_occurence_2()
     {
       const int expected = 2;
-      string source = "A long long time ago in a galaxy far far away";
-      string source2 = "far";
+      const string source = "A long long time ago in a galaxy far far away";
+      const string source2 = "far";
       int result = StringFunc.StringOccurrenceWithContains(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -4737,8 +4737,8 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_StringOccurrenceWithContains_true_source_string_is_empty()
     {
       const int expected = 0;
-      string source = "A long long time ago in a galaxy far far away";
-      string source2 = "";
+      const string source = "A long long time ago in a galaxy far far away";
+      const string source2 = "";
       int result = StringFunc.StringOccurrenceWithContains(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -4749,7 +4749,7 @@ namespace UnitTestUsefullFunctions
     {
       const int expected = 0;
       string source = string.Empty;
-      string source2 = "long";
+      const string source2 = "long";
       int result = StringFunc.StringOccurrenceWithContains(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -4960,8 +4960,8 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_InsertString_with_a_starting_space()
     {
       const string source = " A long long time ago in a galaxy far far away";
-      string source2 = "It was ";
-      char source3 = ' ';
+      const string source2 = "It was ";
+      const char source3 = ' ';
       const string expected = " It was A long long time ago in a galaxy far far away";
       string result = StringFunc.InsertStringAtBegining(source, source2, source3);
       Assert.AreEqual(result, expected);
@@ -4971,8 +4971,8 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_InsertString_with_no_space()
     {
       const string source = "A long long time ago in a galaxy far far away";
-      string source2 = "It was ";
-      char source3 = ' ';
+      const string source2 = "It was ";
+      const char source3 = ' ';
       const string expected = "It was A long long time ago in a galaxy far far away";
       string result = StringFunc.InsertStringAtBegining(source, source2, source3);
       Assert.AreEqual(result, expected);
@@ -4982,8 +4982,8 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_InsertString_with_character_no_space()
     {
       const string source = "A long long time ago in a galaxy far far away";
-      string source2 = "It was ";
-      char source3 = '>';
+      const string source2 = "It was ";
+      const char source3 = '>';
       const string expected = "It was A long long time ago in a galaxy far far away";
       string result = StringFunc.InsertStringAtBegining(source, source2, source3);
       Assert.AreEqual(result, expected);
@@ -4993,8 +4993,8 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_InsertString_with_empty_string()
     {
       const string source = "";
-      string source2 = "It was ";
-      char source3 = '>';
+      const string source2 = "It was ";
+      const char source3 = '>';
       const string expected = "";
       string result = StringFunc.InsertStringAtBegining(source, source2, source3);
       Assert.AreEqual(result, expected);
@@ -5004,8 +5004,8 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_InsertString_with_one_tabulation()
     {
       const string source = "\tA long long time ago in a galaxy far far away";
-      string source2 = "It was ";
-      char source3 = ' ';
+      const string source2 = "It was ";
+      const char source3 = ' ';
       const string expected = "\tIt was A long long time ago in a galaxy far far away";
       string result = StringFunc.InsertStringAtBegining(source, source2, source3);
       Assert.AreEqual(result, expected);
@@ -5015,8 +5015,8 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_InsertString_with_two_tabulations()
     {
       const string source = "\t\tA long long time ago in a galaxy far far away";
-      string source2 = "It was ";
-      char source3 = ' ';
+      const string source2 = "It was ";
+      const char source3 = ' ';
       const string expected = "\t\tIt was A long long time ago in a galaxy far far away";
       string result = StringFunc.InsertStringAtBegining(source, source2, source3);
       Assert.AreEqual(result, expected);
@@ -5338,7 +5338,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_CountWords_empty_string()
     {
       const string source = "";
-      var expected = 1;
+      const int expected = 1;
       var result = StringFunc.CountWords(source);
       Assert.AreEqual(result, expected);
     }
@@ -5347,7 +5347,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_CountWords_star_wars()
     {
       const string source = "A long long time ago in a galaxy far far away";
-      var expected = 11;
+      const int expected = 11;
       var result = StringFunc.CountWords(source);
       Assert.AreEqual(result, expected);
     }
@@ -5356,7 +5356,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_CountWords_one_character()
     {
       const string source = "A";
-      var expected = 1;
+      const int expected = 1;
       var result = StringFunc.CountWords(source);
       Assert.AreEqual(result, expected);
     }
@@ -5365,7 +5365,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_CountWords_two_words()
     {
       const string source = "A source";
-      var expected = 2;
+      const int expected = 2;
       var result = StringFunc.CountWords(source);
       Assert.AreEqual(result, expected);
     }
@@ -5374,7 +5374,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_CountWords_three_words()
     {
       const string source = "A beautiful code";
-      var expected = 3;
+      const int expected = 3;
       var result = StringFunc.CountWords(source);
       Assert.AreEqual(result, expected);
     }
@@ -5383,7 +5383,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_CountWords_french_words()
     {
       const string source = "il fut dommage qu'il ne pu venir";
-      var expected = 7;
+      const int expected = 7;
       var result = StringFunc.CountWords(source);
       Assert.AreEqual(result, expected);
     }
@@ -5392,7 +5392,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_CountWords_french_quote_of_mine()
     {
       const string source = "La connaissance est certitude et la certitude ne se confirme pas";
-      var expected = 11;
+      const int expected = 11;
       var result = StringFunc.CountWords(source);
       Assert.AreEqual(result, expected);
     }
@@ -5401,7 +5401,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_CountWords_English_quote()
     {
       const string source = "It's immposible said pride. It's risky said experience. It's pointless said reason. Give it a try whispered the heart";
-      var expected = 19;
+      const int expected = 19;
       var result = StringFunc.CountWords(source);
       Assert.AreEqual(result, expected);
     }
@@ -5410,7 +5410,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_CountWords_English_quote_antoine_de_saint_exupery()
     {
       const string source = "When you give yourself, you receive more than you give";
-      var expected = 10;
+      const int expected = 10;
       var result = StringFunc.CountWords(source);
       Assert.AreEqual(result, expected);
     }
@@ -5419,7 +5419,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_CountWords_English_quote_Linus_tordvals()
     {
       const string source = "If Microsoft ever does applications for Linux, it means I've won";
-      var expected = 11;
+      const int expected = 11;
       var result = StringFunc.CountWords(source);
       Assert.AreEqual(result, expected);
     }
@@ -5428,7 +5428,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_CountWords_English_quote_Mark_Twain()
     {
       const string source = "Age is an issue of mind over matter. If you don't mind, it doesn't matter";
-      var expected = 15;
+      const int expected = 15;
       var result = StringFunc.CountWords(source);
       Assert.AreEqual(result, expected);
     }
@@ -5437,7 +5437,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_CountWords_English_quote_Issac_Newton()
     {
       const string source = "We build too many walls and not enough bridges";
-      var expected = 9;
+      const int expected = 9;
       var result = StringFunc.CountWords(source);
       Assert.AreEqual(result, expected);
     }
@@ -5598,7 +5598,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_SeparateQuote_simple_quote()
     {
-      string source = "A long long time ago in a galaxy far far away - StarWars";
+      const string source = "A long long time ago in a galaxy far far away - StarWars";
       string[] expected = { "A long long time ago in a galaxy far far away", "StarWars" };
       string[] result = StringFunc.SeparateQuote(source);
       Assert.AreEqual(result[0], expected[0]);
@@ -5608,7 +5608,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_SeparateQuote_empty_string()
     {
-      string source = "";
+      const string source = "";
       string[] expected = new string[2];
       string[] result = StringFunc.SeparateQuote(source);
       Assert.AreEqual(result[0], expected[0]);
@@ -5618,7 +5618,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_SeparateQuote_two_dashes()
     {
-      string source = "A long-long time ago in a galaxy far far away - StarWars";
+      const string source = "A long-long time ago in a galaxy far far away - StarWars";
       string[] expected = { "A long-long time ago in a galaxy far far away", "StarWars" };
       string[] result = StringFunc.SeparateQuote(source);
       Assert.AreEqual(result[0], expected[0]);
@@ -5629,7 +5629,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_SeparateQuote_three_dashes()
     {
-      string source = "A long-long time ago in a galaxy far-far away - StarWars";
+      const string source = "A long-long time ago in a galaxy far-far away - StarWars";
       string[] expected = { "A long-long time ago in a galaxy far-far away", "StarWars" };
       string[] result = StringFunc.SeparateQuote(source);
       Assert.AreEqual(result[0], expected[0]);
@@ -5639,7 +5639,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_SeparateQuote_no_dash()
     {
-      string source = "A long long time ago in a galaxy far far away StarWars";
+      const string source = "A long long time ago in a galaxy far far away StarWars";
       string[] expected = new string[2];
       string[] result = StringFunc.SeparateQuote(source);
       Assert.AreEqual(result[0], expected[0]);
@@ -9730,7 +9730,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_AddSpaceInNumber_value_1000()
     {
       const long source = 1000;
-      string expected = "1 000";
+      const string expected = "1 000";
       string result = StringFunc.AddSpaceInNumber(source);
       Assert.AreEqual(result.Length, expected.Length);
       //Assert.AreEqual(result, expected);
@@ -10919,8 +10919,8 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_RemoveAccent_no_accent_english()
     {
-      string source = "a long long time ago in a galaxy far far away";
-      string expected = "a long long time ago in a galaxy far far away";
+      const string source = "a long long time ago in a galaxy far far away";
+      const string expected = "a long long time ago in a galaxy far far away";
       string result = StringFunc.RemoveAccent(source);
       Assert.AreEqual(result, expected);
     }
@@ -10928,8 +10928,8 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_RemoveAccent_vowel()
     {
-      string source = "aeiou";
-      string expected = "aeiou";
+      const string source = "aeiou";
+      const string expected = "aeiou";
       string result = StringFunc.RemoveAccent(source);
       Assert.AreEqual(result, expected);
     }
@@ -10938,8 +10938,8 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GetPositionOfString_1()
     {
       string[] source = { "a", "long" };
-      string source2 = "long";
-      int expected = 1;
+      const string source2 = "long";
+      const int expected = 1;
       int result = StringFunc.GetPositionOfString(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -10948,8 +10948,8 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GetPositionOfString_0()
     {
       string[] source = { "a", "long" };
-      string source2 = "a";
-      int expected = 0;
+      const string source2 = "a";
+      const int expected = 0;
       int result = StringFunc.GetPositionOfString(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -10958,8 +10958,8 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GetPositionOfString_not_found()
     {
       string[] source = { "a", "long" };
-      string source2 = "time";
-      int expected = -1;
+      const string source2 = "time";
+      const int expected = -1;
       int result = StringFunc.GetPositionOfString(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -10968,8 +10968,8 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GetPositionOfString_2()
     {
       string[] source = { "a", "long", "time" };
-      string source2 = "time";
-      int expected = 2;
+      const string source2 = "time";
+      const int expected = 2;
       int result = StringFunc.GetPositionOfString(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -10978,8 +10978,8 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GetPositionOfString_3()
     {
       string[] source = { "a", "long", "time", "ago" };
-      string source2 = "ago";
-      int expected = 3;
+      const string source2 = "ago";
+      const int expected = 3;
       int result = StringFunc.GetPositionOfString(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -10988,8 +10988,8 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GetPositionOfString_1_double()
     {
       string[] source = { "a", "long", "long", "time", "ago" };
-      string source2 = "long";
-      int expected = 1;
+      const string source2 = "long";
+      const int expected = 1;
       int result = StringFunc.GetPositionOfString(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -10999,8 +10999,8 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GetPositionOfString_10()
     {
       string[] source = { "a", "long", "long", "time", "ago", "in", "a", "galaxy", "far", "far", "away" };
-      string source2 = "away";
-      int expected = 10;
+      const string source2 = "away";
+      const int expected = 10;
       int result = StringFunc.GetPositionOfString(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -11009,8 +11009,8 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_GetPositionOfString_8()
     {
       string[] source = { "a", "long", "long", "time", "ago", "in", "a", "galaxy", "far", "far", "away" };
-      string source2 = "far";
-      int expected = 8;
+      const string source2 = "far";
+      const int expected = 8;
       int result = StringFunc.GetPositionOfString(source, source2);
       Assert.AreEqual(result, expected);
     }
@@ -11020,7 +11020,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_ShortNumberFormat_10()
     {
       const int source = 10;
-      string expected = "10";
+      const string expected = "10";
       string result = StringFunc.ShortNumberFormat(source);
       Assert.AreEqual(result, expected);
     }
@@ -11029,7 +11029,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_ShortNumberFormat_999()
     {
       const int source = 999;
-      string expected = "999";
+      const string expected = "999";
       string result = StringFunc.ShortNumberFormat(source);
       Assert.AreEqual(result, expected);
     }
@@ -11038,7 +11038,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_ShortNumberFormat_1000()
     {
       const int source = 1000;
-      string expected = "1K";
+      const string expected = "1K";
       string result = StringFunc.ShortNumberFormat(source);
       Assert.AreEqual(result, expected);
     }
@@ -11047,7 +11047,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_ShortNumberFormat_1001()
     {
       const int source = 1001;
-      string expected = "1K1";
+      const string expected = "1K1";
       string result = StringFunc.ShortNumberFormat(source);
       Assert.AreEqual(result, expected);
     }
@@ -11056,7 +11056,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_ShortNumberFormat_1999()
     {
       const int source = 1999;
-      string expected = "1K999";
+      const string expected = "1K999";
       string result = StringFunc.ShortNumberFormat(source);
       Assert.AreEqual(result, expected);
     }
@@ -11065,7 +11065,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_ShortNumberFormat_5999()
     {
       const int source = 5999;
-      string expected = "5K999";
+      const string expected = "5K999";
       string result = StringFunc.ShortNumberFormat(source);
       Assert.AreEqual(result, expected);
     }
@@ -11074,7 +11074,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_ShortNumberFormat_9999()
     {
       const int source = 9999;
-      string expected = "9K999";
+      const string expected = "9K999";
       string result = StringFunc.ShortNumberFormat(source);
       Assert.AreEqual(result, expected);
     }
@@ -11083,7 +11083,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_ShortNumberFormat_99_999()
     {
       const int source = 99_999;
-      string expected = "99K999";
+      const string expected = "99K999";
       string result = StringFunc.ShortNumberFormat(source);
       Assert.AreEqual(result, expected);
     }
@@ -11092,7 +11092,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_ShortNumberFormat_999_999()
     {
       const int source = 999_999;
-      string expected = "999K999";
+      const string expected = "999K999";
       string result = StringFunc.ShortNumberFormat(source);
       Assert.AreEqual(result, expected);
     }
@@ -11101,7 +11101,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_ShortNumberFormat_1_999_999()
     {
       const int source = 1_999_999;
-      string expected = "1M";
+      const string expected = "1M";
       string result = StringFunc.ShortNumberFormat(source);
       Assert.AreEqual(result, expected);
     }
@@ -11110,7 +11110,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_ShortNumberFormat_999_999_999()
     {
       const int source = 999_999_999;
-      string expected = "999M";
+      const string expected = "999M";
       string result = StringFunc.ShortNumberFormat(source);
       Assert.AreEqual(result, expected);
     }
@@ -11119,7 +11119,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_ShortNumberFormat_5_999_999_999()
     {
       const long source = 5_999_999_999;
-      string expected = "5B";
+      const string expected = "5B";
       string result = StringFunc.ShortNumberFormat(source);
       Assert.AreEqual(result, expected);
     }
@@ -11127,8 +11127,8 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Count_character_0()
     {
-      var source = "1234567890";
-      var expected = 0;
+      const string source = "1234567890";
+      const int expected = 0;
       var result = StringFunc.CountAllCharactersInString(source);
       Assert.AreEqual(expected, result);
     }
@@ -11136,8 +11136,8 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Count_character_1()
     {
-      var source = "12345A67890";
-      var expected = 1;
+      const string source = "12345A67890";
+      const int expected = 1;
       var result = StringFunc.CountAllCharactersInString(source);
       Assert.AreEqual(expected, result);
     }
@@ -11145,8 +11145,8 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Count_character_16()
     {
-      var source = "a long long time ago";
-      var expected = 16;
+      const string source = "a long long time ago";
+      const int expected = 16;
       var result = StringFunc.CountAllCharactersInString(source);
       Assert.AreEqual(expected, result);
     }
@@ -11154,9 +11154,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Count_one_character_0()
     {
-      var source = "1234567890";
-      var source2 = 'a';
-      var expected = 0;
+      const string source = "1234567890";
+      const char source2 = 'a';
+      const int expected = 0;
       var result = StringFunc.CountOneCharacterInString(source, source2);
       Assert.AreEqual(expected, result);
     }
@@ -11164,9 +11164,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Count_one_character_1()
     {
-      var source = "12345A67890";
-      var source2 = 'a';
-      var expected = 1;
+      const string source = "12345A67890";
+      const char source2 = 'a';
+      const int expected = 1;
       var result = StringFunc.CountOneCharacterInString(source, source2);
       Assert.AreEqual(expected, result);
     }
@@ -11174,9 +11174,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Count_the_character_a()
     {
-      var source = "a long long time ago";
-      var source2 = 'a';
-      var expected = 2;
+      const string source = "a long long time ago";
+      const char source2 = 'a';
+      const int expected = 2;
       var result = StringFunc.CountOneCharacterInString(source, source2);
       Assert.AreEqual(expected, result);
     }
@@ -11184,9 +11184,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Count_the_character_l()
     {
-      var source = "a long long time ago";
-      var source2 = 'l';
-      var expected = 2;
+      const string source = "a long long time ago";
+      const char source2 = 'l';
+      const int expected = 2;
       var result = StringFunc.CountOneCharacterInString(source, source2);
       Assert.AreEqual(expected, result);
     }
@@ -11194,9 +11194,9 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Count_the_character_L()
     {
-      var source = "a long Long time ago";
-      var source2 = 'l';
-      var expected = 2;
+      const string source = "a long Long time ago";
+      const char source2 = 'l';
+      const int expected = 2;
       var result = StringFunc.CountOneCharacterInString(source, source2);
       Assert.AreEqual(expected, result);
     }
@@ -11204,10 +11204,10 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_Count_the_character_L_case_sensitive()
     {
-      var source = "a long Long time ago";
-      var source2 = 'l';
-      var source3 = false;
-      var expected = 1;
+      const string source = "a long Long time ago";
+      const char source2 = 'l';
+      const bool source3 = false;
+      const int expected = 1;
       var result = StringFunc.CountOneCharacterInString(source, source2, source3);
       Assert.AreEqual(expected, result);
     }
@@ -11321,7 +11321,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void Tabulation_1_Should_give_6_spaces()
     {
-      var source = 1;
+      const int source = 1;
       var expected = new string(' ', 6);
       var result = StringFunc.Tabulation(source);
       Assert.AreEqual(expected, result);
@@ -11330,7 +11330,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void Tabulation_2_Should_give_7_spaces()
     {
-      var source = 2;
+      const int source = 2;
       var expected = new string(' ', 7);
       var result = StringFunc.Tabulation(source);
       Assert.AreEqual(expected, result);
@@ -11339,7 +11339,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void Tabulation_3_Should_give_8_spaces()
     {
-      var source = 3;
+      const int source = 3;
       var expected = new string(' ', 8);
       var result = StringFunc.Tabulation(source);
       Assert.AreEqual(expected, result);
@@ -11348,7 +11348,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void Tabulation_4_Should_give_9_spaces()
     {
-      var source = 4;
+      const int source = 4;
       var expected = new string(' ', 9);
       var result = StringFunc.Tabulation(source);
       Assert.AreEqual(expected, result);
@@ -11357,7 +11357,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void Tabulation_5_Should_give_10_spaces()
     {
-      var source = 5;
+      const int source = 5;
       var expected = new string(' ', 10);
       var result = StringFunc.Tabulation(source);
       Assert.AreEqual(expected, result);
@@ -11366,7 +11366,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void Tabulation_6_Should_give_11_spaces()
     {
-      var source = 6;
+      const int source = 6;
       var expected = new string(' ', 11);
       var result = StringFunc.Tabulation(source);
       Assert.AreEqual(expected, result);
