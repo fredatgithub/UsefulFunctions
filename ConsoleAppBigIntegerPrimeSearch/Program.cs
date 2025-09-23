@@ -53,7 +53,7 @@ namespace ConsoleAppBigIntegerPrimeSearch
         for (int i = 0; i < increment; i += 2)
         {
           var currentNumber = startNumber + i;
-          if (FunctionsPrimes.IsPrimeWithPrimeNumbersOnly(currentNumber))
+          if (FunctionsPrimes.IsPrime(currentNumber))
           {
             Display($"{currentNumber.ToString("N0", formatInfo)} is prime");
             counter++;
