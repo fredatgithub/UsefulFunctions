@@ -3363,7 +3363,7 @@ namespace UnitTestUsefullFunctions
     [TestCategory("Regex test")]
     public void TestMethod_Regex_only_letters_and_space()
     {
-      string source = "Once upon a time";
+      const string source = "Once upon a time";
       Regex onlyLettersRegex = new Regex(@"^[a-zA-Z ]+$");
       StringAssert.Matches(source, onlyLettersRegex);
     }
@@ -4083,15 +4083,12 @@ namespace UnitTestUsefullFunctions
       const int source1 = 2;
       const int source2 = 3;
       var expected = new List<int> { 2, 3 };
-      var start = source1;
-      var end = (source2 - source1) + 1;
-      var result = Enumerable.Range(source1, (source2 - source1) + 1);
+      const int start = source1;
+      const int end = (source2 - source1) + 1;
+      var result = Enumerable.Range(start, end);
       var count = result.Count(); // to get result with values
       Assert.AreEqual(count, expected.Count());
-      //CollectionAssert.AreEquivalent((ICollection)result, (ICollection)expected);
     }
-
-
 
     /*  Add unit test
      *  
