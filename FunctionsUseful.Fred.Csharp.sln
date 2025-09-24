@@ -37,6 +37,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleAppTheoremeDeWilson"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppBigIntegerPrimeSearch", "ConsoleAppBigIntegerPrimeSearch\ConsoleAppBigIntegerPrimeSearch.csproj", "{FC672C60-6BC3-4DCE-BDFD-D69D6475EAD1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppGetFactors", "ConsoleAppGetFactors\ConsoleAppGetFactors.csproj", "{98A8111E-40AC-4093-A0B6-A2A69BA4FB63}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +113,10 @@ Global
 		{FC672C60-6BC3-4DCE-BDFD-D69D6475EAD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC672C60-6BC3-4DCE-BDFD-D69D6475EAD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC672C60-6BC3-4DCE-BDFD-D69D6475EAD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98A8111E-40AC-4093-A0B6-A2A69BA4FB63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98A8111E-40AC-4093-A0B6-A2A69BA4FB63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98A8111E-40AC-4093-A0B6-A2A69BA4FB63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98A8111E-40AC-4093-A0B6-A2A69BA4FB63}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
