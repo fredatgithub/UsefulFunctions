@@ -13,8 +13,10 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_BigInteger_substring()
     {
       //number.ToString().Substring(number.ToString().Length - 1, 1) != "7"
+      const
+      //number.ToString().Substring(number.ToString().Length - 1, 1) != "7"
       string source = "12345678901234567897";
-      string expected = "7";
+      const string expected = "7";
       string result = source.Substring(source.Length - 1, 1);
       Assert.AreEqual(expected, result);
     }
@@ -32,7 +34,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberOfPrimeUnder_2()
     {
       const int source = 2;
-      int expected = 1;
+      const int expected = 1;
       int result = FunctionsPrimes.NumberOfPrimeUnder(source);
       Assert.AreEqual(result, expected);
     }
@@ -41,7 +43,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberOfPrimeUnder_3()
     {
       const int source = 3;
-      int expected = 2;
+      const int expected = 2;
       int result = FunctionsPrimes.NumberOfPrimeUnder(source);
       Assert.AreEqual(result, expected);
     }
@@ -50,7 +52,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberOfPrimeUnder_5()
     {
       const int source = 5;
-      int expected = 3;
+      const int expected = 3;
       int result = FunctionsPrimes.NumberOfPrimeUnder(source);
       Assert.AreEqual(result, expected);
     }
@@ -59,7 +61,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberOfPrimeUnder_7()
     {
       const int source = 7;
-      int expected = 4;
+      const int expected = 4;
       int result = FunctionsPrimes.NumberOfPrimeUnder(source);
       Assert.AreEqual(result, expected);
     }
@@ -68,7 +70,7 @@ namespace UnitTestUsefullFunctions
     public void TestMethod_NumberOfPrimeUnder_11()
     {
       const int source = 11;
-      int expected = 5;
+      const int expected = 5;
       int result = FunctionsPrimes.NumberOfPrimeUnder(source);
       Assert.AreEqual(result, expected);
     }
@@ -1059,7 +1061,7 @@ namespace UnitTestUsefullFunctions
     {
       // ulong MaxValue = 18446744073709551615uL
       var source = new BigInteger(ulong.MaxValue);
-      var expected = false;
+      const bool expected = false;
       var result = FunctionsPrimes.IsPrime(source);
       Assert.AreEqual(result, expected);
     }
@@ -1070,7 +1072,7 @@ namespace UnitTestUsefullFunctions
       // ulong MaxValue + 1 = 18446744073709551616uL
       var source = new BigInteger(ulong.MaxValue);
       source++;
-      var expected = false;
+      const bool expected = false;
       var result = FunctionsPrimes.IsPrime(source);
       Assert.AreEqual(result, expected);
     }
@@ -1081,7 +1083,7 @@ namespace UnitTestUsefullFunctions
       // ulong MaxValue + 2 = 18446744073709551617uL
       var source = new BigInteger(ulong.MaxValue);
       source += 2;
-      var expected = false;
+      const bool expected = false;
       var result = FunctionsPrimes.IsPrime(source);
       Assert.AreEqual(result, expected);
     }
