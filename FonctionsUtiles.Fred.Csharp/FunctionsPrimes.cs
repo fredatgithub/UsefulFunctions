@@ -524,11 +524,33 @@ namespace FonctionsUtiles.Fred.Csharp
       throw new ArithmeticException("NaN");
     }
 
-    private static bool IsSqrt(BigInteger n, BigInteger root)
+    public static bool IsSqrt(BigInteger n, BigInteger root)
     {
       BigInteger lowerBound = root * root;
       BigInteger upperBound = (root + 1) * (root + 1);
       return (n >= lowerBound && n < upperBound);
+    }
+
+    public static long[] GetFactors(long number)
+    {
+      if (number <= 1) return new long[0];
+
+      var factors = new List<long>();
+      long squareRoot = (long)Math.Sqrt(number);
+      for (long i = 2; i <= squareRoot; i++)
+      {
+        if (number % i == 0)
+        {
+          factors.Add(i);
+          if (i != number / i)
+          {
+            factors.Add(number / i);
+          }
+        }
+      }
+
+      factors.Sort();
+      return factors.ToArray();
     }
   }
 }
