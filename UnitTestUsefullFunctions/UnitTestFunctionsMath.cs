@@ -1791,7 +1791,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_GetPrimeDivisor_none()
     {
-      int source = 1225;
+      const int source = 1225;
       List<string> expected = new List<string>();
       List<string> result = FunctionsMath.GetPrimeDivisor(source);
       CollectionAssert.AreEquivalent(result, expected);
@@ -1800,7 +1800,7 @@ namespace UnitTestUsefullFunctions
     [TestMethod]
     public void TestMethod_GetPrimeDivisor_5963()
     {
-      int source = 5963;
+      const int source = 5963;
       List<string> expected = new List<string> { "67*89=5963" };
       List<string> result = FunctionsMath.GetPrimeDivisor(source);
       CollectionAssert.AreEquivalent(result, expected);
@@ -1811,7 +1811,7 @@ namespace UnitTestUsefullFunctions
     [Description("test this and time it")]
     public void TestMethod_GetPrimeDivisor_9_036_011()
     {
-      int source = 9036011;
+      const int source = 9036011;
       List<string> expected = new List<string> { "67*89=5963" };
       List<string> result = FunctionsMath.GetPrimeDivisor(source);
       CollectionAssert.AreEquivalent(result, expected);
@@ -1831,7 +1831,7 @@ namespace UnitTestUsefullFunctions
     {
       const int source1 = 2;
       const int source2 = 2;
-      int expected = 2;
+      const int expected = 2;
       int result = FunctionsMath.PgcdBinaireAlgorithme(source1, source2);
       Assert.AreEqual(result, expected);
     }
@@ -1841,9 +1841,18 @@ namespace UnitTestUsefullFunctions
     {
       const int source1 = 30;
       const int source2 = 24;
-      int expected = 6;
+      const int expected = 6;
       int result = FunctionsMath.PgcdBinaireAlgorithme(source1, source2);
       Assert.AreEqual(result, expected);
+    }
+
+    [TestMethod]
+    public void TestMethod_PgcdBinaireAlgorithme_value_54_24()
+    {
+      const int source = 2;
+      var expected = new List<long> { 1, 2 };
+      var result = FunctionsPrimes.GetFactors(source);
+      CollectionAssert.AreEquivalent(result, expected);
     }
   }
 }
