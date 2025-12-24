@@ -28,7 +28,7 @@ namespace FonctionsUtiles.Fred.Csharp
         2
       };
 
-      for (int i = 3; i <= number; i = i + 2)
+      for (int i = 3; i <= number; i += 2)
       {
         if (FunctionsMath.IsPrime(i))
         {
@@ -165,7 +165,8 @@ namespace FonctionsUtiles.Fred.Csharp
         return false;
       }
 
-      for (ulong divisor = 7; divisor < Math.Sqrt(number); divisor += 2)
+      ulong sqrt = (ulong)Math.Sqrt(number);
+      for (ulong divisor = 7; divisor < sqrt; divisor += 2)
       {
         if (number % divisor == 0)
         {
@@ -196,7 +197,8 @@ namespace FonctionsUtiles.Fred.Csharp
         return false;
       }
 
-      for (int divisor = 7; divisor <= Math.Sqrt(number); divisor += 2)
+      int sqrt = (int)Math.Sqrt(number);
+      for (int divisor = 7; divisor <= sqrt; divisor += 2)
       {
         if (number % divisor == 0)
         {
