@@ -281,17 +281,17 @@ namespace FonctionsUtiles.Fred.Csharp
       return true;
     }
 
-    public static BigInteger Sqrt(this BigInteger n)
+    public static BigInteger Sqrt(this BigInteger number)
     {
-      if (n == 0) return 0;
-      if (n > 0)
+      if (number == 0) return 0;
+      if (number > 0)
       {
-        int bitLength = Convert.ToInt32(Math.Ceiling(BigInteger.Log(n, 2)));
+        int bitLength = Convert.ToInt32(Math.Ceiling(BigInteger.Log(number, 2)));
         BigInteger root = BigInteger.One << (bitLength / 2);
 
-        while (!IsSquartRoot(n, root))
+        while (!IsSquartRoot(number, root))
         {
-          root += n / root;
+          root += number / root;
           root /= 2;
         }
 
@@ -312,7 +312,7 @@ namespace FonctionsUtiles.Fred.Csharp
     /// <summary>Calculate the number of primes lesser or equal to a number.</summary>
     /// <param name="number">The limit to count the number of primes.</param>
     /// <returns>The number of primes lesser or equal to the number.</returns>
-    public static int Pi(int number)
+    public static int PiFunction(int number)
     {
       int result = 0;
       if (number <= 1)
